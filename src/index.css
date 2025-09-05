@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Journaling PWA Design System - Warm, paper-inspired aesthetic */
+
+@layer base {
+  :root {
+    /* Core backgrounds - warm paper tones */
+    --background: 42 15% 97%;
+    --foreground: 25 25% 15%;
+
+    /* Card and surface colors */
+    --card: 40 20% 99%;
+    --card-foreground: 25 25% 15%;
+
+    --popover: 40 20% 98%;
+    --popover-foreground: 25 25% 15%;
+
+    /* Primary - warm journal blue */
+    --primary: 210 45% 25%;
+    --primary-foreground: 42 15% 97%;
+    --primary-glow: 210 55% 35%;
+
+    /* Secondary - cream accent */
+    --secondary: 45 25% 92%;
+    --secondary-foreground: 25 35% 20%;
+
+    /* Muted tones - subtle grays with warmth */
+    --muted: 40 15% 94%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Accent - soft amber for highlights */
+    --accent: 35 35% 85%;
+    --accent-foreground: 25 40% 20%;
+
+    /* Destructive - muted red */
+    --destructive: 0 55% 50%;
+    --destructive-foreground: 42 15% 97%;
+
+    /* Borders and inputs - soft, warm grays */
+    --border: 40 15% 88%;
+    --input: 40 15% 95%;
+    --ring: 210 45% 25%;
+
+    /* Gradients for depth and warmth */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-paper: linear-gradient(180deg, hsl(var(--background)), hsl(40 12% 95%));
+    --gradient-subtle: linear-gradient(45deg, hsl(var(--muted)), hsl(var(--accent)));
+
+    /* Shadows for depth */
+    --shadow-soft: 0 2px 8px -2px hsl(25 25% 15% / 0.08);
+    --shadow-medium: 0 4px 16px -4px hsl(25 25% 15% / 0.12);
+    --shadow-large: 0 8px 32px -8px hsl(25 25% 15% / 0.16);
+    --shadow-glow: 0 0 24px hsl(var(--primary) / 0.15);
+
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Diagnostic status colors */
+    --diagnostic-success: 142 71% 45%;
+    --diagnostic-success-foreground: 0 0% 100%;
+    --diagnostic-error: 0 72% 51%;
+    --diagnostic-error-foreground: 0 0% 100%;
+    --diagnostic-warning: 45 93% 47%;
+    --diagnostic-warning-foreground: 25 25% 15%;
+    --diagnostic-info: 217 91% 60%;
+    --diagnostic-info-foreground: 0 0% 100%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - warm, cozy night journaling */
+    --background: 25 25% 8%;
+    --foreground: 42 15% 92%;
+
+    --card: 25 20% 10%;
+    --card-foreground: 42 15% 92%;
+
+    --popover: 25 20% 12%;
+    --popover-foreground: 42 15% 92%;
+
+    --primary: 210 55% 65%;
+    --primary-foreground: 25 25% 8%;
+    --primary-glow: 210 65% 75%;
+
+    --secondary: 25 15% 15%;
+    --secondary-foreground: 42 15% 85%;
+
+    --muted: 25 10% 18%;
+    --muted-foreground: 42 10% 60%;
+
+    --accent: 35 25% 20%;
+    --accent-foreground: 42 25% 85%;
+
+    --destructive: 0 65% 60%;
+    --destructive-foreground: 42 15% 92%;
+
+    --border: 25 15% 20%;
+    --input: 25 15% 16%;
+    --ring: 210 55% 65%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-paper: linear-gradient(180deg, hsl(var(--background)), hsl(25 20% 12%));
+    --gradient-subtle: linear-gradient(45deg, hsl(var(--muted)), hsl(var(--accent)));
+
+    /* Dark shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.25);
+    --shadow-medium: 0 4px 16px -4px hsl(0 0% 0% / 0.35);
+    --shadow-large: 0 8px 32px -8px hsl(0 0% 0% / 0.45);
+    --shadow-glow: 0 0 24px hsl(var(--primary) / 0.25);
+    
+    /* Dark mode diagnostic colors */
+    --diagnostic-success: 142 71% 55%;
+    --diagnostic-success-foreground: 25 25% 8%;
+    --diagnostic-error: 0 72% 60%;
+    --diagnostic-error-foreground: 25 25% 8%;
+    --diagnostic-warning: 45 93% 57%;
+    --diagnostic-warning-foreground: 25 25% 8%;
+    --diagnostic-info: 217 91% 70%;
+    --diagnostic-info-foreground: 25 25% 8%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    /* Support for iOS safe areas on notched devices */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) 
+             env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  /* Proper word breaking for CJK languages (Japanese, Korean, Chinese) */
+  html:lang(ja), html:lang(ko), html:lang(zh), html:lang(zh-TW) {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
+  /* Prevent word breaks in buttons and labels, unless whitespace-normal is set */
+  button:not(.whitespace-normal), .whitespace-nowrap {
+    word-break: keep-all;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Hide scrollbar but allow scrolling */
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

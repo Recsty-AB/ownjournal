@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>OwnJournal - Secure &amp; Encrypted</title>
+    <meta name="description" content="A beautiful, secure journaling app with end-to-end encryption. Write, reflect, and store your thoughts safely with bring-your-own-storage options.">
+    <meta name="author" content="OwnJournal App" />
+
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1e3a5f" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="OwnJournal" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- App Icons -->
+     <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512x512.png" />
+    <link rel="apple-touch-icon" href="/icon-192x192.png" />
+
+    <!-- Open Graph -->
+     <meta property="og:image" content="/icon-512x512.png" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+     <meta name="twitter:image" content="/icon-512x512.png" />
+  
+  
+  
+  <meta property="og:title" content="OwnJournal - Secure &amp; Encrypted">
+  <meta name="twitter:title" content="OwnJournal - Secure &amp; Encrypted">
+  <meta property="og:description" content="A beautiful, secure journaling app with end-to-end encryption. Write, reflect, and store your thoughts safely with bring-your-own-storage options.">
+  <meta name="twitter:description" content="A beautiful, secure journaling app with end-to-end encryption. Write, reflect, and store your thoughts safely with bring-your-own-storage options.">
+</head>
+
+  <body>
+    <div id="root"></div>
+    <!-- CloudKit JS required for iCloud (CloudKit) storage - must load before app -->
+    <script src="https://cdn.apple-cloudkit.com/ck/2/cloudkit.js"></script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

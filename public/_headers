@@ -1,0 +1,3 @@
+# Android App Links: serve assetlinks.json with correct Content-Type for Google Play domain verification
+/.well-known/assetlinks.json
+  Content-Type: application/json

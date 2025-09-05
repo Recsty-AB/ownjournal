@@ -1,0 +1,22 @@
+project_id = "mbftigtdxkkzcqoepwke"
+
+[functions.ai-analyze]
+verify_jwt = false
+
+[functions.create-checkout]
+verify_jwt = false
+
+[functions.customer-portal]
+verify_jwt = false
+
+[functions.stripe-webhook]
+verify_jwt = false
+
+[functions.google-drive-token]
+verify_jwt = false
+
+[functions.delete-account]
+verify_jwt = false
+
+[functions.update-email]
+verify_jwt = false
