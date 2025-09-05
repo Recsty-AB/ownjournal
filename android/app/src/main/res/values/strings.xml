@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">OwnJournal</string>
+    <string name="title_activity_main">OwnJournal</string>
+    <string name="package_name">app.ownjournal</string>
+    <string name="custom_url_scheme">app.ownjournal</string>
+</resources>

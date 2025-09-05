@@ -1,0 +1,17 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.ownjournal",
+      "sha256_cert_fingerprints": [
+        "C9:31:6B:5E:4D:7C:DC:AC:58:89:BB:EC:0C:D4:29:45:50:90:8D:E1:3F:D3:E2:E4:0E:AF:E1:36:03:8C:9D:5D",
+        "09:FA:6F:1B:DA:6E:9F:CF:DC:4A:A5:C1:AC:80:D3:3A:89:50:17:C6:C5:0D:24:7C:10:D0:C7:C8:1C:2A:FC:B2",
+        "A7:76:7A:2A:BE:78:56:8C:8B:CE:B7:44:7C:0F:F3:4F:CD:88:4C:B9:EA:A4:D8:33:FB:24:BC:EB:14:02:DE:C7"
+      ]
+    }
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAM_ID.app.ownjournal",
+        "paths": [
+          "/oauth-callback",
+          "/web-oauth-callback",
+          "/storage-callback"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "TEAM_ID.app.ownjournal"
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+# Electron build ignore patterns
+
+# Source files (already built to dist/)
+src/
+public/
+
+# Build tools
+node_modules/
+.git/
+.github/
+
+# Development files
+*.md
+!README.md
+.env
+.env.*
+
+# Test files
+**/__tests__/
+**/*.test.ts
+**/*.test.tsx
+*.spec.ts
+vitest.config.ts
+src/test/
+
+# Docs
+docs/
+*.md
+!README.md
+CAPACITOR_SETUP.md
+ANDROID_QUICKSTART.md
+MOBILE_BUILD_COMMANDS.md
+ELECTRON_SETUP.md
+ELECTRON_SCRIPTS.md
+DESKTOP_BUILD_GUIDE.md
+TESTING_GUIDE_PHASE4.md
+TEST_SETUP.md
+
+# Config files not needed in production
+.eslintrc.*
+eslint.config.js
+.prettierrc
+tsconfig.json
+tsconfig.*.json
+vite.config.ts
+tailwind.config.ts
+postcss.config.js
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build outputs (we keep dist/ only)
+dist-electron/
+
+# Mobile (not needed for desktop builds)
+android/
+ios/
+capacitor.config.ts
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

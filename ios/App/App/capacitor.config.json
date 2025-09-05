@@ -1,0 +1,28 @@
+{
+	"appId": "app.ownjournal",
+	"appName": "OwnJournal",
+	"webDir": "dist",
+	"plugins": {
+		"App": {
+			"appUrlOpen": {
+				"enabled": true
+			}
+		}
+	},
+	"android": {
+		"scheme": "ownjournal",
+		"allowMixedContent": true
+	},
+	"ios": {
+		"scheme": "ownjournal",
+		"contentInset": "always"
+	},
+	"packageClassList": [
+		"FileOpenerPlugin",
+		"BarcodeScannerPlugin",
+		"AppPlugin",
+		"CAPBrowserPlugin",
+		"FilesystemPlugin",
+		"SharePlugin"
+	]
+}
