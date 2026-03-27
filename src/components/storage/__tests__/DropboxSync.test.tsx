@@ -11,16 +11,22 @@ vi.mock('@/utils/cloudCredentialStorage', () => ({
     loadCredentials: vi.fn().mockResolvedValue(null),
     saveCredentials: vi.fn().mockResolvedValue(undefined),
     clearCredentials: vi.fn().mockResolvedValue(undefined),
+    hasCredentials: vi.fn().mockReturnValue(false),
+    forceRemoveCredentials: vi.fn(),
   },
 }));
 
-vi.mock('@/services/dropboxService', () => ({
-  DropboxService: vi.fn().mockImplementation(() => ({
-    connect: vi.fn().mockResolvedValue(undefined),
-    disconnect: vi.fn(),
-    test: vi.fn().mockResolvedValue(true),
-  })),
-}));
+vi.mock('@/services/dropboxService', () => {
+  const MockDropboxService = vi.fn().mockImplementation(function() {
+    return {
+      connect: vi.fn().mockResolvedValue(undefined),
+      disconnect: vi.fn(),
+      test: vi.fn().mockResolvedValue(true),
+      isConnected: false,
+    };
+  });
+  return { DropboxService: MockDropboxService };
+});
 
 vi.mock('@/utils/oauth', () => ({
   generateCodeVerifier: vi.fn(() => 'test-verifier'),
@@ -32,6 +38,66 @@ vi.mock('@/utils/oauth', () => ({
   validateTokenResponse: vi.fn(() => true),
   cleanOAuthUrl: vi.fn(),
   checkOAuthRateLimit: vi.fn(() => ({ allowed: true })),
+  getOAuthRedirectUri: vi.fn(() => 'http://localhost/oauth-callback'),
+  markOAuthCodeProcessed: vi.fn(),
+  isOAuthCodeProcessed: vi.fn(() => false),
+}));
+
+vi.mock('@/utils/simpleModeCredentialStorage', () => ({
+  SimpleModeCredentialStorage: {
+    loadCredentials: vi.fn().mockResolvedValue(null),
+    saveCredentials: vi.fn().mockResolvedValue(undefined),
+    clearCredentials: vi.fn().mockResolvedValue(undefined),
+    loadDropboxCredentials: vi.fn().mockReturnValue(null),
+    saveDropboxCredentials: vi.fn(),
+    clearDropboxCredentials: vi.fn(),
+    hasDropboxCredentials: vi.fn().mockReturnValue(false),
+  },
+}));
+
+vi.mock('@/services/connectionStateManager', () => ({
+  connectionStateManager: {
+    isConnected: vi.fn().mockReturnValue(false),
+    isPrimaryProvider: vi.fn().mockReturnValue(false),
+    getProviderDisplayConfig: vi.fn().mockReturnValue(null),
+    subscribe: vi.fn(() => () => {}),
+    isExplicitlyDisabled: vi.fn().mockReturnValue(false),
+    registerProvider: vi.fn(),
+    unregisterProvider: vi.fn(),
+    getConnectedProviderNames: vi.fn().mockReturnValue([]),
+    enableProvider: vi.fn(),
+    getProviderStatus: vi.fn().mockReturnValue(null),
+    setProviderStatus: vi.fn(),
+    onStatusChange: vi.fn(() => () => {}),
+  },
+}));
+
+vi.mock('@/services/storageServiceV2', () => ({
+  storageServiceV2: {
+    getMasterKey: vi.fn().mockReturnValue(null),
+    initialize: vi.fn(),
+  },
+}));
+
+vi.mock('@/services/cloudStorageService', () => ({
+  cloudStorageService: {
+    registerProvider: vi.fn(),
+    unregisterProvider: vi.fn(),
+  },
+}));
+
+vi.mock('@/utils/encryptionModeStorage', () => ({
+  getEncryptionMode: vi.fn().mockReturnValue('e2e'),
+  isE2EEnabled: vi.fn().mockReturnValue(true),
+}));
+
+vi.mock('@/config/oauth', () => ({
+  oauthConfig: { dropbox: { clientId: 'test-client-id' } },
+  isDropboxConfigured: vi.fn().mockReturnValue(true),
+}));
+
+vi.mock('@/utils/signOutState', () => ({
+  isSigningOut: vi.fn().mockReturnValue(false),
 }));
 
 describe('DropboxSync', () => {

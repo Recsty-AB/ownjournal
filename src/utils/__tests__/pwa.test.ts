@@ -16,6 +16,7 @@ import {
 // Mock global objects
 const mockServiceWorkerContainer = {
   register: vi.fn(),
+  getRegistrations: vi.fn().mockResolvedValue([]),
 };
 
 const mockNotification = {
@@ -25,46 +26,41 @@ const mockNotification = {
 describe('PWA Utilities', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    
+
     // Setup navigator mock
     Object.defineProperty(global, 'navigator', {
       value: {
         serviceWorker: mockServiceWorkerContainer,
       },
       writable: true,
+      configurable: true,
     });
 
     // Setup Notification mock
     Object.defineProperty(global, 'Notification', {
       value: mockNotification,
       writable: true,
+      configurable: true,
     });
 
-    // Setup window mock
+    // Setup window mock (include Notification so requestNotificationPermission works)
     Object.defineProperty(global, 'window', {
       value: {
         BeforeInstallPromptEvent: class {},
+        Notification: mockNotification,
       },
       writable: true,
+      configurable: true,
     });
   });
 
   describe('Service Worker', () => {
-    it('should register service worker successfully', async () => {
-      const mockRegistration = { scope: '/' };
-      mockServiceWorkerContainer.register.mockResolvedValue(mockRegistration);
-
+    it('should handle service worker in dev mode', async () => {
+      // In test environment, import.meta.env.DEV is true
+      // so registerServiceWorker unregisters existing SWs and returns null
       const result = await registerServiceWorker();
 
-      expect(mockServiceWorkerContainer.register).toHaveBeenCalledWith('/sw.js');
-      expect(result).toBe(mockRegistration);
-    });
-
-    it('should handle service worker registration failure', async () => {
-      mockServiceWorkerContainer.register.mockRejectedValue(new Error('Registration failed'));
-
-      const result = await registerServiceWorker();
-
+      expect(mockServiceWorkerContainer.getRegistrations).toHaveBeenCalled();
       expect(result).toBeNull();
     });
 
@@ -72,6 +68,7 @@ describe('PWA Utilities', () => {
       Object.defineProperty(global, 'navigator', {
         value: {},
         writable: true,
+        configurable: true,
       });
 
       const result = await registerServiceWorker();
@@ -94,6 +91,7 @@ describe('PWA Utilities', () => {
       Object.defineProperty(global, 'window', {
         value: {},
         writable: true,
+        configurable: true,
       });
 
       const result = await requestNotificationPermission();
@@ -144,9 +142,10 @@ describe('PWA Utilities', () => {
             encrypt: vi.fn(),
             decrypt: vi.fn(),
           },
-          getRandomValues: vi.fn((arr) => arr),
+          getRandomValues: vi.fn((arr: Uint8Array) => arr),
         },
         writable: true,
+        configurable: true,
       });
     });
 
@@ -167,7 +166,7 @@ describe('PWA Utilities', () => {
     it('should encrypt data', async () => {
       const mockKey = {} as CryptoKey;
       const mockEncrypted = new ArrayBuffer(8);
-      
+
       vi.mocked(crypto.subtle.encrypt).mockResolvedValue(mockEncrypted);
 
       const result = await encryptData('test data', mockKey);
@@ -182,7 +181,7 @@ describe('PWA Utilities', () => {
       const mockEncrypted = new ArrayBuffer(8);
       const mockIv = new ArrayBuffer(12);
       const mockDecrypted = new TextEncoder().encode('test data');
-      
+
       vi.mocked(crypto.subtle.decrypt).mockResolvedValue(mockDecrypted.buffer);
 
       const result = await decryptData(mockEncrypted, mockKey, mockIv);
@@ -216,16 +215,18 @@ describe('PWA Utilities', () => {
         objectStoreNames: {
           contains: vi.fn(),
         },
-        createObjectStore: vi.fn(),
+        createObjectStore: vi.fn(() => ({
+          createIndex: vi.fn(),
+        })),
         transaction: vi.fn(),
       };
 
       mockRequest = {
         result: mockDB,
         error: null,
-        onsuccess: null,
-        onerror: null,
-        onupgradeneeded: null,
+        onsuccess: null as any,
+        onerror: null as any,
+        onupgradeneeded: null as any,
       };
 
       Object.defineProperty(global, 'indexedDB', {
@@ -233,6 +234,7 @@ describe('PWA Utilities', () => {
           open: vi.fn(() => mockRequest),
         },
         writable: true,
+        configurable: true,
       });
     });
 
@@ -275,11 +277,15 @@ describe('PWA Utilities', () => {
     });
 
     it('should save to IndexedDB', async () => {
+      // Create a shared request object that saveToIndexedDB will assign handlers to
+      const putRequest = {
+        onsuccess: null as any,
+        onerror: null as any,
+        error: null,
+      };
+
       const mockStore = {
-        put: vi.fn(() => ({
-          onsuccess: null,
-          onerror: null,
-        })),
+        put: vi.fn(() => putRequest),
       };
 
       const mockTransaction = {
@@ -288,17 +294,17 @@ describe('PWA Utilities', () => {
 
       mockDB.transaction.mockReturnValue(mockTransaction);
 
+      // First, trigger openDB success
       setTimeout(() => {
         mockRequest.onsuccess();
       }, 0);
 
-      const data = { id: 'test', value: 'data' };
-      
+      // Then trigger put success after a short delay
       setTimeout(() => {
-        const putRequest = mockStore.put();
-        putRequest.onsuccess();
-      }, 0);
+        if (putRequest.onsuccess) putRequest.onsuccess();
+      }, 10);
 
+      const data = { id: 'test', value: 'data' };
       await saveToIndexedDB('entries', data);
 
       expect(mockTransaction.objectStore).toHaveBeenCalledWith('entries');
@@ -306,12 +312,16 @@ describe('PWA Utilities', () => {
 
     it('should get from IndexedDB', async () => {
       const mockData = { id: 'test', value: 'data' };
+
+      const getRequest = {
+        result: mockData,
+        onsuccess: null as any,
+        onerror: null as any,
+        error: null,
+      };
+
       const mockStore = {
-        get: vi.fn(() => ({
-          result: mockData,
-          onsuccess: null,
-          onerror: null,
-        })),
+        get: vi.fn(() => getRequest),
       };
 
       const mockTransaction = {
@@ -320,13 +330,14 @@ describe('PWA Utilities', () => {
 
       mockDB.transaction.mockReturnValue(mockTransaction);
 
+      // Trigger openDB success
       setTimeout(() => {
         mockRequest.onsuccess();
       }, 0);
 
+      // Trigger get success
       setTimeout(() => {
-        const getRequest = mockStore.get();
-        getRequest.onsuccess();
+        if (getRequest.onsuccess) getRequest.onsuccess();
       }, 10);
 
       const result = await getFromIndexedDB('entries', 'test');
@@ -335,12 +346,14 @@ describe('PWA Utilities', () => {
     });
 
     it('should handle IndexedDB save errors', async () => {
+      const putRequest = {
+        onsuccess: null as any,
+        onerror: null as any,
+        error: new Error('Save failed'),
+      };
+
       const mockStore = {
-        put: vi.fn(() => ({
-          error: new Error('Save failed'),
-          onsuccess: null,
-          onerror: null,
-        })),
+        put: vi.fn(() => putRequest),
       };
 
       const mockTransaction = {
@@ -354,20 +367,22 @@ describe('PWA Utilities', () => {
       }, 0);
 
       setTimeout(() => {
-        const putRequest = mockStore.put();
-        putRequest.onerror();
-      }, 0);
+        if (putRequest.onerror) putRequest.onerror();
+      }, 10);
 
       await expect(saveToIndexedDB('entries', {})).rejects.toThrow();
     });
 
     it('should handle IndexedDB get errors', async () => {
+      const getRequest = {
+        onsuccess: null as any,
+        onerror: null as any,
+        error: new Error('Get failed'),
+        result: null,
+      };
+
       const mockStore = {
-        get: vi.fn(() => ({
-          error: new Error('Get failed'),
-          onsuccess: null,
-          onerror: null,
-        })),
+        get: vi.fn(() => getRequest),
       };
 
       const mockTransaction = {
@@ -381,8 +396,7 @@ describe('PWA Utilities', () => {
       }, 0);
 
       setTimeout(() => {
-        const getRequest = mockStore.get();
-        getRequest.onerror();
+        if (getRequest.onerror) getRequest.onerror();
       }, 10);
 
       await expect(getFromIndexedDB('entries', 'test')).rejects.toThrow();

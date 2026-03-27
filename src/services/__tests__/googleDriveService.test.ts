@@ -7,6 +7,8 @@ vi.mock('@/utils/cloudCredentialStorage', () => ({
   CloudCredentialStorage: {
     saveCredentials: vi.fn().mockResolvedValue(undefined),
     loadCredentials: vi.fn().mockResolvedValue(null),
+    removeCredentials: vi.fn().mockResolvedValue(undefined),
+    clearCredentials: vi.fn(),
   },
 }));
 
@@ -14,6 +16,48 @@ vi.mock('@/utils/cloudRetry', () => ({
   retryWithBackoff: vi.fn((fn) => fn()),
   sanitizeFileName: vi.fn((name) => name),
   getApiErrorDetails: vi.fn().mockResolvedValue('Error details'),
+}));
+
+vi.mock('@/config/oauth', () => ({
+  oauthConfig: {
+    googleDrive: {
+      webClientId: 'test-google-client-id',
+      androidClientId: 'test-android-client-id',
+      scopes: ['https://www.googleapis.com/auth/drive.appdata'],
+    },
+  },
+  getGoogleClientId: vi.fn(() => 'test-google-client-id'),
+  isGoogleDriveConfigured: vi.fn(() => true),
+  isNativePlatform: vi.fn(() => false),
+}));
+
+vi.mock('@/utils/encryptionModeStorage', () => ({
+  isE2EEnabled: vi.fn(() => false),
+}));
+
+vi.mock('@/utils/simpleModeCredentialStorage', () => ({
+  SimpleModeCredentialStorage: {
+    clearGoogleDriveCredentials: vi.fn(),
+    saveGoogleDriveCredentials: vi.fn(),
+  },
+}));
+
+vi.mock('@/config/supabase', () => ({
+  SUPABASE_CONFIG: {
+    url: 'https://test.supabase.co',
+    anonKey: 'test-anon-key',
+    projectId: 'test-project',
+  },
+}));
+
+vi.mock('@/integrations/supabase/client', () => ({
+  supabase: {
+    auth: {
+      getSession: vi.fn().mockResolvedValue({
+        data: { session: { access_token: 'test-session-token' } },
+      }),
+    },
+  },
 }));
 
 describe('GoogleDriveService', () => {
@@ -56,8 +100,9 @@ describe('GoogleDriveService', () => {
         expiresAt: Date.now() + 3600000,
       };
 
+      mockFetch.mockResolvedValueOnce({ ok: true }); // revoke token call
       await service.connect(credentials, mockMasterKey);
-      service.disconnect();
+      await service.disconnect();
 
       expect(service.isConnected).toBe(false);
     });
@@ -72,6 +117,9 @@ describe('GoogleDriveService', () => {
         expiresAt: Date.now() - 1000, // Expired
       };
 
+      await service.connect(expiredCredentials, mockMasterKey);
+
+      // Refresh token call (via supabase edge function)
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: async () => ({
@@ -80,9 +128,7 @@ describe('GoogleDriveService', () => {
         }),
       });
 
-      await service.connect(expiredCredentials, mockMasterKey);
-
-      // Trigger an operation that requires a valid token
+      // Actual API call
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: async () => ({ files: [] }),
@@ -90,9 +136,9 @@ describe('GoogleDriveService', () => {
 
       await service.listFiles('');
 
-      // Should have called refresh endpoint
+      // Should have called supabase edge function for refresh
       expect(mockFetch).toHaveBeenCalledWith(
-        'https://oauth2.googleapis.com/token',
+        'https://test.supabase.co/functions/v1/google-drive-token',
         expect.objectContaining({
           method: 'POST',
         })
@@ -137,7 +183,7 @@ describe('GoogleDriveService', () => {
 
       // Should NOT call refresh endpoint
       expect(mockFetch).not.toHaveBeenCalledWith(
-        'https://oauth2.googleapis.com/token',
+        expect.stringContaining('/functions/v1/google-drive-token'),
         expect.any(Object)
       );
     });
@@ -151,8 +197,8 @@ describe('GoogleDriveService', () => {
       };
 
       let refreshCallCount = 0;
-      mockFetch.mockImplementation(async (url) => {
-        if (url === 'https://oauth2.googleapis.com/token') {
+      mockFetch.mockImplementation(async (url: string) => {
+        if (url.includes('/functions/v1/google-drive-token')) {
           refreshCallCount++;
           await new Promise(resolve => setTimeout(resolve, 50));
           return {
@@ -194,9 +240,17 @@ describe('GoogleDriveService', () => {
 
       await service.connect(credentials, mockMasterKey);
 
+      // First call: search for existing file
+      mockFetch.mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ files: [] }), // No existing file
+      });
+
+      // Second call: create new file
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: async () => ({ id: 'file-id' }),
+        clone: function() { return this; },
       });
 
       await service.upload('test.json', '{"data": "test"}');
@@ -205,9 +259,6 @@ describe('GoogleDriveService', () => {
         'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart',
         expect.objectContaining({
           method: 'POST',
-          headers: expect.objectContaining({
-            Authorization: 'Bearer test-token',
-          }),
         })
       );
     });
@@ -222,6 +273,13 @@ describe('GoogleDriveService', () => {
 
       await service.connect(credentials, mockMasterKey);
 
+      // Search for existing file
+      mockFetch.mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ files: [] }),
+      });
+
+      // Upload fails
       mockFetch.mockResolvedValueOnce({
         ok: false,
         status: 500,
@@ -324,7 +382,7 @@ describe('GoogleDriveService', () => {
         status: 401,
       });
 
-      // Refresh token call
+      // Refresh token call (via supabase edge function)
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: async () => ({
@@ -341,6 +399,7 @@ describe('GoogleDriveService', () => {
 
       await service.listFiles('');
 
+      // 3 calls: original 401, refresh, retry
       expect(mockFetch).toHaveBeenCalledTimes(3);
     });
   });

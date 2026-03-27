@@ -7,6 +7,7 @@ vi.mock('../localAI', () => ({
   localAI: {
     initialize: vi.fn(),
     isInitializing: vi.fn(),
+    isReady: vi.fn().mockReturnValue(false),
     areModelsCached: vi.fn(),
   },
 }));
@@ -14,6 +15,7 @@ vi.mock('../localAI', () => ({
 vi.mock('@/utils/aiModeStorage', () => ({
   aiModeStorage: {
     getMode: vi.fn(),
+    getModelType: vi.fn().mockReturnValue('default'),
   },
 }));
 
@@ -22,12 +24,12 @@ describe('AIPreloader', () => {
     vi.clearAllMocks();
     vi.mocked(aiModeStorage.getMode).mockReturnValue('local');
     vi.mocked(localAI.isInitializing).mockReturnValue(false);
+    vi.mocked(localAI.isReady).mockReturnValue(false);
   });
 
   afterEach(() => {
-    // Reset preloader state
-    (aiPreloader as unknown as { status: string }).status = 'idle';
-    (aiPreloader as unknown as { preloadPromise: Promise<void> | null }).preloadPromise = null;
+    // Reset preloader state fully
+    aiPreloader.reset();
   });
 
   describe('Status Management', () => {
@@ -131,24 +133,26 @@ describe('AIPreloader', () => {
       expect(aiPreloader.getStatus()).toBe('error');
     });
 
-    it('should be idempotent', async () => {
+    it('should be idempotent when preloadPromise is already set', async () => {
       vi.mocked(localAI.areModelsCached).mockResolvedValue(false);
       vi.mocked(localAI.initialize).mockResolvedValue(undefined);
-      
-      const promise1 = aiPreloader.startPreload();
-      const promise2 = aiPreloader.startPreload();
-      
-      await Promise.all([promise1, promise2]);
-      
+
+      // First call sets the preloadPromise
+      await aiPreloader.startPreload();
+
+      // Second call should return existing promise and not re-initialize
+      await aiPreloader.startPreload();
+
       expect(localAI.initialize).toHaveBeenCalledTimes(1);
     });
 
-    it('should skip if already initializing', async () => {
-      vi.mocked(localAI.isInitializing).mockReturnValue(true);
-      
+    it('should skip if already ready', async () => {
+      vi.mocked(localAI.isReady).mockReturnValue(true);
+
       await aiPreloader.startPreload();
-      
+
       expect(localAI.initialize).not.toHaveBeenCalled();
+      expect(aiPreloader.getStatus()).toBe('ready');
     });
   });
 
@@ -202,18 +206,21 @@ describe('AIPreloader', () => {
       await aiPreloader.startPreload();
       
       expect(aiPreloader.getStatus()).toBe('error');
-      expect(aiPreloader.getStatusMessage()).toContain('error');
+      expect(aiPreloader.getStatusMessage()).toContain('Failed');
     });
 
-    it('should allow retry after error', async () => {
+    it('should allow retry after error when state is reset', async () => {
       vi.mocked(localAI.areModelsCached).mockResolvedValue(false);
       vi.mocked(localAI.initialize)
         .mockRejectedValueOnce(new Error('First fail'))
         .mockResolvedValueOnce(undefined);
-      
+
       await aiPreloader.startPreload();
       expect(aiPreloader.getStatus()).toBe('error');
-      
+
+      // Reset preloader state to allow retry (mimics user-initiated retry via reset())
+      aiPreloader.reset();
+
       await aiPreloader.startPreload();
       expect(aiPreloader.getStatus()).toBe('ready');
     });

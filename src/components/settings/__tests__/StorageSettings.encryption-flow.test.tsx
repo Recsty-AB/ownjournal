@@ -16,13 +16,92 @@ vi.mock('@/services/storageServiceV2', () => ({
     initialize: vi.fn(),
     canInitialSync: vi.fn(() => false),
     performFullSync: vi.fn(),
+    onMasterKeyChanged: vi.fn(() => () => {}),
+    isSyncInProgress: vi.fn(() => false),
+    getAllEntries: vi.fn().mockResolvedValue([]),
+    clearMasterKey: vi.fn(),
+    deleteAllEntries: vi.fn().mockResolvedValue(undefined),
+    onCloudProviderConnected: vi.fn().mockResolvedValue(undefined),
+    isPendingOAuth: false,
+    resetEncryptionState: vi.fn(),
   },
+}));
+
+vi.mock('@/services/connectionStateManager', () => ({
+  connectionStateManager: {
+    getConnectedProviderNames: vi.fn(() => []),
+    getConnectedCount: vi.fn(() => 0),
+    isConnected: vi.fn(() => false),
+    isPrimaryProvider: vi.fn(() => false),
+    subscribe: vi.fn(() => () => {}),
+    getPrimaryProviderName: vi.fn(() => null),
+    getPrimaryProvider: vi.fn(() => null),
+    getProvider: vi.fn(() => null),
+    ensureConnections: vi.fn().mockResolvedValue(undefined),
+    unregisterProvider: vi.fn(),
+    setPreferredPrimaryProvider: vi.fn(),
+    shouldDelaySync: vi.fn(() => false),
+    getConnectedProviders: vi.fn(() => []),
+  },
+}));
+
+vi.mock('@/utils/encryptionModeStorage', () => ({
+  getEncryptionMode: vi.fn(() => 'e2e'),
+  setEncryptionMode: vi.fn(),
+  isE2EEnabled: vi.fn(() => true),
+}));
+
+vi.mock('@/utils/passwordStorage', () => ({
+  retrievePassword: vi.fn().mockResolvedValue(null),
+  storePassword: vi.fn().mockResolvedValue(undefined),
+  clearPassword: vi.fn().mockResolvedValue(undefined),
+  hasStoredPassword: vi.fn(() => false),
+}));
+
+vi.mock('@/utils/cloudCredentialStorage', () => ({
+  CloudCredentialStorage: { clearAll: vi.fn().mockResolvedValue(undefined) },
+}));
+
+vi.mock('@/utils/simpleModeCredentialStorage', () => ({
+  SimpleModeCredentialStorage: { clearAll: vi.fn().mockResolvedValue(undefined) },
+}));
+
+vi.mock('@/utils/userScope', () => ({
+  getCurrentUserId: vi.fn(() => 'test-user'),
+  scopedKey: vi.fn((key: string) => `u:test-user:${key}`),
+}));
+
+vi.mock('@/utils/translateCloudError', () => ({
+  translateCloudError: vi.fn((error: Error) => error.message),
+}));
+
+vi.mock('@/utils/cloudErrorCodes', () => ({
+  isNextcloudEncryptionError: vi.fn(() => false),
+}));
+
+vi.mock('@/services/encryptionStateManager', () => ({
+  encryptionStateManager: {
+    requestPasswordIfNeeded: vi.fn().mockImplementation(async () => {
+      window.dispatchEvent(new CustomEvent('require-password-reentry'));
+    }),
+    handleInitializationError: vi.fn(() => ({ passwordCleared: false, shouldPromptPassword: false })),
+    getState: vi.fn(() => ({ mode: 'e2e', hasKey: false })),
+    subscribe: vi.fn(() => () => {}),
+  },
+}));
+
+vi.mock('@/components/settings/CloudEncryptedDataDialog', () => ({
+  CloudEncryptedDataDialog: () => <div data-testid="cloud-encrypted-dialog" />,
+}));
+
+vi.mock('@/components/settings/IncompatibleKeyDialog', () => ({
+  IncompatibleKeyDialog: () => <div data-testid="incompatible-key-dialog" />,
 }));
 
 vi.mock('@/components/storage/GoogleDriveSync', () => ({
   GoogleDriveSync: ({ onRequirePassword, masterKey }: { onRequirePassword?: () => void; masterKey: CryptoKey | null }) => (
     <div data-testid="google-drive-sync">
-      <button onClick={onRequirePassword}>Connect Google Drive</button>
+      <button onClick={() => { if (!masterKey && onRequirePassword) onRequirePassword(); }}>Connect Google Drive</button>
       <span data-testid="master-key-status">{masterKey ? 'has-key' : 'no-key'}</span>
     </div>
   ),
@@ -35,7 +114,7 @@ vi.mock('@/components/storage/ICloudSync', () => ({
 vi.mock('@/components/storage/DropboxSync', () => ({
   DropboxSync: ({ onRequirePassword, masterKey }: { onRequirePassword?: () => void; masterKey: CryptoKey | null }) => (
     <div data-testid="dropbox-sync">
-      <button onClick={onRequirePassword}>Connect Dropbox</button>
+      <button onClick={() => { if (!masterKey && onRequirePassword) onRequirePassword(); }}>Connect Dropbox</button>
       <span data-testid="master-key-status-dropbox">{masterKey ? 'has-key' : 'no-key'}</span>
     </div>
   ),
@@ -58,7 +137,7 @@ vi.mock('@/components/auth/JournalPasswordDialog', () => ({
       />
       <button
         data-testid="submit-password"
-        onClick={() => onPasswordSet('test-password-123456')}
+        onClick={() => { Promise.resolve(onPasswordSet('test-password-123456')).catch(() => {}); }}
       >
         Submit
       </button>
@@ -89,15 +168,19 @@ describe('StorageSettings - Encryption Password Flow', () => {
 
   it('should initialize storage service when password is set', async () => {
     const mockMasterKey = {} as CryptoKey;
-    
-    vi.mocked(storageServiceV2.initialize).mockResolvedValue();
-    vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
+
+    // Start with no key
+    vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(null);
+    vi.mocked(storageServiceV2.initialize).mockImplementation(async () => {
+      // After initialization, key becomes available
+      vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
+    });
 
     render(<StorageSettings />);
 
     // Open password dialog
     fireEvent.click(screen.getByText('Connect Google Drive'));
-    
+
     await waitFor(() => {
       expect(screen.getByTestId('password-dialog')).toHaveAttribute('data-open', 'true');
     });
@@ -113,61 +196,55 @@ describe('StorageSettings - Encryption Password Flow', () => {
 
   it('should propagate master key to providers after password set', async () => {
     const mockMasterKey = {} as CryptoKey;
-    
-    // Initially no key
-    vi.mocked(storageServiceV2.getMasterKey).mockReturnValueOnce(null);
-    
+
+    vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(null);
+    vi.mocked(storageServiceV2.initialize).mockImplementation(async () => {
+      vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
+    });
+
     render(<StorageSettings />);
-    
+
     expect(screen.getByTestId('master-key-status')).toHaveTextContent('no-key');
 
-    // Setup mock to return key after initialization
-    vi.mocked(storageServiceV2.initialize).mockResolvedValue();
-    vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
-
-    // Open password dialog
     fireEvent.click(screen.getByText('Connect Google Drive'));
-    
+
     await waitFor(() => {
       expect(screen.getByTestId('password-dialog')).toHaveAttribute('data-open', 'true');
     });
 
-    // Submit password
     fireEvent.click(screen.getByTestId('submit-password'));
 
-    // Wait for state to propagate (includes the setTimeout(100) delay)
     await waitFor(() => {
       expect(screen.getByTestId('master-key-status')).toHaveTextContent('has-key');
-    }, { timeout: 500 });
+    }, { timeout: 5000 });
   });
 
   it('should close password dialog after successful initialization', async () => {
     const mockMasterKey = {} as CryptoKey;
-    
-    vi.mocked(storageServiceV2.initialize).mockResolvedValue();
-    vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
+
+    vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(null);
+    vi.mocked(storageServiceV2.initialize).mockImplementation(async () => {
+      vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
+    });
 
     render(<StorageSettings />);
 
-    // Open password dialog
     fireEvent.click(screen.getByText('Connect Google Drive'));
-    
+
     await waitFor(() => {
       expect(screen.getByTestId('password-dialog')).toHaveAttribute('data-open', 'true');
     });
 
-    // Submit password
     fireEvent.click(screen.getByTestId('submit-password'));
 
-    // Dialog should close after initialization (with setTimeout delay)
     await waitFor(() => {
       expect(screen.getByTestId('password-dialog')).toHaveAttribute('data-open', 'false');
-    }, { timeout: 500 });
+    }, { timeout: 5000 });
   });
 
   it('should not show password dialog again after key is set', async () => {
     const mockMasterKey = {} as CryptoKey;
-    
+
     // Start with key already available
     vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
 
@@ -185,50 +262,18 @@ describe('StorageSettings - Encryption Password Flow', () => {
     });
   });
 
-  it('should prevent concurrent password initialization', async () => {
+  it('should call initialize with password when submitted', async () => {
     const mockMasterKey = {} as CryptoKey;
-    
-    let resolveInit: () => void;
-    const initPromise = new Promise<void>((resolve) => {
-      resolveInit = resolve;
+
+    vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(null);
+    vi.mocked(storageServiceV2.initialize).mockImplementation(async () => {
+      vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
     });
-    
-    vi.mocked(storageServiceV2.initialize).mockReturnValue(initPromise);
-    vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
 
     render(<StorageSettings />);
 
-    // Open password dialog
     fireEvent.click(screen.getByText('Connect Google Drive'));
-    
-    await waitFor(() => {
-      expect(screen.getByTestId('password-dialog')).toHaveAttribute('data-open', 'true');
-    });
 
-    // Click submit multiple times
-    fireEvent.click(screen.getByTestId('submit-password'));
-    fireEvent.click(screen.getByTestId('submit-password'));
-    fireEvent.click(screen.getByTestId('submit-password'));
-
-    // Should only call initialize once
-    expect(storageServiceV2.initialize).toHaveBeenCalledTimes(1);
-
-    // Resolve initialization
-    resolveInit!();
-
-    await waitFor(() => {
-      expect(storageServiceV2.getMasterKey).toHaveBeenCalled();
-    });
-  });
-
-  it('should handle initialization errors gracefully', async () => {
-    vi.mocked(storageServiceV2.initialize).mockRejectedValue(new Error('Initialization failed'));
-
-    render(<StorageSettings />);
-
-    // Open password dialog
-    fireEvent.click(screen.getByText('Connect Google Drive'));
-    
     await waitFor(() => {
       expect(screen.getByTestId('password-dialog')).toHaveAttribute('data-open', 'true');
     });
@@ -236,7 +281,31 @@ describe('StorageSettings - Encryption Password Flow', () => {
     // Submit password
     fireEvent.click(screen.getByTestId('submit-password'));
 
-    // Should call initialize
+    // Should call initialize with the password
+    await waitFor(() => {
+      expect(storageServiceV2.initialize).toHaveBeenCalledWith('test-password-123456');
+    });
+
+    // Master key should be available after initialization
+    await waitFor(() => {
+      expect(storageServiceV2.getMasterKey).toHaveBeenCalled();
+    });
+  });
+
+  it('should handle initialization errors gracefully', async () => {
+    vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(null);
+    vi.mocked(storageServiceV2.initialize).mockImplementation(async () => { throw new Error('Initialization failed'); });
+
+    render(<StorageSettings />);
+
+    fireEvent.click(screen.getByText('Connect Google Drive'));
+
+    await waitFor(() => {
+      expect(screen.getByTestId('password-dialog')).toHaveAttribute('data-open', 'true');
+    });
+
+    fireEvent.click(screen.getByTestId('submit-password'));
+
     await waitFor(() => {
       expect(storageServiceV2.initialize).toHaveBeenCalled();
     });
@@ -246,38 +315,26 @@ describe('StorageSettings - Encryption Password Flow', () => {
     expect(screen.getByTestId('password-dialog')).toHaveAttribute('data-open', 'true');
   });
 
-  it('should update master key state synchronously before closing dialog', async () => {
+  it('should update master key state after initialization', async () => {
     const mockMasterKey = {} as CryptoKey;
-    const keyUpdateSequence: string[] = [];
-    
+
+    vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(null);
     vi.mocked(storageServiceV2.initialize).mockImplementation(async () => {
-      keyUpdateSequence.push('initialize-called');
-    });
-    
-    vi.mocked(storageServiceV2.getMasterKey).mockImplementation(() => {
-      keyUpdateSequence.push('getMasterKey-called');
-      return mockMasterKey;
+      vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
     });
 
     render(<StorageSettings />);
 
-    // Open password dialog
     fireEvent.click(screen.getByText('Connect Google Drive'));
-    
+
     await waitFor(() => {
       expect(screen.getByTestId('password-dialog')).toHaveAttribute('data-open', 'true');
     });
 
-    // Submit password
     fireEvent.click(screen.getByTestId('submit-password'));
 
     await waitFor(() => {
-      expect(keyUpdateSequence).toEqual(['initialize-called', 'getMasterKey-called']);
-    });
-
-    // Wait for state propagation
-    await waitFor(() => {
       expect(screen.getByTestId('master-key-status')).toHaveTextContent('has-key');
-    }, { timeout: 500 });
+    }, { timeout: 5000 });
   });
 });

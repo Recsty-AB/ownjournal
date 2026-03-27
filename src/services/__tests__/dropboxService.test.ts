@@ -7,6 +7,8 @@ vi.mock('@/utils/cloudCredentialStorage', () => ({
   CloudCredentialStorage: {
     saveCredentials: vi.fn().mockResolvedValue(undefined),
     loadCredentials: vi.fn().mockResolvedValue(null),
+    removeCredentials: vi.fn().mockResolvedValue(undefined),
+    clearCredentials: vi.fn(),
   },
 }));
 
@@ -14,6 +16,26 @@ vi.mock('@/utils/cloudRetry', () => ({
   retryWithBackoff: vi.fn((fn) => fn()),
   sanitizeFileName: vi.fn((name) => name),
   getApiErrorDetails: vi.fn().mockResolvedValue('Error details'),
+}));
+
+vi.mock('@/config/oauth', () => ({
+  oauthConfig: {
+    dropbox: {
+      clientId: 'test-dropbox-client-id',
+    },
+  },
+  isDropboxConfigured: vi.fn(() => true),
+}));
+
+vi.mock('@/utils/encryptionModeStorage', () => ({
+  isE2EEnabled: vi.fn(() => false),
+}));
+
+vi.mock('@/utils/simpleModeCredentialStorage', () => ({
+  SimpleModeCredentialStorage: {
+    clearDropboxCredentials: vi.fn(),
+    saveDropboxCredentials: vi.fn(),
+  },
 }));
 
 describe('DropboxService', () => {
@@ -56,8 +78,11 @@ describe('DropboxService', () => {
         expiresAt: Date.now() + 3600000,
       };
 
+      // Mock the revoke token call
+      mockFetch.mockResolvedValueOnce({ ok: true });
+
       await service.connect(credentials, mockMasterKey);
-      service.disconnect();
+      await service.disconnect();
 
       expect(service.isConnected).toBe(false);
     });
@@ -72,6 +97,9 @@ describe('DropboxService', () => {
         expiresAt: Date.now() - 1000, // Expired
       };
 
+      await service.connect(expiredCredentials, mockMasterKey);
+
+      // Refresh token call
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: async () => ({
@@ -80,9 +108,7 @@ describe('DropboxService', () => {
         }),
       });
 
-      await service.connect(expiredCredentials, mockMasterKey);
-
-      // Trigger an operation that requires a valid token
+      // Actual API call
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: async () => ({ entries: [] }),
@@ -111,6 +137,7 @@ describe('DropboxService', () => {
         ok: false,
         status: 400,
         json: async () => ({ error: 'invalid_grant' }),
+        text: async () => 'invalid_grant',
       });
 
       await service.connect(expiredCredentials, mockMasterKey);
@@ -127,7 +154,7 @@ describe('DropboxService', () => {
       };
 
       let refreshCallCount = 0;
-      mockFetch.mockImplementation(async (url) => {
+      mockFetch.mockImplementation(async (url: string) => {
         if (url === 'https://api.dropboxapi.com/oauth2/token') {
           refreshCallCount++;
           await new Promise(resolve => setTimeout(resolve, 50));
@@ -183,7 +210,7 @@ describe('DropboxService', () => {
           method: 'POST',
           headers: expect.objectContaining({
             Authorization: 'Bearer test-token',
-            'Dropbox-API-Arg': expect.stringContaining('/OwnJournal/test.json'),
+            'Dropbox-API-Arg': expect.stringContaining('/test.json'),
           }),
         })
       );
@@ -202,6 +229,7 @@ describe('DropboxService', () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
         status: 500,
+        text: async () => 'Server Error',
       });
 
       await expect(service.upload('test.json', '{"data": "test"}')).rejects.toThrow();
@@ -242,6 +270,7 @@ describe('DropboxService', () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
         status: 409, // File not found
+        text: async () => 'path/not_found',
       });
 
       const content = await service.download('nonexistent.json');
@@ -265,6 +294,7 @@ describe('DropboxService', () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
         status: 401,
+        text: async () => 'Unauthorized',
       });
 
       // Refresh token call
@@ -345,6 +375,7 @@ describe('DropboxService', () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
         status: 409,
+        text: async () => 'path/not_found',
       });
 
       const files = await service.listFiles('nonexistent');
@@ -374,7 +405,7 @@ describe('DropboxService', () => {
         'https://api.dropboxapi.com/2/files/delete_v2',
         expect.objectContaining({
           method: 'POST',
-          body: expect.stringContaining('/OwnJournal/test.json'),
+          body: expect.stringContaining('/test.json'),
         })
       );
     });
@@ -392,6 +423,7 @@ describe('DropboxService', () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
         status: 409, // File not found
+        text: async () => 'path/not_found',
       });
 
       // Should not throw
@@ -431,6 +463,7 @@ describe('DropboxService', () => {
 
       mockFetch.mockResolvedValueOnce({
         ok: false,
+        text: async () => 'not found',
       });
 
       const exists = await service.exists('nonexistent.json');
