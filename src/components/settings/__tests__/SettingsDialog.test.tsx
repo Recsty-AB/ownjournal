@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { SettingsDialog } from '../SettingsDialog';
 
 vi.mock('react-i18next', () => ({
@@ -16,6 +17,8 @@ vi.mock('@/hooks/use-toast', () => ({
   useToast: () => ({ toast: vi.fn() }),
 }));
 
+const wrap = (ui: React.ReactElement) => <MemoryRouter>{ui}</MemoryRouter>;
+
 describe('SettingsDialog', () => {
   const mockOnOpenChange = vi.fn();
   const mockOnExportData = vi.fn();
@@ -23,44 +26,50 @@ describe('SettingsDialog', () => {
 
   it('should default to storage tab', () => {
     const { container } = render(
-      <SettingsDialog
-        open={true}
-        onOpenChange={mockOnOpenChange}
-        onExportData={mockOnExportData}
-        onImportData={mockOnImportData}
-      />
+      wrap(
+        <SettingsDialog
+          open={true}
+          onOpenChange={mockOnOpenChange}
+          onExportData={mockOnExportData}
+          onImportData={mockOnImportData}
+        />
+      )
     );
-    
+
     expect(container).toBeInTheDocument();
   });
 
   it('should not render when closed', () => {
     const { container } = render(
-      <SettingsDialog
-        open={false}
-        onOpenChange={mockOnOpenChange}
-        onExportData={mockOnExportData}
-        onImportData={mockOnImportData}
-      />
+      wrap(
+        <SettingsDialog
+          open={false}
+          onOpenChange={mockOnOpenChange}
+          onExportData={mockOnExportData}
+          onImportData={mockOnImportData}
+        />
+      )
     );
-    
+
     expect(container).toBeInTheDocument();
   });
 
   it('should render with theme toggle', () => {
     const mockOnToggleTheme = vi.fn();
-    
+
     const { container } = render(
-      <SettingsDialog
-        open={true}
-        onOpenChange={mockOnOpenChange}
-        onExportData={mockOnExportData}
-        onImportData={mockOnImportData}
-        onToggleTheme={mockOnToggleTheme}
-        isDarkMode={false}
-      />
+      wrap(
+        <SettingsDialog
+          open={true}
+          onOpenChange={mockOnOpenChange}
+          onExportData={mockOnExportData}
+          onImportData={mockOnImportData}
+          onToggleTheme={mockOnToggleTheme}
+          isDarkMode={false}
+        />
+      )
     );
-    
+
     expect(container).toBeInTheDocument();
   });
 });

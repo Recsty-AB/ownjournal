@@ -100,7 +100,7 @@ describe('CloudCredentialStorage', () => {
       expect(loaded).toBeNull();
     });
 
-    it('should return null and clean up on decryption error', async () => {
+    it('should return null on decryption error but not auto-delete credentials', async () => {
       // Store invalid encrypted data
       localStorage.setItem('cloud_credentials_nextcloud_encrypted', JSON.stringify({
         data: 'invalid_base64',
@@ -108,9 +108,11 @@ describe('CloudCredentialStorage', () => {
       }));
 
       const loaded = await CloudCredentialStorage.loadCredentials('nextcloud', mockMasterKey);
-      
+
       expect(loaded).toBeNull();
-      expect(localStorage.getItem('cloud_credentials_nextcloud_encrypted')).toBeNull();
+      // Source no longer auto-deletes credentials on decryption failure
+      // to prevent race conditions during masterKey changes
+      expect(localStorage.getItem('cloud_credentials_nextcloud_encrypted')).not.toBeNull();
     });
   });
 
@@ -131,20 +133,19 @@ describe('CloudCredentialStorage', () => {
     });
 
     it('should throw error if removal fails', async () => {
-      // Mock localStorage to simulate removal failure
-      const setItemSpy = vi.spyOn(Storage.prototype, 'setItem');
-      const removeItemSpy = vi.spyOn(Storage.prototype, 'removeItem').mockImplementation(() => {
-        // Simulate failure by not actually removing
-      });
-      const getItemSpy = vi.spyOn(Storage.prototype, 'getItem').mockReturnValue('still_here');
+      // Store a value first so getItem returns non-null after removeItem
+      const key = 'cloud_credentials_nextcloud_encrypted';
+      localStorage.setItem(key, 'test-data');
+
+      // Override removeItem to be a no-op so getItem still returns the value
+      const origRemoveItem = localStorage.removeItem;
+      localStorage.removeItem = vi.fn(() => { /* no-op */ });
 
       await expect(
         CloudCredentialStorage.removeCredentials('nextcloud', mockMasterKey)
       ).rejects.toThrow('Failed to remove credentials from storage');
 
-      setItemSpy.mockRestore();
-      removeItemSpy.mockRestore();
-      getItemSpy.mockRestore();
+      localStorage.removeItem = origRemoveItem;
     });
   });
 

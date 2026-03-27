@@ -7,13 +7,13 @@ describe('aiModeStorage', () => {
   });
 
   describe('getMode', () => {
-    it('should return default "local" mode when not set', () => {
+    it('should always return "cloud" mode (local mode removed)', () => {
       const mode = aiModeStorage.getMode();
-      expect(mode).toBe('local');
+      expect(mode).toBe('cloud');
     });
 
-    it('should return stored mode', () => {
-      localStorage.setItem('ai-mode-preference', 'cloud');
+    it('should return cloud even when localStorage has different value', () => {
+      localStorage.setItem('ai-mode-preference', 'local');
       const mode = aiModeStorage.getMode();
       expect(mode).toBe('cloud');
     });
@@ -21,14 +21,14 @@ describe('aiModeStorage', () => {
     it('should handle invalid stored values gracefully', () => {
       localStorage.setItem('ai-mode-preference', 'invalid');
       const mode = aiModeStorage.getMode();
-      expect(['local', 'cloud']).toContain(mode);
+      expect(mode).toBe('cloud');
     });
   });
 
   describe('setMode', () => {
-    it('should store local mode', () => {
+    it('should always store cloud mode (even when local requested)', () => {
       aiModeStorage.setMode('local');
-      expect(localStorage.getItem('ai-mode-preference')).toBe('local');
+      expect(localStorage.getItem('ai-mode-preference')).toBe('cloud');
     });
 
     it('should store cloud mode', () => {
@@ -36,10 +36,10 @@ describe('aiModeStorage', () => {
       expect(localStorage.getItem('ai-mode-preference')).toBe('cloud');
     });
 
-    it('should overwrite existing mode', () => {
+    it('should always store cloud mode', () => {
       aiModeStorage.setMode('local');
-      expect(localStorage.getItem('ai-mode-preference')).toBe('local');
-      
+      expect(localStorage.getItem('ai-mode-preference')).toBe('cloud');
+
       aiModeStorage.setMode('cloud');
       expect(localStorage.getItem('ai-mode-preference')).toBe('cloud');
     });
@@ -85,14 +85,15 @@ describe('aiModeStorage', () => {
   });
 
   describe('clearConsent', () => {
-    it('should remove consent and reset to local mode', () => {
+    it('should remove consent (mode always stays cloud)', () => {
       aiModeStorage.setCloudConsent(true);
       aiModeStorage.setMode('cloud');
-      
+
       aiModeStorage.clearConsent();
-      
+
       expect(localStorage.getItem('ai-cloud-consent')).toBeNull();
-      expect(aiModeStorage.getMode()).toBe('local');
+      // getMode() always returns 'cloud' since local mode was removed
+      expect(aiModeStorage.getMode()).toBe('cloud');
     });
 
     it('should be idempotent', () => {
@@ -158,7 +159,8 @@ describe('aiModeStorage', () => {
 
       aiModeStorage.clearConsent();
 
-      expect(aiModeStorage.getMode()).toBe('local');
+      // getMode() always returns 'cloud' since local mode was removed
+      expect(aiModeStorage.getMode()).toBe('cloud');
       expect(aiModeStorage.hasCloudConsent()).toBe(false);
       expect(aiModeStorage.isPreloadEnabled()).toBe(false); // Preload should not be affected
     });

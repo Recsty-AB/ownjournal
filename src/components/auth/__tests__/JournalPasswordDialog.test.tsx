@@ -6,6 +6,15 @@ vi.mock('@/hooks/use-toast', () => ({
   useToast: () => ({ toast: vi.fn() }),
 }));
 
+vi.mock('@/utils/passwordPersistenceSettings', () => ({
+  getPasswordPersistenceMode: vi.fn(() => 'session'),
+  setPasswordPersistenceMode: vi.fn(),
+}));
+
+vi.mock('@/utils/translateCloudError', () => ({
+  translateCloudError: vi.fn((error: Error) => error.message),
+}));
+
 describe('JournalPasswordDialog', () => {
   const mockOnPasswordSet = vi.fn().mockResolvedValue(undefined);
   const mockOnDismiss = vi.fn();
@@ -16,14 +25,14 @@ describe('JournalPasswordDialog', () => {
   });
 
   it('should render when open is true', () => {
-    const { container } = render(
+    const { baseElement } = render(
       <JournalPasswordDialog
         open={true}
         onPasswordSet={mockOnPasswordSet}
       />
     );
-    
-    expect(container).toBeInTheDocument();
+
+    expect(baseElement).toBeInTheDocument();
   });
 
   it('should not render when open is false', () => {
@@ -33,66 +42,66 @@ describe('JournalPasswordDialog', () => {
         onPasswordSet={mockOnPasswordSet}
       />
     );
-    
+
     expect(container).toBeInTheDocument();
   });
 
   it('should render with error message', () => {
-    const { container } = render(
+    render(
       <JournalPasswordDialog
         open={true}
         onPasswordSet={mockOnPasswordSet}
         errorMessage="Test error message"
       />
     );
-    
-    expect(container.textContent).toContain('Test error message');
+
+    expect(document.body.textContent).toContain('Test error message');
   });
 
   it('should render for OAuth users', () => {
-    const { container } = render(
+    const { baseElement } = render(
       <JournalPasswordDialog
         open={true}
         onPasswordSet={mockOnPasswordSet}
         isOAuthUser={true}
       />
     );
-    
-    expect(container).toBeInTheDocument();
+
+    expect(baseElement).toBeInTheDocument();
   });
 
   it('should render password input fields', () => {
-    const { container } = render(
+    render(
       <JournalPasswordDialog
         open={true}
         onPasswordSet={mockOnPasswordSet}
       />
     );
-    
-    const inputs = container.querySelectorAll('input[type="password"]');
+
+    const inputs = document.querySelectorAll('input[type="password"]');
     expect(inputs.length).toBeGreaterThanOrEqual(1);
   });
 
   it('should render password visibility toggles', () => {
-    const { container } = render(
+    const { baseElement } = render(
       <JournalPasswordDialog
         open={true}
         onPasswordSet={mockOnPasswordSet}
       />
     );
-    
-    expect(container).toBeInTheDocument();
+
+    expect(baseElement).toBeInTheDocument();
   });
 
   it('should render submit button', () => {
-    const { container } = render(
+    render(
       <JournalPasswordDialog
         open={true}
         onPasswordSet={mockOnPasswordSet}
       />
     );
-    
-    const buttons = container.querySelectorAll('button');
+
+    const buttons = document.querySelectorAll('button');
     expect(buttons.length).toBeGreaterThan(0);
   });
 
@@ -121,14 +130,14 @@ describe('JournalPasswordDialog', () => {
   });
 
   it('should render security warnings for incompatible keys', () => {
-    const { container } = render(
+    render(
       <JournalPasswordDialog
         open={true}
         onPasswordSet={mockOnPasswordSet}
         errorMessage="incompatible key format"
       />
     );
-    
-    expect(container.textContent).toContain('incompatible');
+
+    expect(document.body.textContent).toContain('incompatible');
   });
 });

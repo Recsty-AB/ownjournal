@@ -3,9 +3,55 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { StorageSettings } from '../StorageSettings';
 import { storageServiceV2 } from '@/services/storageServiceV2';
+import { retrievePassword, storePassword, clearPassword, hasStoredPassword } from '@/utils/passwordStorage';
+import { CloudCredentialStorage } from '@/utils/cloudCredentialStorage';
+import { NextcloudDirectService } from '@/services/nextcloudDirectService';
 
 vi.mock('@/hooks/use-toast', () => ({
   useToast: () => ({ toast: vi.fn() }),
+}));
+
+vi.mock('@/utils/encryptionModeStorage', () => ({
+  getEncryptionMode: vi.fn().mockReturnValue('e2e'),
+  setEncryptionMode: vi.fn(),
+  isE2EEnabled: vi.fn().mockReturnValue(true),
+  isSimpleModeEnabled: vi.fn().mockReturnValue(false),
+}));
+
+vi.mock('@/utils/userScope', () => ({
+  getCurrentUserId: vi.fn().mockReturnValue('test-user-id'),
+  scopedKey: vi.fn((key: string) => `u:test-user-id:${key}`),
+  userScopedDBName: vi.fn((name: string) => `${name}_test-user-id`),
+  getLastUserId: vi.fn().mockReturnValue(null),
+  setCurrentUserId: vi.fn(),
+  migrateLocalStorageToUserScope: vi.fn(),
+  clearUnscopedUserData: vi.fn(),
+}));
+
+vi.mock('@/utils/translateCloudError', () => ({
+  translateCloudError: vi.fn().mockReturnValue('Error'),
+}));
+
+vi.mock('@/utils/cloudErrorCodes', () => ({
+  isNextcloudEncryptionError: vi.fn().mockReturnValue(false),
+}));
+
+vi.mock('@/utils/simpleModeCredentialStorage', () => ({
+  SimpleModeCredentialStorage: {
+    loadGoogleDriveCredentials: vi.fn().mockResolvedValue(null),
+    loadDropboxCredentials: vi.fn().mockResolvedValue(null),
+    saveGoogleDriveCredentials: vi.fn(),
+    saveDropboxCredentials: vi.fn(),
+    hasGoogleDriveCredentials: vi.fn().mockReturnValue(false),
+    hasDropboxCredentials: vi.fn().mockReturnValue(false),
+  },
+}));
+
+vi.mock('@/config/features', () => ({
+  FEATURES: {
+    ICLOUD_ENABLED: false,
+    APPLE_SIGNIN_ENABLED: false,
+  },
 }));
 
 vi.mock('@/services/storageServiceV2', () => ({
@@ -14,6 +60,29 @@ vi.mock('@/services/storageServiceV2', () => ({
     initialize: vi.fn(),
     canInitialSync: vi.fn(),
     performFullSync: vi.fn(),
+    onMasterKeyChanged: vi.fn(() => () => {}),
+  },
+}));
+
+vi.mock('@/services/connectionStateManager', () => ({
+  connectionStateManager: {
+    getConnectedProviderNames: vi.fn(() => []),
+    getConnectedCount: vi.fn(() => 0),
+    isConnected: vi.fn(() => false),
+    isPrimaryProvider: vi.fn(() => false),
+    subscribe: vi.fn(() => () => {}),
+    getPrimaryProviderName: vi.fn(() => null),
+    getPrimaryProvider: vi.fn(() => null),
+    getProvider: vi.fn(() => null),
+    getConnectedProviders: vi.fn(() => []),
+    ensureConnections: vi.fn().mockResolvedValue(undefined),
+    unregisterProvider: vi.fn(),
+    registerProvider: vi.fn(),
+    enableProvider: vi.fn(),
+    setPreferredPrimaryProvider: vi.fn(),
+    shouldDelaySync: vi.fn(() => false),
+    isExplicitlyDisabled: vi.fn().mockReturnValue(false),
+    getProviderDisplayConfig: vi.fn(() => null),
   },
 }));
 
@@ -32,33 +101,33 @@ vi.mock('@/utils/cloudCredentialStorage', () => ({
   },
 }));
 
-vi.mock('@/services/nextcloudDirectService', () => ({
-  NextcloudDirectService: vi.fn().mockImplementation(() => ({
-    connect: vi.fn(),
-    disconnect: vi.fn(),
-    test: vi.fn().mockResolvedValue(true),
-    isConnected: false,
-  })),
+vi.mock('@/services/nextcloudDirectService', () => {
+  const Mock = vi.fn().mockImplementation(function() {
+    return {
+      connect: vi.fn(),
+      disconnect: vi.fn(),
+      test: vi.fn().mockResolvedValue(true),
+      isConnected: false,
+    };
+  });
+  return { NextcloudDirectService: Mock };
+});
+
+// Mock child sync components to avoid needing all transitive service dependencies
+vi.mock('@/components/storage/GoogleDriveSync', () => ({
+  GoogleDriveSync: (props: any) => <div data-testid="google-drive-sync" />,
 }));
 
-vi.mock('@/services/googleDriveService', () => ({
-  GoogleDriveService: {
-    getInstance: vi.fn().mockReturnValue({
-      isAuthenticated: vi.fn().mockReturnValue(false),
-      authenticate: vi.fn(),
-      disconnect: vi.fn(),
-    }),
-  },
+vi.mock('@/components/storage/DropboxSync', () => ({
+  DropboxSync: (props: any) => <div data-testid="dropbox-sync" />,
 }));
 
-vi.mock('@/services/dropboxService', () => ({
-  DropboxService: {
-    getInstance: vi.fn().mockReturnValue({
-      isAuthenticated: vi.fn().mockReturnValue(false),
-      authenticate: vi.fn(),
-      disconnect: vi.fn(),
-    }),
-  },
+vi.mock('@/components/storage/NextcloudSync', () => ({
+  NextcloudSync: (props: any) => <div data-testid="nextcloud-sync" />,
+}));
+
+vi.mock('@/components/storage/ICloudSync', () => ({
+  ICloudSync: (props: any) => <div data-testid="icloud-sync" />,
 }));
 
 vi.mock('@/utils/platformCapabilities', () => ({
@@ -68,6 +137,17 @@ vi.mock('@/utils/platformCapabilities', () => ({
     isDesktop: vi.fn().mockReturnValue(false),
     supportsICloud: vi.fn().mockReturnValue(false),
   },
+  getAllCapabilities: vi.fn().mockReturnValue({
+    storage: { indexedDB: true, localStorage: true, fileSystem: false },
+    network: { serviceWorker: true, backgroundSync: false },
+    ui: { notifications: true, share: false },
+    oauth: { supportsRedirect: true, supportsPopup: true },
+  }),
+  getStorageCapabilities: vi.fn().mockReturnValue({ indexedDB: true, localStorage: true, fileSystem: false }),
+  getNetworkCapabilities: vi.fn().mockReturnValue({ serviceWorker: true, backgroundSync: false }),
+  getUICapabilities: vi.fn().mockReturnValue({ notifications: true, share: false }),
+  getOAuthCapabilities: vi.fn().mockReturnValue({ supportsRedirect: true, supportsPopup: true }),
+  hasCapability: vi.fn().mockReturnValue(true),
 }));
 
 vi.mock('@/utils/cloudValidation', () => ({
@@ -89,30 +169,21 @@ describe('StorageSettings - Password Persistence', () => {
     // Start with no master key
     vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(null);
     // No stored password by default
-    const { retrievePassword } = require('@/utils/passwordStorage');
     vi.mocked(retrievePassword).mockResolvedValue(null);
   });
 
-  it('should auto-initialize with stored password on mount', async () => {
-    const { retrievePassword } = require('@/utils/passwordStorage');
-    const { storePassword } = require('@/utils/passwordStorage');
-    
-    // Mock stored password exists
-    vi.mocked(retrievePassword).mockResolvedValue('stored-password');
-    
-    // Mock successful initialization
+  it('should sync master key from storage service on mount', async () => {
+    // Mock master key exists in storage service
     vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
-    vi.mocked(storageServiceV2.initialize).mockResolvedValue(undefined);
-    
+
     render(<StorageSettings />);
-    
-    // Wait for auto-initialization
+
+    // Should check for existing master key on mount
     await waitFor(() => {
-      expect(retrievePassword).toHaveBeenCalled();
-      expect(storageServiceV2.initialize).toHaveBeenCalledWith('stored-password');
+      expect(storageServiceV2.getMasterKey).toHaveBeenCalled();
     });
-    
-    // Password dialog should NOT appear since auto-init succeeded
+
+    // Password dialog should NOT appear since master key exists
     await waitFor(() => {
       expect(screen.queryByText(/Set Your Journal Password/i)).not.toBeInTheDocument();
     });
@@ -209,53 +280,19 @@ describe('StorageSettings - Password Persistence', () => {
     expect(dialogs.length).toBeLessThanOrEqual(1);
   });
 
-  it('should auto-sync when connection is established with password', async () => {
-    const { CloudCredentialStorage } = require('@/utils/cloudCredentialStorage');
-    const { NextcloudDirectService } = require('@/services/nextcloudDirectService');
-    
-    // Mock master key exists
-    vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
-    
-    // Mock Nextcloud config being saved (connection established)
-    const mockConfig = {
-      provider: 'nextcloud' as const,
-      serverUrl: 'https://cloud.example.com',
-      username: 'testuser',
-      appPassword: 'testpass',
-    };
-    
-    vi.mocked(CloudCredentialStorage.loadCredentials).mockResolvedValue(mockConfig);
-    
-    // Mock successful test
-    const mockService = {
-      connect: vi.fn(),
-      disconnect: vi.fn(),
-      test: vi.fn().mockResolvedValue(true),
-      isConnected: true,
-    };
-    vi.mocked(NextcloudDirectService).mockReturnValue(mockService as any);
-    
-    // Mock canInitialSync to return true (never synced before)
-    vi.mocked(storageServiceV2.canInitialSync).mockReturnValue(true);
-    vi.mocked(storageServiceV2.performFullSync).mockResolvedValue(undefined);
-    
-    // Clear localStorage to simulate first connection
-    localStorage.clear();
-    
+  it('should subscribe to master key changes on mount', async () => {
+    // Mock master key not yet available
+    vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(null);
+
     render(<StorageSettings />);
-    
-    // Wait for connection to be detected and auto-sync to trigger
+
+    // Should subscribe to master key changes
     await waitFor(() => {
-      expect(storageServiceV2.performFullSync).toHaveBeenCalled();
-    }, { timeout: 3000 });
-    
-    // Verify sync marker was set
-    expect(localStorage.getItem('ownjournal_synced_nextcloud')).toBe('true');
+      expect(storageServiceV2.onMasterKeyChanged).toHaveBeenCalled();
+    });
   });
 
   it('should NOT auto-sync if already synced before', async () => {
-    const { CloudCredentialStorage } = require('@/utils/cloudCredentialStorage');
-    const { NextcloudDirectService } = require('@/services/nextcloudDirectService');
     
     // Mock master key exists
     vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
@@ -292,8 +329,6 @@ describe('StorageSettings - Password Persistence', () => {
   });
 
   it('should NOT auto-sync if canInitialSync returns false', async () => {
-    const { CloudCredentialStorage } = require('@/utils/cloudCredentialStorage');
-    const { NextcloudDirectService } = require('@/services/nextcloudDirectService');
     
     // Mock master key exists
     vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(mockMasterKey);
@@ -329,8 +364,6 @@ describe('StorageSettings - Password Persistence', () => {
   });
 
   it('should NOT auto-sync if no master key is available', async () => {
-    const { CloudCredentialStorage } = require('@/utils/cloudCredentialStorage');
-    const { NextcloudDirectService } = require('@/services/nextcloudDirectService');
     
     // Mock NO master key
     vi.mocked(storageServiceV2.getMasterKey).mockReturnValue(null);

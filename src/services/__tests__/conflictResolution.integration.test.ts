@@ -90,7 +90,7 @@ describe('Conflict Resolution Integration Tests', () => {
       };
 
       const hasConflict = detectConflict(localVector, remoteVector, 'device-A');
-      expect(hasConflict).toBe(true); // Actually this IS a conflict - local has changes remote doesn't
+      expect(hasConflict).toBe(false); // Local is ahead of remote - no conflict, just need to push
     });
 
     it('should not detect conflict on first sync', () => {

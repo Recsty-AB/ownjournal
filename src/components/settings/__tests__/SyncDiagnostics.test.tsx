@@ -28,7 +28,7 @@ describe('SyncDiagnostics', () => {
 
   it('should render header with title', () => {
     const { container } = render(<SyncDiagnostics />);
-    expect(container.textContent).toContain('Sync Diagnostics');
+    expect(container.textContent).toContain('syncDiagnostics.title');
   });
 
   it('should render refresh button', () => {

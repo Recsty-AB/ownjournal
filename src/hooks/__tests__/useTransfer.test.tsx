@@ -8,6 +8,9 @@ vi.mock('@/services/transferService', () => ({
   transferService: {
     transfer: vi.fn(),
     stop: vi.fn(),
+    onProgress: vi.fn(() => vi.fn()),
+    running: false,
+    getProgress: vi.fn(() => null),
   },
 }));
 
@@ -15,6 +18,30 @@ vi.mock('@/hooks/use-toast', () => ({
   useToast: () => ({
     toast: vi.fn(),
   }),
+}));
+
+vi.mock('react-i18next', () => ({
+  useTranslation: () => ({
+    t: (key: string, fallback?: string) => fallback || key,
+  }),
+}));
+
+vi.mock('@/utils/translateCloudError', () => ({
+  translateCloudError: vi.fn((error: Error) => error.message),
+}));
+
+vi.mock('@/utils/encryptionModeStorage', () => ({
+  isE2EEnabled: vi.fn(() => false),
+}));
+
+vi.mock('@/utils/passwordStorage', () => ({
+  retrievePassword: vi.fn(() => Promise.resolve(null)),
+}));
+
+vi.mock('@/services/storageServiceV2', () => ({
+  storageServiceV2: {
+    validateEncryptionKeyFromProvider: vi.fn(),
+  },
 }));
 
 describe('useTransfer', () => {
@@ -169,31 +196,44 @@ describe('useTransfer', () => {
   });
 
   it('should stop transfer', async () => {
-    vi.mocked(transferService.transfer).mockImplementation(async () => {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      return {
+    let resolveTransfer: (value: any) => void;
+    vi.mocked(transferService.transfer).mockImplementation(() => {
+      return new Promise(resolve => {
+        resolveTransfer = resolve;
+      });
+    });
+
+    const { result } = renderHook(() => useTransfer());
+
+    // Start the transfer (don't await it)
+    let transferPromise: Promise<any>;
+    await act(async () => {
+      transferPromise = result.current.transfer(mockSourceProvider, mockTargetProvider);
+    });
+
+    // Now isTransferring should be true
+    expect(result.current.isTransferring).toBe(true);
+
+    // Stop the transfer
+    act(() => {
+      result.current.stop();
+    });
+
+    expect(transferService.stop).toHaveBeenCalled();
+
+    // Resolve the transfer to clean up
+    await act(async () => {
+      resolveTransfer!({
         success: true,
-        cancelled: false,
+        cancelled: true,
         totalFiles: 10,
         transferredFiles: 5,
         failedFiles: [],
         skippedFiles: 0,
         duration: 1000,
-      };
+      });
+      await transferPromise!;
     });
-
-    const { result } = renderHook(() => useTransfer());
-    
-    await act(async () => {
-      const promise = result.current.transfer(mockSourceProvider, mockTargetProvider);
-      
-      await new Promise(resolve => setTimeout(resolve, 10));
-      result.current.stop();
-      
-      await promise.catch(() => {});
-    });
-
-    expect(transferService.stop).toHaveBeenCalled();
   });
 
   it('should handle conflict resolution', async () => {

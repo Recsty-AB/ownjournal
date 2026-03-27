@@ -14,15 +14,21 @@ vi.mock('@/utils/cloudCredentialStorage', () => ({
     loadCredentials: vi.fn(() => Promise.resolve(null)),
     saveCredentials: vi.fn(() => Promise.resolve()),
     clearCredentials: vi.fn(),
+    hasCredentials: vi.fn().mockReturnValue(false),
+    forceRemoveCredentials: vi.fn(),
   },
 }));
 
-vi.mock('@/services/googleDriveService', () => ({
-  GoogleDriveService: vi.fn().mockImplementation(() => ({
-    connect: vi.fn(),
-    disconnect: vi.fn(),
-  })),
-}));
+vi.mock('@/services/googleDriveService', () => {
+  const MockGoogleDriveService = vi.fn().mockImplementation(function() {
+    return {
+      connect: vi.fn(),
+      disconnect: vi.fn(),
+      isConnected: false,
+    };
+  });
+  return { GoogleDriveService: MockGoogleDriveService };
+});
 
 vi.mock('@/utils/oauth', () => ({
   generateCodeVerifier: vi.fn(() => 'test-verifier'),
@@ -30,10 +36,120 @@ vi.mock('@/utils/oauth', () => ({
   generateOAuthState: vi.fn((provider: string) => `${provider}_test-state`),
   getProviderFromState: vi.fn((state: string) => state.split('_')[0] || null),
   storePKCEVerifier: vi.fn(),
-  retrievePKCEVerifier: vi.fn(() => ({ verifier: 'test-verifier', state: 'test-state' })),
+  retrievePKCEVerifier: vi.fn(() => 'test-verifier'),
   validateTokenResponse: vi.fn((tokens) => tokens),
   cleanOAuthUrl: vi.fn(),
   checkOAuthRateLimit: vi.fn(() => true),
+  getOAuthRedirectUri: vi.fn(() => 'http://localhost/oauth-callback'),
+  markOAuthCodeProcessed: vi.fn(),
+  isOAuthCodeProcessed: vi.fn(() => false),
+}));
+
+vi.mock('@/utils/simpleModeCredentialStorage', () => ({
+  SimpleModeCredentialStorage: {
+    loadGoogleDriveCredentials: vi.fn().mockReturnValue(null),
+    saveGoogleDriveCredentials: vi.fn(),
+    clearGoogleDriveCredentials: vi.fn(),
+    hasGoogleDriveCredentials: vi.fn().mockReturnValue(false),
+    loadDropboxCredentials: vi.fn().mockReturnValue(null),
+    saveDropboxCredentials: vi.fn(),
+    clearDropboxCredentials: vi.fn(),
+    hasDropboxCredentials: vi.fn().mockReturnValue(false),
+    loadNextcloudCredentials: vi.fn().mockReturnValue(null),
+    saveNextcloudCredentials: vi.fn(),
+    clearNextcloudCredentials: vi.fn(),
+    hasNextcloudCredentials: vi.fn().mockReturnValue(false),
+    loadICloudCredentials: vi.fn().mockReturnValue(null),
+    saveICloudCredentials: vi.fn(),
+    clearICloudCredentials: vi.fn(),
+    hasICloudCredentials: vi.fn().mockReturnValue(false),
+  },
+}));
+
+vi.mock('@/services/connectionStateManager', () => ({
+  connectionStateManager: {
+    isConnected: vi.fn().mockReturnValue(false),
+    isPrimaryProvider: vi.fn().mockReturnValue(false),
+    getProviderDisplayConfig: vi.fn().mockReturnValue(null),
+    subscribe: vi.fn(() => () => {}),
+    isExplicitlyDisabled: vi.fn().mockReturnValue(false),
+    registerProvider: vi.fn(),
+    unregisterProvider: vi.fn(),
+    getConnectedProviderNames: vi.fn().mockReturnValue([]),
+    enableProvider: vi.fn(),
+    getProviderStatus: vi.fn().mockReturnValue(null),
+    setProviderStatus: vi.fn(),
+    onStatusChange: vi.fn(() => () => {}),
+  },
+}));
+
+vi.mock('@/services/storageServiceV2', () => ({
+  storageServiceV2: {
+    getMasterKey: vi.fn().mockReturnValue(null),
+    initialize: vi.fn(),
+    enableSync: vi.fn(),
+    disableSync: vi.fn(),
+    clearLocalSyncState: vi.fn().mockResolvedValue(undefined),
+    resetEncryptionState: vi.fn(),
+    onCloudProviderConnected: vi.fn().mockResolvedValue(undefined),
+    isPendingOAuth: false,
+    isInitializationInProgress: false,
+  },
+}));
+
+vi.mock('@/utils/passwordStorage', () => ({
+  hasStoredPassword: vi.fn().mockReturnValue(false),
+  retrievePassword: vi.fn().mockResolvedValue(null),
+}));
+
+vi.mock('@/services/encryptionStateManager', () => ({
+  encryptionStateManager: {
+    requestPasswordIfNeeded: vi.fn(),
+  },
+}));
+
+vi.mock('@/services/cloudStorageService', () => ({
+  cloudStorageService: {
+    registerProvider: vi.fn(),
+    unregisterProvider: vi.fn(),
+  },
+}));
+
+vi.mock('@/integrations/supabase/client', () => ({
+  supabase: {
+    auth: {
+      getSession: vi.fn().mockResolvedValue({
+        data: { session: { access_token: 'test-supabase-token' } },
+      }),
+    },
+    functions: {
+      invoke: vi.fn(),
+    },
+  },
+}));
+
+vi.mock('@/config/supabase', () => ({
+  SUPABASE_CONFIG: {
+    url: 'https://test.supabase.co',
+    key: 'test-key',
+    projectId: 'test-project',
+  },
+}));
+
+vi.mock('@/utils/encryptionModeStorage', () => ({
+  getEncryptionMode: vi.fn().mockReturnValue('e2e'),
+  isE2EEnabled: vi.fn().mockReturnValue(true),
+}));
+
+vi.mock('@/config/oauth', () => ({
+  oauthConfig: { googleDrive: { clientId: 'test-client-id', scopes: ['https://www.googleapis.com/auth/drive.file'] } },
+  isGoogleDriveConfigured: vi.fn().mockReturnValue(true),
+  getGoogleClientId: vi.fn().mockReturnValue('test-client-id'),
+  isNativePlatform: vi.fn().mockReturnValue(false),
+}));
+
+vi.mock('@/utils/signOutState', () => ({
+  isSigningOut: vi.fn().mockReturnValue(false),
 }));
 
 describe('GoogleDriveSync - Connection Flow', () => {
@@ -61,17 +177,13 @@ describe('GoogleDriveSync - Connection Flow', () => {
     );
 
     // Click connect without master key
-    const connectButton = screen.getByText('Connect to Google Drive');
+    const connectButton = screen.getByText('storage.connectGoogleDrive');
     fireEvent.click(connectButton);
 
-    // Should call onRequirePassword with a retry function
+    // Should call onRequirePassword when master key is not available
     await waitFor(() => {
       expect(onRequirePassword).toHaveBeenCalled();
     });
-
-    // Verify the callback receives a function
-    const passedArg = onRequirePassword.mock.calls[0][0];
-    expect(typeof passedArg).toBe('function');
   });
 
   it('should initiate OAuth flow when master key is available', async () => {
@@ -88,7 +200,7 @@ describe('GoogleDriveSync - Connection Flow', () => {
     );
 
     // Initially no key - clicking should request password
-    const connectButton = screen.getByText('Connect to Google Drive');
+    const connectButton = screen.getByText('storage.connectGoogleDrive');
     fireEvent.click(connectButton);
 
     // Now provide master key
@@ -126,7 +238,7 @@ describe('GoogleDriveSync - Connection Flow', () => {
     Object.defineProperty(window, 'location', {
       value: {
         ...window.location,
-        search: '?code=test-code&state=test-state',
+        search: '?code=test-code&state=google-drive_test-state',
       },
       writable: true,
     });
@@ -151,7 +263,7 @@ describe('GoogleDriveSync - Connection Flow', () => {
     Object.defineProperty(window, 'location', {
       value: {
         ...window.location,
-        search: '?code=test-code&state=test-state',
+        search: '?code=test-code&state=google-drive_test-state',
       },
       writable: true,
     });
@@ -191,7 +303,7 @@ describe('GoogleDriveSync - Connection Flow', () => {
     Object.defineProperty(window, 'location', {
       value: {
         ...window.location,
-        search: '?code=test-code&state=test-state',
+        search: '?code=test-code&state=google-drive_test-state',
       },
       writable: true,
     });

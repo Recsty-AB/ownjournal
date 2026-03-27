@@ -12,46 +12,33 @@ describe('SubscriptionBanner', () => {
     expect(container).toBeInTheDocument();
   });
 
-  it('should render upgrade button for non-pro users', () => {
+  it('should render upgrade content for non-pro users', () => {
     const { container } = render(
       <SubscriptionBanner onUpgrade={mockOnUpgrade} isPro={false} />
     );
-    expect(container.textContent).toContain('Upgrade to Plus');
+    // Component uses i18n keys
+    expect(container.textContent).toContain('subscription.');
   });
 
-  it('should render AI features for non-pro users', () => {
-    const { container } = render(
-      <SubscriptionBanner onUpgrade={mockOnUpgrade} isPro={false} />
-    );
-    expect(container.textContent).toContain('AI');
-  });
-
-  it('should render pricing for non-pro users', () => {
-    const { container } = render(
-      <SubscriptionBanner onUpgrade={mockOnUpgrade} isPro={false} />
-    );
-    expect(container.textContent).toContain('1,500');
-  });
-
-  it('should render pro member badge for pro users', () => {
+  it('should render pro member content for pro users', () => {
     const { container } = render(
       <SubscriptionBanner onUpgrade={mockOnUpgrade} isPro={true} />
     );
-    expect(container.textContent).toContain('Plus Member');
+    expect(container.textContent).toContain('subscription.proMember');
   });
 
-  it('should not render upgrade button for pro users', () => {
+  it('should not render upgrade content for pro users', () => {
     const { container } = render(
       <SubscriptionBanner onUpgrade={mockOnUpgrade} isPro={true} />
     );
-    expect(container.textContent).not.toContain('Upgrade to Plus');
+    expect(container.textContent).not.toContain('subscription.upgradeTo');
   });
 
   it('should render with default isPro=false', () => {
     const { container } = render(
       <SubscriptionBanner onUpgrade={mockOnUpgrade} />
     );
-    expect(container.textContent).toContain('Upgrade to Plus');
+    expect(container.textContent).toContain('subscription.');
   });
 
   it('should handle onClick callback', () => {

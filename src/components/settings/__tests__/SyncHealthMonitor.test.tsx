@@ -28,7 +28,7 @@ describe('SyncHealthMonitor', () => {
 
   it('should render health status title', () => {
     const { container } = render(<SyncHealthMonitor />);
-    expect(container.textContent).toContain('Sync Health');
+    expect(container.textContent).toContain('syncHealth.title');
   });
 
   it('should render refresh button', () => {

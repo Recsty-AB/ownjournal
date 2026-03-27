@@ -4,31 +4,48 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { 
-  detectPlatform, 
-  getPlatformInfo, 
-  isPlatform, 
-  isPlatformCategory,
-  getPlatformDisplayName
-} from '../platformDetection';
+
+// We need fresh module state for each test since getPlatformInfo caches
+let detectPlatform: any;
+let getPlatformInfo: any;
+let isPlatform: any;
+let isPlatformCategory: any;
+let getPlatformDisplayName: any;
 
 describe('Platform Detection', () => {
   let originalWindow: any;
   let originalNavigator: any;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     // Store original values
     originalWindow = global.window;
     originalNavigator = global.navigator;
-    
+
+    // Clear Capacitor/Electron globals
+    delete (global.window as any).Capacitor;
+    delete (global.window as any).electronAPI;
+    delete (global.window as any).electron;
+
     // Clear localStorage
     localStorage.clear();
+
+    // Re-import module to reset cached singleton
+    vi.resetModules();
+    const mod = await import('../platformDetection');
+    detectPlatform = mod.detectPlatform;
+    getPlatformInfo = mod.getPlatformInfo;
+    isPlatform = mod.isPlatform;
+    isPlatformCategory = mod.isPlatformCategory;
+    getPlatformDisplayName = mod.getPlatformDisplayName;
   });
 
   afterEach(() => {
     // Restore original values
     global.window = originalWindow;
     global.navigator = originalNavigator;
+    delete (global.window as any).Capacitor;
+    delete (global.window as any).electronAPI;
+    delete (global.window as any).electron;
     vi.clearAllMocks();
   });
 
@@ -92,12 +109,13 @@ describe('Platform Detection', () => {
 
     it('should detect Electron platform', () => {
       (global.window as any).electronAPI = {
+        isElectron: true,
         platform: 'darwin'
       };
 
       const platform = detectPlatform();
-      
-      expect(platform.platform).toBe('electron');
+
+      expect(platform.platform).toBe('electron-mac');
       expect(platform.category).toBe('desktop');
       expect(platform.isElectron).toBe(true);
       expect(platform.isDesktop).toBe(true);
@@ -209,29 +227,28 @@ describe('Platform Detection', () => {
       expect(name).toBe('Android App');
     });
 
-    it('should return "Desktop App" for Electron', () => {
+    it('should return "macOS App" for Electron on macOS', () => {
       (global.window as any).electronAPI = {
+        isElectron: true,
         platform: 'darwin'
       };
 
       const name = getPlatformDisplayName();
-      expect(name).toBe('Desktop App');
+      expect(name).toBe('macOS App');
     });
   });
 
   describe('Edge Cases', () => {
-    it('should handle missing window object gracefully', () => {
-      const tempWindow = global.window;
-      // @ts-ignore
-      delete global.window;
+    it('should handle clean window object gracefully', () => {
+      // When no Capacitor or Electron globals exist, should default to web
+      delete (global.window as any).Capacitor;
+      delete (global.window as any).electronAPI;
+      delete (global.window as any).electron;
 
       const platform = detectPlatform();
-      
-      // Should default to web with safe values
-      expect(platform.platform).toBeDefined();
-      expect(platform.category).toBeDefined();
 
-      global.window = tempWindow;
+      expect(platform.platform).toBe('web');
+      expect(platform.category).toBe('web');
     });
 
     it('should handle Capacitor with unsupported platform', () => {
@@ -265,7 +282,7 @@ describe('Platform Detection', () => {
       expect(platform.isElectron).toBe(false);
     });
 
-    it('should report correct capabilities for Capacitor', () => {
+    it('should report correct capabilities for Capacitor', async () => {
       (global.window as any).Capacitor = {
         getPlatform: () => 'ios',
         isNativePlatform: () => true,
@@ -275,15 +292,18 @@ describe('Platform Detection', () => {
         }
       };
 
-      const platform = detectPlatform();
-      
+      // Re-import to pick up new Capacitor global
+      vi.resetModules();
+      const mod = await import('../platformDetection');
+      const platform = mod.detectPlatform();
+
       expect(platform.isCapacitor).toBe(true);
       expect(platform.isMobile).toBe(true);
       expect(platform.supportsDeepLinking).toBe(true);
       expect(platform.supportsPopupOAuth).toBe(false);
     });
 
-    it('should report correct capabilities for Electron', () => {
+    it('should report correct capabilities for Electron', async () => {
       (global.window as any).electronAPI = {
         isElectron: true,
         platform: 'darwin',
@@ -291,8 +311,11 @@ describe('Platform Detection', () => {
         onMessage: vi.fn()
       };
 
-      const platform = detectPlatform();
-      
+      // Re-import to pick up new electronAPI global
+      vi.resetModules();
+      const mod = await import('../platformDetection');
+      const platform = mod.detectPlatform();
+
       expect(platform.isElectron).toBe(true);
       expect(platform.isDesktop).toBe(true);
       expect(platform.supportsNativeFileSystem).toBe(true);
