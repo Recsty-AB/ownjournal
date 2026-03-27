@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.0.5 (Unreleased)
+## v1.0.5 (Mar 29, 2026)
 
 ### Features
 - **Apple Sign-In** — sign in with your Apple ID
