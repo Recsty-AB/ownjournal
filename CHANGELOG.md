@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.0.6 (Mar 29, 2026)
+
+### Improvements
+- Camera hardware no longer required — app can now be installed on devices without a camera
+
+---
+
 ## v1.0.5 (Mar 29, 2026)
 
 ### Features
