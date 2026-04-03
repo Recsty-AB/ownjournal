@@ -36,13 +36,16 @@ interface SettingsDialogProps {
   isPro?: boolean;
   isUpgrading?: boolean;
   onSignOut?: () => void;
+  subscriptionStatus?: string | null;
+  hasUsedTrial?: boolean;
+  currentPeriodEnd?: string | null;
 }
 
-export const SettingsDialog = ({ 
-  open, 
-  onOpenChange, 
+export const SettingsDialog = ({
+  open,
+  onOpenChange,
   onExportData,
-  onExportToFile, 
+  onExportToFile,
   onImportData,
   isDarkMode,
   onToggleTheme,
@@ -52,6 +55,9 @@ export const SettingsDialog = ({
   isPro = false,
   isUpgrading = false,
   onSignOut,
+  subscriptionStatus,
+  hasUsedTrial,
+  currentPeriodEnd,
 }: SettingsDialogProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -516,13 +522,16 @@ export const SettingsDialog = ({
         {/* Subscription */}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold">{t('settings.sections.subscription')}</h3>
-          <SubscriptionBanner 
-            onUpgrade={onUpgrade} 
+          <SubscriptionBanner
+            onUpgrade={onUpgrade}
             isPro={isPro}
             isLoading={isUpgrading}
             onManageSubscription={handleManageSubscription}
             isManagingSubscription={isManagingSubscription}
             hasStripeCustomer={!!stripeCustomerId}
+            subscriptionStatus={subscriptionStatus}
+            hasUsedTrial={hasUsedTrial}
+            currentPeriodEnd={currentPeriodEnd}
           />
         </div>
 

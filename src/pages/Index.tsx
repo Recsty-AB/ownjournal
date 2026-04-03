@@ -85,6 +85,9 @@ const Index = () => {
     return localStorage.getItem("cloudSetupDone") === "true";
   });
   const [isPro, setIsPro] = useState(false);
+  const [subscriptionStatus, setSubscriptionStatus] = useState<string | null>(null);
+  const [hasUsedTrial, setHasUsedTrial] = useState(true); // default true to avoid flashing trial CTA
+  const [currentPeriodEnd, setCurrentPeriodEnd] = useState<string | null>(null);
   const [showExportDialog, setShowExportDialog] = useState(false);
   const [journalName, setJournalName] = useState(() => journalNameStorage.getJournalName());
   const [showHelpDialog, setShowHelpDialog] = useState(false);
@@ -804,27 +807,38 @@ const Index = () => {
   const fetchSubscription = useCallback(async () => {
     if (!user) {
       setIsPro(false);
+      setSubscriptionStatus(null);
+      setHasUsedTrial(true);
+      setCurrentPeriodEnd(null);
       return;
     }
 
     try {
       const { data, error } = await supabase
         .from("subscriptions")
-        .select("is_pro, current_period_end")
+        .select("is_pro, current_period_end, subscription_status, has_used_trial")
         .eq("user_id", user.id)
         .single();
 
       if (error) throw error;
       const isPro = data?.is_pro || false;
       setIsPro(isPro);
+      setSubscriptionStatus(data?.subscription_status ?? null);
+      setHasUsedTrial(data?.has_used_trial ?? false);
+      setCurrentPeriodEnd(data?.current_period_end ?? null);
       setCachedSubscription(user.id, {
         is_pro: isPro,
         current_period_end: data?.current_period_end ?? null,
+        subscription_status: data?.subscription_status ?? null,
+        has_used_trial: data?.has_used_trial ?? false,
       });
     } catch (error) {
       if (import.meta.env.DEV) console.error("Failed to fetch subscription:", error);
       const cached = getCachedSubscription(user.id);
       setIsPro(cached?.is_pro ?? false);
+      setSubscriptionStatus(cached?.subscription_status ?? null);
+      setHasUsedTrial(cached?.has_used_trial ?? false);
+      setCurrentPeriodEnd(cached?.current_period_end ?? null);
     }
   }, [user]);
 
@@ -842,10 +856,16 @@ const Index = () => {
       const newUrl = window.location.pathname;
       window.history.replaceState({}, '', newUrl);
       
-      // Show success toast
+      // Show success toast (trial-specific or regular)
+      const wasTrial = sessionStorage.getItem('ownjournal_trial_checkout') === 'true';
+      sessionStorage.removeItem('ownjournal_trial_checkout');
       toast({
-        title: t('subscription.upgradeSuccess', 'Welcome to OwnJournal Plus!'),
-        description: t('subscription.upgradeSuccessDesc', 'Your subscription is now active. Enjoy all Pro features!'),
+        title: wasTrial
+          ? t('subscription.trialStarted', 'Your free trial has started!')
+          : t('subscription.upgradeSuccess', 'Welcome to OwnJournal Plus!'),
+        description: wasTrial
+          ? t('subscription.trialStartedDesc', 'Enjoy 10 days of Plus features for free.')
+          : t('subscription.upgradeSuccessDesc', 'Your subscription is now active. Enjoy all Pro features!'),
         duration: 8000,
       });
       
@@ -2396,7 +2416,7 @@ const Index = () => {
 
       // Pass origin, locale, and detected currency for multi-currency checkout
       const { data, error } = await supabase.functions.invoke("create-checkout", {
-        body: { origin, locale: i18n.language, currency },
+        body: { origin, locale: i18n.language, currency, trial: !hasUsedTrial },
         headers: {
           Authorization: `Bearer ${currentSession.access_token}`,
         },
@@ -2423,6 +2443,13 @@ const Index = () => {
         await fetchSubscription();
         setIsUpgrading(false);
         return;
+      }
+
+      // Track whether this was a trial checkout for the success toast (survives page reload)
+      if (data?.trial) {
+        sessionStorage.setItem('ownjournal_trial_checkout', 'true');
+      } else {
+        sessionStorage.removeItem('ownjournal_trial_checkout');
       }
 
       // Redirect to Stripe checkout
@@ -2900,6 +2927,9 @@ const Index = () => {
         isPro={isPro}
         isUpgrading={isUpgrading}
         onSignOut={handleSignOut}
+        subscriptionStatus={subscriptionStatus}
+        hasUsedTrial={hasUsedTrial}
+        currentPeriodEnd={currentPeriodEnd}
       />
 
       <ExportDialog
@@ -2913,7 +2943,7 @@ const Index = () => {
       <main className="container mx-auto max-w-4xl h-[calc(100vh-4rem)]">
         <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
 
-          <SubscriptionBanner onUpgrade={handleUpgrade} isPro={isPro} isLoading={isUpgrading} />
+          <SubscriptionBanner onUpgrade={handleUpgrade} isPro={isPro} isLoading={isUpgrading} subscriptionStatus={subscriptionStatus} hasUsedTrial={hasUsedTrial} currentPeriodEnd={currentPeriodEnd} />
 
           {entries.length >= 3 && <TrendAnalysis entries={entries} isPro={isPro} />}
 

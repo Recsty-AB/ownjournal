@@ -201,6 +201,7 @@ serve(async (req) => {
           current_period_start: new Date(existingSub.current_period_start * 1000).toISOString(),
           current_period_end: new Date(existingSub.current_period_end * 1000).toISOString(),
           updated_at: new Date().toISOString(),
+          ...(existingSub.status === 'trialing' && { has_used_trial: true }),
         })
         .eq('user_id', userId);
 
@@ -217,6 +218,19 @@ serve(async (req) => {
     const origin = body.origin || 'https://ownjournal.app';
     const stripeLocale = getStripeLocale(body.locale || 'auto');
     const requestedCurrency = body.currency || 'USD';
+    const requestTrial = body.trial === true;
+
+    // Check trial eligibility (flag is only set in webhook when trial actually starts)
+    let eligibleForTrial = false;
+    if (requestTrial) {
+      const { data: trialRecord } = await supabaseAdmin
+        .from('subscriptions')
+        .select('has_used_trial')
+        .eq('user_id', userId)
+        .maybeSingle();
+
+      eligibleForTrial = !trialRecord?.has_used_trial;
+    }
     
     // Select the appropriate price ID based on requested currency
     const priceId = CURRENCY_PRICE_IDS[requestedCurrency] || DEFAULT_PRICE_ID;
@@ -252,13 +266,14 @@ serve(async (req) => {
         metadata: {
           user_id: userId,
         },
+        ...(eligibleForTrial && { trial_period_days: 10 }),
       },
     });
 
     console.log('Checkout session created:', session.id);
 
     return new Response(
-      JSON.stringify({ url: session.url }), 
+      JSON.stringify({ url: session.url, trial: eligibleForTrial }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       }

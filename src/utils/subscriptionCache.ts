@@ -9,6 +9,8 @@ export interface CachedSubscription {
   is_pro: boolean;
   fetched_at: number;
   current_period_end?: string | null;
+  subscription_status?: string | null;
+  has_used_trial?: boolean;
 }
 
 function cacheKey(userId: string): string {
@@ -28,7 +30,11 @@ export function getCachedSubscription(userId: string): CachedSubscription | null
     if (typeof cached?.is_pro !== 'boolean' || typeof cached?.fetched_at !== 'number') return null;
     if (cached.current_period_end) {
       const end = new Date(cached.current_period_end).getTime();
-      if (Number.isNaN(end) || Date.now() > end) return null;
+      if (Number.isNaN(end) || Date.now() > end) {
+        // Subscription expired — revoke is_pro but preserve other fields
+        // so has_used_trial remains accurate while offline
+        return { ...cached, is_pro: false };
+      }
     }
     return cached;
   } catch {
@@ -41,13 +47,15 @@ export function getCachedSubscription(userId: string): CachedSubscription | null
  */
 export function setCachedSubscription(
   userId: string,
-  data: { is_pro: boolean; current_period_end?: string | null }
+  data: { is_pro: boolean; current_period_end?: string | null; subscription_status?: string | null; has_used_trial?: boolean }
 ): void {
   try {
     const entry: CachedSubscription = {
       is_pro: data.is_pro,
       fetched_at: Date.now(),
       current_period_end: data.current_period_end ?? undefined,
+      subscription_status: data.subscription_status ?? undefined,
+      has_used_trial: data.has_used_trial ?? undefined,
     };
     localStorage.setItem(cacheKey(userId), JSON.stringify(entry));
   } catch (e) {

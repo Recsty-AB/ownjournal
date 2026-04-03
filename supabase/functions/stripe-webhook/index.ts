@@ -95,13 +95,14 @@ serve(async (req) => {
             stripe_customer_id: customerId,
             subscription_status: subscription.status,
             plan_name: 'plus',
-            current_period_start: subscription.current_period_start 
-              ? new Date(subscription.current_period_start * 1000).toISOString() 
+            current_period_start: subscription.current_period_start
+              ? new Date(subscription.current_period_start * 1000).toISOString()
               : null,
-            current_period_end: subscription.current_period_end 
-              ? new Date(subscription.current_period_end * 1000).toISOString() 
+            current_period_end: subscription.current_period_end
+              ? new Date(subscription.current_period_end * 1000).toISOString()
               : null,
             updated_at: new Date().toISOString(),
+            ...(subscription.status === 'trialing' && { has_used_trial: true }),
           })
           .eq('user_id', userId);
 
@@ -141,13 +142,14 @@ serve(async (req) => {
             subscription_status: subscription.status,
             stripe_subscription_id: subscription.id,
             plan_name: 'plus',
-            current_period_start: subscription.current_period_start 
-              ? new Date(subscription.current_period_start * 1000).toISOString() 
+            current_period_start: subscription.current_period_start
+              ? new Date(subscription.current_period_start * 1000).toISOString()
               : null,
-            current_period_end: subscription.current_period_end 
-              ? new Date(subscription.current_period_end * 1000).toISOString() 
+            current_period_end: subscription.current_period_end
+              ? new Date(subscription.current_period_end * 1000).toISOString()
               : null,
             updated_at: new Date().toISOString(),
+            ...(subscription.status === 'trialing' && { has_used_trial: true }),
           };
 
           console.log(`Updating subscription for user ${targetUserId} (found by customer ID):`, JSON.stringify(updatePayload));
@@ -170,13 +172,14 @@ serve(async (req) => {
             subscription_status: subscription.status,
             stripe_subscription_id: subscription.id,
             plan_name: 'plus',
-            current_period_start: subscription.current_period_start 
-              ? new Date(subscription.current_period_start * 1000).toISOString() 
+            current_period_start: subscription.current_period_start
+              ? new Date(subscription.current_period_start * 1000).toISOString()
               : null,
-            current_period_end: subscription.current_period_end 
-              ? new Date(subscription.current_period_end * 1000).toISOString() 
+            current_period_end: subscription.current_period_end
+              ? new Date(subscription.current_period_end * 1000).toISOString()
               : null,
             updated_at: new Date().toISOString(),
+            ...(subscription.status === 'trialing' && { has_used_trial: true }),
           };
 
           console.log(`Updating subscription for user ${userId} (found by metadata):`, JSON.stringify(updatePayload));
