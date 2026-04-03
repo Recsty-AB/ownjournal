@@ -1530,6 +1530,13 @@
       "wordExport": "Word-documentexport",
       "imageUpload": "Foto-herinneringen"
     },
+    "trialCta": "Gratis proefperiode starten",
+    "trialPricing": "10 dagen gratis, daarna {{yearlyPrice}}/jaar",
+    "trialMember": "Plus-proefperiode",
+    "trialDaysRemaining": "Nog {{days}} dagen in je gratis proefperiode",
+    "trialLastDay": "Laatste dag van je gratis proefperiode",
+    "trialStarted": "Je gratis proefperiode is gestart!",
+    "trialStartedDesc": "Geniet 10 dagen gratis van alle Plus-functies.",
     "upgradeSuccess": "Welkom bij OwnJournal Plus!",
     "upgradeSuccessDesc": "Uw abonnement is nu actief. Geniet van alle Plus-functies!",
     "checkoutCanceled": "Afrekenen geannuleerd",

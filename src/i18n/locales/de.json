@@ -1530,6 +1530,13 @@
       "wordExport": "Word-Dokument-Export",
       "imageUpload": "Foto-Erinnerungen"
     },
+    "trialCta": "Kostenlos testen",
+    "trialPricing": "10 Tage kostenlos, danach {{yearlyPrice}}/Jahr",
+    "trialMember": "Plus-Testversion",
+    "trialDaysRemaining": "Noch {{days}} Tage in deiner kostenlosen Testversion",
+    "trialLastDay": "Letzter Tag deiner kostenlosen Testversion",
+    "trialStarted": "Deine kostenlose Testversion hat begonnen!",
+    "trialStartedDesc": "Genieße 10 Tage lang alle Plus-Funktionen kostenlos.",
     "upgradeSuccess": "Willkommen bei OwnJournal Plus!",
     "upgradeSuccessDesc": "Ihr Abonnement ist jetzt aktiv. Genießen Sie alle Plus-Funktionen!",
     "checkoutCanceled": "Bezahlung abgebrochen",

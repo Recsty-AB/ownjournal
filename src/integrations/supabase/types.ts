@@ -82,6 +82,7 @@ export type Database = {
           created_at: string
           current_period_end: string | null
           current_period_start: string | null
+          has_used_trial: boolean
           id: string
           is_pro: boolean | null
           plan_name: string | null
@@ -95,6 +96,7 @@ export type Database = {
           created_at?: string
           current_period_end?: string | null
           current_period_start?: string | null
+          has_used_trial?: boolean | null
           id?: string
           is_pro?: boolean | null
           plan_name?: string | null
@@ -108,6 +110,7 @@ export type Database = {
           created_at?: string
           current_period_end?: string | null
           current_period_start?: string | null
+          has_used_trial?: boolean | null
           id?: string
           is_pro?: boolean | null
           plan_name?: string | null

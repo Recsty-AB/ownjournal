@@ -1530,6 +1530,13 @@
       "wordExport": "Word 文件匯出",
       "imageUpload": "照片回憶"
     },
+    "trialCta": "開始免費試用",
+    "trialPricing": "免費試用10天，之後{{yearlyPrice}}/年",
+    "trialMember": "Plus 試用",
+    "trialDaysRemaining": "免費試用還剩 {{days}} 天",
+    "trialLastDay": "免費試用最後一天",
+    "trialStarted": "您的免費試用已開始！",
+    "trialStartedDesc": "免費享受10天Plus功能。",
     "upgradeSuccess": "歡迎使用 OwnJournal Plus！",
     "upgradeSuccessDesc": "您的訂閱已啟用。享受所有 Plus 功能！",
     "checkoutCanceled": "結帳已取消",

@@ -1530,6 +1530,13 @@
       "wordExport": "Word-dokumenteksport",
       "imageUpload": "Fotominner"
     },
+    "trialCta": "Start gratis prøveperiode",
+    "trialPricing": "10 dager gratis, deretter {{yearlyPrice}}/år",
+    "trialMember": "Plus-prøveperiode",
+    "trialDaysRemaining": "{{days}} dager igjen av din gratis prøveperiode",
+    "trialLastDay": "Siste dag av din gratis prøveperiode",
+    "trialStarted": "Din gratis prøveperiode har startet!",
+    "trialStartedDesc": "Nyt 10 dager med Plus-funksjoner gratis.",
     "upgradeSuccess": "Velkommen til OwnJournal Plus!",
     "upgradeSuccessDesc": "Abonnementet ditt er nå aktivt. Nyt alle Plus-funksjonene!",
     "checkoutCanceled": "Betaling avbrutt",

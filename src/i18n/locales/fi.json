@@ -1530,6 +1530,13 @@
       "wordExport": "Word-asiakirjavienti",
       "imageUpload": "Kuvien lataus"
     },
+    "trialCta": "Aloita ilmainen kokeilu",
+    "trialPricing": "10 päivää ilmaiseksi, sitten {{yearlyPrice}}/vuosi",
+    "trialMember": "Plus-kokeilu",
+    "trialDaysRemaining": "{{days}} päivää jäljellä ilmaisesta kokeilusta",
+    "trialLastDay": "Ilmaisen kokeilun viimeinen päivä",
+    "trialStarted": "Ilmainen kokeilusi on alkanut!",
+    "trialStartedDesc": "Nauti 10 päivää Plus-ominaisuuksia ilmaiseksi.",
     "upgradeSuccess": "Tervetuloa OwnJournal Plus -käyttäjäksi!",
     "upgradeSuccessDesc": "Tilauksesi on nyt aktiivinen. Nauti kaikista Plus-ominaisuuksista!",
     "checkoutCanceled": "Maksaminen peruutettu",

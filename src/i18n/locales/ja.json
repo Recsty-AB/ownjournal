@@ -1533,6 +1533,13 @@
       "wordExport": "Word文書エクスポート",
       "imageUpload": "フォトメモリー"
     },
+    "trialCta": "無料トライアルを始める",
+    "trialPricing": "10日間無料、その後{{yearlyPrice}}/年",
+    "trialMember": "Plusトライアル",
+    "trialDaysRemaining": "無料トライアル残り{{days}}日",
+    "trialLastDay": "無料トライアル最終日",
+    "trialStarted": "無料トライアルが始まりました！",
+    "trialStartedDesc": "10日間、Plusの全機能を無料でお楽しみください。",
     "upgradeSuccess": "OwnJournal Plusへようこそ！",
     "upgradeSuccessDesc": "サブスクリプションが有効になりました。すべてのPlus機能をお楽しみください！",
     "checkoutCanceled": "チェックアウトがキャンセルされました",
