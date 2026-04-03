@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.0.7 (Apr 4, 2026)
+
+### Features
+- **10-day free trial** — try all Plus features free for 10 days before subscribing
+- Trial status banner with days remaining countdown
+- Translated trial UI into all 17 supported languages
+
+---
+
 ## v1.0.6 (Mar 29, 2026)
 
 ### Improvements
