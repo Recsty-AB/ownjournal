@@ -38,7 +38,6 @@ interface SettingsDialogProps {
   onSignOut?: () => void;
   subscriptionStatus?: string | null;
   hasUsedTrial?: boolean;
-  currentPeriodEnd?: string | null;
 }
 
 export const SettingsDialog = ({
@@ -57,7 +56,6 @@ export const SettingsDialog = ({
   onSignOut,
   subscriptionStatus,
   hasUsedTrial,
-  currentPeriodEnd,
 }: SettingsDialogProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -531,7 +529,6 @@ export const SettingsDialog = ({
             hasStripeCustomer={!!stripeCustomerId}
             subscriptionStatus={subscriptionStatus}
             hasUsedTrial={hasUsedTrial}
-            currentPeriodEnd={currentPeriodEnd}
           />
         </div>
 

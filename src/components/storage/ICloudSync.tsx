@@ -596,25 +596,9 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
     });
   };
 
-  // If platform doesn't support iCloud, show unavailable message
+  // iCloud is not supported on Android — hide completely
   if (!isPlatformSupported) {
-    return (
-      <Card className="p-6 border-dashed opacity-60">
-        <div className="flex items-center gap-3 mb-4">
-          <ICloudIcon className="w-5 h-5 text-muted-foreground" />
-          <h3 className="text-lg font-semibold text-muted-foreground">{t('storage.icloud')}</h3>
-        </div>
-        <Alert>
-          <AlertCircle className="h-4 w-4" />
-          <AlertDescription>
-            <strong>{t('providers.icloud.notAvailable')}</strong>
-            <p className="mt-2 text-sm">
-              {t('providers.icloud.notAvailableDesc')}
-            </p>
-          </AlertDescription>
-        </Alert>
-      </Card>
-    );
+    return null;
   }
 
   return (

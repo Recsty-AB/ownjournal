@@ -864,7 +864,7 @@ const Index = () => {
           ? t('subscription.trialStarted', 'Your free trial has started!')
           : t('subscription.upgradeSuccess', 'Welcome to OwnJournal Plus!'),
         description: wasTrial
-          ? t('subscription.trialStartedDesc', 'Enjoy 10 days of Plus features for free.')
+          ? t('subscription.trialStartedDesc', 'Enjoy 14 days of Plus features for free.')
           : t('subscription.upgradeSuccessDesc', 'Your subscription is now active. Enjoy all Pro features!'),
         duration: 8000,
       });
@@ -2877,7 +2877,6 @@ const Index = () => {
         onSignOut={handleSignOut}
         subscriptionStatus={subscriptionStatus}
         hasUsedTrial={hasUsedTrial}
-        currentPeriodEnd={currentPeriodEnd}
       />
 
       <ExportDialog
@@ -2891,7 +2890,7 @@ const Index = () => {
       <main className="container mx-auto max-w-4xl h-[calc(100vh-4rem)]">
         <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
 
-          <SubscriptionBanner onUpgrade={handleUpgrade} isPro={isPro} isLoading={isUpgrading} subscriptionStatus={subscriptionStatus} hasUsedTrial={hasUsedTrial} currentPeriodEnd={currentPeriodEnd} />
+          <SubscriptionBanner onUpgrade={handleUpgrade} isPro={isPro} isLoading={isUpgrading} subscriptionStatus={subscriptionStatus} hasUsedTrial={hasUsedTrial} />
 
           {entries.length >= 3 && <TrendAnalysis entries={entries} isPro={isPro} />}
 
