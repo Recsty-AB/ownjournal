@@ -227,7 +227,7 @@ export const Header = ({
                 </Button>
               </DropdownMenuTrigger>
 
-              <DropdownMenuContent className="w-56 z-[200]" align="end" forceMount>
+              <DropdownMenuContent className="w-56 z-[200]" align="end">
                 <div 
                   className="flex items-center justify-start gap-2 p-2 cursor-pointer rounded-sm hover:bg-accent transition-colors"
                   onClick={() => {

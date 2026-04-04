@@ -1696,6 +1696,67 @@ const Index = () => {
     }
   };
 
+  /**
+   * Open OAuth URL in system browser on Capacitor and listen for the
+   * Universal Link callback. Shared by Google and Apple sign-in flows.
+   * Returns true if the browser was opened, false if caller should fall through.
+   */
+  const openCapacitorOAuth = async (url: string): Promise<boolean> => {
+    try {
+      const { Browser } = await import('@capacitor/browser');
+      const { App } = await import('@capacitor/app');
+
+      let handled = false;
+      const listener = await App.addListener('appUrlOpen', async (event) => {
+        if (handled) return;
+        if (!event.url.includes('/oauth-callback') && !event.url.includes('access_token')) return;
+
+        handled = true;
+        try {
+          await Browser.close();
+
+          const parsed = new URL(event.url);
+          const hashParams = new URLSearchParams(parsed.hash.substring(1));
+          const accessToken = hashParams.get('access_token');
+          const refreshToken = hashParams.get('refresh_token');
+
+          if (accessToken && refreshToken) {
+            const { error: sessionError } = await supabase.auth.setSession({
+              access_token: accessToken,
+              refresh_token: refreshToken,
+            });
+            if (sessionError) {
+              toast({ title: t('auth.error'), description: sessionError.message, variant: "destructive" });
+            }
+          }
+        } catch (parseError) {
+          if (import.meta.env.DEV) console.error('Error parsing OAuth callback:', parseError);
+        }
+        await listener.remove();
+      });
+
+      await Browser.open({ url, presentationStyle: 'popover' });
+
+      // Timeout: clean up if Universal Links don't redirect back (e.g. iOS simulator)
+      setTimeout(async () => {
+        if (!handled) {
+          await listener.remove();
+          try { await Browser.close(); } catch (_) {}
+          toast({
+            title: t('auth.error'),
+            description: 'Authentication could not complete. If testing on iOS simulator, please use a real device — OAuth redirect requires Universal Links which are not available in the simulator.',
+            variant: "destructive",
+          });
+        }
+      }, 2 * 60 * 1000);
+
+      return true;
+    } catch (browserError) {
+      if (import.meta.env.DEV) console.error('Failed to open system browser:', browserError);
+      return false;
+    }
+  };
+
   const handleGoogleSignIn = async () => {
     try {
       // Check for in-app browser first (LINE, Facebook, Instagram, etc.)
@@ -1741,70 +1802,9 @@ const Index = () => {
         if (isCapacitor) {
           // On Capacitor, use system browser (Safari/Chrome) to avoid WebView block
           // Google blocks OAuth in embedded WebViews with "disallowed_useragent" error
-          try {
-            const { Browser } = await import('@capacitor/browser');
-            const { App } = await import('@capacitor/app');
-            
-            // Set up listener for when app is opened via App Link
-            const listener = await App.addListener('appUrlOpen', async (event) => {
-              if (import.meta.env.DEV) {
-                console.log('🔗 App opened with URL:', event.url);
-              }
-              
-              // Check if this is our OAuth callback URL
-              if (event.url.includes('/oauth-callback') || event.url.includes('access_token')) {
-                try {
-                  // Close the browser
-                  await Browser.close();
-                  
-                  // Parse tokens from URL - they're in the hash fragment
-                  // URL format: https://app.ownjournal.app/oauth-callback#access_token=...&refresh_token=...
-                  const url = new URL(event.url);
-                  const hashParams = new URLSearchParams(url.hash.substring(1));
-                  const accessToken = hashParams.get('access_token');
-                  const refreshToken = hashParams.get('refresh_token');
-                  
-                  if (accessToken && refreshToken) {
-                    if (import.meta.env.DEV) {
-                      console.log('🔐 Setting session from OAuth callback...');
-                    }
-                    
-                    const { error: sessionError } = await supabase.auth.setSession({
-                      access_token: accessToken,
-                      refresh_token: refreshToken,
-                    });
-                    
-                    if (sessionError) {
-                      if (import.meta.env.DEV) console.error('Failed to set session:', sessionError);
-                      toast({
-                        title: t('auth.error'),
-                        description: sessionError.message,
-                        variant: "destructive",
-                      });
-                    } else {
-                      if (import.meta.env.DEV) {
-                        console.log('✅ Session set successfully');
-                      }
-                    }
-                  }
-                } catch (parseError) {
-                  if (import.meta.env.DEV) console.error('Error parsing OAuth callback:', parseError);
-                }
-                
-                // Remove listener after handling
-                await listener.remove();
-              }
-            });
-            
-            await Browser.open({ 
-              url: data.url,
-              presentationStyle: 'popover' 
-            });
-            return;
-          } catch (browserError) {
-            if (import.meta.env.DEV) console.error('Failed to open system browser:', browserError);
-            // Fall through to regular redirect as fallback
-          }
+          const opened = await openCapacitorOAuth(data.url);
+          if (opened) return;
+          // Fall through to regular redirect as fallback
         }
         
         // Detect custom domain (not localhost)
@@ -1887,61 +1887,9 @@ const Index = () => {
       if (data?.url) {
         if (isCapacitor) {
           // On Capacitor, use system browser and listen for App Link callback
-          try {
-            const { Browser } = await import('@capacitor/browser');
-            const { App } = await import('@capacitor/app');
-            
-            // Set up listener for when app is opened via App Link
-            const listener = await App.addListener('appUrlOpen', async (event) => {
-              if (import.meta.env.DEV) {
-                console.log('🔗 App opened with URL:', event.url);
-              }
-              
-              if (event.url.includes('/oauth-callback') || event.url.includes('access_token')) {
-                try {
-                  await Browser.close();
-                  
-                  const url = new URL(event.url);
-                  const hashParams = new URLSearchParams(url.hash.substring(1));
-                  const accessToken = hashParams.get('access_token');
-                  const refreshToken = hashParams.get('refresh_token');
-                  
-                  if (accessToken && refreshToken) {
-                    if (import.meta.env.DEV) {
-                      console.log('🔐 Setting session from Apple OAuth callback...');
-                    }
-                    
-                    const { error: sessionError } = await supabase.auth.setSession({
-                      access_token: accessToken,
-                      refresh_token: refreshToken,
-                    });
-                    
-                    if (sessionError) {
-                      if (import.meta.env.DEV) console.error('Failed to set session:', sessionError);
-                      toast({
-                        title: t('auth.error'),
-                        description: sessionError.message,
-                        variant: "destructive",
-                      });
-                    }
-                  }
-                } catch (parseError) {
-                  if (import.meta.env.DEV) console.error('Error parsing OAuth callback:', parseError);
-                }
-                
-                await listener.remove();
-              }
-            });
-            
-            await Browser.open({ 
-              url: data.url,
-              presentationStyle: 'popover' 
-            });
-            return;
-          } catch (browserError) {
-            if (import.meta.env.DEV) console.error('Failed to open system browser:', browserError);
-            // Fall through to regular redirect as fallback
-          }
+          const opened = await openCapacitorOAuth(data.url);
+          if (opened) return;
+          // Fall through to regular redirect as fallback
         }
         
         // Detect custom domain (not localhost)
