@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.0.8 (Apr 5, 2026)
+
+### Improvements
+- **14-day free trial** — extended from 10 days to give more time to explore Plus features
+- **iOS OAuth fix** — Google and Apple sign-in now work reliably on iOS via Universal Links
+- **Cleaner Android experience** — Apple Sign-In and iCloud storage options are hidden on Android, where they are not supported
+
+### Bug Fixes
+- Fixed OAuth redirect not returning to the app on iOS native (added Universal Links and URL scheme support)
+- Fixed duplicate OAuth callback handling code (consolidated into shared helper)
+
+---
+
 ## v1.0.7 (Apr 4, 2026)
 
 ### Features
