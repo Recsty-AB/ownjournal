@@ -17,6 +17,17 @@ export const FEATURES = {
 } as const;
 
 /**
+ * Check if Apple/iCloud features should be available on the current platform.
+ * iCloud and Apple Sign-In are not supported on Android native apps.
+ */
+export function isAppleFeatureAvailable(): boolean {
+  const isAndroidNative =
+    (window as any).Capacitor?.isNativePlatform?.() === true &&
+    (window as any).Capacitor?.getPlatform?.() === 'android';
+  return !isAndroidNative;
+}
+
+/**
  * Safety constants for destructive actions
  * These are intentionally NOT translated to provide universal recognition
  */

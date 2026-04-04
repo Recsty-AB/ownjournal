@@ -266,7 +266,7 @@ serve(async (req) => {
         metadata: {
           user_id: userId,
         },
-        ...(eligibleForTrial && { trial_period_days: 10 }),
+        ...(eligibleForTrial && { trial_period_days: 14 }),
       },
     });
 

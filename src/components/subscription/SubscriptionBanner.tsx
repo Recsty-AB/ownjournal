@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Crown, Sparkles, Brain, Lightbulb, Tag, TrendingUp, FileText, FileType, Image, Loader2, ExternalLink, Clock } from "lucide-react";
+import { Crown, Sparkles, Brain, Lightbulb, Tag, TrendingUp, FileText, FileType, Image, Loader2, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedPricing } from "@/hooks/useLocalizedPricing";
 import { CurrencyCode } from "@/config/pricing";
@@ -15,7 +15,6 @@ interface SubscriptionBannerProps {
   hasStripeCustomer?: boolean;
   subscriptionStatus?: string | null;
   hasUsedTrial?: boolean;
-  currentPeriodEnd?: string | null;
 }
 
 const proFeatures = [
@@ -37,39 +36,22 @@ export const SubscriptionBanner = ({
   hasStripeCustomer = false,
   subscriptionStatus,
   hasUsedTrial = true,
-  currentPeriodEnd,
 }: SubscriptionBannerProps) => {
   const { t } = useTranslation();
   const { currency, yearlyPrice, isDetecting } = useLocalizedPricing();
 
   const isTrialing = isPro && subscriptionStatus === 'trialing';
-  const trialDaysRemaining = (() => {
-    if (!currentPeriodEnd) return null;
-    const ms = new Date(currentPeriodEnd).getTime();
-    if (Number.isNaN(ms)) return null;
-    return Math.max(0, Math.ceil((ms - Date.now()) / (1000 * 60 * 60 * 24)));
-  })();
 
   if (isPro) {
     return (
-      <Card className={`p-3 sm:p-4 text-primary-foreground shadow-glow mb-4 sm:mb-6 ${isTrialing ? 'bg-gradient-to-r from-amber-500 to-orange-500' : 'bg-gradient-primary'}`}>
+      <Card className="p-3 sm:p-4 bg-gradient-primary text-primary-foreground shadow-glow mb-4 sm:mb-6">
         <div className="flex items-center gap-3">
-          {isTrialing ? (
-            <Clock className="w-5 h-5 flex-shrink-0" />
-          ) : (
-            <Crown className="w-5 h-5 flex-shrink-0" />
-          )}
+          <Crown className="w-5 h-5 flex-shrink-0" />
           <div className="min-w-0 flex-1">
             <p className="font-semibold text-sm sm:text-base">
               {isTrialing ? t('subscription.trialMember', 'Plus Trial') : t('subscription.proMember')}
             </p>
-            <p className="text-xs sm:text-sm opacity-90">
-              {isTrialing && trialDaysRemaining !== null
-                ? (trialDaysRemaining <= 1
-                    ? t('subscription.trialLastDay', 'Last day of your free trial')
-                    : t('subscription.trialDaysRemaining', '{{days}} days remaining in your free trial', { days: trialDaysRemaining }))
-                : t('subscription.enjoyingFeatures')}
-            </p>
+            <p className="text-xs sm:text-sm opacity-90">{t('subscription.enjoyingFeatures')}</p>
           </div>
           {hasStripeCustomer && onManageSubscription && (
             <Button
@@ -121,7 +103,7 @@ export const SubscriptionBanner = ({
             <Skeleton className="h-7 sm:h-8 w-24 mx-auto" />
           ) : showTrialCta ? (
             <p className="text-xl sm:text-2xl font-bold text-primary">
-              {t('subscription.trialPricing', '10 days free, then {{yearlyPrice}}/year', { yearlyPrice })}
+              {t('subscription.trialPricing', '14 days free, then {{yearlyPrice}}/year', { yearlyPrice })}
             </p>
           ) : (
             <p className="text-xl sm:text-2xl font-bold text-primary">

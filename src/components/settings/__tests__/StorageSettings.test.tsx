@@ -93,6 +93,7 @@ vi.mock('@/components/storage/ICloudSync', () => ({
 
 vi.mock('@/config/features', () => ({
   FEATURES: { ICLOUD_ENABLED: true }, // Enable for testing
+  isAppleFeatureAvailable: () => true,
 }));
 
 vi.mock('@/components/storage/DropboxSync', () => ({

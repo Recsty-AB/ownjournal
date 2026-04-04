@@ -2,7 +2,7 @@ import { GoogleDriveSync } from "@/components/storage/GoogleDriveSync";
 import { DropboxSync } from "@/components/storage/DropboxSync";
 import { NextcloudSync } from "@/components/storage/NextcloudSync";
 import { ICloudSync } from "@/components/storage/ICloudSync";
-import { FEATURES } from "@/config/features";
+import { FEATURES, isAppleFeatureAvailable } from "@/config/features";
 import { ProviderTransfer } from "@/components/settings/ProviderTransfer";
 import { JournalPasswordDialog } from "@/components/auth/JournalPasswordDialog";
 import { CloudEncryptedDataDialog } from "@/components/settings/CloudEncryptedDataDialog";
@@ -58,7 +58,7 @@ export const StorageSettings = () => {
     const names = connectionStateManager.getConnectedProviderNames();
     return {
       googledrive: names.includes('Google Drive'),
-      icloud: FEATURES.ICLOUD_ENABLED && names.includes('iCloud'),
+      icloud: FEATURES.ICLOUD_ENABLED && isAppleFeatureAvailable() && names.includes('iCloud'),
       dropbox: names.includes('Dropbox'),
       nextcloud: names.includes('Nextcloud'),
     };
@@ -208,7 +208,7 @@ export const StorageSettings = () => {
       }
       setConnectedProviders({
         googledrive: names.includes('Google Drive'),
-        icloud: FEATURES.ICLOUD_ENABLED && names.includes('iCloud'),
+        icloud: FEATURES.ICLOUD_ENABLED && isAppleFeatureAvailable() && names.includes('iCloud'),
         dropbox: names.includes('Dropbox'),
         nextcloud: names.includes('Nextcloud'),
       });
@@ -683,7 +683,7 @@ export const StorageSettings = () => {
       }
       setConnectedProviders({
         googledrive: names.includes('Google Drive'),
-        icloud: FEATURES.ICLOUD_ENABLED && names.includes('iCloud'),
+        icloud: FEATURES.ICLOUD_ENABLED && isAppleFeatureAvailable() && names.includes('iCloud'),
         dropbox: names.includes('Dropbox'),
         nextcloud: names.includes('Nextcloud'),
       });
@@ -998,7 +998,7 @@ export const StorageSettings = () => {
         // Use React state for consistent rendering instead of direct manager call
         const connectedNames: string[] = [];
         if (connectedProviders.googledrive) connectedNames.push('Google Drive');
-        if (FEATURES.ICLOUD_ENABLED && connectedProviders.icloud) connectedNames.push('iCloud');
+        if (FEATURES.ICLOUD_ENABLED && isAppleFeatureAvailable() && connectedProviders.icloud) connectedNames.push('iCloud');
         if (connectedProviders.dropbox) connectedNames.push('Dropbox');
         if (connectedProviders.nextcloud) connectedNames.push('Nextcloud');
         
@@ -1157,7 +1157,7 @@ export const StorageSettings = () => {
           onConfigChange={createConfigChangeHandler('googledrive', 'Google Drive')}
           isPrimary={primaryProviderName === 'Google Drive'}
         />
-        {FEATURES.ICLOUD_ENABLED && (
+        {FEATURES.ICLOUD_ENABLED && isAppleFeatureAvailable() && (
           <ICloudSync 
             masterKey={masterKey} 
             onRequirePassword={handleRequirePassword}

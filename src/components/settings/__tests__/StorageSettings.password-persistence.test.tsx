@@ -52,6 +52,7 @@ vi.mock('@/config/features', () => ({
     ICLOUD_ENABLED: false,
     APPLE_SIGNIN_ENABLED: false,
   },
+  isAppleFeatureAvailable: () => true,
 }));
 
 vi.mock('@/services/storageServiceV2', () => ({

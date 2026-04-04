@@ -10,7 +10,7 @@ import logo from "@/assets/logo.png";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import { authSchema } from "@/utils/validation";
-import { FEATURES } from "@/config/features";
+import { FEATURES, isAppleFeatureAvailable } from "@/config/features";
 import { SUPABASE_CONFIG } from "@/config/supabase";
 import { 
   isInAppBrowser, 
@@ -493,7 +493,7 @@ export const AuthScreen = ({ onGoogleSignIn, onAppleSignIn }: AuthScreenProps) =
                 {t('auth.continueWithGoogle')}
               </Button>
 
-              {FEATURES.APPLE_SIGNIN_ENABLED && (
+              {FEATURES.APPLE_SIGNIN_ENABLED && isAppleFeatureAvailable() && (
                 <Button
                   onClick={handleAppleSignIn}
                   disabled={isLoading !== null}
