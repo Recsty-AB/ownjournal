@@ -15,8 +15,26 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const AASA_PATH = join(__dirname, '..', 'dist', '.well-known', 'apple-app-site-association');
-const TEAM_ID = process.env.VITE_APPLE_TEAM_ID;
+const ROOT = join(__dirname, '..');
+const AASA_PATH = join(ROOT, 'dist', '.well-known', 'apple-app-site-association');
+
+// Node doesn't load .env files automatically (Vite does, but this runs after Vite).
+// Read from the shell environment first, then fall back to parsing .env.
+function loadTeamId() {
+  if (process.env.VITE_APPLE_TEAM_ID) return process.env.VITE_APPLE_TEAM_ID;
+
+  const envPath = join(ROOT, '.env');
+  if (existsSync(envPath)) {
+    const lines = readFileSync(envPath, 'utf8').split('\n');
+    for (const line of lines) {
+      const match = line.match(/^\s*VITE_APPLE_TEAM_ID\s*=\s*(.+?)\s*$/);
+      if (match) return match[1];
+    }
+  }
+  return null;
+}
+
+const TEAM_ID = loadTeamId();
 
 if (!TEAM_ID) {
   console.warn('⚠️  VITE_APPLE_TEAM_ID is not set — apple-app-site-association will contain placeholder "TEAM_ID".');
