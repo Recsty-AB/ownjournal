@@ -864,7 +864,7 @@ const Index = () => {
           ? t('subscription.trialStarted', 'Your free trial has started!')
           : t('subscription.upgradeSuccess', 'Welcome to OwnJournal Plus!'),
         description: wasTrial
-          ? t('subscription.trialStartedDesc', 'Enjoy 10 days of Plus features for free.')
+          ? t('subscription.trialStartedDesc', 'Enjoy 14 days of Plus features for free.')
           : t('subscription.upgradeSuccessDesc', 'Your subscription is now active. Enjoy all Pro features!'),
         duration: 8000,
       });

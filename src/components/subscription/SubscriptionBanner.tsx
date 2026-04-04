@@ -121,7 +121,7 @@ export const SubscriptionBanner = ({
             <Skeleton className="h-7 sm:h-8 w-24 mx-auto" />
           ) : showTrialCta ? (
             <p className="text-xl sm:text-2xl font-bold text-primary">
-              {t('subscription.trialPricing', '10 days free, then {{yearlyPrice}}/year', { yearlyPrice })}
+              {t('subscription.trialPricing', '14 days free, then {{yearlyPrice}}/year', { yearlyPrice })}
             </p>
           ) : (
             <p className="text-xl sm:text-2xl font-bold text-primary">
