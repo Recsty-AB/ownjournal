@@ -7,13 +7,13 @@ export const FEATURES = {
    * iCloud integration (CloudKit)
    * Set to true when iCloud support is ready for production
    */
-  ICLOUD_ENABLED: false,
+  ICLOUD_ENABLED: true,
 
   /**
    * Apple Sign-In (OAuth)
    * Set to true when Apple Sign-In is configured (Supabase Auth + Apple Developer)
    */
-  APPLE_SIGNIN_ENABLED: false,
+  APPLE_SIGNIN_ENABLED: true,
 } as const;
 
 /**
