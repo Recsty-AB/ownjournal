@@ -247,6 +247,13 @@ export class ICloudService implements CloudProvider {
         if (import.meta.env.DEV) console.log('🔐 [iCloud] Apple ID sign-in required');
         throw new NeedsAppleSignInError(container);
       }
+      // Check if running on a native platform (Capacitor) where the origin is non-HTTPS
+      const isNative = !!(window as any).Capacitor?.isNativePlatform?.();
+      if (isNative) {
+        if (import.meta.env.DEV) console.warn(`🔐 [iCloud] CloudKit JS does not support native app origins (${origin}). Add "${origin}" to Allowed Origins in CloudKit Dashboard, or use "Any Domain".`);
+        _originRejected = null; // Don't cache — user might fix it in dashboard
+        throw new Error(`CloudKit JS is not supported on native iOS/Android. The app origin "${origin}" is not recognized by CloudKit. In CloudKit Dashboard → API Tokens → Allowed Origins, add "${origin}" or select "Any Domain".`);
+      }
       if (import.meta.env.DEV) console.warn(`🔐 [iCloud] Sign-in link not rendered after 6s — origin ${origin} likely not in Allowed Origins (421)`);
       // _originRejected is already set above; confirmed 421.
       throw new CloudKitOriginError(origin);
