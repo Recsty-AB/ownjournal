@@ -19,6 +19,7 @@ import sv from './locales/sv.json';
 import da from './locales/da.json';
 import nb from './locales/nb.json';
 import fi from './locales/fi.json';
+import ptBR from './locales/pt-BR.json';
 
 // Initialize i18next
 i18n
@@ -43,6 +44,7 @@ i18n
       da: { translation: da },
       nb: { translation: nb },
       fi: { translation: fi },
+      'pt-BR': { translation: ptBR },
     },
     fallbackLng: 'en',
     debug: false,
