@@ -19,6 +19,7 @@ import { JournalPasswordDialog } from "@/components/auth/JournalPasswordDialog";
 import { PasswordRecoveryDialog } from "@/components/settings/PasswordRecoveryDialog";
 import { cloudStorageService } from "@/services/cloudStorageService";
 import { SUPABASE_CONFIG } from "@/config/supabase";
+import { buildAppLink } from "@/config/app";
 import { aiCacheService } from "@/services/aiCacheService";
 import { connectionStateManager } from "@/services/connectionStateManager";
 import { supabase } from "@/integrations/supabase/client";
@@ -1775,7 +1776,7 @@ const Index = () => {
       // Check if running on Capacitor (iOS/Android native app)
       const isCapacitor = !!(window as any).Capacitor?.isNativePlatform?.();
       const redirectUrl = isCapacitor
-        ? 'https://app.ownjournal.app/oauth-callback'
+        ? buildAppLink('/oauth-callback')
         : `${window.location.origin}/web-oauth-callback`;
 
       const { data, error } = await supabase.auth.signInWithOAuth({
@@ -1855,7 +1856,7 @@ const Index = () => {
       // Check if running on Capacitor (iOS/Android native app)
       const isCapacitor = !!(window as any).Capacitor?.isNativePlatform?.();
       const redirectUrl = isCapacitor
-        ? 'https://app.ownjournal.app/oauth-callback'
+        ? buildAppLink('/oauth-callback')
         : `${window.location.origin}/web-oauth-callback`;
 
       const { data, error } = await supabase.auth.signInWithOAuth({
@@ -2358,8 +2359,8 @@ const Index = () => {
     try {
       // Use production URL for native apps (window.location.origin is localhost on Capacitor)
       const isCapacitor = !!(window as any).Capacitor?.isNativePlatform?.();
-      const origin = isCapacitor 
-        ? 'https://app.ownjournal.app' 
+      const origin = isCapacitor
+        ? buildAppLink()
         : window.location.origin;
 
       // Pass origin, locale, and detected currency for multi-currency checkout

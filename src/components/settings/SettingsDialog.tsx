@@ -1,3 +1,4 @@
+import { buildAppLink } from "@/config/app";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 import { X, AlertTriangle, LogOut, Mail } from "lucide-react";
@@ -204,7 +205,7 @@ export const SettingsDialog = ({
       }
       
       const isCapacitor = !!(window as any).Capacitor?.isNativePlatform?.();
-      const origin = isCapacitor ? 'https://app.ownjournal.app' : window.location.origin;
+      const origin = isCapacitor ? buildAppLink() : window.location.origin;
       
       const response = await supabase.functions.invoke('customer-portal', {
         body: { origin },
