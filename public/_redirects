@@ -1,5 +1,11 @@
 # Serve .well-known (e.g. assetlinks.json) as static files; must appear before any SPA catch-all
 /.well-known/*  /.well-known/:splat  200
 
+# Native OAuth trampoline: redirect storage callback to custom scheme
+# so iOS SFSafariViewController bounces back to the native app.
+# Query params (code, state) are preserved automatically.
+# Android App Links intercept before this redirect fires, so Android is unaffected.
+/storage-callback  ownjournal://storage-callback  302
+
 # SPA catch-all: serve index.html for all other routes
 /*  /index.html  200

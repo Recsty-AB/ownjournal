@@ -3,6 +3,8 @@
  * PKCE (Proof Key for Code Exchange) allows public clients to securely use OAuth
  */
 
+import { buildAppLink } from '@/config/app';
+
 /**
  * Generate a cryptographically random code verifier
  * 43-128 characters, URL-safe base64 encoded
@@ -246,10 +248,10 @@ function isNativePlatform(): boolean {
 
 /**
  * Get the OAuth redirect URI for a specific provider.
- * 
+ *
  * For native platforms (Android/iOS), uses HTTPS App Links for storage OAuth:
- * - Storage OAuth (Google Drive, Dropbox): https://app.ownjournal.app/storage-callback
- * 
+ * - Storage OAuth (Google Drive, Dropbox): https://{APP_DOMAIN}/storage-callback
+ *
  * For web:
  * - Dropbox requires trailing slash to match console config.
  * - Google Drive works with origin only.
@@ -257,7 +259,7 @@ function isNativePlatform(): boolean {
 export function getOAuthRedirectUri(provider?: 'google-drive' | 'dropbox'): string {
   // For native platforms, use HTTPS App Link for storage providers
   if (isNativePlatform() && (provider === 'google-drive' || provider === 'dropbox')) {
-    const redirectUri = 'https://app.ownjournal.app/storage-callback';
+    const redirectUri = buildAppLink('/storage-callback');
     if (import.meta.env.DEV) {
       console.log(`🔐 [${provider}] Native OAuth redirect URI:`, redirectUri);
     }

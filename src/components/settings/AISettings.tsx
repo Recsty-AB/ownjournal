@@ -1,3 +1,4 @@
+import { buildAppLink } from "@/config/app";
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -58,7 +59,7 @@ export const AISettings = ({ onUpgrade, isUpgrading = false }: AISettingsProps) 
 
       // For native apps, use the production URL since window.location.origin is localhost
       const origin = isCapacitor 
-        ? 'https://app.ownjournal.app' 
+        ? buildAppLink() 
         : window.location.origin;
 
       const response = await supabase.functions.invoke('customer-portal', {

@@ -102,14 +102,20 @@ describe('ICloudSync', () => {
   });
 
   it('should show dev setup required message', () => {
-    const { container } = render(
-      <ICloudSync
-        onConfigChange={mockOnConfigChange}
-        masterKey={mockMasterKey}
-        onRequirePassword={mockOnRequirePassword}
-      />
-    );
-    expect(container.textContent).toContain('providers.icloud.devSetupRequired');
+    vi.stubEnv('VITE_APPLE_CLOUDKIT_CONTAINER_ID', '');
+    vi.stubEnv('VITE_APPLE_CLOUDKIT_API_TOKEN', '');
+    try {
+      const { container } = render(
+        <ICloudSync
+          onConfigChange={mockOnConfigChange}
+          masterKey={mockMasterKey}
+          onRequirePassword={mockOnRequirePassword}
+        />
+      );
+      expect(container.textContent).toContain('providers.icloud.devSetupRequired');
+    } finally {
+      vi.unstubAllEnvs();
+    }
   });
 
   it('should mention iCloud in title', () => {
@@ -124,14 +130,20 @@ describe('ICloudSync', () => {
   });
 
   it('should show dev setup description', () => {
-    const { container } = render(
-      <ICloudSync
-        onConfigChange={mockOnConfigChange}
-        masterKey={mockMasterKey}
-        onRequirePassword={mockOnRequirePassword}
-      />
-    );
-    expect(container.textContent).toContain('providers.icloud.devSetupRequiredDesc');
+    vi.stubEnv('VITE_APPLE_CLOUDKIT_CONTAINER_ID', '');
+    vi.stubEnv('VITE_APPLE_CLOUDKIT_API_TOKEN', '');
+    try {
+      const { container } = render(
+        <ICloudSync
+          onConfigChange={mockOnConfigChange}
+          masterKey={mockMasterKey}
+          onRequirePassword={mockOnRequirePassword}
+        />
+      );
+      expect(container.textContent).toContain('providers.icloud.devSetupRequiredDesc');
+    } finally {
+      vi.unstubAllEnvs();
+    }
   });
 
   it('should render with null master key', () => {

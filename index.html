@@ -43,6 +43,19 @@
 
   <body>
     <div id="root"></div>
+    <!-- Native OAuth trampoline: redirect /storage-callback to ownjournal:// scheme
+         so iOS SFSafariViewController bounces back to the native app.
+         Runs before React loads to avoid any delay or auth redirect. -->
+    <script>
+      (function() {
+        if (window.Capacitor) return; // Already in native app, let React handle it
+        var p = window.location.pathname;
+        if (p === '/storage-callback' || p === '/oauth-callback') {
+          var deepLink = 'ownjournal:/' + p + window.location.search;
+          window.location.replace(deepLink);
+        }
+      })();
+    </script>
     <!-- CloudKit JS required for iCloud (CloudKit) storage - must load before app -->
     <script src="https://cdn.apple-cloudkit.com/ck/2/cloudkit.js"></script>
     <script type="module" src="/src/main.tsx"></script>

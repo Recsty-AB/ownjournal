@@ -6,6 +6,7 @@
 import { getPlatformInfo } from '@/utils/platformDetection';
 import { SUPABASE_CONFIG } from '@/config/supabase';
 import { getGoogleClientId } from '@/config/oauth';
+import { buildDeepLink } from '@/config/app';
 import {
   generateCodeVerifier,
   generateCodeChallenge,
@@ -440,7 +441,7 @@ export class AuthService {
       storePKCEVerifier(config.provider, codeVerifier, state);
       
       // Build authorization URL with deep link redirect
-      const redirectUri = config.redirectUri || 'ownjournal://oauth/callback';
+      const redirectUri = config.redirectUri || buildDeepLink('/oauth/callback');
       const authUrl = new URL(config.authUrl);
       authUrl.searchParams.set('client_id', config.clientId);
       authUrl.searchParams.set('redirect_uri', redirectUri);
