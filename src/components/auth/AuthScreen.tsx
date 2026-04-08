@@ -10,7 +10,7 @@ import logo from "@/assets/logo.png";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import { authSchema } from "@/utils/validation";
-import { FEATURES, isAppleFeatureAvailable } from "@/config/features";
+import { FEATURES, isAppleSignInAvailable } from "@/config/features";
 import { SUPABASE_CONFIG } from "@/config/supabase";
 import { 
   isInAppBrowser, 
@@ -253,7 +253,7 @@ export const AuthScreen = ({ onGoogleSignIn, onAppleSignIn }: AuthScreenProps) =
   const isForgotPassword = viewMode === 'forgot-password';
 
   return (
-    <div className="min-h-screen bg-gradient-paper flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-paper flex items-center justify-center p-4" style={{ paddingTop: 'calc(env(safe-area-inset-top) + 1rem)' }}>
       <div className="w-full max-w-md space-y-5">
         {/* Hero Section */}
         <div className="text-center space-y-2">
@@ -493,7 +493,7 @@ export const AuthScreen = ({ onGoogleSignIn, onAppleSignIn }: AuthScreenProps) =
                 {t('auth.continueWithGoogle')}
               </Button>
 
-              {FEATURES.APPLE_SIGNIN_ENABLED && isAppleFeatureAvailable() && (
+              {FEATURES.APPLE_SIGNIN_ENABLED && isAppleSignInAvailable() && (
                 <Button
                   onClick={handleAppleSignIn}
                   disabled={isLoading !== null}

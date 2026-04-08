@@ -231,22 +231,34 @@ export const JournalPasswordDialog = ({
                 {t('storage.passwordPersistence.description', 'Choose how your password is remembered on this device.')}
               </p>
               
-              <Select value={persistenceMode} onValueChange={handlePersistenceChange}>
-                <SelectTrigger className="w-full">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="localStorage">
-                    {t('storage.passwordPersistence.localStorage', 'Remember across sessions')}
-                  </SelectItem>
-                  <SelectItem value="sessionStorage">
-                    {t('storage.passwordPersistence.sessionStorage', 'Remember until browser closes')}
-                  </SelectItem>
-                  <SelectItem value="none">
-                    {t('storage.passwordPersistence.none', 'Never remember (most secure)')}
-                  </SelectItem>
-                </SelectContent>
-              </Select>
+              {!!(window as any).Capacitor?.isNativePlatform?.() && (window as any).Capacitor?.getPlatform?.() === 'ios' ? (
+                <select
+                  value={persistenceMode}
+                  onChange={(e) => handlePersistenceChange(e.target.value as any)}
+                  className="w-full h-10 px-3 py-2 rounded-md border border-input bg-background text-sm"
+                >
+                  <option value="localStorage">{t('storage.passwordPersistence.localStorage', 'Remember across sessions')}</option>
+                  <option value="sessionStorage">{t('storage.passwordPersistence.sessionStorage', 'Remember until browser closes')}</option>
+                  <option value="none">{t('storage.passwordPersistence.none', 'Never remember (most secure)')}</option>
+                </select>
+              ) : (
+                <Select value={persistenceMode} onValueChange={handlePersistenceChange}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="localStorage">
+                      {t('storage.passwordPersistence.localStorage', 'Remember across sessions')}
+                    </SelectItem>
+                    <SelectItem value="sessionStorage">
+                      {t('storage.passwordPersistence.sessionStorage', 'Remember until browser closes')}
+                    </SelectItem>
+                    <SelectItem value="none">
+                      {t('storage.passwordPersistence.none', 'Never remember (most secure)')}
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+              )}
               
               <p className="text-xs text-muted-foreground/80 italic">
                 {persistenceMode === 'localStorage' && t('storage.passwordPersistence.localStorageHint', 'Password will be securely encrypted and saved locally. You won\'t need to re-enter it.')}

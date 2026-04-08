@@ -61,6 +61,11 @@ const DATE_RANGE_OPTIONS = [
   { value: "custom" as const, label: "trendAnalysis.customRange" },
 ];
 
+// On iOS native, Radix UI's portal-based Select doesn't receive touch events
+// reliably in Capacitor's WKWebView, so fall back to a native <select>.
+const isNativeIOS = !!(window as any).Capacitor?.isNativePlatform?.() &&
+  (window as any).Capacitor?.getPlatform?.() === 'ios';
+
 export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisProps) => {
   const [analysis, setAnalysis] = useState<TrendData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -933,18 +938,30 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
             <div className="flex-shrink-0 lg:w-auto space-y-3 lg:items-end lg:flex lg:flex-col">
               {/* Action bar — dropdown and Analyze button */}
               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 w-full lg:w-auto">
-                <Select value={dateRangePreset} onValueChange={(value) => setDateRangePreset(value as DateRangePreset)}>
-                  <SelectTrigger className="w-full sm:w-[200px] min-h-11">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
+                {isNativeIOS ? (
+                  <select
+                    value={dateRangePreset}
+                    onChange={(e) => setDateRangePreset(e.target.value as DateRangePreset)}
+                    className="w-full sm:w-[200px] min-h-11 px-3 py-2 rounded-md border border-input bg-background text-sm"
+                  >
                     {DATE_RANGE_OPTIONS.map(option => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {t(option.label)}
-                      </SelectItem>
+                      <option key={option.value} value={option.value}>{t(option.label)}</option>
                     ))}
-                  </SelectContent>
-                </Select>
+                  </select>
+                ) : (
+                  <Select value={dateRangePreset} onValueChange={(value) => setDateRangePreset(value as DateRangePreset)}>
+                    <SelectTrigger className="w-full sm:w-[200px] min-h-11">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {DATE_RANGE_OPTIONS.map(option => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {t(option.label)}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                )}
 
                 <Button
                   onClick={handleAnalyze}

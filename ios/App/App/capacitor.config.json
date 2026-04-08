@@ -15,9 +15,12 @@
 	},
 	"ios": {
 		"scheme": "ownjournal",
-		"contentInset": "always"
+		"contentInset": "never",
+		"backgroundColor": "#f9f8f5"
 	},
 	"packageClassList": [
+		"CloudKitPlugin",
+		"AppleSignInPlugin",
 		"FileOpenerPlugin",
 		"BarcodeScannerPlugin",
 		"AppPlugin",
