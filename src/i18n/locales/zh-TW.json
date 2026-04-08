@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "活動",
+    "addCustom": "新增自訂活動…",
+    "exercise": "運動",
+    "social": "社交",
+    "work": "工作",
+    "travel": "旅行",
+    "poor_sleep": "睡不好",
+    "good_sleep": "睡得好",
+    "meditation": "冥想",
+    "nature": "親近自然",
+    "reading": "閱讀",
+    "creative": "創作",
+    "family": "家人",
+    "cooking": "下廚",
+    "music": "音樂",
+    "gaming": "遊戲",
+    "learning": "學習"
+  },
   "accessibility": {
     "close": "關閉",
     "toggleSidebar": "切換側邊欄",
@@ -1954,6 +1973,32 @@
       "multiDeviceSync": {
         "title": "多裝置同步",
         "desc": "在所有裝置上無縫同步您的日記。自動衝突解決功能確保即使在多台裝置上編輯，日記也不會遺失。"
+      },
+      "moodTracking": {
+        "title": "心情紀錄",
+        "desc": "寫日記的時候順手記下當下的心情，久了你就會慢慢看見自己的情緒脈絡。五個表情等級讓你快速選擇，選好後心情會直接顯示在日記旁邊。"
+      },
+      "activityTagging": {
+        "title": "活動標籤",
+        "desc": "替每篇日記標上當時正在做的事。你可以從運動、社交、工作、冥想等預設項目中挑選，也能自訂專屬活動。用活動來篩選時間軸，生活中的規律會變得更清楚。",
+        "plusHint": "升級到 Plus 就能使用活動洞察，幫你了解哪些活動可能有助於提升心情。"
+      },
+      "moodCalendar": {
+        "title": "心情月曆",
+        "desc": "用月曆的方式，一眼看到每天的心情顏色。在各個月份之間切換，觀察心情的變化趨勢。同一天寫了好幾篇日記的話，會顯示當天的平均心情。"
+      },
+      "moodStats": {
+        "title": "心情統計",
+        "desc": "透過可互動的圖表，直覺地回顧你的心情資料：",
+        "distribution": "環形圖——呈現各心情等級的佔比",
+        "overTime": "折線圖——顯示心情隨時間的走勢，附 7 天移動平均",
+        "dayOfWeek": "柱狀圖——按星期彙整，看看哪天心情最好、哪天比較低落",
+        "streaks": "連續紀錄——追蹤你維持正面心情的連續天數"
+      },
+      "activityInsights": {
+        "title": "活動洞察",
+        "desc": "探索哪些活動和較好或較差的心情有關。透過圖表查看每項活動對心情的潛在影響，並取得一份摘要，了解哪些活動最能幫你提振狀態。",
+        "proNote": "（Plus 功能）"
       }
     },
     "troubleshooting": {
@@ -2020,7 +2065,7 @@
       },
       "pro": {
         "question": "Plus 包含什麼？",
-        "answer": "Plus 包含 AI 分析、標題建議、標籤建議、趨勢分析和 PDF/Word 匯出。"
+        "answer": "Plus 包含 AI 分析、標題建議、標籤建議、趨勢分析、活動分析和 PDF/Word 匯出。"
       },
       "manageSubscription": {
         "question": "如何管理我的訂閱？",
@@ -2269,5 +2314,41 @@
     "requiredFields": "檔案應包含這些欄位：",
     "disconnectAndReset": "中斷連線並重設",
     "close": "關閉"
+  },
+  "moodCalendar": {
+    "title": "心情日曆",
+    "noEntries": "尚無紀錄"
+  },
+  "moodStats": {
+    "title": "心情統計",
+    "distribution": "心情分佈",
+    "overTime": "心情變化",
+    "dayOfWeek": "依星期",
+    "streaks": "連續紀錄",
+    "currentStreak": "目前連續",
+    "longestStreak": "最長連續",
+    "days": "天",
+    "positivePercent": "{{percent}}% 為正面心情",
+    "bestDay": "心情最好：{{day}}",
+    "worstDay": "最需調適：{{day}}",
+    "noData": "紀錄還不夠多，暫時無法產生統計",
+    "last30days": "最近 30 天",
+    "last90days": "最近 90 天",
+    "thisYear": "今年",
+    "allTime": "全部"
+  },
+  "moodCorrelations": {
+    "title": "活動分析",
+    "description": "活動與心情的關聯",
+    "improvement": "+{{value}} 心情提升",
+    "decline": "{{value}} 心情下滑",
+    "notEnoughData": "需要更多帶有活動標記的日記才能產生分析。請至少為同一活動標記 3 篇日記。",
+    "minEntries": "少於 3 次的活動暫不納入分析",
+    "topPositive": "{{activity}}與較好的心情相關",
+    "topNegative": "{{activity}}與較低的心情相關",
+    "proFeature": "Plus 功能",
+    "proFeatureDesc": "活動分析需要訂閱 Plus",
+    "tooltipAvg": "均值",
+    "tooltipEntries": "筆紀錄"
   }
 }

@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "Aktywności",
+    "addCustom": "Dodaj własną aktywność...",
+    "exercise": "Ćwiczenia",
+    "social": "Spotkania",
+    "work": "Praca",
+    "travel": "Podróż",
+    "poor_sleep": "Słaby sen",
+    "good_sleep": "Dobry sen",
+    "meditation": "Medytacja",
+    "nature": "Natura",
+    "reading": "Czytanie",
+    "creative": "Kreatywność",
+    "family": "Rodzina",
+    "cooking": "Gotowanie",
+    "music": "Muzyka",
+    "gaming": "Gry",
+    "learning": "Nauka"
+  },
   "accessibility": {
     "close": "Zamknij",
     "toggleSidebar": "Przełącz pasek boczny",
@@ -1954,6 +1973,32 @@
       "multiDeviceSync": {
         "title": "Synchronizacja między urządzeniami",
         "desc": "Bezproblemowa synchronizacja dziennika na wszystkich urządzeniach z automatycznym rozwiązywaniem konfliktów."
+      },
+      "moodTracking": {
+        "title": "Śledzenie nastroju",
+        "desc": "Zapisuj, jak się czujesz przy każdym wpisie w dzienniku, i stopniowo poznawaj swoje wzorce emocjonalne. Wybierz jeden z pięciu poziomów nastroju w formie emoji i sprawdzaj swój nastrój wyświetlany obok każdego wpisu."
+      },
+      "activityTagging": {
+        "title": "Etykiety aktywności",
+        "desc": "Oznacz, czym się zajmowałeś/zajmowałaś podczas pisania każdego wpisu. Wybierz spośród gotowych aktywności, takich jak ćwiczenia, spotkania towarzyskie, praca czy medytacja, albo utwórz własne. Filtruj oś czasu według aktywności, by zobaczyć, jak każda z nich wpływa na Twoje samopoczucie.",
+        "plusHint": "Przejdź na Plus, aby uzyskać dostęp do analizy aktywności i dowiedzieć się, które poprawiają Twój nastrój."
+      },
+      "moodCalendar": {
+        "title": "Kalendarz nastroju",
+        "desc": "Przeglądaj kalendarz miesięczny, w którym każdy dzień jest pokolorowany zgodnie z Twoim nastrojem. Przechodź między miesiącami, aby wychwycić wzorce i tendencje. Dni z wieloma wpisami pokazują średnią."
+      },
+      "moodStats": {
+        "title": "Statystyki nastroju",
+        "desc": "Przeglądaj dane o nastroju za pomocą interaktywnych wykresów:",
+        "distribution": "Wykres pierścieniowy z procentowym rozkładem Twoich nastrojów",
+        "overTime": "Wykres liniowy zmian nastroju z 7-dniową średnią kroczącą",
+        "dayOfWeek": "Wykres słupkowy według dnia tygodnia pokazujący najlepsze i najgorsze dni",
+        "streaks": "Serie kolejnych dni z pozytywnym nastrojem"
+      },
+      "activityInsights": {
+        "title": "Analiza aktywności",
+        "desc": "Odkryj, które aktywności wiążą się z lepszym, a które z gorszym nastrojem. Zobacz wykres wpływu każdej aktywności na Twój nastrój wraz z podsumowaniem tego, co Ci najbardziej pomaga i co Ci najbardziej przeszkadza.",
+        "proNote": "(Funkcja Plus)"
       }
     },
     "troubleshooting": {
@@ -2020,7 +2065,7 @@
       },
       "pro": {
         "question": "Co zawiera Plus?",
-        "answer": "Plus zawiera analizę opartą na AI, wglądy w nastrój, sugestie tagów i zaawansowaną wizualizację trendów."
+        "answer": "Plus zawiera analizę opartą na AI, wglądy w nastrój, sugestie tagów, Analiza aktywności i zaawansowaną wizualizację trendów."
       },
       "manageSubscription": {
         "question": "Jak zarządzam moją subskrypcją?",
@@ -2269,5 +2314,41 @@
     "requiredFields": "Plik powinien zawierać te pola:",
     "disconnectAndReset": "Rozłącz i zresetuj",
     "close": "Zamknij"
+  },
+  "moodCalendar": {
+    "title": "Kalendarz nastroju",
+    "noEntries": "Brak wpisów"
+  },
+  "moodStats": {
+    "title": "Statystyki nastroju",
+    "distribution": "Rozkład nastroju",
+    "overTime": "Nastrój w czasie",
+    "dayOfWeek": "Dzień tygodnia",
+    "streaks": "Serie nastroju",
+    "currentStreak": "Bieżąca seria",
+    "longestStreak": "Najdłuższa seria",
+    "days": "dni",
+    "positivePercent": "{{percent}}% pozytywnych nastrojów",
+    "bestDay": "Najlepszy dzień: {{day}}",
+    "worstDay": "Najtrudniejszy: {{day}}",
+    "noData": "Za mało wpisów do statystyk",
+    "last30days": "Ostatnie 30 dni",
+    "last90days": "Ostatnie 90 dni",
+    "thisYear": "Ten rok",
+    "allTime": "Cały czas"
+  },
+  "moodCorrelations": {
+    "title": "Analiza aktywności",
+    "description": "Jak aktywności wpływają na Twój nastrój",
+    "improvement": "+{{value}} poprawa nastroju",
+    "decline": "{{value}} spadek nastroju",
+    "notEnoughData": "Potrzeba więcej wpisów z aktywnościami. Oznacz co najmniej 3 wpisy tą samą aktywnością.",
+    "minEntries": "Aktywności z mniej niż 3 wpisami są wykluczone",
+    "topPositive": "{{activity}} wiąże się z lepszym nastrojem",
+    "topNegative": "{{activity}} wiąże się z gorszym nastrojem",
+    "proFeature": "Funkcja Plus",
+    "proFeatureDesc": "Wgląd w aktywności jest dostępny z subskrypcją Plus",
+    "tooltipAvg": "śr.",
+    "tooltipEntries": "wpisów"
   }
 }

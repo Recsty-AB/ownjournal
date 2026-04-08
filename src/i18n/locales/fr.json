@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "Activités",
+    "addCustom": "Créer une activité...",
+    "exercise": "Sport",
+    "social": "Vie sociale",
+    "work": "Travail",
+    "travel": "Voyage",
+    "poor_sleep": "Mauvaise nuit",
+    "good_sleep": "Bonne nuit",
+    "meditation": "Méditation",
+    "nature": "Nature",
+    "reading": "Lecture",
+    "creative": "Créativité",
+    "family": "Famille",
+    "cooking": "Cuisine",
+    "music": "Musique",
+    "gaming": "Jeux vidéo",
+    "learning": "Apprentissage"
+  },
   "accessibility": {
     "close": "Fermer",
     "toggleSidebar": "Basculer la barre latérale",
@@ -1509,7 +1528,7 @@
     "unlockInsights": "Débloquer les fonctionnalités Plus",
     "description": "Obtenez des résumés alimentés par l'IA, une analyse des sentiments et une extraction des phrases clés pour vos entrées de journal",
     "smartSummaries": "Résumés intelligents",
-    "moodTracking": "Suivi de l'humeur",
+    "moodTracking": "Suivi d'humeur",
     "keyInsights": "Insights clés",
     "priceYearly": "{{yearlyPrice}}/an",
     "priceMonthly": "C'est seulement {{monthlyPrice}}/mois",
@@ -1954,6 +1973,32 @@
       "multiDeviceSync": {
         "title": "Synchronisation multi-appareils",
         "desc": "Synchronisez votre journal de manière transparente sur tous les appareils avec résolution automatique des conflits."
+      },
+      "moodTracking": {
+        "title": "Suivi de l'humeur",
+        "desc": "Note comment tu te sens à chaque entrée de ton journal pour mieux cerner tes tendances émotionnelles au fil du temps. Choisis parmi cinq niveaux d'humeur sous forme d'emojis et retrouve ton état d'esprit affiché à côté de chaque texte."
+      },
+      "activityTagging": {
+        "title": "Étiquettes d'activité",
+        "desc": "Précise ce que tu faisais au moment de rédiger chaque entrée. Opte pour des activités prédéfinies comme le sport, les sorties, le travail ou la méditation, ou crée les tiennes. Filtre ta chronologie par activité pour comprendre l'effet de chacune sur ton bien-être.",
+        "plusHint": "Passe à Plus pour accéder aux analyses d'activités et découvrir celles qui améliorent ton moral."
+      },
+      "moodCalendar": {
+        "title": "Calendrier de l'humeur",
+        "desc": "Affiche un calendrier mensuel où chaque jour prend la couleur de ton humeur. Navigue entre les mois pour repérer des tendances. Les jours comportant plusieurs entrées affichent la moyenne."
+      },
+      "moodStats": {
+        "title": "Statistiques de l'humeur",
+        "desc": "Explore tes données d'humeur grâce à des graphiques interactifs :",
+        "distribution": "Graphique en anneau montrant la répartition en pourcentage de tes humeurs",
+        "overTime": "Courbe d'évolution avec moyenne glissante sur 7 jours",
+        "dayOfWeek": "Diagramme à barres par jour de la semaine révélant tes meilleurs et tes pires jours",
+        "streaks": "Séries de jours consécutifs d'humeur positive"
+      },
+      "activityInsights": {
+        "title": "Analyses par activité",
+        "desc": "Découvre quelles activités sont associées à un meilleur ou un moins bon moral. Consulte un graphique de l'impact de chaque activité sur ton humeur, accompagné d'un résumé de ce qui te profite le plus et de ce qui te pèse.",
+        "proNote": "(Fonction Plus)"
       }
     },
     "troubleshooting": {
@@ -2020,7 +2065,7 @@
       },
       "pro": {
         "question": "Que comprend Plus ?",
-        "answer": "Plus comprend l'analyse alimentée par l'IA, les insights d'humeur, les suggestions de tags et la visualisation avancée des tendances."
+        "answer": "Plus comprend l'analyse alimentée par l'IA, les insights d'humeur, les suggestions de tags, les Analyses d'activités et la visualisation avancée des tendances."
       },
       "manageSubscription": {
         "question": "Comment gérer mon abonnement ?",
@@ -2269,5 +2314,41 @@
     "requiredFields": "Le fichier doit contenir ces champs :",
     "disconnectAndReset": "Déconnecter et réinitialiser",
     "close": "Fermer"
+  },
+  "moodCalendar": {
+    "title": "Calendrier d'humeur",
+    "noEntries": "Aucune note"
+  },
+  "moodStats": {
+    "title": "Statistiques d'humeur",
+    "distribution": "Répartition de l'humeur",
+    "overTime": "Évolution de l'humeur",
+    "dayOfWeek": "Jour de la semaine",
+    "streaks": "Séries d'humeur",
+    "currentStreak": "Série en cours",
+    "longestStreak": "Plus longue série",
+    "days": "jours",
+    "positivePercent": "{{percent}} % d'humeur positive",
+    "bestDay": "Meilleur jour : {{day}}",
+    "worstDay": "Jour le plus difficile : {{day}}",
+    "noData": "Pas encore assez de notes pour générer des statistiques",
+    "last30days": "30 derniers jours",
+    "last90days": "90 derniers jours",
+    "thisYear": "Cette année",
+    "allTime": "Depuis le début"
+  },
+  "moodCorrelations": {
+    "title": "Analyses d'activités",
+    "description": "Lien entre tes activités et ton humeur",
+    "improvement": "+{{value}} sur l'humeur",
+    "decline": "{{value}} sur l'humeur",
+    "notEnoughData": "Il faut davantage de notes avec des activités. Associe au moins 3 notes à la même activité.",
+    "minEntries": "Les activités avec moins de 3 notes sont exclues",
+    "topPositive": "{{activity}} est associée à un meilleur moral",
+    "topNegative": "{{activity}} est associée à un moral plus bas",
+    "proFeature": "Fonction Plus",
+    "proFeatureDesc": "Les analyses d'activités sont disponibles avec un abonnement Plus",
+    "tooltipAvg": "moy.",
+    "tooltipEntries": "notes"
   }
 }

@@ -7,7 +7,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
+  Activity,
   ArrowRight,
+  BarChart3,
   BookOpen,
   Shield,
   Cloud,
@@ -25,7 +27,9 @@ import {
   Download,
   ChevronRight,
   ChevronLeft,
+  Heart,
   Lightbulb,
+  Calendar as CalendarIcon,
   Server,
   Smartphone,
   HardDrive,
@@ -39,6 +43,8 @@ import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { MOOD_EMOJI } from "@/utils/moodEmoji";
+import { PREDEFINED_ACTIVITIES } from "@/utils/activities";
 
 interface HelpDialogProps {
   open: boolean;
@@ -482,6 +488,24 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
                   </AccordionContent>
                 </AccordionItem>
 
+                <AccordionItem value="activity-insights">
+                  <AccordionTrigger className="text-sm">
+                    <span className="flex items-center gap-2">
+                      <Activity className="w-4 h-4 text-primary" />
+                      {t("help.features.activityInsights.title")}
+                      <span className="ml-1 text-[10px] bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 px-1.5 py-0.5 rounded font-medium">
+                        {t('help.sections.proBadge')}
+                      </span>
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                    <p>{t("help.features.activityInsights.desc")}</p>
+                    <p className="text-xs text-amber-600 dark:text-amber-400">
+                      {t("help.features.activityInsights.proNote")}
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+
                 <AccordionItem value="export">
                   <AccordionTrigger className="text-sm">
                     <span className="flex items-center gap-2">
@@ -533,6 +557,74 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
                 {t('help.sections.coreFeatures')}
               </h3>
               <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="mood-tracking">
+                  <AccordionTrigger className="text-sm">
+                    <span className="flex items-center gap-2">
+                      <Heart className="w-4 h-4 text-primary" />
+                      {t("help.features.moodTracking.title")}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                    <p>{t("help.features.moodTracking.desc")}</p>
+                    <div className="flex flex-wrap gap-3 text-xs" aria-hidden="true">
+                      {(['great', 'good', 'okay', 'poor', 'terrible'] as const).map(mood => (
+                        <span key={mood}>{MOOD_EMOJI[mood]} {t(`journalEntry.moods.${mood}`)}</span>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="activity-tagging">
+                  <AccordionTrigger className="text-sm">
+                    <span className="flex items-center gap-2">
+                      <Activity className="w-4 h-4 text-primary" />
+                      {t("help.features.activityTagging.title")}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                    <p>{t("help.features.activityTagging.desc")}</p>
+                    <div className="flex flex-wrap gap-2 text-xs" aria-hidden="true">
+                      {PREDEFINED_ACTIVITIES.slice(0, 6).map(a => (
+                        <span key={a.key}>{a.emoji} {t(`activities.${a.key}`)}</span>
+                      ))}
+                      <span className="text-muted-foreground">...</span>
+                    </div>
+                    <p className="text-xs text-amber-600 dark:text-amber-400">
+                      {t("help.features.activityTagging.plusHint")}
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="mood-calendar">
+                  <AccordionTrigger className="text-sm">
+                    <span className="flex items-center gap-2">
+                      <CalendarIcon className="w-4 h-4 text-primary" />
+                      {t("help.features.moodCalendar.title")}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm text-muted-foreground">
+                    <p>{t("help.features.moodCalendar.desc")}</p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="mood-stats">
+                  <AccordionTrigger className="text-sm">
+                    <span className="flex items-center gap-2">
+                      <BarChart3 className="w-4 h-4 text-primary" />
+                      {t("help.features.moodStats.title")}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                    <p>{t("help.features.moodStats.desc")}</p>
+                    <ul className="list-disc list-inside space-y-1 pl-2 text-xs">
+                      <li>{t("help.features.moodStats.distribution")}</li>
+                      <li>{t("help.features.moodStats.overTime")}</li>
+                      <li>{t("help.features.moodStats.dayOfWeek")}</li>
+                      <li>{t("help.features.moodStats.streaks")}</li>
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+
                 <AccordionItem value="tags">
                   <AccordionTrigger className="text-sm">
                     <span className="flex items-center gap-2">

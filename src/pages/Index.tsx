@@ -7,6 +7,9 @@ import { useTranslation } from "react-i18next";
 import { Header } from "@/components/layout/Header";
 import { Timeline } from "@/components/journal/Timeline";
 import { TrendAnalysis } from "@/components/journal/TrendAnalysis";
+import { MoodCalendar } from "@/components/journal/MoodCalendar";
+import { MoodStats } from "@/components/journal/MoodStats";
+import { MoodCorrelations } from "@/components/journal/MoodCorrelations";
 import { AuthScreen } from "@/components/auth/AuthScreen";
 import { SubscriptionBanner } from "@/components/subscription/SubscriptionBanner";
 import { SettingsDialog } from "@/components/settings/SettingsDialog";
@@ -2892,6 +2895,12 @@ const Index = () => {
         <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
 
           <SubscriptionBanner onUpgrade={handleUpgrade} isPro={isPro} isLoading={isUpgrading} subscriptionStatus={subscriptionStatus} hasUsedTrial={hasUsedTrial} />
+
+          {entries.length >= 1 && <MoodCalendar entries={entries} />}
+
+          {entries.length >= 3 && <MoodStats entries={entries} />}
+
+          {entries.length >= 5 && <MoodCorrelations entries={entries} isPro={isPro} />}
 
           {entries.length >= 3 && <TrendAnalysis entries={entries} isPro={isPro} />}
 

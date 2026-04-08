@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "Actividades",
+    "addCustom": "Crear actividad propia...",
+    "exercise": "Ejercicio",
+    "social": "Vida social",
+    "work": "Trabajo",
+    "travel": "Viaje",
+    "poor_sleep": "Mal descanso",
+    "good_sleep": "Buen descanso",
+    "meditation": "Meditación",
+    "nature": "Naturaleza",
+    "reading": "Lectura",
+    "creative": "Creatividad",
+    "family": "Familia",
+    "cooking": "Cocina",
+    "music": "Música",
+    "gaming": "Videojuegos",
+    "learning": "Aprendizaje"
+  },
   "accessibility": {
     "close": "Cerrar",
     "toggleSidebar": "Alternar barra lateral",
@@ -1509,7 +1528,7 @@
     "unlockInsights": "Desbloquear funciones Plus",
     "description": "Obtén resúmenes impulsados por IA, análisis de sentimientos y extracción de frases clave para tus entradas de diario",
     "smartSummaries": "Resúmenes inteligentes",
-    "moodTracking": "Seguimiento del estado de ánimo",
+    "moodTracking": "Registro de ánimo",
     "keyInsights": "Perspectivas clave",
     "priceYearly": "{{yearlyPrice}}/año",
     "priceMonthly": "Son solo {{monthlyPrice}} al mes",
@@ -1954,6 +1973,32 @@
       "multiDeviceSync": {
         "title": "Sincronización multidispositivo",
         "desc": "Sincroniza tu diario en todos tus dispositivos con resolución automática de conflictos."
+      },
+      "moodTracking": {
+        "title": "Seguimiento del estado de ánimo",
+        "desc": "Registra cómo te sientes cada vez que escribes en tu diario y toma conciencia de tus patrones emocionales a lo largo del tiempo. Elige entre cinco niveles de ánimo con emojis y consulta tu humor junto a cada entrada."
+      },
+      "activityTagging": {
+        "title": "Etiquetas de actividad",
+        "desc": "Señala qué estabas haciendo cuando escribiste cada entrada. Escoge entre actividades predefinidas como ejercicio, vida social, trabajo o meditación, o crea las tuyas propias. Filtra tu cronología por actividad para ver cómo influye cada una en tu bienestar.",
+        "plusHint": "Pasa a Plus para acceder al análisis de actividades y descubrir cuáles mejoran tu ánimo."
+      },
+      "moodCalendar": {
+        "title": "Calendario de ánimo",
+        "desc": "Visualiza un calendario mensual en el que cada día aparece coloreado según tu estado de ánimo. Navega entre meses para detectar patrones y tendencias. Los días con varias entradas muestran la media."
+      },
+      "moodStats": {
+        "title": "Estadísticas de ánimo",
+        "desc": "Explora tus datos de ánimo mediante gráficos interactivos:",
+        "distribution": "Gráfico de anillo con el reparto porcentual de tus estados de ánimo",
+        "overTime": "Evolución del ánimo con media móvil de 7 días",
+        "dayOfWeek": "Gráfico de barras por día de la semana que muestra tus mejores y peores días",
+        "streaks": "Rachas de días consecutivos con ánimo positivo"
+      },
+      "activityInsights": {
+        "title": "Análisis de actividades",
+        "desc": "Descubre qué actividades se asocian con un mejor o peor estado de ánimo. Consulta un gráfico del impacto de cada actividad junto con un resumen de las que más te benefician y las que más te perjudican.",
+        "proNote": "(Función Plus)"
       }
     },
     "troubleshooting": {
@@ -2020,7 +2065,7 @@
       },
       "pro": {
         "question": "¿Qué incluye Plus?",
-        "answer": "Análisis de IA, insights de ánimo, sugerencias de etiquetas y visualización avanzada."
+        "answer": "Análisis de IA, insights de ánimo, sugerencias de etiquetas, Análisis de actividades y visualización avanzada."
       },
       "manageSubscription": {
         "question": "¿Cómo gestiono mi suscripción?",
@@ -2269,5 +2314,41 @@
     "requiredFields": "El archivo debe contener estos campos:",
     "disconnectAndReset": "Desconectar y reiniciar",
     "close": "Cerrar"
+  },
+  "moodCalendar": {
+    "title": "Calendario de ánimo",
+    "noEntries": "Sin anotaciones"
+  },
+  "moodStats": {
+    "title": "Estadísticas de ánimo",
+    "distribution": "Distribución del ánimo",
+    "overTime": "Evolución del ánimo",
+    "dayOfWeek": "Día de la semana",
+    "streaks": "Rachas de ánimo",
+    "currentStreak": "Racha actual",
+    "longestStreak": "Racha más larga",
+    "days": "días",
+    "positivePercent": "{{percent}} % de ánimo positivo",
+    "bestDay": "Mejor día: {{day}}",
+    "worstDay": "Día más difícil: {{day}}",
+    "noData": "Aún no hay datos suficientes para generar estadísticas",
+    "last30days": "Últimos 30 días",
+    "last90days": "Últimos 90 días",
+    "thisYear": "Este año",
+    "allTime": "Desde siempre"
+  },
+  "moodCorrelations": {
+    "title": "Análisis de actividades",
+    "description": "Relación entre tus actividades y tu estado de ánimo",
+    "improvement": "+{{value}} mejora del ánimo",
+    "decline": "{{value}} bajada del ánimo",
+    "notEnoughData": "Necesitas más textos con actividades etiquetadas. Marca al menos 3 textos con la misma actividad.",
+    "minEntries": "Se excluyen actividades con menos de 3 textos",
+    "topPositive": "{{activity}} se asocia con mejor ánimo",
+    "topNegative": "{{activity}} se asocia con peor ánimo",
+    "proFeature": "Función Plus",
+    "proFeatureDesc": "El análisis de actividades está disponible con la suscripción Plus",
+    "tooltipAvg": "media",
+    "tooltipEntries": "textos"
   }
 }

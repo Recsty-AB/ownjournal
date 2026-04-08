@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "Aktivitäten",
+    "addCustom": "Eigene Aktivität hinzufügen …",
+    "exercise": "Bewegung",
+    "social": "Soziales",
+    "work": "Arbeit",
+    "travel": "Reisen",
+    "poor_sleep": "Schlecht geschlafen",
+    "good_sleep": "Gut geschlafen",
+    "meditation": "Meditation",
+    "nature": "Natur",
+    "reading": "Lesen",
+    "creative": "Kreatives",
+    "family": "Familie",
+    "cooking": "Kochen",
+    "music": "Musik",
+    "gaming": "Spielen",
+    "learning": "Lernen"
+  },
   "accessibility": {
     "close": "Schließen",
     "toggleSidebar": "Seitenleiste umschalten",
@@ -1954,6 +1973,32 @@
       "multiDeviceSync": {
         "title": "Multi-Geräte-Synchronisierung",
         "desc": "Synchronisieren Sie Ihr Tagebuch nahtlos auf allen Geräten mit automatischer Konfliktlösung."
+      },
+      "moodTracking": {
+        "title": "Stimmung festhalten",
+        "desc": "Halte bei jedem Eintrag fest, wie es dir gerade geht, und lerne so deine emotionalen Muster kennen. Wähle eine von fünf Emoji-Stufen aus — deine Stimmung erscheint dann direkt neben deinem Eintrag."
+      },
+      "activityTagging": {
+        "title": "Aktivitäten verknüpfen",
+        "desc": "Notiere, was du gerade gemacht hast, als du geschrieben hast. Such dir aus fertigen Aktivitäten wie Sport, Soziales, Arbeit oder Meditation eine aus — oder erstelle eigene. Über den Filter in deiner Zeitleiste findest du heraus, wie sich verschiedene Bereiche deines Alltags auf dein Befinden auswirken.",
+        "plusHint": "Mit Plus bekommst du Einblicke in deine Aktivitäten — finde heraus, was dir guttut."
+      },
+      "moodCalendar": {
+        "title": "Kalender mit Stimmungen",
+        "desc": "Sieh auf einen Blick, wie dein Monat war: Jeder Tag ist je nach Stimmung eingefärbt. Blättere durch die Monate und entdecke Muster. An Tagen mit mehreren Einträgen wird der Durchschnitt angezeigt."
+      },
+      "moodStats": {
+        "title": "Auswertung deiner Stimmung",
+        "desc": "Schau dir deine Stimmungsdaten in interaktiven Diagrammen an:",
+        "distribution": "Ringdiagramm mit der Verteilung deiner Stimmungen in Prozent",
+        "overTime": "Verlaufskurve mit einem gleitenden Durchschnitt über 7 Tage",
+        "dayOfWeek": "Balkendiagramm nach Wochentag — finde heraus, an welchen Tagen es dir am besten geht",
+        "streaks": "Serien: Wie viele Tage am Stück war deine Stimmung positiv?"
+      },
+      "activityInsights": {
+        "title": "Einblicke in deine Aktivitäten",
+        "desc": "Finde heraus, welche Aktivitäten mit guter oder weniger guter Stimmung zusammenhängen. Ein Diagramm zeigt dir den Einfluss jeder einzelnen Aktivität — zusammen mit einer Übersicht, was deine Stimmung am meisten hebt und was sie drückt.",
+        "proNote": "(Plus-Funktion)"
       }
     },
     "troubleshooting": {
@@ -2020,7 +2065,7 @@
       },
       "pro": {
         "question": "Was beinhaltet Plus?",
-        "answer": "Plus beinhaltet KI-gestützte Analyse, Stimmungseinblicke, Tag-Vorschläge und erweiterte Trendvisualisierung."
+        "answer": "Plus beinhaltet KI-gestützte Analyse, Stimmungseinblicke, Tag-Vorschläge, Aktivitäts-Einblicke und erweiterte Trendvisualisierung."
       },
       "manageSubscription": {
         "question": "Wie verwalte ich mein Abonnement?",
@@ -2269,5 +2314,41 @@
     "requiredFields": "Die Datei sollte diese Felder enthalten:",
     "disconnectAndReset": "Trennen und zurücksetzen",
     "close": "Schließen"
+  },
+  "moodCalendar": {
+    "title": "Stimmungskalender",
+    "noEntries": "Keine Einträge"
+  },
+  "moodStats": {
+    "title": "Stimmungsstatistik",
+    "distribution": "Verteilung",
+    "overTime": "Verlauf",
+    "dayOfWeek": "Wochentag",
+    "streaks": "Serien",
+    "currentStreak": "Aktuelle Serie",
+    "longestStreak": "Längste Serie",
+    "days": "Tage",
+    "positivePercent": "{{percent}} % positiv",
+    "bestDay": "Bester Tag: {{day}}",
+    "worstDay": "Schwierigster Tag: {{day}}",
+    "noData": "Noch nicht genug Einträge für Statistiken",
+    "last30days": "Letzte 30 Tage",
+    "last90days": "Letzte 90 Tage",
+    "thisYear": "Dieses Jahr",
+    "allTime": "Gesamt"
+  },
+  "moodCorrelations": {
+    "title": "Aktivitäts-Einblicke",
+    "description": "So hängen deine Aktivitäten mit deiner Stimmung zusammen",
+    "improvement": "+{{value}} Stimmungsheber",
+    "decline": "{{value}} Stimmungssenker",
+    "notEnoughData": "Noch zu wenig Daten. Markiere mindestens 3 Einträge mit derselben Aktivität.",
+    "minEntries": "Aktivitäten mit weniger als 3 Einträgen werden nicht angezeigt",
+    "topPositive": "{{activity}} hebt deine Stimmung",
+    "topNegative": "{{activity}} senkt deine Stimmung",
+    "proFeature": "Plus-Funktion",
+    "proFeatureDesc": "Aktivitäts-Einblicke sind mit einem Plus-Abo verfügbar",
+    "tooltipAvg": "Ø",
+    "tooltipEntries": "Einträge"
   }
 }

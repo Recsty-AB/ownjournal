@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "Aktiviteter",
+    "addCustom": "Legg til egendefinert aktivitet...",
+    "exercise": "Trening",
+    "social": "Sosialt",
+    "work": "Jobb",
+    "travel": "Reise",
+    "poor_sleep": "Dårlig søvn",
+    "good_sleep": "God søvn",
+    "meditation": "Meditasjon",
+    "nature": "Natur",
+    "reading": "Lesing",
+    "creative": "Kreativ",
+    "family": "Familie",
+    "cooking": "Matlaging",
+    "music": "Musikk",
+    "gaming": "Gaming",
+    "learning": "Læring"
+  },
   "accessibility": {
     "close": "Lukk",
     "toggleSidebar": "Veksle sidefelt",
@@ -1954,6 +1973,32 @@
       "multiDeviceSync": {
         "title": "Synkronisering på flere enheter",
         "desc": "Synkroniser dagboken din sømløst på tvers av alle enheter med automatisk konfliktløsning."
+      },
+      "moodTracking": {
+        "title": "Humørlogg",
+        "desc": "Loggfør hvordan du har det ved hver oppføring, og bli kjent med dine følelsesmessige mønstre over tid. Velg blant fem emoji-nivåer — humøret ditt vises rett ved siden av oppføringen."
+      },
+      "activityTagging": {
+        "title": "Aktivitetsmerking",
+        "desc": "Noter hva du holdt på med da du skrev. Velg blant ferdige aktiviteter som trening, sosialt, jobb og meditasjon — eller lag dine egne. Filtrer tidslinjen etter aktivitet for å se hvordan ulike deler av hverdagen påvirker humøret ditt.",
+        "plusHint": "Oppgrader til Plus og se hvilke aktiviteter som løfter humøret ditt."
+      },
+      "moodCalendar": {
+        "title": "Humørkalender",
+        "desc": "Se hele måneden i ett blikk, der hver dag er farget etter humøret ditt. Bla mellom måneder for å oppdage mønstre. Dager med flere oppføringer viser gjennomsnittet."
+      },
+      "moodStats": {
+        "title": "Humørstatistikk",
+        "desc": "Utforsk humørdataene dine med interaktive diagrammer:",
+        "distribution": "Smultringdiagram som viser den prosentvise fordelingen av humøret ditt",
+        "overTime": "Trendlinje med glidende gjennomsnitt over 7 dager",
+        "dayOfWeek": "Stolpediagram per ukedag — se hvilke dager du har det best og dårligst",
+        "streaks": "Serier: hvor mange dager på rad har du hatt godt humør?"
+      },
+      "activityInsights": {
+        "title": "Innsikt per aktivitet",
+        "desc": "Finn ut hvilke aktiviteter som henger sammen med bedre eller dårligere humør. Et oversiktlig diagram viser effekten av hver aktivitet, med en oppsummering av hva som løfter og senker humøret ditt mest.",
+        "proNote": "(Plus-funksjon)"
       }
     },
     "troubleshooting": {
@@ -2020,7 +2065,7 @@
       },
       "pro": {
         "question": "Hva inkluderer Plus?",
-        "answer": "Plus inkluderer AI-drevet analyse, humørinnsikter, etikettforslag og avansert trendvisualisering."
+        "answer": "Plus inkluderer AI-drevet analyse, humørinnsikter, etikettforslag, Aktivitetsinnsikt og avansert trendvisualisering."
       },
       "manageSubscription": {
         "question": "Hvordan administrerer jeg abonnementet mitt?",
@@ -2269,5 +2314,41 @@
     "requiredFields": "Filen bør inneholde disse feltene:",
     "disconnectAndReset": "Koble fra og tilbakestill",
     "close": "Lukk"
+  },
+  "moodCalendar": {
+    "title": "Humørkalender",
+    "noEntries": "Ingen oppføringer"
+  },
+  "moodStats": {
+    "title": "Humørstatistikk",
+    "distribution": "Humørfordeling",
+    "overTime": "Humør over tid",
+    "dayOfWeek": "Ukedag",
+    "streaks": "Humørserier",
+    "currentStreak": "Nåværende serie",
+    "longestStreak": "Lengste serie",
+    "days": "dager",
+    "positivePercent": "{{percent}}% positive humør",
+    "bestDay": "Beste dag: {{day}}",
+    "worstDay": "Mest utfordrende: {{day}}",
+    "noData": "Ikke nok oppføringer for statistikk",
+    "last30days": "Siste 30 dager",
+    "last90days": "Siste 90 dager",
+    "thisYear": "I år",
+    "allTime": "All tid"
+  },
+  "moodCorrelations": {
+    "title": "Aktivitetsinnsikt",
+    "description": "Hvordan aktiviteter henger sammen med humøret ditt",
+    "improvement": "+{{value}} humørløft",
+    "decline": "{{value}} humørfall",
+    "notEnoughData": "Trenger flere innlegg med aktiviteter. Merk minst 3 innlegg med samme aktivitet.",
+    "minEntries": "Aktiviteter med færre enn 3 innlegg er ekskludert",
+    "topPositive": "{{activity}} er forbundet med bedre humør",
+    "topNegative": "{{activity}} er forbundet med lavere humør",
+    "proFeature": "Plus-funksjon",
+    "proFeatureDesc": "Aktivitetsinnsikt er tilgjengelig med et Plus-abonnement",
+    "tooltipAvg": "gj.sn.",
+    "tooltipEntries": "innlegg"
   }
 }

@@ -15,6 +15,9 @@ import { getDateLocale } from "@/utils/dateLocale";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo.png";
+import { MOOD_EMOJI } from "@/utils/moodEmoji";
+import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
+import { Activity } from "lucide-react";
 
 const TAGS_COLLAPSED_KEY = 'ownjournal:tags-collapsed';
 
@@ -60,6 +63,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
   const [showNewEntry, setShowNewEntry] = useState(false);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selectedMoods, setSelectedMoods] = useState<string[]>([]);
+  const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
   const [dateFilter, setDateFilter] = useState({ start: "", end: "" });
   const [editingEntryId, setEditingEntryId] = useState<string | null>(null);
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -158,12 +162,15 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
     
     const matchesMoods = selectedMoods.length === 0 ||
       (entry.mood && selectedMoods.includes(entry.mood));
-    
+
+    const matchesActivities = selectedActivities.length === 0 ||
+      (entry.activities && selectedActivities.some(activity => entry.activities!.includes(activity)));
+
     const matchesDateRange = (!dateFilter.start && !dateFilter.end) ||
       ((!dateFilter.start || entry.date >= new Date(dateFilter.start)) &&
        (!dateFilter.end || entry.date <= new Date(dateFilter.end + 'T23:59:59')));
-    
-    return matchesSearch && matchesTags && matchesMoods && matchesDateRange;
+
+    return matchesSearch && matchesTags && matchesMoods && matchesActivities && matchesDateRange;
   });
 
   const sortedFilteredEntries = [...filteredEntries].sort((a, b) => {
@@ -186,6 +193,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
   });
   const allTags = Array.from(new Set(entries.flatMap(entry => entry.tags)));
   const allMoods = Array.from(new Set(entries.map(entry => entry.mood).filter(Boolean))) as string[];
+  const allActivities = Array.from(new Set(entries.flatMap(entry => entry.activities || [])));
 
   const toggleTag = (tag: string) => {
     setSelectedTags(prev => 
@@ -200,6 +208,14 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
       prev.includes(mood)
         ? prev.filter(m => m !== mood)
         : [...prev, mood]
+    );
+  };
+
+  const toggleActivity = (activity: string) => {
+    setSelectedActivities(prev =>
+      prev.includes(activity)
+        ? prev.filter(a => a !== activity)
+        : [...prev, activity]
     );
   };
 
@@ -348,7 +364,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
 
         {/* Mood filter */}
         {allMoods.length > 0 && (
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 mb-4">
             <span className="text-sm text-muted-foreground self-center">{t('journalEntry.mood')}:</span>
             {allMoods.map(mood => (
               <Button
@@ -357,8 +373,27 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                 size="sm"
                 onClick={() => toggleMood(mood)}
                 className="text-xs h-7 capitalize"
+                aria-label={t(`journalEntry.moods.${mood}`)}
               >
-                {t(`journalEntry.moods.${mood}`, mood)}
+                {MOOD_EMOJI[mood]}{' '}{t(`journalEntry.moods.${mood}`, mood)}
+              </Button>
+            ))}
+          </div>
+        )}
+
+        {/* Activity filter */}
+        {allActivities.length > 0 && (
+          <div className="flex items-center gap-2 flex-wrap">
+            <Activity className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+            {allActivities.map(activity => (
+              <Button
+                key={activity}
+                variant={selectedActivities.includes(activity) ? "default" : "outline"}
+                size="sm"
+                onClick={() => toggleActivity(activity)}
+                aria-label={PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
+              >
+                {getActivityEmoji(activity)}{' '}{PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
               </Button>
             ))}
           </div>
@@ -399,15 +434,15 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
             <Card className="p-6 sm:p-12 text-center bg-gradient-paper">
               <img src={logo} alt="OwnJournal" className="w-12 h-12 object-contain mx-auto mb-4 opacity-50" />
               <h3 className="text-lg font-semibold text-foreground mb-2">
-                {searchQuery || selectedTags.length > 0 || selectedMoods.length > 0 || dateFilter.start || dateFilter.end ? t('timeline.noEntries') : t('timeline.startJourney')}
+                {searchQuery || selectedTags.length > 0 || selectedMoods.length > 0 || selectedActivities.length > 0 || dateFilter.start || dateFilter.end ? t('timeline.noEntries') : t('timeline.startJourney')}
               </h3>
               <p className="text-muted-foreground mb-6">
-                 {searchQuery || selectedTags.length > 0 || selectedMoods.length > 0 || dateFilter.start || dateFilter.end
+                 {searchQuery || selectedTags.length > 0 || selectedMoods.length > 0 || selectedActivities.length > 0 || dateFilter.start || dateFilter.end
                   ? t('timeline.tryAdjusting')
                   : t('timeline.beginDocumenting')
                 }
               </p>
-              {!searchQuery && selectedTags.length === 0 && selectedMoods.length === 0 && !dateFilter.start && !dateFilter.end && (
+              {!searchQuery && selectedTags.length === 0 && selectedMoods.length === 0 && selectedActivities.length === 0 && !dateFilter.start && !dateFilter.end && (
                 <Button onClick={() => setShowNewEntry(true)} className="bg-gradient-primary">
                   <Plus className="w-4 h-4 mr-2" />
                   {t('timeline.writeFirst')}

@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "Aktiviteter",
+    "addCustom": "Lägg till egen aktivitet …",
+    "exercise": "Träning",
+    "social": "Socialt",
+    "work": "Arbete",
+    "travel": "Resa",
+    "poor_sleep": "Sovit dåligt",
+    "good_sleep": "Sovit bra",
+    "meditation": "Meditation",
+    "nature": "Natur",
+    "reading": "Läsning",
+    "creative": "Skapande",
+    "family": "Familj",
+    "cooking": "Matlagning",
+    "music": "Musik",
+    "gaming": "Spelande",
+    "learning": "Lärande"
+  },
   "accessibility": {
     "close": "Stäng",
     "toggleSidebar": "Växla sidopanel",
@@ -1954,6 +1973,32 @@
       "multiDeviceSync": {
         "title": "Synkronisering mellan enheter",
         "desc": "Synkronisera din dagbok sömlöst mellan alla enheter med automatisk konfliktlösning."
+      },
+      "moodTracking": {
+        "title": "Humörlogg",
+        "desc": "Ange hur du mår vid varje inlägg och följ dina känslomässiga mönster över tid. Välj bland fem emoji-nivåer — ditt humör visas direkt bredvid dina inlägg."
+      },
+      "activityTagging": {
+        "title": "Aktivitetstaggar",
+        "desc": "Ange vad du gjorde när du skrev. Välj bland färdiga aktiviteter som träning, umgänge, arbete och meditation — eller skapa egna. Filtrera din tidslinje efter aktivitet för att se hur olika delar av din vardag påverkar hur du mår.",
+        "plusHint": "Uppgradera till Plus och se vilka aktiviteter som lyfter ditt humör."
+      },
+      "moodCalendar": {
+        "title": "Humörkalender",
+        "desc": "Se hela månaden i en vy där varje dag är färglagd efter ditt humör. Bläddra mellan månader för att hitta mönster. Dagar med flera inlägg visar ett genomsnitt."
+      },
+      "moodStats": {
+        "title": "Humörstatistik",
+        "desc": "Utforska dina humördata i interaktiva diagram:",
+        "distribution": "Ringdiagram som visar fördelningen av ditt humör i procent",
+        "overTime": "Trendlinje med glidande medelvärde över 7 dagar",
+        "dayOfWeek": "Stapeldiagram per veckodag — se vilka dagar du mår bäst och sämst",
+        "streaks": "Sviter: hur många dagar i rad har du haft ett positivt humör?"
+      },
+      "activityInsights": {
+        "title": "Insikter per aktivitet",
+        "desc": "Se vilka aktiviteter som hänger ihop med bättre eller sämre humör. Ett överskådligt diagram visar varje aktivitets påverkan, med en sammanfattning av vad som lyfter och sänker ditt humör mest.",
+        "proNote": "(Plus-funktion)"
       }
     },
     "troubleshooting": {
@@ -2020,7 +2065,7 @@
       },
       "pro": {
         "question": "Vad ingår i Plus?",
-        "answer": "Plus inkluderar AI-driven analys, humörinsikter, taggförslag och avancerad trendvisualisering."
+        "answer": "Plus inkluderar AI-driven analys, humörinsikter, taggförslag, Aktivitetsinsikter och avancerad trendvisualisering."
       },
       "manageSubscription": {
         "question": "Hur hanterar jag mitt abonnemang?",
@@ -2269,5 +2314,41 @@
     "requiredFields": "Filen bör innehålla dessa fält:",
     "disconnectAndReset": "Koppla från och återställ",
     "close": "Stäng"
+  },
+  "moodCalendar": {
+    "title": "Humörkalender",
+    "noEntries": "Inga inlägg"
+  },
+  "moodStats": {
+    "title": "Humörstatistik",
+    "distribution": "Fördelning",
+    "overTime": "Utveckling",
+    "dayOfWeek": "Veckodag",
+    "streaks": "Serier",
+    "currentStreak": "Pågående serie",
+    "longestStreak": "Längsta serie",
+    "days": "dagar",
+    "positivePercent": "{{percent}} % positivt",
+    "bestDay": "Bästa dag: {{day}}",
+    "worstDay": "Tyngsta dag: {{day}}",
+    "noData": "Inte tillräckligt med inlägg för statistik",
+    "last30days": "Senaste 30 dagarna",
+    "last90days": "Senaste 90 dagarna",
+    "thisYear": "I år",
+    "allTime": "Hela perioden"
+  },
+  "moodCorrelations": {
+    "title": "Aktivitetsinsikter",
+    "description": "Så hänger dina aktiviteter ihop med humöret",
+    "improvement": "+{{value}} humörlyft",
+    "decline": "{{value}} humördipp",
+    "notEnoughData": "För lite data ännu. Markera minst 3 inlägg med samma aktivitet.",
+    "minEntries": "Aktiviteter med färre än 3 inlägg visas inte",
+    "topPositive": "{{activity}} lyfter ditt humör",
+    "topNegative": "{{activity}} sänker ditt humör",
+    "proFeature": "Plus-funktion",
+    "proFeatureDesc": "Aktivitetsinsikter ingår i Plus-prenumerationen",
+    "tooltipAvg": "snitt",
+    "tooltipEntries": "inlägg"
   }
 }

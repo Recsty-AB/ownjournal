@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "アクティビティ",
+    "addCustom": "自分の項目を追加…",
+    "exercise": "運動",
+    "social": "人と会う",
+    "work": "仕事",
+    "travel": "おでかけ",
+    "poor_sleep": "寝不足",
+    "good_sleep": "ぐっすり眠れた",
+    "meditation": "瞑想",
+    "nature": "自然のなかで",
+    "reading": "読書",
+    "creative": "ものづくり",
+    "family": "家族と過ごす",
+    "cooking": "料理",
+    "music": "音楽",
+    "gaming": "ゲーム",
+    "learning": "勉強"
+  },
   "accessibility": {
     "close": "閉じる",
     "toggleSidebar": "サイドバーを切り替え",
@@ -1957,6 +1976,32 @@
       "multiDeviceSync": {
         "title": "マルチデバイス同期",
         "desc": "すべての端末間で日記をシームレスに同期できます。自動競合解決機能により、複数の端末で編集しても日記が失われることはありません。"
+      },
+      "moodTracking": {
+        "title": "気分の記録",
+        "desc": "日記を書くときに、今の気持ちを5段階の絵文字でぽんと選べます。書いた内容と一緒に残るので、あとから読み返すと「あの日はこんな気分だったんだ」とじんわり見えてきます。"
+      },
+      "activityTagging": {
+        "title": "アクティビティタグ",
+        "desc": "日記を書いたとき何をしていたか、ぱっと選んで残せます。運動・人と会う・仕事・瞑想など、よくある項目がそろっていて、自分だけの項目も追加できます。あとから「散歩の日だけ」のように絞り込んで振り返れます。",
+        "plusHint": "Plusメンバーになると、どのアクティビティが気分に影響しているか分析できるようになります。"
+      },
+      "moodCalendar": {
+        "title": "気分カレンダー",
+        "desc": "ひと月分のカレンダーに、その日の気分が色で映し出されます。月をまたいで眺めると、調子の波がすっと浮かび上がります。一日に何度か書いた日は、平均の気分が表示されます。"
+      },
+      "moodStats": {
+        "title": "気分の統計",
+        "desc": "いくつかのグラフで、自分の気分の傾向をひと目で確認できます。",
+        "distribution": "気分の割合を示す円グラフ",
+        "overTime": "7日間のならしで見る気分のうつり変わり",
+        "dayOfWeek": "曜日ごとの気分くらべ",
+        "streaks": "いい気分が続いた日数の記録"
+      },
+      "activityInsights": {
+        "title": "アクティビティの分析",
+        "desc": "どんな行動のあとに気持ちが晴れやかになるか、逆にもやもやしがちか――行動ごとの気分の傾向をグラフで確かめられます。気分を持ち上げてくれる行動、沈ませがちな行動もまとめて見られます。",
+        "proNote": "（Plus機能）"
       }
     },
     "troubleshooting": {
@@ -2023,7 +2068,7 @@
       },
       "pro": {
         "question": "Plusには何が含まれますか？",
-        "answer": "PlusにはAI分析、タイトル提案、タグ提案、トレンド分析、PDF/Word書き出しが含まれます。"
+        "answer": "PlusにはAI分析、タイトル提案、タグ提案、トレンド分析、アクティビティの分析、PDF/Word書き出しが含まれます。"
       },
       "manageSubscription": {
         "question": "サブスクリプションはどこで管理できますか？",
@@ -2272,5 +2317,41 @@
     "requiredFields": "ファイルには以下のフィールドが必要です：",
     "disconnectAndReset": "切断してリセット",
     "close": "閉じる"
+  },
+  "moodCalendar": {
+    "title": "気分カレンダー",
+    "noEntries": "まだ日記がありません"
+  },
+  "moodStats": {
+    "title": "気分の統計",
+    "distribution": "気分の割合",
+    "overTime": "気分の変化",
+    "dayOfWeek": "曜日ごと",
+    "streaks": "続いた日数",
+    "currentStreak": "いまの連続",
+    "longestStreak": "最長記録",
+    "days": "日",
+    "positivePercent": "{{percent}}%が前向きな気分です",
+    "bestDay": "いちばん調子がいい日: {{day}}",
+    "worstDay": "モヤモヤしがちな日: {{day}}",
+    "noData": "まだ日記が足りません",
+    "last30days": "過去30日",
+    "last90days": "過去90日",
+    "thisYear": "今年",
+    "allTime": "すべての期間"
+  },
+  "moodCorrelations": {
+    "title": "アクティビティの分析",
+    "description": "何をしたときに気分が変わるか",
+    "improvement": "+{{value}} 気分アップ",
+    "decline": "{{value}} 気分ダウン",
+    "notEnoughData": "分析するにはもう少し日記が必要です。同じ行動を3回以上記録してみてください。",
+    "minEntries": "3回未満の行動は表示されません",
+    "topPositive": "{{activity}} のあとは気分がスッキリしやすいです",
+    "topNegative": "{{activity}} のあとは気分が沈みやすいです",
+    "proFeature": "Plusの機能",
+    "proFeatureDesc": "行動と気分の分析はPlusプランでご利用いただけます",
+    "tooltipAvg": "平均",
+    "tooltipEntries": "件"
   }
 }

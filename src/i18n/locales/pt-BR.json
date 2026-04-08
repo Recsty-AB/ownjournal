@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "Atividades",
+    "addCustom": "Adicionar atividade personalizada...",
+    "exercise": "Exercício",
+    "social": "Social",
+    "work": "Trabalho",
+    "travel": "Viagem",
+    "poor_sleep": "Sono ruim",
+    "good_sleep": "Bom sono",
+    "meditation": "Meditação",
+    "nature": "Natureza",
+    "reading": "Leitura",
+    "creative": "Criativo",
+    "family": "Família",
+    "cooking": "Cozinhar",
+    "music": "Música",
+    "gaming": "Jogos",
+    "learning": "Aprendizado"
+  },
   "accessibility": {
     "close": "Fechar",
     "toggleSidebar": "Alternar Barra Lateral",
@@ -1954,6 +1973,32 @@
       "multiDeviceSync": {
         "title": "Sincronização Multi-Dispositivo",
         "desc": "Sincronize seu diário perfeitamente entre todos os dispositivos com resolução automática de conflitos."
+      },
+      "moodTracking": {
+        "title": "Registro de humor",
+        "desc": "Registre como você está se sentindo cada vez que escreve no seu diário e vá entendendo seus padrões emocionais ao longo do tempo. Escolha entre cinco níveis de humor com emojis e veja seu estado de espírito ao lado de cada entrada."
+      },
+      "activityTagging": {
+        "title": "Etiquetas de atividade",
+        "desc": "Indique o que você estava fazendo ao escrever cada entrada. Escolha entre atividades como exercício, vida social, trabalho ou meditação, ou crie as suas próprias. Filtre sua linha do tempo por atividade para entender como cada uma afeta seu bem-estar.",
+        "plusHint": "Mude para o Plus para acessar a análise de atividades e descobrir quais melhoram seu humor."
+      },
+      "moodCalendar": {
+        "title": "Calendário de humor",
+        "desc": "Confira um calendário mensal onde cada dia aparece colorido de acordo com seu humor. Navegue entre os meses para identificar padrões e tendências. Dias com várias entradas mostram a média."
+      },
+      "moodStats": {
+        "title": "Estatísticas de humor",
+        "desc": "Explore seus dados de humor com gráficos interativos:",
+        "distribution": "Gráfico de rosca com a distribuição percentual dos seus humores",
+        "overTime": "Gráfico de linha da evolução do humor com média móvel de 7 dias",
+        "dayOfWeek": "Gráfico de barras por dia da semana mostrando seus melhores e piores dias",
+        "streaks": "Sequências de dias consecutivos com humor positivo"
+      },
+      "activityInsights": {
+        "title": "Análise de atividades",
+        "desc": "Descubra quais atividades estão ligadas a um humor melhor ou pior. Veja um gráfico do impacto de cada atividade no seu humor, com um resumo das que mais ajudam e das que mais atrapalham.",
+        "proNote": "(Recurso Plus)"
       }
     },
     "troubleshooting": {
@@ -2020,7 +2065,7 @@
       },
       "pro": {
         "question": "O que o Plus inclui?",
-        "answer": "Plus inclui análise com IA, insights de humor, sugestões de tags e visualização avançada de tendências."
+        "answer": "Plus inclui análise com IA, insights de humor, sugestões de tags, Análise de atividades e visualização avançada de tendências."
       },
       "manageSubscription": {
         "question": "Como gerencio minha assinatura?",
@@ -2269,5 +2314,41 @@
     "requiredFields": "O arquivo deve conter esses campos:",
     "disconnectAndReset": "Desconectar e Redefinir",
     "close": "Fechar"
+  },
+  "moodCalendar": {
+    "title": "Calendário de humor",
+    "noEntries": "Sem entradas"
+  },
+  "moodStats": {
+    "title": "Estatísticas de humor",
+    "distribution": "Distribuição de humor",
+    "overTime": "Humor ao longo do tempo",
+    "dayOfWeek": "Dia da semana",
+    "streaks": "Sequências de humor",
+    "currentStreak": "Sequência atual",
+    "longestStreak": "Sequência mais longa",
+    "days": "dias",
+    "positivePercent": "{{percent}}% de humores positivos",
+    "bestDay": "Melhor dia: {{day}}",
+    "worstDay": "Mais desafiador: {{day}}",
+    "noData": "Entradas insuficientes para estatísticas",
+    "last30days": "Últimos 30 dias",
+    "last90days": "Últimos 90 dias",
+    "thisYear": "Este ano",
+    "allTime": "Todo o tempo"
+  },
+  "moodCorrelations": {
+    "title": "Análise de atividades",
+    "description": "Como as atividades se relacionam com o seu humor",
+    "improvement": "+{{value}} melhoria de humor",
+    "decline": "{{value}} queda de humor",
+    "notEnoughData": "São necessárias mais entradas com atividades. Marque pelo menos 3 entradas com a mesma atividade.",
+    "minEntries": "Atividades com menos de 3 entradas são excluídas",
+    "topPositive": "{{activity}} está associado a melhor humor",
+    "topNegative": "{{activity}} está associado a pior humor",
+    "proFeature": "Recurso Plus",
+    "proFeatureDesc": "Insights de atividades estão disponíveis com uma assinatura Plus",
+    "tooltipAvg": "média",
+    "tooltipEntries": "entradas"
   }
 }

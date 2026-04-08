@@ -23,6 +23,13 @@ export const journalEntrySchema = z.object({
     )
     .max(20, { message: "Maximum 20 tags allowed" }),
   mood: z.enum(["great", "good", "okay", "poor", "terrible"]),
+  activities: z
+    .array(
+      z.string().trim().min(1).max(30, { message: "Activity must be less than 30 characters" })
+    )
+    .max(20, { message: "Maximum 20 activities allowed" })
+    .optional()
+    .default([]),
   date: z.date(),
 });
 
