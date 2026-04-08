@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { AlertCircle, CheckCircle, Loader2, Info, ChevronDown, Star, ExternalLink } from "lucide-react";
 import { ICloudIcon } from "./ProviderIcons";
 import { useToast } from "@/hooks/use-toast";
+import type { CloudProvider } from "@/types/cloudProvider";
 import { ICloudService, NeedsAppleSignInError, CloudKitOriginError, iCloudDidSignIn, isCloudKitOriginRejected, getCloudKitRejectedOrigin } from "@/services/iCloudService";
 import { CloudCredentialStorage, type ICloudCredentials } from "@/utils/cloudCredentialStorage";
 import { SimpleModeCredentialStorage } from "@/utils/simpleModeCredentialStorage";
@@ -47,10 +48,14 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
   const { toast } = useToast();
   const { platform, isDesktop, isMobile } = usePlatform();
   const { t } = useTranslation();
-  
+
   // Check if platform supports iCloud
   // iCloud is supported on iOS, macOS, and web browsers, but NOT on Android
   const isPlatformSupported = platform !== 'capacitor-android';
+
+  // Native iOS uses the CloudKit native plugin — no credentials, no popup
+  const isNativeIOS = !!(window as any).Capacitor?.isNativePlatform?.() &&
+    (window as any).Capacitor?.getPlatform?.() === 'ios';
   
   // Track if credentials have been loaded to prevent duplicate calls
   const credentialsLoadedRef = useRef(false);
@@ -257,8 +262,8 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
   };
 
   // Extracted so it can be called from both handleConnect and handleContinueAfterSignIn.
-  const finishSuccessfulConnect = (newService: ICloudService) => {
-    setService(newService);
+  const finishSuccessfulConnect = (newService: ICloudService | CloudProvider) => {
+    setService(newService as any);
     setIsConnected(true);
     connectionStateManager.registerProvider('iCloud', newService);
     storageServiceV2.enableSync();
@@ -269,6 +274,79 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
     toast({
       title: t('providers.icloud.connectedSuccess'),
       description: isPrimary ? t('providers.icloud.connectedSuccessDesc') : t('storage.connectedAsBackup'),
+    });
+  };
+
+  // Track whether the error is specifically "no iCloud account" so we can show Open Settings button
+  const [needsICloudAccount, setNeedsICloudAccount] = useState(false);
+
+  // Native iOS: simple connect via CloudKit native plugin (no credentials needed)
+  const handleNativeConnect = async () => {
+    setIsConnecting(true);
+    setConnectionError(null);
+    setNeedsICloudAccount(false);
+    try {
+      const { ICloudNativeService } = await import('@/services/iCloudNativeService');
+      const nativeService = new ICloudNativeService();
+      await nativeService.connect();
+      finishSuccessfulConnect(nativeService);
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : t('providers.icloud.connectionFailed');
+      if (msg === 'NO_ICLOUD_ACCOUNT') {
+        setNeedsICloudAccount(true);
+        setConnectionError(t('providers.icloud.noAccountFound', 'No iCloud account found. Tap "Open Settings" below, then sign in with your Apple Account at the top of the Settings page.'));
+      } else {
+        setConnectionError(msg);
+        toast({ title: t('storage.connectionFailed'), description: msg, variant: 'destructive' });
+      }
+    } finally {
+      setIsConnecting(false);
+    }
+  };
+
+  const handleOpenSettings = async () => {
+    try {
+      const { registerPlugin } = await import('@capacitor/core');
+      const CloudKitPlugin = registerPlugin<{ openSettings(): Promise<void> }>('CloudKitPlugin');
+      await CloudKitPlugin.openSettings();
+
+      // Auto-retry when user returns from Settings
+      const onResume = () => {
+        document.removeEventListener('visibilitychange', onVisible);
+        window.removeEventListener('focus', onFocusRetry);
+        // Small delay to let iCloud account propagate
+        setTimeout(() => handleNativeConnect(), 500);
+      };
+      const onVisible = () => { if (document.visibilityState === 'visible') onResume(); };
+      const onFocusRetry = () => onResume();
+      document.addEventListener('visibilitychange', onVisible, { once: true });
+      window.addEventListener('focus', onFocusRetry, { once: true });
+    } catch {
+      toast({ title: t('providers.icloud.openSettingsManually', 'Please open Settings and sign into iCloud.') });
+    }
+  };
+
+  // Native iOS: simple disconnect
+  const handleNativeDisconnect = async () => {
+    storageServiceV2.disableSync();
+    await storageServiceV2.clearLocalSyncState();
+    connectionStateManager.unregisterProvider('iCloud');
+    const remainingProviders = connectionStateManager.getConnectedProviderNames();
+    if (remainingProviders.length === 0) {
+      storageServiceV2.resetEncryptionState(false, false, 'disconnect');
+    }
+    if (service) {
+      await service.disconnect();
+    }
+    setService(null);
+    setIsConnected(false);
+    onConfigChange?.(false);
+    if (remainingProviders.length > 0) {
+      storageServiceV2.enableSync();
+    }
+    toast({
+      title: t('providers.icloud.disconnected'),
+      description: t('providers.icloud.disconnectedDesc'),
     });
   };
 
@@ -314,24 +392,67 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
    */
   const tryOpenSignInPopup = (options?: { waitForLink?: boolean; timeoutMs?: number }): Promise<boolean> => {
     const area = document.getElementById('apple-sign-in-button');
-    const attemptOpen = (): boolean => {
-      if (!area) return false;
-      const link = area.querySelector<HTMLAnchorElement>('a');
-      if (link?.href) {
-        const w = 600, h = 700;
-        const left = Math.round(window.screenLeft + (window.outerWidth - w) / 2);
-        const top = Math.round(window.screenTop + (window.outerHeight - h) / 2);
-        const popup = window.open(link.href, 'apple-cloudkit-signin',
-          `width=${w},height=${h},left=${left},top=${top},scrollbars=yes,resizable=yes`);
-        if (popup) return true;
-        toast({
-          title: t('storage.connectionError'),
-          description: t('providers.icloud.popupBlocked'),
-          variant: 'destructive',
-        });
-        return true;
+    if (!area) return Promise.resolve(false);
+
+    const isNative = !!(window as any).Capacitor?.isNativePlatform?.();
+
+    // Open a URL in the appropriate way for the platform.
+    const openUrl = async (url: string): Promise<boolean> => {
+      if (isNative) {
+        try {
+          const { Browser } = await import('@capacitor/browser');
+          await Browser.open({ url, presentationStyle: 'popover' });
+          return true;
+        } catch (e) {
+          console.error('[iCloud] Failed to open browser:', e);
+          return false;
+        }
       }
-      // CloudKit JS renders a <div class="apple-auth-button"> (not an <a> or <button>).
+      const w = 600, h = 700;
+      const left = Math.round(window.screenLeft + (window.outerWidth - w) / 2);
+      const top = Math.round(window.screenTop + (window.outerHeight - h) / 2);
+      const popup = window.open(url, 'apple-cloudkit-signin',
+        `width=${w},height=${h},left=${left},top=${top},scrollbars=yes,resizable=yes`);
+      if (popup) return true;
+      toast({
+        title: t('storage.connectionError'),
+        description: t('providers.icloud.popupBlocked'),
+        variant: 'destructive',
+      });
+      return true;
+    };
+
+    // Try to find a URL to open from the CloudKit-rendered content.
+    // CloudKit JS may render an <a> tag or a <div class="apple-auth-button">.
+    const findAndOpen = async (): Promise<boolean> => {
+      // Prefer <a> tag — we can extract the URL and open via Capacitor Browser
+      const link = area.querySelector<HTMLAnchorElement>('a[href]');
+      if (link?.href) return openUrl(link.href);
+
+      // On native: intercept window.open() to capture the URL that CloudKit JS
+      // tries to open when .apple-auth-button is clicked, then open it via
+      // Capacitor Browser (SFSafariViewController) instead of Safari.
+      if (isNative) {
+        const btn = area.querySelector<HTMLElement>('.apple-auth-button, button');
+        if (btn) {
+          const origOpen = window.open;
+          let captured = false;
+          window.open = (url?: string | URL, ...args: any[]) => {
+            captured = true;
+            window.open = origOpen;
+            if (url) openUrl(String(url));
+            return null;
+          };
+          btn.click();
+          // If click was synchronous and didn't call window.open, restore it
+          await new Promise(r => setTimeout(r, 50));
+          if (!captured) window.open = origOpen;
+          return captured;
+        }
+        return false;
+      }
+
+      // On web: .click() fallback opens the popup directly
       const btn = area.querySelector<HTMLElement>('.apple-auth-button, button, a');
       if (btn) {
         btn.click();
@@ -340,29 +461,34 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
       return false;
     };
 
-    if (attemptOpen()) return Promise.resolve(true);
-    if (!options?.waitForLink || !area) return Promise.resolve(false);
+    return findAndOpen().then((opened) => {
+      if (opened) return true;
+      if (!options?.waitForLink) return false;
 
-    const timeoutMs = options.timeoutMs ?? 3000;
-    return new Promise<boolean>((resolve) => {
-      const timeoutId = window.setTimeout(() => {
-        observer.disconnect();
-        resolve(attemptOpen());
-      }, timeoutMs);
-      const observer = new MutationObserver(() => {
-        if (attemptOpen()) {
+      // Wait for CloudKit JS to render the sign-in element (it's asynchronous)
+      const timeoutMs = options.timeoutMs ?? 5000;
+      return new Promise<boolean>((resolve) => {
+        const timeoutId = window.setTimeout(() => {
           observer.disconnect();
-          window.clearTimeout(timeoutId);
-          resolve(true);
-        }
+          findAndOpen().then(resolve);
+        }, timeoutMs);
+        const observer = new MutationObserver(() => {
+          findAndOpen().then((result) => {
+            if (result) {
+              observer.disconnect();
+              window.clearTimeout(timeoutId);
+              resolve(true);
+            }
+          });
+        });
+        observer.observe(area, { childList: true, subtree: true });
       });
-      observer.observe(area, { childList: true, subtree: true });
     });
   };
 
   const handleSignInClick = () => {
     setHasAttemptedSignIn(true);
-    tryOpenSignInPopup({ waitForLink: true, timeoutMs: 3000 }).then((opened) => {
+    tryOpenSignInPopup({ waitForLink: true, timeoutMs: 5000 }).then((opened) => {
       if (!opened) {
         if (import.meta.env.DEV) console.warn('[iCloud] Apple sign-in link not found in #apple-sign-in-button');
         toast({
@@ -453,7 +579,10 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
         return;
       }
       if (error instanceof NeedsAppleSignInError) {
-        if (pendingSignInRef.current) return;
+        if (pendingSignInRef.current) {
+          setIsConnecting(false);
+          return;
+        }
         pendingSignInRef.current = { container: error.container, credentials };
 
         error.container.whenUserSignsIn().then(async () => {
@@ -484,25 +613,70 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
           setIsConnecting(false);
         });
 
-        // Always show the sign-in UI so the visibilitychange/focus auto-complete listener
-        // is active. This guarantees we can detect sign-in completion even if
-        // whenUserSignsIn() never resolves (e.g. sign-in opens as tab, not popup).
+        // Show sign-in UI (activates the visibilitychange/focus auto-complete listener)
+        // and try to open the browser immediately like Google Drive does.
         setNeedsAppleSignIn(true);
         setIsConnecting(false);
 
-        // Try to auto-open the popup as a UX optimization. If it opens, the user signs in
-        // directly; if not, they use the fallback "Sign in" button in the needsAppleSignIn UI.
         window.setTimeout(() => {
-          tryOpenSignInPopup({ waitForLink: true, timeoutMs: 3000 }).then((opened) => {
+          tryOpenSignInPopup({ waitForLink: true, timeoutMs: 5000 }).then(async (opened) => {
             if (opened) {
-              // Popup opened — show the Continue button right away as a fallback.
-              setHasAttemptedSignIn(true);
-            } else {
-              toast({
-                title: t('storage.connectionError'),
-                description: t('providers.icloud.signInLinkNotReady'),
-                variant: 'destructive',
-              });
+              // On native, SFSafariViewController can't receive postMessage from CloudKit JS,
+              // so the blank cdn.apple-cloudkit.com page sits forever after sign-in.
+              // Poll setUpAuth() to detect when the sign-in cookie is set, then auto-close
+              // the browser — same UX as Google Drive.
+              const isNative = !!(window as any).Capacitor?.isNativePlatform?.();
+              if (isNative && pendingSignInRef.current) {
+                try {
+                  const { Browser } = await import('@capacitor/browser');
+                  let pollStopped = false;
+
+                  // Stop polling if user manually closes browser
+                  const listener = await Browser.addListener('browserFinished', () => {
+                    pollStopped = true;
+                    listener.remove();
+                  });
+
+                  // Poll setUpAuth every 2s for up to 5 minutes
+                  const maxAttempts = 150;
+                  for (let i = 0; i < maxAttempts && !pollStopped; i++) {
+                    await new Promise(r => setTimeout(r, 2000));
+                    if (!pendingSignInRef.current || pollStopped) break;
+                    try {
+                      const { container, credentials: creds } = pendingSignInRef.current;
+                      const userIdentity = await container.setUpAuth();
+                      if (userIdentity) {
+                        // Sign-in detected — close browser and complete connection
+                        pollStopped = true;
+                        await listener.remove();
+                        await Browser.close();
+
+                        pendingSignInRef.current = null;
+                        setNeedsAppleSignIn(false);
+                        setHasAttemptedSignIn(false);
+                        iCloudDidSignIn(container);
+                        const newService = new ICloudService();
+                        setIsConnecting(true);
+                        try {
+                          await newService.connect(creds, masterKey);
+                          finishSuccessfulConnect(newService);
+                        } catch (err) {
+                          const msg = err instanceof Error ? err.message : t('providers.icloud.connectionFailed');
+                          setConnectionError(msg);
+                          toast({ title: t('storage.connectionFailed'), description: msg, variant: 'destructive' });
+                        } finally {
+                          setIsConnecting(false);
+                        }
+                        break;
+                      }
+                    } catch {
+                      // setUpAuth failed — user hasn't signed in yet, keep polling
+                    }
+                  }
+                } catch (e) {
+                  console.error('[iCloud] Failed to set up sign-in polling:', e);
+                }
+              }
             }
           });
         }, 200);
@@ -651,7 +825,7 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
         </div>
         {/* Disconnect button in header - matches Google Drive/Dropbox */}
         {isConnected && (
-          <Button variant="outline" size="sm" onClick={handleDisconnect} className="self-start sm:self-auto">
+          <Button variant="outline" size="sm" onClick={isNativeIOS ? handleNativeDisconnect : handleDisconnect} className="self-start sm:self-auto">
             {t('storage.disconnect')}
           </Button>
         )}
@@ -664,6 +838,59 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
             : t('storage.providerConnectedInactive')
           }
         </p>
+      ) : isNativeIOS ? (
+        <div className="space-y-3">
+          <p className="text-sm text-muted-foreground">
+            {t('providers.icloud.syncDesc')}
+          </p>
+
+          {getEncryptionMode() === 'simple' && (
+            <Alert className="border-amber-200 bg-amber-50 dark:bg-amber-950/20">
+              <AlertCircle className="h-4 w-4 text-amber-600" />
+              <AlertDescription className="text-amber-800 dark:text-amber-400 text-xs">
+                <strong>{t('providers.icloud.simpleMode')}</strong> {t('providers.icloud.simpleModeDesc')}
+              </AlertDescription>
+            </Alert>
+          )}
+
+          {connectionError && (
+            <Alert variant={needsICloudAccount ? "default" : "destructive"} className={needsICloudAccount ? "border-amber-200 bg-amber-50 dark:bg-amber-950/20" : ""}>
+              <AlertCircle className={`h-4 w-4 ${needsICloudAccount ? "text-amber-600" : ""}`} />
+              <AlertDescription className={needsICloudAccount ? "text-amber-800 dark:text-amber-400" : ""}>
+                {connectionError}
+              </AlertDescription>
+            </Alert>
+          )}
+
+          {needsICloudAccount ? (
+            <div className="space-y-2">
+              <Button
+                onClick={handleOpenSettings}
+                variant="outline"
+                className="w-full"
+              >
+                {t('providers.icloud.openSettings', 'Open Settings')}
+              </Button>
+              <Button
+                onClick={handleNativeConnect}
+                disabled={isConnecting}
+                className="w-full bg-blue-600 hover:bg-blue-700"
+              >
+                {isConnecting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                {t('providers.icloud.retryConnection', 'Retry Connection')}
+              </Button>
+            </div>
+          ) : (
+            <Button
+              onClick={handleNativeConnect}
+              disabled={isConnecting}
+              className="w-full bg-blue-600 hover:bg-blue-700"
+            >
+              {isConnecting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {t('providers.icloud.connectButton')}
+            </Button>
+          )}
+        </div>
       ) : (() => {
         // App pre-configured by developer via env vars → simple one-click connect for users
         const isAppConfigured = !!(
@@ -691,17 +918,6 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
                   <ExternalLink className="w-4 h-4 mr-2" />
                   {t('providers.icloud.signInWithAppleButton')}
                 </Button>
-                {hasAttemptedSignIn && (
-                  <Button
-                    variant="outline"
-                    className="w-full"
-                    onClick={handleContinueAfterSignIn}
-                    disabled={isConnecting}
-                  >
-                    {isConnecting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                    {t('providers.icloud.continueAfterSignIn')}
-                  </Button>
-                )}
                 <div className="pt-2 flex justify-center">
                   <button
                     type="button"
@@ -710,6 +926,7 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
                       pendingSignInRef.current = null;
                       setNeedsAppleSignIn(false);
                       setHasAttemptedSignIn(false);
+                      setIsConnecting(false);
                       setConnectionError(null);
                     }}
                   >

@@ -684,7 +684,7 @@ export const SettingsDialog = ({
   // Mobile: Use full-height bottom drawer for native feel
   if (isMobile) {
     return (
-      <Drawer open={open} onOpenChange={onOpenChange} modal={false}>
+      <Drawer open={open} onOpenChange={onOpenChange} modal dismissible={false}>
         <DrawerContent fullHeight hideHandle>
           <DrawerHeader className="text-left flex items-center justify-between pr-4">
             <DrawerTitle>{t('settings.title')}</DrawerTitle>

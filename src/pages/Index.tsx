@@ -1875,7 +1875,50 @@ const Index = () => {
 
   const handleAppleSignIn = async () => {
     try {
-      // Check if running on Capacitor (iOS/Android native app)
+      // On iOS native, use the native Apple Sign-In SDK (AuthenticationServices)
+      // instead of Supabase OAuth. This gives native Face ID/Touch ID sheet,
+      // SSO, and doesn't require opening a browser.
+      const isCapacitorIOS = !!(window as any).Capacitor?.isNativePlatform?.() &&
+        (window as any).Capacitor?.getPlatform?.() === 'ios';
+
+      if (isCapacitorIOS) {
+        const { registerPlugin } = await import('@capacitor/core');
+        const SignInWithApple = registerPlugin<{
+          authorize(options: any): Promise<{ response: { identityToken?: string; user?: string; email?: string } }>;
+        }>('SignInWithApple');
+
+        const rawNonce = crypto.randomUUID();
+        // Apple expects the SHA-256 hash of the nonce in the authorize request
+        const nonceBytes = new TextEncoder().encode(rawNonce);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', nonceBytes);
+        const hashedNonce = Array.from(new Uint8Array(hashBuffer))
+          .map(b => b.toString(16).padStart(2, '0'))
+          .join('');
+
+        const result = await SignInWithApple.authorize({
+          clientId: import.meta.env.VITE_APPLE_CLIENT_ID || 'app.ownjournal',
+          redirectURI: buildAppLink('/oauth-callback'),
+          scopes: 'email name',
+          state: 'apple-sign-in',
+          nonce: hashedNonce,
+        });
+
+        if (result.response?.identityToken) {
+          // Pass the raw (unhashed) nonce to Supabase for verification
+          const { data, error } = await supabase.auth.signInWithIdToken({
+            provider: 'apple',
+            token: result.response.identityToken,
+            nonce: rawNonce,
+          });
+
+          if (error) throw error;
+          if (import.meta.env.DEV) console.log('✅ [Apple] Native sign-in successful');
+          return;
+        }
+        throw new Error('No identity token received from Apple');
+      }
+
+      // Web / non-iOS: use Supabase OAuth flow
       const isCapacitor = !!(window as any).Capacitor?.isNativePlatform?.();
       const redirectUrl = isCapacitor
         ? buildAppLink('/oauth-callback')
@@ -1909,24 +1952,16 @@ const Index = () => {
 
       if (data?.url) {
         if (isCapacitor) {
-          // On Capacitor, use system browser and listen for App Link callback
           const opened = await openCapacitorOAuth(data.url);
           if (opened) return;
-          // Fall through to regular redirect as fallback
         }
-        
-        // Detect custom domain (not localhost)
-        // Custom domains redirect directly to OAuth provider
-        const isCustomDomain =
-          window.location.hostname !== "localhost";
-        
+
+        const isCustomDomain = window.location.hostname !== "localhost";
+
         if (isCustomDomain) {
-          // BYPASS AUTH-BRIDGE: Validate and redirect directly
-          // The OAuth URL from Supabase goes to Supabase's auth server first,
-          // which then redirects to the OAuth provider (Apple)
           const oauthUrl = new URL(data.url);
           const supabaseProjectId = SUPABASE_CONFIG.projectId;
-          const isAllowed = 
+          const isAllowed =
             oauthUrl.hostname === `${supabaseProjectId}.supabase.co` ||
             oauthUrl.hostname.endsWith('.supabase.co') ||
             oauthUrl.hostname === 'appleid.apple.com';
@@ -1937,8 +1972,7 @@ const Index = () => {
           window.location.href = data.url;
           return;
         }
-        
-        // Fallback: regular redirect
+
         try {
           if (window.top && window.top !== window) {
             window.top.location.href = data.url;
@@ -1957,6 +1991,8 @@ const Index = () => {
           description: t('index.appleSignInNotAvailableDesc'),
           variant: "destructive",
         });
+      } else if (errorMessage.includes("canceled") || errorMessage.includes("cancelled")) {
+        // User cancelled the native sign-in sheet — don't show error
       } else {
         toast({
           title: t('common.error'),
