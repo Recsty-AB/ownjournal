@@ -24,6 +24,8 @@ import { format } from "date-fns";
 import i18n from "@/i18n/config";
 import { getDateLocale } from "@/utils/dateLocale";
 import { isNativePlatform, saveFileNative, type NativeExportResult } from "@/utils/nativeExport";
+import { MOOD_EMOJI } from "@/utils/moodEmoji";
+import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
 
 // Export result type for native platforms
 export type { NativeExportResult };
@@ -70,6 +72,7 @@ export interface JournalEntry {
   body: string;
   mood?: string;
   tags?: string[];
+  activities?: string[];
   images?: string[];
 }
 
@@ -443,8 +446,8 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
         doc.text(titleLines, margin + 2, yPosition + 2);
         yPosition += titleLines.length * 6 + 2;
 
-        // Mood and tags - understated italic styling
-        if (entry.mood || (entry.tags && entry.tags.length > 0)) {
+        // Mood, activities, and tags - understated italic styling
+        if (entry.mood || (entry.activities && entry.activities.length > 0) || (entry.tags && entry.tags.length > 0)) {
           yPosition += 2;
           doc.setFontSize(9);
           if (useCJK) {
@@ -457,7 +460,16 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
           let metaText = "";
           if (entry.mood) {
             const translatedMood = t(`journalEntry.moods.${entry.mood}`);
-            metaText = `${t("export.mood")}: ${translatedMood}`;
+            metaText = `${t("export.mood")}: ${MOOD_EMOJI[entry.mood] || ''} ${translatedMood}`;
+          }
+
+          if (entry.activities && entry.activities.length > 0) {
+            const activitiesText = entry.activities.map(a => {
+              const emoji = getActivityEmoji(a);
+              const label = PREDEFINED_ACTIVITIES.some(p => p.key === a) ? t(`activities.${a}`) : a;
+              return emoji ? `${emoji} ${label}` : label;
+            }).join(', ');
+            metaText += metaText ? `  ·  ${activitiesText}` : activitiesText;
           }
 
           if (entry.tags && entry.tags.length > 0) {
@@ -748,17 +760,35 @@ export const exportToWord = async (entries: JournalEntry[], journalName?: string
           }),
         );
 
-        // Mood and tags with styled badges
-        if (entry.mood || (entry.tags && entry.tags.length > 0)) {
+        // Mood, activities, and tags with styled badges
+        if (entry.mood || (entry.activities && entry.activities.length > 0) || (entry.tags && entry.tags.length > 0)) {
           const metaParts: TextRun[] = [];
 
           if (entry.mood) {
             const translatedMood = t(`journalEntry.moods.${entry.mood}`);
             metaParts.push(
               new TextRun({
-                text: `✦ ${t("export.mood")}: ${translatedMood}`,
+                text: `✦ ${t("export.mood")}: ${MOOD_EMOJI[entry.mood] || ''} ${translatedMood}`,
                 size: 20,
                 color: "6366F1",
+              }),
+            );
+          }
+
+          if (entry.activities && entry.activities.length > 0) {
+            if (metaParts.length > 0) {
+              metaParts.push(new TextRun({ text: "   ", size: 20 }));
+            }
+            const activitiesText = entry.activities.map(a => {
+              const emoji = getActivityEmoji(a);
+              const label = PREDEFINED_ACTIVITIES.some(p => p.key === a) ? t(`activities.${a}`) : a;
+              return emoji ? `${emoji} ${label}` : label;
+            }).join(', ');
+            metaParts.push(
+              new TextRun({
+                text: `${t("activities.label")}: ${activitiesText}`,
+                size: 20,
+                color: "10B981",
               }),
             );
           }

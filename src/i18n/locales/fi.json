@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "Aktiviteetit",
+    "addCustom": "Lisää mukautettu aktiviteetti...",
+    "exercise": "Liikunta",
+    "social": "Sosiaalinen",
+    "work": "Työ",
+    "travel": "Matkailu",
+    "poor_sleep": "Huono uni",
+    "good_sleep": "Hyvä uni",
+    "meditation": "Meditaatio",
+    "nature": "Luonto",
+    "reading": "Lukeminen",
+    "creative": "Luova",
+    "family": "Perhe",
+    "cooking": "Ruoanlaitto",
+    "music": "Musiikki",
+    "gaming": "Pelaaminen",
+    "learning": "Oppiminen"
+  },
   "accessibility": {
     "close": "Sulje",
     "toggleSidebar": "Vaihda sivupalkin tila",
@@ -1954,6 +1973,32 @@
       "multiDeviceSync": {
         "title": "Monilaitesynkronointi",
         "desc": "Synkronoi päiväkirjasi saumattomasti kaikkien laitteiden välillä automaattisella ristiriitojen ratkaisulla."
+      },
+      "moodTracking": {
+        "title": "Mielialan kirjaus",
+        "desc": "Kirjaa jokaisen merkinnän yhteydessä, miltä sinusta tuntuu, ja opi tunnistamaan tunnemallejasi ajan myötä. Valitse viidestä emoji-tasosta — mielialasi näkyy suoraan merkinnän vieressä."
+      },
+      "activityTagging": {
+        "title": "Aktiviteettien merkintä",
+        "desc": "Merkitse, mitä olit tekemässä kirjoittaessasi. Valitse valmiista aktiviteeteista, kuten liikunta, sosiaalinen, työ ja meditaatio — tai luo omia. Suodata aikajanaa aktiviteetin mukaan ja näe, miten arjen eri osa-alueet vaikuttavat mielialaasi.",
+        "plusHint": "Hanki Plus ja näe, mitkä aktiviteetit nostavat mielialaasi."
+      },
+      "moodCalendar": {
+        "title": "Mielialakalenteri",
+        "desc": "Näe koko kuukausi yhdellä silmäyksellä: jokainen päivä on väritetty mielialasi mukaan. Selaa kuukausia ja löydä toistuvia kaavoja. Useita merkintöjä sisältävät päivät näyttävät keskiarvon."
+      },
+      "moodStats": {
+        "title": "Mielialan tilastot",
+        "desc": "Tutustu mielialatietoihisi vuorovaikutteisten kaavioiden avulla:",
+        "distribution": "Donitsikaavio, joka näyttää mielialojen prosentuaalisen jakauman",
+        "overTime": "Trendiviiva 7 päivän liukuvalla keskiarvolla",
+        "dayOfWeek": "Palkkikaavio viikonpäivittäin — näe, milloin voit parhaiten ja huonoiten",
+        "streaks": "Sarjat: kuinka monta peräkkäistä päivää mielialasi on ollut hyvä?"
+      },
+      "activityInsights": {
+        "title": "Aktiviteettien vaikutukset",
+        "desc": "Selvitä, mitkä aktiviteetit liittyvät parempaan tai huonompaan mielialaan. Selkeä kaavio näyttää kunkin aktiviteetin vaikutuksen mielialaasi, ja yhteenveto kertoo, mikä nostaa ja mikä laskee mielialaasi eniten.",
+        "proNote": "(Plus-ominaisuus)"
       }
     },
     "troubleshooting": {
@@ -2020,7 +2065,7 @@
       },
       "pro": {
         "question": "Mitä Plus sisältää?",
-        "answer": "Plus sisältää AI-pohjaisen analyysin, mielialaoivallukset, tunniste-ehdotukset ja edistyneen trendivisualisoinnin."
+        "answer": "Plus sisältää AI-pohjaisen analyysin, mielialaoivallukset, tunniste-ehdotukset, Aktiviteettinäkymät ja edistyneen trendivisualisoinnin."
       },
       "manageSubscription": {
         "question": "Miten hallinnoin tilaustani?",
@@ -2269,5 +2314,41 @@
     "requiredFields": "Tiedoston tulisi sisältää nämä kentät:",
     "disconnectAndReset": "Katkaise yhteys ja nollaa",
     "close": "Sulje"
+  },
+  "moodCalendar": {
+    "title": "Mielialakalenteri",
+    "noEntries": "Ei merkintöjä"
+  },
+  "moodStats": {
+    "title": "Mielialastatistiikka",
+    "distribution": "Mielialajakauma",
+    "overTime": "Mieliala ajan myötä",
+    "dayOfWeek": "Viikonpäivä",
+    "streaks": "Mielialasarjat",
+    "currentStreak": "Nykyinen sarja",
+    "longestStreak": "Pisin sarja",
+    "days": "päivää",
+    "positivePercent": "{{percent}}% positiivisia mielialoja",
+    "bestDay": "Paras päivä: {{day}}",
+    "worstDay": "Haastavin: {{day}}",
+    "noData": "Ei tarpeeksi merkintöjä tilastoihin",
+    "last30days": "Viimeiset 30 päivää",
+    "last90days": "Viimeiset 90 päivää",
+    "thisYear": "Tämä vuosi",
+    "allTime": "Koko aika"
+  },
+  "moodCorrelations": {
+    "title": "Aktiviteettinäkymät",
+    "description": "Miten aktiviteetit liittyvät mielialaasi",
+    "improvement": "+{{value}} mielialanparannus",
+    "decline": "{{value}} mielialanlasku",
+    "notEnoughData": "Tarvitaan lisää merkintöjä aktiviteeteilla. Merkitse vähintään 3 merkintää samalla aktiviteetilla.",
+    "minEntries": "Alle 3 kertaa esiintyvät aktiviteetit on jätetty pois",
+    "topPositive": "{{activity}} liittyy parempaan mielialaan",
+    "topNegative": "{{activity}} liittyy matalampaan mielialaan",
+    "proFeature": "Plus-ominaisuus",
+    "proFeatureDesc": "Aktiviteettinäkymät ovat saatavilla Plus-tilauksella",
+    "tooltipAvg": "keskim.",
+    "tooltipEntries": "merkintää"
   }
 }

@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "活动",
+    "addCustom": "添加自定义活动…",
+    "exercise": "运动",
+    "social": "社交",
+    "work": "工作",
+    "travel": "旅行",
+    "poor_sleep": "睡眠不佳",
+    "good_sleep": "睡眠良好",
+    "meditation": "冥想",
+    "nature": "亲近自然",
+    "reading": "阅读",
+    "creative": "创作",
+    "family": "家人",
+    "cooking": "烹饪",
+    "music": "音乐",
+    "gaming": "游戏",
+    "learning": "学习"
+  },
   "accessibility": {
     "close": "关闭",
     "toggleSidebar": "切换侧边栏",
@@ -1954,6 +1973,32 @@
       "multiDeviceSync": {
         "title": "多设备同步",
         "desc": "在所有设备上无缝同步您的日记。自动冲突解决功能确保即使在多台设备上编辑，日记也不会丢失。"
+      },
+      "moodTracking": {
+        "title": "心情记录",
+        "desc": "写日记时顺手记下当下的心情，日积月累便能觉察到自己的情绪走向。五个表情等级供你选择，选好后心情会显示在对应日记旁。"
+      },
+      "activityTagging": {
+        "title": "活动标签",
+        "desc": "为每篇日记标注当时正在进行的活动。你可以从运动、社交、工作、冥想等预设项中选择，也可以添加自定义活动。按活动筛选时间线后，生活中的规律往往一目了然。",
+        "plusHint": "升级到 Plus 可解锁活动洞察，帮助你了解哪些活动可能有助于改善心情。"
+      },
+      "moodCalendar": {
+        "title": "心情日历",
+        "desc": "在月历视图中用颜色呈现每天的心情。你可以在各月份之间切换，观察心情的变化趋势。如果同一天写了多篇日记，日历会显示当天的平均心情。"
+      },
+      "moodStats": {
+        "title": "心情统计",
+        "desc": "借助可交互的图表，直观回顾你的心情数据：",
+        "distribution": "环形图——展示各心情等级所占比例",
+        "overTime": "折线图——呈现心情随时间的变化，并附 7 天滑动均值",
+        "dayOfWeek": "柱状图——按星期汇总，一眼看出哪天心情较好、哪天偏低",
+        "streaks": "连续记录——追踪你保持积极心情的连续天数"
+      },
+      "activityInsights": {
+        "title": "活动洞察",
+        "desc": "探索哪些活动与较好或较差的心情存在关联。通过可视化图表查看每项活动对心情的潜在影响，同时获取一份概要，了解哪些活动最能提振你的状态。",
+        "proNote": "（Plus 功能）"
       }
     },
     "troubleshooting": {
@@ -2020,7 +2065,7 @@
       },
       "pro": {
         "question": "Plus 包含什么？",
-        "answer": "Plus 包括 AI 分析、标题建议、标签建议、趋势分析和 PDF/Word 导出。"
+        "answer": "Plus 包括 AI 分析、标题建议、标签建议、趋势分析、活动分析和 PDF/Word 导出。"
       },
       "manageSubscription": {
         "question": "如何管理我的订阅？",
@@ -2269,5 +2314,41 @@
     "requiredFields": "文件应包含以下字段：",
     "disconnectAndReset": "断开连接并重置",
     "close": "关闭"
+  },
+  "moodCalendar": {
+    "title": "心情日历",
+    "noEntries": "暂无记录"
+  },
+  "moodStats": {
+    "title": "心情统计",
+    "distribution": "心情分布",
+    "overTime": "心情变化",
+    "dayOfWeek": "按星期",
+    "streaks": "连续记录",
+    "currentStreak": "当前连续",
+    "longestStreak": "最长连续",
+    "days": "天",
+    "positivePercent": "{{percent}}% 为积极心情",
+    "bestDay": "心情最好：{{day}}",
+    "worstDay": "最需调整：{{day}}",
+    "noData": "记录还不够多，暂时无法生成统计",
+    "last30days": "最近 30 天",
+    "last90days": "最近 90 天",
+    "thisYear": "今年",
+    "allTime": "全部"
+  },
+  "moodCorrelations": {
+    "title": "活动分析",
+    "description": "活动与心情的关联",
+    "improvement": "+{{value}} 心情提升",
+    "decline": "{{value}} 心情下降",
+    "notEnoughData": "需要更多带有活动标记的日记才能生成分析。请至少为同一活动标记 3 篇日记。",
+    "minEntries": "少于 3 次的活动暂不纳入分析",
+    "topPositive": "{{activity}}与较好的心情相关",
+    "topNegative": "{{activity}}与较低的心情相关",
+    "proFeature": "Plus 功能",
+    "proFeatureDesc": "活动分析需要订阅 Plus",
+    "tooltipAvg": "均值",
+    "tooltipEntries": "条记录"
   }
 }

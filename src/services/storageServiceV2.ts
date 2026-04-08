@@ -3764,6 +3764,7 @@ class StorageServiceV2 {
             date: entry.date.toISOString(),
             tags: entry.tags,
             mood: entry.mood,
+            activities: entry.activities || [],
             createdAt: entry.createdAt.toISOString(),
             updatedAt: entry.updatedAt.toISOString(),
             aiMetadata: aiMetadata || undefined, // Include AI metadata
@@ -3787,6 +3788,7 @@ class StorageServiceV2 {
             date: entry.date.toISOString(),
             tags: entry.tags,
             mood: entry.mood,
+            activities: entry.activities || [],
             createdAt: entry.createdAt.toISOString(),
             updatedAt: entry.updatedAt.toISOString(),
             aiMetadata: aiMetadata || undefined, // Include AI metadata
@@ -4955,6 +4957,7 @@ class StorageServiceV2 {
       date: new Date(encryptedEntry.metadata.date),
       tags: encryptedEntry.metadata.tags,
       mood: encryptedEntry.metadata.mood as any,
+      activities: encryptedEntry.metadata.activities || [],
       createdAt: new Date(encryptedEntry.metadata.createdAt),
       updatedAt: new Date(encryptedEntry.metadata.updatedAt),
     };

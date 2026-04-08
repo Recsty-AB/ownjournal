@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Calendar, Tag, Heart, Save, Edit3, Trash2, ImagePlus, X, Loader2, FileText } from "lucide-react";
+import { Calendar, Tag, Heart, Save, Edit3, Trash2, ImagePlus, X, Loader2, FileText, Activity } from "lucide-react";
 import { format } from "date-fns";
 import { getDateLocale } from "@/utils/dateLocale";
 import { MarkdownEditor } from "@/components/editor/MarkdownEditor";
@@ -18,6 +18,8 @@ import jsPDF from "jspdf";
 import { Document, Paragraph, TextRun, Packer } from "docx";
 import { saveAs } from "file-saver";
 import { journalEntrySchema, tagSchema } from "@/utils/validation";
+import { MOOD_EMOJI } from "@/utils/moodEmoji";
+import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -38,6 +40,7 @@ export interface JournalEntryData {
   tags: string[];
   mood: 'great' | 'good' | 'okay' | 'poor' | 'terrible';
   images?: string[]; // base64 encoded images
+  activities?: string[];
   createdAt: Date;
   updatedAt: Date;
 }
@@ -71,6 +74,8 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
   const [body, setBody] = useState(entry?.body || "");
   const [tags, setTags] = useState<string[]>(entry?.tags || []);
   const [mood, setMood] = useState<JournalEntryData['mood']>(entry?.mood || 'okay');
+  const [activities, setActivities] = useState<string[]>(entry?.activities || []);
+  const [activityInput, setActivityInput] = useState("");
   const [images, setImages] = useState<string[]>(entry?.images || []);
   const [tagInput, setTagInput] = useState("");
   const [selectedDate, setSelectedDate] = useState<Date>(entry?.date || new Date());
@@ -89,6 +94,20 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
   // Get unique tags from all entries for suggestions
   const allUniqueTags = Array.from(new Set(allEntries.flatMap(e => e.tags)))
     .filter(tag => !tags.includes(tag)); // Exclude already selected tags
+
+  // Sync state when entry prop updates (e.g., snapshot -> full decrypted data)
+  // Only sync when NOT in edit mode to avoid overwriting user edits
+  useEffect(() => {
+    if (!isEditMode && entry) {
+      setTitle(entry.title || "");
+      setBody(entry.body || "");
+      setTags(entry.tags || []);
+      setMood(entry.mood || 'okay');
+      setActivities(entry.activities || []);
+      setImages(entry.images || []);
+      setSelectedDate(entry.date || new Date());
+    }
+  }, [entry?.id, entry?.body, entry?.updatedAt, isEditMode]);
 
   // Call onEditStart when entering edit mode initially
   useEffect(() => {
@@ -119,6 +138,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
         body,
         tags,
         mood,
+        activities,
       });
     } catch (error) {
       const firstError = error && typeof error === 'object' && 'errors' in error ? (error.errors as Array<{message?: string}>)[0] : undefined;
@@ -137,6 +157,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
       body,
       tags,
       mood,
+      activities,
       images
     });
     setIsEditMode(false);
@@ -395,8 +416,19 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
     yPosition += 10;
 
     // Mood
-    doc.text(`${t('journalEntry.mood')}: ${t(`journalEntry.moods.${entry.mood}`)}`, margin, yPosition);
+    doc.text(`${t('journalEntry.mood')}: ${MOOD_EMOJI[entry.mood] || ''} ${t(`journalEntry.moods.${entry.mood}`)}`, margin, yPosition);
     yPosition += 10;
+
+    // Activities
+    if (entry.activities && entry.activities.length > 0) {
+      const activitiesText = entry.activities.map(a => {
+        const emoji = getActivityEmoji(a);
+        const label = PREDEFINED_ACTIVITIES.some(p => p.key === a) ? t(`activities.${a}`) : a;
+        return emoji ? `${emoji} ${label}` : label;
+      }).join(', ');
+      doc.text(`${t('activities.label')}: ${activitiesText}`, margin, yPosition);
+      yPosition += 10;
+    }
 
     // Tags
     if (entry.tags.length > 0) {
@@ -458,12 +490,27 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
           new Paragraph({
             children: [
               new TextRun({
-                text: `${t('journalEntry.mood')}: ${t(`journalEntry.moods.${entry.mood}`)}`,
+                text: `${t('journalEntry.mood')}: ${MOOD_EMOJI[entry.mood] || ''} ${t(`journalEntry.moods.${entry.mood}`)}`,
                 size: 20,
               }),
             ],
             spacing: { after: 100 },
           }),
+          ...(entry.activities && entry.activities.length > 0 ? [
+            new Paragraph({
+              children: [
+                new TextRun({
+                  text: `${t('activities.label')}: ${entry.activities.map(a => {
+                    const emoji = getActivityEmoji(a);
+                    const label = PREDEFINED_ACTIVITIES.some(p => p.key === a) ? t(`activities.${a}`) : a;
+                    return emoji ? `${emoji} ${label}` : label;
+                  }).join(', ')}`,
+                  size: 20,
+                }),
+              ],
+              spacing: { after: 100 },
+            }),
+          ] : []),
           ...(entry.tags.length > 0 ? [
             new Paragraph({
               children: [
@@ -600,10 +647,21 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
           <div className="flex items-center gap-2">
             <Heart className="w-4 h-4 text-muted-foreground" />
             <Badge variant="secondary" className={moodColors[entry.mood]}>
-              {t(`journalEntry.moods.${entry.mood}`)}
+              {MOOD_EMOJI[entry.mood]} {t(`journalEntry.moods.${entry.mood}`)}
             </Badge>
           </div>
           
+          {entry.activities && entry.activities.length > 0 && (
+            <div className="flex items-center gap-2 flex-wrap">
+              <Activity className="w-4 h-4 text-muted-foreground" />
+              {entry.activities.map(activity => (
+                <Badge key={activity} variant="outline" className="text-xs">
+                  {getActivityEmoji(activity)}{getActivityEmoji(activity) ? ' ' : ''}{PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
+                </Badge>
+              ))}
+            </div>
+          )}
+
           {entry.tags.length > 0 && (
             <div className="flex items-center gap-2 flex-wrap">
               <Tag className="w-4 h-4 text-muted-foreground" />
@@ -686,11 +744,76 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                   size="sm"
                   onClick={() => setMood(moodOption)}
                   className="capitalize whitespace-nowrap flex-shrink-0"
+                  aria-label={t(`journalEntry.moods.${moodOption}`)}
                 >
-                  {t(`journalEntry.moods.${moodOption}`)}
+                  <span>{MOOD_EMOJI[moodOption]}</span>
+                  <span className="hidden sm:inline ml-1">{t(`journalEntry.moods.${moodOption}`)}</span>
                 </Button>
               ))}
             </div>
+          </div>
+
+          {/* Activity selector */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-3">
+              <Activity className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+              <span className="text-sm text-muted-foreground">{t('activities.label')}</span>
+            </div>
+            <div className="flex flex-wrap gap-2 ml-7">
+              {PREDEFINED_ACTIVITIES.map((activity) => (
+                <Button
+                  key={activity.key}
+                  variant={activities.includes(activity.key) ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => {
+                    setActivities(prev =>
+                      prev.includes(activity.key)
+                        ? prev.filter(a => a !== activity.key)
+                        : [...prev, activity.key]
+                    );
+                  }}
+                  className="whitespace-nowrap flex-shrink-0"
+                  aria-label={t(`activities.${activity.key}`)}
+                >
+                  <span>{activity.emoji}</span>
+                  <span className="hidden sm:inline ml-1">{t(`activities.${activity.key}`)}</span>
+                </Button>
+              ))}
+            </div>
+            {/* Custom activity input */}
+            <div className="ml-7">
+              <Input
+                placeholder={t('activities.addCustom')}
+                value={activityInput}
+                onChange={(e) => setActivityInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && activityInput.trim()) {
+                    e.preventDefault();
+                    const newActivity = activityInput.trim().toLowerCase();
+                    if (!activities.includes(newActivity) && activities.length < 20) {
+                      setActivities(prev => [...prev, newActivity]);
+                    }
+                    setActivityInput("");
+                  }
+                }}
+                className="border-0 bg-transparent p-0 focus-visible:ring-0"
+              />
+            </div>
+            {/* Show custom activities as removable badges */}
+            {activities.filter(a => !PREDEFINED_ACTIVITIES.some(p => p.key === a)).length > 0 && (
+              <div className="flex flex-wrap gap-2 ml-7">
+                {activities.filter(a => !PREDEFINED_ACTIVITIES.some(p => p.key === a)).map(activity => (
+                  <Badge
+                    key={activity}
+                    variant="secondary"
+                    className="cursor-pointer hover:bg-destructive hover:text-destructive-foreground transition-colors"
+                    onClick={() => setActivities(prev => prev.filter(a => a !== activity))}
+                  >
+                    {activity} ×
+                  </Badge>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="flex items-center gap-3">

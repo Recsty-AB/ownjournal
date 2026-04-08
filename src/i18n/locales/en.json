@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "Activities",
+    "addCustom": "Add custom activity...",
+    "exercise": "Exercise",
+    "social": "Social",
+    "work": "Work",
+    "travel": "Travel",
+    "poor_sleep": "Poor Sleep",
+    "good_sleep": "Good Sleep",
+    "meditation": "Meditation",
+    "nature": "Nature",
+    "reading": "Reading",
+    "creative": "Creative",
+    "family": "Family",
+    "cooking": "Cooking",
+    "music": "Music",
+    "gaming": "Gaming",
+    "learning": "Learning"
+  },
   "accessibility": {
     "close": "Close",
     "toggleSidebar": "Toggle Sidebar",
@@ -1917,6 +1936,32 @@
         "desc": "Discover patterns in your journaling over time. Track mood trends, writing frequency, and common themes to better understand your habits.",
         "proNote": "(Plus feature)"
       },
+      "moodTracking": {
+        "title": "Mood Tracking",
+        "desc": "Record how you feel with each journal entry to build awareness of your emotional patterns over time. Choose from five emoji-based mood levels and see your mood displayed alongside your entries."
+      },
+      "activityTagging": {
+        "title": "Activity Tagging",
+        "desc": "Tag what you were doing when writing each entry. Choose from predefined activities like exercise, social, work, and meditation — or create your own custom activities. Filter your timeline by activity to discover how different parts of your life affect how you feel.",
+        "plusHint": "Upgrade to Plus for Activity Insights — discover which activities boost your mood."
+      },
+      "moodCalendar": {
+        "title": "Mood Calendar",
+        "desc": "View a month-at-a-glance calendar where each day is colored by your mood. Navigate between months to spot patterns and trends. Days with multiple entries show the average mood."
+      },
+      "moodStats": {
+        "title": "Mood Statistics",
+        "desc": "Visualize your mood data with interactive charts and insights:",
+        "distribution": "Mood distribution donut chart showing the percentage breakdown",
+        "overTime": "Mood trend line chart with 7-day rolling average",
+        "dayOfWeek": "Day-of-week bar chart revealing your best and worst days",
+        "streaks": "Mood streaks tracking consecutive days of positive moods"
+      },
+      "activityInsights": {
+        "title": "Activity Insights",
+        "desc": "Discover which activities correlate with better or worse moods. See a visual chart showing the mood impact of each activity, with summary insights highlighting your top mood boosters and drains.",
+        "proNote": "(Plus feature)"
+      },
       "export": {
         "title": "Exporting Your Journal",
         "desc": "Export your journal in multiple formats:",
@@ -2023,7 +2068,7 @@
       },
       "pro": {
         "question": "What does Plus include?",
-        "answer": "Plus includes AI analysis, title suggestions, tag suggestions, trend analysis, and PDF/Word export."
+        "answer": "Plus includes AI analysis, title suggestions, tag suggestions, trend analysis, Activity Insights, and PDF/Word export."
       },
       "manageSubscription": {
         "question": "How do I manage my subscription?",
@@ -2272,5 +2317,41 @@
     "requiredFields": "The file should contain these fields:",
     "disconnectAndReset": "Disconnect and Reset",
     "close": "Close"
+  },
+  "moodCalendar": {
+    "title": "Mood Calendar",
+    "noEntries": "No entries"
+  },
+  "moodStats": {
+    "title": "Mood Statistics",
+    "distribution": "Mood Distribution",
+    "overTime": "Mood Over Time",
+    "dayOfWeek": "Day of Week",
+    "streaks": "Mood Streaks",
+    "currentStreak": "Current Streak",
+    "longestStreak": "Longest Streak",
+    "days": "days",
+    "positivePercent": "{{percent}}% positive moods",
+    "bestDay": "Best day: {{day}}",
+    "worstDay": "Most challenging: {{day}}",
+    "noData": "Not enough entries for statistics",
+    "last30days": "Last 30 Days",
+    "last90days": "Last 90 Days",
+    "thisYear": "This Year",
+    "allTime": "All Time"
+  },
+  "moodCorrelations": {
+    "title": "Activity Insights",
+    "description": "How activities relate to your mood",
+    "improvement": "+{{value}} mood boost",
+    "decline": "{{value}} mood dip",
+    "notEnoughData": "Need more entries with activities to show insights. Tag at least 3 entries with the same activity.",
+    "minEntries": "Activities with fewer than 3 entries are excluded",
+    "topPositive": "{{activity}} is associated with better moods",
+    "topNegative": "{{activity}} is associated with lower moods",
+    "proFeature": "Plus Feature",
+    "proFeatureDesc": "Activity insights are available with a Plus subscription",
+    "tooltipAvg": "avg",
+    "tooltipEntries": "entries"
   }
 }

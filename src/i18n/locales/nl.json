@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "Activiteiten",
+    "addCustom": "Eigen activiteit toevoegen …",
+    "exercise": "Bewegen",
+    "social": "Sociaal",
+    "work": "Werk",
+    "travel": "Reizen",
+    "poor_sleep": "Slecht geslapen",
+    "good_sleep": "Goed geslapen",
+    "meditation": "Meditatie",
+    "nature": "Natuur",
+    "reading": "Lezen",
+    "creative": "Creatief",
+    "family": "Familie",
+    "cooking": "Koken",
+    "music": "Muziek",
+    "gaming": "Gamen",
+    "learning": "Leren"
+  },
   "accessibility": {
     "close": "Sluiten",
     "toggleSidebar": "Zijbalk wisselen",
@@ -1954,6 +1973,32 @@
       "multiDeviceSync": {
         "title": "Multi-apparaat synchronisatie",
         "desc": "Synchroniseer uw dagboek naadloos tussen al uw apparaten met automatische conflictoplossing."
+      },
+      "moodTracking": {
+        "title": "Stemming bijhouden",
+        "desc": "Houd bij elke notitie bij hoe je je voelt en leer zo je emotionele patronen herkennen. Kies uit vijf emoji-niveaus — je stemming verschijnt meteen naast je notitie."
+      },
+      "activityTagging": {
+        "title": "Activiteiten koppelen",
+        "desc": "Geef aan wat je aan het doen was toen je schreef. Kies uit activiteiten zoals bewegen, sociaal, werk of meditatie — of maak je eigen activiteiten aan. Filter je tijdlijn op activiteit om te ontdekken hoe verschillende bezigheden je stemming beïnvloeden.",
+        "plusHint": "Neem Plus en ontdek welke activiteiten je stemming een boost geven."
+      },
+      "moodCalendar": {
+        "title": "Stemmingskalender",
+        "desc": "Bekijk je maand in één oogopslag: elke dag is gekleurd op basis van je stemming. Blader door de maanden en ontdek patronen. Op dagen met meerdere notities zie je het gemiddelde."
+      },
+      "moodStats": {
+        "title": "Stemmingsoverzicht",
+        "desc": "Bekijk je stemmingsgegevens in interactieve grafieken:",
+        "distribution": "Ringdiagram met de procentuele verdeling van je stemmingen",
+        "overTime": "Trendlijn met een voortschrijdend gemiddelde over 7 dagen",
+        "dayOfWeek": "Staafdiagram per weekdag — zie op welke dagen je je het best voelt",
+        "streaks": "Reeksen: hoeveel dagen achter elkaar was je stemming positief?"
+      },
+      "activityInsights": {
+        "title": "Inzichten per activiteit",
+        "desc": "Ontdek welke activiteiten samenhangen met een betere of slechtere stemming. Een overzichtelijke grafiek laat het effect van elke activiteit zien, met daarbij een samenvatting van je grootste stemmingsverbeteraars en -verslechteraars.",
+        "proNote": "(Plus-functie)"
       }
     },
     "troubleshooting": {
@@ -2020,7 +2065,7 @@
       },
       "pro": {
         "question": "Wat bevat Plus?",
-        "answer": "Plus bevat AI-gestuurde analyse, stemmingsinzichten, tagsuggesties en geavanceerde trendvisualisatie."
+        "answer": "Plus bevat AI-gestuurde analyse, stemmingsinzichten, tagsuggesties, Activiteitsinzichten en geavanceerde trendvisualisatie."
       },
       "manageSubscription": {
         "question": "Hoe beheer ik mijn abonnement?",
@@ -2269,5 +2314,41 @@
     "requiredFields": "Het bestand moet deze velden bevatten:",
     "disconnectAndReset": "Loskoppelen en resetten",
     "close": "Sluiten"
+  },
+  "moodCalendar": {
+    "title": "Stemmingskalender",
+    "noEntries": "Geen notities"
+  },
+  "moodStats": {
+    "title": "Stemmingsstatistieken",
+    "distribution": "Verdeling",
+    "overTime": "Verloop",
+    "dayOfWeek": "Weekdag",
+    "streaks": "Reeksen",
+    "currentStreak": "Huidige reeks",
+    "longestStreak": "Langste reeks",
+    "days": "dagen",
+    "positivePercent": "{{percent}}% positief",
+    "bestDay": "Beste dag: {{day}}",
+    "worstDay": "Lastigste dag: {{day}}",
+    "noData": "Nog niet genoeg notities voor statistieken",
+    "last30days": "Laatste 30 dagen",
+    "last90days": "Laatste 90 dagen",
+    "thisYear": "Dit jaar",
+    "allTime": "Alles"
+  },
+  "moodCorrelations": {
+    "title": "Activiteitsinzichten",
+    "description": "Hoe je activiteiten samenhangen met je stemming",
+    "improvement": "+{{value}} stemmingsverbetering",
+    "decline": "{{value}} stemmingsdaling",
+    "notEnoughData": "Te weinig gegevens. Markeer minstens 3 notities met dezelfde activiteit.",
+    "minEntries": "Activiteiten met minder dan 3 notities worden niet getoond",
+    "topPositive": "{{activity}} verbetert je stemming",
+    "topNegative": "{{activity}} verlaagt je stemming",
+    "proFeature": "Plus-functie",
+    "proFeatureDesc": "Activiteitsinzichten zijn beschikbaar met een Plus-abonnement",
+    "tooltipAvg": "gem.",
+    "tooltipEntries": "notities"
   }
 }

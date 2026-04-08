@@ -1,6 +1,29 @@
 # Changelog
 
+## v1.0.10 (Apr 8, 2026)
+
+### Features
+- **Emoji mood picker** — mood buttons now show emoji faces (😄😊😐😟😢) with text on desktop, emoji-only on mobile
+- **Activity tagging** — tag entries with what you were doing (exercise, social, work, meditation, etc.) from 15 predefined activities or create custom ones
+- **Mood calendar heatmap** — month-view calendar where each day is colored by your mood, with navigation and tooltips
+- **Mood statistics dashboard** — interactive charts showing mood distribution, trends over time, day-of-week patterns, and mood streaks
+- **Activity insights (Plus)** — discover which activities correlate with better or worse moods via a visual correlation chart
+
+### Improvements
+- Mood emojis shown in timeline filters, entry badges, and PDF/Word exports
+- Activity filtering added to timeline alongside existing mood and tag filters
+- Help center updated with documentation for all new mood tracking features
+- Updated FAQ to include Activity Insights in Plus feature list
+
+### Bug Fixes
+- Fixed entry body disappearing when switching to edit mode after import (stale state from startup snapshot cache)
+
+---
+
 ## v1.0.8 (Apr 5, 2026)
+
+### Features
+- **Brazilian Portuguese (pt-BR)** — added as the 18th supported language, with natural Brazilian vocabulary, grammar, and nuances distinct from European Portuguese
 
 ### Improvements
 - **14-day free trial** — extended from 10 days to give more time to explore Plus features

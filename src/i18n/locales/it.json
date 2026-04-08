@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "Attività",
+    "addCustom": "Crea un'attività...",
+    "exercise": "Sport",
+    "social": "Vita sociale",
+    "work": "Lavoro",
+    "travel": "Viaggio",
+    "poor_sleep": "Dormito male",
+    "good_sleep": "Dormito bene",
+    "meditation": "Meditazione",
+    "nature": "Natura",
+    "reading": "Lettura",
+    "creative": "Creatività",
+    "family": "Famiglia",
+    "cooking": "Cucina",
+    "music": "Musica",
+    "gaming": "Videogiochi",
+    "learning": "Studio"
+  },
   "accessibility": {
     "close": "Chiudi",
     "toggleSidebar": "Attiva/disattiva barra laterale",
@@ -1509,7 +1528,7 @@
     "unlockInsights": "Sblocca funzionalità Plus",
     "description": "Ottieni riepiloghi basati su AI, analisi del sentimento ed estrazione di frasi chiave per le tue voci di diario",
     "smartSummaries": "Riepiloghi intelligenti",
-    "moodTracking": "Tracciamento umore",
+    "moodTracking": "Registro dell'umore",
     "keyInsights": "Approfondimenti chiave",
     "priceYearly": "{{yearlyPrice}}/anno",
     "priceMonthly": "Sono solo {{monthlyPrice}}/mese",
@@ -1954,6 +1973,32 @@
       "multiDeviceSync": {
         "title": "Sincronizzazione multi-dispositivo",
         "desc": "Sincronizza senza problemi il tuo diario su tutti i dispositivi con risoluzione automatica dei conflitti."
+      },
+      "moodTracking": {
+        "title": "Monitoraggio dell'umore",
+        "desc": "Annota come ti senti ogni volta che scrivi nel diario e prendi coscienza dei tuoi andamenti emotivi nel tempo. Scegli tra cinque livelli di umore con emoji e ritrova il tuo stato d'animo accanto a ogni voce."
+      },
+      "activityTagging": {
+        "title": "Etichette attività",
+        "desc": "Indica che cosa stavi facendo quando hai scritto ogni voce. Scegli tra attività predefinite come esercizio, vita sociale, lavoro o meditazione, oppure creane di tue. Filtra la cronologia per attività e scopri come ciascuna influisce sul tuo benessere.",
+        "plusHint": "Passa a Plus per accedere all'analisi delle attività e scoprire quali migliorano il tuo umore."
+      },
+      "moodCalendar": {
+        "title": "Calendario dell'umore",
+        "desc": "Consulta un calendario mensile in cui ogni giorno è colorato in base al tuo umore. Naviga tra i mesi per individuare andamenti e tendenze. I giorni con più voci mostrano la media."
+      },
+      "moodStats": {
+        "title": "Statistiche dell'umore",
+        "desc": "Esplora i tuoi dati sull'umore con grafici interattivi:",
+        "distribution": "Grafico a ciambella con la distribuzione percentuale dei tuoi stati d'animo",
+        "overTime": "Grafico lineare dell'andamento dell'umore con media mobile a 7 giorni",
+        "dayOfWeek": "Grafico a barre per giorno della settimana che evidenzia i tuoi giorni migliori e peggiori",
+        "streaks": "Serie di giorni consecutivi con umore positivo"
+      },
+      "activityInsights": {
+        "title": "Analisi delle attività",
+        "desc": "Scopri quali attività si associano a un umore migliore o peggiore. Visualizza un grafico dell'impatto di ogni attività sul tuo umore, con un riepilogo di quelle che ti giovano di più e di quelle che ti penalizzano.",
+        "proNote": "(Funzione Plus)"
       }
     },
     "troubleshooting": {
@@ -2020,7 +2065,7 @@
       },
       "pro": {
         "question": "Cosa include Plus?",
-        "answer": "Plus include analisi basata su AI, approfondimenti sull'umore, suggerimenti tag e visualizzazione avanzata delle tendenze."
+        "answer": "Plus include analisi basata su AI, approfondimenti sull'umore, suggerimenti tag, Analisi attività e visualizzazione avanzata delle tendenze."
       },
       "manageSubscription": {
         "question": "Come gestisco il mio abbonamento?",
@@ -2269,5 +2314,41 @@
     "requiredFields": "Il file dovrebbe contenere questi campi:",
     "disconnectAndReset": "Disconnetti e reimposta",
     "close": "Chiudi"
+  },
+  "moodCalendar": {
+    "title": "Calendario dell'umore",
+    "noEntries": "Nessuna voce"
+  },
+  "moodStats": {
+    "title": "Statistiche dell'umore",
+    "distribution": "Distribuzione dell'umore",
+    "overTime": "Umore nel tempo",
+    "dayOfWeek": "Giorno della settimana",
+    "streaks": "Serie dell'umore",
+    "currentStreak": "Serie attuale",
+    "longestStreak": "Serie più lunga",
+    "days": "giorni",
+    "positivePercent": "{{percent}}% umori positivi",
+    "bestDay": "Giorno migliore: {{day}}",
+    "worstDay": "Più impegnativo: {{day}}",
+    "noData": "Non abbastanza voci per le statistiche",
+    "last30days": "Ultimi 30 giorni",
+    "last90days": "Ultimi 90 giorni",
+    "thisYear": "Quest'anno",
+    "allTime": "Tutto il tempo"
+  },
+  "moodCorrelations": {
+    "title": "Analisi attività",
+    "description": "Come le attività influenzano il tuo umore",
+    "improvement": "+{{value}} miglioramento umore",
+    "decline": "{{value}} calo dell'umore",
+    "notEnoughData": "Servono più voci con attività. Tagga almeno 3 voci con la stessa attività.",
+    "minEntries": "Le attività con meno di 3 voci sono escluse",
+    "topPositive": "{{activity}} è associato a un umore migliore",
+    "topNegative": "{{activity}} è associato a un umore peggiore",
+    "proFeature": "Funzione Plus",
+    "proFeatureDesc": "Le analisi delle attività sono disponibili con un abbonamento Plus",
+    "tooltipAvg": "media",
+    "tooltipEntries": "voci"
   }
 }

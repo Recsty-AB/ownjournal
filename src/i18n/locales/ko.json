@@ -1,4 +1,23 @@
 {
+  "activities": {
+    "label": "활동",
+    "addCustom": "나만의 활동 추가…",
+    "exercise": "운동",
+    "social": "만남",
+    "work": "업무",
+    "travel": "여행",
+    "poor_sleep": "수면 부족",
+    "good_sleep": "숙면",
+    "meditation": "명상",
+    "nature": "자연 속에서",
+    "reading": "독서",
+    "creative": "창작",
+    "family": "가족",
+    "cooking": "요리",
+    "music": "음악",
+    "gaming": "게임",
+    "learning": "배움"
+  },
   "accessibility": {
     "close": "닫기",
     "toggleSidebar": "사이드바 전환",
@@ -1954,6 +1973,32 @@
       "multiDeviceSync": {
         "title": "다중 기기 동기화",
         "desc": "모든 기기에서 일기를 원활하게 동기화할 수 있습니다. 자동 충돌 해결 기능 덕분에 여러 기기에서 편집해도 일기가 손실되지 않습니다."
+      },
+      "moodTracking": {
+        "title": "기분 기록",
+        "desc": "일기를 쓸 때 그때의 기분을 함께 남겨 보세요. 꾸준히 기록하다 보면 나만의 감정 흐름을 자연스럽게 파악할 수 있습니다. 다섯 단계 표정 가운데 하나를 고르면 일기 옆에 기분이 표시됩니다."
+      },
+      "activityTagging": {
+        "title": "활동 태그",
+        "desc": "일기를 쓸 때 그 순간 무엇을 하고 있었는지 함께 표시합니다. 운동, 모임, 업무, 명상 등 기본 항목에서 고르거나 나만의 활동을 직접 만들 수 있습니다. 활동별로 일기를 걸러 보면 생활 속 규칙을 발견하는 데 도움이 됩니다.",
+        "plusHint": "Plus로 올리면 활동 분석 기능을 쓸 수 있습니다. 어떤 활동이 기분 개선에 도움이 되는지 확인해 보세요."
+      },
+      "moodCalendar": {
+        "title": "기분 달력",
+        "desc": "월별 달력에서 매일의 기분을 색상으로 한눈에 확인할 수 있습니다. 달을 넘기며 기분의 흐름과 변화를 살펴보세요. 하루에 여러 편을 쓴 날에는 평균 기분이 표시됩니다."
+      },
+      "moodStats": {
+        "title": "기분 통계",
+        "desc": "직접 조작할 수 있는 도표로 기분 자료를 한눈에 살펴볼 수 있습니다.",
+        "distribution": "각 기분 등급의 비율을 보여 주는 원형 도표",
+        "overTime": "7일 이동 평균이 포함된 기분 추이 꺾은선 도표",
+        "dayOfWeek": "요일별 평균 기분을 비교하는 막대 도표",
+        "streaks": "긍정적인 기분이 이어진 연속 일수 기록"
+      },
+      "activityInsights": {
+        "title": "활동 분석",
+        "desc": "어떤 활동이 좋은 기분 또는 나쁜 기분과 관련이 있는지 살펴볼 수 있습니다. 각 활동이 기분에 미치는 영향을 도표로 확인하고, 기분을 높이는 활동과 낮추는 활동에 대한 요약도 함께 제공됩니다.",
+        "proNote": "（Plus 기능）"
       }
     },
     "troubleshooting": {
@@ -2020,7 +2065,7 @@
       },
       "pro": {
         "question": "Plus에는 무엇이 포함되나요?",
-        "answer": "Plus에는 AI 분석, 제목 제안, 태그 제안, 트렌드 분석, PDF/Word 내보내기가 포함됩니다."
+        "answer": "Plus에는 AI 분석, 제목 제안, 태그 제안, 트렌드 분석, 활동 분석, PDF/Word 내보내기가 포함됩니다."
       },
       "manageSubscription": {
         "question": "구독을 어떻게 관리하나요?",
@@ -2269,5 +2314,41 @@
     "requiredFields": "파일에는 다음 필드가 포함되어야 합니다:",
     "disconnectAndReset": "연결 해제 및 재설정",
     "close": "닫기"
+  },
+  "moodCalendar": {
+    "title": "기분 달력",
+    "noEntries": "기록 없음"
+  },
+  "moodStats": {
+    "title": "기분 통계",
+    "distribution": "기분 분포",
+    "overTime": "기분 추이",
+    "dayOfWeek": "요일별",
+    "streaks": "연속 기록",
+    "currentStreak": "현재 연속",
+    "longestStreak": "최장 연속",
+    "days": "일",
+    "positivePercent": "{{percent}}%가 긍정적 기분",
+    "bestDay": "가장 좋은 요일: {{day}}",
+    "worstDay": "가장 힘든 요일: {{day}}",
+    "noData": "통계를 만들기에 기록이 아직 부족합니다",
+    "last30days": "최근 30일",
+    "last90days": "최근 90일",
+    "thisYear": "올해",
+    "allTime": "전체"
+  },
+  "moodCorrelations": {
+    "title": "활동 분석",
+    "description": "활동과 기분의 연관성",
+    "improvement": "+{{value}} 기분 상승",
+    "decline": "{{value}} 기분 하락",
+    "notEnoughData": "분석 결과를 표시하려면 활동이 포함된 일기가 더 필요합니다. 같은 활동으로 최소 3편의 일기를 표시해 주십시오.",
+    "minEntries": "3회 미만인 활동은 분석에서 제외됩니다",
+    "topPositive": "{{activity}}은(는) 좋은 기분과 관련이 있습니다",
+    "topNegative": "{{activity}}은(는) 낮은 기분과 관련이 있습니다",
+    "proFeature": "Plus 기능",
+    "proFeatureDesc": "활동 분석은 Plus 구독이 필요합니다",
+    "tooltipAvg": "평균",
+    "tooltipEntries": "편"
   }
 }
