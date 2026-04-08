@@ -1036,7 +1036,7 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
     const selectedCategory = categories.find(c => c.value === mobileSelectedCategory);
 
     return (
-      <Drawer open={open} onOpenChange={onOpenChange} modal={false}>
+      <Drawer open={open} onOpenChange={onOpenChange} modal dismissible={false}>
         <DrawerContent fullHeight hideHandle>
           <DrawerHeader className="text-left flex items-center justify-between pr-4 border-b border-border">
             <div className="flex items-center gap-2 min-w-0">

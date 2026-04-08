@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/components/ui/button';
 import {
   Select,
   SelectContent,
@@ -33,6 +32,9 @@ const languages = [
   { code: 'th', name: 'ไทย' },
 ];
 
+const isNativeIOS = !!(window as any).Capacitor?.isNativePlatform?.() &&
+  (window as any).Capacitor?.getPlatform?.() === 'ios';
+
 export const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
@@ -53,6 +55,27 @@ export const LanguageSwitcher = () => {
   };
 
   const currentLanguage = getCurrentLanguage();
+
+  // On iOS native, use a native <select> because Radix UI's portal-based
+  // dropdown doesn't receive touch events in Capacitor's WKWebView.
+  if (isNativeIOS) {
+    return (
+      <div className="flex items-center gap-2">
+        <Languages className="w-4 h-4 text-muted-foreground" />
+        <select
+          value={currentLanguage}
+          onChange={(e) => changeLanguage(e.target.value)}
+          className="w-[140px] h-10 px-3 py-2 rounded-md border border-input bg-background text-sm"
+        >
+          {languages.map((lang) => (
+            <option key={lang.code} value={lang.code}>
+              {lang.name}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
+  }
 
   return (
     <div className="flex items-center gap-2">

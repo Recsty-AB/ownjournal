@@ -156,9 +156,16 @@
   }
 
   html {
-    /* Support for iOS safe areas on notched devices */
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) 
-             env(safe-area-inset-bottom) env(safe-area-inset-left);
+    /* iOS safe area insets are handled at the component level:
+       - Header: padding-top for notch
+       - Drawer: padding-top for notch (via inline style)
+       - Bottom elements: padding-bottom for home indicator
+       Do NOT add padding here — it creates a visible gap behind overlays. */
+    background-color: hsl(42 15% 97%);
+  }
+
+  html.dark {
+    background-color: hsl(25 25% 8%);
   }
 
   /* Proper word breaking for CJK languages (Japanese, Korean, Chinese) */

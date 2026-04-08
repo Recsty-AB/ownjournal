@@ -17,7 +17,8 @@ const config: CapacitorConfig = {
   },
   ios: {
     scheme: 'ownjournal',
-    contentInset: 'always'
+    contentInset: 'never',
+    backgroundColor: '#f9f8f5'
   }
 };
 

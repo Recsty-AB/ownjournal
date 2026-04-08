@@ -293,8 +293,22 @@ class ConnectionStateManager {
         await this.tryAutoConnect(name, masterKey, encryptionMode, connect);
       }
       
-      // iCloud auto-connect (uses saved credentials from previous session)
+      // iCloud auto-connect — native iOS uses CloudKit plugin, web uses CloudKit JS
       await this.tryAutoConnect('iCloud', masterKey, encryptionMode, async () => {
+        const isNativeIOS = !!(window as any).Capacitor?.isNativePlatform?.() &&
+          (window as any).Capacitor?.getPlatform?.() === 'ios';
+
+        if (isNativeIOS) {
+          const { ICloudNativeService, isNativeICloudEnabled } = await import('@/services/iCloudNativeService');
+          if (isNativeICloudEnabled()) {
+            const service = new ICloudNativeService();
+            await service.connect();
+            return service;
+          }
+          return null;
+        }
+
+        // Web/desktop: existing CloudKit JS flow
         const { ICloudService } = await import('@/services/iCloudService');
         const { CloudCredentialStorage } = await import('@/utils/cloudCredentialStorage');
         const { SimpleModeCredentialStorage } = await import('@/utils/simpleModeCredentialStorage');
