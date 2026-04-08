@@ -13,7 +13,7 @@
     "test:ui": "npx vitest --ui",
     "test:coverage": "npx vitest --coverage",
     "verify-assetlinks": "node scripts/verify-assetlinks.js",
-    "ios:sync": "npm run build && npx cap sync ios",
+    "ios:sync": "npm run build && npx cap sync ios && node scripts/patch-ios-plugins.cjs",
     "ios:open": "npx cap open ios",
     "ios:run": "npx cap run ios"
   },
@@ -26,7 +26,7 @@
     "@capacitor/cli": "^8.0.1",
     "@capacitor/core": "^8.0.2",
     "@capacitor/filesystem": "^8.1.0",
-    "@capacitor/ios": "^8.0.2",
+    "@capacitor/ios": "^8.3.0",
     "@capacitor/share": "^8.0.0",
     "@hookform/resolvers": "^3.10.0",
     "@huggingface/transformers": "^3.7.6",

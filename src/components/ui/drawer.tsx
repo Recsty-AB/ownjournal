@@ -27,8 +27,8 @@ const DrawerOverlay = React.forwardRef<
   <DrawerPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-black/80",
-      excludeHeader && "top-16", // 64px = h-16 header height
+      "fixed inset-0 bg-black/80",
+      excludeHeader ? "z-[110]" : "z-50",
       className
     )}
     {...props}
@@ -50,10 +50,11 @@ const DrawerContent = React.forwardRef<
       ref={ref}
       aria-describedby={undefined}
       className={cn(
-        "fixed inset-x-0 bottom-0 z-50 flex flex-col rounded-t-[10px] border bg-background",
-        fullHeight ? "top-16" : "mt-24 h-auto",
+        "fixed inset-x-0 bottom-0 flex flex-col rounded-t-[10px] border bg-background",
+        fullHeight ? "top-0 z-[110]" : "mt-24 h-auto z-50",
         className
       )}
+      style={fullHeight ? { paddingTop: 'env(safe-area-inset-top)' } : undefined}
       {...props}
     >
       {!hideHandle && !fullHeight && <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />}

@@ -17,10 +17,27 @@ export const FEATURES = {
 } as const;
 
 /**
- * Check if Apple/iCloud features should be available on the current platform.
- * iCloud and Apple Sign-In are not supported on Android native apps.
+ * Check if iCloud should be available on the current platform.
+ * - Native iOS: uses native CloudKit plugin (CKDatabase) — no popup needed
+ * - Web: uses CloudKit JS (popup-based Apple ID sign-in)
+ * - Android: not available (no iCloud on Android)
  */
 export function isAppleFeatureAvailable(): boolean {
+  const cap = (window as any).Capacitor;
+  const isNative = cap?.isNativePlatform?.() === true;
+  if (isNative && cap?.getPlatform?.() === 'ios') return true;
+  if (isNative) return false;
+  return true;
+}
+
+/**
+ * Check if Apple Sign-In should be available on the current platform.
+ * Apple Sign-In works on all platforms:
+ * - iOS native: via @capacitor-community/apple-sign-in (native AuthenticationServices)
+ * - Web: via Supabase OAuth
+ * - Android: not supported (Apple doesn't provide Android SDK)
+ */
+export function isAppleSignInAvailable(): boolean {
   const isAndroidNative =
     (window as any).Capacitor?.isNativePlatform?.() === true &&
     (window as any).Capacitor?.getPlatform?.() === 'android';

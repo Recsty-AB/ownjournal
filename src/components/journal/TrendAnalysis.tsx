@@ -926,18 +926,30 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
           {/* Date Range Selection */}
           <div className="space-y-3">
             <label className="text-sm font-medium">{t('trendAnalysis.selectPeriod')}</label>
-            <Select value={dateRangePreset} onValueChange={(value) => setDateRangePreset(value as DateRangePreset)}>
-              <SelectTrigger className="w-full">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
+            {!!(window as any).Capacitor?.isNativePlatform?.() && (window as any).Capacitor?.getPlatform?.() === 'ios' ? (
+              <select
+                value={dateRangePreset}
+                onChange={(e) => setDateRangePreset(e.target.value as DateRangePreset)}
+                className="w-full h-10 px-3 py-2 rounded-md border border-input bg-background text-sm"
+              >
                 {DATE_RANGE_OPTIONS.map(option => (
-                  <SelectItem key={option.value} value={option.value}>
-                    {t(option.label)}
-                  </SelectItem>
+                  <option key={option.value} value={option.value}>{t(option.label)}</option>
                 ))}
-              </SelectContent>
-            </Select>
+              </select>
+            ) : (
+              <Select value={dateRangePreset} onValueChange={(value) => setDateRangePreset(value as DateRangePreset)}>
+                <SelectTrigger className="w-full">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {DATE_RANGE_OPTIONS.map(option => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {t(option.label)}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
             
             {/* Custom Date Range Pickers */}
             {dateRangePreset === "custom" && (
