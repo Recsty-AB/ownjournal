@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Calendar, Tag, Heart, Save, Edit3, Trash2, ImagePlus, X, Loader2, FileText, Activity } from "lucide-react";
+import { Calendar, Tag, Heart, Save, Edit3, Trash2, ImagePlus, X, Loader2, FileText, Activity, ChevronDown } from "lucide-react";
 import { format } from "date-fns";
 import { getDateLocale } from "@/utils/dateLocale";
 import { MarkdownEditor } from "@/components/editor/MarkdownEditor";
@@ -31,6 +31,9 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerFooter, DrawerClose } from "@/components/ui/drawer";
+import { ToastAction } from "@/components/ui/toast";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export interface JournalEntryData {
   id: string;
@@ -62,11 +65,13 @@ interface JournalEntryProps {
 
 const moodColors = {
   great: "bg-emerald-100 text-emerald-800 border-emerald-200",
-  good: "bg-blue-100 text-blue-800 border-blue-200", 
+  good: "bg-blue-100 text-blue-800 border-blue-200",
   okay: "bg-yellow-100 text-yellow-800 border-yellow-200",
   poor: "bg-orange-100 text-orange-800 border-orange-200",
   terrible: "bg-red-100 text-red-800 border-red-200"
 };
+
+const PREDEFINED_ACTIVITY_KEYS = PREDEFINED_ACTIVITIES.map(a => a.key);
 
 export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = false, onEditingChange, allEntries = [], isPro = false, isDemo = false, editingEntryId, onEditStart, onEditEnd }: JournalEntryProps) => {
   const [isEditMode, setIsEditMode] = useState(isEditing);
@@ -76,6 +81,8 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
   const [mood, setMood] = useState<JournalEntryData['mood']>(entry?.mood || 'okay');
   const [activities, setActivities] = useState<string[]>(entry?.activities || []);
   const [activityInput, setActivityInput] = useState("");
+  const [activityDrawerOpen, setActivityDrawerOpen] = useState(false);
+  const isMobile = useIsMobile();
   const [images, setImages] = useState<string[]>(entry?.images || []);
   const [tagInput, setTagInput] = useState("");
   const [selectedDate, setSelectedDate] = useState<Date>(entry?.date || new Date());
@@ -115,6 +122,12 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
       onEditStart();
     }
   }, []);
+
+  // Reset activity drawer state whenever we leave edit mode so it doesn't
+  // auto-reopen next time the user enters edit mode.
+  useEffect(() => {
+    if (!isEditMode) setActivityDrawerOpen(false);
+  }, [isEditMode]);
 
   // Close edit mode when global back is triggered
   useEffect(() => {
@@ -566,16 +579,32 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                 </Button>
               </>
             )}
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               size="icon"
-              className="h-10 w-10 sm:h-9 sm:w-9"
-              onClick={() => { 
+              className={`h-10 w-10 sm:h-9 sm:w-9 ${isAnotherEntryEditing ? 'opacity-50' : ''}`}
+              aria-disabled={isAnotherEntryEditing || undefined}
+              onClick={() => {
                 if (isAnotherEntryEditing) {
                   toast({
                     title: t('journal.anotherEntryEditing'),
                     description: t('journal.anotherEntryEditingDesc'),
                     variant: "destructive",
+                    action: (
+                      <ToastAction
+                        altText={t('journal.goToEditingEntry')}
+                        onClick={() => {
+                          if (editingEntryId && editingEntryId !== 'new-entry') {
+                            const target = document.querySelector(`[data-entry-id="${editingEntryId}"]`);
+                            if (target) {
+                              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                          }
+                        }}
+                      >
+                        {t('journal.goToEditingEntry')}
+                      </ToastAction>
+                    ),
                   });
                   return;
                 }
@@ -583,7 +612,6 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                 onEditStart?.();
                 onEditingChange?.(true);
               }}
-              disabled={isAnotherEntryEditing}
               title={isAnotherEntryEditing ? t('journal.finishEditingFirst') : t('journal.editEntry')}
             >
               <Edit3 className="w-5 h-5" />
@@ -746,75 +774,160 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                   className="capitalize whitespace-nowrap flex-shrink-0"
                   aria-label={t(`journalEntry.moods.${moodOption}`)}
                 >
-                  <span>{MOOD_EMOJI[moodOption]}</span>
-                  <span className="hidden sm:inline ml-1">{t(`journalEntry.moods.${moodOption}`)}</span>
+                  <span className="hidden sm:inline mr-1" aria-hidden="true">{MOOD_EMOJI[moodOption]}</span>
+                  <span>{t(`journalEntry.moods.${moodOption}`)}</span>
                 </Button>
               ))}
             </div>
           </div>
 
-          {/* Activity selector */}
-          <div className="space-y-2">
-            <div className="flex items-center gap-3">
-              <Activity className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-              <span className="text-sm text-muted-foreground">{t('activities.label')}</span>
-            </div>
-            <div className="flex flex-wrap gap-2 ml-7">
-              {PREDEFINED_ACTIVITIES.map((activity) => (
-                <Button
-                  key={activity.key}
-                  variant={activities.includes(activity.key) ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => {
-                    setActivities(prev =>
-                      prev.includes(activity.key)
-                        ? prev.filter(a => a !== activity.key)
-                        : [...prev, activity.key]
-                    );
-                  }}
-                  className="whitespace-nowrap flex-shrink-0"
-                  aria-label={t(`activities.${activity.key}`)}
-                >
-                  <span>{activity.emoji}</span>
-                  <span className="hidden sm:inline ml-1">{t(`activities.${activity.key}`)}</span>
-                </Button>
-              ))}
-            </div>
-            {/* Custom activity input */}
-            <div className="ml-7">
-              <Input
-                placeholder={t('activities.addCustom')}
-                value={activityInput}
-                onChange={(e) => setActivityInput(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' && activityInput.trim()) {
-                    e.preventDefault();
-                    const newActivity = activityInput.trim().toLowerCase();
-                    if (!activities.includes(newActivity) && activities.length < 20) {
-                      setActivities(prev => [...prev, newActivity]);
+          {/* Activity selector — drawer on mobile, inline on desktop */}
+          {(() => {
+            const toggleActivity = (key: string) => {
+              setActivities(prev =>
+                prev.includes(key)
+                  ? prev.filter(a => a !== key)
+                  : [...prev, key]
+              );
+            };
+            const addCustomActivity = () => {
+              const newActivity = activityInput.trim().toLowerCase();
+              if (newActivity) {
+                if (activities.includes(newActivity)) {
+                  // already exists, just clear input below
+                } else if (activities.length >= 20) {
+                  toast({
+                    title: t('journalEntry.maxActivitiesReached', { defaultValue: 'Activity limit reached' }),
+                    description: t('journalEntry.maxActivitiesReachedDesc', { defaultValue: 'You can have at most 20 activities per entry.' }),
+                    variant: "destructive",
+                  });
+                  return;
+                } else {
+                  setActivities(prev => [...prev, newActivity]);
+                }
+              }
+              setActivityInput("");
+            };
+            const customActivities = activities.filter(a => !PREDEFINED_ACTIVITIES.some(p => p.key === a));
+
+            // Shared content rendered both inline (desktop) and in drawer (mobile)
+            const ActivityList = ({ vertical = false }: { vertical?: boolean }) => (
+              <>
+                <div className={vertical ? "grid grid-cols-2 gap-2" : "flex flex-wrap gap-2"}>
+                  {PREDEFINED_ACTIVITIES.map((activity) => (
+                    <Button
+                      key={activity.key}
+                      variant={activities.includes(activity.key) ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => toggleActivity(activity.key)}
+                      className={vertical ? "justify-start whitespace-nowrap" : "whitespace-nowrap flex-shrink-0"}
+                      aria-label={t(`activities.${activity.key}`)}
+                    >
+                      <span aria-hidden="true">{activity.emoji}</span>
+                      <span className="ml-1">{t(`activities.${activity.key}`)}</span>
+                    </Button>
+                  ))}
+                </div>
+                <Input
+                  placeholder={t('activities.addCustom')}
+                  value={activityInput}
+                  onChange={(e) => setActivityInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && activityInput.trim()) {
+                      e.preventDefault();
+                      addCustomActivity();
                     }
-                    setActivityInput("");
-                  }
-                }}
-                className="border-0 bg-transparent p-0 focus-visible:ring-0"
-              />
-            </div>
-            {/* Show custom activities as removable badges */}
-            {activities.filter(a => !PREDEFINED_ACTIVITIES.some(p => p.key === a)).length > 0 && (
-              <div className="flex flex-wrap gap-2 ml-7">
-                {activities.filter(a => !PREDEFINED_ACTIVITIES.some(p => p.key === a)).map(activity => (
-                  <Badge
-                    key={activity}
-                    variant="secondary"
-                    className="cursor-pointer hover:bg-destructive hover:text-destructive-foreground transition-colors"
-                    onClick={() => setActivities(prev => prev.filter(a => a !== activity))}
-                  >
-                    {activity} ×
-                  </Badge>
-                ))}
+                  }}
+                  className={vertical ? "" : "border-0 bg-transparent p-0 focus-visible:ring-0"}
+                />
+                {customActivities.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {customActivities.map(activity => (
+                      <Badge
+                        key={activity}
+                        variant="secondary"
+                        className="cursor-pointer hover:bg-destructive hover:text-destructive-foreground transition-colors"
+                        onClick={() => setActivities(prev => prev.filter(a => a !== activity))}
+                      >
+                        {activity} ×
+                      </Badge>
+                    ))}
+                  </div>
+                )}
+              </>
+            );
+
+            if (isMobile) {
+              // Mobile: compact summary button that opens a bottom drawer
+              const selectedSummary = activities.length === 0
+                ? t('activities.label')
+                : `${t('activities.label')} (${activities.length})`;
+
+              return (
+                <div className="space-y-2">
+                  <Drawer open={activityDrawerOpen} onOpenChange={setActivityDrawerOpen}>
+                    <Button
+                      variant="outline"
+                      type="button"
+                      onClick={() => setActivityDrawerOpen(true)}
+                      className="w-full justify-between"
+                    >
+                      <span className="flex items-center gap-2">
+                        <Activity className="w-4 h-4 text-muted-foreground" />
+                        {selectedSummary}
+                      </span>
+                      <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                    </Button>
+                    {/* Selected preview pills shown beneath the trigger */}
+                    {activities.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5">
+                        {activities.map(a => {
+                          const predef = PREDEFINED_ACTIVITIES.find(p => p.key === a);
+                          const label = predef ? t(`activities.${a}`) : a;
+                          const emoji = predef?.emoji || '';
+                          return (
+                            <Badge key={a} variant="secondary" className="text-xs">
+                              {emoji && <span className="mr-1" aria-hidden="true">{emoji}</span>}
+                              {label}
+                            </Badge>
+                          );
+                        })}
+                      </div>
+                    )}
+                    <DrawerContent>
+                      <DrawerHeader className="text-left">
+                        <DrawerTitle className="flex items-center gap-2">
+                          <Activity className="w-4 h-4" />
+                          {t('activities.label')}
+                        </DrawerTitle>
+                      </DrawerHeader>
+                      <div className="px-4 pb-4 space-y-4 overflow-y-auto">
+                        <ActivityList vertical />
+                      </div>
+                      <DrawerFooter>
+                        <DrawerClose asChild>
+                          <Button>{t('common.done')}</Button>
+                        </DrawerClose>
+                      </DrawerFooter>
+                    </DrawerContent>
+                  </Drawer>
+                </div>
+              );
+            }
+
+            // Desktop: inline pill row
+            return (
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <Activity className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                  <span className="text-sm text-muted-foreground">{t('activities.label')}</span>
+                </div>
+                <div className="ml-7 space-y-2">
+                  <ActivityList />
+                </div>
               </div>
-            )}
-          </div>
+            );
+          })()}
 
           <div className="flex items-center gap-3">
             <Tag className="w-4 h-4 text-muted-foreground" />
@@ -877,6 +990,33 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                 existingTags={tags}
                 onApplyTags={(newTags) => setTags([...tags, ...newTags])}
                 isPro={isPro}
+                predefinedActivities={PREDEFINED_ACTIVITY_KEYS}
+                existingActivities={activities}
+                onApplyActivities={(newActivities) => {
+                  setActivities(prev => {
+                    const merged = [...prev];
+                    let droppedDueToCap = false;
+                    for (const a of newActivities) {
+                      if (merged.includes(a)) continue; // already present, silent skip
+                      if (merged.length >= 20) {
+                        droppedDueToCap = true;
+                        break;
+                      }
+                      merged.push(a);
+                    }
+                    if (droppedDueToCap) {
+                      toast({
+                        title: t('journalEntry.maxActivitiesReached', { defaultValue: 'Activity limit reached' }),
+                        description: t('journalEntry.maxActivitiesReachedDesc', { defaultValue: 'Some activities were not added because you have reached the limit of 20.' }),
+                      });
+                    }
+                    return merged;
+                  });
+                }}
+                getActivityLabel={(key) => {
+                  const predef = PREDEFINED_ACTIVITIES.find(a => a.key === key);
+                  return predef ? `${predef.emoji} ${t(`activities.${key}`)}` : key;
+                }}
               />
             </div>
           )}

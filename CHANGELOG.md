@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.0.12 (Apr 9, 2026)
+
+### Improvements
+- **Mood picker readability** — mood buttons now show text always, with emoji as a supplementary visual on larger screens (previously emoji-only on mobile, which was hard to read)
+- **Activity picker on mobile** — compact bottom drawer with full text labels and a 2-column grid, replacing the emoji-only pill row that was hard to decipher on small screens
+- **Collapsible activity filter** — the activities filter in the timeline now folds like the tags filter, with state persisted across sessions
+- **Filter order** — timeline filters reordered to Tags → Activities → Mood
+- **AI activity suggestions (Plus)** — the "Suggest Tags" feature now also suggests activities from the predefined list based on entry content, shown in the same suggestion panel
+
+### Bug Fixes
+- Fixed edit button silently failing when another entry was being edited — now shows a clear toast with a "Go to editing entry" action that scrolls to the entry currently open for editing
+- Fixed activity drawer state persisting across edit-mode exits (would auto-reopen next time)
+- Fixed cached AI tag suggestions not re-filtering against the current tag list after changes
+
+---
+
 ## v1.0.11 (Apr 9, 2026)
 
 ### Features

@@ -276,6 +276,8 @@ serve(async (req) => {
       tags,
       mood,
       existingTags,
+      predefinedActivities,
+      existingActivities,
       period,
       aggregates,
       entryMetadata,
@@ -761,6 +763,29 @@ Use the provided function to return exactly 20 titles.`;
         existingTagsContext = `\n\nEXISTING TAGS IN USER'S JOURNAL (up to 200):\n${existingTags.join(", ")}\n\nIMPORTANT: Prioritize suggesting these existing tags if they are appropriate for this entry. Only suggest new tags if they are significantly better or capture aspects not covered by existing tags. This helps maintain consistency and prevents tag proliferation.`;
       }
 
+      // Build predefined activities context
+      let activitiesContext = "";
+      if (predefinedActivities && Array.isArray(predefinedActivities) && predefinedActivities.length > 0) {
+        const alreadySelected = Array.isArray(existingActivities) && existingActivities.length > 0
+          ? `\n\nThe user has ALREADY selected these activities (do NOT suggest them again): ${existingActivities.join(", ")}`
+          : "";
+        activitiesContext = `\n\n##############################################################################
+# ACTIVITY SUGGESTIONS — IN ADDITION TO TAGS
+##############################################################################
+
+You must ALSO suggest activities that match the entry. Activities are PREDEFINED and represent what the user was doing.
+
+PREDEFINED ACTIVITIES (you MUST only choose from this exact list):
+${predefinedActivities.join(", ")}
+
+RULES for activities:
+1. Return an "activities" array containing ONLY keys from the predefined list above. NEVER invent new activity keys.
+2. Only include an activity if the entry CLEARLY mentions or implies it. If unsure, do NOT include it.
+3. Return between 0 and 5 activities. It is perfectly fine to return an empty array if no activities are clearly indicated.
+4. Activities are about what the user was DOING (exercise, work, reading, social interaction, etc.), not topics or feelings.
+5. Do NOT translate activity keys — return them in English exactly as listed.${alreadySelected}`;
+      }
+
       systemPrompt =
         "You are an expert tagging assistant for personal journals. Your PRIMARY goal is to maintain tag consistency by REUSING existing tags whenever possible. Only create new tags when absolutely necessary.";
       analysisPrompt = `Generate exactly 20 different sets of tags for this journal entry.
@@ -844,12 +869,12 @@ CORRECT examples for English entries:
 - "work" ✓
 
 ##############################################################################
-${existingTagsContext}
+${existingTagsContext}${activitiesContext}
 
 Journal entry:
 ${content}
 
-Use the provided function to return exactly 20 tag sets.`;
+Use the provided function to return exactly 20 tag sets${predefinedActivities ? " AND a list of matching activities (0-5)" : ""}.`;
     } else {
       // Standard entry analysis
       if (!entryId || !content) {
@@ -948,30 +973,42 @@ Respond in JSON format:
       ];
       aiRequestBody.tool_choice = { type: "function", function: { name: "generate_titles" } };
     } else if (type === "tags") {
+      const tagToolProperties: Record<string, unknown> = {
+        tagSets: {
+          type: "array",
+          items: {
+            type: "array",
+            items: { type: "string" },
+            minItems: 1,
+            maxItems: 5,
+            description: "A set of 2-4 related tags (occasionally 1 or 5)",
+          },
+          minItems: 20,
+          maxItems: 20,
+          description: "Array of exactly 20 unique tag sets",
+        },
+      };
+      const tagToolRequired = ["tagSets"];
+      if (predefinedActivities && Array.isArray(predefinedActivities) && predefinedActivities.length > 0) {
+        tagToolProperties.activities = {
+          type: "array",
+          items: { type: "string", enum: predefinedActivities },
+          minItems: 0,
+          maxItems: 5,
+          description: "Up to 5 activity keys from the predefined list that the entry clearly indicates. May be empty.",
+        };
+        tagToolRequired.push("activities");
+      }
       aiRequestBody.tools = [
         {
           type: "function",
           function: {
             name: "generate_tag_sets",
-            description: "Generate exactly 20 diverse sets of tags, each containing 2-4 tags (occasionally 1 or 5)",
+            description: "Generate exactly 20 diverse sets of tags, each containing 2-4 tags (occasionally 1 or 5), and suggest matching activities from a predefined list when applicable",
             parameters: {
               type: "object",
-              properties: {
-                tagSets: {
-                  type: "array",
-                  items: {
-                    type: "array",
-                    items: { type: "string" },
-                    minItems: 1,
-                    maxItems: 5,
-                    description: "A set of 2-4 related tags (occasionally 1 or 5)",
-                  },
-                  minItems: 20,
-                  maxItems: 20,
-                  description: "Array of exactly 20 unique tag sets",
-                },
-              },
-              required: ["tagSets"],
+              properties: tagToolProperties,
+              required: tagToolRequired,
               additionalProperties: false,
             },
           },
@@ -1494,6 +1531,28 @@ Respond in JSON format:
         return suggestedTag;
       };
       
+      // Helper: extract activities array from any AI response data (tool call only)
+      const extractActivitiesFromResponse = (responseData: any): string[] | null => {
+        const toolCalls = responseData.choices?.[0]?.message?.tool_calls;
+        if (toolCalls && toolCalls.length > 0) {
+          const rawArgs = toolCalls[0].function?.arguments;
+          if (typeof rawArgs === "string" && rawArgs.length > 0) {
+            const functionArgs = parseToolCallArguments(rawArgs, "TAGS_TOOL_CALL_ACTIVITIES");
+            if (functionArgs && Array.isArray(functionArgs.activities)) {
+              const validActivities = functionArgs.activities
+                .filter((a: any) => typeof a === "string" && a.length > 0);
+              // Filter to predefined list and dedupe
+              const predefSet = new Set(predefinedActivities || []);
+              const filtered = validActivities.filter((a: string) => predefSet.has(a));
+              const existingSet = new Set(existingActivities || []);
+              const finalList = Array.from(new Set(filtered)).filter((a: string) => !existingSet.has(a));
+              return finalList;
+            }
+          }
+        }
+        return null;
+      };
+
       // Helper: extract tagSets from any AI response data
       const extractTagSetsFromResponse = (responseData: any): string[][] | null => {
         // Try tool call first
@@ -1650,7 +1709,8 @@ Respond in JSON format:
       
       // First attempt: parse the initial response
       let extractedSets = extractTagSetsFromResponse(aiData);
-      
+      let extractedActivities = extractActivitiesFromResponse(aiData);
+
       // Same-model retry (always) for tags
       if (!extractedSets || extractedSets.length === 0) {
         console.log("[RETRY] Same-model retry for tags");
@@ -1664,13 +1724,19 @@ Respond in JSON format:
             { reasoningEffort: "none" }
           );
           extractedSets = extractTagSetsFromResponse(sameModelResult.data);
+          if (!extractedActivities || extractedActivities.length === 0) {
+            extractedActivities = extractActivitiesFromResponse(sameModelResult.data);
+          }
         } catch (sameModelError) {
           console.error("[TAGS][RETRY] Same-model retry failed:", sameModelError);
         }
       }
-      
+
       if (extractedSets && extractedSets.length > 0) {
         analysisData = normalizeAndPadTagSets(extractedSets);
+        if (extractedActivities && extractedActivities.length > 0) {
+          analysisData.activities = extractedActivities;
+        }
       } else if (ENABLE_AI_RETRY) {
         // Retry with gemini-2.5-pro (only when retry is enabled)
         try {
@@ -1684,9 +1750,13 @@ Respond in JSON format:
           );
           const retryData = retryResult.data;
           const retryExtracted = extractTagSetsFromResponse(retryData);
-          
+          const retryActivities = extractActivitiesFromResponse(retryData);
+
           if (retryExtracted && retryExtracted.length > 0) {
             analysisData = normalizeAndPadTagSets(retryExtracted);
+            if (retryActivities && retryActivities.length > 0) {
+              analysisData.activities = retryActivities;
+            }
           } else {
             console.error("[TAGS][RETRY] Fallback retry also produced no valid tag sets");
             return new Response(JSON.stringify({ 
