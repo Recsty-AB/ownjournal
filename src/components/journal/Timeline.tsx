@@ -20,6 +20,7 @@ import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
 import { Activity } from "lucide-react";
 
 const TAGS_COLLAPSED_KEY = 'ownjournal:tags-collapsed';
+const ACTIVITIES_COLLAPSED_KEY = 'ownjournal:activities-collapsed';
 
 const groupEntriesByDate = (entries: JournalEntryData[], t: (key: string) => string, locale: Locale) => {
   const groups: { [key: string]: JournalEntryData[] } = {};
@@ -72,6 +73,11 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
     const stored = localStorage.getItem(TAGS_COLLAPSED_KEY);
     return stored === 'true';
   });
+  const [isActivitiesCollapsed, setIsActivitiesCollapsed] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    const stored = localStorage.getItem(ACTIVITIES_COLLAPSED_KEY);
+    return stored === 'true';
+  });
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const newEntryRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
@@ -81,6 +87,11 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
   useEffect(() => {
     localStorage.setItem(TAGS_COLLAPSED_KEY, String(isTagsCollapsed));
   }, [isTagsCollapsed]);
+
+  // Persist activities collapsed state
+  useEffect(() => {
+    localStorage.setItem(ACTIVITIES_COLLAPSED_KEY, String(isActivitiesCollapsed));
+  }, [isActivitiesCollapsed]);
 
   const updateShowBackToTop = useCallback(() => {
     const viewport = scrollAreaRef.current?.querySelector('[data-radix-scroll-area-viewport]') as HTMLDivElement | null;
@@ -362,6 +373,66 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
           </Collapsible>
         )}
 
+        {/* Activity filter */}
+        {allActivities.length > 0 && (
+          <Collapsible open={!isActivitiesCollapsed} onOpenChange={(open) => setIsActivitiesCollapsed(!open)}>
+            <div className="mb-4">
+              <CollapsibleTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="flex items-center gap-2 p-0 h-auto hover:bg-transparent"
+                >
+                  <Activity className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-sm text-muted-foreground">
+                    {t('activities.label')} ({allActivities.length})
+                  </span>
+                  {isActivitiesCollapsed ? (
+                    <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                  )}
+                </Button>
+              </CollapsibleTrigger>
+
+              {/* Show selected activities even when collapsed */}
+              {isActivitiesCollapsed && selectedActivities.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {selectedActivities.map(activity => (
+                    <Button
+                      key={activity}
+                      variant="default"
+                      size="sm"
+                      onClick={() => toggleActivity(activity)}
+                      className="text-xs h-7"
+                      aria-label={PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
+                    >
+                      {getActivityEmoji(activity)}{' '}{PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
+                    </Button>
+                  ))}
+                </div>
+              )}
+
+              <CollapsibleContent>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {allActivities.map(activity => (
+                    <Button
+                      key={activity}
+                      variant={selectedActivities.includes(activity) ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => toggleActivity(activity)}
+                      className="text-xs h-7"
+                      aria-label={PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
+                    >
+                      {getActivityEmoji(activity)}{' '}{PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
+                    </Button>
+                  ))}
+                </div>
+              </CollapsibleContent>
+            </div>
+          </Collapsible>
+        )}
+
         {/* Mood filter */}
         {allMoods.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
@@ -376,24 +447,6 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                 aria-label={t(`journalEntry.moods.${mood}`)}
               >
                 {MOOD_EMOJI[mood]}{' '}{t(`journalEntry.moods.${mood}`, mood)}
-              </Button>
-            ))}
-          </div>
-        )}
-
-        {/* Activity filter */}
-        {allActivities.length > 0 && (
-          <div className="flex items-center gap-2 flex-wrap">
-            <Activity className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-            {allActivities.map(activity => (
-              <Button
-                key={activity}
-                variant={selectedActivities.includes(activity) ? "default" : "outline"}
-                size="sm"
-                onClick={() => toggleActivity(activity)}
-                aria-label={PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
-              >
-                {getActivityEmoji(activity)}{' '}{PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
               </Button>
             ))}
           </div>
@@ -470,8 +523,8 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                       return b.id.localeCompare(a.id);
                     })
                     .map(entry => (
+                      <div key={entry.id} data-entry-id={entry.id}>
                       <JournalEntry
-                        key={entry.id}
                         entry={entry}
                         editingEntryId={editingEntryId}
                         onEditStart={() => setEditingEntryId(entry.id)}
@@ -491,6 +544,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                         isPro={isPro}
                         isDemo={isDemo}
                       />
+                      </div>
                     ))}
                 </div>
               </div>

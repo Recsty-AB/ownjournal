@@ -16,17 +16,31 @@ interface TagSuggestionProps {
   existingTags: string[];
   onApplyTags: (tags: string[]) => void;
   isPro: boolean;
+  predefinedActivities?: string[];
+  existingActivities?: string[];
+  onApplyActivities?: (activities: string[]) => void;
+  getActivityLabel?: (key: string) => string;
 }
 
 // Maximum tag sets generated per API call
 const MAX_TAG_SETS = 20;
 
-export const TagSuggestion = ({ content, existingTags, onApplyTags, isPro }: TagSuggestionProps) => {
+export const TagSuggestion = ({
+  content,
+  existingTags,
+  onApplyTags,
+  isPro,
+  predefinedActivities,
+  existingActivities,
+  onApplyActivities,
+  getActivityLabel,
+}: TagSuggestionProps) => {
   const [loading, setLoading] = useState(false);
   const [allTagSets, setAllTagSets] = useState<string[][]>([]); // Array of tag sets
   const [currentSetIndex, setCurrentSetIndex] = useState(0);
   const [showingNext, setShowingNext] = useState(false);
   const [showSuggestion, setShowSuggestion] = useState(false);
+  const [suggestedActivities, setSuggestedActivities] = useState<string[]>([]);
   const { toast } = useToast();
   const lastCallTimeRef = useRef<number>(0);
   const mode = aiModeStorage.getMode();
@@ -37,6 +51,7 @@ export const TagSuggestion = ({ content, existingTags, onApplyTags, isPro }: Tag
     setAllTagSets([]);
     setCurrentSetIndex(0);
     setShowSuggestion(false);
+    setSuggestedActivities([]);
   }, [mode, content]);
 
   const generateTags = async (resetIndex = true, skipCache = false) => {
@@ -90,12 +105,27 @@ export const TagSuggestion = ({ content, existingTags, onApplyTags, isPro }: Tag
       const cacheKey = `${mode}_${content.substring(0, 500)}`;
       const cached = await aiCacheService.getCached(cacheKey, 'tags');
       if (cached?.tagSets && Array.isArray(cached.tagSets)) {
-        setAllTagSets(cached.tagSets);
-        if (resetIndex || currentSetIndex >= cached.tagSets.length) {
-          setCurrentSetIndex(0);
+        // Re-filter against current existingTags (may have changed since cache)
+        const existingTagSet = new Set(existingTags);
+        const refilteredTagSets = cached.tagSets
+          .map((s: string[]) => s.filter((t: string) => !existingTagSet.has(t)))
+          .filter((s: string[]) => s.length > 0);
+        // Re-filter activities
+        const cachedActivities: string[] = Array.isArray(cached.activities)
+          ? cached.activities.filter((a: string) => !(new Set(existingActivities || [])).has(a))
+          : [];
+        // If everything was already applied, fall through and fetch fresh suggestions
+        if (refilteredTagSets.length === 0 && cachedActivities.length === 0) {
+          // Don't return — fall through to fresh generation below
+        } else {
+          setAllTagSets(refilteredTagSets);
+          if (resetIndex || currentSetIndex >= refilteredTagSets.length) {
+            setCurrentSetIndex(0);
+          }
+          setSuggestedActivities(cachedActivities);
+          setShowSuggestion(true);
+          return;
         }
-        setShowSuggestion(true);
-        return;
       }
     }
 
@@ -185,11 +215,15 @@ export const TagSuggestion = ({ content, existingTags, onApplyTags, isPro }: Tag
 
         const currentLanguage = i18n.language.split('-')[0]; // 'en', 'es', or 'ja'
         const { data, error } = await invokeWithRetry(supabase, 'ai-analyze', {
-          body: { 
+          body: {
             type: 'tags',
             language: currentLanguage,
             content,
-            existingTags: allExistingTags
+            existingTags: allExistingTags,
+            ...(predefinedActivities && predefinedActivities.length > 0 ? {
+              predefinedActivities,
+              existingActivities: existingActivities || [],
+            } : {}),
           },
           headers: {
             Authorization: `Bearer ${session.access_token}`
@@ -239,11 +273,18 @@ export const TagSuggestion = ({ content, existingTags, onApplyTags, isPro }: Tag
         // Handle tag sets from AI
         if (data.tagSets && Array.isArray(data.tagSets)) {
           // Filter out tags that are already applied
-          const filteredTagSets = data.tagSets.map((tagSet: string[]) => 
+          const filteredTagSets = data.tagSets.map((tagSet: string[]) =>
             tagSet.filter((tag: string) => !existingTags.includes(tag))
           ).filter((tagSet: string[]) => tagSet.length > 0); // Remove empty sets
-          
-          if (filteredTagSets.length === 0) {
+
+          // Filter activities against current existing list
+          let filteredActivities: string[] = [];
+          if (Array.isArray(data.activities)) {
+            const existingSet = new Set(existingActivities || []);
+            filteredActivities = data.activities.filter((a: string) => typeof a === 'string' && !existingSet.has(a));
+          }
+
+          if (filteredTagSets.length === 0 && filteredActivities.length === 0) {
             toast({
               title: t('suggestions.noNewTags'),
               description: t('suggestions.noNewTagsDesc'),
@@ -251,8 +292,9 @@ export const TagSuggestion = ({ content, existingTags, onApplyTags, isPro }: Tag
             });
             return;
           }
-          
+
           setAllTagSets(filteredTagSets);
+          setSuggestedActivities(filteredActivities);
           if (resetIndex) {
             setCurrentSetIndex(0);
           }
@@ -338,56 +380,109 @@ export const TagSuggestion = ({ content, existingTags, onApplyTags, isPro }: Tag
     }
   };
 
-  if (allTagSets.length > 0 && showSuggestion) {
-    const currentTags = allTagSets[currentSetIndex];
-    
+  const applyActivities = () => {
+    if (suggestedActivities.length > 0 && onApplyActivities) {
+      onApplyActivities(suggestedActivities);
+      toast({
+        title: t('suggestions.activitiesApplied'),
+        description: t('suggestions.activitiesAppliedDesc', { count: suggestedActivities.length }),
+      });
+      // Clear after applying so they don't get re-applied accidentally
+      setSuggestedActivities([]);
+    }
+  };
+
+  const toggleSuggestedActivity = (key: string) => {
+    setSuggestedActivities(prev => prev.filter(a => a !== key));
+  };
+
+  const hasTagSets = allTagSets.length > 0;
+  const hasSuggestedActivities = suggestedActivities.length > 0 && !!onApplyActivities;
+
+  if ((hasTagSets || hasSuggestedActivities) && showSuggestion) {
+    const currentTags = hasTagSets ? allTagSets[currentSetIndex] : [];
+
     return (
       <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg animate-in fade-in duration-200 space-y-3">
         {/* Tags row */}
-        <div className="flex items-start gap-2">
-          <Sparkles className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-          <div className="flex flex-wrap gap-1 flex-1 min-w-0">
-            {currentTags.map(tag => (
-              <Badge key={tag} variant="outline" className="text-xs bg-background">
-                {tag}
-              </Badge>
-            ))}
+        {hasTagSets && (
+          <div className="flex items-start gap-2">
+            <Sparkles className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+            <div className="flex flex-wrap gap-1 flex-1 min-w-0">
+              {currentTags.map(tag => (
+                <Badge key={tag} variant="outline" className="text-xs bg-background">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
           </div>
-        </div>
-        
+        )}
+
+        {/* Suggested activities row */}
+        {hasSuggestedActivities && (
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <Sparkles className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+              <span>{t('suggestions.suggestedActivities')}</span>
+            </div>
+            <div className="flex flex-wrap gap-1">
+              {suggestedActivities.map(key => (
+                <Badge
+                  key={key}
+                  variant="outline"
+                  className="text-xs bg-background cursor-pointer hover:bg-destructive hover:text-destructive-foreground transition-colors"
+                  onClick={() => toggleSuggestedActivity(key)}
+                  title={t('suggestions.removeActivity')}
+                >
+                  {getActivityLabel ? getActivityLabel(key) : key}
+                  <span className="ml-1" aria-hidden="true">×</span>
+                </Badge>
+              ))}
+            </div>
+            <Button onClick={applyActivities} size="sm" variant="outline" className="h-7">
+              <Check className="w-3.5 h-3.5 mr-1" />
+              {t('suggestions.applyActivities')}
+            </Button>
+          </div>
+        )}
+
         {/* Buttons row - stacks properly on mobile */}
         <div className="flex flex-wrap gap-2">
-          <Button onClick={applyTags} size="sm" variant="default" className="bg-gradient-primary hover:opacity-90">
-            <Check className="w-4 h-4 mr-1" />
-            {t('suggestions.applyAll')}
-          </Button>
-          <Button 
-            onClick={showNextTagSet}
-            size="sm" 
-            variant="outline"
-            disabled={showingNext || loading}
-            className="whitespace-nowrap"
-          >
-            {showingNext || loading ? (
-              <>
-                <Loader2 className="w-4 h-4 mr-1 animate-spin" />
-                {t('suggestions.suggesting')}
-              </>
-            ) : (
-              <>
-                <RefreshCw className="w-4 h-4 mr-1 flex-shrink-0" />
-                {t('suggestions.suggestAnother')}
-              </>
-            )}
-          </Button>
-          <Button 
+          {hasTagSets && (
+            <Button onClick={applyTags} size="sm" variant="default" className="bg-gradient-primary hover:opacity-90">
+              <Check className="w-4 h-4 mr-1" />
+              {t('suggestions.applyAll')}
+            </Button>
+          )}
+          {hasTagSets && (
+            <Button
+              onClick={showNextTagSet}
+              size="sm"
+              variant="outline"
+              disabled={showingNext || loading}
+              className="whitespace-nowrap"
+            >
+              {showingNext || loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 mr-1 animate-spin" />
+                  {t('suggestions.suggesting')}
+                </>
+              ) : (
+                <>
+                  <RefreshCw className="w-4 h-4 mr-1 flex-shrink-0" />
+                  {t('suggestions.suggestAnother')}
+                </>
+              )}
+            </Button>
+          )}
+          <Button
             onClick={() => {
               setShowSuggestion(false);
               if (currentSetIndex < allTagSets.length - 1) {
                 setCurrentSetIndex(currentSetIndex + 1);
               }
-            }} 
-            size="sm" 
+            }}
+            size="sm"
             variant="ghost"
           >
             {t('suggestions.dismiss')}
@@ -401,11 +496,11 @@ export const TagSuggestion = ({ content, existingTags, onApplyTags, isPro }: Tag
     <Button
       onClick={() => {
         if (!isPro) return; // Disabled for non-Plus users
-        // If we have tag sets in memory, show the next one
-        if (allTagSets.length > 0) {
+        // If we have suggestions in memory, show them
+        if (allTagSets.length > 0 || suggestedActivities.length > 0) {
           setShowSuggestion(true);
         } else {
-          // Otherwise generate new tag sets
+          // Otherwise generate new suggestions
           generateTags(true);
         }
       }}
