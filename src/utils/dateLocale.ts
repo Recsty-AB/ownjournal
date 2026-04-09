@@ -1,5 +1,5 @@
 import {
-  enUS, ja, es, ko, zhCN, zhTW, de, fr, pt, it, nl, pl, hi, sv, da, nb, fi
+  enUS, ja, es, ko, zhCN, zhTW, de, fr, pt, it, nl, pl, hi, sv, da, nb, fi, id, vi, th
 } from 'date-fns/locale';
 import type { Locale } from 'date-fns';
 
@@ -25,6 +25,9 @@ const localeMap: Record<string, Locale> = {
   da: da,
   nb: nb,
   fi: fi,
+  id: id,
+  vi: vi,
+  th: th,
 };
 
 /**
