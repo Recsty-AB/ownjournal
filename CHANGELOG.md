@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.0.11 (Apr 9, 2026)
+
+### Features
+- **Indonesian language (Bahasa Indonesia)** — added as a new supported language with native-quality translations
+- **Vietnamese language (Tiếng Việt)** — added as a new supported language with native-quality translations
+- **Thai language (ภาษาไทย)** — added as a new supported language with native-quality translations
+
+---
+
 ## v1.0.10 (Apr 8, 2026)
 
 ### Features

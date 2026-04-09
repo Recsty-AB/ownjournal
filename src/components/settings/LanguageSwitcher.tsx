@@ -28,6 +28,9 @@ const languages = [
   { code: 'ko', name: '한국어' },
   { code: 'zh', name: '简体中文' },
   { code: 'zh-TW', name: '繁體中文' },
+  { code: 'id', name: 'Bahasa Indonesia' },
+  { code: 'vi', name: 'Tiếng Việt' },
+  { code: 'th', name: 'ไทย' },
 ];
 
 export const LanguageSwitcher = () => {
