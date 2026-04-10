@@ -239,14 +239,6 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
   };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!isPro) {
-      toast({
-        title: t('journalEntry.proFeature'),
-        description: t('journalEntry.imageUploadPro'),
-        variant: "destructive",
-      });
-      return;
-    }
 
     const files = e.target.files;
     if (!files) return;
@@ -1026,7 +1018,6 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
             <div className="flex-1 space-y-2">
               <div className="flex items-center gap-2">
                 <span className="text-sm text-muted-foreground">{t('journal.images')}</span>
-                {!isPro && <Badge variant="outline" className="text-xs">{t('common.plus')}</Badge>}
               </div>
               <div className="flex flex-wrap gap-2">
                 {images.map((img, idx) => (
@@ -1055,7 +1046,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                     <Loader2 className="h-6 w-6 text-muted-foreground animate-spin" />
                   </div>
                 )}
-                {isPro && !isCompressing && (
+                {!isCompressing && (
                   <label className="h-24 w-24 border-2 border-dashed border-border rounded-lg flex items-center justify-center cursor-pointer hover:bg-accent transition-colors">
                     <ImagePlus className="h-6 w-6 text-muted-foreground" />
                     <input
