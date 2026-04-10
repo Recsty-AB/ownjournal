@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.0.13 (Apr 10, 2026)
+
+### Changes
+- **Photo uploads are now free** — attach photos to journal entries without a Plus subscription
+
+---
+
 ## v1.0.12 (Apr 9, 2026)
 
 ### Improvements

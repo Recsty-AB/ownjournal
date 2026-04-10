@@ -114,8 +114,12 @@ export const TagSuggestion = ({
         const cachedActivities: string[] = Array.isArray(cached.activities)
           ? cached.activities.filter((a: string) => !(new Set(existingActivities || [])).has(a))
           : [];
-        // If everything was already applied, fall through and fetch fresh suggestions
-        if (refilteredTagSets.length === 0 && cachedActivities.length === 0) {
+        // If activities were expected (predefinedActivities provided) but cache has none,
+        // treat cache as stale and regenerate to get activity suggestions
+        const activitiesExpectedButMissing = predefinedActivities && predefinedActivities.length > 0
+          && !Array.isArray(cached.activities);
+        // If everything was already applied or cache is stale, fall through to fresh generation
+        if ((refilteredTagSets.length === 0 && cachedActivities.length === 0) || activitiesExpectedButMissing) {
           // Don't return — fall through to fresh generation below
         } else {
           setAllTagSets(refilteredTagSets);
