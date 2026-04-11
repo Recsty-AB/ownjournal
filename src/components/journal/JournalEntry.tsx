@@ -717,8 +717,8 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
   }
 
   return (
-    <Card className="p-4 sm:p-6 shadow-medium bg-gradient-paper">
-      <div className="space-y-6">
+    <Card className="p-4 sm:p-6 shadow-medium bg-gradient-paper overflow-hidden max-w-full">
+      <div className="space-y-6 min-w-0">
         <div className="flex items-center gap-3 text-sm text-muted-foreground mb-4">
           <Calendar className="w-4 h-4 flex-shrink-0" />
           <Input
@@ -752,21 +752,20 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
           placeholder={t('journalEntry.startWriting')}
         />
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {/* Mood selector with horizontal scroll on mobile */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 min-w-0">
             <Heart className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-            <div className="flex gap-2 overflow-x-auto pb-1 -mb-1 scrollbar-hide">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 min-w-0">
               {(['terrible', 'poor', 'okay', 'good', 'great'] as const).map((moodOption) => (
                 <Button
                   key={moodOption}
                   variant={mood === moodOption ? "default" : "outline"}
                   size="sm"
                   onClick={() => setMood(moodOption)}
-                  className="capitalize whitespace-nowrap flex-shrink-0"
+                  className="capitalize text-xs sm:text-sm px-2 sm:px-3 h-7 sm:h-8"
                   aria-label={t(`journalEntry.moods.${moodOption}`)}
                 >
-                  <span className="hidden sm:inline mr-1" aria-hidden="true">{MOOD_EMOJI[moodOption]}</span>
                   <span>{t(`journalEntry.moods.${moodOption}`)}</span>
                 </Button>
               ))}
@@ -856,13 +855,14 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                 : `${t('activities.label')} (${activities.length})`;
 
               return (
-                <div className="space-y-2">
+                <div>
                   <Drawer open={activityDrawerOpen} onOpenChange={setActivityDrawerOpen}>
                     <Button
                       variant="outline"
                       type="button"
                       onClick={() => setActivityDrawerOpen(true)}
                       className="w-full justify-between"
+                      size="sm"
                     >
                       <span className="flex items-center gap-2">
                         <Activity className="w-4 h-4 text-muted-foreground" />
@@ -870,22 +870,6 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                       </span>
                       <ChevronDown className="w-4 h-4 text-muted-foreground" />
                     </Button>
-                    {/* Selected preview pills shown beneath the trigger */}
-                    {activities.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5">
-                        {activities.map(a => {
-                          const predef = PREDEFINED_ACTIVITIES.find(p => p.key === a);
-                          const label = predef ? t(`activities.${a}`) : a;
-                          const emoji = predef?.emoji || '';
-                          return (
-                            <Badge key={a} variant="secondary" className="text-xs">
-                              {emoji && <span className="mr-1" aria-hidden="true">{emoji}</span>}
-                              {label}
-                            </Badge>
-                          );
-                        })}
-                      </div>
-                    )}
                     <DrawerContent>
                       <DrawerHeader className="text-left">
                         <DrawerTitle className="flex items-center gap-2">
@@ -914,7 +898,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                   <Activity className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                   <span className="text-sm text-muted-foreground">{t('activities.label')}</span>
                 </div>
-                <div className="ml-7 space-y-2">
+                <div className="sm:ml-7 space-y-2">
                   <ActivityList />
                 </div>
               </div>
@@ -961,7 +945,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
           </div>
 
           {tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 ml-7">
+            <div className="flex flex-wrap gap-2 sm:ml-7">
               {tags.map(tag => (
                 <Badge
                   key={tag}
@@ -976,7 +960,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
           )}
 
           {body.length >= 20 && (
-            <div className="ml-7">
+            <div className="sm:ml-7">
               <TagSuggestion
                 content={body}
                 existingTags={tags}
@@ -1069,8 +1053,8 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
             {t('journalEntry.saveEntry')}
           </Button>
           {(entry || onCancel) && (
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               onClick={handleCancel}
             >
               {t('common.cancel')}

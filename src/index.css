@@ -187,3 +187,11 @@
     scrollbar-width: none;
   }
 }
+
+/* Fix Radix ScrollArea horizontal overflow on narrow screens.
+   The Viewport wraps content in a div with display:table + minWidth:100%,
+   which expands to fit content instead of constraining to parent width. */
+[data-radix-scroll-area-viewport] > div {
+  display: block !important;
+  min-width: 0 !important;
+}

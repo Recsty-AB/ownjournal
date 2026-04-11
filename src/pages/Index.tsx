@@ -2891,7 +2891,7 @@ const Index = () => {
         isPro={isPro}
       />
 
-      <main className="container mx-auto max-w-4xl h-[calc(100vh-4rem)]">
+      <main className="container mx-auto max-w-4xl h-[calc(100vh-4rem)] overflow-x-hidden">
         <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
 
           <SubscriptionBanner onUpgrade={handleUpgrade} isPro={isPro} isLoading={isUpgrading} subscriptionStatus={subscriptionStatus} hasUsedTrial={hasUsedTrial} />

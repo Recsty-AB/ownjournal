@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.0.14 (Apr 11, 2026)
+
+### Bug Fixes
+- Fixed trend analysis not reloading after entries sync from cloud — on a second device, the analysis would remain hidden until manually regenerated
+- Fixed activity suggestions missing from AI tag suggestions when cached response predated the activity feature
+
+---
+
 ## v1.0.13 (Apr 10, 2026)
 
 ### Changes
