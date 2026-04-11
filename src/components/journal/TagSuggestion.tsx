@@ -117,7 +117,7 @@ export const TagSuggestion = ({
         // If activities were expected (predefinedActivities provided) but cache has none,
         // treat cache as stale and regenerate to get activity suggestions
         const activitiesExpectedButMissing = predefinedActivities && predefinedActivities.length > 0
-          && !Array.isArray(cached.activities);
+          && (!Array.isArray(cached.activities) || cached.activities.length === 0);
         // If everything was already applied or cache is stale, fall through to fresh generation
         if ((refilteredTagSets.length === 0 && cachedActivities.length === 0) || activitiesExpectedButMissing) {
           // Don't return — fall through to fresh generation below

@@ -124,13 +124,17 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
     return limitCheck.allowed;
   };
 
-  const loadedRef = useRef(false);
+  const loadedForEntriesRef = useRef<string>('');
 
   // Load cached trend analysis from cloud and local storage
   useEffect(() => {
     const loadCachedAnalysis = async () => {
-      if (loadedRef.current || filteredEntries.length < 8) return;
-      loadedRef.current = true;
+      if (filteredEntries.length < 8) return;
+
+      // Build a fingerprint of current entries to detect meaningful changes
+      const entriesFingerprint = filteredEntries.map(e => e.id).sort().join(',');
+      if (loadedForEntriesRef.current === entriesFingerprint) return;
+      loadedForEntriesRef.current = entriesFingerprint;
       
       try {
         // Generate cache key based on entry IDs

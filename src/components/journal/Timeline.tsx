@@ -455,7 +455,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
 
       {/* Timeline */}
       <ScrollArea className="flex-1" ref={scrollAreaRef}>
-        <div className="p-4 sm:p-6 space-y-6 sm:space-y-8">
+        <div className="p-4 sm:p-6 space-y-6 sm:space-y-8 overflow-x-hidden">
           {/* New Entry Form */}
           {showNewEntry && (
             <div className="mb-8" ref={newEntryRef}>
