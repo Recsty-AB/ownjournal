@@ -24,6 +24,7 @@ import { aiCacheService } from "@/services/aiCacheService";
 import { cloudStorageService } from "@/services/cloudStorageService";
 import { storageServiceV2 } from "@/services/storageServiceV2";
 import { encryptData, decryptData, arrayBufferToBase64, base64ToArrayBuffer } from "@/utils/encryption";
+import { isE2EEnabled } from "@/utils/encryptionModeStorage";
 import { getMockTrendAnalysis } from "@/demo/mockAIResponses";
 import { computeTimeBuckets, shouldUseTimeBuckets, type EntryWithDateAndMetadata } from "@/utils/timeBucketAggregation";
 import { getDateLocale } from "@/utils/dateLocale";
@@ -124,91 +125,177 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
     return limitCheck.allowed;
   };
 
-  const loadedForEntriesRef = useRef<string>('');
+  // --- Cloud helpers that handle both E2E and Simple mode ---
+  const CLOUD_FILE = '/analysis/trend_analysis.json.enc';
 
-  // Load cached trend analysis from cloud and local storage
+  const uploadTrendToCloud = async (data: CloudTrendData): Promise<void> => {
+    const e2e = isE2EEnabled();
+    const masterKey = storageServiceV2.getMasterKey();
+
+    let content: string;
+    if (e2e && masterKey) {
+      const { encrypted, iv } = await encryptData(JSON.stringify(data), masterKey);
+      content = JSON.stringify({ data: arrayBufferToBase64(encrypted), iv: arrayBufferToBase64(iv) });
+    } else {
+      // Simple mode — store as plain JSON
+      content = JSON.stringify(data);
+    }
+
+    await cloudStorageService.uploadToAll(CLOUD_FILE, content);
+  };
+
+  const downloadTrendFromCloud = async (): Promise<CloudTrendData | null> => {
+    const raw = await cloudStorageService.downloadFromPrimary(CLOUD_FILE);
+    if (!raw) return null;
+
+    const parsed = JSON.parse(raw);
+
+    // If it has data+iv fields, it's encrypted
+    if (parsed.data && parsed.iv) {
+      const masterKey = storageServiceV2.getMasterKey();
+      if (!masterKey) return null; // Can't decrypt without key
+      const decrypted = await decryptData(
+        base64ToArrayBuffer(parsed.data),
+        masterKey,
+        base64ToArrayBuffer(parsed.iv)
+      );
+      return JSON.parse(decrypted);
+    }
+
+    // Otherwise it's plain JSON (Simple mode)
+    return parsed as CloudTrendData;
+  };
+
+  const syncedForFingerprintRef = useRef<string>('');
+  const loadInFlightRef = useRef(false);
+
+  // Load trend analysis from local cache and/or cloud, and ensure cloud has the latest.
   useEffect(() => {
-    const loadCachedAnalysis = async () => {
-      if (filteredEntries.length < 8) return;
+    // Build fingerprint of current entries to detect meaningful changes
+    const entriesFingerprint = filteredEntries.map(e => e.id).sort().join(',');
+    if (syncedForFingerprintRef.current === entriesFingerprint) return;
+    if (loadInFlightRef.current) return;
 
-      // Build a fingerprint of current entries to detect meaningful changes
-      const entriesFingerprint = filteredEntries.map(e => e.id).sort().join(',');
-      if (loadedForEntriesRef.current === entriesFingerprint) return;
-      loadedForEntriesRef.current = entriesFingerprint;
-      
+    let cancelled = false;
+    loadInFlightRef.current = true;
+
+    const run = async () => {
       try {
-        // Generate cache key based on entry IDs
-        const cacheKey = await aiCacheService.getTrendCacheKey(filteredEntries);
-        
-        // Load from local cache first (fast)
-        const localCached = await aiCacheService.getCached(cacheKey, 'trendAnalysis');
-        
-        // Try to load from cloud (may be more recent)
-        let cloudCached: CloudTrendData | null = null;
-        const masterKey = storageServiceV2.getMasterKey();
-        if (masterKey && cloudStorageService.getConnectedProviderNames().length > 0) {
-          try {
-            // Try to download directly - handle errors gracefully (404, 412, etc.)
-            const cloudData = await cloudStorageService.downloadFromPrimary('/analysis/trend_analysis.json.enc');
-            if (cloudData) {
-              // Decrypt and parse
-              const encryptedParts = JSON.parse(cloudData);
-              const decrypted = await decryptData(
-                base64ToArrayBuffer(encryptedParts.data),
-                masterKey,
-                base64ToArrayBuffer(encryptedParts.iv)
-              );
-              cloudCached = JSON.parse(decrypted);
+        // --- Determine cloud access ---
+        const providers = cloudStorageService.getConnectedProviderNames();
+        const e2e = isE2EEnabled();
+
+        // In E2E mode, masterKey loads asynchronously — wait up to 5s
+        let hasCloud = false;
+        if (providers.length > 0) {
+          if (e2e) {
+            let masterKey = storageServiceV2.getMasterKey();
+            if (!masterKey) {
+              for (let i = 0; i < 10; i++) {
+                await new Promise(r => setTimeout(r, 500));
+                if (cancelled) return;
+                masterKey = storageServiceV2.getMasterKey();
+                if (masterKey) break;
+              }
             }
+            hasCloud = !!masterKey;
+          } else {
+            // Simple mode — no key needed
+            hasCloud = true;
+          }
+        }
+
+        // --- Load from local IndexedDB cache ---
+        let localData: { analysis: TrendData; timestamp: number; periodStart?: string; periodEnd?: string } | null = null;
+        if (filteredEntries.length >= 8) {
+          const cacheKey = await aiCacheService.getTrendCacheKey(filteredEntries);
+          const cached = await aiCacheService.getCached(cacheKey, 'trendAnalysis');
+          if (cached?.analysis) {
+            localData = {
+              analysis: cached.analysis,
+              timestamp: cached.timestamp || 0,
+              periodStart: cached.periodStart,
+              periodEnd: cached.periodEnd,
+            };
+          }
+        }
+
+        // --- Load from cloud ---
+        let cloudData: CloudTrendData | null = null;
+        if (hasCloud) {
+          try {
+            cloudData = await downloadTrendFromCloud();
+          } catch {
+            // File doesn't exist or failed — not an error
+          }
+        }
+
+        if (cancelled) return;
+
+        // --- Pick the best source ---
+        let best: { analysis: TrendData; timestamp: number; periodStart: string | null; periodEnd: string | null } | null = null;
+        let localIsNewer = false;
+
+        if (cloudData?.analysis) {
+          best = {
+            analysis: cloudData.analysis,
+            timestamp: cloudData.timestamp,
+            periodStart: cloudData.periodStart || null,
+            periodEnd: cloudData.periodEnd || null,
+          };
+        }
+
+        if (localData) {
+          if (!best || localData.timestamp > best.timestamp) {
+            best = {
+              analysis: localData.analysis,
+              timestamp: localData.timestamp,
+              periodStart: localData.periodStart || null,
+              periodEnd: localData.periodEnd || null,
+            };
+            localIsNewer = true;
+          }
+        }
+
+        // --- Apply to state ---
+        if (best && !cancelled) {
+          setAnalysis(best.analysis);
+          if (best.periodStart) setAnalyzedPeriodStart(new Date(best.periodStart));
+          if (best.periodEnd) setAnalyzedPeriodEnd(new Date(best.periodEnd));
+          setLastAnalyzed(new Date(best.timestamp));
+        }
+
+        // --- Backfill cloud if local is newer or cloud is missing ---
+        if (hasCloud && best && localIsNewer && (!cloudData || localData!.timestamp > (cloudData?.timestamp || 0))) {
+          try {
+            const payload: CloudTrendData = {
+              version: 1,
+              timestamp: best.timestamp,
+              entryIds: filteredEntries.map(e => e.id),
+              periodStart: best.periodStart || new Date().toISOString(),
+              periodEnd: best.periodEnd || new Date().toISOString(),
+              analysis: best.analysis,
+            };
+            await uploadTrendToCloud(payload);
+            console.log('[TrendAnalysis] Backfilled cloud with local analysis');
           } catch (error) {
-            // File doesn't exist or failed to load - this is normal for new storage
-            if (import.meta.env.DEV) console.log('No cloud trend analysis found:', error);
+            console.error('[TrendAnalysis] Failed to backfill cloud:', error);
           }
         }
-        
-        // Use whichever is more recent
-        let selectedAnalysis: TrendData | null = null;
-        let selectedTimestamp: number | null = null;
-        let selectedPeriodStart: string | null = null;
-        let selectedPeriodEnd: string | null = null;
-        
-        if (cloudCached && cloudCached.analysis) {
-          selectedAnalysis = cloudCached.analysis;
-          selectedTimestamp = cloudCached.timestamp;
-          selectedPeriodStart = cloudCached.periodStart || null;
-          selectedPeriodEnd = cloudCached.periodEnd || null;
-        }
-        
-        if (localCached) {
-          const localTimestamp = localCached.timestamp || 0;
-          if (!selectedTimestamp || localTimestamp > selectedTimestamp) {
-            selectedAnalysis = localCached.analysis || localCached;
-            selectedTimestamp = localTimestamp;
-            selectedPeriodStart = localCached.periodStart || null;
-            selectedPeriodEnd = localCached.periodEnd || null;
-          }
-        }
-        
-        if (selectedAnalysis) {
-          setAnalysis(selectedAnalysis);
-          // Restore the period that was actually analyzed
-          if (selectedPeriodStart) {
-            setAnalyzedPeriodStart(new Date(selectedPeriodStart));
-          }
-          if (selectedPeriodEnd) {
-            setAnalyzedPeriodEnd(new Date(selectedPeriodEnd));
-          }
-          if (selectedTimestamp) {
-            setLastAnalyzed(new Date(selectedTimestamp));
-          }
-        }
+
+        syncedForFingerprintRef.current = entriesFingerprint;
       } catch (error) {
-        if (import.meta.env.DEV) console.error('Failed to load cached analysis:', error);
+        if (import.meta.env.DEV) console.error('[TrendAnalysis] Load error:', error);
+      } finally {
+        loadInFlightRef.current = false;
       }
     };
-    
-    loadCachedAnalysis();
-  }, [filteredEntries]);
+
+    run();
+
+    return () => { cancelled = true; };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [entries, filteredEntries]);
 
   // Save trend analysis to both local cache and cloud storage
   const saveTrendAnalysis = async (analysisData: TrendData, periodStart: Date, periodEnd: Date) => {
@@ -225,31 +312,26 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
         analysis: analysisData
       });
       
-      // Save to cloud storage (encrypted)
-      const masterKey = storageServiceV2.getMasterKey();
-      if (masterKey && cloudStorageService.getConnectedProviderNames().length > 0) {
-        const cloudData: CloudTrendData = {
-          version: 1,
-          timestamp,
-          entryIds,
-          periodStart: periodStart.toISOString(),
-          periodEnd: periodEnd.toISOString(),
-          analysis: analysisData
-        };
-        
-        // Encrypt before uploading
-        const { encrypted, iv } = await encryptData(JSON.stringify(cloudData), masterKey);
-        const encryptedPackage = JSON.stringify({
-          data: arrayBufferToBase64(encrypted),
-          iv: arrayBufferToBase64(iv)
-        });
-        
-        await cloudStorageService.uploadToAll('/analysis/trend_analysis.json.enc', encryptedPackage);
-        
-        if (import.meta.env.DEV) console.log('✅ Trend analysis saved to cloud');
+      // Save to cloud storage (encrypted in E2E mode, plain in Simple mode)
+      if (cloudStorageService.getConnectedProviderNames().length > 0) {
+        const e2e = isE2EEnabled();
+        const masterKey = storageServiceV2.getMasterKey();
+        // In E2E mode, require masterKey. In Simple mode, proceed without it.
+        if (!e2e || masterKey) {
+          const cloudPayload: CloudTrendData = {
+            version: 1,
+            timestamp,
+            entryIds,
+            periodStart: periodStart.toISOString(),
+            periodEnd: periodEnd.toISOString(),
+            analysis: analysisData
+          };
+          await uploadTrendToCloud(cloudPayload);
+          console.log('[TrendAnalysis] ✅ Uploaded to cloud storage');
+        }
       }
     } catch (error) {
-      if (import.meta.env.DEV) console.error('Failed to save trend analysis:', error);
+      console.error('[TrendAnalysis] Failed to save to cloud:', error);
       // Don't fail the whole operation if cloud save fails
     }
   };

@@ -1734,9 +1734,7 @@ Respond in JSON format:
 
       if (extractedSets && extractedSets.length > 0) {
         analysisData = normalizeAndPadTagSets(extractedSets);
-        if (extractedActivities && extractedActivities.length > 0) {
-          analysisData.activities = extractedActivities;
-        }
+        analysisData.activities = (extractedActivities && extractedActivities.length > 0) ? extractedActivities : [];
       } else if (ENABLE_AI_RETRY) {
         // Retry with gemini-2.5-pro (only when retry is enabled)
         try {
@@ -1754,9 +1752,7 @@ Respond in JSON format:
 
           if (retryExtracted && retryExtracted.length > 0) {
             analysisData = normalizeAndPadTagSets(retryExtracted);
-            if (retryActivities && retryActivities.length > 0) {
-              analysisData.activities = retryActivities;
-            }
+            analysisData.activities = (retryActivities && retryActivities.length > 0) ? retryActivities : [];
           } else {
             console.error("[TAGS][RETRY] Fallback retry also produced no valid tag sets");
             return new Response(JSON.stringify({ 
