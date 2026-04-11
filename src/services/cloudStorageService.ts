@@ -94,7 +94,7 @@ export class CloudStorageService {
 
     // CRITICAL: encryption-key.json should NEVER be queued
     // It's the foundation of E2E encryption and must be uploaded immediately
-    const isCriticalFile = filePath === 'encryption-key.json' || 
+    const isCriticalFile = filePath === 'encryption-key.json' ||
                            filePath.endsWith('/encryption-key.json');
 
     // Rate limit protection: queue uploads if provider just connected
