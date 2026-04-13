@@ -226,7 +226,14 @@ export const TagSuggestion = ({
             existingTags: allExistingTags,
             ...(predefinedActivities && predefinedActivities.length > 0 ? {
               predefinedActivities,
-              existingActivities: existingActivities || [],
+              // Only forward activities that are actually in the predefined key
+              // set. Legacy or imported entries may carry off-list strings
+              // (e.g. localized labels). Passing those through would tell the
+              // AI to exclude concepts that aren't even in the suggestion
+              // vocabulary, suppressing legitimate suggestions.
+              existingActivities: (existingActivities || []).filter(
+                (a) => predefinedActivities.includes(a)
+              ),
             } : {}),
           },
           headers: {
@@ -400,6 +407,13 @@ export const TagSuggestion = ({
     setSuggestedActivities(prev => prev.filter(a => a !== key));
   };
 
+  const applyAll = () => {
+    applyTags();
+    if (suggestedActivities.length > 0 && onApplyActivities) {
+      applyActivities();
+    }
+  };
+
   const hasTagSets = allTagSets.length > 0;
   const hasSuggestedActivities = suggestedActivities.length > 0 && !!onApplyActivities;
 
@@ -410,15 +424,21 @@ export const TagSuggestion = ({
       <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg animate-in fade-in duration-200 space-y-3">
         {/* Tags row */}
         {hasTagSets && (
-          <div className="flex items-start gap-2">
-            <Sparkles className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-            <div className="flex flex-wrap gap-1 flex-1 min-w-0">
-              {currentTags.map(tag => (
-                <Badge key={tag} variant="outline" className="text-xs bg-background">
-                  {tag}
-                </Badge>
-              ))}
+          <div className="space-y-2">
+            <div className="flex items-start gap-2">
+              <Sparkles className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+              <div className="flex flex-wrap gap-1 flex-1 min-w-0">
+                {currentTags.map(tag => (
+                  <Badge key={tag} variant="outline" className="text-xs bg-background">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
             </div>
+            <Button onClick={applyTags} size="sm" variant="outline" className="h-7">
+              <Check className="w-3.5 h-3.5 mr-1" />
+              {t('suggestions.applyTags')}
+            </Button>
           </div>
         )}
 
@@ -452,8 +472,8 @@ export const TagSuggestion = ({
 
         {/* Buttons row - stacks properly on mobile */}
         <div className="flex flex-wrap gap-2">
-          {hasTagSets && (
-            <Button onClick={applyTags} size="sm" variant="default" className="bg-gradient-primary hover:opacity-90">
+          {hasTagSets && hasSuggestedActivities && (
+            <Button onClick={applyAll} size="sm" variant="default" className="bg-gradient-primary hover:opacity-90">
               <Check className="w-4 h-4 mr-1" />
               {t('suggestions.applyAll')}
             </Button>

@@ -2902,7 +2902,13 @@ const Index = () => {
 
           {entries.length >= 5 && <MoodCorrelations entries={entries} isPro={isPro} />}
 
-          {entries.length >= 3 && <TrendAnalysis entries={entries} isPro={isPro} />}
+          {entries.length >= 3 && (
+            <TrendAnalysis
+              key={`trend-${user?.id ?? 'anonymous'}`}
+              entries={entries}
+              isPro={isPro}
+            />
+          )}
 
           {connectedProviders.length === 0 && (
             <div className="bg-muted border border-border rounded-lg p-3 sm:p-4">

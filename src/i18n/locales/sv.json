@@ -1656,6 +1656,7 @@
     "tagsApplied": "Taggar tillämpade",
     "tagsAppliedDesc": "Lade till {{count}} AI-genererade taggar",
     "suggestedActivities": "Föreslagna aktiviteter",
+    "applyTags": "Tillämpa taggar",
     "applyActivities": "Tillämpa aktiviteter",
     "activitiesApplied": "Aktiviteter tillagda",
     "activitiesAppliedDesc": "Lade till {{count}} föreslagna aktiviteter",

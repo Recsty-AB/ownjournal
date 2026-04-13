@@ -1661,6 +1661,7 @@
     "tagsApplied": "Tags applied",
     "tagsAppliedDesc": "Added {{count}} AI-generated tags",
     "suggestedActivities": "Suggested activities",
+    "applyTags": "Apply tags",
     "applyActivities": "Apply activities",
     "activitiesApplied": "Activities applied",
     "activitiesAppliedDesc": "Added {{count}} suggested activities",

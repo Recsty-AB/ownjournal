@@ -1656,6 +1656,7 @@
     "tagsApplied": "標籤已套用",
     "tagsAppliedDesc": "已新增 {{count}} 個 AI 生成的標籤",
     "suggestedActivities": "建議的活動",
+    "applyTags": "套用標籤",
     "applyActivities": "套用活動",
     "activitiesApplied": "已加入活動",
     "activitiesAppliedDesc": "已加入 {{count}} 個建議的活動",

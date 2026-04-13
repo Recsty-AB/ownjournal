@@ -1656,6 +1656,7 @@
     "tagsApplied": "Etiquetas aplicadas",
     "tagsAppliedDesc": "Se agregaron {{count}} etiquetas generadas por IA",
     "suggestedActivities": "Actividades sugeridas",
+    "applyTags": "Aplicar etiquetas",
     "applyActivities": "Aplicar actividades",
     "activitiesApplied": "Actividades añadidas",
     "activitiesAppliedDesc": "Se añadieron {{count}} actividades sugeridas",

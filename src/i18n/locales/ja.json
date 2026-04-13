@@ -1659,6 +1659,7 @@
     "tagsApplied": "タグを適用しました",
     "tagsAppliedDesc": "{{count}}個のAI生成タグを追加しました",
     "suggestedActivities": "おすすめのアクティビティ",
+    "applyTags": "タグを追加",
     "applyActivities": "アクティビティを追加",
     "activitiesApplied": "アクティビティを追加しました",
     "activitiesAppliedDesc": "おすすめの{{count}}件のアクティビティを追加しました",

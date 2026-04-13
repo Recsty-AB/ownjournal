@@ -1659,6 +1659,7 @@
     "tagsApplied": "เพิ่มแท็กแล้ว",
     "tagsAppliedDesc": "เพิ่มแท็กจาก AI {{count}} แท็ก",
     "suggestedActivities": "กิจกรรมที่แนะนำ",
+    "applyTags": "ใช้แท็ก",
     "applyActivities": "ใช้กิจกรรม",
     "activitiesApplied": "เพิ่มกิจกรรมแล้ว",
     "activitiesAppliedDesc": "เพิ่มกิจกรรมที่แนะนำ {{count}} รายการ",
