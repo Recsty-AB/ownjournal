@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.0.15 (Apr 13, 2026)
+
+### Bug Fixes
+- Fixed trend analysis from a previous account remaining on screen after switching to another account in the same browser — the component is now isolated per user and rejects cloud payloads that don't belong to the current user's entries
+- Fixed "Apply All" in AI tag suggestions only applying tags, ignoring the suggested activities shown alongside them
+
+### Improvements
+- Added a dedicated "Apply tags" button next to the suggested tags row, mirroring the existing "Apply activities" button — "Apply All" now only appears when both tags and activities are suggested together
+- Translated the new "Apply tags" label into all 17 supported languages
+
+---
+
 ## v1.0.14 (Apr 11, 2026)
 
 ### Bug Fixes

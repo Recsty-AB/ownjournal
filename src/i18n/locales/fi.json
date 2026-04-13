@@ -1656,6 +1656,7 @@
     "tagsApplied": "Tunnisteet lisätty",
     "tagsAppliedDesc": "Lisättiin {{count}} AI:n luomaa tunnistetta",
     "suggestedActivities": "Ehdotetut aktiviteetit",
+    "applyTags": "Lisää tunnisteet",
     "applyActivities": "Lisää aktiviteetit",
     "activitiesApplied": "Aktiviteetit lisätty",
     "activitiesAppliedDesc": "Lisätty {{count}} ehdotettua aktiviteettia",

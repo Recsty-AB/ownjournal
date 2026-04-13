@@ -1656,6 +1656,7 @@
     "tagsApplied": "标签已应用",
     "tagsAppliedDesc": "已添加 {{count}} 个 AI 生成的标签",
     "suggestedActivities": "建议的活动",
+    "applyTags": "应用标签",
     "applyActivities": "应用活动",
     "activitiesApplied": "已添加活动",
     "activitiesAppliedDesc": "已添加 {{count}} 个建议的活动",

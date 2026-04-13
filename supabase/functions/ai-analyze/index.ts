@@ -285,13 +285,38 @@ serve(async (req) => {
       batchContext,
     } = requestBody;
 
-    // Language mapping
+    // Language mapping — must cover every language listed in
+    // src/i18n/config.ts. Keep this in sync when adding new UI locales,
+    // otherwise AI output silently falls back to English.
     const languageMap: Record<string, string> = {
       en: "English",
       es: "Spanish",
       ja: "Japanese",
+      ko: "Korean",
+      zh: "Simplified Chinese",
+      "zh-TW": "Traditional Chinese",
+      de: "German",
+      fr: "French",
+      pt: "Portuguese (European)",
+      "pt-BR": "Brazilian Portuguese",
+      it: "Italian",
+      nl: "Dutch",
+      pl: "Polish",
+      hi: "Hindi",
+      sv: "Swedish",
+      da: "Danish",
+      nb: "Norwegian Bokmål",
+      fi: "Finnish",
+      id: "Indonesian",
+      vi: "Vietnamese",
+      th: "Thai",
     };
-    const targetLanguage = languageMap[language || "en"] || "English";
+    // Normalize: strip BCP-47 region subtag unless the exact tag is a key
+    // (so "ja-JP" → "ja" but "zh-TW" stays as-is).
+    const normalizedLang = language && typeof language === "string"
+      ? (languageMap[language] ? language : language.split("-")[0])
+      : "en";
+    const targetLanguage = languageMap[normalizedLang] || "English";
 
     // Check word limit
     if (content && typeof content === "string") {
@@ -1729,6 +1754,36 @@ Respond in JSON format:
           }
         } catch (sameModelError) {
           console.error("[TAGS][RETRY] Same-model retry failed:", sameModelError);
+        }
+      }
+
+      // Activities-only retry: if tags came back fine but activities are
+      // empty/missing while predefined activities were requested, give the
+      // model one more chance. Observed failure: Gemini/GPT handling Japanese
+      // or mixed-language entries sometimes emits the tagSets tool call
+      // without populating the activities field, or returns an empty array
+      // even when the entry clearly implies predefined activities.
+      if (
+        extractedSets && extractedSets.length > 0 &&
+        predefinedActivities && Array.isArray(predefinedActivities) && predefinedActivities.length > 0 &&
+        (!extractedActivities || extractedActivities.length === 0)
+      ) {
+        console.log("[RETRY] Same-model retry for activities");
+        try {
+          const activitiesRetryResult = await callAIWithFallback(
+            modelToUse,
+            aiRequestBody.messages,
+            aiRequestBody.tools,
+            aiRequestBody.tool_choice,
+            aiRequestBody.max_completion_tokens,
+            { reasoningEffort: "none" }
+          );
+          const retriedActivities = extractActivitiesFromResponse(activitiesRetryResult.data);
+          if (retriedActivities && retriedActivities.length > 0) {
+            extractedActivities = retriedActivities;
+          }
+        } catch (activitiesRetryError) {
+          console.error("[ACTIVITIES][RETRY] Same-model retry failed:", activitiesRetryError);
         }
       }
 

@@ -1656,6 +1656,7 @@
     "tagsApplied": "Etiketter lagt til",
     "tagsAppliedDesc": "La til {{count}} AI-genererte etiketter",
     "suggestedActivities": "Foreslåtte aktiviteter",
+    "applyTags": "Bruk etiketter",
     "applyActivities": "Bruk aktiviteter",
     "activitiesApplied": "Aktiviteter lagt til",
     "activitiesAppliedDesc": "La til {{count}} foreslåtte aktiviteter",

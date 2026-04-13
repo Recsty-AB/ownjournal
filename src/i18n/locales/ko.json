@@ -1656,6 +1656,7 @@
     "tagsApplied": "태그 적용됨",
     "tagsAppliedDesc": "{{count}}개의 AI 생성 태그가 추가되었습니다",
     "suggestedActivities": "추천 활동",
+    "applyTags": "태그 적용",
     "applyActivities": "활동 적용",
     "activitiesApplied": "활동 추가됨",
     "activitiesAppliedDesc": "추천 활동 {{count}}개를 추가했습니다",

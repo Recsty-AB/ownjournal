@@ -1656,6 +1656,7 @@
     "tagsApplied": "Tags toegepast",
     "tagsAppliedDesc": "{{count}} AI-gegenereerde tags toegevoegd",
     "suggestedActivities": "Voorgestelde activiteiten",
+    "applyTags": "Tags toepassen",
     "applyActivities": "Activiteiten toepassen",
     "activitiesApplied": "Activiteiten toegevoegd",
     "activitiesAppliedDesc": "{{count}} voorgestelde activiteiten toegevoegd",

@@ -232,6 +232,19 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
 
         if (cancelled) return;
 
+        // --- Ownership guard ---
+        // Reject any cloud payload whose entryIds do not belong to the
+        // current user's entries. Prevents another account's trend analysis
+        // from being rendered if a stale cloud file is read (defense in depth
+        // on top of the component being keyed by user.id in Index.tsx).
+        if (cloudData?.entryIds && cloudData.entryIds.length > 0) {
+          const knownIds = new Set(entries.map(e => e.id));
+          const allBelong = cloudData.entryIds.every(id => knownIds.has(id));
+          if (!allBelong) {
+            cloudData = null;
+          }
+        }
+
         // --- Pick the best source ---
         let best: { analysis: TrendData; timestamp: number; periodStart: string | null; periodEnd: string | null } | null = null;
         let localIsNewer = false;
@@ -263,6 +276,14 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
           if (best.periodStart) setAnalyzedPeriodStart(new Date(best.periodStart));
           if (best.periodEnd) setAnalyzedPeriodEnd(new Date(best.periodEnd));
           setLastAnalyzed(new Date(best.timestamp));
+        } else if (!cancelled) {
+          // No cached/cloud analysis matches the current entry set (e.g. after
+          // account switch or import). Clear stale state from a prior session
+          // so we don't render another user's analysis.
+          setAnalysis(null);
+          setLastAnalyzed(null);
+          setAnalyzedPeriodStart(null);
+          setAnalyzedPeriodEnd(null);
         }
 
         // --- Backfill cloud if local is newer or cloud is missing ---
@@ -549,9 +570,10 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
               }
               
               const { data, error } = await supabase.functions.invoke('ai-analyze', {
-                body: { 
+                body: {
                   type: 'analyzeEntry',
-                  entryId: entry.id, 
+                  language: i18n.language.split('-')[0],
+                  entryId: entry.id,
                   content: entry.body,
                   createdAt: entry.createdAt.toISOString(),
                   tags: entry.tags,
@@ -619,9 +641,10 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
                 });
                 
                 const { data, error } = await supabase.functions.invoke('ai-analyze', {
-                  body: { 
+                  body: {
                     type: 'analyzeEntry',
-                    entryId: entry.id, 
+                    language: i18n.language.split('-')[0],
+                    entryId: entry.id,
                     content: entry.body,
                     createdAt: entry.createdAt.toISOString(),
                     tags: entry.tags,

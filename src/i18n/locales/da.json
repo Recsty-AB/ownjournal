@@ -1656,6 +1656,7 @@
     "tagsApplied": "Emner lagt til",
     "tagsAppliedDesc": "La til {{count}} AI-genererte emner",
     "suggestedActivities": "Foreslåede aktiviteter",
+    "applyTags": "Anvend emner",
     "applyActivities": "Anvend aktiviteter",
     "activitiesApplied": "Aktiviteter tilføjet",
     "activitiesAppliedDesc": "Tilføjede {{count}} foreslåede aktiviteter",

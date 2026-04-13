@@ -1656,6 +1656,7 @@
     "tagsApplied": "टैग लागू हुए",
     "tagsAppliedDesc": "{{count}} AI-जेनरेटेड टैग जोड़े गए",
     "suggestedActivities": "सुझाई गई गतिविधियाँ",
+    "applyTags": "टैग लागू करो",
     "applyActivities": "गतिविधियाँ लागू करो",
     "activitiesApplied": "गतिविधियाँ जोड़ी गईं",
     "activitiesAppliedDesc": "{{count}} सुझाई गई गतिविधियाँ जोड़ी गईं",
