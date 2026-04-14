@@ -5,6 +5,7 @@ import { Crown, Sparkles, Brain, Lightbulb, Tag, TrendingUp, FileText, FileType,
 import { useTranslation } from "react-i18next";
 import { useLocalizedPricing } from "@/hooks/useLocalizedPricing";
 import { CurrencyCode } from "@/config/pricing";
+import { canShowPurchaseCTA } from "@/utils/platformDetection";
 
 interface SubscriptionBannerProps {
   onUpgrade: (currency: CurrencyCode) => void;
@@ -52,7 +53,16 @@ export const SubscriptionBanner = ({
             </p>
             <p className="text-xs sm:text-sm opacity-90">{t('subscription.enjoyingFeatures')}</p>
           </div>
-          {hasStripeCustomer && onManageSubscription && (
+          {/*
+            Manage Subscription opens the Stripe billing portal, which is
+            external payment management. App Store anti-steering and Google
+            Play billing policy both disallow linking to external payment
+            surfaces from inside native apps, so this button is hidden on
+            Capacitor iOS/Android. Everything else in the Plus-member card
+            (crown icon, "Plus Member" label, feature confirmation text) is
+            purely informational status and stays visible on all platforms.
+          */}
+          {canShowPurchaseCTA() && hasStripeCustomer && onManageSubscription && (
             <Button
               variant="secondary"
               size="sm"

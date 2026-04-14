@@ -1,4 +1,5 @@
 import { buildAppLink } from "@/config/app";
+import { canShowPurchaseCTA } from "@/utils/platformDetection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 import { X, AlertTriangle, LogOut, Mail } from "lucide-react";
@@ -6,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
-import { Upload, Download, Moon, Sun, Cloud, FileText, FileText as LegalIcon, Shield } from "lucide-react";
+import { Upload, Download, Moon, Sun, Cloud, FileText, FileText as LegalIcon, Shield, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { StorageSecuritySettings } from "./StorageSecuritySettings";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -196,6 +197,13 @@ export const SettingsDialog = ({
   };
 
   const handleManageSubscription = useCallback(async () => {
+    // Same store-policy guard as handleUpgrade — customer portal is an
+    // external payment management surface and must not be reachable from
+    // inside the native app. UI already hides the button on native, but
+    // guard the handler itself as defense in depth.
+    if (!canShowPurchaseCTA()) {
+      return;
+    }
     setIsManagingSubscription(true);
     try {
       const { data: { session } } = await supabase.auth.getSession();
@@ -504,14 +512,23 @@ export const SettingsDialog = ({
             <LegalIcon className="w-4 h-4" />
             {t('legal.termsOfService')}
           </Link>
-          <Link 
-            to="/privacy" 
+          <Link
+            to="/privacy"
             onClick={() => onOpenChange(false)}
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <Shield className="w-4 h-4" />
             {t('legal.privacyPolicy')}
           </Link>
+          <a
+            href="https://ownjournal.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Globe className="w-4 h-4" />
+            ownjournal.app
+          </a>
         </div>
       </div>
 
@@ -521,16 +538,35 @@ export const SettingsDialog = ({
         {/* Subscription */}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold">{t('settings.sections.subscription')}</h3>
-          <SubscriptionBanner
-            onUpgrade={onUpgrade}
-            isPro={isPro}
-            isLoading={isUpgrading}
-            onManageSubscription={handleManageSubscription}
-            isManagingSubscription={isManagingSubscription}
-            hasStripeCustomer={!!stripeCustomerId}
-            subscriptionStatus={subscriptionStatus}
-            hasUsedTrial={hasUsedTrial}
-          />
+          {/*
+            Same plan surface rules as the main page:
+            - Web / desktop: full SubscriptionBanner.
+            - Native + Pro: SubscriptionBanner (Pro status card). The
+              Manage Subscription button inside is internally gated and
+              won't render on native.
+            - Native + Free: minimal status row. No CTAs, no Stripe.
+          */}
+          {canShowPurchaseCTA() || isPro ? (
+            <SubscriptionBanner
+              onUpgrade={onUpgrade}
+              isPro={isPro}
+              isLoading={isUpgrading}
+              onManageSubscription={handleManageSubscription}
+              isManagingSubscription={isManagingSubscription}
+              hasStripeCustomer={!!stripeCustomerId}
+              subscriptionStatus={subscriptionStatus}
+              hasUsedTrial={hasUsedTrial}
+            />
+          ) : (
+            <div className="rounded-lg border border-border bg-muted/40 px-4 py-3 flex items-center justify-between">
+              <span className="text-sm text-muted-foreground">
+                {t('subscription.currentPlan')}
+              </span>
+              <span className="text-sm font-medium">
+                {t('subscription.freePlan')}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Email Address */}

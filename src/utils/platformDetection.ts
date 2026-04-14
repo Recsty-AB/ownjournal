@@ -177,6 +177,21 @@ export function isPlatformCategory(category: PlatformCategory): boolean {
 }
 
 /**
+ * Whether purchase CTAs (subscription banners, upgrade buttons, Stripe
+ * checkout entry points, billing portal links) may be shown in the UI.
+ *
+ * Returns false on Capacitor iOS and Android because both stores' policies
+ * prohibit in-app CTAs that direct users to external payment for digital
+ * goods consumed within the app. On native, surfaces must show a neutral
+ * "Plus feature" lock state with no link, no pricing, and no reference
+ * to purchasing channels.
+ */
+export function canShowPurchaseCTA(): boolean {
+  const { platform } = getPlatformInfo();
+  return platform !== 'capacitor-ios' && platform !== 'capacitor-android';
+}
+
+/**
  * Get user-friendly platform name for display
  */
 export function getPlatformDisplayName(): string {

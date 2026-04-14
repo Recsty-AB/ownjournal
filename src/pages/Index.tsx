@@ -1,5 +1,6 @@
 import { saveAs } from "file-saver";
 import { isNativePlatform, saveJsonBackupNative, shareFileNative } from "@/utils/nativeExport";
+import { canShowPurchaseCTA, getPlatformInfo } from "@/utils/platformDetection";
 import { Share2 } from "lucide-react";
 import i18n from "@/i18n/config";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
@@ -2344,8 +2345,17 @@ const Index = () => {
   };
 
   const handleUpgrade = async (currency: string = 'USD') => {
+    // Defense in depth: Apple App Store and Google Play policies prohibit
+    // directing users to external payment for digital goods from inside
+    // native apps. All purchase CTAs are already hidden on native via
+    // canShowPurchaseCTA(), but guard the handler itself so a stale ref
+    // or future regression can't still reach Stripe checkout.
+    if (!canShowPurchaseCTA()) {
+      return;
+    }
+
     setIsUpgrading(true);
-    
+
     // Verify we have a valid session (not just user state) - ensures auth token is attached
     const { data: { session: currentSession }, error: sessionError } = await supabase.auth.getSession();
     
@@ -2894,7 +2904,36 @@ const Index = () => {
       <main className="container mx-auto max-w-4xl h-[calc(100vh-4rem)] overflow-x-hidden">
         <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
 
-          <SubscriptionBanner onUpgrade={handleUpgrade} isPro={isPro} isLoading={isUpgrading} subscriptionStatus={subscriptionStatus} hasUsedTrial={hasUsedTrial} />
+          {/*
+            Plan surface above the mood calendar:
+            - Web / desktop: full SubscriptionBanner (Pro celebration card
+              for Plus members, promotional upgrade card for free users).
+            - Native + Pro: same SubscriptionBanner — the Pro branch is
+              purely a status/celebration card. SubscriptionBanner itself
+              hides the Manage Subscription button on native via an
+              internal canShowPurchaseCTA() check.
+            - Native + Free: minimal status row with "Current Plan / Free
+              Plan" — no promotional content, no CTA, no pricing — so the
+              home screen stays compliant with store anti-steering rules.
+          */}
+          {canShowPurchaseCTA() || isPro ? (
+            <SubscriptionBanner
+              onUpgrade={handleUpgrade}
+              isPro={isPro}
+              isLoading={isUpgrading}
+              subscriptionStatus={subscriptionStatus}
+              hasUsedTrial={hasUsedTrial}
+            />
+          ) : getPlatformInfo().isMobile ? (
+            <div className="rounded-lg border border-border bg-muted/40 px-4 py-3 flex items-center justify-between">
+              <span className="text-sm text-muted-foreground">
+                {t('subscription.currentPlan')}
+              </span>
+              <span className="text-sm font-medium">
+                {t('subscription.freePlan')}
+              </span>
+            </div>
+          ) : null}
 
           {entries.length >= 1 && <MoodCalendar entries={entries} />}
 

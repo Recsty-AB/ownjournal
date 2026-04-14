@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.0.16 (Apr 14, 2026)
+
+### Store Compliance
+- Purchase CTAs are now hidden on iOS and Android native builds to comply with Apple App Store anti-steering rules and Google Play billing policy. Subscription status is still visible in Settings as plain text ("Plus Plan" / "Free Plan"), but upgrade and manage-subscription surfaces are only shown on web and desktop
+- Added a neutral `ownjournal.app` link in Settings → Preferences → Legal so native users can still reach the website without any purchase CTA
+- `handleUpgrade` and `handleManageSubscription` now short-circuit on native as defense in depth, so a stale button ref or regression cannot reach Stripe checkout or the billing portal
+
+### Bug Fixes
+- Fixed trend analysis returning English output when the UI language was set to one of 18 previously unmapped locales (Korean, German, French, Chinese, Dutch, Polish, Hindi, Thai, etc.). The edge function's language map now covers every UI locale, and BCP-47 region tags like `ja-JP` are normalized server-side. Requires redeploying the `ai-analyze` edge function
+- Fixed AI tag suggestions returning zero activities on first response for some entries. The edge function now performs a targeted activities-only retry when tags were extracted successfully but activities came back empty. Requires redeploying the `ai-analyze` edge function
+
+### Developer Notes
+- Edge function changes in this release require `supabase functions deploy ai-analyze` to take effect in production
+
+---
+
 ## v1.0.15 (Apr 13, 2026)
 
 ### Bug Fixes
