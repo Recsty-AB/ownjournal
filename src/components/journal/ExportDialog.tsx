@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Download, FileText, File, Loader2, Lock, Share2 } from 'lucide-react';
 import { exportToPDF, exportToWord, type JournalEntry, type NativeExportResult } from '@/utils/journalExport';
 import { isNativePlatform, shareFileNative, openFileNative } from '@/utils/nativeExport';
+import { canShowPurchaseCTA } from '@/utils/platformDetection';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from 'react-i18next';
 import { ToastAction } from '@/components/ui/toast';
@@ -263,7 +264,7 @@ export const ExportDialog = ({
             </div>
           </div>
 
-          {!isPro && (
+          {!isPro && canShowPurchaseCTA() && (
             <div className="text-center pt-2">
               <p className="text-sm text-muted-foreground">
                 {t('exportDialog.upgradePrompt')}
