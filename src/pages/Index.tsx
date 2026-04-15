@@ -818,6 +818,27 @@ const Index = () => {
       return;
     }
 
+    // Optimistic UI: apply the locally cached subscription state
+    // synchronously before the network call, so returning users don't see
+    // a "Free → Plus" flicker on login while the Supabase round-trip is
+    // in flight. The cache is self-expiring based on current_period_end
+    // (see subscriptionCache.ts), so serving it is safe. If there's no
+    // cache for this user id (first login on this device, or switching
+    // to a different account), reset to defaults to avoid leaking the
+    // previous user's state into the UI while the network catches up.
+    const cached = getCachedSubscription(user.id);
+    if (cached) {
+      setIsPro(cached.is_pro);
+      setSubscriptionStatus(cached.subscription_status ?? null);
+      setHasUsedTrial(cached.has_used_trial ?? false);
+      setCurrentPeriodEnd(cached.current_period_end ?? null);
+    } else {
+      setIsPro(false);
+      setSubscriptionStatus(null);
+      setHasUsedTrial(false);
+      setCurrentPeriodEnd(null);
+    }
+
     try {
       const { data, error } = await supabase
         .from("subscriptions")
@@ -838,12 +859,9 @@ const Index = () => {
         has_used_trial: data?.has_used_trial ?? false,
       });
     } catch (error) {
+      // Network failed. If we had a cache hit above, keep the optimistic
+      // value on screen. If we didn't, state is already at defaults.
       if (import.meta.env.DEV) console.error("Failed to fetch subscription:", error);
-      const cached = getCachedSubscription(user.id);
-      setIsPro(cached?.is_pro ?? false);
-      setSubscriptionStatus(cached?.subscription_status ?? null);
-      setHasUsedTrial(cached?.has_used_trial ?? false);
-      setCurrentPeriodEnd(cached?.current_period_end ?? null);
     }
   }, [user]);
 
