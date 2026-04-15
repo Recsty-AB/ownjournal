@@ -6,10 +6,10 @@ import { supabase } from "@/integrations/supabase/client";
 import { invokeWithRetry } from "@/utils/edgeFunctionRetry";
 import { useToast } from "@/hooks/use-toast";
 import { aiCacheService } from "@/services/aiCacheService";
-import { localAI } from "@/services/localAI";
-import { aiModeStorage } from "@/utils/aiModeStorage";
 import { aiUsageLimits } from "@/services/aiUsageLimits";
 import { useTranslation } from "react-i18next";
+import { useAIMode } from "@/hooks/useAIMode";
+import { localAIGenerative } from "@/services/localAIGenerative";
 
 interface TagSuggestionProps {
   content: string;
@@ -43,16 +43,16 @@ export const TagSuggestion = ({
   const [suggestedActivities, setSuggestedActivities] = useState<string[]>([]);
   const { toast } = useToast();
   const lastCallTimeRef = useRef<number>(0);
-  const mode = aiModeStorage.getMode();
   const { i18n, t } = useTranslation();
+  const aiMode = useAIMode('tagSuggestion', { isPro });
 
-  // Clear suggestions when mode changes OR content changes (cancelled edit, new entry)
+  // Clear suggestions when content changes (cancelled edit, new entry)
   useEffect(() => {
     setAllTagSets([]);
     setCurrentSetIndex(0);
     setShowSuggestion(false);
     setSuggestedActivities([]);
-  }, [mode, content]);
+  }, [content]);
 
   const generateTags = async (resetIndex = true, skipCache = false) => {
     // Check word limit
@@ -100,9 +100,9 @@ export const TagSuggestion = ({
       return;
     }
 
-    // Check cache only if not skipping - include mode in cache key
+    // Check cache only if not skipping
     if (!skipCache) {
-      const cacheKey = `${mode}_${content.substring(0, 500)}`;
+      const cacheKey = `cloud_${content.substring(0, 500)}`;
       const cached = await aiCacheService.getCached(cacheKey, 'tags');
       if (cached?.tagSets && Array.isArray(cached.tagSets)) {
         // Re-filter against current existingTags (may have changed since cache)
@@ -135,32 +135,26 @@ export const TagSuggestion = ({
 
     setLoading(true);
     try {
-      if (mode === 'local') {
-        // Local AI mode - zero-knowledge, requires Pro
-        if (!isPro) {
-          toast({
-            title: t('suggestions.proFeature'),
-            description: t('suggestions.proFeatureDescPrivate'),
-            variant: "destructive",
-          });
-          return;
-        }
-        
-        if (!localAI.isReady()) {
-          toast({
-            title: t('suggestions.aiModelsLoading'),
-            description: t('suggestions.aiModelsLoadingDesc'),
-            variant: "destructive",
-          });
-          return;
-        }
+      if (!isPro) {
+        toast({
+          title: t('suggestions.proFeature'),
+          description: t('suggestions.proFeatureDescCloud'),
+          variant: "destructive",
+        });
+        return;
+      }
 
-        const analysis = await localAI.analyzeEntry(content);
-        const allTags = [...(analysis.suggestedTags || []), ...(analysis.keywords || [])];
-        const uniqueTags = [...new Set(allTags)];
-        const filteredTags = uniqueTags.filter((tag: string) => !existingTags.includes(tag));
-        
-        if (filteredTags.length === 0) {
+      // Local AI mode — run on-device inference
+      if (aiMode === 'local') {
+        const currentLanguage = i18n.language.split('-')[0];
+        const result = await localAIGenerative.generateTagSuggestions(
+          content,
+          existingTags,
+          predefinedActivities,
+          existingActivities || [],
+          currentLanguage,
+        );
+        if (result.tagSets.length === 0 && result.activities.length === 0) {
           toast({
             title: t('suggestions.noNewTags'),
             description: t('suggestions.noNewTagsDesc'),
@@ -168,158 +162,156 @@ export const TagSuggestion = ({
           });
           return;
         }
-        
-        // For local AI, create a single set with available tags
-        const tagSet = [filteredTags.slice(0, 5)];
-        setAllTagSets(tagSet);
-        setCurrentSetIndex(0);
+        setAllTagSets(result.tagSets);
+        setSuggestedActivities(result.activities);
+        if (resetIndex) setCurrentSetIndex(0);
         setShowSuggestion(true);
-        const cacheKey = `${mode}_${content.substring(0, 500)}`;
-        await aiCacheService.setCached(cacheKey, 'tags', { tagSets: tagSet });
+        const cacheKey = `local_${content.substring(0, 500)}`;
+        await aiCacheService.setCached(cacheKey, 'tags', result);
         aiUsageLimits.recordUsage('tags');
-      } else {
-        // Cloud AI mode - generate 20 sets of tags in one call
-        if (!isPro) {
-          toast({
-            title: t('suggestions.proFeature'),
-            description: t('suggestions.proFeatureDescCloud'),
-            variant: "destructive",
-          });
-          return;
-        }
+        return;
+      }
 
-
-        const { data: { session } } = await supabase.auth.getSession();
-        if (!session) {
-          toast({
-            title: t('suggestions.authRequired'),
-            description: t('suggestions.authRequiredDesc'),
-            variant: "destructive",
-          });
-          return;
-        }
-
-        // Collect all unique tags from the journal (up to 200) to send to AI
-        const allEntriesJson = localStorage.getItem('journal_entries');
-        let allExistingTags: string[] = [];
-        if (allEntriesJson) {
-          try {
-            const allEntries = JSON.parse(allEntriesJson);
-            const tagSet = new Set<string>();
-            allEntries.forEach((entry: any) => {
-              if (entry.tags && Array.isArray(entry.tags)) {
-                entry.tags.forEach((tag: string) => tagSet.add(tag));
-              }
-            });
-            allExistingTags = Array.from(tagSet).slice(0, 200);
-          } catch (e) {
-            console.error('Failed to parse journal entries for existing tags:', e);
-          }
-        }
-
-        const currentLanguage = i18n.language.split('-')[0]; // 'en', 'es', or 'ja'
-        const { data, error } = await invokeWithRetry(supabase, 'ai-analyze', {
-          body: {
-            type: 'tags',
-            language: currentLanguage,
-            content,
-            existingTags: allExistingTags,
-            ...(predefinedActivities && predefinedActivities.length > 0 ? {
-              predefinedActivities,
-              // Only forward activities that are actually in the predefined key
-              // set. Legacy or imported entries may carry off-list strings
-              // (e.g. localized labels). Passing those through would tell the
-              // AI to exclude concepts that aren't even in the suggestion
-              // vocabulary, suppressing legitimate suggestions.
-              existingActivities: (existingActivities || []).filter(
-                (a) => predefinedActivities.includes(a)
-              ),
-            } : {}),
-          },
-          headers: {
-            Authorization: `Bearer ${session.access_token}`
-          }
+      // Strict local-only mode and local is unavailable — refuse
+      if (aiMode === 'unavailable') {
+        toast({
+          title: t('settings.aiTab.localUnavailable'),
+          description: t('settings.aiTab.localUnavailableDesc'),
+          variant: "destructive",
         });
+        return;
+      }
 
-        if (error) {
-          console.error('Edge function error details:', error);
-          let description = t('suggestions.generationFailedDescEdge');
-          try {
-            const ctx = (error as { context?: { json?: () => Promise<{ error?: string }> } })?.context;
-            if (typeof ctx?.json === 'function') {
-              const body = await ctx.json();
-              if (body?.error) description = body.error;
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        toast({
+          title: t('suggestions.authRequired'),
+          description: t('suggestions.authRequiredDesc'),
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Collect all unique tags from the journal (up to 200) to send to AI
+      const allEntriesJson = localStorage.getItem('journal_entries');
+      let allExistingTags: string[] = [];
+      if (allEntriesJson) {
+        try {
+          const allEntries = JSON.parse(allEntriesJson);
+          const tagSet = new Set<string>();
+          allEntries.forEach((entry: any) => {
+            if (entry.tags && Array.isArray(entry.tags)) {
+              entry.tags.forEach((tag: string) => tagSet.add(tag));
             }
-          } catch {
-            // use default description
-          }
-          toast({
-            title: t('suggestions.generationFailed'),
-            description,
-            variant: "destructive",
           });
-          return;
+          allExistingTags = Array.from(tagSet).slice(0, 200);
+        } catch (e) {
+          console.error('Failed to parse journal entries for existing tags:', e);
+        }
+      }
+
+      const currentLanguage = i18n.language.split('-')[0]; // 'en', 'es', or 'ja'
+      const { data, error } = await invokeWithRetry(supabase, 'ai-analyze', {
+        body: {
+          type: 'tags',
+          language: currentLanguage,
+          content,
+          existingTags: allExistingTags,
+          ...(predefinedActivities && predefinedActivities.length > 0 ? {
+            predefinedActivities,
+            // Only forward activities that are actually in the predefined key
+            // set. Imported entries may carry off-list strings (e.g.
+            // localized labels). Passing those through would tell the
+            // AI to exclude concepts that aren't even in the suggestion
+            // vocabulary, suppressing legitimate suggestions.
+            existingActivities: (existingActivities || []).filter(
+              (a) => predefinedActivities.includes(a)
+            ),
+          } : {}),
+        },
+        headers: {
+          Authorization: `Bearer ${session.access_token}`
+        }
+      });
+
+      if (error) {
+        console.error('Edge function error details:', error);
+        let description = t('suggestions.generationFailedDescEdge');
+        try {
+          const ctx = (error as { context?: { json?: () => Promise<{ error?: string }> } })?.context;
+          if (typeof ctx?.json === 'function') {
+            const body = await ctx.json();
+            if (body?.error) description = body.error;
+          }
+        } catch {
+          // use default description
+        }
+        toast({
+          title: t('suggestions.generationFailed'),
+          description,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (!data) {
+        console.error('No data returned from edge function');
+        toast({
+          title: t('suggestions.generationFailed'),
+          description: t('suggestions.generationFailedDescNoResponse'),
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (data?.error) {
+        console.error('AI service error:', data.error);
+        toast({
+          title: t('suggestions.generationFailed'),
+          description: data.error,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Handle tag sets from AI
+      if (data.tagSets && Array.isArray(data.tagSets)) {
+        // Filter out tags that are already applied
+        const filteredTagSets = data.tagSets.map((tagSet: string[]) =>
+          tagSet.filter((tag: string) => !existingTags.includes(tag))
+        ).filter((tagSet: string[]) => tagSet.length > 0); // Remove empty sets
+
+        // Filter activities against current existing list
+        let filteredActivities: string[] = [];
+        if (Array.isArray(data.activities)) {
+          const existingSet = new Set(existingActivities || []);
+          filteredActivities = data.activities.filter((a: string) => typeof a === 'string' && !existingSet.has(a));
         }
 
-        if (!data) {
-          console.error('No data returned from edge function');
+        if (filteredTagSets.length === 0 && filteredActivities.length === 0) {
           toast({
-            title: t('suggestions.generationFailed'),
-            description: t('suggestions.generationFailedDescNoResponse'),
-            variant: "destructive",
-          });
-          return;
-        }
-
-        if (data?.error) {
-          console.error('AI service error:', data.error);
-          toast({
-            title: t('suggestions.generationFailed'),
-            description: data.error,
-            variant: "destructive",
-          });
-          return;
-        }
-
-        // Handle tag sets from AI
-        if (data.tagSets && Array.isArray(data.tagSets)) {
-          // Filter out tags that are already applied
-          const filteredTagSets = data.tagSets.map((tagSet: string[]) =>
-            tagSet.filter((tag: string) => !existingTags.includes(tag))
-          ).filter((tagSet: string[]) => tagSet.length > 0); // Remove empty sets
-
-          // Filter activities against current existing list
-          let filteredActivities: string[] = [];
-          if (Array.isArray(data.activities)) {
-            const existingSet = new Set(existingActivities || []);
-            filteredActivities = data.activities.filter((a: string) => typeof a === 'string' && !existingSet.has(a));
-          }
-
-          if (filteredTagSets.length === 0 && filteredActivities.length === 0) {
-            toast({
-              title: t('suggestions.noNewTags'),
-              description: t('suggestions.noNewTagsDesc'),
-              variant: "default",
-            });
-            return;
-          }
-
-          setAllTagSets(filteredTagSets);
-          setSuggestedActivities(filteredActivities);
-          if (resetIndex) {
-            setCurrentSetIndex(0);
-          }
-          setShowSuggestion(true);
-          const cacheKey = `${mode}_${content.substring(0, 500)}`;
-          await aiCacheService.setCached(cacheKey, 'tags', data);
-          aiUsageLimits.recordUsage('tags');
-        } else {
-          toast({
-            title: t('suggestions.noTagsGenerated'),
-            description: t('suggestions.noTagsGeneratedDesc'),
+            title: t('suggestions.noNewTags'),
+            description: t('suggestions.noNewTagsDesc'),
             variant: "default",
           });
+          return;
         }
+
+        setAllTagSets(filteredTagSets);
+        setSuggestedActivities(filteredActivities);
+        if (resetIndex) {
+          setCurrentSetIndex(0);
+        }
+        setShowSuggestion(true);
+        const cacheKey = `cloud_${content.substring(0, 500)}`;
+        await aiCacheService.setCached(cacheKey, 'tags', data);
+        aiUsageLimits.recordUsage('tags');
+      } else {
+        toast({
+          title: t('suggestions.noTagsGenerated'),
+          description: t('suggestions.noTagsGeneratedDesc'),
+          variant: "default",
+        });
       }
     } catch (error: any) {
       console.error('Tag generation error:', error);
@@ -541,12 +533,12 @@ export const TagSuggestion = ({
       ) : !isPro ? (
         <>
           <Crown className="w-4 h-4 mr-2" />
-          {mode === 'local' ? t('suggestions.suggestTagsPrivate') : t('suggestions.suggestTagsEnhanced')}
+          {t('suggestions.suggestTagsEnhanced')}
         </>
       ) : (
         <>
           <Sparkles className="w-4 h-4 mr-2" />
-          {mode === 'local' ? t('suggestions.suggestTagsPrivate') : t('suggestions.suggestTagsEnhanced')}
+          {t('suggestions.suggestTagsEnhanced')}
         </>
       )}
     </Button>

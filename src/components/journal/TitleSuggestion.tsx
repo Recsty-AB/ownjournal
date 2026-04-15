@@ -5,10 +5,10 @@ import { supabase } from "@/integrations/supabase/client";
 import { invokeWithRetry } from "@/utils/edgeFunctionRetry";
 import { useToast } from "@/hooks/use-toast";
 import { aiCacheService } from "@/services/aiCacheService";
-import { localAI } from "@/services/localAI";
-import { aiModeStorage } from "@/utils/aiModeStorage";
 import { aiUsageLimits } from "@/services/aiUsageLimits";
 import { useTranslation } from "react-i18next";
+import { useAIMode } from "@/hooks/useAIMode";
+import { localAIGenerative } from "@/services/localAIGenerative";
 
 interface TitleSuggestionProps {
   content: string;
@@ -40,15 +40,15 @@ export const TitleSuggestion = ({ content, tags = [], mood, onApply, isPro }: Ti
   const [showSuggestion, setShowSuggestion] = useState(false); // Track if UI should be visible
   const { toast } = useToast();
   const lastCallTimeRef = useRef<number>(0);
-  const mode = aiModeStorage.getMode();
   const { i18n, t } = useTranslation();
+  const aiMode = useAIMode('titleSuggestion', { isPro });
 
-  // Clear suggestions when mode changes
+  // Clear suggestions when content changes
   useEffect(() => {
     setSuggestedTitles([]);
     setCurrentTitleIndex(0);
     setShowSuggestion(false);
-  }, [mode]);
+  }, [content]);
 
   const generateTitles = async (resetIndex = true, skipCache = false) => {
     // Check word limit
@@ -95,9 +95,9 @@ export const TitleSuggestion = ({ content, tags = [], mood, onApply, isPro }: Ti
       return;
     }
 
-    // Check cache first (unless skipCache is true) - include mode in cache key so local and cloud suggestions are separate
+    // Check cache first (unless skipCache is true)
     if (!skipCache) {
-      const cacheKey = `${mode}_${content.substring(0, 500)}`;
+      const cacheKey = `cloud_${content.substring(0, 500)}`;
       const cached = await aiCacheService.getCached(cacheKey, 'title');
       if (cached?.suggestedTitles && Array.isArray(cached.suggestedTitles)) {
         setSuggestedTitles(cached.suggestedTitles);
@@ -112,129 +112,128 @@ export const TitleSuggestion = ({ content, tags = [], mood, onApply, isPro }: Ti
 
     setLoading(true);
     try {
-      if (mode === 'local') {
-        // Local AI mode - generate single title (local models can't do 20 efficiently)
-        if (!isPro) {
-          toast({
-            title: t('suggestions.proFeature'),
-            description: t('suggestions.proFeatureDescPrivate'),
-            variant: "destructive",
-          });
-          return;
-        }
-        
-        if (!localAI.isReady()) {
-          toast({
-            title: t('suggestions.aiModelsLoading'),
-            description: t('suggestions.aiModelsLoadingDesc'),
-            variant: "destructive",
-          });
-          return;
-        }
-
-        const title = await localAI.generateTitle(content);
-        // Store as single-item array for consistency
-        setSuggestedTitles([title]);
-        setCurrentTitleIndex(0);
-        setShowSuggestion(true);
-        const cacheKey = `${mode}_${content.substring(0, 500)}`;
-        await aiCacheService.setCached(cacheKey, 'title', { suggestedTitles: [title] });
-        aiUsageLimits.recordUsage('title');
-      } else {
-        // Cloud AI mode - generate 20 titles in one call
-        if (!isPro) {
-          toast({
-            title: t('suggestions.proFeature'),
-            description: t('suggestions.proFeatureDescCloud'),
-            variant: "destructive",
-          });
-          return;
-        }
-
-
-        // Get current session for auth
-        const { data: { session } } = await supabase.auth.getSession();
-        if (!session) {
-          toast({
-            title: t('suggestions.authRequired'),
-            description: t('suggestions.authRequiredDesc'),
-            variant: "destructive",
-          });
-          return;
-        }
-
-        const currentLanguage = i18n.language.split('-')[0]; // 'en', 'es', or 'ja'
-        const { data, error } = await invokeWithRetry(supabase, 'ai-analyze', {
-          body: { 
-            type: 'title',
-            language: currentLanguage,
-            content,
-            tags: tags || [],
-            mood: mood || null
-          },
-          headers: {
-            Authorization: `Bearer ${session.access_token}`
-          }
+      if (!isPro) {
+        toast({
+          title: t('suggestions.proFeature'),
+          description: t('suggestions.proFeatureDescCloud'),
+          variant: "destructive",
         });
+        return;
+      }
 
-        if (error) {
-          console.error('Edge function error details:', error);
-          let description = t('suggestions.generationFailedDescEdge');
-          try {
-            const ctx = (error as { context?: { json?: () => Promise<{ error?: string }> } })?.context;
-            if (typeof ctx?.json === 'function') {
-              const body = await ctx.json();
-              if (body?.error) description = body.error;
-            }
-          } catch {
-            // use default description
-          }
-          toast({
-            title: t('suggestions.generationFailed'),
-            description,
-            variant: "destructive",
-          });
-          return;
-        }
-
-        if (!data) {
-          console.error('No data returned from edge function');
-          toast({
-            title: t('suggestions.generationFailed'),
-            description: t('suggestions.generationFailedDescNoResponse'),
-            variant: "destructive",
-          });
-          return;
-        }
-
-        if (data?.error) {
-          console.error('AI service error:', data.error);
-          toast({
-            title: t('suggestions.generationFailed'),
-            description: data.error,
-            variant: "destructive",
-          });
-          return;
-        }
-
-        // Handle response
-        if (data.suggestedTitles && Array.isArray(data.suggestedTitles)) {
-          setSuggestedTitles(data.suggestedTitles);
-          // Only reset index if requested or we're generating fresh
-          if (resetIndex) {
-            setCurrentTitleIndex(0);
-          }
-          setShowSuggestion(true);
-          const cacheKey = `${mode}_${content.substring(0, 500)}`;
-          await aiCacheService.setCached(cacheKey, 'title', data);
-          aiUsageLimits.recordUsage('title');
-        } else {
+      // Local AI mode — run on-device inference
+      if (aiMode === 'local') {
+        const currentLanguage = i18n.language.split('-')[0];
+        const titles = await localAIGenerative.generateTitle(content, currentLanguage);
+        if (titles.length === 0) {
           toast({
             title: t('suggestions.generationFailed'),
             description: t('suggestions.generationFailedDescInvalid'),
             variant: "destructive",
           });
+          return;
         }
+        setSuggestedTitles(titles);
+        if (resetIndex) setCurrentTitleIndex(0);
+        setShowSuggestion(true);
+        const cacheKey = `local_${content.substring(0, 500)}`;
+        await aiCacheService.setCached(cacheKey, 'title', { suggestedTitles: titles });
+        aiUsageLimits.recordUsage('title');
+        return;
+      }
+
+      // Strict local-only mode and local is unavailable — refuse
+      if (aiMode === 'unavailable') {
+        toast({
+          title: t('settings.aiTab.localUnavailable'),
+          description: t('settings.aiTab.localUnavailableDesc'),
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Get current session for auth
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        toast({
+          title: t('suggestions.authRequired'),
+          description: t('suggestions.authRequiredDesc'),
+          variant: "destructive",
+        });
+        return;
+      }
+
+      const currentLanguage = i18n.language.split('-')[0]; // 'en', 'es', or 'ja'
+      const { data, error } = await invokeWithRetry(supabase, 'ai-analyze', {
+        body: {
+          type: 'title',
+          language: currentLanguage,
+          content,
+          tags: tags || [],
+          mood: mood || null
+        },
+        headers: {
+          Authorization: `Bearer ${session.access_token}`
+        }
+      });
+
+      if (error) {
+        console.error('Edge function error details:', error);
+        let description = t('suggestions.generationFailedDescEdge');
+        try {
+          const ctx = (error as { context?: { json?: () => Promise<{ error?: string }> } })?.context;
+          if (typeof ctx?.json === 'function') {
+            const body = await ctx.json();
+            if (body?.error) description = body.error;
+          }
+        } catch {
+          // use default description
+        }
+        toast({
+          title: t('suggestions.generationFailed'),
+          description,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (!data) {
+        console.error('No data returned from edge function');
+        toast({
+          title: t('suggestions.generationFailed'),
+          description: t('suggestions.generationFailedDescNoResponse'),
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (data?.error) {
+        console.error('AI service error:', data.error);
+        toast({
+          title: t('suggestions.generationFailed'),
+          description: data.error,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Handle response
+      if (data.suggestedTitles && Array.isArray(data.suggestedTitles)) {
+        setSuggestedTitles(data.suggestedTitles);
+        // Only reset index if requested or we're generating fresh
+        if (resetIndex) {
+          setCurrentTitleIndex(0);
+        }
+        setShowSuggestion(true);
+        const cacheKey = `cloud_${content.substring(0, 500)}`;
+        await aiCacheService.setCached(cacheKey, 'title', data);
+        aiUsageLimits.recordUsage('title');
+      } else {
+        toast({
+          title: t('suggestions.generationFailed'),
+          description: t('suggestions.generationFailedDescInvalid'),
+          variant: "destructive",
+        });
       }
     } catch (error: any) {
       console.error('Title generation error:', error);
@@ -384,12 +383,12 @@ export const TitleSuggestion = ({ content, tags = [], mood, onApply, isPro }: Ti
       ) : !isPro ? (
         <>
           <Crown className="w-4 h-4 mr-2" />
-          {mode === 'local' ? t('suggestions.suggestTitlePrivate') : t('suggestions.suggestTitleEnhanced')}
+          {t('suggestions.suggestTitleEnhanced')}
         </>
       ) : (
         <>
           <Sparkles className="w-4 h-4 mr-2" />
-          {mode === 'local' ? t('suggestions.suggestTitlePrivate') : t('suggestions.suggestTitleEnhanced')}
+          {t('suggestions.suggestTitleEnhanced')}
         </>
       )}
     </Button>

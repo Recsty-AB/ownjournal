@@ -12,6 +12,8 @@ import { aiUsageLimits } from "@/services/aiUsageLimits";
 import { useTranslation } from "react-i18next";
 import { storageServiceV2 } from "@/services/storageServiceV2";
 import { getMockAnalysis } from "@/demo/mockAIResponses";
+import { useAIMode } from "@/hooks/useAIMode";
+import { localAIGenerative } from "@/services/localAIGenerative";
 
 // Helper to detect if metadata indicates a failed analysis
 const isFailedAnalysis = (metadata: EntryAIMetadata | null): boolean => {
@@ -71,6 +73,7 @@ export const AIAnalysis = ({ entryId, content, createdAt, tags, mood, isPro, isD
   const lastCallTimeRef = useRef<number>(0);
   const prevEntryIdRef = useRef<string | null>(null);
   const { i18n, t } = useTranslation();
+  const aiMode = useAIMode('entryAnalysis', { isPro });
 
   // Detect if content has changed since last analysis
   const hasContentChanged = useMemo(() => {
@@ -240,6 +243,51 @@ export const AIAnalysis = ({ entryId, content, createdAt, tags, mood, isPro, isD
 
     setLoading(true);
     try {
+      // Local AI mode — run on-device inference
+      if (aiMode === 'local') {
+        const currentLanguage = i18n.language.split('-')[0];
+        const localMeta = await localAIGenerative.analyzeEntry(content, currentLanguage);
+        const wordCount = content.trim().split(/\s+/).length;
+        const hour = createdAt.getHours();
+        const timeOfDay = hour < 12 ? 'morning' : hour < 17 ? 'afternoon' : hour < 21 ? 'evening' : 'night';
+        const metadataWithLength: EntryAIMetadata = {
+          metaVersion: 1,
+          shortSummary: localMeta.shortSummary,
+          dominantEmotion: localMeta.dominantEmotion,
+          emotions: localMeta.emotions,
+          topics: localMeta.topics,
+          keywords: localMeta.topics.slice(0, 3),
+          peopleMentioned: [],
+          sentimentScore: localMeta.sentimentScore,
+          timeOfDay,
+          lengthCategory: wordCount < 100 ? 'short' : wordCount < 400 ? 'medium' : 'long',
+          wordCount,
+          analyzedContentLength: content.trim().length,
+          analyzedAt: new Date().toISOString(),
+          mainStressors: localMeta.mainStressors,
+          mainSupports: localMeta.mainSupports,
+        } as EntryAIMetadata;
+        await aiMetadataService.setMetadata(entryId, metadataWithLength);
+        setMetadata(metadataWithLength);
+        setIsCollapsed(false);
+        aiUsageLimits.recordUsage('entryAnalysis', entryId);
+        toast({
+          title: t('ai.analysisComplete'),
+          description: t('ai.analysisCompleteDesc'),
+        });
+        return;
+      }
+
+      // Strict local-only mode and local is unavailable
+      if (aiMode === 'unavailable') {
+        toast({
+          title: t('settings.aiTab.localUnavailable'),
+          description: t('settings.aiTab.localUnavailableDesc'),
+          variant: "destructive",
+        });
+        return;
+      }
+
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
         toast({

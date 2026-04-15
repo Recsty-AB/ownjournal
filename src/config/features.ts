@@ -14,6 +14,20 @@ export const FEATURES = {
    * Set to true when Apple Sign-In is configured (Supabase Auth + Apple Developer)
    */
   APPLE_SIGNIN_ENABLED: true,
+
+  /**
+   * On-device generative AI via Qwen3.5 (transformers.js + WebGPU).
+   * Plus-only feature. See `docs/LOCAL_AI.md` for architecture,
+   * device tiers, and the list of fixes landed before enabling.
+   *
+   * When `true`: the AI Settings tab exposes mode selection, device
+   * capability detection, model download, benchmark, and strict
+   * local-only toggle. Feature components (TagSuggestion,
+   * TitleSuggestion, AIAnalysis, TrendAnalysis) branch on the
+   * reactive `useAIMode` hook and route to the local Qwen3.5 path
+   * when the user has selected Local AI and has a model loaded.
+   */
+  LOCAL_AI_ENABLED: true,
 } as const;
 
 /**

@@ -28,6 +28,8 @@ import { isE2EEnabled } from "@/utils/encryptionModeStorage";
 import { getMockTrendAnalysis } from "@/demo/mockAIResponses";
 import { computeTimeBuckets, shouldUseTimeBuckets, type EntryWithDateAndMetadata } from "@/utils/timeBucketAggregation";
 import { getDateLocale } from "@/utils/dateLocale";
+import { useAIMode } from "@/hooks/useAIMode";
+import { localAIGenerative } from "@/services/localAIGenerative";
 
 interface TrendAnalysisProps {
   entries: JournalEntryData[];
@@ -79,6 +81,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
   const [analyzedPeriodEnd, setAnalyzedPeriodEnd] = useState<Date | null>(null);
   const { toast } = useToast();
   const { t, i18n } = useTranslation();
+  const aiMode = useAIMode('trendAnalysis', { isPro });
 
   // Get date-fns locale based on current language (supports all 17 app languages)
   const dateLocale = getDateLocale(i18n.language);
@@ -793,6 +796,52 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
         console.log(`[TrendAnalysis] Using individual entries for ${periodDays}-day period: ${(requestBody.entryMetadata as unknown[]).length} entries`);
       }
       
+      // Local AI mode — run on-device trend analysis on the same
+      // aggregates we would have sent to the server.
+      if (aiMode === 'local') {
+        const summaryText = [
+          `Period: ${startDate.toLocaleDateString()} to ${endDate.toLocaleDateString()}`,
+          `Total entries: ${aggregated.entryCount}`,
+          `Top emotions: ${aggregated.topEmotions.slice(0, 5).map((e: { emotion: string; count: number }) => `${e.emotion} (${e.count})`).join(', ')}`,
+          `Top topics: ${aggregated.topTopics.slice(0, 5).map((tp: { topic: string; count: number }) => `${tp.topic} (${tp.count})`).join(', ')}`,
+          `Average sentiment: ${aggregated.avgSentiment.toFixed(2)}`,
+        ].join('\n');
+        const localTrend = await localAIGenerative.analyzeTrends(summaryText, currentLanguage);
+        if (!localTrend.periodSummary && !localTrend.moodTrend) {
+          toast({
+            title: t('trendAnalysis.analysisFailed'),
+            description: t('trendAnalysis.analysisFailedDesc'),
+            variant: 'destructive',
+          });
+          setLoading(false);
+          return;
+        }
+        setAnalysis(localTrend as unknown as TrendData);
+        setLastAnalyzed(new Date());
+        setIsCollapsed(false);
+        setIsSelectingPeriod(false);
+        setAnalyzedPeriodStart(startDate);
+        setAnalyzedPeriodEnd(endDate);
+        await saveTrendAnalysis(localTrend as unknown as TrendData, startDate, endDate);
+        aiUsageLimits.recordUsage('trendAnalysis');
+        toast({
+          title: t('trendAnalysis.analysisComplete'),
+          description: t('trendAnalysis.analysisCompleteDesc'),
+        });
+        setLoading(false);
+        return;
+      }
+
+      if (aiMode === 'unavailable') {
+        toast({
+          title: t('settings.aiTab.localUnavailable'),
+          description: t('settings.aiTab.localUnavailableDesc'),
+          variant: 'destructive',
+        });
+        setLoading(false);
+        return;
+      }
+
       const { data, error } = await invokeWithRetry(supabase, 'ai-analyze', {
         body: requestBody,
         headers: {
