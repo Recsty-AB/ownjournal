@@ -7,6 +7,19 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, stripe-signature',
 };
 
+// Stripe API 2025-03-31.basil+ moved current_period_start/end from the
+// Subscription root onto each SubscriptionItem. Fall back to the item so
+// webhook payloads serialized on newer versions (e.g. clover) still work.
+function getPeriodStart(subscription: Stripe.Subscription): number | null {
+  const root = (subscription as unknown as { current_period_start?: number }).current_period_start;
+  return root ?? subscription.items?.data?.[0]?.current_period_start ?? null;
+}
+
+function getPeriodEnd(subscription: Stripe.Subscription): number | null {
+  const root = (subscription as unknown as { current_period_end?: number }).current_period_end;
+  return root ?? subscription.items?.data?.[0]?.current_period_end ?? null;
+}
+
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
@@ -85,6 +98,8 @@ serve(async (req) => {
 
         // Retrieve subscription details from Stripe
         const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+        const periodStart = getPeriodStart(subscription);
+        const periodEnd = getPeriodEnd(subscription);
 
         // Update the subscriptions table
         const { error } = await supabaseAdmin
@@ -95,11 +110,11 @@ serve(async (req) => {
             stripe_customer_id: customerId,
             subscription_status: subscription.status,
             plan_name: 'plus',
-            current_period_start: subscription.current_period_start
-              ? new Date(subscription.current_period_start * 1000).toISOString()
+            current_period_start: periodStart
+              ? new Date(periodStart * 1000).toISOString()
               : null,
-            current_period_end: subscription.current_period_end
-              ? new Date(subscription.current_period_end * 1000).toISOString()
+            current_period_end: periodEnd
+              ? new Date(periodEnd * 1000).toISOString()
               : null,
             updated_at: new Date().toISOString(),
             ...(subscription.status === 'trialing' && { has_used_trial: true }),
@@ -136,17 +151,19 @@ serve(async (req) => {
           const targetUserId = existingSubscription.user_id;
 
           const isActive = ['active', 'trialing'].includes(subscription.status);
+          const periodStart = getPeriodStart(subscription);
+          const periodEnd = getPeriodEnd(subscription);
 
           const updatePayload = {
             is_pro: isActive,
             subscription_status: subscription.status,
             stripe_subscription_id: subscription.id,
             plan_name: 'plus',
-            current_period_start: subscription.current_period_start
-              ? new Date(subscription.current_period_start * 1000).toISOString()
+            current_period_start: periodStart
+              ? new Date(periodStart * 1000).toISOString()
               : null,
-            current_period_end: subscription.current_period_end
-              ? new Date(subscription.current_period_end * 1000).toISOString()
+            current_period_end: periodEnd
+              ? new Date(periodEnd * 1000).toISOString()
               : null,
             updated_at: new Date().toISOString(),
             ...(subscription.status === 'trialing' && { has_used_trial: true }),
@@ -166,17 +183,19 @@ serve(async (req) => {
           }
         } else {
           const isActive = ['active', 'trialing'].includes(subscription.status);
+          const periodStart = getPeriodStart(subscription);
+          const periodEnd = getPeriodEnd(subscription);
 
           const updatePayload = {
             is_pro: isActive,
             subscription_status: subscription.status,
             stripe_subscription_id: subscription.id,
             plan_name: 'plus',
-            current_period_start: subscription.current_period_start
-              ? new Date(subscription.current_period_start * 1000).toISOString()
+            current_period_start: periodStart
+              ? new Date(periodStart * 1000).toISOString()
               : null,
-            current_period_end: subscription.current_period_end
-              ? new Date(subscription.current_period_end * 1000).toISOString()
+            current_period_end: periodEnd
+              ? new Date(periodEnd * 1000).toISOString()
               : null,
             updated_at: new Date().toISOString(),
             ...(subscription.status === 'trialing' && { has_used_trial: true }),
