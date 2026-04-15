@@ -12,28 +12,34 @@ vi.mock('react-i18next', () => ({
   }),
 }));
 
-vi.mock('@/utils/aiModeStorage', () => ({
-  aiModeStorage: {
-    getMode: vi.fn(() => 'cloud'),
-    setMode: vi.fn(),
-    isPreloadEnabled: vi.fn(() => false),
-    setPreloadEnabled: vi.fn(),
-    setCloudConsent: vi.fn(),
-    hasCloudConsent: vi.fn(() => false),
-    clearConsent: vi.fn(),
-  },
+vi.mock('@/hooks/useLocalAICapability', () => ({
+  useLocalAICapability: () => ({
+    capability: {
+      tier: 'unsupported',
+      reason: 'no-webgpu',
+      detail: 'No WebGPU',
+      detected: {
+        platform: 'desktop',
+        hasWebGPU: false,
+        estimatedRamBytes: null,
+        ramSource: 'unknown',
+        availableStorageBytes: null,
+        userAgent: 'test',
+      },
+    },
+    loading: false,
+    refresh: vi.fn(),
+  }),
 }));
 
-vi.mock('@/services/localAI', () => ({
-  localAI: {
-    getCacheSize: vi.fn().mockResolvedValue({ sizeMB: 0, isCached: false }),
-    clearModelCache: vi.fn().mockResolvedValue(undefined),
-  },
-}));
-
-vi.mock('@/utils/aiPermissions', () => ({
-  aiPermissions: {
-    isPROSubscriber: vi.fn().mockResolvedValue(false),
+vi.mock('@/services/localAIGenerative', () => ({
+  localAIGenerative: {
+    loadModel: vi.fn(),
+    clearCache: vi.fn(),
+    runBenchmark: vi.fn(),
+    isReady: vi.fn(() => false),
+    getLoadedModel: vi.fn(() => null),
+    supportsFeature: vi.fn(() => false),
   },
 }));
 
@@ -42,43 +48,13 @@ describe('AISettings', () => {
     vi.clearAllMocks();
   });
 
-  it('should render successfully', () => {
-    const { container } = render(<AISettings />);
-    expect(container).toBeInTheDocument();
+  it('shows the Plus lock card when the user is not Plus', () => {
+    const { container } = render(<AISettings isPro={false} />);
+    expect(container.textContent).toContain('settings.aiTab.plusRequired');
   });
 
-  it('should render mode toggle', () => {
-    const { container } = render(<AISettings />);
-    expect(container).toBeInTheDocument();
-  });
-
-  it('should render preload option', () => {
-    const { container } = render(<AISettings />);
-    expect(container).toBeInTheDocument();
-  });
-
-  it('should render cache management section', () => {
-    const { container } = render(<AISettings />);
-    expect(container).toBeInTheDocument();
-  });
-
-  it('should render mode descriptions', () => {
-    const { container } = render(<AISettings />);
-    expect(container).toBeInTheDocument();
-  });
-
-  it('should handle cloud mode', () => {
-    const { container } = render(<AISettings />);
-    expect(container).toBeInTheDocument();
-  });
-
-  it('should handle local mode', () => {
-    const { container } = render(<AISettings />);
-    expect(container).toBeInTheDocument();
-  });
-
-  it('should render loading state for cache check', () => {
-    const { container } = render(<AISettings />);
+  it('renders without error for Plus users when local AI feature flag is off', () => {
+    const { container } = render(<AISettings isPro={true} />);
     expect(container).toBeInTheDocument();
   });
 });

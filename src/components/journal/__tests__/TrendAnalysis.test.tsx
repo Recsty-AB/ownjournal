@@ -15,26 +15,6 @@ vi.mock('@/services/aiCacheService', () => ({
   },
 }));
 
-vi.mock('@/services/localAI', () => ({
-  localAI: {
-    isReady: vi.fn(() => false),
-    analyzeTrends: vi.fn().mockResolvedValue({
-      emotionalTrends: [],
-      recurringThemes: [],
-      growthIndicators: [],
-      insights: [],
-      recommendations: [],
-    }),
-  },
-}));
-
-vi.mock('@/utils/aiModeStorage', () => ({
-  aiModeStorage: {
-    getMode: vi.fn(() => 'cloud'),
-    hasCloudConsent: vi.fn(() => true),
-  },
-}));
-
 vi.mock('@/integrations/supabase/client', () => ({
   supabase: {
     auth: {

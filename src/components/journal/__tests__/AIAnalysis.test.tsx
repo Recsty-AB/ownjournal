@@ -9,27 +9,6 @@ vi.mock('@/services/aiCacheService', () => ({
   },
 }));
 
-vi.mock('@/services/localAI', () => ({
-  localAI: {
-    isReady: vi.fn(() => false),
-    isInitializing: vi.fn(() => false),
-    initialize: vi.fn(),
-  },
-}));
-
-vi.mock('@/services/aiPreloader', () => ({
-  aiPreloader: {
-    getStatus: vi.fn(() => 'idle'),
-    subscribe: vi.fn(),
-  },
-}));
-
-vi.mock('@/utils/aiModeStorage', () => ({
-  aiModeStorage: {
-    getMode: vi.fn(() => 'cloud'),
-  },
-}));
-
 vi.mock('@/hooks/use-toast', () => ({
   useToast: () => ({ toast: vi.fn() }),
 }));

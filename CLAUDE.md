@@ -106,7 +106,8 @@ src/
 | `uploadQueue.ts` | IndexedDB-persisted upload queue with exponential backoff |
 | `transferService.ts` | Parallel file transfers with SHA-256 checksum verification |
 | `authService.ts` | OAuth abstraction, platform-aware (Web/Capacitor/Electron), PKCE |
-| `localAI.ts` | Client-side AI via transformers.js, WebGPU support |
+| `localAIGenerative.ts` | Qwen3.5-based generative AI for on-device inference via `@huggingface/transformers`. Plus-gated, feature-flagged via `FEATURES.LOCAL_AI_ENABLED`. See `docs/LOCAL_AI.md` for the full architecture, device tiers, and Phase 1/2 split. |
+| `localAICapabilities.ts` | Hardware capability detection for local AI (WebGPU, RAM, storage). Handles the iOS Safari `navigator.deviceMemory` gap via iPhone UA model lookup. |
 | `aiCacheService.ts` | IndexedDB AI cache with 7-day expiry |
 
 ## Key Utilities (`src/utils/`)

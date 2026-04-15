@@ -14,6 +14,7 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import { SyncDiagnostics } from "./SyncDiagnostics";
 import { SubscriptionBanner } from "@/components/subscription/SubscriptionBanner";
 import { JournalNameSettings } from "./JournalNameSettings";
+import { AISettings } from "./AISettings";
 import { useRef, useEffect, useState, useCallback } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
@@ -377,6 +378,7 @@ export const SettingsDialog = ({
       <TabsList className="flex flex-wrap gap-1 justify-start w-full">
         <TabsTrigger value="storage" className="flex-1 min-w-0">{t('settings.tabs.storage')}</TabsTrigger>
         <TabsTrigger value="preferences" className="flex-1 min-w-0">{t('settings.tabs.preferences')}</TabsTrigger>
+        <TabsTrigger value="ai" className="flex-1 min-w-0">{t('settings.tabs.ai')}</TabsTrigger>
         <TabsTrigger value="account" className="flex-1 min-w-0">{t('settings.tabs.account')}</TabsTrigger>
         <TabsTrigger value="diagnostics" className="flex-1 min-w-0">{t('settings.tabs.diagnostics')}</TabsTrigger>
       </TabsList>
@@ -532,6 +534,10 @@ export const SettingsDialog = ({
         </div>
       </div>
 
+      </TabsContent>
+
+      <TabsContent value="ai" className="space-y-6 mt-4">
+        <AISettings isPro={isPro ?? false} />
       </TabsContent>
 
       <TabsContent value="account" className="space-y-6 mt-4">
