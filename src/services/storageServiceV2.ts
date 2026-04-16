@@ -4128,18 +4128,24 @@ class StorageServiceV2 {
   async deleteAllEntries(onProgress?: (progress: DeletionProgress) => void): Promise<void> {
     // Phase 1: Local deletion
     onProgress?.({ phase: 'local', current: 0, total: 1 });
-    
+
     // Remove all from local cache
     const db = await openDB();
-    const transaction = db.transaction(['entries'], 'readwrite');
-    const store = transaction.objectStore('entries');
+    const transaction = db.transaction(['entries', 'settings'], 'readwrite');
+    const entriesStore = transaction.objectStore('entries');
+    const settingsStore = transaction.objectStore('settings');
 
     await new Promise<void>((resolve, reject) => {
-      const request = store.clear();
+      const request = entriesStore.clear();
       request.onsuccess = () => resolve();
       request.onerror = () => reject(request.error);
     });
-    
+
+    // Clear the cached entry snapshot so stale entries don't reappear on reload
+    try {
+      settingsStore.delete('cachedEntrySnapshot');
+    } catch { /* settings store may not have this key */ }
+
     onProgress?.({ phase: 'local', current: 1, total: 1 });
 
     // Phase 2: Cloud deletion with progress
