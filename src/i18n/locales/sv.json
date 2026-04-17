@@ -2342,7 +2342,8 @@
     "last30days": "Senaste 30 dagarna",
     "last90days": "Senaste 90 dagarna",
     "thisYear": "I år",
-    "allTime": "Hela perioden"
+    "allTime": "Hela perioden",
+    "noDataInRange": "Inga humördata för denna period. Prova en annan period."
   },
   "moodCorrelations": {
     "title": "Aktivitetsinsikter",

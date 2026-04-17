@@ -2342,7 +2342,8 @@
     "last30days": "Viimeiset 30 päivää",
     "last90days": "Viimeiset 90 päivää",
     "thisYear": "Tämä vuosi",
-    "allTime": "Koko aika"
+    "allTime": "Koko aika",
+    "noDataInRange": "Ei mielialatietoja tältä ajalta. Kokeile toista ajanjaksoa."
   },
   "moodCorrelations": {
     "title": "Aktiviteettinäkymät",

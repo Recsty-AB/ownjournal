@@ -2342,7 +2342,8 @@
     "last30days": "Ultimi 30 giorni",
     "last90days": "Ultimi 90 giorni",
     "thisYear": "Quest'anno",
-    "allTime": "Tutto il tempo"
+    "allTime": "Tutto il tempo",
+    "noDataInRange": "Nessun dato sull'umore per questo intervallo. Prova un altro periodo."
   },
   "moodCorrelations": {
     "title": "Analisi attività",

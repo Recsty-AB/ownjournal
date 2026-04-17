@@ -2342,7 +2342,8 @@
     "last30days": "Letzte 30 Tage",
     "last90days": "Letzte 90 Tage",
     "thisYear": "Dieses Jahr",
-    "allTime": "Gesamt"
+    "allTime": "Gesamt",
+    "noDataInRange": "Keine Stimmungsdaten für diesen Zeitraum. Probiere einen anderen Zeitraum."
   },
   "moodCorrelations": {
     "title": "Aktivitäts-Einblicke",

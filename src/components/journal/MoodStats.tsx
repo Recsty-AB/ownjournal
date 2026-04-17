@@ -90,9 +90,16 @@ export const MoodStats = ({ entries }: MoodStatsProps) => {
     avgScore: { label: t('moodStats.dayOfWeek'), color: "hsl(var(--primary))" },
   };
 
-  if (distribution.length === 0) {
-    return null; // No mood data
+  const hasAnyMoodData = useMemo(
+     () => entries.some(e => e.mood && MOOD_SCORE[e.mood]),
+     [entries]
+  );
+
+  if (!hasAnyMoodData) {
+    return null;
   }
+
+  const isRangeEmpty = distribution.length === 0;
 
   return (
     <Collapsible open={!isCollapsed} onOpenChange={(open) => setIsCollapsed(!open)}>
@@ -125,6 +132,11 @@ export const MoodStats = ({ entries }: MoodStatsProps) => {
               ))}
             </div>
 
+            {isRangeEmpty ? (
+              <div className="py-8 text-center text-sm text-muted-foreground">
+                {t('moodStats.noDataInRange')}
+              </div>
+            ) : (<>
             {/* Summary badges */}
             <div className="flex flex-wrap gap-2">
               {positivePercent > 0 && (
@@ -263,6 +275,7 @@ export const MoodStats = ({ entries }: MoodStatsProps) => {
                 </div>
               </div>
             </div>
+            </>)}
           </div>
         </CollapsibleContent>
       </Card>

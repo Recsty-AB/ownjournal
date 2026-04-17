@@ -2347,7 +2347,8 @@
     "last30days": "Last 30 Days",
     "last90days": "Last 90 Days",
     "thisYear": "This Year",
-    "allTime": "All Time"
+    "allTime": "All Time",
+    "noDataInRange": "No mood data for this range. Try another time period."
   },
   "moodCorrelations": {
     "title": "Activity Insights",

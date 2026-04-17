@@ -2342,7 +2342,8 @@
     "last30days": "최근 30일",
     "last90days": "최근 90일",
     "thisYear": "올해",
-    "allTime": "전체"
+    "allTime": "전체",
+    "noDataInRange": "이 기간에 대한 기분 데이터가 없습니다. 다른 기간을 시도해 보세요."
   },
   "moodCorrelations": {
     "title": "활동 분석",

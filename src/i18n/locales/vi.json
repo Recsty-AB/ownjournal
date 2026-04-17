@@ -2345,7 +2345,8 @@
     "last30days": "30 ngày qua",
     "last90days": "90 ngày qua",
     "thisYear": "Năm nay",
-    "allTime": "Tất cả"
+    "allTime": "Tất cả",
+    "noDataInRange": "Không có dữ liệu tâm trạng cho khoảng thời gian này. Hãy thử khoảng khác."
   },
   "moodCorrelations": {
     "title": "Phân tích hoạt động",

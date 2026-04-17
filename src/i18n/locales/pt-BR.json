@@ -2342,7 +2342,8 @@
     "last30days": "Últimos 30 dias",
     "last90days": "Últimos 90 dias",
     "thisYear": "Este ano",
-    "allTime": "Todo o tempo"
+    "allTime": "Todo o tempo",
+    "noDataInRange": "Sem dados de humor para este período. Tente outro intervalo de tempo."
   },
   "moodCorrelations": {
     "title": "Análise de atividades",

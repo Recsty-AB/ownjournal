@@ -2345,7 +2345,8 @@
     "last30days": "30 Hari Terakhir",
     "last90days": "90 Hari Terakhir",
     "thisYear": "Tahun Ini",
-    "allTime": "Sepanjang Waktu"
+    "allTime": "Sepanjang Waktu",
+    "noDataInRange": "Tidak ada data suasana hati untuk rentang ini. Coba periode lain."
   },
   "moodCorrelations": {
     "title": "Wawasan Aktivitas",
