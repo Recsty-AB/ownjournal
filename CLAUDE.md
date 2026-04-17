@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-OwnJournal is a privacy-first encrypted journaling Progressive Web App. Core principles:
+OwnJournal is a privacy-first encrypted journaling PWA. Core principles:
 
 - **Zero-knowledge architecture** - Journal content is encrypted client-side (AES-256-GCM) and never stored in plaintext on servers
 - **Bring Your Own Storage (BYOS)** - Users connect their own cloud storage (Google Drive, Dropbox, Nextcloud, iCloud)
@@ -12,115 +12,41 @@ OwnJournal is a privacy-first encrypted journaling Progressive Web App. Core pri
 
 App ID: `app.ownjournal` | Current version: see `package.json`
 
-## Quick Reference Commands
+## Stack
 
-```bash
-npm install              # Install dependencies (use --legacy-peer-deps if needed)
-npm run dev              # Start dev server on port 8080
-npm run build            # Production build to dist/
-npm run build:dev        # Development build
-npm run lint             # ESLint check
-npm run test             # Run tests (Vitest)
-npm run test -- --run    # Run tests once (no watch)
-npm run test:coverage    # Tests with V8 coverage
-npm run test:ui          # Vitest UI
-```
+React 18 + TypeScript on Vite 5, Tailwind + shadcn/ui for styling, React Query for server state, react-router-dom v7, Capacitor 8 for mobile, Electron 39 for desktop, Supabase for auth/metadata, Stripe for subscriptions, `@huggingface/transformers` for client-side AI, Vitest + jsdom + React Testing Library for tests.
 
-## Tech Stack
+## Layout
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | React 18 with TypeScript |
-| Build | Vite 5 (SWC plugin for React) |
-| Styling | Tailwind CSS 3 + shadcn/ui (Radix primitives) |
-| State | React Query (TanStack), React hooks, localStorage |
-| Routing | react-router-dom v7 |
-| Testing | Vitest + jsdom + React Testing Library |
-| i18n | i18next (18 languages) |
-| Mobile | Capacitor 8 (iOS/Android) |
-| Desktop | Electron 39 (optional, scripts not in package.json by default) |
-| Backend | Supabase (auth + metadata only), Stripe (subscriptions) |
-| Encryption | Web Crypto API (PBKDF2 + AES-GCM) |
-| AI | @huggingface/transformers (client-side, WebGPU/WASM) |
+Feature components live in `src/components/{feature}/` with tests co-located in `__tests__/` subdirectories. Routes are defined in `src/App.tsx`. Locales are under `src/i18n/locales/`. Top-level `android/`, `ios/`, `electron/`, `supabase/` are platform projects; `scripts/` holds build/verify helpers.
 
-## Project Structure
+## Commands
 
-```
-src/
-├── components/          # React components organized by feature
-│   ├── auth/            #   Login, password dialogs
-│   ├── demo/            #   Demo mode banner and provider
-│   ├── editor/          #   Markdown editor
-│   ├── help/            #   Help dialog
-│   ├── journal/         #   Entry display, AI analysis, timeline, export
-│   ├── layout/          #   Header
-│   ├── onboarding/      #   Onboarding tour (react-joyride)
-│   ├── settings/        #   Settings panels, storage config, sync diagnostics
-│   ├── storage/         #   Per-provider sync UI (Google Drive, Dropbox, etc.)
-│   ├── subscription/    #   Subscription banner
-│   ├── sync/            #   Sync progress bar, status indicator
-│   └── ui/              #   shadcn/ui primitives (DO NOT edit manually - use shadcn CLI)
-├── config/              # App configuration
-│   ├── features.ts      #   Feature flags (ICLOUD_ENABLED, APPLE_SIGNIN_ENABLED)
-│   ├── oauth.ts         #   OAuth client IDs and helpers
-│   ├── pricing.ts       #   Multi-currency pricing tiers
-│   └── supabase.ts      #   Supabase URL/key (hardcoded, not from env)
-├── demo/                # Mock data for demo mode
-├── hooks/               # Custom React hooks
-├── i18n/                # i18next config + locale JSON files
-│   └── locales/         #   One JSON file per language
-├── integrations/
-│   └── supabase/        #   Supabase client init + auto-generated types
-├── lib/
-│   └── utils.ts         #   cn() helper (clsx + tailwind-merge)
-├── pages/               # Route components (Index, Demo, OAuth callbacks, legal)
-├── services/            # Business logic layer (see Key Services below)
-├── test/
-│   └── setup.ts         #   Vitest setup, crypto mocks, localStorage mock
-├── types/               # TypeScript types (CloudProvider, AIMetadata, electron.d.ts)
-└── utils/               # Pure utilities (see Key Utilities below)
-```
-
-### Other top-level directories
-
-- `android/` - Capacitor Android project
-- `ios/` - Capacitor iOS project
-- `electron/` - Electron main process files
-- `supabase/` - Supabase edge functions and config
-- `scripts/` - Build/verification scripts
-- `public/` - Static assets, manifest, service worker
-- `icons/`, `resources/` - App icons and splash screens
+Install with `npm install --legacy-peer-deps` if npm errors on peer deps. Standard scripts (`dev`, `build`, `build:dev`, `lint`, `test`, `test:coverage`, `test:ui`) are defined in `package.json`.
 
 ## Key Services (`src/services/`)
+
+Pointers to non-obvious load-bearing modules — not a catalogue. Other services (provider-specific, auth, caches) are self-describing by filename.
 
 | File | Purpose |
 |------|---------|
 | `storageServiceV2.ts` | **Core** - Cloud-first storage engine with bidirectional sync, encryption key management, circuit breaker |
 | `encryptionStateManager.ts` | **Core** - Single source of truth for encryption mode/state, enforces invariants |
 | `connectionStateManager.ts` | **Core** - Single source of truth for provider connections, auto-binding, provider priority |
-| `cloudStorageService.ts` | High-level cloud provider abstraction, path normalization, upload queuing |
-| `googleDriveService.ts` | Google Drive OAuth + file operations, token refresh, file ID caching |
-| `dropboxService.ts` | Dropbox API integration, 409 conflict handling |
-| `nextcloudDirectService.ts` | Direct WebDAV client for Nextcloud (no backend proxy) |
-| `iCloudService.ts` | iCloud integration (currently disabled via feature flag) |
 | `uploadQueue.ts` | IndexedDB-persisted upload queue with exponential backoff |
 | `transferService.ts` | Parallel file transfers with SHA-256 checksum verification |
-| `authService.ts` | OAuth abstraction, platform-aware (Web/Capacitor/Electron), PKCE |
 | `localAI.ts` | Client-side AI via transformers.js, WebGPU support |
-| `aiCacheService.ts` | IndexedDB AI cache with 7-day expiry |
 
 ## Key Utilities (`src/utils/`)
 
 | File | Purpose |
 |------|---------|
 | `encryption.ts` | PBKDF2 key derivation, AES-GCM encrypt/decrypt, master key generation |
-| `passwordStorage.ts` | Encrypted password storage (AES-GCM with device-specific key) |
-| `cloudCredentialStorage.ts` | Encrypted credential storage for all cloud providers |
-| `oauth.ts` | PKCE utilities (code verifier/challenge generation, state parameter) |
-| `validation.ts` | Zod schemas for entries, tags, auth (passwords 6+ chars, titles <200 chars, content <50k chars) |
-| `pwa.ts` | Service worker registration, IndexedDB utilities |
 | `userScope.ts` | Per-user localStorage/IndexedDB isolation (`u:{userId}:{key}` prefix) |
-| `platformDetection.ts` | Detects web/mobile/desktop platform |
+| `validation.ts` | Zod schemas for entries, tags, auth (passwords 6+ chars, titles <200 chars, content <50k chars) |
+| `cloudErrorCodes.ts` | Unified `CloudErrorCode` enum for cross-provider error handling |
+| `oauth.ts` | PKCE utilities (code verifier/challenge, state parameter) |
+| `platformDetection.ts` | Detects web/mobile/desktop, exposes `canShowPurchaseCTA()` |
 
 ## Architecture Patterns
 
@@ -186,44 +112,29 @@ import { supabase } from "@/integrations/supabase/client";
 - App version injected as `__APP_VERSION__` at build time
 
 ### Feature Flags
-Check `src/config/features.ts` before working on:
-- iCloud integration (`ICLOUD_ENABLED = false`)
-- Apple Sign-In (`APPLE_SIGNIN_ENABLED = false`)
+Consult `src/config/features.ts` for any gated features before changing related code. `isAppleFeatureAvailable()` in that file also guards iCloud/Apple Sign-In on Android native (not supported).
 
 ### Internationalization
-- All user-facing strings should use `t()` from `react-i18next`
-- Locale files in `src/i18n/locales/`
-- 18 languages supported; English is the fallback
+- All user-facing strings must use `t()` from `react-i18next`
+- Locale files live in `src/i18n/locales/` (21 locales); English is the fallback
+- **Any commit that adds or changes a user-facing string must update all 21 locale files natively in the same commit** — not English placeholders, not "TODO translate" stubs. Match the terminology conventions already established in each locale (e.g., German "KI" not "AI", Finnish "tekoäly"). A Python script is usually the fastest way to batch-update.
+
+### No legacy code
+Delete unreachable or superseded code immediately. Do not keep it behind comments, rename it with `_old` / `_legacy` suffixes, add "(Legacy)" rows to doc tables, or leave it "for reference". Git history is the reference. If you're adding a new implementation alongside an old one, check whether the old one is still reachable; if not, delete it in the same PR.
+
+### Store compliance (native builds)
+On Capacitor (iOS/Android) builds, all purchase CTAs must be gated by `canShowPurchaseCTA()` from `src/utils/platformDetection.ts`. Apple and Google reject builds that link to web checkout from native. The rollout for this landed in v1.0.16 — when touching anything subscription/purchase-facing, verify the CTA is still gated.
 
 ## Testing
 
 ### Setup
 - **Framework**: Vitest with jsdom environment
 - **Libraries**: @testing-library/react, @testing-library/jest-dom, @testing-library/user-event
-- **Setup file**: `src/test/setup.ts` (mocks Web Crypto API and localStorage)
-- **65 test files** across services, utils, components, and pages
-
-### Running Tests
-```bash
-npm run test              # Watch mode
-npm run test -- --run     # Single run
-npm run test:coverage     # With V8 coverage report
-```
-
-### Test File Locations
-Tests are co-located in `__tests__/` subdirectories:
-```
-src/services/__tests__/
-src/utils/__tests__/
-src/components/{feature}/__tests__/
-src/pages/__tests__/
-src/hooks/__tests__/
-src/lib/__tests__/
-```
+- **Setup file**: `src/test/setup.ts` (mocks Web Crypto API and localStorage — real Web Crypto is not available in jsdom, so rely on the provided mock)
 
 ### Writing Tests
 - Global test APIs enabled (`describe`, `it`, `expect` without imports)
-- Use the mocked crypto from setup.ts - real Web Crypto is not available in jsdom
+- Tests are co-located in `__tests__/` subdirectories next to the code under test
 - Coverage excludes: `node_modules/`, `src/test/`, `*.d.ts`, `*.config.*`, `mockData/`, `src/main.tsx`
 
 ## CI/CD
@@ -247,18 +158,6 @@ VITE_STRIPE_PUBLISHABLE_KEY # Stripe subscriptions
 ```
 
 Supabase config is hardcoded in `src/config/supabase.ts` (not read from env at runtime). CI uses `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`, and `VITE_SUPABASE_PROJECT_ID` as secrets for the build step.
-
-## Routes
-
-| Path | Page | Purpose |
-|------|------|---------|
-| `/` | Index | Main journal app |
-| `/demo` | Demo | Demo mode |
-| `/terms` | TermsOfService | Legal |
-| `/privacy` | PrivacyPolicy | Legal |
-| `/oauth-callback` | OAuthCallback | OAuth flow completion |
-| `/web-oauth-callback` | OAuthCallbackWeb | Web-specific OAuth |
-| `/storage-callback` | StorageOAuthCallback | Storage provider OAuth |
 
 ## Documentation Index
 

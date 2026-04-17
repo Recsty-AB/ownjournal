@@ -5,12 +5,12 @@ A privacy-first encrypted journaling Progressive Web App with zero-knowledge arc
 ## Features
 
 - **End-to-end encryption** — AES-256-GCM client-side encryption; your data is never stored in plaintext on servers
-- **Bring Your Own Storage** — Sync to Google Drive, Dropbox, or Nextcloud (your cloud, your data)
+- **Bring Your Own Storage** — Sync to Google Drive, Dropbox, Nextcloud, or iCloud (your cloud, your data)
 - **Offline-first** — Works without internet via IndexedDB, syncs when connected
 - **Multi-platform** — Web/PWA, Android, iOS (Capacitor), Desktop (Electron)
 - **Client-side AI** — Optional sentiment analysis and summarization via transformers.js (runs locally)
-- **18 languages** — Full i18n support
-- **Markdown editor** — Rich text formatting
+- **21 languages** — Full i18n support
+- **Markdown editor** — Formatting with live preview
 - **Tags & moods** — Organize and track your emotional journey
 
 ## Quick Start
@@ -19,7 +19,7 @@ A privacy-first encrypted journaling Progressive Web App with zero-knowledge arc
 git clone https://github.com/Recsty-AB/ownjournal.git
 cd ownjournal
 cp .env.example .env    # Edit with your credentials
-npm install
+npm install --legacy-peer-deps
 npm run dev             # http://localhost:8080
 ```
 
@@ -37,8 +37,9 @@ Copy `.env.example` to `.env` and fill in your values. At minimum you need:
 | `VITE_SUPABASE_URL` | Yes | Supabase project URL |
 | `VITE_SUPABASE_PUBLISHABLE_KEY` | Yes | Supabase anon key |
 | `VITE_SUPABASE_PROJECT_ID` | Yes | Supabase project ID |
-| `VITE_GOOGLE_CLIENT_ID` | No | Google Drive sync |
+| `VITE_GOOGLE_CLIENT_ID` | No | Google Drive sync / Google Sign-In |
 | `VITE_DROPBOX_CLIENT_ID` | No | Dropbox sync |
+| `VITE_APPLE_CLIENT_ID` | No | Apple Sign-In |
 | `VITE_STRIPE_PUBLISHABLE_KEY` | No | Subscription billing |
 
 See [OAUTH_SETUP_GUIDE.md](OAUTH_SETUP_GUIDE.md) for OAuth provider configuration.
@@ -57,7 +58,7 @@ See [OAUTH_SETUP_GUIDE.md](OAUTH_SETUP_GUIDE.md) for OAuth provider configuratio
 │  ┌───────────┐  │    │  Google Drive    │    │  Google / Apple  │
 │  │ Service   │  │    │  Dropbox         │    │                  │
 │  │ Worker    │  │    │  Nextcloud       │    │                  │
-│  └───────────┘  │    │                  │    │                  │
+│  └───────────┘  │    │  iCloud          │    │                  │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
@@ -78,7 +79,7 @@ See [OAUTH_SETUP_GUIDE.md](OAUTH_SETUP_GUIDE.md) for OAuth provider configuratio
 | State | TanStack Query, React hooks |
 | Routing | react-router-dom v7 |
 | Testing | Vitest + React Testing Library |
-| i18n | i18next (18 languages) |
+| i18n | i18next (21 languages) |
 | Mobile | Capacitor 8 |
 | Desktop | Electron 39 |
 | Backend | Supabase (auth + metadata only) |
@@ -92,7 +93,7 @@ src/
 ├── components/      # React components by feature
 ├── config/          # App configuration (features, oauth, pricing)
 ├── hooks/           # Custom React hooks
-├── i18n/            # i18next config + 18 locale files
+├── i18n/            # i18next config + 21 locale files
 ├── pages/           # Route components
 ├── services/        # Business logic (storage, sync, encryption, AI)
 ├── types/           # TypeScript types
