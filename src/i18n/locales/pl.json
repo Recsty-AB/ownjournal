@@ -2342,7 +2342,8 @@
     "last30days": "Ostatnie 30 dni",
     "last90days": "Ostatnie 90 dni",
     "thisYear": "Ten rok",
-    "allTime": "Cały czas"
+    "allTime": "Cały czas",
+    "noDataInRange": "Brak danych o nastroju w tym zakresie. Spróbuj innego okresu."
   },
   "moodCorrelations": {
     "title": "Analiza aktywności",

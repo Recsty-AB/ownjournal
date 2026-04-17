@@ -2342,7 +2342,8 @@
     "last30days": "Sidste 30 dage",
     "last90days": "Sidste 90 dage",
     "thisYear": "I år",
-    "allTime": "Alle tider"
+    "allTime": "Alle tider",
+    "noDataInRange": "Ingen humørdata for denne periode. Prøv en anden periode."
   },
   "moodCorrelations": {
     "title": "Aktivitetsindsigt",

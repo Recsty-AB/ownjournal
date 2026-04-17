@@ -2342,7 +2342,8 @@
     "last30days": "Últimos 30 días",
     "last90days": "Últimos 90 días",
     "thisYear": "Este año",
-    "allTime": "Desde siempre"
+    "allTime": "Desde siempre",
+    "noDataInRange": "No hay datos de estado de ánimo para este rango. Prueba con otro período."
   },
   "moodCorrelations": {
     "title": "Análisis de actividades",

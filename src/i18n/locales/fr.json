@@ -2342,7 +2342,8 @@
     "last30days": "30 derniers jours",
     "last90days": "90 derniers jours",
     "thisYear": "Cette année",
-    "allTime": "Depuis le début"
+    "allTime": "Depuis le début",
+    "noDataInRange": "Aucune donnée d'humeur pour cette période. Essayez une autre période."
   },
   "moodCorrelations": {
     "title": "Analyses d'activités",

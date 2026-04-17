@@ -2345,7 +2345,8 @@
     "last30days": "過去30日",
     "last90days": "過去90日",
     "thisYear": "今年",
-    "allTime": "すべての期間"
+    "allTime": "すべての期間",
+    "noDataInRange": "この期間の気分データはありません。別の期間をお試しください。"
   },
   "moodCorrelations": {
     "title": "アクティビティの分析",

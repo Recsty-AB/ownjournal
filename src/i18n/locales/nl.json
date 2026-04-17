@@ -2342,7 +2342,8 @@
     "last30days": "Laatste 30 dagen",
     "last90days": "Laatste 90 dagen",
     "thisYear": "Dit jaar",
-    "allTime": "Alles"
+    "allTime": "Alles",
+    "noDataInRange": "Geen stemmingsgegevens voor deze periode. Probeer een andere periode."
   },
   "moodCorrelations": {
     "title": "Activiteitsinzichten",
