@@ -93,11 +93,35 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
     localStorage.setItem(ACTIVITIES_COLLAPSED_KEY, String(isActivitiesCollapsed));
   }, [isActivitiesCollapsed]);
 
+  // Walk up from this component's root to find the nearest ancestor that
+  // actually scrolls vertically. Depending on layout this can be the Radix
+  // ScrollArea viewport, a parent <main>, or the document scrolling element.
+  const findScrollContainer = useCallback((): HTMLElement | null => {
+    if (typeof window === 'undefined') return null;
+    const radixViewport = scrollAreaRef.current?.querySelector('[data-radix-scroll-area-viewport]') as HTMLElement | null;
+    const candidates: (HTMLElement | null)[] = [radixViewport];
+    let node: HTMLElement | null = scrollAreaRef.current;
+    while (node && node !== document.body) {
+      candidates.push(node);
+      node = node.parentElement;
+    }
+    for (const el of candidates) {
+      if (!el) continue;
+      const style = window.getComputedStyle(el);
+      const overflowY = style.overflowY;
+      const canScroll = overflowY === 'auto' || overflowY === 'scroll';
+      if (canScroll && el.scrollHeight > el.clientHeight) return el;
+    }
+    return (document.scrollingElement as HTMLElement | null) ?? document.documentElement;
+  }, []);
+
+  const scrollContainerRef = useRef<HTMLElement | null>(null);
+
   const updateShowBackToTop = useCallback(() => {
-    const viewport = scrollAreaRef.current?.querySelector('[data-radix-scroll-area-viewport]') as HTMLDivElement | null;
-    const viewportScrolled = viewport ? viewport.scrollTop > 300 : false;
+    const el = scrollContainerRef.current;
+    const elScrolled = el ? el.scrollTop > 300 : false;
     const windowScrolled = typeof window !== 'undefined' && window.scrollY > 300;
-    setShowBackToTop(viewportScrolled || windowScrolled);
+    setShowBackToTop(elScrolled || windowScrolled);
   }, []);
 
   const handleViewportScroll = useCallback(() => {
@@ -107,32 +131,31 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
   const scrollToTop = useCallback(() => {
     const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const behavior = prefersReducedMotion ? ('auto' as const) : ('smooth' as const);
-    const viewport = scrollAreaRef.current?.querySelector('[data-radix-scroll-area-viewport]') as HTMLDivElement | null;
-    if (viewport) {
-      viewport.scrollTo({ top: 0, behavior });
-    }
+    const el = scrollContainerRef.current ?? findScrollContainer();
+    if (el) el.scrollTo({ top: 0, behavior });
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior });
     }
-  }, []);
+  }, [findScrollContainer]);
 
-  // Attach scroll listener to ScrollArea viewport and to window (layout may scroll either)
+  // Resolve the actual scroll container (may be Radix viewport, <main>, or
+  // the document) and attach the scroll listener there. Window scroll is
+  // also observed because some layouts scroll the document itself.
   useEffect(() => {
-    const scrollArea = scrollAreaRef.current;
-    const viewport = scrollArea?.querySelector('[data-radix-scroll-area-viewport]');
-    if (viewport) {
-      viewport.addEventListener('scroll', handleViewportScroll);
+    const el = findScrollContainer();
+    scrollContainerRef.current = el;
+    if (el && el !== document.documentElement && el !== document.body) {
+      el.addEventListener('scroll', handleViewportScroll, { passive: true });
     }
-    window.addEventListener('scroll', handleViewportScroll);
-    // Initial check in case we're already scrolled
+    window.addEventListener('scroll', handleViewportScroll, { passive: true });
     updateShowBackToTop();
     return () => {
-      if (viewport) {
-        viewport.removeEventListener('scroll', handleViewportScroll);
+      if (el && el !== document.documentElement && el !== document.body) {
+        el.removeEventListener('scroll', handleViewportScroll);
       }
       window.removeEventListener('scroll', handleViewportScroll);
     };
-  }, [handleViewportScroll, updateShowBackToTop, entries.length]);
+  }, [handleViewportScroll, updateShowBackToTop, findScrollContainer, entries.length]);
 
   // Scroll to new entry form when it appears
   useEffect(() => {
@@ -577,7 +600,14 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
             <Button
               onClick={scrollToTop}
               size="icon"
-              className="fixed bottom-6 right-6 z-50 size-11 rounded-full shadow-lg bg-primary hover:bg-primary/90 animate-in fade-in duration-200"
+              style={{
+                bottom: 'calc(1.5rem + env(safe-area-inset-bottom))',
+                // On viewports wider than the content column (max-w-4xl = 56rem),
+                // hug the content's right edge instead of the viewport edge so
+                // the FAB stays visually connected to the journal entries.
+                right: 'max(calc(1.5rem + env(safe-area-inset-right)), calc(50vw - 28rem + 1.5rem))',
+              }}
+              className="fixed z-50 size-11 rounded-full shadow-lg bg-primary hover:bg-primary/90 animate-in fade-in duration-200"
               aria-label={t('timeline.backToTop', 'Back to top')}
             >
               <ArrowUp className="h-5 w-5" />
