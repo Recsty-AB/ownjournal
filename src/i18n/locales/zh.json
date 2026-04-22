@@ -236,7 +236,11 @@
   "demo": {
     "mode": "演示模式",
     "description": "使用示例日记条目探索应用。您自己的数据将是私密且加密的。",
-    "startJournal": "开始您的日记"
+    "startJournal": "开始您的日记",
+    "exportUnavailableTitle": "导出功能在您自己的日记中可用",
+    "exportUnavailableDesc": "启动您的日记以启用数据导出",
+    "importUnavailableTitle": "导入功能在您自己的日记中可用",
+    "importUnavailableDesc": "启动您的日记以启用数据导入"
   },
   "index": {
     "loadingAuth": "正在检查身份验证...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "心情日历",
-    "noEntries": "暂无记录"
+    "noEntries": "暂无记录",
+    "previousMonth": "上个月",
+    "nextMonth": "下个月"
   },
   "moodStats": {
     "title": "心情统计",

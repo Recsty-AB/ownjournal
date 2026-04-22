@@ -7,39 +7,63 @@
     <meta name="description" content="A beautiful, secure journaling app with end-to-end encryption. Write, reflect, and store your thoughts safely with bring-your-own-storage options.">
     <meta name="author" content="OwnJournal App" />
 
+    <!-- Canonical & Robots -->
+    <link rel="canonical" href="https://app.ownjournal.app/" />
+    <meta name="robots" content="index,follow" />
+
     <!-- PWA Configuration -->
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#1e3a5f" />
+    <meta name="theme-color" content="#f9f7f4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1e3a5f" media="(prefers-color-scheme: dark)" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="OwnJournal" />
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    
+
     <!-- App Icons -->
-     <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/icon-512x512.png" />
     <link rel="apple-touch-icon" href="/icon-192x192.png" />
 
     <!-- Open Graph -->
-     <meta property="og:image" content="/icon-512x512.png" />
+    <meta property="og:title" content="OwnJournal - Secure &amp; Encrypted" />
+    <meta property="og:description" content="A beautiful, secure journaling app with end-to-end encryption. Write, reflect, and store your thoughts safely with bring-your-own-storage options." />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OwnJournal" />
+    <meta property="og:url" content="https://app.ownjournal.app/" />
+    <meta property="og:image" content="https://app.ownjournal.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-     <meta name="twitter:image" content="/icon-512x512.png" />
-  
-  
-  
-  <meta property="og:title" content="OwnJournal - Secure &amp; Encrypted">
-  <meta name="twitter:title" content="OwnJournal - Secure &amp; Encrypted">
-  <meta property="og:description" content="A beautiful, secure journaling app with end-to-end encryption. Write, reflect, and store your thoughts safely with bring-your-own-storage options.">
-  <meta name="twitter:description" content="A beautiful, secure journaling app with end-to-end encryption. Write, reflect, and store your thoughts safely with bring-your-own-storage options.">
-</head>
+    <meta name="twitter:title" content="OwnJournal - Secure &amp; Encrypted" />
+    <meta name="twitter:description" content="A beautiful, secure journaling app with end-to-end encryption. Write, reflect, and store your thoughts safely with bring-your-own-storage options." />
+    <meta name="twitter:image" content="https://app.ownjournal.app/og-image.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "OwnJournal",
+      "url": "https://app.ownjournal.app/",
+      "description": "A beautiful, secure journaling app with end-to-end encryption. Write, reflect, and store your thoughts safely with bring-your-own-storage options.",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Web, iOS, Android, Windows, macOS, Linux",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+  </head>
 
   <body>
     <div id="root"></div>

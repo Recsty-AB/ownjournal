@@ -328,7 +328,7 @@ export const AuthScreen = ({ onGoogleSignIn, onAppleSignIn }: AuthScreenProps) =
                   className="w-full"
                 >
                   {isLoading === 'reset' ? (
-                    <div className="w-4 h-4 mr-3 animate-spin rounded-full border-2 border-gray-300 border-t-white" />
+                    <div className="w-4 h-4 mr-3 animate-spin rounded-full border-2 border-primary-foreground/30 border-t-primary-foreground" />
                   ) : null}
                   {t('auth.sendResetLink')}
                 </Button>
@@ -401,7 +401,7 @@ export const AuthScreen = ({ onGoogleSignIn, onAppleSignIn }: AuthScreenProps) =
                   className="w-full"
                 >
                   {isLoading === 'email' ? (
-                    <div className="w-4 h-4 mr-3 animate-spin rounded-full border-2 border-gray-300 border-t-white" />
+                    <div className="w-4 h-4 mr-3 animate-spin rounded-full border-2 border-primary-foreground/30 border-t-primary-foreground" />
                   ) : null}
                   {isSignUp ? t('auth.createAccount') : t('auth.signIn')}
                 </Button>

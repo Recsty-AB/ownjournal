@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,6 +19,7 @@ import { Document, Paragraph, TextRun, Packer } from "docx";
 import { saveAs } from "file-saver";
 import { journalEntrySchema, tagSchema } from "@/utils/validation";
 import { MOOD_EMOJI } from "@/utils/moodEmoji";
+import { MOOD_BADGE_COLORS as moodColors } from "@/utils/moodColors";
 import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
 import {
   AlertDialog,
@@ -63,17 +64,9 @@ interface JournalEntryProps {
   onEditEnd?: () => void;
 }
 
-const moodColors = {
-  great: "bg-emerald-100 text-emerald-800 border-emerald-200",
-  good: "bg-blue-100 text-blue-800 border-blue-200",
-  okay: "bg-yellow-100 text-yellow-800 border-yellow-200",
-  poor: "bg-orange-100 text-orange-800 border-orange-200",
-  terrible: "bg-red-100 text-red-800 border-red-200"
-};
-
 const PREDEFINED_ACTIVITY_KEYS = PREDEFINED_ACTIVITIES.map(a => a.key);
 
-export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = false, onEditingChange, allEntries = [], isPro = false, isDemo = false, editingEntryId, onEditStart, onEditEnd }: JournalEntryProps) => {
+const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = false, onEditingChange, allEntries = [], isPro = false, isDemo = false, editingEntryId, onEditStart, onEditEnd }: JournalEntryProps) => {
   const [isEditMode, setIsEditMode] = useState(isEditing);
   const [title, setTitle] = useState(entry?.title || "");
   const [body, setBody] = useState(entry?.body || "");
@@ -719,13 +712,13 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
   return (
     <Card className="p-4 sm:p-6 shadow-medium bg-gradient-paper overflow-hidden max-w-full">
       <div className="space-y-6 min-w-0">
-        <div className="flex items-center gap-3 text-sm text-muted-foreground mb-4">
-          <Calendar className="w-4 h-4 flex-shrink-0" />
+        <div className="flex items-center gap-3 text-sm xl:text-base text-muted-foreground mb-4">
+          <Calendar className="w-4 h-4 xl:w-5 xl:h-5 flex-shrink-0" />
           <Input
             type="date"
             value={selectedDate.toISOString().split('T')[0]}
             onChange={(e) => setSelectedDate(new Date(e.target.value))}
-            className="w-auto border-0 bg-transparent p-0 focus-visible:ring-0 text-muted-foreground"
+            className="w-auto border-0 bg-transparent p-0 focus-visible:ring-0 text-muted-foreground xl:text-base"
           />
         </div>
 
@@ -733,7 +726,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
           placeholder={t('journalEntry.titlePlaceholder')}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="text-xl font-semibold border-0 bg-transparent p-0 focus-visible:ring-0 placeholder:text-muted-foreground"
+          className="text-xl xl:text-2xl font-semibold border-0 bg-transparent p-0 focus-visible:ring-0 placeholder:text-muted-foreground"
         />
 
         {body.length >= 20 && (
@@ -755,17 +748,19 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
         <div className="space-y-3">
           {/* Mood selector with horizontal scroll on mobile */}
           <div className="flex items-center gap-3 min-w-0">
-            <Heart className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+            <Heart className="w-4 h-4 xl:w-5 xl:h-5 text-muted-foreground flex-shrink-0" />
             <div className="flex flex-wrap gap-1.5 sm:gap-2 min-w-0">
-              {(['terrible', 'poor', 'okay', 'good', 'great'] as const).map((moodOption) => (
+              {(['great', 'good', 'okay', 'poor', 'terrible'] as const).map((moodOption) => (
                 <Button
                   key={moodOption}
                   variant={mood === moodOption ? "default" : "outline"}
                   size="sm"
                   onClick={() => setMood(moodOption)}
-                  className="capitalize text-xs sm:text-sm px-2 sm:px-3 h-7 sm:h-8"
+                  className="capitalize text-xs sm:text-sm xl:text-base px-2 sm:px-3 xl:px-4 min-h-10 xl:min-h-11 gap-1.5"
                   aria-label={t(`journalEntry.moods.${moodOption}`)}
                 >
+                  {/* Emoji on desktop; mobile stays text-only to keep the row compact. */}
+                  <span aria-hidden="true" className="hidden sm:inline">{MOOD_EMOJI[moodOption]}</span>
                   <span>{t(`journalEntry.moods.${moodOption}`)}</span>
                 </Button>
               ))}
@@ -811,7 +806,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                       variant={activities.includes(activity.key) ? "default" : "outline"}
                       size="sm"
                       onClick={() => toggleActivity(activity.key)}
-                      className={vertical ? "justify-start whitespace-nowrap" : "whitespace-nowrap flex-shrink-0"}
+                      className={vertical ? "justify-start whitespace-nowrap xl:min-h-11 xl:text-base xl:px-4" : "whitespace-nowrap flex-shrink-0 xl:min-h-11 xl:text-base xl:px-4"}
                       aria-label={t(`activities.${activity.key}`)}
                     >
                       <span aria-hidden="true">{activity.emoji}</span>
@@ -829,7 +824,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                       addCustomActivity();
                     }
                   }}
-                  className={vertical ? "" : "border-0 bg-transparent p-0 focus-visible:ring-0"}
+                  className={vertical ? "xl:text-base" : "border-0 bg-transparent p-0 focus-visible:ring-0 xl:text-base"}
                 />
                 {customActivities.length > 0 && (
                   <div className="flex flex-wrap gap-2">
@@ -837,7 +832,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                       <Badge
                         key={activity}
                         variant="secondary"
-                        className="cursor-pointer hover:bg-destructive hover:text-destructive-foreground transition-colors"
+                        className="cursor-pointer hover:bg-destructive hover:text-destructive-foreground transition-colors xl:text-base"
                         onClick={() => setActivities(prev => prev.filter(a => a !== activity))}
                       >
                         {activity} ×
@@ -895,8 +890,8 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
             return (
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
-                  <Activity className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                  <span className="text-sm text-muted-foreground">{t('activities.label')}</span>
+                  <Activity className="w-4 h-4 xl:w-5 xl:h-5 text-muted-foreground flex-shrink-0" />
+                  <span className="text-sm xl:text-base text-muted-foreground">{t('activities.label')}</span>
                 </div>
                 <div className="sm:ml-7 space-y-2">
                   <ActivityList />
@@ -906,7 +901,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
           })()}
 
           <div className="flex items-center gap-3">
-            <Tag className="w-4 h-4 text-muted-foreground" />
+            <Tag className="w-4 h-4 xl:w-5 xl:h-5 text-muted-foreground" />
             <div className="flex-1 relative">
               <Input
                 placeholder={t('journalEntry.addTagsPlaceholder')}
@@ -919,7 +914,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                 onKeyDown={handleKeyDown}
                 onFocus={() => setShowTagSuggestions(tagInput.length > 0)}
                 onBlur={() => setTimeout(() => setShowTagSuggestions(false), 200)}
-                className="border-0 bg-transparent p-0 focus-visible:ring-0"
+                className="border-0 bg-transparent p-0 focus-visible:ring-0 xl:text-base"
               />
               
               {/* Tag suggestions dropdown */}
@@ -930,7 +925,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                       key={tag}
                       type="button"
                       onClick={() => addTag(tag)}
-                      className={`w-full px-3 py-2 text-left text-sm transition-colors ${
+                      className={`w-full px-3 py-2 text-left text-sm xl:text-base transition-colors ${
                         index === selectedSuggestionIndex 
                           ? 'bg-accent text-accent-foreground' 
                           : 'hover:bg-accent hover:text-accent-foreground'
@@ -950,7 +945,7 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
                 <Badge
                   key={tag}
                   variant="secondary"
-                  className="cursor-pointer hover:bg-destructive hover:text-destructive-foreground transition-colors"
+                  className="cursor-pointer hover:bg-destructive hover:text-destructive-foreground transition-colors xl:text-base"
                   onClick={() => removeTag(tag)}
                 >
                   {tag} ×
@@ -998,10 +993,10 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
           )}
 
           <div className="flex items-start gap-3">
-            <ImagePlus className="w-4 h-4 text-muted-foreground mt-1" />
+            <ImagePlus className="w-4 h-4 xl:w-5 xl:h-5 text-muted-foreground mt-1" />
             <div className="flex-1 space-y-2">
               <div className="flex items-center gap-2">
-                <span className="text-sm text-muted-foreground">{t('journal.images')}</span>
+                <span className="text-sm xl:text-base text-muted-foreground">{t('journal.images')}</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {images.map((img, idx) => (
@@ -1048,14 +1043,15 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
         </div>
 
         <div className="flex gap-3 pt-4 border-t border-border">
-          <Button onClick={handleSave} className="bg-gradient-primary">
-            <Save className="w-4 h-4 mr-2" />
+          <Button onClick={handleSave} className="bg-gradient-primary xl:h-11 xl:px-4 xl:text-base">
+            <Save className="w-4 h-4 xl:w-5 xl:h-5 mr-2" />
             {t('journalEntry.saveEntry')}
           </Button>
           {(entry || onCancel) && (
             <Button
               variant="outline"
               onClick={handleCancel}
+              className="xl:h-11 xl:px-4 xl:text-base"
             >
               {t('common.cancel')}
             </Button>
@@ -1065,3 +1061,15 @@ export const JournalEntry = ({ entry, onSave, onDelete, onCancel, isEditing = fa
     </Card>
   );
 };
+
+// Parent (Timeline) passes inline callbacks; comparing function identities would defeat
+// memoization. Compare only props that should actually trigger a re-render.
+export const JournalEntry = memo(JournalEntryInner, (prev, next) => {
+  if (prev.entry !== next.entry) return false;
+  if (prev.isEditing !== next.isEditing) return false;
+  if (prev.editingEntryId !== next.editingEntryId) return false;
+  if (prev.isPro !== next.isPro) return false;
+  if (prev.isDemo !== next.isDemo) return false;
+  if (prev.allEntries !== next.allEntries) return false;
+  return true;
+});

@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { TrendingUp, Loader2, Lightbulb, Heart, Target, Clock, Crown, ChevronDown, Calendar as CalendarIcon, AlertTriangle } from "lucide-react";
+import { TrendingUp, Loader2, Lightbulb, Heart, Target, Clock, Crown, ChevronDown, Calendar as CalendarIcon, AlertTriangle, FileText } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -902,126 +902,168 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
 
   if (!analysis || isSelectingPeriod) {
     return (
-      <Card className="p-6 bg-gradient-subtle border-primary/20">
+      <Card className="p-4 sm:p-6 bg-gradient-subtle border-primary/20">
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <TrendingUp className="w-6 h-6 text-primary" />
-              <h3 className="text-xl font-semibold">{t('trendAnalysis.title')}</h3>
-            </div>
-            {analysis && (
-              <Button
-                onClick={() => setIsSelectingPeriod(false)}
-                size="sm"
-                variant="outline"
-              >
-                {t('trendAnalysis.backToInsights')}
-              </Button>
-            )}
-          </div>
-          <p className="text-sm text-muted-foreground">
-            {t('trendAnalysis.description')}
-          </p>
-          
-          {/* Date Range Selection */}
-          <div className="space-y-3">
-            <label className="text-sm font-medium">{t('trendAnalysis.selectPeriod')}</label>
-            <Select value={dateRangePreset} onValueChange={(value) => setDateRangePreset(value as DateRangePreset)}>
-              <SelectTrigger className="w-full">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {DATE_RANGE_OPTIONS.map(option => (
-                  <SelectItem key={option.value} value={option.value}>
-                    {t(option.label)}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            
-            {/* Custom Date Range Pickers */}
-            {dateRangePreset === "custom" && (
-              <div className="grid grid-cols-2 gap-3">
-                <div className="space-y-2">
-                  <label className="text-xs text-muted-foreground">{t('trendAnalysis.startDate')}</label>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant="outline"
-                        className={cn(
-                          "w-full justify-start text-left font-normal",
-                          !customStartDate && "text-muted-foreground"
-                        )}
-                      >
-                        <CalendarIcon className="mr-2 h-4 w-4" />
-                        {customStartDate ? format(customStartDate, "PPP", { locale: dateLocale }) : t('trendAnalysis.pickDate')}
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={customStartDate}
-                        onSelect={setCustomStartDate}
-                        disabled={(date) => 
-                          date > new Date() || (customEndDate && date > customEndDate)
-                        }
-                        initialFocus
-                        className="pointer-events-auto"
-                      />
-                    </PopoverContent>
-                  </Popover>
+          {/* Two-column layout on lg+: left = title+description, right = action bar + meta.
+              Below lg: stacks to single column in original order (title, description, action, meta). */}
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
+            {/* Left column: title + description */}
+            <div className="flex-1 min-w-0 space-y-2">
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2 min-w-0">
+                  <TrendingUp aria-hidden="true" className="w-6 h-6 text-primary flex-shrink-0" />
+                  <h3 className="text-lg sm:text-xl font-semibold">{t('trendAnalysis.title')}</h3>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-xs text-muted-foreground">{t('trendAnalysis.endDate')}</label>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant="outline"
-                        className={cn(
-                          "w-full justify-start text-left font-normal",
-                          !customEndDate && "text-muted-foreground"
-                        )}
-                      >
-                        <CalendarIcon className="mr-2 h-4 w-4" />
-                        {customEndDate ? format(customEndDate, "PPP", { locale: dateLocale }) : t('trendAnalysis.pickDate')}
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={customEndDate}
-                        onSelect={setCustomEndDate}
-                        disabled={(date) => 
-                          date > new Date() || (customStartDate && date < customStartDate)
-                        }
-                        initialFocus
-                        className="pointer-events-auto"
-                      />
-                    </PopoverContent>
-                  </Popover>
-                </div>
+                {analysis && (
+                  <Button
+                    onClick={() => setIsSelectingPeriod(false)}
+                    size="sm"
+                    variant="outline"
+                  >
+                    {t('trendAnalysis.backToInsights')}
+                  </Button>
+                )}
               </div>
-            )}
+              <p className="text-sm text-muted-foreground">
+                {t('trendAnalysis.description')}
+              </p>
+            </div>
+
+            {/* Right column: action bar on top, meta row below. Right-aligned on desktop. */}
+            <div className="flex-shrink-0 lg:w-auto space-y-3 lg:items-end lg:flex lg:flex-col">
+              {/* Action bar — dropdown and Analyze button */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 w-full lg:w-auto">
+                <Select value={dateRangePreset} onValueChange={(value) => setDateRangePreset(value as DateRangePreset)}>
+                  <SelectTrigger className="w-full sm:w-[200px] min-h-11">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {DATE_RANGE_OPTIONS.map(option => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {t(option.label)}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+
+                <Button
+                  onClick={handleAnalyze}
+                  disabled={loading || !canAnalyze() || !isPro || filteredEntries.length < 8}
+                  size="sm"
+                  className={cn(
+                    "w-full sm:w-auto sm:min-w-[160px] min-h-11 h-auto",
+                    isPro && "bg-gradient-primary"
+                  )}
+                  variant={isPro ? "default" : "outline"}
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 animate-spin flex-shrink-0" />
+                      <span>{t('trendAnalysis.analyzing')}</span>
+                    </>
+                  ) : isPro ? (
+                    <>
+                      <TrendingUp aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
+                      <span>{t('trendAnalysis.analyzePeriod')}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Crown aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
+                      <span>{t('trendAnalysis.analyzePeriod')}</span>
+                    </>
+                  )}
+                </Button>
+              </div>
+
+              {/* Meta row — entries count, need-8 hint, and weekly availability */}
+              <div role="list" className="flex items-center flex-wrap gap-x-2 gap-y-1 text-xs text-muted-foreground lg:justify-end">
+                <span role="listitem" className="inline-flex items-center gap-2">
+                  <FileText aria-hidden="true" className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>{t('trendAnalysis.entriesInPeriod', { count: filteredEntries.length })}</span>
+                </span>
+                {filteredEntries.length < 8 && (
+                  <>
+                    <span aria-hidden="true">·</span>
+                    <span role="listitem">{t('trendAnalysis.need8')}</span>
+                  </>
+                )}
+                <span aria-hidden="true">·</span>
+                {!canAnalyze() ? (
+                  <span role="listitem" className="text-amber-600 dark:text-amber-400 font-medium">{t('trendAnalysis.limitMessage')}</span>
+                ) : (
+                  <span role="listitem">{t('trendAnalysis.availableOnceWeek')}</span>
+                )}
+              </div>
+            </div>
           </div>
 
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Clock className="w-4 h-4" />
-            {!canAnalyze() ? (
-              <span className="text-amber-600 dark:text-amber-400 font-medium">{t('trendAnalysis.limitMessage')}</span>
-            ) : (
-              <span>{t('trendAnalysis.availableOnceWeek')}</span>
-            )}
-          </div>
-          
-          {/* Show entry count for selected range */}
-          <div className="text-sm text-muted-foreground bg-background/50 p-3 rounded-md">
-            {t('trendAnalysis.entriesInPeriod', { count: filteredEntries.length })}
-            {filteredEntries.length < 8 && ` (${t('trendAnalysis.need8')})`}
-          </div>
-          
+          {/* Custom Date Range Pickers */}
+          {dateRangePreset === "custom" && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
+              <div className="space-y-2">
+                <label className="text-xs text-muted-foreground">{t('trendAnalysis.startDate')}</label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={cn(
+                        "w-full justify-start text-left font-normal",
+                        !customStartDate && "text-muted-foreground"
+                      )}
+                    >
+                      <CalendarIcon aria-hidden="true" className="mr-2 h-4 w-4" />
+                      {customStartDate ? format(customStartDate, "PPP", { locale: dateLocale }) : t('trendAnalysis.pickDate')}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={customStartDate}
+                      onSelect={setCustomStartDate}
+                      disabled={(date) =>
+                        date > new Date() || (customEndDate && date > customEndDate)
+                      }
+                      initialFocus
+                      className="pointer-events-auto"
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
+              <div className="space-y-2">
+                <label className="text-xs text-muted-foreground">{t('trendAnalysis.endDate')}</label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={cn(
+                        "w-full justify-start text-left font-normal",
+                        !customEndDate && "text-muted-foreground"
+                      )}
+                    >
+                      <CalendarIcon aria-hidden="true" className="mr-2 h-4 w-4" />
+                      {customEndDate ? format(customEndDate, "PPP", { locale: dateLocale }) : t('trendAnalysis.pickDate')}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={customEndDate}
+                      onSelect={setCustomEndDate}
+                      disabled={(date) =>
+                        date > new Date() || (customStartDate && date < customStartDate)
+                      }
+                      initialFocus
+                      className="pointer-events-auto"
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
+            </div>
+          )}
+
           {/* Progress bar during analysis */}
           {loading && (
-            <div className="space-y-3 bg-background/50 p-4 rounded-lg border border-primary/20">
+            <div className="space-y-3 bg-background/50 p-4 rounded-lg border border-primary/20 max-w-2xl">
               <div className="flex items-center justify-between text-sm">
                 <span className="font-medium text-foreground">{progress.currentAction}</span>
                 <span className="text-muted-foreground">
@@ -1035,35 +1077,11 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
                 </div>
               )}
               <div className="flex items-center gap-2 text-xs text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 p-2 rounded-md">
-                <AlertTriangle className="w-4 h-4 flex-shrink-0" />
+                <AlertTriangle aria-hidden="true" className="w-4 h-4 flex-shrink-0" />
                 <span>{t('trendAnalysis.progress.doNotCloseApp')}</span>
               </div>
             </div>
           )}
-          
-          <Button
-            onClick={handleAnalyze}
-            disabled={loading || !canAnalyze() || !isPro || filteredEntries.length < 8}
-            className={isPro ? "bg-gradient-primary w-full" : "w-full whitespace-normal text-center h-auto min-h-10 py-2 break-words"}
-            variant={isPro ? "default" : "outline"}
-          >
-            {loading ? (
-              <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                {progress.currentAction || t('trendAnalysis.analyzing')}
-              </>
-            ) : isPro ? (
-              <>
-                <TrendingUp className="w-4 h-4 mr-2" />
-                {t('trendAnalysis.analyzePeriod')}
-              </>
-            ) : (
-              <>
-                <Crown className="w-4 h-4 mr-2" />
-                {t('trendAnalysis.proFeatureDesc')}
-              </>
-            )}
-          </Button>
         </div>
       </Card>
     );

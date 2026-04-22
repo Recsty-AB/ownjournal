@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { JournalEntry, JournalEntryData } from "./JournalEntry";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,8 @@ import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo.png";
 import { MOOD_EMOJI } from "@/utils/moodEmoji";
+import { MOOD_CELL_COLORS, MOOD_BORDER_COLORS } from "@/utils/moodColors";
+import { cn } from "@/lib/utils";
 import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
 import { Activity } from "lucide-react";
 
@@ -124,8 +126,14 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
     setShowBackToTop(elScrolled || windowScrolled);
   }, []);
 
+  // rAF-throttle so scroll events don't trigger a setState each frame tick.
+  const scrollRafRef = useRef<number | null>(null);
   const handleViewportScroll = useCallback(() => {
-    updateShowBackToTop();
+    if (scrollRafRef.current !== null) return;
+    scrollRafRef.current = requestAnimationFrame(() => {
+      scrollRafRef.current = null;
+      updateShowBackToTop();
+    });
   }, [updateShowBackToTop]);
 
   const scrollToTop = useCallback(() => {
@@ -154,8 +162,12 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
         el.removeEventListener('scroll', handleViewportScroll);
       }
       window.removeEventListener('scroll', handleViewportScroll);
+      if (scrollRafRef.current !== null) {
+        cancelAnimationFrame(scrollRafRef.current);
+        scrollRafRef.current = null;
+      }
     };
-  }, [handleViewportScroll, updateShowBackToTop, findScrollContainer, entries.length]);
+  }, [handleViewportScroll, updateShowBackToTop, findScrollContainer]);
 
   // Scroll to new entry form when it appears
   useEffect(() => {
@@ -185,49 +197,68 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
     return () => window.removeEventListener('app:back', onBack as EventListener);
   }, [showNewEntry, onEditingChange]);
 
-  // Filter entries based on search, tags, moods, and date range
-  const filteredEntries = entries.filter(entry => {
-    const matchesSearch = searchQuery === "" || 
-      entry.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      entry.body.toLowerCase().includes(searchQuery.toLowerCase());
-    
-    const matchesTags = selectedTags.length === 0 || 
-      selectedTags.some(tag => entry.tags.includes(tag));
-    
-    const matchesMoods = selectedMoods.length === 0 ||
-      (entry.mood && selectedMoods.includes(entry.mood));
+  // Filter entries based on search, tags, moods, and date range.
+  // Memoized so a keystroke in search doesn't trigger redundant filter+sort+group
+  // when unrelated props/state change.
+  const sortedFilteredEntries = useMemo(() => {
+    const needle = searchQuery.toLowerCase();
+    const startDate = dateFilter.start ? new Date(dateFilter.start) : null;
+    const endDate = dateFilter.end ? new Date(dateFilter.end + 'T23:59:59') : null;
+    const filtered = entries.filter(entry => {
+      const matchesSearch = needle === "" ||
+        entry.title.toLowerCase().includes(needle) ||
+        entry.body.toLowerCase().includes(needle);
+      const matchesTags = selectedTags.length === 0 ||
+        selectedTags.some(tag => entry.tags.includes(tag));
+      const matchesMoods = selectedMoods.length === 0 ||
+        (entry.mood && selectedMoods.includes(entry.mood));
+      const matchesActivities = selectedActivities.length === 0 ||
+        (entry.activities && selectedActivities.some(activity => entry.activities!.includes(activity)));
+      const matchesDateRange = (!startDate && !endDate) ||
+        ((!startDate || entry.date >= startDate) && (!endDate || entry.date <= endDate));
+      return matchesSearch && matchesTags && matchesMoods && matchesActivities && matchesDateRange;
+    });
+    filtered.sort((a, b) => {
+      const dateA = a.date?.getTime() || 0;
+      const dateB = b.date?.getTime() || 0;
+      if (dateB !== dateA) return dateB - dateA;
+      const createdA = a.createdAt?.getTime() || 0;
+      const createdB = b.createdAt?.getTime() || 0;
+      if (createdB !== createdA) return createdB - createdA;
+      return b.id.localeCompare(a.id);
+    });
+    return filtered;
+  }, [entries, searchQuery, selectedTags, selectedMoods, selectedActivities, dateFilter.start, dateFilter.end]);
 
-    const matchesActivities = selectedActivities.length === 0 ||
-      (entry.activities && selectedActivities.some(activity => entry.activities!.includes(activity)));
+  const groupedEntries = useMemo(
+    () => groupEntriesByDate(sortedFilteredEntries, t, currentLocale),
+    [sortedFilteredEntries, t, currentLocale]
+  );
 
-    const matchesDateRange = (!dateFilter.start && !dateFilter.end) ||
-      ((!dateFilter.start || entry.date >= new Date(dateFilter.start)) &&
-       (!dateFilter.end || entry.date <= new Date(dateFilter.end + 'T23:59:59')));
+  const sortedGroups = useMemo(() => {
+    return Object.entries(groupedEntries).sort((a, b) => {
+      const maxA = Math.max(...a[1].map(e => e.date?.getTime() || 0), 0);
+      const maxB = Math.max(...b[1].map(e => e.date?.getTime() || 0), 0);
+      if (maxB !== maxA) return maxB - maxA;
+      return b[0].localeCompare(a[0]);
+    });
+  }, [groupedEntries]);
 
-    return matchesSearch && matchesTags && matchesMoods && matchesActivities && matchesDateRange;
-  });
-
-  const sortedFilteredEntries = [...filteredEntries].sort((a, b) => {
-    const dateA = a.date?.getTime() || 0;
-    const dateB = b.date?.getTime() || 0;
-    if (dateB !== dateA) return dateB - dateA;
-    const createdA = a.createdAt?.getTime() || 0;
-    const createdB = b.createdAt?.getTime() || 0;
-    if (createdB !== createdA) return createdB - createdA;
-    return b.id.localeCompare(a.id);
-  });
-
-  const groupedEntries = groupEntriesByDate(sortedFilteredEntries, t, currentLocale);
-  // Sort groups by the most recent entry date in each group (desc)
-  const sortedGroups = Object.entries(groupedEntries).sort((a, b) => {
-    const maxA = Math.max(...a[1].map(e => e.date?.getTime() || 0), 0);
-    const maxB = Math.max(...b[1].map(e => e.date?.getTime() || 0), 0);
-    if (maxB !== maxA) return maxB - maxA;
-    return b[0].localeCompare(a[0]);
-  });
-  const allTags = Array.from(new Set(entries.flatMap(entry => entry.tags)));
-  const allMoods = Array.from(new Set(entries.map(entry => entry.mood).filter(Boolean))) as string[];
-  const allActivities = Array.from(new Set(entries.flatMap(entry => entry.activities || [])));
+  const allTags = useMemo(
+    () => Array.from(new Set(entries.flatMap(entry => entry.tags))),
+    [entries]
+  );
+  // Moods in fixed valence order (best → worst) so the filter row is predictable
+  // regardless of which moods happen to exist in the current entry set.
+  const allMoods = useMemo(() => {
+    const VALENCE_ORDER = ['great', 'good', 'okay', 'poor', 'terrible'];
+    const present = new Set(entries.map(entry => entry.mood).filter(Boolean) as string[]);
+    return VALENCE_ORDER.filter(m => present.has(m));
+  }, [entries]);
+  const allActivities = useMemo(
+    () => Array.from(new Set(entries.flatMap(entry => entry.activities || []))),
+    [entries]
+  );
 
   const toggleTag = (tag: string) => {
     setSelectedTags(prev => 
@@ -273,13 +304,13 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
           }}
           className="w-full sm:w-auto mb-4 bg-gradient-primary shadow-glow"
         >
-          <Plus className="w-4 h-4 mr-2" />
+          <Plus aria-hidden="true" className="w-4 h-4 mr-2" />
           {t('timeline.newEntry')}
         </Button>
 
         {/* Search */}
         <div className="relative mb-4">
-          <Search className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
+          <Search aria-hidden="true" className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
           <Input
             placeholder={t('timeline.searchPlaceholder')}
             value={searchQuery}
@@ -293,7 +324,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
           <Popover>
             <PopoverTrigger asChild>
               <Button variant="outline" className="justify-start text-left font-normal">
-                <Calendar className="mr-2 h-4 w-4" />
+                <Calendar aria-hidden="true" className="mr-2 h-4 w-4" />
                 {dateFilter.start ? format(new Date(dateFilter.start), 'PPP', { locale: currentLocale }) : t('timeline.startDate')}
               </Button>
             </PopoverTrigger>
@@ -316,7 +347,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
           <Popover>
             <PopoverTrigger asChild>
               <Button variant="outline" className="justify-start text-left font-normal">
-                <Calendar className="mr-2 h-4 w-4" />
+                <Calendar aria-hidden="true" className="mr-2 h-4 w-4" />
                 {dateFilter.end ? format(new Date(dateFilter.end), 'PPP', { locale: currentLocale }) : t('timeline.endDate')}
               </Button>
             </PopoverTrigger>
@@ -348,14 +379,14 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                   size="sm" 
                   className="flex items-center gap-2 p-0 h-auto hover:bg-transparent"
                 >
-                  <Tag className="w-4 h-4 text-muted-foreground" />
+                  <Tag aria-hidden="true" className="w-4 h-4 text-muted-foreground" />
                   <span className="text-sm text-muted-foreground">
                     {t('journalEntry.tags', 'Tags')} ({allTags.length})
                   </span>
                   {isTagsCollapsed ? (
-                    <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                    <ChevronRight aria-hidden="true" className="w-4 h-4 text-muted-foreground" />
                   ) : (
-                    <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                    <ChevronDown aria-hidden="true" className="w-4 h-4 text-muted-foreground" />
                   )}
                 </Button>
               </CollapsibleTrigger>
@@ -369,7 +400,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                       variant="default"
                       size="sm"
                       onClick={() => toggleTag(tag)}
-                      className="text-xs h-7"
+                      className="text-sm min-h-11 px-3"
                     >
                       {tag}
                     </Button>
@@ -385,7 +416,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                       variant={selectedTags.includes(tag) ? "default" : "outline"}
                       size="sm"
                       onClick={() => toggleTag(tag)}
-                      className="text-xs h-7"
+                      className="text-sm min-h-11 px-3"
                     >
                       {tag}
                     </Button>
@@ -406,14 +437,14 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                   size="sm"
                   className="flex items-center gap-2 p-0 h-auto hover:bg-transparent"
                 >
-                  <Activity className="w-4 h-4 text-muted-foreground" />
+                  <Activity aria-hidden="true" className="w-4 h-4 text-muted-foreground" />
                   <span className="text-sm text-muted-foreground">
                     {t('activities.label')} ({allActivities.length})
                   </span>
                   {isActivitiesCollapsed ? (
-                    <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                    <ChevronRight aria-hidden="true" className="w-4 h-4 text-muted-foreground" />
                   ) : (
-                    <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                    <ChevronDown aria-hidden="true" className="w-4 h-4 text-muted-foreground" />
                   )}
                 </Button>
               </CollapsibleTrigger>
@@ -427,7 +458,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                       variant="default"
                       size="sm"
                       onClick={() => toggleActivity(activity)}
-                      className="text-xs h-7"
+                      className="text-sm min-h-11 px-3"
                       aria-label={PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
                     >
                       {getActivityEmoji(activity)}{' '}{PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
@@ -444,7 +475,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                       variant={selectedActivities.includes(activity) ? "default" : "outline"}
                       size="sm"
                       onClick={() => toggleActivity(activity)}
-                      className="text-xs h-7"
+                      className="text-sm min-h-11 px-3"
                       aria-label={PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
                     >
                       {getActivityEmoji(activity)}{' '}{PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
@@ -456,22 +487,36 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
           </Collapsible>
         )}
 
-        {/* Mood filter */}
+        {/* Mood filter — color-coded so each mood reads at a glance */}
         {allMoods.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="text-sm text-muted-foreground self-center">{t('journalEntry.mood')}:</span>
-            {allMoods.map(mood => (
-              <Button
-                key={mood}
-                variant={selectedMoods.includes(mood) ? "default" : "outline"}
-                size="sm"
-                onClick={() => toggleMood(mood)}
-                className="text-xs h-7 capitalize"
-                aria-label={t(`journalEntry.moods.${mood}`)}
-              >
-                {MOOD_EMOJI[mood]}{' '}{t(`journalEntry.moods.${mood}`, mood)}
-              </Button>
-            ))}
+            {allMoods.map(mood => {
+              const isSelected = selectedMoods.includes(mood);
+              const fillClass = MOOD_CELL_COLORS[mood];
+              const borderClass = MOOD_BORDER_COLORS[mood];
+              return (
+                <Button
+                  key={mood}
+                  variant="outline"
+                  size="sm"
+                  onClick={() => toggleMood(mood)}
+                  className={cn(
+                    "text-sm h-8 px-3 capitalize gap-1.5 border-2 text-foreground",
+                    isSelected
+                      ? `${fillClass} hover:opacity-90 border-transparent`
+                      : `bg-transparent hover:bg-muted ${borderClass} border-current`
+                  )}
+                  aria-label={t(`journalEntry.moods.${mood}`)}
+                >
+                  {/* Emoji on desktop, text-only on mobile for a cleaner filter row on small screens. */}
+                  <span aria-hidden="true" className="hidden sm:inline">{MOOD_EMOJI[mood]}</span>
+                  <span className="text-foreground">
+                    {t(`journalEntry.moods.${mood}`, mood)}
+                  </span>
+                </Button>
+              );
+            })}
           </div>
         )}
       </div>
@@ -520,7 +565,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
               </p>
               {!searchQuery && selectedTags.length === 0 && selectedMoods.length === 0 && selectedActivities.length === 0 && !dateFilter.start && !dateFilter.end && (
                 <Button onClick={() => setShowNewEntry(true)} className="bg-gradient-primary">
-                  <Plus className="w-4 h-4 mr-2" />
+                  <Plus aria-hidden="true" className="w-4 h-4 mr-2" />
                   {t('timeline.writeFirst')}
                 </Button>
               )}
@@ -528,24 +573,15 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
           ) : (
             sortedGroups.map(([group, groupEntries]) => (
               <div key={group} className="space-y-4">
-                <div className="flex items-center gap-3 sticky top-0 z-10 bg-background/80 backdrop-blur-sm py-2">
-                  <Calendar className="w-4 h-4 text-primary" />
+                <div className="flex items-center gap-3 sticky top-0 z-10 bg-background py-2">
+                  <Calendar aria-hidden="true" className="w-4 h-4 text-primary" />
                   <h2 className="text-lg font-semibold text-foreground">{group}</h2>
                   <div className="flex-1 h-px bg-border"></div>
                 </div>
                 
                 <div className="space-y-4">
-                  {groupEntries
-                    .sort((a, b) => {
-                      const dateA = a.date?.getTime() || 0;
-                      const dateB = b.date?.getTime() || 0;
-                      if (dateB !== dateA) return dateB - dateA;
-                      const createdA = a.createdAt?.getTime() || 0;
-                      const createdB = b.createdAt?.getTime() || 0;
-                      if (createdB !== createdA) return createdB - createdA;
-                      return b.id.localeCompare(a.id);
-                    })
-                    .map(entry => (
+                  {/* entries already sorted in sortedFilteredEntries; groupEntries preserves that order */}
+                  {groupEntries.map(entry => (
                       <div key={entry.id} data-entry-id={entry.id}>
                       <JournalEntry
                         entry={entry}
@@ -568,7 +604,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                         isDemo={isDemo}
                       />
                       </div>
-                    ))}
+                  ))}
                 </div>
               </div>
             ))
@@ -606,13 +642,14 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
               style={{
                 bottom: 'calc(1.5rem + env(safe-area-inset-bottom))',
               }}
-              // Hug the content column's right edge (max-w-4xl = 56rem) so the FAB stays visually
-              // connected to the entries instead of drifting to the viewport corner on wide monitors.
+              // Hug the content column's right edge (where the ScrollArea scrollbar sits) so the
+              // FAB stays visually connected to the entries instead of drifting to the viewport corner
+              // on wide monitors. Breakpoints mirror the main container's max-w-4xl / xl:5xl / 2xl:6xl.
               className="fixed z-50 size-14 rounded-full shadow-lg bg-primary text-primary-foreground hover:bg-primary/90
                 right-[max(1.5rem,calc(50vw_-_28rem_+_1.5rem))]"
               aria-label={t('timeline.newEntry')}
             >
-              <Plus className="h-6 w-6" />
+              <Plus aria-hidden="true" className="h-6 w-6" />
             </Button>
           </TooltipTrigger>
           <TooltipContent side="left" sideOffset={8}>
@@ -636,7 +673,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                 right-[calc(max(1.5rem,calc(50vw_-_28rem_+_1.5rem))_+_0.375rem)]"
               aria-label={t('timeline.backToTop', 'Back to top')}
             >
-              <ArrowUp className="h-5 w-5" />
+              <ArrowUp aria-hidden="true" className="h-5 w-5" />
             </Button>
           </TooltipTrigger>
           <TooltipContent side="left" sideOffset={8}>

@@ -374,7 +374,7 @@ export const TitleSuggestion = ({ content, tags = [], mood, onApply, isPro }: Ti
       disabled={loading || !isPro}
       size="sm"
       variant={isPro ? "outline" : "secondary"}
-      className="w-full"
+      className="w-full xl:h-11 xl:text-base"
     >
       {loading ? (
         <>

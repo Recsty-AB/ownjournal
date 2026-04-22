@@ -410,7 +410,7 @@ export const AIAnalysis = ({ entryId, content, createdAt, tags, mood, isPro, isD
             disabled={loading || !isPro || initialLoading}
             size="sm"
             variant={isPro ? "default" : "outline"}
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto xl:h-11 xl:text-base"
           >
             {initialLoading ? (
               <>

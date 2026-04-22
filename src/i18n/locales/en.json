@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Demo Mode",
     "description": "Explore the app with sample journal entries. Your own data will be private and encrypted.",
-    "startJournal": "Start Your Journal"
+    "startJournal": "Start Your Journal",
+    "exportUnavailableTitle": "Export is available in your own journal",
+    "exportUnavailableDesc": "Start your journal to enable data export",
+    "importUnavailableTitle": "Import is available in your own journal",
+    "importUnavailableDesc": "Start your journal to enable data import"
   },
   "index": {
     "loadingAuth": "Checking authentication...",
@@ -2329,7 +2333,9 @@
   },
   "moodCalendar": {
     "title": "Mood Calendar",
-    "noEntries": "No entries"
+    "noEntries": "No entries",
+    "previousMonth": "Previous month",
+    "nextMonth": "Next month"
   },
   "moodStats": {
     "title": "Mood Statistics",

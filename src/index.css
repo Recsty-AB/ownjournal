@@ -188,6 +188,19 @@
   }
 }
 
+/* Respect users who request reduced motion. Neutralizes Tailwind animate-*,
+   transition-*, and keyframe animations globally without having to touch every callsite. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Fix Radix ScrollArea horizontal overflow on narrow screens.
    The Viewport wraps content in a div with display:table + minWidth:100%,
    which expands to fit content instead of constraining to parent width. */

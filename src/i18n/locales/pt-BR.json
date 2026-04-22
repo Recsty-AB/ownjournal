@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Modo Demo",
     "description": "Explore o app com entradas de diário de exemplo. Seus próprios dados serão privados e criptografados.",
-    "startJournal": "Iniciar Seu Diário"
+    "startJournal": "Iniciar Seu Diário",
+    "exportUnavailableTitle": "A exportação está disponível no seu próprio diário",
+    "exportUnavailableDesc": "Inicie seu diário para habilitar a exportação de dados",
+    "importUnavailableTitle": "A importação está disponível no seu próprio diário",
+    "importUnavailableDesc": "Inicie seu diário para habilitar a importação de dados"
   },
   "index": {
     "loadingAuth": "Verificando autenticação...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "Calendário de humor",
-    "noEntries": "Sem entradas"
+    "noEntries": "Sem entradas",
+    "previousMonth": "Mês anterior",
+    "nextMonth": "Próximo mês"
   },
   "moodStats": {
     "title": "Estatísticas de humor",

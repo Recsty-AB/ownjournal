@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Chế độ trải nghiệm",
     "description": "Khám phá ứng dụng với các bài viết mẫu. Dữ liệu thật của bạn sẽ được bảo mật và mã hóa.",
-    "startJournal": "Bắt đầu viết nhật ký"
+    "startJournal": "Bắt đầu viết nhật ký",
+    "exportUnavailableTitle": "Xuất dữ liệu khả dụng trong nhật ký của riêng bạn",
+    "exportUnavailableDesc": "Bắt đầu nhật ký của bạn để bật xuất dữ liệu",
+    "importUnavailableTitle": "Nhập dữ liệu khả dụng trong nhật ký của riêng bạn",
+    "importUnavailableDesc": "Bắt đầu nhật ký của bạn để bật nhập dữ liệu"
   },
   "index": {
     "loadingAuth": "Đang kiểm tra xác thực...",
@@ -2327,7 +2331,9 @@
   },
   "moodCalendar": {
     "title": "Lịch tâm trạng",
-    "noEntries": "Không có bài viết"
+    "noEntries": "Không có bài viết",
+    "previousMonth": "Tháng trước",
+    "nextMonth": "Tháng sau"
   },
   "moodStats": {
     "title": "Thống kê tâm trạng",

@@ -531,7 +531,7 @@ export const TagSuggestion = ({
       disabled={loading || !isPro}
       size="sm"
       variant={isPro ? "outline" : "secondary"}
-      className="w-full"
+      className="w-full xl:h-11 xl:text-base"
     >
       {loading ? (
         <>

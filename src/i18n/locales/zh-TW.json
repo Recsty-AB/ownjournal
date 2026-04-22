@@ -236,7 +236,11 @@
   "demo": {
     "mode": "示範模式",
     "description": "使用範例日記條目探索應用程式。您自己的資料將會是私密且加密的。",
-    "startJournal": "開始您的日記"
+    "startJournal": "開始您的日記",
+    "exportUnavailableTitle": "匯出功能在您自己的日記中可用",
+    "exportUnavailableDesc": "啟動您的日記以啟用資料匯出",
+    "importUnavailableTitle": "匯入功能在您自己的日記中可用",
+    "importUnavailableDesc": "啟動您的日記以啟用資料匯入"
   },
   "index": {
     "loadingAuth": "檢查驗證中...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "心情日曆",
-    "noEntries": "尚無紀錄"
+    "noEntries": "尚無紀錄",
+    "previousMonth": "上個月",
+    "nextMonth": "下個月"
   },
   "moodStats": {
     "title": "心情統計",

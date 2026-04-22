@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useTheme } from "next-themes";
 import { toast } from "sonner";
 
+import { useDocumentTitle } from "@/hooks/useDocumentMeta";
 import { DemoProvider, useDemo } from "@/components/demo/DemoProvider";
 import { DemoBanner } from "@/components/demo/DemoBanner";
 import { Header } from "@/components/layout/Header";
@@ -19,6 +20,7 @@ function DemoContent() {
   const [searchParams] = useSearchParams();
   const { theme, setTheme } = useTheme();
   const { entries, saveEntry, deleteEntry } = useDemo();
+  useDocumentTitle(t('demo.mode'));
   
   const cleanMode = searchParams.get('clean') === 'true';
   const [showSettings, setShowSettings] = useState(false);
@@ -50,14 +52,14 @@ function DemoContent() {
   };
 
   const handleExport = () => {
-    toast.info("Export is available in your own journal", {
-      description: "Start your journal to enable data export"
+    toast.info(t('demo.exportUnavailableTitle'), {
+      description: t('demo.exportUnavailableDesc')
     });
   };
 
-  const handleImportData = (data: unknown) => {
-    toast.info("Import is available in your own journal", {
-      description: "Start your journal to enable data import"
+  const handleImportData = (_data: unknown) => {
+    toast.info(t('demo.importUnavailableTitle'), {
+      description: t('demo.importUnavailableDesc')
     });
   };
 

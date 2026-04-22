@@ -8,7 +8,11 @@ import { format, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, addM
 import { useTranslation } from "react-i18next";
 import { getDateLocale } from "@/utils/dateLocale";
 import { MOOD_EMOJI } from "@/utils/moodEmoji";
+import { MOOD_CELL_COLORS } from "@/utils/moodColors";
 import type { JournalEntryData } from "./JournalEntry";
+
+// Re-export so existing imports from this module keep working during the transition.
+export { MOOD_CELL_COLORS };
 
 const MOOD_SCORE: Record<string, number> = {
   terrible: 1, poor: 2, okay: 3, good: 4, great: 5
@@ -16,14 +20,6 @@ const MOOD_SCORE: Record<string, number> = {
 
 const SCORE_TO_MOOD: Record<number, string> = {
   1: 'terrible', 2: 'poor', 3: 'okay', 4: 'good', 5: 'great'
-};
-
-const MOOD_CELL_COLORS: Record<string, string> = {
-  great: "bg-emerald-400 dark:bg-emerald-500",
-  good: "bg-blue-400 dark:bg-blue-500",
-  okay: "bg-yellow-400 dark:bg-yellow-500",
-  poor: "bg-orange-400 dark:bg-orange-500",
-  terrible: "bg-red-400 dark:bg-red-500",
 };
 
 interface MoodCalendarProps {
@@ -89,33 +85,34 @@ export const MoodCalendar = ({ entries, onDayClick }: MoodCalendarProps) => {
         <CollapsibleTrigger asChild>
           <button className="w-full p-3 sm:p-4 flex items-center justify-between hover:bg-accent/50 transition-colors">
             <div className="flex items-center gap-2">
-              <CalendarIcon className="w-5 h-5 text-primary" />
+              <CalendarIcon aria-hidden="true" className="w-5 h-5 text-primary" />
               <h3 className="font-semibold text-sm sm:text-base">{t('moodCalendar.title')}</h3>
             </div>
-            <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${!isCollapsed ? 'rotate-180' : ''}`} />
+            <ChevronDown aria-hidden="true" className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${!isCollapsed ? 'rotate-180' : ''}`} />
           </button>
         </CollapsibleTrigger>
         <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
           <div className="px-3 sm:px-4 pb-3 sm:pb-4 space-y-3">
             {/* Month navigation */}
             <div className="flex items-center justify-between">
-              <Button variant="ghost" size="sm" onClick={() => setCurrentMonth(prev => subMonths(prev, 1))}>
-                <ChevronLeft className="w-4 h-4" />
+              <Button variant="ghost" size="sm" onClick={() => setCurrentMonth(prev => subMonths(prev, 1))} aria-label={t('moodCalendar.previousMonth', 'Previous month')}>
+                <ChevronLeft aria-hidden="true" className="w-4 h-4" />
               </Button>
-              <span className="text-sm font-medium">
+              <span className="text-base sm:text-lg font-semibold">
                 {format(currentMonth, 'MMMM yyyy', { locale: dateLocale })}
               </span>
-              <Button variant="ghost" size="sm" onClick={() => setCurrentMonth(prev => addMonths(prev, 1))} disabled={!canGoForward}>
-                <ChevronRight className="w-4 h-4" />
+              <Button variant="ghost" size="sm" onClick={() => setCurrentMonth(prev => addMonths(prev, 1))} disabled={!canGoForward} aria-label={t('moodCalendar.nextMonth', 'Next month')}>
+                <ChevronRight aria-hidden="true" className="w-4 h-4" />
               </Button>
             </div>
 
-            {/* Calendar grid */}
+            {/* Calendar grid — justify-items-center keeps fixed-size cells aligned
+                under their day-of-week column header on wide layouts. */}
             <TooltipProvider>
-              <div className="grid grid-cols-7 gap-1">
+              <div className="grid grid-cols-7 gap-1 justify-items-center">
                 {/* Day-of-week headers */}
                 {weekDayHeaders.map((header, i) => (
-                  <div key={i} className="text-center text-xs text-muted-foreground font-medium py-1">
+                  <div key={i} className="text-xs text-muted-foreground font-medium py-1">
                     {header}
                   </div>
                 ))}
@@ -128,7 +125,7 @@ export const MoodCalendar = ({ entries, onDayClick }: MoodCalendarProps) => {
                   const isToday = isSameDay(day, new Date());
 
                   if (!isCurrentMonth) {
-                    return <div key={i} className="w-6 h-6 sm:w-8 sm:h-8" />;
+                    return <div key={i} className="w-11 h-11 sm:w-10 sm:h-10" />;
                   }
 
                   const cellColor = mood ? MOOD_CELL_COLORS[mood] : "bg-muted/50";
@@ -140,7 +137,7 @@ export const MoodCalendar = ({ entries, onDayClick }: MoodCalendarProps) => {
                     <Tooltip key={i}>
                       <TooltipTrigger asChild>
                         <button
-                          className={`w-6 h-6 sm:w-8 sm:h-8 rounded-sm ${cellColor} transition-colors hover:opacity-80 flex items-center justify-center text-xs ${isToday ? 'ring-2 ring-primary ring-offset-1 ring-offset-background' : ''} ${mood ? 'cursor-pointer' : 'cursor-default'}`}
+                          className={`w-11 h-11 sm:w-10 sm:h-10 rounded-sm ${cellColor} transition-colors hover:opacity-80 flex items-center justify-center text-xs ${isToday ? 'ring-2 ring-primary ring-offset-1 ring-offset-background' : ''} ${mood ? 'cursor-pointer' : 'cursor-default'}`}
                           onClick={() => mood && onDayClick?.(day)}
                           tabIndex={mood ? 0 : -1}
                           aria-label={tooltipText}
@@ -158,11 +155,11 @@ export const MoodCalendar = ({ entries, onDayClick }: MoodCalendarProps) => {
             </TooltipProvider>
 
             {/* Legend */}
-            <div className="flex items-center justify-center gap-2 flex-wrap pt-1">
+            <div className="flex items-center justify-center gap-3 flex-wrap pt-2">
               {(['terrible', 'poor', 'okay', 'good', 'great'] as const).map(mood => (
-                <div key={mood} className="flex items-center gap-1">
-                  <div className={`w-3 h-3 rounded-sm ${MOOD_CELL_COLORS[mood]}`} />
-                  <span className="text-xs text-muted-foreground">{MOOD_EMOJI[mood]}</span>
+                <div key={mood} className="flex items-center gap-1.5">
+                  <div className={`w-4 h-4 rounded-sm ${MOOD_CELL_COLORS[mood]}`} />
+                  <span className="text-base">{MOOD_EMOJI[mood]}</span>
                 </div>
               ))}
             </div>

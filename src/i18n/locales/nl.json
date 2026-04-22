@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Demomodus",
     "description": "Verken de app met voorbeelddagboekitems. Uw eigen gegevens worden privé en versleuteld.",
-    "startJournal": "Start uw dagboek"
+    "startJournal": "Start uw dagboek",
+    "exportUnavailableTitle": "Exporteren is beschikbaar in je eigen dagboek",
+    "exportUnavailableDesc": "Start je dagboek om gegevens te kunnen exporteren",
+    "importUnavailableTitle": "Importeren is beschikbaar in je eigen dagboek",
+    "importUnavailableDesc": "Start je dagboek om gegevens te kunnen importeren"
   },
   "index": {
     "loadingAuth": "Authenticatie controleren...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "Stemmingskalender",
-    "noEntries": "Geen notities"
+    "noEntries": "Geen notities",
+    "previousMonth": "Vorige maand",
+    "nextMonth": "Volgende maand"
   },
   "moodStats": {
     "title": "Stemmingsstatistieken",

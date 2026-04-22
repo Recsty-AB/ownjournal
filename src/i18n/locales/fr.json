@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Mode démo",
     "description": "Explorez l'application avec des exemples d'entrées de journal. Vos propres données seront privées et chiffrées.",
-    "startJournal": "Commencer votre journal"
+    "startJournal": "Commencer votre journal",
+    "exportUnavailableTitle": "L'exportation est disponible dans votre propre journal",
+    "exportUnavailableDesc": "Démarrez votre journal pour activer l'exportation des données",
+    "importUnavailableTitle": "L'importation est disponible dans votre propre journal",
+    "importUnavailableDesc": "Démarrez votre journal pour activer l'importation des données"
   },
   "index": {
     "loadingAuth": "Vérification de l'authentification...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "Calendrier d'humeur",
-    "noEntries": "Aucune note"
+    "noEntries": "Aucune note",
+    "previousMonth": "Mois précédent",
+    "nextMonth": "Mois suivant"
   },
   "moodStats": {
     "title": "Statistiques d'humeur",

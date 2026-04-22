@@ -236,7 +236,11 @@
   "demo": {
     "mode": "데모 모드",
     "description": "샘플 일기 항목으로 앱을 탐색하세요. 귀하의 데이터는 비공개로 암호화됩니다.",
-    "startJournal": "일기장 시작하기"
+    "startJournal": "일기장 시작하기",
+    "exportUnavailableTitle": "내보내기는 자신의 저널에서 사용할 수 있습니다",
+    "exportUnavailableDesc": "데이터 내보내기를 활성화하려면 저널을 시작하세요",
+    "importUnavailableTitle": "가져오기는 자신의 저널에서 사용할 수 있습니다",
+    "importUnavailableDesc": "데이터 가져오기를 활성화하려면 저널을 시작하세요"
   },
   "index": {
     "loadingAuth": "인증 확인 중...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "기분 달력",
-    "noEntries": "기록 없음"
+    "noEntries": "기록 없음",
+    "previousMonth": "이전 달",
+    "nextMonth": "다음 달"
   },
   "moodStats": {
     "title": "기분 통계",

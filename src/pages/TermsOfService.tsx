@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useDocumentTitle } from "@/hooks/useDocumentMeta";
 
 const TermsOfService = () => {
   const { t } = useTranslation();
   const [isNativeApp, setIsNativeApp] = useState(false);
+  useDocumentTitle(t('legal.terms.title'));
 
   useEffect(() => {
     const isCapacitor = !!(window as any).Capacitor?.isNativePlatform?.();

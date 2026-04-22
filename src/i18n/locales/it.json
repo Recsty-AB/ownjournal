@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Modalità demo",
     "description": "Esplora l'app con voci di diario di esempio. I tuoi dati saranno privati e crittografati.",
-    "startJournal": "Inizia il tuo diario"
+    "startJournal": "Inizia il tuo diario",
+    "exportUnavailableTitle": "L'esportazione è disponibile nel tuo diario",
+    "exportUnavailableDesc": "Avvia il tuo diario per abilitare l'esportazione dei dati",
+    "importUnavailableTitle": "L'importazione è disponibile nel tuo diario",
+    "importUnavailableDesc": "Avvia il tuo diario per abilitare l'importazione dei dati"
   },
   "index": {
     "loadingAuth": "Verifica autenticazione...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "Calendario dell'umore",
-    "noEntries": "Nessuna voce"
+    "noEntries": "Nessuna voce",
+    "previousMonth": "Mese precedente",
+    "nextMonth": "Mese successivo"
   },
   "moodStats": {
     "title": "Statistiche dell'umore",
