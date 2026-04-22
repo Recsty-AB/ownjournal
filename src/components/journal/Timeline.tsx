@@ -593,7 +593,35 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
         </div>
       </ScrollArea>
 
-      {/* Back to Top – icon-only FAB (modern pattern); tooltip + aria-label for clarity and a11y */}
+      {/* New Entry – primary FAB, always available unless the composer is already open or another entry is being edited */}
+      {!showNewEntry && !editingEntryId && (
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              onClick={() => {
+                setShowNewEntry(true);
+                onEditingChange?.(true);
+              }}
+              size="icon"
+              style={{
+                bottom: 'calc(1.5rem + env(safe-area-inset-bottom))',
+              }}
+              // Hug the content column's right edge (max-w-4xl = 56rem) so the FAB stays visually
+              // connected to the entries instead of drifting to the viewport corner on wide monitors.
+              className="fixed z-50 size-14 rounded-full shadow-lg bg-primary text-primary-foreground hover:bg-primary/90
+                right-[max(1.5rem,calc(50vw_-_28rem_+_1.5rem))]"
+              aria-label={t('timeline.newEntry')}
+            >
+              <Plus className="h-6 w-6" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="left" sideOffset={8}>
+            {t('timeline.newEntry')}
+          </TooltipContent>
+        </Tooltip>
+      )}
+
+      {/* Back to Top – stacks above the New Entry FAB so neither overlaps */}
       {showBackToTop && (
         <Tooltip>
           <TooltipTrigger asChild>
@@ -601,13 +629,11 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
               onClick={scrollToTop}
               size="icon"
               style={{
-                bottom: 'calc(1.5rem + env(safe-area-inset-bottom))',
-                // On viewports wider than the content column (max-w-4xl = 56rem),
-                // hug the content's right edge instead of the viewport edge so
-                // the FAB stays visually connected to the journal entries.
-                right: 'max(calc(1.5rem + env(safe-area-inset-right)), calc(50vw - 28rem + 1.5rem))',
+                bottom: 'calc(5.75rem + env(safe-area-inset-bottom))',
               }}
-              className="fixed z-50 size-11 rounded-full shadow-lg bg-primary hover:bg-primary/90 animate-in fade-in duration-200"
+              // Stacks above the size-14 New Entry FAB; +0.375rem centers this size-11 button over it.
+              className="fixed z-50 size-11 rounded-full shadow-lg bg-primary hover:bg-primary/90 animate-in fade-in duration-200
+                right-[calc(max(1.5rem,calc(50vw_-_28rem_+_1.5rem))_+_0.375rem)]"
               aria-label={t('timeline.backToTop', 'Back to top')}
             >
               <ArrowUp className="h-5 w-5" />
