@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Demotila",
     "description": "Tutustu sovellukseen esimerkkipäiväkirjamerkinnöillä. Omat tietosi ovat yksityisiä ja salattuja.",
-    "startJournal": "Aloita päiväkirjasi"
+    "startJournal": "Aloita päiväkirjasi",
+    "exportUnavailableTitle": "Vienti on käytettävissä omassa päiväkirjassasi",
+    "exportUnavailableDesc": "Aloita päiväkirjasi ottaaksesi tietojen viennin käyttöön",
+    "importUnavailableTitle": "Tuonti on käytettävissä omassa päiväkirjassasi",
+    "importUnavailableDesc": "Aloita päiväkirjasi ottaaksesi tietojen tuonnin käyttöön"
   },
   "index": {
     "loadingAuth": "Tarkistetaan todennusta...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "Mielialakalenteri",
-    "noEntries": "Ei merkintöjä"
+    "noEntries": "Ei merkintöjä",
+    "previousMonth": "Edellinen kuukausi",
+    "nextMonth": "Seuraava kuukausi"
   },
   "moodStats": {
     "title": "Mielialastatistiikka",

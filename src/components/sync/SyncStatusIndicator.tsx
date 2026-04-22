@@ -73,15 +73,15 @@ export const SyncStatusIndicator = ({
   const getStatusIcon = () => {
     switch (status) {
       case 'syncing':
-        return <RefreshCw className="w-4 h-4 animate-spin" />;
+        return <RefreshCw aria-hidden="true" className="w-4 h-4 animate-spin" />;
       case 'success':
-        return <CheckCircle2 className="w-4 h-4" />;
+        return <CheckCircle2 aria-hidden="true" className="w-4 h-4" />;
       case 'error':
-        return <AlertCircle className="w-4 h-4" />;
+        return <AlertCircle aria-hidden="true" className="w-4 h-4" />;
       case 'offline':
-        return <CloudOff className="w-4 h-4" />;
+        return <CloudOff aria-hidden="true" className="w-4 h-4" />;
       default:
-        return <Cloud className="w-4 h-4" />;
+        return <Cloud aria-hidden="true" className="w-4 h-4" />;
     }
   };
 
@@ -157,6 +157,10 @@ export const SyncStatusIndicator = ({
 
   return (
     <div className="relative tour-sync-status">
+      {/* Announce status changes to assistive tech without stealing focus. */}
+      <span role="status" aria-live="polite" className="sr-only">
+        {getStatusText()}
+      </span>
       {showReconnectHint ? (
         <Tooltip>
           <TooltipTrigger asChild>{button}</TooltipTrigger>

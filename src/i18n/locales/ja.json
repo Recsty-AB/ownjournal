@@ -236,7 +236,11 @@
   "demo": {
     "mode": "デモモード",
     "description": "サンプル日記でアプリを探索してください。あなたのデータはプライベートで暗号化されます。",
-    "startJournal": "日記を始める"
+    "startJournal": "日記を始める",
+    "exportUnavailableTitle": "エクスポートはご自身のジャーナルで利用できます",
+    "exportUnavailableDesc": "データのエクスポートを有効にするにはジャーナルを開始してください",
+    "importUnavailableTitle": "インポートはご自身のジャーナルで利用できます",
+    "importUnavailableDesc": "データのインポートを有効にするにはジャーナルを開始してください"
   },
   "index": {
     "loadingAuth": "認証状態を確認中",
@@ -2327,7 +2331,9 @@
   },
   "moodCalendar": {
     "title": "気分カレンダー",
-    "noEntries": "まだ日記がありません"
+    "noEntries": "まだ日記がありません",
+    "previousMonth": "前の月",
+    "nextMonth": "次の月"
   },
   "moodStats": {
     "title": "気分の統計",

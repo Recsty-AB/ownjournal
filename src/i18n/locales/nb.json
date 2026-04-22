@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Demomodus",
     "description": "Utforsk appen med eksempeldagbokinnlegg. Dine egne data vil være private og kryptert.",
-    "startJournal": "Start dagboken din"
+    "startJournal": "Start dagboken din",
+    "exportUnavailableTitle": "Eksport er tilgjengelig i din egen dagbok",
+    "exportUnavailableDesc": "Start dagboken din for å aktivere dataeksport",
+    "importUnavailableTitle": "Import er tilgjengelig i din egen dagbok",
+    "importUnavailableDesc": "Start dagboken din for å aktivere dataimport"
   },
   "index": {
     "loadingAuth": "Sjekker autentisering...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "Humørkalender",
-    "noEntries": "Ingen oppføringer"
+    "noEntries": "Ingen oppføringer",
+    "previousMonth": "Forrige måned",
+    "nextMonth": "Neste måned"
   },
   "moodStats": {
     "title": "Humørstatistikk",

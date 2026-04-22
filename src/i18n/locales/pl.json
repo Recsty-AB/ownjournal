@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Tryb demo",
     "description": "Poznaj aplikację z przykładowymi wpisami. Twoje własne dane będą prywatne i zaszyfrowane.",
-    "startJournal": "Rozpocznij swój dziennik"
+    "startJournal": "Rozpocznij swój dziennik",
+    "exportUnavailableTitle": "Eksport jest dostępny w twoim własnym dzienniku",
+    "exportUnavailableDesc": "Uruchom swój dziennik, aby włączyć eksport danych",
+    "importUnavailableTitle": "Import jest dostępny w twoim własnym dzienniku",
+    "importUnavailableDesc": "Uruchom swój dziennik, aby włączyć import danych"
   },
   "index": {
     "loadingAuth": "Sprawdzanie uwierzytelniania...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "Kalendarz nastroju",
-    "noEntries": "Brak wpisów"
+    "noEntries": "Brak wpisów",
+    "previousMonth": "Poprzedni miesiąc",
+    "nextMonth": "Następny miesiąc"
   },
   "moodStats": {
     "title": "Statystyki nastroju",

@@ -162,14 +162,15 @@ export const Header = ({
               {/* Settings buttons - wrapped in tour-settings for onboarding targeting */}
               <span className="tour-settings inline-flex items-center">
                 {/* Mobile-only icon button for settings */}
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={() => onOpenSettings?.()} 
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => onOpenSettings?.()}
                   className="sm:hidden"
                   title={t("header.settings")}
+                  aria-label={t("header.settings")}
                 >
-                  <Settings className="w-5 h-5" />
+                  <Settings aria-hidden="true" className="w-5 h-5" />
                 </Button>
                 {/* Desktop settings button with text */}
                 <Button variant="outline" size="sm" onClick={() => onOpenSettings?.()} className="hidden sm:flex">
@@ -180,14 +181,15 @@ export const Header = ({
               {/* Help buttons - wrapped in tour-help for onboarding targeting */}
               <span className="tour-help inline-flex items-center">
                 {/* Mobile help button */}
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={onOpenHelp} 
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={onOpenHelp}
                   className="sm:hidden"
                   title={t("header.help")}
+                  aria-label={t("header.help")}
                 >
-                  <HelpCircle className="w-5 h-5" />
+                  <HelpCircle aria-hidden="true" className="w-5 h-5" />
                 </Button>
                 {/* Desktop help button */}
                 <Button 
@@ -205,8 +207,8 @@ export const Header = ({
 
 
           {/* Theme Toggle */}
-          <Button variant="ghost" size="sm" onClick={onToggleTheme} className="hidden sm:flex">
-            {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          <Button variant="ghost" size="sm" onClick={onToggleTheme} className="hidden sm:flex" aria-label={isDarkMode ? t('header.switchToLightMode', 'Switch to light mode') : t('header.switchToDarkMode', 'Switch to dark mode')}>
+            {isDarkMode ? <Sun aria-hidden="true" className="w-5 h-5" /> : <Moon aria-hidden="true" className="w-5 h-5" />}
           </Button>
 
           {/* User Menu */}

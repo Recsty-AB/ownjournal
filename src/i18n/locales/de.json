@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Demo-Modus",
     "description": "Erkunden Sie die App mit Beispieleinträgen. Ihre eigenen Daten werden privat und verschlüsselt sein.",
-    "startJournal": "Tagebuch starten"
+    "startJournal": "Tagebuch starten",
+    "exportUnavailableTitle": "Export ist in deinem eigenen Journal verfügbar",
+    "exportUnavailableDesc": "Starte dein Journal, um den Datenexport zu aktivieren",
+    "importUnavailableTitle": "Import ist in deinem eigenen Journal verfügbar",
+    "importUnavailableDesc": "Starte dein Journal, um den Datenimport zu aktivieren"
   },
   "index": {
     "loadingAuth": "Authentifizierung wird überprüft...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "Stimmungskalender",
-    "noEntries": "Keine Einträge"
+    "noEntries": "Keine Einträge",
+    "previousMonth": "Vorheriger Monat",
+    "nextMonth": "Nächster Monat"
   },
   "moodStats": {
     "title": "Stimmungsstatistik",

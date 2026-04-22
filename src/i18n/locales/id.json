@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Mode Demo",
     "description": "Jelajahi aplikasi dengan contoh catatan jurnal. Data kamu sendiri akan bersifat privat dan terenkripsi.",
-    "startJournal": "Mulai Jurnalmu"
+    "startJournal": "Mulai Jurnalmu",
+    "exportUnavailableTitle": "Ekspor tersedia di jurnal Anda sendiri",
+    "exportUnavailableDesc": "Mulai jurnal Anda untuk mengaktifkan ekspor data",
+    "importUnavailableTitle": "Impor tersedia di jurnal Anda sendiri",
+    "importUnavailableDesc": "Mulai jurnal Anda untuk mengaktifkan impor data"
   },
   "index": {
     "loadingAuth": "Memeriksa autentikasi...",
@@ -2327,7 +2331,9 @@
   },
   "moodCalendar": {
     "title": "Kalender Suasana Hati",
-    "noEntries": "Tidak ada catatan"
+    "noEntries": "Tidak ada catatan",
+    "previousMonth": "Bulan sebelumnya",
+    "nextMonth": "Bulan berikutnya"
   },
   "moodStats": {
     "title": "Statistik Suasana Hati",

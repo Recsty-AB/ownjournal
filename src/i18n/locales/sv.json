@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Demoläge",
     "description": "Utforska appen med exempelinlägg. Din egen data kommer att vara privat och krypterad.",
-    "startJournal": "Starta din dagbok"
+    "startJournal": "Starta din dagbok",
+    "exportUnavailableTitle": "Export är tillgängligt i din egen dagbok",
+    "exportUnavailableDesc": "Starta din dagbok för att aktivera dataexport",
+    "importUnavailableTitle": "Import är tillgängligt i din egen dagbok",
+    "importUnavailableDesc": "Starta din dagbok för att aktivera dataimport"
   },
   "index": {
     "loadingAuth": "Kontrollerar autentisering...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "Humörkalender",
-    "noEntries": "Inga inlägg"
+    "noEntries": "Inga inlägg",
+    "previousMonth": "Föregående månad",
+    "nextMonth": "Nästa månad"
   },
   "moodStats": {
     "title": "Humörstatistik",

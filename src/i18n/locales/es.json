@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Modo demo",
     "description": "Explora la aplicación con entradas de diario de ejemplo. Tus propios datos serán privados y estarán cifrados.",
-    "startJournal": "Comienza tu diario"
+    "startJournal": "Comienza tu diario",
+    "exportUnavailableTitle": "La exportación está disponible en tu propio diario",
+    "exportUnavailableDesc": "Inicia tu diario para habilitar la exportación de datos",
+    "importUnavailableTitle": "La importación está disponible en tu propio diario",
+    "importUnavailableDesc": "Inicia tu diario para habilitar la importación de datos"
   },
   "index": {
     "loadingAuth": "Verificando autenticación...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "Calendario de ánimo",
-    "noEntries": "Sin anotaciones"
+    "noEntries": "Sin anotaciones",
+    "previousMonth": "Mes anterior",
+    "nextMonth": "Mes siguiente"
   },
   "moodStats": {
     "title": "Estadísticas de ánimo",

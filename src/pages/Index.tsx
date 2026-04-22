@@ -2953,11 +2953,27 @@ const Index = () => {
             </div>
           ) : null}
 
-          {entries.length >= 1 && <MoodCalendar entries={entries} />}
-
-          {entries.length >= 3 && <MoodStats entries={entries} />}
-
-          {entries.length >= 5 && <MoodCorrelations entries={entries} isPro={isPro} />}
+          {/* Collapsible insight cards — three-across on desktop, stacked below lg.
+              Each wrapper spans all 3 columns when its card is expanded (Radix
+              Collapsible sets data-state="open"), so expanded content gets full
+              width while the other two stay compact. */}
+          {entries.length >= 1 && (
+            <div className="grid gap-3 lg:grid-cols-3 items-start">
+              <div className="lg:has-[[data-state=open]]:col-span-3 min-w-0">
+                <MoodCalendar entries={entries} />
+              </div>
+              {entries.length >= 3 && (
+                <div className="lg:has-[[data-state=open]]:col-span-3 min-w-0">
+                  <MoodStats entries={entries} />
+                </div>
+              )}
+              {entries.length >= 5 && (
+                <div className="lg:has-[[data-state=open]]:col-span-3 min-w-0">
+                  <MoodCorrelations entries={entries} isPro={isPro} />
+                </div>
+              )}
+            </div>
+          )}
 
           {entries.length >= 3 && (
             <TrendAnalysis

@@ -236,7 +236,11 @@
   "demo": {
     "mode": "Demotilstand",
     "description": "Udforsk appen med eksempler på dagbogsindlæg. Dine egne data vil være private og krypterede.",
-    "startJournal": "Start din dagbog"
+    "startJournal": "Start din dagbog",
+    "exportUnavailableTitle": "Eksport er tilgængelig i din egen dagbog",
+    "exportUnavailableDesc": "Start din dagbog for at aktivere dataeksport",
+    "importUnavailableTitle": "Import er tilgængelig i din egen dagbog",
+    "importUnavailableDesc": "Start din dagbog for at aktivere dataimport"
   },
   "index": {
     "loadingAuth": "Kontrollerer godkendelse...",
@@ -2324,7 +2328,9 @@
   },
   "moodCalendar": {
     "title": "Humørkalender",
-    "noEntries": "Ingen indlæg"
+    "noEntries": "Ingen indlæg",
+    "previousMonth": "Forrige måned",
+    "nextMonth": "Næste måned"
   },
   "moodStats": {
     "title": "Humørstatistik",

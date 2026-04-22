@@ -4,27 +4,27 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
+import { Suspense, lazy } from "react";
 import Index from "./pages/Index";
-import Demo from "./pages/Demo";
-import NotFound from "./pages/NotFound";
-import TermsOfService from "./pages/TermsOfService";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import OAuthCallback from "./pages/OAuthCallback";
-import StorageOAuthCallback from "./pages/StorageOAuthCallback";
-import OAuthCallbackWeb from "./pages/OAuthCallbackWeb";
 import "./i18n/config";
+import { useDocumentLangSync } from "./hooks/useDocumentMeta";
+
+const Demo = lazy(() => import("./pages/Demo"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const OAuthCallback = lazy(() => import("./pages/OAuthCallback"));
+const StorageOAuthCallback = lazy(() => import("./pages/StorageOAuthCallback"));
+const OAuthCallbackWeb = lazy(() => import("./pages/OAuthCallbackWeb"));
 
 const queryClient = new QueryClient();
 
-function App() {
+function AppShell() {
+  useDocumentLangSync();
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
+    <BrowserRouter>
+      <Suspense fallback={null}>
+        <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/demo" element={<Demo />} />
               <Route path="/terms" element={<TermsOfService />} />
@@ -37,8 +37,20 @@ function App() {
               <Route path="/checkout-cancel" element={<Navigate to="/?checkout=cancel" replace />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <AppShell />
         </TooltipProvider>
       </QueryClientProvider>
     </ThemeProvider>

@@ -263,7 +263,7 @@ export const JournalPasswordDialog = ({
           >
             {isLoading ? (
               <>
-                <div className="w-4 h-4 mr-2 animate-spin rounded-full border-2 border-gray-300 border-t-white" />
+                <div className="w-4 h-4 mr-2 animate-spin rounded-full border-2 border-primary-foreground/30 border-t-primary-foreground" />
                 {t('common.loading')}
               </>
             ) : (
