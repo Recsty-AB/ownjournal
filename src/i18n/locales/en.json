@@ -2113,51 +2113,71 @@
     "privacyPolicy": "Privacy Policy",
     "terms": {
       "title": "Terms of Service",
-      "lastUpdatedDate": "January 2026",
+      "lastUpdatedDate": "April 2026",
       "acceptance": {
         "title": "1. Acceptance of Terms",
-        "content": "By accessing or using OwnJournal, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our service."
+        "content": "By accessing or using OwnJournal, you agree to be bound by these Terms of Service together with our Privacy Policy, which forms part of these Terms. You must be at least 13 years old, or the higher age of digital consent applicable in your country (up to 16 in some EU member states), to use OwnJournal. If you do not agree to these Terms, please do not use the service."
       },
       "description": {
         "title": "2. Description of Service",
-        "content": "OwnJournal is a personal journaling application operated by {{companyName}}, a company registered in {{companyCountry}}. It allows you to create, store, and manage your journal entries. We provide end-to-end encryption options and support various cloud storage providers for syncing your data across devices. Plus subscribers have access to optional AI-powered features such as mood analysis and suggestions; AI processing occurs only when these features are explicitly used."
+        "content": "OwnJournal is a personal journaling application operated by {{companyName}}, a company registered in {{companyCountry}}. It allows you to create, store, search, and analyse your journal entries on web, iOS, Android, and desktop. You bring your own cloud storage (Google Drive, Dropbox, Nextcloud, or iCloud Drive) for syncing across devices, or you can use the application entirely offline with local storage. We offer end-to-end encryption (E2E) and a Simple mode without end-to-end encryption. Plus subscribers have access to optional AI-powered features such as mood analysis and suggestions."
       },
       "accounts": {
         "title": "3. User Accounts",
-        "content": "You are responsible for maintaining the confidentiality of your account credentials and encryption passwords. You agree to accept responsibility for all activities that occur under your account. If you use E2E encryption, you are solely responsible for remembering your encryption password—we cannot recover encrypted data if you lose your password."
+        "content": "You are responsible for maintaining the confidentiality of your sign-in credentials and any encryption password you set. You agree to accept responsibility for all activities that occur under your account, and not to share your credentials with others. If you use E2E encryption, you are solely responsible for remembering your encryption password — we cannot recover encrypted data if it is lost. You may not impersonate another person or misrepresent your identity when creating or using an account."
       },
       "dataStorage": {
-        "title": "4. Data Storage & Privacy",
-        "content": "Your journal entries are stored in your chosen cloud storage provider (Google Drive, Dropbox, or Nextcloud). With E2E encryption enabled, your data is encrypted on your device before being uploaded. We do not have access to your encrypted content. In Simple mode, data is synced without encryption. Please refer to our Privacy Policy for detailed information about how we handle your data."
+        "title": "8. Data Storage and Privacy",
+        "content": "Your journal entries are stored in the cloud storage provider you choose (Google Drive, Dropbox, Nextcloud, or iCloud Drive) — not on our servers. With E2E encryption enabled, your data is encrypted on your device before it leaves it; we cannot access your encrypted content. In Simple mode, your data is synced without end-to-end encryption. Our handling of personal information is described in our Privacy Policy."
       },
       "intellectualProperty": {
-        "title": "5. Intellectual Property",
-        "content": "You retain all rights to your journal content. The OwnJournal application, including its design, code, and branding, is owned by us and protected by intellectual property laws. You may not copy, modify, or distribute the application without permission."
+        "title": "7. Intellectual Property",
+        "content": "You retain all rights to the journal content you create. Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable, revocable licence to install and use OwnJournal for your personal use. The OwnJournal application — including its source code, design, and branding — is owned by {{companyName}} and protected by intellectual property laws. You may not copy, modify, distribute, sell, or create derivative works of the application except as expressly permitted under these Terms or applicable law."
       },
       "limitation": {
-        "title": "6. Limitation of Liability",
-        "content": "OwnJournal is provided \"as is\" without warranties of any kind. We are not liable for any data loss, service interruptions, or damages arising from your use of the application, except to the extent such liability cannot be excluded or limited under applicable law. Nothing in these terms excludes or limits our liability for gross negligence, willful misconduct, or any other liability that cannot be legally excluded. You use the service at your own risk."
+        "title": "9. Limitation of Liability",
+        "content": "OwnJournal is provided \"as is\" and \"as available\" without warranties of any kind, whether express or implied. We do not warrant that the service will be uninterrupted or error-free, or that data loss will not occur. To the fullest extent permitted by law, we are not liable for any data loss, service interruption, or indirect, incidental, special, consequential, or punitive damages arising from your use of the service. Nothing in these Terms excludes or limits our liability for death or personal injury caused by negligence, fraud, gross negligence, willful misconduct, or any other liability that cannot be legally excluded. If you are a consumer, this clause does not affect your statutory rights."
       },
       "termination": {
-        "title": "7. Termination",
-        "content": "We reserve the right to suspend or terminate your account if you violate these terms. You may delete your account at any time through the application settings."
+        "title": "10. Termination",
+        "content": "You may delete your account at any time through the application Settings. Upon deletion, your account information is removed as described in the Privacy Policy. We may suspend or terminate your account if you materially breach these Terms — including violations of the Acceptable Use section — provided that we give you reasonable notice and an opportunity to cure the breach (where it is curable) before termination, except in cases of serious abuse, illegal activity, or where required by law. We may also discontinue the service on at least 30 days' notice."
       },
       "changes": {
-        "title": "8. Changes to Terms",
-        "content": "We may update these terms from time to time. Continued use of OwnJournal after changes constitutes acceptance of the new terms. We will notify users of significant changes through the application."
+        "title": "11. Changes to Terms",
+        "content": "We may update these Terms from time to time. For changes that are clarifying, technical, or required by law, we will update these Terms and the \"Last Updated\" date without prior notice. For changes that materially affect your rights or obligations as a consumer (such as price increases, significant changes to the service, or new restrictions on use), we will provide at least 30 days' advance notice via email and through the application. If you do not accept material changes, you may cancel your subscription and stop using the service before the changes take effect, and you will not be charged for the upcoming subscription period."
       },
       "contact": {
-        "title": "9. Contact",
-        "content": "If you have questions about these terms, please contact us at {{companyEmail}}."
+        "title": "14. Contact",
+        "content": "If you have questions about these Terms, please contact us at {{companyEmail}}."
       },
       "governingLaw": {
-        "title": "10. Governing Law",
-        "content": "These terms are governed by the laws of {{companyCountry}}. Any disputes shall be resolved in Swedish courts. This does not affect any mandatory consumer protection rights you may have under the laws of your country of residence."
+        "title": "15. Governing Law",
+        "content": "These Terms are governed by the laws of {{companyCountry}}. Any disputes shall be resolved in Swedish courts. This does not affect any mandatory consumer protection rights you may have under the laws of your country of residence."
+      },
+      "subscriptions": {
+        "title": "4. Subscriptions, Billing, and Cancellation",
+        "content": "OwnJournal offers an optional paid tier (\"Plus\") sold as an auto-renewing subscription. On Apple App Store (iOS), subscriptions are billed through your Apple ID and managed in your App Store account settings. Payment is charged to your Apple ID at confirmation of purchase. Your subscription automatically renews unless auto-renew is turned off at least 24 hours before the end of the current period. Your account is charged for renewal within 24 hours prior to the end of the current period. Cancellation takes effect at the end of the current paid period, and any unused portion of a free trial is forfeited when you start a paid subscription. On Google Play (Android), subscriptions are billed through your Google Play account and managed in Google Play subscription settings; the same auto-renewal and cancellation principles apply. On the web, subscriptions are billed through Stripe and managed in your account settings within OwnJournal. Prices are shown in your local currency where supported and are inclusive of any applicable taxes. Free trials, where offered, automatically convert to a paid subscription at the end of the trial unless cancelled before the trial ends."
+      },
+      "withdrawal": {
+        "title": "5. Right of Withdrawal (EU/EEA Consumers)",
+        "content": "If you are a consumer in the European Union, the European Economic Area, or another jurisdiction granting equivalent rights, you have a 14-day right to withdraw from any paid subscription purchased through our website (via Stripe), without giving any reason. This period begins on the day the contract is concluded. To exercise this right, contact us at {{companyEmail}} within 14 days, and we will refund the subscription amount. By choosing to start using the paid service before the 14-day withdrawal period expires, you expressly request immediate performance and acknowledge that you lose the right of withdrawal once the service has been fully provided. Where the service has been partially provided, we may retain an amount proportionate to the use you have made of the service. For purchases made through the Apple App Store or Google Play, refund requests are handled by Apple or Google according to their respective policies, and the right of withdrawal described above does not apply to those purchases."
+      },
+      "acceptableUse": {
+        "title": "6. Acceptable Use",
+        "content": "You agree not to use OwnJournal: (a) to violate any applicable law or regulation; (b) to upload, store, or process content that is illegal, including child sexual abuse material, content depicting non-consensual acts, or content that infringes the intellectual property rights of others; (c) to attempt to gain unauthorised access to our systems, the systems of our service providers, or other users' accounts; (d) to circumvent fair-use limits on AI features or platform-mandated purchase mechanisms; (e) to reverse engineer, decompile, or otherwise attempt to derive the source code of the application beyond rights expressly granted by applicable law; or (f) to operate automated systems that send disproportionate volumes of requests to our servers or to our AI providers."
+      },
+      "appleTerms": {
+        "title": "12. Additional Terms for Apple App Store",
+        "content": "If you obtained OwnJournal from the Apple App Store, the following additional terms apply: (a) These Terms are concluded between you and {{companyName}} only, not with Apple. {{companyName}} (not Apple) is solely responsible for OwnJournal and its content. (b) {{companyName}} is solely responsible for providing any maintenance and support services with respect to OwnJournal as specified in these Terms or as required under applicable law. Apple has no obligation whatsoever to furnish any maintenance and support services with respect to OwnJournal. (c) In the event of any failure of OwnJournal to conform to any applicable warranty, you may notify Apple, and Apple will refund the purchase price (if any) for the application; to the maximum extent permitted by applicable law, Apple has no other warranty obligation whatsoever with respect to OwnJournal. (d) {{companyName}} is solely responsible for addressing any claims by you or any third party relating to OwnJournal or your possession and use of OwnJournal, including product liability claims, claims that OwnJournal fails to conform to any applicable legal or regulatory requirement, and claims arising under consumer protection or similar legislation. (e) In the event of any third-party claim that OwnJournal or your possession and use of OwnJournal infringes that third party's intellectual property rights, {{companyName}} (not Apple) will be solely responsible for the investigation, defence, settlement, and discharge of that claim. (f) You represent and warrant that you are not located in a country subject to a U.S. Government embargo or designated as a \"terrorist supporting\" country, and that you are not on any U.S. Government list of prohibited or restricted parties. (g) Apple and Apple's subsidiaries are third-party beneficiaries of these Terms, and upon your acceptance, Apple has the right (and is deemed to have accepted the right) to enforce these Terms against you as a third-party beneficiary."
+      },
+      "severability": {
+        "title": "13. Severability",
+        "content": "If any provision of these Terms is found to be invalid or unenforceable by a court of competent jurisdiction, that provision shall be modified to the minimum extent necessary to make it enforceable, or severed from these Terms if it cannot be made enforceable, and the remaining provisions shall remain in full force and effect."
       }
     },
     "privacy": {
       "title": "Privacy Policy",
-      "lastUpdatedDate": "January 2026",
+      "lastUpdatedDate": "April 2026",
       "intro": {
         "title": "Introduction",
         "content": "Your privacy is important to us. OwnJournal is operated by {{companyName}}, a company registered in {{companyCountry}}. This Privacy Policy explains how OwnJournal collects, uses, and protects your information. We designed OwnJournal with privacy as a core principle."
@@ -2168,15 +2188,15 @@
       },
       "collection": {
         "title": "Information We Collect",
-        "content": "The personal information we collect is minimal—your email address for authentication purposes, and your display name if provided by an external authentication provider (such as Google). Display names are used only for authentication and account management purposes and are never made public. In addition, we collect non-personally-identifiable, aggregated usage statistics such as page views, device type, country, and referrer source. This analytics data does not use cookies, does not track individual users, and cannot be linked to your account. When you use E2E encryption, your journal content is encrypted on your device and we cannot read it. In Simple mode, your journal data is synced to your chosen cloud provider without end-to-end encryption. Simple mode is intended for convenience and may reduce privacy compared to E2E mode; your data remains protected by your cloud provider's standard security measures."
+        "content": "The personal information we collect is minimal. In connection with your account, we collect: your email address, your display name (if provided by an external authentication provider such as Google or Apple), and — once you connect cloud storage — a record of which provider you have chosen. To operate the journaling service, we keep a small amount of state on our servers — whether your encryption setup is complete, your subscription status, and the identifiers our payment processor (Stripe) needs to manage your subscription. To monitor fair use of optional AI features, we record per-user usage counters (the type of analysis performed and a timestamp; never the content of your entries). Our authentication backend also keeps standard session metadata such as sign-in timestamps. Display names are used only to personalize your in-app experience and are never made public. To show subscription prices in your local currency, we may briefly look up the country associated with your IP address; only the resulting country code is used, it is not linked to your account, and we do not store your IP address. We do not use third-party analytics, advertising SDKs, or cross-app trackers. When you use E2E encryption, your journal content is encrypted on your device and we cannot read it. In Simple mode, your journal data is synced to your chosen cloud provider without end-to-end encryption. Simple mode is intended for convenience and may reduce privacy compared to E2E mode; your data remains protected by your cloud provider's standard security measures."
       },
       "usage": {
         "title": "How We Use Information",
-        "content": "We use your email address solely for account authentication and important service notifications. We do not sell your personal information or share it with third parties for marketing purposes."
+        "content": "We use the information we collect for the following purposes: your email address for account authentication and important service notifications; your display name to personalize your in-app experience; your storage-provider choice and encryption-setup state to reconnect you to the right account and resume sync; your subscription status to grant or restrict access to paid features; identifiers used by our payment processor (Stripe) to manage your subscription; and AI usage counters to enforce fair-use limits on optional AI features. We do not sell your personal information or share it with third parties for marketing purposes."
       },
       "storage": {
         "title": "Data Storage",
-        "content": "Your journal entries are stored in your chosen cloud storage provider (Google Drive, Dropbox, or Nextcloud)—not on our servers. You maintain full control over where your data is stored. We only store your account information needed for authentication."
+        "content": "Your journal entries are stored in your chosen cloud storage provider (Google Drive, Dropbox, Nextcloud, or iCloud Drive) — not on our servers. You maintain full control over where your data is stored. On our servers (operated through our authentication and database backend) we keep only the information needed to operate the service: your authentication details, display name, storage-provider choice, encryption-setup state, subscription status, the identifiers used by our payment processor (Stripe) to manage your subscription, and per-user AI feature usage counters. Payments are processed by our payment providers (Stripe for web checkout, Apple In-App Purchase on iOS, Google Play Billing on Android); we do not store full payment card details on our servers."
       },
       "encryption": {
         "title": "End-to-End Encryption",
@@ -2184,11 +2204,11 @@
       },
       "zeroKnowledge": {
         "title": "Zero-Knowledge Architecture",
-        "content": "OwnJournal is designed so that we cannot access or read your journal content. With E2E encryption enabled, only you hold the password needed to decrypt your data—this is known as zero-knowledge architecture. If you use optional AI features, content is sent as described in \"AI Features and Processing\" above."
+        "content": "Our zero-knowledge architecture applies to your end-to-end-encrypted journal content: with E2E encryption enabled, only you hold the password needed to decrypt your data, and we cannot access or read it. Account information necessary to operate the service — such as your email address, display name, storage-provider choice, subscription status, and AI usage counters — is necessarily readable by us. If you use optional AI features, the relevant text is decrypted on your device and sent as described in our \"AI Features and Processing\" section below."
       },
       "thirdParty": {
         "title": "Third-Party Services",
-        "content": "We integrate with cloud storage providers (Google Drive, Dropbox, Nextcloud) for data synchronization. These services have their own privacy policies. We use authentication services for secure sign-in. When you use optional AI features, data is processed by our AI service provider. Each third-party service operates under its own terms and privacy practices."
+        "content": "We integrate with the following third-party services, each operating under its own terms and privacy practices: cloud storage providers (Google Drive, Dropbox, Nextcloud, iCloud Drive) for synchronization to your own account; authentication services (Google, Apple) and our authentication backend for secure sign-in; payment providers (Stripe for web checkout, Apple In-App Purchase on iOS, Google Play Billing on Android) for handling subscriptions; and AI service providers (Google Gemini, OpenAI) when you choose to use optional AI features."
       },
       "syncIdentifier": {
         "title": "Sync and device identifier",
@@ -2196,7 +2216,7 @@
       },
       "aiProcessing": {
         "title": "AI Features and Processing",
-        "content": "OwnJournal offers optional AI-powered features such as mood analysis and suggestions, available exclusively to Plus subscribers. AI processing occurs only when you, as a Plus subscriber, explicitly use these features. When you use AI features, the relevant text is decrypted on your device first, then sent to the AI service through your explicit action; your journal content is sent to our AI providers — currently Google (Gemini) or OpenAI — via their APIs. OwnJournal does not store AI inputs or outputs on our servers. These providers may retain prompts and outputs for a limited period for abuse monitoring and policy enforcement, per their current policies. AI processing may occur outside the EEA; both Google and OpenAI maintain appropriate data transfer safeguards such as Standard Contractual Clauses. OwnJournal does not opt in to any provider programs that allow AI data to be used for model training or improvement. You can choose not to use AI features, and doing so does not affect the core journaling functionality."
+        "content": "OwnJournal offers optional AI-powered features such as mood analysis and suggestions, available exclusively to Plus subscribers. AI processing occurs only when you, as a Plus subscriber, explicitly use these features. When you use AI features, the relevant text is decrypted on your device first, then sent to the AI service through your explicit action; your journal content is sent to our AI provider — currently Google (Gemini), with OpenAI as an alternate — via their paid APIs. We do not store AI inputs or outputs on our servers; we only record per-user counters of AI feature usage (the type of analysis performed and a timestamp, never the content) for fair-use rate limiting. These providers may retain prompts and outputs for a limited period for abuse monitoring and policy enforcement, per their current policies. AI processing may occur outside the EEA; both Google and OpenAI maintain appropriate data transfer safeguards such as Standard Contractual Clauses. We use the paid tiers of these AI providers, under which prompts and outputs are not used to train or improve provider models. You can choose not to use AI features, and doing so does not affect the core journaling functionality."
       },
       "diagnostics": {
         "title": "Diagnostics and Crash Logs",
@@ -2204,15 +2224,15 @@
       },
       "retention": {
         "title": "Data Retention",
-        "content": "Your journal data remains in your cloud storage until you delete it. Account information is retained while your account is active. You can delete your account at any time, which will remove your account data from our authentication system."
+        "content": "Your journal data remains in your cloud storage until you delete it. Account information stored on our servers is retained while your account is active. When you delete your account, we delete your profile, subscription record, AI usage counters, and authentication data from our systems immediately. Transaction records held by our payment processors (Stripe, Apple, Google) are retained by them under their own policies and applicable law; you can request access to or deletion of those records directly with the relevant provider."
       },
       "accountDeletion": {
         "title": "Account deletion",
-        "content": "You can delete your account at any time via Settings in the app or by contacting us at {{companyEmail}}. Account deletion removes your profile, subscription, and authentication data from our systems. Journal data in your cloud storage remains under your control and can be deleted there by you."
+        "content": "You can delete your account at any time via Settings in the app or by contacting us at {{companyEmail}}. Account deletion removes your profile, subscription, AI usage counters, and authentication data from our systems. Journal data in your cloud storage remains under your control and can be deleted there by you."
       },
       "legalBasis": {
         "title": "Legal Basis for Processing",
-        "content": "We process your data based on: (1) Contract performance - to provide the journaling service you signed up for; (2) Legitimate interests - to maintain service security and prevent abuse; (3) Consent - for optional features like AI analysis. You can withdraw consent for optional features at any time."
+        "content": "We process your data based on: (1) Contract performance — to provide the journaling service you signed up for; (2) Legitimate interests — to maintain service security and prevent abuse, and to enforce fair-use limits on optional AI features; and (3) Consent — for optional features such as AI analysis (you can withdraw consent at any time)."
       },
       "dpo": {
         "title": "Data Protection Officer (DPO)",
@@ -2224,7 +2244,7 @@
       },
       "children": {
         "title": "Children's Privacy",
-        "content": "OwnJournal is not intended for children under 13. We do not knowingly collect personal information from children. If you believe we have inadvertently collected such information, please contact us."
+        "content": "OwnJournal is not intended for children under 13, or the higher age of digital consent applicable in your country (up to 16 in some EU member states). We do not knowingly collect personal information from children below the applicable age. If you believe we have inadvertently collected such information, please contact us."
       },
       "changes": {
         "title": "Changes to This Policy",
@@ -2233,6 +2253,18 @@
       "contact": {
         "title": "Contact Us",
         "content": "If you have questions about this Privacy Policy, wish to exercise your data rights, or have any concerns, please contact us at {{companyEmail}}. We aim to respond within 30 days."
+      },
+      "internationalTransfers": {
+        "title": "International Data Transfers",
+        "content": "Some of our service providers process data outside the European Economic Area (EEA). Our authentication and database backend, payment providers (Stripe, Apple, Google), AI providers (Google, OpenAI), and your chosen cloud storage provider may transfer or process data in countries that have not received an adequacy decision from the European Commission. In those cases, we and the providers rely on appropriate safeguards under GDPR Article 46, such as the European Commission's Standard Contractual Clauses (SCCs) together with supplementary technical and organizational measures. You can request more information about the safeguards in place by contacting us."
+      },
+      "localStorage": {
+        "title": "Cookies and Local Storage",
+        "content": "OwnJournal does not use third-party cookies, advertising cookies, or cross-app trackers. The application uses your device's local storage (browser localStorage and IndexedDB on the web; equivalent local stores on mobile and desktop) to keep your encryption keys, journal entries, sync state, and preferences on your device. This local data is per-user and stays on your device unless you explicitly export it or sync it to your chosen cloud storage provider. Authentication uses session tokens issued by our authentication backend and stored locally on your device. You can clear local data at any time from Settings or by clearing your browser's storage."
+      },
+      "californiaRights": {
+        "title": "US State Privacy Rights",
+        "content": "If you are a resident of California or another US state with a comprehensive consumer privacy law (such as Virginia, Colorado, Connecticut, Utah, Texas, or others as enacted), you have rights regarding your personal information that may include the right to know what personal information we collect, the right to delete your personal information, the right to correct inaccurate personal information, the right to opt out of certain uses (including the sale or sharing of personal information), and the right to limit the use of sensitive personal information. We do not sell your personal information and do not share it for cross-context behavioral advertising. To exercise your rights, contact us at the address in the \"Contact Us\" section."
       }
     }
   },

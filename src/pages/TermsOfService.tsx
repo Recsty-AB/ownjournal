@@ -84,10 +84,28 @@ const TermsOfService = () => {
 
           <section>
             <h2 className="text-xl font-semibold text-foreground mb-3">
-              {t("legal.terms.dataStorage.title")}
+              {t("legal.terms.subscriptions.title")}
             </h2>
-            <p className="text-muted-foreground">
-              {t("legal.terms.dataStorage.content")}
+            <p className="text-muted-foreground whitespace-pre-line">
+              {t("legal.terms.subscriptions.content")}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold text-foreground mb-3">
+              {t("legal.terms.withdrawal.title")}
+            </h2>
+            <p className="text-muted-foreground whitespace-pre-line">
+              {t("legal.terms.withdrawal.content")}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold text-foreground mb-3">
+              {t("legal.terms.acceptableUse.title")}
+            </h2>
+            <p className="text-muted-foreground whitespace-pre-line">
+              {t("legal.terms.acceptableUse.content")}
             </p>
           </section>
 
@@ -97,6 +115,15 @@ const TermsOfService = () => {
             </h2>
             <p className="text-muted-foreground">
               {t("legal.terms.intellectualProperty.content")}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold text-foreground mb-3">
+              {t("legal.terms.dataStorage.title")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("legal.terms.dataStorage.content")}
             </p>
           </section>
 
@@ -124,6 +151,24 @@ const TermsOfService = () => {
             </h2>
             <p className="text-muted-foreground">
               {t("legal.terms.changes.content")}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold text-foreground mb-3">
+              {t("legal.terms.appleTerms.title")}
+            </h2>
+            <p className="text-muted-foreground whitespace-pre-line">
+              {t("legal.terms.appleTerms.content")}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold text-foreground mb-3">
+              {t("legal.terms.severability.title")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("legal.terms.severability.content")}
             </p>
           </section>
 

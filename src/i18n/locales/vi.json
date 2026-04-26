@@ -2111,70 +2111,90 @@
     "privacyPolicy": "Chính sách bảo mật",
     "terms": {
       "title": "Điều khoản dịch vụ",
-      "lastUpdatedDate": "Tháng 1 năm 2026",
+      "lastUpdatedDate": "Tháng 4 năm 2026",
       "acceptance": {
-        "title": "1. Chấp nhận điều khoản",
-        "content": "Bằng việc truy cập hoặc sử dụng OwnJournal, bạn đồng ý chịu ràng buộc bởi các Điều khoản dịch vụ này. Nếu bạn không đồng ý với các điều khoản này, vui lòng không sử dụng dịch vụ."
+        "title": "1. Chấp nhận Điều khoản",
+        "content": "Bằng cách truy cập hoặc sử dụng OwnJournal, bạn đồng ý bị ràng buộc bởi các Điều khoản Dịch vụ này cùng với Chính sách Bảo mật của chúng tôi, là một phần của các Điều khoản này. Bạn phải ít nhất 13 tuổi, hoặc tuổi đồng ý kỹ thuật số cao hơn áp dụng tại quốc gia của bạn (lên đến 16 tuổi ở một số Quốc gia Thành viên EU), để sử dụng OwnJournal. Nếu bạn không đồng ý với các Điều khoản này, vui lòng không sử dụng dịch vụ."
       },
       "description": {
-        "title": "2. Mô tả dịch vụ",
-        "content": "OwnJournal là ứng dụng viết nhật ký cá nhân được vận hành bởi {{companyName}}, công ty đăng ký tại {{companyCountry}}. Ứng dụng cho phép bạn tạo, lưu trữ và quản lý các bài viết. Chúng tôi cung cấp tùy chọn mã hóa đầu cuối và hỗ trợ nhiều nhà cung cấp đám mây để đồng bộ dữ liệu trên các thiết bị. Người đăng ký Plus có quyền truy cập các tính năng AI tùy chọn như phân tích tâm trạng và gợi ý; việc xử lý AI chỉ diễn ra khi bạn chủ động sử dụng các tính năng này."
+        "title": "2. Mô tả Dịch vụ",
+        "content": "OwnJournal là một ứng dụng nhật ký cá nhân do {{companyName}} điều hành, một công ty đăng ký tại {{companyCountry}}. Nó cho phép bạn tạo, lưu trữ, tìm kiếm và phân tích các mục nhập nhật ký của mình trên web, iOS, Android và máy tính để bàn. Bạn mang theo lưu trữ đám mây của riêng mình (Google Drive, Dropbox, Nextcloud hoặc iCloud Drive) để đồng bộ giữa các thiết bị, hoặc bạn có thể sử dụng ứng dụng hoàn toàn ngoại tuyến với lưu trữ cục bộ. Chúng tôi cung cấp mã hóa đầu cuối (E2E) và chế độ Simple không có mã hóa đầu cuối. Người đăng ký Plus có quyền truy cập vào các tính năng tùy chọn được hỗ trợ bởi AI như phân tích tâm trạng và đề xuất."
       },
       "accounts": {
-        "title": "3. Tài khoản người dùng",
-        "content": "Bạn chịu trách nhiệm bảo mật thông tin đăng nhập tài khoản và mật khẩu mã hóa. Bạn đồng ý chịu trách nhiệm cho tất cả hoạt động diễn ra trên tài khoản của bạn. Nếu bạn sử dụng mã hóa E2E, bạn hoàn toàn chịu trách nhiệm ghi nhớ mật khẩu mã hóa — chúng tôi không thể khôi phục dữ liệu đã mã hóa nếu bạn mất mật khẩu."
+        "title": "3. Tài khoản Người dùng",
+        "content": "Bạn có trách nhiệm duy trì tính bảo mật của thông tin đăng nhập và bất kỳ mật khẩu mã hóa nào bạn đặt. Bạn đồng ý chấp nhận trách nhiệm cho tất cả các hoạt động xảy ra trong tài khoản của bạn, và không chia sẻ thông tin đăng nhập của bạn với người khác. Nếu bạn sử dụng mã hóa E2E, bạn hoàn toàn chịu trách nhiệm ghi nhớ mật khẩu mã hóa của mình — chúng tôi không thể khôi phục dữ liệu đã mã hóa nếu nó bị mất. Bạn không được mạo danh người khác hoặc trình bày sai danh tính của mình khi tạo hoặc sử dụng tài khoản."
       },
       "dataStorage": {
-        "title": "4. Lưu trữ dữ liệu và quyền riêng tư",
-        "content": "Các bài viết được lưu trong nhà cung cấp đám mây bạn chọn (Google Drive, Dropbox hoặc Nextcloud). Khi bật mã hóa E2E, dữ liệu được mã hóa trên thiết bị trước khi tải lên. Chúng tôi không có quyền truy cập nội dung đã mã hóa. Ở Chế độ đơn giản, dữ liệu được đồng bộ mà không mã hóa. Vui lòng tham khảo Chính sách bảo mật để biết chi tiết về cách chúng tôi xử lý dữ liệu."
+        "title": "8. Lưu trữ Dữ liệu và Quyền Riêng tư",
+        "content": "Các mục nhập nhật ký của bạn được lưu trữ trong nhà cung cấp lưu trữ đám mây mà bạn chọn (Google Drive, Dropbox, Nextcloud hoặc iCloud Drive) — không phải trên máy chủ của chúng tôi. Khi mã hóa E2E được kích hoạt, dữ liệu của bạn được mã hóa trên thiết bị của bạn trước khi rời khỏi nó; chúng tôi không thể truy cập nội dung được mã hóa của bạn. Trong chế độ Simple, dữ liệu của bạn được đồng bộ hóa mà không có mã hóa đầu cuối. Việc xử lý thông tin cá nhân của chúng tôi được mô tả trong Chính sách Bảo mật của chúng tôi."
       },
       "intellectualProperty": {
-        "title": "5. Sở hữu trí tuệ",
-        "content": "Bạn giữ toàn bộ quyền đối với nội dung nhật ký. Ứng dụng OwnJournal, bao gồm thiết kế, mã nguồn và thương hiệu, thuộc sở hữu của chúng tôi và được bảo vệ bởi luật sở hữu trí tuệ. Bạn không được sao chép, sửa đổi hoặc phân phối ứng dụng mà không có sự cho phép."
+        "title": "7. Sở hữu Trí tuệ",
+        "content": "Bạn giữ tất cả các quyền đối với nội dung nhật ký mà bạn tạo. Tùy thuộc vào việc bạn tuân thủ các Điều khoản này, chúng tôi cấp cho bạn một giấy phép có giới hạn, không độc quyền, không thể chuyển nhượng, không thể cấp phép phụ và có thể thu hồi để cài đặt và sử dụng OwnJournal cho việc sử dụng cá nhân của bạn. Ứng dụng OwnJournal — bao gồm mã nguồn, thiết kế và thương hiệu — thuộc sở hữu của {{companyName}} và được bảo vệ bởi luật sở hữu trí tuệ. Bạn không được sao chép, sửa đổi, phân phối, bán hoặc tạo các tác phẩm phái sinh từ ứng dụng, ngoại trừ những gì được cho phép rõ ràng theo các Điều khoản này hoặc luật áp dụng."
       },
       "limitation": {
-        "title": "6. Giới hạn trách nhiệm",
-        "content": "OwnJournal được cung cấp \"nguyên trạng\" mà không có bất kỳ bảo đảm nào. Chúng tôi không chịu trách nhiệm cho bất kỳ mất mát dữ liệu, gián đoạn dịch vụ hoặc thiệt hại nào phát sinh từ việc bạn sử dụng ứng dụng, trừ trường hợp trách nhiệm đó không thể loại trừ hoặc giới hạn theo luật hiện hành. Không điều nào trong các điều khoản này loại trừ hoặc giới hạn trách nhiệm của chúng tôi đối với sơ suất nghiêm trọng, hành vi cố ý hoặc bất kỳ trách nhiệm nào không thể loại trừ theo pháp luật. Bạn sử dụng dịch vụ trên rủi ro của mình."
+        "title": "9. Giới hạn Trách nhiệm",
+        "content": "OwnJournal được cung cấp \"như hiện trạng\" và \"theo tình trạng có sẵn\" mà không có bất kỳ bảo đảm nào, dù được thể hiện hay ngụ ý. Chúng tôi không bảo đảm rằng dịch vụ sẽ không bị gián đoạn hoặc không có lỗi, hoặc sẽ không xảy ra mất dữ liệu. Trong phạm vi tối đa được pháp luật cho phép, chúng tôi không chịu trách nhiệm về việc mất dữ liệu, gián đoạn dịch vụ, hoặc các thiệt hại gián tiếp, ngẫu nhiên, đặc biệt, hệ quả hoặc trừng phạt phát sinh từ việc bạn sử dụng dịch vụ. Không có gì trong các Điều khoản này loại trừ hoặc giới hạn trách nhiệm của chúng tôi đối với cái chết hoặc thương tích cá nhân do sự bất cẩn, gian lận, sự bất cẩn nghiêm trọng, hành vi sai trái cố ý hoặc bất kỳ trách nhiệm nào khác không thể loại trừ một cách hợp pháp. Nếu bạn là người tiêu dùng, điều khoản này không ảnh hưởng đến quyền theo luật định của bạn."
       },
       "termination": {
-        "title": "7. Chấm dứt",
-        "content": "Chúng tôi có quyền tạm ngưng hoặc chấm dứt tài khoản nếu bạn vi phạm các điều khoản này. Bạn có thể xóa tài khoản bất cứ lúc nào thông qua cài đặt ứng dụng."
+        "title": "10. Chấm dứt",
+        "content": "Bạn có thể xóa tài khoản của mình bất cứ lúc nào thông qua Cài đặt của ứng dụng. Khi xóa, thông tin tài khoản của bạn sẽ bị xóa như được mô tả trong Chính sách Bảo mật. Chúng tôi có thể đình chỉ hoặc chấm dứt tài khoản của bạn nếu bạn vi phạm nghiêm trọng các Điều khoản này — bao gồm các vi phạm đối với phần Sử dụng Hợp lệ — với điều kiện chúng tôi cung cấp cho bạn thông báo hợp lý và cơ hội khắc phục vi phạm (nếu có thể khắc phục) trước khi chấm dứt, ngoại trừ các trường hợp lạm dụng nghiêm trọng, hoạt động bất hợp pháp, hoặc khi luật yêu cầu. Chúng tôi cũng có thể ngừng cung cấp dịch vụ với thông báo trước ít nhất 30 ngày."
       },
       "changes": {
-        "title": "8. Thay đổi điều khoản",
-        "content": "Chúng tôi có thể cập nhật các điều khoản này theo thời gian. Việc tiếp tục sử dụng OwnJournal sau khi thay đổi được coi là chấp nhận các điều khoản mới. Chúng tôi sẽ thông báo cho người dùng về các thay đổi quan trọng thông qua ứng dụng."
+        "title": "11. Thay đổi Điều khoản",
+        "content": "Chúng tôi có thể cập nhật các Điều khoản này theo thời gian. Đối với các thay đổi mang tính làm rõ, kỹ thuật, hoặc theo yêu cầu của pháp luật, chúng tôi sẽ cập nhật các Điều khoản này và ngày \"Cập nhật lần cuối\" mà không cần thông báo trước. Đối với các thay đổi ảnh hưởng đáng kể đến quyền hoặc nghĩa vụ của bạn với tư cách là người tiêu dùng (chẳng hạn như tăng giá, thay đổi đáng kể đối với dịch vụ, hoặc các hạn chế sử dụng mới), chúng tôi sẽ cung cấp thông báo trước ít nhất 30 ngày qua email và thông qua ứng dụng. Nếu bạn không chấp nhận các thay đổi đáng kể, bạn có thể hủy đăng ký của mình và ngừng sử dụng dịch vụ trước khi các thay đổi có hiệu lực, và bạn sẽ không bị tính phí cho kỳ đăng ký sắp tới."
       },
       "contact": {
-        "title": "9. Liên hệ",
-        "content": "Nếu bạn có câu hỏi về các điều khoản này, vui lòng liên hệ chúng tôi tại {{companyEmail}}."
+        "title": "14. Liên hệ",
+        "content": "Nếu bạn có câu hỏi về các Điều khoản này, vui lòng liên hệ với chúng tôi tại {{companyEmail}}."
       },
       "governingLaw": {
-        "title": "10. Luật áp dụng",
-        "content": "Các điều khoản này được điều chỉnh bởi luật pháp {{companyCountry}}. Mọi tranh chấp sẽ được giải quyết tại tòa án Thụy Điển. Điều này không ảnh hưởng đến bất kỳ quyền bảo vệ người tiêu dùng bắt buộc nào mà bạn có thể có theo luật pháp quốc gia cư trú của bạn."
+        "title": "15. Luật điều chỉnh",
+        "content": "Các Điều khoản này được điều chỉnh bởi luật pháp của {{companyCountry}}. Bất kỳ tranh chấp nào sẽ được giải quyết tại các tòa án Thụy Điển. Điều này không ảnh hưởng đến bất kỳ quyền bảo vệ người tiêu dùng bắt buộc nào mà bạn có thể có theo luật pháp của quốc gia cư trú của bạn."
+      },
+      "subscriptions": {
+        "title": "4. Đăng ký, Thanh toán và Hủy",
+        "content": "OwnJournal cung cấp một bậc trả phí tùy chọn (\"Plus\") được bán dưới dạng đăng ký tự động gia hạn. Trên Apple App Store (iOS), các đăng ký được tính phí thông qua Apple ID của bạn và được quản lý trong cài đặt tài khoản App Store của bạn. Khoản thanh toán được tính vào Apple ID của bạn khi xác nhận mua hàng. Đăng ký của bạn tự động gia hạn trừ khi tự động gia hạn được tắt ít nhất 24 giờ trước khi kết thúc kỳ hiện tại. Tài khoản của bạn được tính phí cho việc gia hạn trong vòng 24 giờ trước khi kết thúc kỳ hiện tại. Việc hủy có hiệu lực vào cuối kỳ trả phí hiện tại, và bất kỳ phần nào chưa sử dụng của giai đoạn dùng thử miễn phí sẽ bị mất khi bạn bắt đầu một đăng ký trả phí. Trên Google Play (Android), các đăng ký được tính phí thông qua tài khoản Google Play của bạn và được quản lý trong cài đặt đăng ký Google Play; các nguyên tắc tự động gia hạn và hủy tương tự được áp dụng. Trên web, các đăng ký được tính phí thông qua Stripe và được quản lý trong cài đặt tài khoản của bạn trong OwnJournal. Giá được hiển thị bằng đồng tiền địa phương của bạn nếu được hỗ trợ và đã bao gồm bất kỳ loại thuế áp dụng nào. Các giai đoạn dùng thử miễn phí, nếu được cung cấp, sẽ tự động chuyển thành đăng ký trả phí khi kết thúc giai đoạn dùng thử trừ khi được hủy trước khi giai đoạn dùng thử kết thúc."
+      },
+      "withdrawal": {
+        "title": "5. Quyền Rút lui (Người tiêu dùng EU/EEA)",
+        "content": "Nếu bạn là người tiêu dùng tại Liên minh Châu Âu, Khu vực Kinh tế Châu Âu, hoặc một khu vực pháp lý khác cấp các quyền tương đương, bạn có quyền rút lui 14 ngày để rút khỏi bất kỳ đăng ký trả phí nào được mua thông qua trang web của chúng tôi (qua Stripe), mà không cần đưa ra bất kỳ lý do nào. Giai đoạn này bắt đầu từ ngày hợp đồng được ký kết. Để thực hiện quyền này, hãy liên hệ với chúng tôi tại {{companyEmail}} trong vòng 14 ngày, và chúng tôi sẽ hoàn lại số tiền đăng ký. Bằng cách chọn bắt đầu sử dụng dịch vụ trả phí trước khi giai đoạn rút lui 14 ngày kết thúc, bạn yêu cầu rõ ràng việc thực hiện ngay lập tức và xác nhận rằng bạn mất quyền rút lui khi dịch vụ đã được cung cấp đầy đủ. Khi dịch vụ đã được cung cấp một phần, chúng tôi có thể giữ lại một số tiền tỷ lệ với việc sử dụng dịch vụ của bạn. Đối với các giao dịch mua được thực hiện thông qua Apple App Store hoặc Google Play, các yêu cầu hoàn tiền được xử lý bởi Apple hoặc Google theo các chính sách tương ứng của họ, và quyền rút lui được mô tả ở trên không áp dụng cho các giao dịch mua đó."
+      },
+      "acceptableUse": {
+        "title": "6. Sử dụng Hợp lệ",
+        "content": "Bạn đồng ý không sử dụng OwnJournal: (a) để vi phạm bất kỳ luật hoặc quy định hiện hành nào; (b) để tải lên, lưu trữ hoặc xử lý nội dung bất hợp pháp, bao gồm tài liệu lạm dụng tình dục trẻ em, nội dung mô tả hành vi không có sự đồng ý, hoặc nội dung vi phạm quyền sở hữu trí tuệ của người khác; (c) để cố gắng truy cập trái phép vào hệ thống của chúng tôi, hệ thống của các nhà cung cấp dịch vụ của chúng tôi, hoặc tài khoản của người dùng khác; (d) để vượt qua các giới hạn sử dụng công bằng đối với các tính năng AI hoặc các cơ chế mua hàng bắt buộc của nền tảng; (e) để đảo ngược kỹ thuật, dịch ngược, hoặc cố gắng theo cách khác để rút ra mã nguồn của ứng dụng vượt quá các quyền được cấp rõ ràng bởi luật áp dụng; hoặc (f) để vận hành các hệ thống tự động gửi khối lượng yêu cầu không tương xứng đến máy chủ của chúng tôi hoặc đến các nhà cung cấp AI của chúng tôi."
+      },
+      "appleTerms": {
+        "title": "12. Điều khoản Bổ sung cho Apple App Store",
+        "content": "Nếu bạn đã có OwnJournal từ Apple App Store, các điều khoản bổ sung sau đây áp dụng: (a) Các Điều khoản này được ký kết chỉ giữa bạn và {{companyName}}, không phải với Apple. {{companyName}} (không phải Apple) hoàn toàn chịu trách nhiệm về OwnJournal và nội dung của nó. (b) {{companyName}} hoàn toàn chịu trách nhiệm cung cấp các dịch vụ bảo trì và hỗ trợ liên quan đến OwnJournal như được quy định trong các Điều khoản này hoặc theo yêu cầu của luật áp dụng. Apple không có nghĩa vụ nào trong việc cung cấp các dịch vụ bảo trì và hỗ trợ liên quan đến OwnJournal. (c) Trong trường hợp OwnJournal không tuân thủ bất kỳ bảo đảm hiện hành nào, bạn có thể thông báo cho Apple, và Apple sẽ hoàn lại giá mua (nếu có) cho ứng dụng; trong phạm vi tối đa được luật áp dụng cho phép, Apple không có nghĩa vụ bảo hành nào khác liên quan đến OwnJournal. (d) {{companyName}} hoàn toàn chịu trách nhiệm về việc giải quyết bất kỳ khiếu nại nào của bạn hoặc bất kỳ bên thứ ba nào liên quan đến OwnJournal hoặc việc bạn sở hữu và sử dụng OwnJournal, bao gồm các khiếu nại trách nhiệm sản phẩm, các khiếu nại rằng OwnJournal không tuân thủ bất kỳ yêu cầu pháp lý hoặc quy định hiện hành nào, và các khiếu nại phát sinh theo luật bảo vệ người tiêu dùng hoặc luật tương tự. (e) Trong trường hợp khiếu nại của bên thứ ba rằng OwnJournal hoặc việc bạn sở hữu và sử dụng OwnJournal vi phạm quyền sở hữu trí tuệ của bên thứ ba đó, {{companyName}} (không phải Apple) sẽ hoàn toàn chịu trách nhiệm điều tra, bảo vệ, dàn xếp và giải quyết khiếu nại đó. (f) Bạn cam đoan và đảm bảo rằng bạn không ở quốc gia bị Chính phủ Hoa Kỳ cấm vận hoặc được chỉ định là quốc gia \"hỗ trợ khủng bố\", và bạn không có trong bất kỳ danh sách nào của Chính phủ Hoa Kỳ về các bên bị cấm hoặc bị hạn chế. (g) Apple và các công ty con của Apple là người thụ hưởng bên thứ ba của các Điều khoản này, và sau khi bạn chấp nhận, Apple có quyền (và được coi là đã chấp nhận quyền) thực thi các Điều khoản này đối với bạn với tư cách là người thụ hưởng bên thứ ba."
+      },
+      "severability": {
+        "title": "13. Tính tách biệt",
+        "content": "Nếu bất kỳ điều khoản nào của các Điều khoản này được tòa án có thẩm quyền tuyên bố không hợp lệ hoặc không thể thi hành, điều khoản đó sẽ được sửa đổi ở mức tối thiểu cần thiết để làm cho nó có thể thi hành, hoặc tách khỏi các Điều khoản này nếu nó không thể được làm cho có thể thi hành, và các điều khoản còn lại sẽ vẫn có hiệu lực đầy đủ."
       }
     },
     "privacy": {
       "title": "Chính sách bảo mật",
-      "lastUpdatedDate": "Tháng 1 năm 2026",
+      "lastUpdatedDate": "Tháng 4 năm 2026",
       "intro": {
         "title": "Giới thiệu",
-        "content": "Quyền riêng tư của bạn rất quan trọng với chúng tôi. OwnJournal được vận hành bởi {{companyName}}, công ty đăng ký tại {{companyCountry}}. Chính sách bảo mật này giải thích cách OwnJournal thu thập, sử dụng và bảo vệ thông tin của bạn. Chúng tôi thiết kế OwnJournal với quyền riêng tư là nguyên tắc cốt lõi."
+        "content": "Quyền riêng tư của bạn rất quan trọng đối với chúng tôi. OwnJournal được điều hành bởi {{companyName}}, một công ty đăng ký tại {{companyCountry}}. Chính sách bảo mật này giải thích cách OwnJournal thu thập, sử dụng và bảo vệ thông tin của bạn. Chúng tôi đã thiết kế OwnJournal với quyền riêng tư là nguyên tắc cốt lõi."
       },
       "dataController": {
         "title": "Bên kiểm soát dữ liệu",
-        "content": "Bên kiểm soát dữ liệu cho OwnJournal là {{companyName}}. Để hỏi về bảo vệ dữ liệu, bạn có thể liên hệ chúng tôi tại {{companyEmail}}."
+        "content": "Người kiểm soát dữ liệu của OwnJournal là {{companyName}}. Đối với các thắc mắc liên quan đến bảo vệ dữ liệu, bạn có thể liên hệ với chúng tôi tại {{companyEmail}}."
       },
       "collection": {
         "title": "Thông tin chúng tôi thu thập",
-        "content": "Thông tin cá nhân chúng tôi thu thập là tối thiểu — địa chỉ email để xác thực, và tên hiển thị nếu được cung cấp bởi nhà cung cấp xác thực bên ngoài (như Google). Tên hiển thị chỉ được sử dụng cho mục đích xác thực và quản lý tài khoản và không bao giờ được công khai. Ngoài ra, chúng tôi thu thập số liệu thống kê sử dụng tổng hợp không nhận dạng cá nhân như lượt xem trang, loại thiết bị, quốc gia và nguồn giới thiệu. Dữ liệu phân tích này không sử dụng cookie, không theo dõi người dùng cá nhân và không thể liên kết với tài khoản của bạn. Khi bạn sử dụng mã hóa E2E, nội dung nhật ký được mã hóa trên thiết bị và chúng tôi không thể đọc được. Ở Chế độ đơn giản, dữ liệu nhật ký được đồng bộ đến nhà cung cấp đám mây bạn chọn mà không có mã hóa đầu cuối. Chế độ đơn giản nhằm mục đích tiện lợi và có thể giảm quyền riêng tư so với chế độ E2E; dữ liệu vẫn được bảo vệ bởi các biện pháp bảo mật tiêu chuẩn của nhà cung cấp đám mây."
+        "content": "Thông tin cá nhân chúng tôi thu thập là tối thiểu. Liên quan đến tài khoản của bạn, chúng tôi thu thập: địa chỉ email của bạn, tên hiển thị của bạn (nếu được cung cấp bởi nhà cung cấp xác thực bên ngoài như Google hoặc Apple) và — sau khi bạn kết nối lưu trữ đám mây — bản ghi về nhà cung cấp bạn đã chọn. Để vận hành dịch vụ nhật ký, chúng tôi lưu giữ một lượng nhỏ trạng thái trên máy chủ của chúng tôi — liệu thiết lập mã hóa của bạn đã hoàn tất hay chưa, trạng thái đăng ký của bạn và các định danh mà nhà xử lý thanh toán của chúng tôi (Stripe) cần để quản lý đăng ký của bạn. Để giám sát việc sử dụng công bằng các tính năng AI tùy chọn, chúng tôi ghi lại các bộ đếm sử dụng theo người dùng (loại phân tích được thực hiện và dấu thời gian; không bao giờ là nội dung của các mục nhập của bạn). Hệ thống xác thực phía sau của chúng tôi cũng lưu giữ siêu dữ liệu phiên tiêu chuẩn như dấu thời gian đăng nhập. Tên hiển thị chỉ được sử dụng để cá nhân hóa trải nghiệm của bạn trong ứng dụng và không bao giờ được công khai. Để hiển thị giá đăng ký bằng đồng tiền địa phương của bạn, chúng tôi có thể tra cứu nhanh quốc gia liên kết với địa chỉ IP của bạn; chỉ mã quốc gia kết quả được sử dụng, không được liên kết với tài khoản của bạn, và chúng tôi không lưu trữ địa chỉ IP của bạn. Chúng tôi không sử dụng dịch vụ phân tích bên thứ ba, SDK quảng cáo hoặc trình theo dõi giữa các ứng dụng. Khi bạn sử dụng mã hóa đầu cuối (E2E), nội dung nhật ký của bạn được mã hóa trên thiết bị của bạn và chúng tôi không thể đọc được. Trong chế độ Simple, dữ liệu nhật ký của bạn được đồng bộ hóa với nhà cung cấp đám mây bạn chọn mà không có mã hóa đầu cuối. Chế độ Simple được thiết kế để thuận tiện và có thể giảm quyền riêng tư so với chế độ E2E; dữ liệu của bạn vẫn được bảo vệ bởi các biện pháp bảo mật tiêu chuẩn của nhà cung cấp đám mây của bạn."
       },
       "usage": {
         "title": "Cách chúng tôi sử dụng thông tin",
-        "content": "Chúng tôi chỉ sử dụng địa chỉ email để xác thực tài khoản và gửi thông báo dịch vụ quan trọng. Chúng tôi không bán thông tin cá nhân hoặc chia sẻ với bên thứ ba cho mục đích tiếp thị."
+        "content": "Chúng tôi sử dụng thông tin đã thu thập cho các mục đích sau: địa chỉ email của bạn để xác thực tài khoản và các thông báo dịch vụ quan trọng; tên hiển thị của bạn để cá nhân hóa trải nghiệm của bạn trong ứng dụng; lựa chọn nhà cung cấp lưu trữ và trạng thái thiết lập mã hóa của bạn để kết nối lại bạn với tài khoản đúng và tiếp tục đồng bộ hóa; trạng thái đăng ký của bạn để cấp hoặc hạn chế quyền truy cập vào các tính năng trả phí; các định danh được sử dụng bởi nhà xử lý thanh toán của chúng tôi (Stripe) để quản lý đăng ký của bạn; và các bộ đếm sử dụng AI để thực thi giới hạn sử dụng công bằng đối với các tính năng AI tùy chọn. Chúng tôi không bán thông tin cá nhân của bạn hoặc chia sẻ với bên thứ ba cho mục đích tiếp thị."
       },
       "storage": {
         "title": "Lưu trữ dữ liệu",
-        "content": "Các bài viết được lưu trong nhà cung cấp đám mây bạn chọn (Google Drive, Dropbox hoặc Nextcloud) — không phải trên server của chúng tôi. Bạn hoàn toàn kiểm soát nơi dữ liệu được lưu trữ. Chúng tôi chỉ lưu thông tin tài khoản cần thiết cho xác thực."
+        "content": "Các mục nhật ký của bạn được lưu trữ trong nhà cung cấp lưu trữ đám mây bạn chọn (Google Drive, Dropbox, Nextcloud hoặc iCloud Drive) — không phải trên máy chủ của chúng tôi. Bạn duy trì toàn quyền kiểm soát nơi dữ liệu của bạn được lưu trữ. Trên máy chủ của chúng tôi (vận hành thông qua hệ thống xác thực và cơ sở dữ liệu phía sau của chúng tôi), chúng tôi chỉ lưu trữ thông tin cần thiết để vận hành dịch vụ: chi tiết xác thực của bạn, tên hiển thị, lựa chọn nhà cung cấp lưu trữ, trạng thái thiết lập mã hóa, trạng thái đăng ký, các định danh được sử dụng bởi nhà xử lý thanh toán của chúng tôi (Stripe) để quản lý đăng ký của bạn, và các bộ đếm sử dụng tính năng AI theo người dùng. Thanh toán được xử lý bởi các nhà cung cấp thanh toán của chúng tôi (Stripe cho web, Apple In-App Purchase trên iOS, Google Play Billing trên Android); chúng tôi không lưu trữ chi tiết đầy đủ về thẻ thanh toán của bạn trên máy chủ của chúng tôi."
       },
       "encryption": {
         "title": "Mã hóa đầu cuối",
@@ -2182,11 +2202,11 @@
       },
       "zeroKnowledge": {
         "title": "Kiến trúc Zero-Knowledge",
-        "content": "OwnJournal được thiết kế để chúng tôi không thể truy cập hoặc đọc nội dung nhật ký. Khi bật mã hóa E2E, chỉ bạn nắm giữ mật khẩu cần thiết để giải mã dữ liệu — đây được gọi là kiến trúc zero-knowledge. Nếu bạn sử dụng tính năng AI tùy chọn, nội dung được gửi như mô tả trong phần \"Tính năng AI và xử lý\" ở trên."
+        "content": "Kiến trúc zero-knowledge của chúng tôi áp dụng cho nội dung nhật ký được mã hóa đầu cuối của bạn: với mã hóa E2E được bật, chỉ bạn nắm giữ mật khẩu cần thiết để giải mã dữ liệu của bạn, và chúng tôi không thể truy cập hoặc đọc nó. Thông tin tài khoản cần thiết để vận hành dịch vụ — chẳng hạn như địa chỉ email, tên hiển thị, lựa chọn nhà cung cấp lưu trữ, trạng thái đăng ký và các bộ đếm sử dụng AI — chúng tôi tất nhiên có thể đọc được. Nếu bạn sử dụng các tính năng AI tùy chọn, văn bản liên quan được giải mã trên thiết bị của bạn và được gửi như được mô tả trong phần \"Tính năng AI và Xử lý\" bên dưới."
       },
       "thirdParty": {
         "title": "Dịch vụ bên thứ ba",
-        "content": "Chúng tôi tích hợp với các nhà cung cấp đám mây (Google Drive, Dropbox, Nextcloud) để đồng bộ dữ liệu. Các dịch vụ này có chính sách bảo mật riêng. Chúng tôi sử dụng dịch vụ xác thực để đăng nhập an toàn. Khi bạn sử dụng tính năng AI tùy chọn, dữ liệu được xử lý bởi nhà cung cấp dịch vụ AI. Mỗi dịch vụ bên thứ ba hoạt động theo điều khoản và chính sách bảo mật riêng."
+        "content": "Chúng tôi tích hợp với các dịch vụ bên thứ ba sau đây, mỗi dịch vụ hoạt động theo các điều khoản và thực tiễn quyền riêng tư riêng: các nhà cung cấp lưu trữ đám mây (Google Drive, Dropbox, Nextcloud, iCloud Drive) để đồng bộ hóa với tài khoản của riêng bạn; các dịch vụ xác thực (Google, Apple) và hệ thống xác thực phía sau của chúng tôi để đăng nhập an toàn; các nhà cung cấp thanh toán (Stripe cho web, Apple In-App Purchase trên iOS, Google Play Billing trên Android) để xử lý đăng ký; và các nhà cung cấp dịch vụ AI (Google Gemini, OpenAI) khi bạn chọn sử dụng các tính năng AI tùy chọn."
       },
       "syncIdentifier": {
         "title": "Đồng bộ và mã nhận dạng thiết bị",
@@ -2194,7 +2214,7 @@
       },
       "aiProcessing": {
         "title": "Tính năng AI và xử lý",
-        "content": "OwnJournal cung cấp các tính năng AI tùy chọn như phân tích tâm trạng và gợi ý, dành riêng cho người đăng ký Plus. Việc xử lý AI chỉ diễn ra khi bạn, với tư cách người đăng ký Plus, chủ động sử dụng các tính năng này. Khi bạn sử dụng tính năng AI, văn bản liên quan được giải mã trên thiết bị trước, sau đó được gửi đến dịch vụ AI thông qua hành động chủ động của bạn; nội dung nhật ký được gửi đến nhà cung cấp AI — hiện tại là Google (Gemini) hoặc OpenAI — qua API. OwnJournal không lưu đầu vào hoặc đầu ra AI trên server của chúng tôi. Các nhà cung cấp này có thể giữ lại prompt và đầu ra trong thời gian giới hạn để giám sát vi phạm và thực thi chính sách, theo chính sách hiện hành. Việc xử lý AI có thể diễn ra ngoài EEA; cả Google và OpenAI đều duy trì các biện pháp bảo vệ chuyển dữ liệu phù hợp như Điều khoản hợp đồng tiêu chuẩn. OwnJournal không tham gia bất kỳ chương trình nào cho phép dữ liệu AI được sử dụng để huấn luyện hoặc cải thiện mô hình. Bạn có thể chọn không sử dụng tính năng AI, và điều này không ảnh hưởng đến chức năng viết nhật ký cốt lõi."
+        "content": "OwnJournal cung cấp các tính năng AI tùy chọn như phân tích tâm trạng và gợi ý, chỉ dành riêng cho người đăng ký Plus. Quá trình xử lý AI chỉ xảy ra khi bạn, với tư cách là người đăng ký Plus, sử dụng rõ ràng các tính năng này. Khi bạn sử dụng các tính năng AI, văn bản liên quan được giải mã trước trên thiết bị của bạn, sau đó được gửi đến dịch vụ AI thông qua hành động rõ ràng của bạn; nội dung nhật ký của bạn được gửi đến nhà cung cấp AI của chúng tôi — hiện tại là Google (Gemini), với OpenAI là phương án thay thế — thông qua các API trả phí của họ. Chúng tôi không lưu trữ đầu vào hoặc đầu ra AI trên máy chủ của chúng tôi; chúng tôi chỉ ghi lại các bộ đếm theo người dùng về việc sử dụng tính năng AI (loại phân tích được thực hiện và dấu thời gian, không bao giờ là nội dung) để thực thi giới hạn sử dụng công bằng. Các nhà cung cấp này có thể giữ lại lời nhắc và đầu ra trong một khoảng thời gian giới hạn để giám sát lạm dụng và thực thi chính sách, theo các chính sách hiện hành của họ. Việc xử lý AI có thể diễn ra bên ngoài EEA; cả Google và OpenAI đều duy trì các biện pháp bảo vệ chuyển dữ liệu phù hợp như Điều khoản Hợp đồng Tiêu chuẩn. Chúng tôi sử dụng các bậc trả phí của các nhà cung cấp AI này, theo đó lời nhắc và đầu ra không được sử dụng để đào tạo hoặc cải thiện các mô hình của nhà cung cấp. Bạn có thể chọn không sử dụng các tính năng AI, và việc làm vậy không ảnh hưởng đến chức năng nhật ký cốt lõi."
       },
       "diagnostics": {
         "title": "Chẩn đoán và nhật ký lỗi",
@@ -2202,15 +2222,15 @@
       },
       "retention": {
         "title": "Lưu giữ dữ liệu",
-        "content": "Dữ liệu nhật ký vẫn nằm trong lưu trữ đám mây cho đến khi bạn xóa. Thông tin tài khoản được lưu giữ trong khi tài khoản còn hoạt động. Bạn có thể xóa tài khoản bất cứ lúc nào, thao tác này sẽ xóa dữ liệu tài khoản khỏi hệ thống xác thực."
+        "content": "Dữ liệu nhật ký của bạn vẫn ở trong lưu trữ đám mây của bạn cho đến khi bạn xóa nó. Thông tin tài khoản được lưu trữ trên máy chủ của chúng tôi được giữ lại trong khi tài khoản của bạn còn hoạt động. Khi bạn xóa tài khoản của mình, chúng tôi xóa ngay lập tức hồ sơ của bạn, hồ sơ đăng ký, các bộ đếm sử dụng AI và dữ liệu xác thực khỏi hệ thống của chúng tôi. Hồ sơ giao dịch do các nhà xử lý thanh toán của chúng tôi (Stripe, Apple, Google) nắm giữ được họ giữ lại theo các chính sách của riêng họ và luật áp dụng; bạn có thể yêu cầu truy cập hoặc xóa các hồ sơ đó trực tiếp với nhà cung cấp liên quan."
       },
       "accountDeletion": {
         "title": "Xóa tài khoản",
-        "content": "Bạn có thể xóa tài khoản bất cứ lúc nào qua Cài đặt trong ứng dụng hoặc liên hệ chúng tôi tại {{companyEmail}}. Việc xóa tài khoản sẽ xóa hồ sơ, đăng ký và dữ liệu xác thực khỏi hệ thống. Dữ liệu nhật ký trong lưu trữ đám mây vẫn thuộc quyền kiểm soát của bạn và có thể được bạn xóa ở đó."
+        "content": "Bạn có thể xóa tài khoản của mình bất cứ lúc nào thông qua Cài đặt trong ứng dụng hoặc bằng cách liên hệ với chúng tôi tại {{companyEmail}}. Việc xóa tài khoản sẽ xóa hồ sơ, đăng ký, bộ đếm sử dụng AI và dữ liệu xác thực của bạn khỏi hệ thống của chúng tôi. Dữ liệu nhật ký trong lưu trữ đám mây của bạn vẫn nằm dưới sự kiểm soát của bạn và có thể được xóa ở đó bởi bạn."
       },
       "legalBasis": {
         "title": "Cơ sở pháp lý cho việc xử lý",
-        "content": "Chúng tôi xử lý dữ liệu dựa trên: (1) Thực hiện hợp đồng — để cung cấp dịch vụ viết nhật ký mà bạn đã đăng ký; (2) Lợi ích chính đáng — để duy trì bảo mật dịch vụ và ngăn chặn lạm dụng; (3) Đồng ý — cho các tính năng tùy chọn như phân tích AI. Bạn có thể rút lại sự đồng ý cho các tính năng tùy chọn bất cứ lúc nào."
+        "content": "Chúng tôi xử lý dữ liệu của bạn dựa trên: (1) Thực hiện hợp đồng — để cung cấp dịch vụ nhật ký mà bạn đã đăng ký; (2) Lợi ích hợp pháp — để duy trì an ninh dịch vụ và ngăn chặn lạm dụng, và để thực thi giới hạn sử dụng công bằng đối với các tính năng AI tùy chọn; và (3) Sự đồng ý — đối với các tính năng tùy chọn như phân tích AI (bạn có thể rút lại sự đồng ý bất cứ lúc nào)."
       },
       "dpo": {
         "title": "Nhân viên bảo vệ dữ liệu (DPO)",
@@ -2218,11 +2238,11 @@
       },
       "rights": {
         "title": "Quyền của bạn",
-        "content": "Theo GDPR và các luật bảo mật tương tự, bạn có quyền: truy cập dữ liệu, xuất dữ liệu (tính di động), sửa dữ liệu không chính xác, xóa dữ liệu (quyền xóa bỏ), hạn chế xử lý, phản đối xử lý và khiếu nại với cơ quan bảo vệ dữ liệu địa phương. Đối với cư dân EU, bạn có thể liên hệ cơ quan giám sát quốc gia. Tại {{companyCountry}}, đó là {{supervisoryAuthority}} tại {{supervisoryAuthorityUrl}}. Để thực hiện các quyền này, liên hệ chúng tôi tại {{companyEmail}}."
+        "content": "Theo GDPR và các luật riêng tư tương tự, bạn có quyền: truy cập dữ liệu của mình, xuất dữ liệu của mình (tính di động), sửa dữ liệu không chính xác, xóa dữ liệu của mình (quyền được lãng quên), giới hạn xử lý, phản đối xử lý và gửi khiếu nại đến cơ quan bảo vệ dữ liệu địa phương của bạn. Đối với cư dân EU, bạn có thể liên hệ với cơ quan giám sát quốc gia của mình. Ở {{companyCountry}}, đây là {{supervisoryAuthority}} tại {{supervisoryAuthorityUrl}}. Để thực hiện các quyền này, hãy liên hệ với chúng tôi tại {{companyEmail}}."
       },
       "children": {
         "title": "Quyền riêng tư của trẻ em",
-        "content": "OwnJournal không dành cho trẻ em dưới 13 tuổi. Chúng tôi không cố ý thu thập thông tin cá nhân từ trẻ em. Nếu bạn tin rằng chúng tôi đã vô tình thu thập thông tin như vậy, vui lòng liên hệ chúng tôi."
+        "content": "OwnJournal không dành cho trẻ em dưới 13 tuổi, hoặc độ tuổi đồng ý kỹ thuật số cao hơn áp dụng tại quốc gia của bạn (lên đến 16 tuổi ở một số Quốc gia Thành viên EU). Chúng tôi không cố ý thu thập thông tin cá nhân từ trẻ em dưới độ tuổi áp dụng. Nếu bạn cho rằng chúng tôi đã vô tình thu thập những thông tin đó, vui lòng liên hệ với chúng tôi."
       },
       "changes": {
         "title": "Thay đổi chính sách này",
@@ -2230,7 +2250,19 @@
       },
       "contact": {
         "title": "Liên hệ chúng tôi",
-        "content": "Nếu bạn có câu hỏi về Chính sách bảo mật này, muốn thực hiện quyền dữ liệu hoặc có bất kỳ thắc mắc nào, vui lòng liên hệ chúng tôi tại {{companyEmail}}. Chúng tôi cố gắng phản hồi trong vòng 30 ngày."
+        "content": "Nếu bạn có câu hỏi về Chính sách bảo mật này, muốn thực hiện quyền dữ liệu của mình hoặc có bất kỳ mối quan tâm nào, vui lòng liên hệ với chúng tôi tại {{companyEmail}}. Chúng tôi mong muốn phản hồi trong vòng 30 ngày."
+      },
+      "localStorage": {
+        "title": "Cookie và Lưu trữ Cục bộ",
+        "content": "OwnJournal không sử dụng cookie của bên thứ ba, cookie quảng cáo hoặc trình theo dõi giữa các ứng dụng. Ứng dụng sử dụng lưu trữ cục bộ của thiết bị bạn (localStorage của trình duyệt và IndexedDB trên web; các kho lưu trữ cục bộ tương đương trên thiết bị di động và máy tính để bàn) để giữ các khóa mã hóa, mục nhật ký, trạng thái đồng bộ hóa và tùy chọn của bạn trên thiết bị của bạn. Dữ liệu cục bộ này theo người dùng và vẫn ở trên thiết bị của bạn trừ khi bạn xuất nó một cách rõ ràng hoặc đồng bộ hóa nó với nhà cung cấp lưu trữ đám mây bạn đã chọn. Xác thực sử dụng các mã thông báo phiên do hệ thống xác thực phía sau của chúng tôi cấp và được lưu trữ cục bộ trên thiết bị của bạn. Bạn có thể xóa dữ liệu cục bộ bất cứ lúc nào từ Cài đặt hoặc bằng cách xóa bộ nhớ của trình duyệt."
+      },
+      "internationalTransfers": {
+        "title": "Chuyển Dữ liệu Quốc tế",
+        "content": "Một số nhà cung cấp dịch vụ của chúng tôi xử lý dữ liệu bên ngoài Khu vực Kinh tế Châu Âu (EEA). Hệ thống xác thực và cơ sở dữ liệu phía sau của chúng tôi, các nhà cung cấp thanh toán (Stripe, Apple, Google), các nhà cung cấp AI (Google, OpenAI) và nhà cung cấp lưu trữ đám mây bạn đã chọn có thể chuyển hoặc xử lý dữ liệu ở các quốc gia chưa nhận được quyết định đầy đủ từ Ủy ban Châu Âu. Trong những trường hợp đó, chúng tôi và các nhà cung cấp dựa vào các biện pháp bảo vệ phù hợp theo Điều 46 GDPR, chẳng hạn như Điều khoản Hợp đồng Tiêu chuẩn (SCC) của Ủy ban Châu Âu cùng với các biện pháp kỹ thuật và tổ chức bổ sung. Bạn có thể yêu cầu thêm thông tin về các biện pháp bảo vệ đang được áp dụng bằng cách liên hệ với chúng tôi."
+      },
+      "californiaRights": {
+        "title": "Quyền Riêng tư của Tiểu bang Hoa Kỳ",
+        "content": "Nếu bạn là cư dân của California hoặc một tiểu bang khác của Hoa Kỳ với luật riêng tư người tiêu dùng toàn diện (chẳng hạn như Virginia, Colorado, Connecticut, Utah, Texas hoặc các tiểu bang khác khi được ban hành), bạn có các quyền liên quan đến thông tin cá nhân của mình có thể bao gồm: quyền biết chúng tôi thu thập thông tin cá nhân nào, quyền xóa thông tin cá nhân của bạn, quyền sửa thông tin cá nhân không chính xác, quyền từ chối một số mục đích sử dụng nhất định (bao gồm bán hoặc chia sẻ thông tin cá nhân) và quyền giới hạn việc sử dụng thông tin cá nhân nhạy cảm. Chúng tôi không bán thông tin cá nhân của bạn và không chia sẻ thông tin đó cho quảng cáo hành vi xuyên ngữ cảnh. Để thực hiện quyền của bạn, vui lòng liên hệ với chúng tôi tại địa chỉ trong phần \"Liên hệ với Chúng tôi\"."
       }
     }
   },

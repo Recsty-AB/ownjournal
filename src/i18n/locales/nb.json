@@ -2108,70 +2108,90 @@
     "privacyPolicy": "Personvernerklæring",
     "terms": {
       "title": "Tjenestevilkår",
-      "lastUpdatedDate": "Januar 2026",
+      "lastUpdatedDate": "April 2026",
       "acceptance": {
-        "title": "1. Aksept av vilkår",
-        "content": "Ved å bruke OwnJournal godtar du å være bundet av disse tjenestevilkårene. Hvis du ikke godtar disse vilkårene, vennligst ikke bruk tjenesten vår."
+        "title": "1. Aksept av vilkårene",
+        "content": "Ved å få tilgang til eller bruke OwnJournal samtykker du til å være bundet av disse Tjenestevilkårene sammen med vår Personvernerklæring, som er en del av disse Vilkårene. Du må være minst 13 år gammel, eller den høyere alderen for digitalt samtykke som gjelder i ditt land (opptil 16 år i noen EU-medlemsland), for å bruke OwnJournal. Hvis du ikke samtykker til disse Vilkårene, vennligst ikke bruk tjenesten."
       },
       "description": {
         "title": "2. Beskrivelse av tjenesten",
-        "content": "OwnJournal er en personlig dagbokapplikasjon drevet av {{companyName}}, et selskap registrert i {{companyCountry}}. Den lar deg opprette, lagre og administrere dagbokinnleggene dine. Vi tilbyr ende-til-ende-krypteringsalternativer og støtter ulike skylagringsleverandører for synkronisering av dataene dine på tvers av enheter. Plus-abonnenter har tilgang til valgfrie AI-drevne funksjoner som humøranalyse og forslag; AI-behandling skjer kun når disse funksjonene brukes eksplisitt."
+        "content": "OwnJournal er en personlig dagbokapplikasjon som drives av {{companyName}}, et selskap registrert i {{companyCountry}}. Den lar deg opprette, lagre, søke i og analysere dagbokoppføringene dine på web, iOS, Android og skrivebord. Du tar med deg din egen skylagring (Google Drive, Dropbox, Nextcloud eller iCloud Drive) for synkronisering på tvers av enheter, eller du kan bruke applikasjonen helt offline med lokal lagring. Vi tilbyr ende-til-ende-kryptering (E2E) og en Simple-modus uten ende-til-ende-kryptering. Plus-abonnenter har tilgang til valgfrie AI-drevne funksjoner som stemningsanalyse og forslag."
       },
       "accounts": {
         "title": "3. Brukerkontoer",
-        "content": "Du er ansvarlig for å holde kontoinformasjonen din og krypteringspassord konfidensielle. Du godtar å ta ansvar for all aktivitet som skjer under kontoen din. Hvis du bruker E2E-kryptering, er du alene ansvarlig for å huske krypteringspassordet ditt - vi kan ikke gjenopprette krypterte data hvis du mister passordet ditt."
+        "content": "Du er ansvarlig for å opprettholde konfidensialiteten til påloggingsinformasjonen din og eventuell krypteringspassord du angir. Du samtykker i å påta deg ansvaret for alle aktiviteter som skjer under kontoen din, og å ikke dele påloggingsinformasjonen din med andre. Hvis du bruker E2E-kryptering, er du alene ansvarlig for å huske krypteringspassordet ditt — vi kan ikke gjenopprette krypterte data hvis de mistes. Du kan ikke utgi deg for å være en annen person eller fremstille identiteten din feil når du oppretter eller bruker en konto."
       },
       "dataStorage": {
-        "title": "4. Datalagring og personvern",
-        "content": "Dagbokinnleggene dine lagres hos din valgte skylagringsleverandør (Google Drive, Dropbox eller Nextcloud). Med E2E-kryptering aktivert krypteres dataene dine på enheten din før de lastes opp. Vi har ikke tilgang til det krypterte innholdet ditt. I enkel modus synkroniseres data uten kryptering. Se personvernerklæringen vår for detaljert informasjon om hvordan vi behandler dataene dine."
+        "title": "8. Datalagring og personvern",
+        "content": "Dagbokoppføringene dine lagres hos skylagringsleverandøren du velger (Google Drive, Dropbox, Nextcloud eller iCloud Drive) — ikke på våre servere. Med E2E-kryptering aktivert krypteres dataene dine på enheten din før de forlater den; vi kan ikke få tilgang til ditt krypterte innhold. I Simple-modus synkroniseres dataene dine uten ende-til-ende-kryptering. Vår behandling av personopplysninger er beskrevet i vår Personvernerklæring."
       },
       "intellectualProperty": {
-        "title": "5. Immaterialrettigheter",
-        "content": "Du beholder alle rettigheter til dagbokinnholdet ditt. OwnJournal-applikasjonen, inkludert design, kode og merkevare, eies av oss og er beskyttet av immaterialrettslover. Du har ikke lov til å kopiere, modifisere eller distribuere applikasjonen uten tillatelse."
+        "title": "7. Immaterielle rettigheter",
+        "content": "Du beholder alle rettigheter til dagbokinnholdet du oppretter. Med forbehold om at du overholder disse Vilkårene, gir vi deg en begrenset, ikke-eksklusiv, ikke-overførbar, ikke-underlisensierbar, gjenkallelig lisens til å installere og bruke OwnJournal for ditt personlige bruk. OwnJournal-applikasjonen — inkludert dens kildekode, design og merkevare — eies av {{companyName}} og er beskyttet av lover om immaterielle rettigheter. Du kan ikke kopiere, modifisere, distribuere, selge eller lage avledede verk av applikasjonen, bortsett fra det som er uttrykkelig tillatt i henhold til disse Vilkårene eller gjeldende lov."
       },
       "limitation": {
-        "title": "6. Ansvarsbegrensning",
-        "content": "OwnJournal leveres «som den er» uten garantier av noe slag. Vi er ikke ansvarlige for datatap, tjenesteavbrudd eller skader som oppstår fra din bruk av applikasjonen, unntatt i den grad slikt ansvar ikke kan utelukkes eller begrenses under gjeldende lov. Ingenting i disse vilkårene utelukker eller begrenser vårt ansvar for grov uaktsomhet, forsett eller annet ansvar som ikke kan utelukkes juridisk. Du bruker tjenesten på egen risiko."
+        "title": "9. Ansvarsbegrensning",
+        "content": "OwnJournal leveres \"som det er\" og \"som tilgjengelig\" uten garantier av noe slag, verken uttrykkelige eller underforståtte. Vi garanterer ikke at tjenesten vil være uavbrutt eller feilfri, eller at tap av data ikke vil oppstå. I størst mulig grad tillatt av loven er vi ikke ansvarlige for tap av data, tjenesteavbrudd eller indirekte, tilfeldige, spesielle, følgeskader eller pønalskader som oppstår fra din bruk av tjenesten. Ingenting i disse Vilkårene utelukker eller begrenser vårt ansvar for død eller personskade forårsaket av uaktsomhet, svindel, grov uaktsomhet, forsettlig mislighold eller annet ansvar som ikke kan utelukkes lovlig. Hvis du er forbruker, påvirker ikke denne klausulen dine lovfestede rettigheter."
       },
       "termination": {
-        "title": "7. Oppsigelse",
-        "content": "Vi forbeholder oss retten til å suspendere eller avslutte kontoen din hvis du bryter disse vilkårene. Du kan slette kontoen din når som helst gjennom applikasjonsinnstillingene."
+        "title": "10. Oppsigelse",
+        "content": "Du kan slette kontoen din når som helst via applikasjonens Innstillinger. Ved sletting fjernes kontoinformasjonen din som beskrevet i Personvernerklæringen. Vi kan suspendere eller si opp kontoen din hvis du vesentlig bryter disse Vilkårene — inkludert brudd på avsnittet Akseptabel bruk — forutsatt at vi gir deg rimelig varsel og mulighet til å rette opp bruddet (der det er mulig) før oppsigelse, unntatt i tilfeller av alvorlig misbruk, ulovlig aktivitet, eller hvor det er pålagt ved lov. Vi kan også avslutte tjenesten med minst 30 dagers varsel."
       },
       "changes": {
-        "title": "8. Endringer i vilkårene",
-        "content": "Vi kan oppdatere disse vilkårene fra tid til annen. Fortsatt bruk av OwnJournal etter endringer utgjør aksept av de nye vilkårene. Vi vil varsle brukere om vesentlige endringer gjennom applikasjonen."
+        "title": "11. Endringer i vilkårene",
+        "content": "Vi kan oppdatere disse Vilkårene fra tid til annen. For endringer som er klargjørende, tekniske eller lovpålagte, vil vi oppdatere disse Vilkårene og datoen \"Sist oppdatert\" uten forhåndsvarsel. For endringer som vesentlig påvirker dine rettigheter eller forpliktelser som forbruker (som prisøkninger, betydelige endringer i tjenesten eller nye bruksbegrensninger), vil vi gi minst 30 dagers forhåndsvarsel via e-post og gjennom applikasjonen. Hvis du ikke godtar vesentlige endringer, kan du si opp abonnementet ditt og slutte å bruke tjenesten før endringene trer i kraft, og du vil ikke bli belastet for den kommende abonnementsperioden."
       },
       "contact": {
-        "title": "9. Kontakt",
-        "content": "Hvis du har spørsmål om disse vilkårene, kontakt oss på {{companyEmail}}."
+        "title": "14. Kontakt",
+        "content": "Hvis du har spørsmål om disse Vilkårene, vennligst kontakt oss på {{companyEmail}}."
       },
       "governingLaw": {
-        "title": "10. Gjeldende lov",
-        "content": "Disse vilkårene er underlagt lovene i {{companyCountry}}. Eventuelle tvister skal løses i svenske domstoler. Dette påvirker ikke eventuelle obligatoriske forbrukerrettigheter du måtte ha under lovene i ditt bostedsland."
+        "title": "15. Gjeldende rett",
+        "content": "Disse Vilkårene er underlagt lovene i {{companyCountry}}. Eventuelle tvister skal løses i svenske domstoler. Dette påvirker ikke noen ufravikelige forbrukerbeskyttelsesrettigheter du måtte ha under lovene i ditt bostedsland."
+      },
+      "subscriptions": {
+        "title": "4. Abonnementer, fakturering og oppsigelse",
+        "content": "OwnJournal tilbyr et valgfritt betalt nivå (\"Plus\") solgt som et automatisk fornyende abonnement. På Apple App Store (iOS) faktureres abonnementer gjennom Apple-ID-en din og administreres i innstillingene for App Store-kontoen din. Betaling belastes Apple-ID-en din ved bekreftelse av kjøpet. Abonnementet ditt fornyes automatisk med mindre automatisk fornyelse er slått av minst 24 timer før slutten av den nåværende perioden. Kontoen din belastes for fornyelse innen 24 timer før slutten av den nåværende perioden. Oppsigelse trer i kraft ved slutten av den nåværende betalte perioden, og enhver ubrukt del av en gratis prøveperiode tapes når du starter et betalt abonnement. På Google Play (Android) faktureres abonnementer gjennom Google Play-kontoen din og administreres i Google Play-abonnementsinnstillingene; de samme prinsippene for automatisk fornyelse og oppsigelse gjelder. På nett faktureres abonnementer gjennom Stripe og administreres i kontoinnstillingene dine i OwnJournal. Priser vises i din lokale valuta der det støttes og inkluderer eventuelle gjeldende avgifter. Gratis prøveperioder, der de tilbys, konverteres automatisk til et betalt abonnement ved slutten av prøveperioden med mindre de avbrytes før prøveperioden er over."
+      },
+      "withdrawal": {
+        "title": "5. Angrerett (EU/EØS-forbrukere)",
+        "content": "Hvis du er forbruker i Den europeiske union, Det europeiske økonomiske samarbeidsområdet eller en annen jurisdiksjon som gir tilsvarende rettigheter, har du en 14-dagers angrerett til å trekke deg fra ethvert betalt abonnement kjøpt gjennom nettstedet vårt (via Stripe), uten å oppgi noen grunn. Denne perioden begynner den dagen kontrakten inngås. For å utøve denne retten, kontakt oss på {{companyEmail}} innen 14 dager, så refunderer vi abonnementsbeløpet. Ved å velge å begynne å bruke den betalte tjenesten før 14-dagers angrefristen utløper, ber du uttrykkelig om umiddelbar levering og erkjenner at du mister angreretten når tjenesten er fullt levert. Hvis tjenesten er delvis levert, kan vi tilbakeholde et beløp som står i forhold til den bruken du har hatt av tjenesten. For kjøp gjort gjennom Apple App Store eller Google Play behandles refusjonsforespørsler av Apple eller Google i henhold til deres respektive retningslinjer, og angreretten beskrevet ovenfor gjelder ikke for slike kjøp."
+      },
+      "acceptableUse": {
+        "title": "6. Akseptabel bruk",
+        "content": "Du samtykker i ikke å bruke OwnJournal: (a) til å bryte gjeldende lov eller forskrift; (b) til å laste opp, lagre eller behandle innhold som er ulovlig, inkludert materiale om seksuelt misbruk av barn, innhold som skildrer handlinger uten samtykke, eller innhold som krenker andres immaterielle rettigheter; (c) til å forsøke å få uautorisert tilgang til systemene våre, systemene til våre tjenesteleverandører eller andre brukeres kontoer; (d) til å omgå grenser for rettferdig bruk av AI-funksjoner eller plattformpålagte kjøpsmekanismer; (e) til å reverse-engineere, dekompilere eller på annen måte forsøke å utlede kildekoden til applikasjonen utover rettigheter som er uttrykkelig gitt av gjeldende lov; eller (f) til å drive automatiserte systemer som sender uforholdsmessig store mengder forespørsler til serverne våre eller til AI-leverandørene våre."
+      },
+      "appleTerms": {
+        "title": "12. Tilleggsvilkår for Apple App Store",
+        "content": "Hvis du har skaffet deg OwnJournal fra Apple App Store, gjelder følgende tilleggsvilkår: (a) Disse Vilkårene inngås kun mellom deg og {{companyName}}, ikke med Apple. {{companyName}} (ikke Apple) er alene ansvarlig for OwnJournal og innholdet i den. (b) {{companyName}} er alene ansvarlig for å yte vedlikeholds- og støttetjenester med hensyn til OwnJournal som spesifisert i disse Vilkårene eller som påkrevd av gjeldende lov. Apple har ingen forpliktelse til å yte vedlikeholds- og støttetjenester med hensyn til OwnJournal. (c) I tilfelle OwnJournal ikke samsvarer med en gjeldende garanti, kan du varsle Apple, og Apple vil refundere kjøpsprisen (om noen) for applikasjonen; i størst mulig grad tillatt av gjeldende lov har Apple ingen annen garantiforpliktelse med hensyn til OwnJournal. (d) {{companyName}} er alene ansvarlig for å håndtere eventuelle krav fra deg eller tredjepart relatert til OwnJournal eller din besittelse og bruk av OwnJournal, inkludert produktansvarskrav, krav om at OwnJournal ikke samsvarer med gjeldende lovkrav, og krav som oppstår under forbrukerbeskyttelses- eller lignende lovgivning. (e) Ved tredjeparts krav om at OwnJournal eller din besittelse og bruk av OwnJournal krenker tredjeparts immaterielle rettigheter, vil {{companyName}} (ikke Apple) være alene ansvarlig for etterforskning, forsvar, forlik og oppgjør av et slikt krav. (f) Du erklærer og garanterer at du ikke befinner deg i et land som er underlagt embargo fra USAs regjering eller utpekt som et \"terroriststøttende\" land, og at du ikke står på noen amerikansk regjeringsliste over forbudte eller begrensede parter. (g) Apple og Apples datterselskaper er tredjepartsbegunstigede i disse Vilkårene, og ved din aksept har Apple rett (og anses for å ha akseptert retten) til å håndheve disse Vilkårene mot deg som tredjepartsbegunstiget."
+      },
+      "severability": {
+        "title": "13. Salvatorisk klausul",
+        "content": "Hvis en bestemmelse i disse Vilkårene blir funnet ugyldig eller ikke håndhevbar av en kompetent domstol, skal den bestemmelsen endres i den minste utstrekning som er nødvendig for å gjøre den håndhevbar, eller skilles fra disse Vilkårene hvis den ikke kan gjøres håndhevbar, og de gjenværende bestemmelsene skal forbli i full kraft."
       }
     },
     "privacy": {
       "title": "Personvernerklæring",
-      "lastUpdatedDate": "Januar 2026",
+      "lastUpdatedDate": "April 2026",
       "intro": {
         "title": "Introduksjon",
         "content": "Personvernet ditt er viktig for oss. OwnJournal drives av {{companyName}}, et selskap registrert i {{companyCountry}}. Denne personvernerklæringen forklarer hvordan OwnJournal samler inn, bruker og beskytter informasjonen din. Vi designet OwnJournal med personvern som et kjerneprinsipp."
       },
       "dataController": {
         "title": "Behandlingsansvarlig",
-        "content": "Behandlingsansvarlig for OwnJournal er {{companyName}}. For spørsmål om databeskyttelse kan du kontakte oss på {{companyEmail}}."
+        "content": "Behandlingsansvarlig for OwnJournal er {{companyName}}. For personvernforespørsler kan du kontakte oss på {{companyEmail}}."
       },
       "collection": {
         "title": "Informasjon vi samler inn",
-        "content": "Den personlige informasjonen vi samler inn er minimal: e-postadressen din for autentiseringsformål og visningsnavnet ditt hvis det leveres av en ekstern autentiseringsleverandør (som Google). Visningsnavn brukes kun for autentisering og kontoadministrasjon og blir aldri offentliggjort. I tillegg samler vi inn ikke-personlig identifiserbar, aggregert bruksstatistikk som sidevisninger, enhetstype, land og henvisningskilde. Disse analysedataene bruker ikke informasjonskapsler, sporer ikke individuelle brukere og kan ikke kobles til kontoen din. Når du bruker E2E-kryptering, krypteres dagbokinnholdet ditt på enheten din, og vi kan ikke lese det. I enkel modus synkroniseres dagbokdataene dine til din valgte skylagringstjeneste uten ende-til-ende-kryptering. Enkel modus er ment for bekvemmelighet og kan redusere personvernet sammenlignet med E2E-modus; dataene dine forblir beskyttet av skylagringstjenestens standard sikkerhetstiltak."
+        "content": "De personopplysningene vi samler inn er minimale. I forbindelse med kontoen din samler vi inn: e-postadressen din, visningsnavnet ditt (hvis det oppgis av en ekstern autentiseringsleverandør som Google eller Apple) og — når du kobler til skylagring — en oppføring av hvilken leverandør du har valgt. For å drive dagboktjenesten lagrer vi en liten mengde tilstandsinformasjon på serverne våre — om krypteringsoppsettet ditt er fullført, abonnementsstatusen din og identifikatorene betalingsleverandøren vår (Stripe) trenger for å administrere abonnementet ditt. For å overvåke rettferdig bruk av valgfrie AI-funksjoner registrerer vi brukstellere per bruker (typen analyse som er utført og et tidsstempel; aldri innholdet i oppføringene dine). Autentiseringsbackenden vår lagrer også standard øktmetadata som tidsstempler for innlogging. Visningsnavn brukes kun til å tilpasse opplevelsen din i appen og gjøres aldri offentlige. For å vise abonnementspriser i din lokale valuta kan vi kort slå opp landet som er knyttet til IP-adressen din; bare den resulterende landkoden brukes, den kobles ikke til kontoen din, og vi lagrer ikke IP-adressen din. Vi bruker ikke tredjeparts analysetjenester, reklame-SDK-er eller sporere på tvers av apper. Når du bruker ende-til-ende-kryptering (E2E), krypteres dagbokinnholdet ditt på enheten din, og vi kan ikke lese det. I Simple-modus synkroniseres dagbokdataene dine til den valgte skytjenesten uten ende-til-ende-kryptering. Simple-modus er ment for bekvemmelighet og kan redusere personvernet sammenlignet med E2E-modus; dataene dine forblir beskyttet av skyleverandørens standard sikkerhetstiltak."
       },
       "usage": {
         "title": "Hvordan vi bruker informasjon",
-        "content": "Vi bruker e-postadressen din utelukkende for kontoautentisering og viktige tjenestevarsler. Vi selger ikke personopplysningene dine eller deler dem med tredjeparter for markedsføringsformål."
+        "content": "Vi bruker informasjonen vi samler inn til følgende formål: e-postadressen din for kontoautentisering og viktige tjenestemeldinger; visningsnavnet ditt for å tilpasse opplevelsen din i appen; valget ditt av lagringsleverandør og status for krypteringsoppsett for å koble deg til riktig konto og gjenoppta synkronisering; abonnementsstatusen din for å gi eller begrense tilgang til betalte funksjoner; identifikatorene betalingsleverandøren vår (Stripe) bruker til å administrere abonnementet ditt; og AI-brukstellere for å håndheve grenser for rettferdig bruk av valgfrie AI-funksjoner. Vi selger ikke personopplysningene dine og deler dem ikke med tredjeparter for markedsføringsformål."
       },
       "storage": {
         "title": "Datalagring",
-        "content": "Dagbokinnleggene dine lagres hos din valgte skylagringsleverandør (Google Drive, Dropbox eller Nextcloud) - ikke på våre servere. Du beholder full kontroll over hvor dataene dine lagres. Vi lagrer kun kontoinformasjonen som trengs for autentisering."
+        "content": "Dagbokoppføringene dine lagres hos skylagringsleverandøren du velger (Google Drive, Dropbox, Nextcloud eller iCloud Drive) — ikke på våre servere. Du beholder full kontroll over hvor dataene dine lagres. På våre servere (drevet via vår autentiserings- og databasebackend) lagrer vi bare den informasjonen som trengs for å drive tjenesten: autentiseringsdetaljene dine, visningsnavn, valg av lagringsleverandør, status for krypteringsoppsett, abonnementsstatus, identifikatorene betalingsleverandøren vår (Stripe) bruker til å administrere abonnementet ditt, og brukstellere for AI-funksjoner per bruker. Betalinger håndteres av betalingsleverandørene våre (Stripe for nett, Apple In-App Purchase på iOS, Google Play Billing på Android); vi lagrer ikke fullstendige betalingskortdetaljer på våre servere."
       },
       "encryption": {
         "title": "Ende-til-ende-kryptering",
@@ -2179,11 +2199,11 @@
       },
       "zeroKnowledge": {
         "title": "Zero Knowledge-arkitektur",
-        "content": "OwnJournal er designet slik at vi ikke kan få tilgang til eller lese dagbokinholdet ditt. Med E2E-kryptering aktivert er det bare du som kjenner passordet — dette kalles zero knowledge-arkitektur. Bruker du valgfrie AI-funksjoner, sendes innhold som beskrevet i avsnittet \"AI-funksjoner og behandling\" ovenfor."
+        "content": "Vår zero-knowledge-arkitektur gjelder for ditt ende-til-ende-krypterte dagbokinnhold: med E2E-kryptering aktivert er det bare du som har passordet som trengs for å dekryptere dataene dine, og vi kan ikke få tilgang til eller lese dem. Kontoinformasjon som er nødvendig for å drive tjenesten — som e-postadressen din, visningsnavn, valg av lagringsleverandør, abonnementsstatus og AI-brukstellere — er nødvendigvis lesbar for oss. Hvis du bruker valgfrie AI-funksjoner, dekrypteres den relevante teksten på enheten din og sendes som beskrevet i avsnittet «AI-funksjoner og behandling» nedenfor."
       },
       "thirdParty": {
         "title": "Tredjepartstjenester",
-        "content": "Vi integrerer med skylagringsleverandører (Google Drive, Dropbox, Nextcloud) for datasynkronisering. Disse tjenestene har sine egne personvernerklæringer. Vi bruker autentiseringstjenester for sikker pålogging. Når du bruker valgfrie AI-funksjoner, behandles data av vår AI-tjenesteleverandør. Hver tredjepartstjeneste opererer under sine egne vilkår og personvernpraksis."
+        "content": "Vi integrerer med følgende tredjepartstjenester, som hver opererer under sine egne vilkår og personvernpraksiser: skylagringsleverandører (Google Drive, Dropbox, Nextcloud, iCloud Drive) for synkronisering til din egen konto; autentiseringstjenester (Google, Apple) og vår autentiseringsbackend for sikker innlogging; betalingsleverandører (Stripe for nett, Apple In-App Purchase på iOS, Google Play Billing på Android) for å håndtere abonnementer; og AI-tjenesteleverandører (Google Gemini, OpenAI) når du velger å bruke valgfrie AI-funksjoner."
       },
       "syncIdentifier": {
         "title": "Synkronisering og enhets-ID",
@@ -2191,7 +2211,7 @@
       },
       "aiProcessing": {
         "title": "AI-funksjoner og behandling",
-        "content": "OwnJournal tilbyr valgfrie AI-drevne funksjoner som humøranalyse og forslag, tilgjengelige eksklusivt for Plus-abonnenter. AI-behandling skjer kun når du, som Plus-abonnent, eksplisitt bruker disse funksjonene. Når du bruker AI-funksjoner, dekrypteres den relevante teksten på enheten din først, og sendes deretter til AI-tjenesten gjennom din eksplisitte handling; dagbokinnholdet ditt sendes til våre AI-leverandører -- for tiden Google (Gemini) eller OpenAI -- via deres API-er. OwnJournal lagrer ikke AI-inndata eller -utdata på våre servere. Disse leverandørene kan beholde prompts og utdata i en begrenset periode for misbruksovervåking og håndheving av retningslinjer, i henhold til deres gjeldende retningslinjer. AI-behandling kan skje utenfor EØS; både Google og OpenAI opprettholder passende dataoverføringssikkerhetstiltak som standard kontraktsklausuler. OwnJournal velger ikke inn i noen leverandørprogrammer som tillater at AI-data brukes til modelltrening eller forbedring. Du kan velge å ikke bruke AI-funksjoner, og dette påvirker ikke kjernefunksjonaliteten for dagbokskriving."
+        "content": "OwnJournal tilbyr valgfrie AI-drevne funksjoner som stemningsanalyse og forslag, som er tilgjengelige eksklusivt for Plus-abonnenter. AI-behandling skjer kun når du som Plus-abonnent uttrykkelig bruker disse funksjonene. Når du bruker AI-funksjoner, dekrypteres den relevante teksten først på enheten din og sendes deretter til AI-tjenesten via din uttrykkelige handling; dagbokinnholdet ditt sendes til AI-leverandøren vår — for tiden Google (Gemini), med OpenAI som alternativ — via deres betalte API-er. Vi lagrer ikke AI-input eller -output på våre servere; vi registrerer kun brukstellere per bruker av AI-funksjonsbruk (typen analyse som er utført og et tidsstempel, aldri innholdet) for å håndheve grenser for rettferdig bruk. Disse leverandørene kan oppbevare prompts og output i en begrenset periode for misbruksovervåking og håndheving av retningslinjer i henhold til deres gjeldende retningslinjer. AI-behandling kan finne sted utenfor EØS; både Google og OpenAI opprettholder passende sikkerhetsforanstaltninger for dataoverføring som standard kontraktklausuler. Vi bruker de betalte nivåene hos disse AI-leverandørene, hvor prompts og output ikke brukes til å trene eller forbedre leverandørens modeller. Du kan velge å ikke bruke AI-funksjoner, og det påvirker ikke kjernen av dagbokfunksjonaliteten."
       },
       "diagnostics": {
         "title": "Diagnostikk og krasjlogger",
@@ -2199,15 +2219,15 @@
       },
       "retention": {
         "title": "Datalagring",
-        "content": "Dagbokdataene dine forblir i skylagringen din til du sletter dem. Kontoinformasjon beholdes mens kontoen din er aktiv. Du kan slette kontoen din når som helst, noe som fjerner kontodataene dine fra autentiseringssystemet vårt."
+        "content": "Dagbokdataene dine forblir i skylagringen din til du sletter dem. Kontoinformasjon lagret på serverne våre oppbevares så lenge kontoen din er aktiv. Når du sletter kontoen din, sletter vi umiddelbart profilen, abonnementsoppføringen, AI-brukstellere og autentiseringsdata fra systemene våre. Transaksjonsoppføringer som oppbevares av betalingsleverandørene våre (Stripe, Apple, Google) oppbevares av dem i henhold til deres egne retningslinjer og gjeldende lovgivning; du kan be om tilgang til eller sletting av slike oppføringer direkte hos den aktuelle leverandøren."
       },
       "accountDeletion": {
         "title": "Sletting av konto",
-        "content": "Du kan slette kontoen din når som helst via Innstillinger i appen eller ved å kontakte oss på {{companyEmail}}. Sletting av konto fjerner profilen din, abonnement og autentiseringsdata fra våre systemer. Dagbokdata i skylagringen din forblir under din kontroll og kan slettes der av deg."
+        "content": "Du kan slette kontoen din når som helst via Innstillinger i appen eller ved å kontakte oss på {{companyEmail}}. Sletting av kontoen fjerner profilen, abonnementet, AI-brukstellere og autentiseringsdata fra systemene våre. Dagbokdata i skylagringen din forblir under din kontroll og kan slettes der av deg."
       },
       "legalBasis": {
         "title": "Rettslig grunnlag for behandling",
-        "content": "Vi behandler dataene dine basert på: (1) Kontraktsoppfyllelse - for å levere dagboktjenesten du registrerte deg for; (2) Berettigede interesser - for å opprettholde tjenestesikkerhet og forhindre misbruk; (3) Samtykke - for valgfrie funksjoner som AI-analyse. Du kan trekke tilbake samtykke for valgfrie funksjoner når som helst."
+        "content": "Vi behandler dataene dine basert på: (1) Oppfyllelse av kontrakt — for å levere dagbokstjenesten du har meldt deg på; (2) Berettigede interesser — for å opprettholde tjenestens sikkerhet og forhindre misbruk, og for å håndheve grenser for rettferdig bruk av valgfrie AI-funksjoner; og (3) Samtykke — for valgfrie funksjoner som AI-analyse (du kan trekke samtykket tilbake når som helst)."
       },
       "dpo": {
         "title": "Personvernombud (DPO)",
@@ -2215,11 +2235,11 @@
       },
       "rights": {
         "title": "Dine rettigheter",
-        "content": "Under GDPR og lignende personvernlover har du rett til: å få tilgang til dataene dine, eksportere dataene dine (portabilitet), rette unøyaktige data, slette dataene dine (sletting), begrense behandling, protestere mot behandling og inngi klage til din lokale databeskyttelsesmyndighet. For norske borgere kan du kontakte {{supervisoryAuthority}} på {{supervisoryAuthorityUrl}}. For å utøve disse rettighetene, kontakt oss på {{companyEmail}}."
+        "content": "Under GDPR og lignende personvernlover har du rett til å: få tilgang til dataene dine, eksportere dataene dine (dataportabilitet), korrigere unøyaktige data, slette dataene dine (sletting), begrense behandling, motsette deg behandling og klage til din lokale personvernmyndighet. For EU-borgere kan du kontakte din nasjonale tilsynsmyndighet. I {{companyCountry}} er dette {{supervisoryAuthority}} på {{supervisoryAuthorityUrl}}. For å utøve disse rettighetene, kontakt oss på {{companyEmail}}."
       },
       "children": {
         "title": "Barns personvern",
-        "content": "OwnJournal er ikke ment for barn under 13 år. Vi samler ikke bevisst inn personopplysninger fra barn. Hvis du mener vi har samlet inn slik informasjon ved et uhell, vennligst kontakt oss."
+        "content": "OwnJournal er ikke beregnet for barn under 13 år, eller den høyere alderen for digitalt samtykke som gjelder i ditt land (opptil 16 år i noen EU-medlemsland). Vi samler ikke bevisst inn personopplysninger fra barn under den gjeldende alderen. Hvis du tror vi utilsiktet har samlet inn slik informasjon, vennligst kontakt oss."
       },
       "changes": {
         "title": "Endringer i denne erklæringen",
@@ -2227,7 +2247,19 @@
       },
       "contact": {
         "title": "Kontakt oss",
-        "content": "Hvis du har spørsmål om denne personvernerklæringen, ønsker å utøve dine datarettigheter eller har andre bekymringer, vennligst kontakt oss på {{companyEmail}}. Vi tar sikte på å svare innen 30 dager."
+        "content": "Hvis du har spørsmål om denne personvernerklæringen, ønsker å utøve datarettighetene dine eller har bekymringer, vennligst kontakt oss på {{companyEmail}}. Vi tar sikte på å svare innen 30 dager."
+      },
+      "localStorage": {
+        "title": "Informasjonskapsler og lokal lagring",
+        "content": "OwnJournal bruker ikke tredjeparts informasjonskapsler, reklame-informasjonskapsler eller sporere på tvers av apper. Applikasjonen bruker enhetens lokale lagring (nettleserens localStorage og IndexedDB på nettet; tilsvarende lokale lagre på mobil og skrivebord) for å oppbevare krypteringsnøklene, dagbokoppføringene, synkroniseringsstatusen og preferansene dine på enheten. Disse lokale dataene er per bruker og forblir på enheten din med mindre du uttrykkelig eksporterer dem eller synkroniserer dem til den valgte skylagringsleverandøren. Autentisering bruker økttokens utstedt av vår autentiseringsbackend og lagret lokalt på enheten din. Du kan slette lokale data når som helst fra Innstillinger eller ved å tømme nettleserens lagring."
+      },
+      "internationalTransfers": {
+        "title": "Internasjonale dataoverføringer",
+        "content": "Noen av tjenesteleverandørene våre behandler data utenfor Det europeiske økonomiske samarbeidsområdet (EØS). Vår autentiserings- og databasebackend, betalingsleverandører (Stripe, Apple, Google), AI-leverandører (Google, OpenAI) og din valgte skylagringsleverandør kan overføre eller behandle data i land som ikke har mottatt en tilstrekkelighetsbeslutning fra Europakommisjonen. I slike tilfeller baserer vi og leverandørene oss på passende sikkerhetsforanstaltninger i henhold til artikkel 46 i GDPR, som Europakommisjonens standard kontraktklausuler (SCC) sammen med utfyllende tekniske og organisatoriske tiltak. Du kan be om mer informasjon om de gjeldende sikkerhetsforanstaltningene ved å kontakte oss."
+      },
+      "californiaRights": {
+        "title": "Personvernrettigheter for amerikanske delstater",
+        "content": "Hvis du er bosatt i California eller en annen amerikansk delstat med en omfattende forbrukervernlov (som Virginia, Colorado, Connecticut, Utah, Texas eller andre etter hvert som de vedtas), har du rettigheter knyttet til personopplysningene dine som kan omfatte: retten til å vite hvilke personopplysninger vi samler inn, retten til å slette personopplysningene dine, retten til å rette uriktige personopplysninger, retten til å reservere deg mot bestemte bruksområder (inkludert salg eller deling av personopplysninger) og retten til å begrense bruken av sensitive personopplysninger. Vi selger ikke personopplysningene dine og deler dem ikke for kontekstuell atferdsbasert reklame. For å utøve rettighetene dine, kontakt oss på adressen som er angitt i avsnittet «Kontakt oss»."
       }
     }
   },

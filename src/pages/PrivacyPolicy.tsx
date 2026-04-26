@@ -159,6 +159,24 @@ const PrivacyPolicy = () => {
 
           <section>
             <h2 className="text-xl font-semibold text-foreground mb-3">
+              {t("legal.privacy.localStorage.title")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("legal.privacy.localStorage.content")}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold text-foreground mb-3">
+              {t("legal.privacy.internationalTransfers.title")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("legal.privacy.internationalTransfers.content")}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold text-foreground mb-3">
               {t("legal.privacy.retention.title")}
             </h2>
             <p className="text-muted-foreground">
@@ -192,6 +210,15 @@ const PrivacyPolicy = () => {
             </h2>
             <p className="text-muted-foreground">
               {t("legal.privacy.dpo.content")}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold text-foreground mb-3">
+              {t("legal.privacy.californiaRights.title")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("legal.privacy.californiaRights.content")}
             </p>
           </section>
 
