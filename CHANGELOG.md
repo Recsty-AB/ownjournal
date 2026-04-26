@@ -1,5 +1,23 @@
 # Changelog
 
+## v1.0.17 (Apr 26, 2026)
+
+### Improvements
+- Always-visible "New Entry" floating action button
+- Wider page layout, with SEO/PWA metadata and accessibility/performance polish
+- Mood stats now render an empty state when the selected date range has no data
+
+### Bug Fixes
+- Back-to-top button now appears and stays anchored near content
+- Returning Plus users no longer see a "Free Plan → Plus Plan" flicker on login — subscription state applies optimistically from local cache before the network round-trip
+- "Delete All" now also clears the cached entry snapshot, so previously-deleted entries cannot reappear
+- Fixed Stripe webhook reading subscription period dates from the wrong field, which could cause subscription state desync
+
+### Legal & Compliance
+- Privacy Policy and Terms of Service rewritten for App Store Guideline 3.1.2 and EU Consumer Rights Directive compliance — adds subscription/auto-renewal disclosures, 14-day right of withdrawal, Apple Schedule 1 EULA terms, US state privacy rights, and accurate AI/data disclosure. Translated across all 21 languages
+
+---
+
 ## v1.0.16 (Apr 14, 2026)
 
 ### Store Compliance

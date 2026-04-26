@@ -2111,70 +2111,90 @@
     "privacyPolicy": "Kebijakan Privasi",
     "terms": {
       "title": "Ketentuan Layanan",
-      "lastUpdatedDate": "Januari 2026",
+      "lastUpdatedDate": "April 2026",
       "acceptance": {
         "title": "1. Penerimaan Ketentuan",
-        "content": "Dengan mengakses atau menggunakan OwnJournal, kamu setuju untuk terikat oleh Ketentuan Layanan ini. Jika kamu tidak menyetujui ketentuan ini, mohon jangan gunakan layanan kami."
+        "content": "Dengan mengakses atau menggunakan OwnJournal, Anda setuju untuk terikat oleh Ketentuan Layanan ini bersama dengan Kebijakan Privasi kami, yang merupakan bagian dari Ketentuan ini. Anda harus berusia minimal 13 tahun, atau usia persetujuan digital yang lebih tinggi yang berlaku di negara Anda (hingga 16 tahun di beberapa Negara Anggota UE), untuk menggunakan OwnJournal. Jika Anda tidak menyetujui Ketentuan ini, harap jangan gunakan layanan ini."
       },
       "description": {
         "title": "2. Deskripsi Layanan",
-        "content": "OwnJournal adalah aplikasi jurnal pribadi yang dioperasikan oleh {{companyName}}, sebuah perusahaan yang terdaftar di {{companyCountry}}. Aplikasi ini memungkinkan kamu membuat, menyimpan, dan mengelola catatan jurnalmu. Kami menyediakan opsi enkripsi ujung-ke-ujung dan mendukung berbagai penyedia penyimpanan cloud untuk menyinkronkan datamu antar perangkat. Pelanggan Plus memiliki akses ke fitur opsional berbasis AI seperti analisis suasana hati dan saran; pemrosesan AI hanya terjadi saat fitur-fitur ini secara eksplisit digunakan."
+        "content": "OwnJournal adalah aplikasi jurnal pribadi yang dioperasikan oleh {{companyName}}, perusahaan yang terdaftar di {{companyCountry}}. Ini memungkinkan Anda untuk membuat, menyimpan, mencari, dan menganalisis entri jurnal Anda di web, iOS, Android, dan desktop. Anda membawa penyimpanan cloud Anda sendiri (Google Drive, Dropbox, Nextcloud, atau iCloud Drive) untuk sinkronisasi antar perangkat, atau Anda dapat menggunakan aplikasi sepenuhnya offline dengan penyimpanan lokal. Kami menawarkan enkripsi ujung ke ujung (E2E) dan mode Simple tanpa enkripsi ujung ke ujung. Pelanggan Plus memiliki akses ke fitur AI opsional seperti analisis suasana hati dan saran."
       },
       "accounts": {
         "title": "3. Akun Pengguna",
-        "content": "Kamu bertanggung jawab menjaga kerahasiaan kredensial akun dan kata sandi enkripsimu. Kamu setuju untuk bertanggung jawab atas semua aktivitas yang terjadi di bawah akunmu. Jika kamu menggunakan enkripsi E2E, kamu sepenuhnya bertanggung jawab untuk mengingat kata sandi enkripsimu—kami tidak bisa memulihkan data terenkripsi jika kamu kehilangan kata sandimu."
+        "content": "Anda bertanggung jawab untuk menjaga kerahasiaan kredensial masuk Anda dan kata sandi enkripsi apa pun yang Anda atur. Anda setuju untuk menerima tanggung jawab atas semua aktivitas yang terjadi di akun Anda, dan tidak membagikan kredensial Anda dengan orang lain. Jika Anda menggunakan enkripsi E2E, Anda sendiri yang bertanggung jawab untuk mengingat kata sandi enkripsi Anda — kami tidak dapat memulihkan data terenkripsi jika hilang. Anda tidak boleh menyamar sebagai orang lain atau salah menyajikan identitas Anda saat membuat atau menggunakan akun."
       },
       "dataStorage": {
-        "title": "4. Penyimpanan Data & Privasi",
-        "content": "Catatan jurnalmu disimpan di penyedia penyimpanan cloud pilihanmu (Google Drive, Dropbox, atau Nextcloud). Dengan enkripsi E2E diaktifkan, datamu dienkripsi di perangkatmu sebelum diunggah. Kami tidak memiliki akses ke konten terenkripsimu. Dalam mode Sederhana, data disinkronkan tanpa enkripsi. Silakan lihat Kebijakan Privasi kami untuk informasi lengkap tentang bagaimana kami menangani datamu."
+        "title": "8. Penyimpanan Data dan Privasi",
+        "content": "Entri jurnal Anda disimpan di penyedia penyimpanan cloud yang Anda pilih (Google Drive, Dropbox, Nextcloud, atau iCloud Drive) — bukan di server kami. Dengan enkripsi E2E aktif, data Anda dienkripsi di perangkat Anda sebelum meninggalkannya; kami tidak dapat mengakses konten terenkripsi Anda. Dalam mode Simple, data Anda disinkronkan tanpa enkripsi ujung ke ujung. Penanganan informasi pribadi kami dijelaskan dalam Kebijakan Privasi kami."
       },
       "intellectualProperty": {
-        "title": "5. Kekayaan Intelektual",
-        "content": "Kamu mempertahankan semua hak atas konten jurnalmu. Aplikasi OwnJournal, termasuk desain, kode, dan brandingnya, adalah milik kami dan dilindungi oleh hukum kekayaan intelektual. Kamu tidak boleh menyalin, memodifikasi, atau mendistribusikan aplikasi tanpa izin."
+        "title": "7. Kekayaan Intelektual",
+        "content": "Anda mempertahankan semua hak atas konten jurnal yang Anda buat. Tunduk pada kepatuhan Anda terhadap Ketentuan ini, kami memberikan Anda lisensi terbatas, non-eksklusif, tidak dapat dipindahtangankan, tidak dapat disublisensikan, dan dapat dicabut untuk menginstal dan menggunakan OwnJournal untuk penggunaan pribadi Anda. Aplikasi OwnJournal — termasuk kode sumber, desain, dan brandingnya — dimiliki oleh {{companyName}} dan dilindungi oleh undang-undang kekayaan intelektual. Anda tidak boleh menyalin, memodifikasi, mendistribusikan, menjual, atau membuat karya turunan dari aplikasi kecuali sebagaimana diizinkan secara eksplisit di bawah Ketentuan ini atau hukum yang berlaku."
       },
       "limitation": {
-        "title": "6. Batasan Tanggung Jawab",
-        "content": "OwnJournal disediakan \"sebagaimana adanya\" tanpa jaminan apa pun. Kami tidak bertanggung jawab atas kehilangan data, gangguan layanan, atau kerusakan yang timbul dari penggunaanmu atas aplikasi, kecuali sejauh tanggung jawab tersebut tidak dapat dikecualikan atau dibatasi berdasarkan hukum yang berlaku. Tidak ada dalam ketentuan ini yang mengecualikan atau membatasi tanggung jawab kami atas kelalaian berat, kesalahan yang disengaja, atau tanggung jawab lain yang tidak dapat dikecualikan secara hukum. Kamu menggunakan layanan ini dengan risikomu sendiri."
+        "title": "9. Batasan Tanggung Jawab",
+        "content": "OwnJournal disediakan \"apa adanya\" dan \"sebagaimana tersedia\" tanpa jaminan apa pun, baik tersurat maupun tersirat. Kami tidak menjamin bahwa layanan akan tidak terganggu atau bebas dari kesalahan, atau bahwa kehilangan data tidak akan terjadi. Sejauh diizinkan oleh hukum, kami tidak bertanggung jawab atas kehilangan data, gangguan layanan, atau kerugian tidak langsung, insidental, khusus, konsekuensial, atau punitif yang timbul dari penggunaan layanan oleh Anda. Tidak ada dalam Ketentuan ini yang mengecualikan atau membatasi tanggung jawab kami atas kematian atau cedera pribadi yang disebabkan oleh kelalaian, penipuan, kelalaian berat, kesengajaan, atau tanggung jawab lain yang tidak dapat secara hukum dikecualikan. Jika Anda adalah konsumen, klausul ini tidak memengaruhi hak undang-undang Anda."
       },
       "termination": {
-        "title": "7. Pengakhiran",
-        "content": "Kami berhak menangguhkan atau mengakhiri akunmu jika kamu melanggar ketentuan ini. Kamu bisa menghapus akunmu kapan saja melalui pengaturan aplikasi."
+        "title": "10. Pengakhiran",
+        "content": "Anda dapat menghapus akun Anda kapan saja melalui Pengaturan aplikasi. Setelah penghapusan, informasi akun Anda dihapus seperti yang dijelaskan dalam Kebijakan Privasi. Kami dapat menangguhkan atau mengakhiri akun Anda jika Anda secara material melanggar Ketentuan ini — termasuk pelanggaran bagian Penggunaan yang Dapat Diterima — dengan ketentuan kami memberi Anda pemberitahuan yang wajar dan kesempatan untuk memperbaiki pelanggaran (jika dapat diperbaiki) sebelum pengakhiran, kecuali dalam kasus penyalahgunaan serius, aktivitas ilegal, atau jika diwajibkan oleh hukum. Kami juga dapat menghentikan layanan dengan pemberitahuan setidaknya 30 hari."
       },
       "changes": {
-        "title": "8. Perubahan Ketentuan",
-        "content": "Kami dapat memperbarui ketentuan ini dari waktu ke waktu. Penggunaan OwnJournal secara berkelanjutan setelah perubahan merupakan penerimaan atas ketentuan baru. Kami akan memberitahu pengguna tentang perubahan signifikan melalui aplikasi."
+        "title": "11. Perubahan Ketentuan",
+        "content": "Kami dapat memperbarui Ketentuan ini dari waktu ke waktu. Untuk perubahan yang bersifat klarifikasi, teknis, atau diwajibkan oleh hukum, kami akan memperbarui Ketentuan ini dan tanggal \"Terakhir Diperbarui\" tanpa pemberitahuan sebelumnya. Untuk perubahan yang secara material memengaruhi hak atau kewajiban Anda sebagai konsumen (seperti kenaikan harga, perubahan signifikan pada layanan, atau pembatasan penggunaan baru), kami akan memberikan pemberitahuan setidaknya 30 hari sebelumnya melalui email dan melalui aplikasi. Jika Anda tidak menerima perubahan material, Anda dapat membatalkan langganan dan berhenti menggunakan layanan sebelum perubahan berlaku, dan Anda tidak akan ditagih untuk periode langganan berikutnya."
       },
       "contact": {
-        "title": "9. Kontak",
-        "content": "Jika kamu memiliki pertanyaan tentang ketentuan ini, silakan hubungi kami di {{companyEmail}}."
+        "title": "14. Kontak",
+        "content": "Jika Anda memiliki pertanyaan tentang Ketentuan ini, harap hubungi kami di {{companyEmail}}."
       },
       "governingLaw": {
-        "title": "10. Hukum yang Berlaku",
-        "content": "Ketentuan ini diatur oleh hukum {{companyCountry}}. Segala perselisihan akan diselesaikan di pengadilan Swedia. Ini tidak memengaruhi hak perlindungan konsumen wajib yang mungkin kamu miliki berdasarkan hukum negara tempat tinggalmu."
+        "title": "15. Hukum yang Mengatur",
+        "content": "Ketentuan ini diatur oleh hukum {{companyCountry}}. Setiap perselisihan akan diselesaikan di pengadilan Swedia. Hal ini tidak memengaruhi hak perlindungan konsumen wajib yang mungkin Anda miliki di bawah hukum negara tempat tinggal Anda."
+      },
+      "subscriptions": {
+        "title": "4. Langganan, Penagihan, dan Pembatalan",
+        "content": "OwnJournal menawarkan tingkat berbayar opsional (\"Plus\") yang dijual sebagai langganan dengan perpanjangan otomatis. Di Apple App Store (iOS), langganan ditagih melalui Apple ID Anda dan dikelola di pengaturan akun App Store Anda. Pembayaran dibebankan ke Apple ID Anda saat konfirmasi pembelian. Langganan Anda secara otomatis diperpanjang kecuali perpanjangan otomatis dimatikan setidaknya 24 jam sebelum akhir periode saat ini. Akun Anda ditagih untuk perpanjangan dalam waktu 24 jam sebelum akhir periode saat ini. Pembatalan berlaku pada akhir periode berbayar saat ini, dan setiap bagian yang tidak terpakai dari masa uji coba gratis akan hangus saat Anda memulai langganan berbayar. Di Google Play (Android), langganan ditagih melalui akun Google Play Anda dan dikelola di pengaturan langganan Google Play; prinsip perpanjangan otomatis dan pembatalan yang sama berlaku. Di web, langganan ditagih melalui Stripe dan dikelola di pengaturan akun Anda dalam OwnJournal. Harga ditampilkan dalam mata uang lokal Anda jika didukung dan termasuk pajak yang berlaku. Masa uji coba gratis, jika ditawarkan, secara otomatis berubah menjadi langganan berbayar pada akhir uji coba kecuali dibatalkan sebelum uji coba berakhir."
+      },
+      "withdrawal": {
+        "title": "5. Hak Penarikan (Konsumen UE/EEA)",
+        "content": "Jika Anda adalah konsumen di Uni Eropa, Wilayah Ekonomi Eropa, atau yurisdiksi lain yang memberikan hak setara, Anda memiliki hak penarikan 14 hari untuk menarik diri dari langganan berbayar apa pun yang dibeli melalui situs web kami (melalui Stripe), tanpa memberikan alasan. Periode ini dimulai pada hari kontrak disepakati. Untuk menggunakan hak ini, hubungi kami di {{companyEmail}} dalam waktu 14 hari, dan kami akan mengembalikan jumlah langganan. Dengan memilih untuk mulai menggunakan layanan berbayar sebelum masa penarikan 14 hari berakhir, Anda secara eksplisit meminta pelaksanaan segera dan mengakui bahwa Anda kehilangan hak penarikan setelah layanan diberikan sepenuhnya. Jika layanan telah diberikan sebagian, kami dapat menahan jumlah yang sebanding dengan penggunaan layanan oleh Anda. Untuk pembelian yang dilakukan melalui Apple App Store atau Google Play, permintaan pengembalian dana ditangani oleh Apple atau Google sesuai kebijakan masing-masing, dan hak penarikan yang dijelaskan di atas tidak berlaku untuk pembelian tersebut."
+      },
+      "acceptableUse": {
+        "title": "6. Penggunaan yang Dapat Diterima",
+        "content": "Anda setuju untuk tidak menggunakan OwnJournal: (a) untuk melanggar hukum atau peraturan yang berlaku; (b) untuk mengunggah, menyimpan, atau memproses konten yang ilegal, termasuk materi pelecehan seksual anak, konten yang menggambarkan tindakan tanpa persetujuan, atau konten yang melanggar hak kekayaan intelektual orang lain; (c) untuk mencoba mendapatkan akses tidak sah ke sistem kami, sistem penyedia layanan kami, atau akun pengguna lain; (d) untuk menghindari batas penggunaan yang adil pada fitur AI atau mekanisme pembelian yang diwajibkan platform; (e) untuk merekayasa balik, mendekompilasi, atau mencoba dengan cara lain untuk menurunkan kode sumber aplikasi di luar hak yang secara eksplisit diberikan oleh hukum yang berlaku; atau (f) untuk mengoperasikan sistem otomatis yang mengirim volume permintaan yang tidak proporsional ke server kami atau ke penyedia AI kami."
+      },
+      "appleTerms": {
+        "title": "12. Ketentuan Tambahan untuk Apple App Store",
+        "content": "Jika Anda mendapatkan OwnJournal dari Apple App Store, ketentuan tambahan berikut berlaku: (a) Ketentuan ini disepakati hanya antara Anda dan {{companyName}}, bukan dengan Apple. {{companyName}} (bukan Apple) sepenuhnya bertanggung jawab atas OwnJournal dan kontennya. (b) {{companyName}} sepenuhnya bertanggung jawab untuk menyediakan layanan pemeliharaan dan dukungan terkait OwnJournal sebagaimana ditentukan dalam Ketentuan ini atau sebagaimana diwajibkan oleh hukum yang berlaku. Apple tidak memiliki kewajiban apa pun untuk menyediakan layanan pemeliharaan dan dukungan terkait OwnJournal. (c) Dalam hal kegagalan OwnJournal untuk memenuhi jaminan apa pun yang berlaku, Anda dapat memberitahu Apple, dan Apple akan mengembalikan harga pembelian (jika ada) untuk aplikasi; sejauh diizinkan oleh hukum yang berlaku, Apple tidak memiliki kewajiban jaminan lain apa pun terkait OwnJournal. (d) {{companyName}} sepenuhnya bertanggung jawab untuk menangani klaim apa pun dari Anda atau pihak ketiga terkait OwnJournal atau kepemilikan dan penggunaan OwnJournal Anda, termasuk klaim tanggung jawab produk, klaim bahwa OwnJournal tidak sesuai dengan persyaratan hukum atau peraturan yang berlaku, dan klaim yang timbul berdasarkan undang-undang perlindungan konsumen atau yang serupa. (e) Dalam hal klaim pihak ketiga bahwa OwnJournal atau kepemilikan dan penggunaan OwnJournal Anda melanggar hak kekayaan intelektual pihak ketiga tersebut, {{companyName}} (bukan Apple) sepenuhnya bertanggung jawab atas penyelidikan, pembelaan, penyelesaian, dan pelepasan klaim tersebut. (f) Anda menyatakan dan menjamin bahwa Anda tidak berada di negara yang dikenai embargo Pemerintah AS atau ditetapkan sebagai negara yang \"mendukung terorisme\", dan bahwa Anda tidak berada di daftar Pemerintah AS untuk pihak yang dilarang atau dibatasi. (g) Apple dan anak perusahaan Apple adalah penerima manfaat pihak ketiga dari Ketentuan ini, dan setelah penerimaan Anda, Apple memiliki hak (dan dianggap telah menerima hak tersebut) untuk menegakkan Ketentuan ini terhadap Anda sebagai penerima manfaat pihak ketiga."
+      },
+      "severability": {
+        "title": "13. Keterpisahan",
+        "content": "Jika ada ketentuan dari Ketentuan ini ditemukan tidak sah atau tidak dapat diberlakukan oleh pengadilan yang berwenang, ketentuan tersebut akan diubah seminimal mungkin yang diperlukan untuk membuatnya dapat diberlakukan, atau dipisahkan dari Ketentuan ini jika tidak dapat dibuat dapat diberlakukan, dan ketentuan yang tersisa akan tetap berlaku penuh."
       }
     },
     "privacy": {
       "title": "Kebijakan Privasi",
-      "lastUpdatedDate": "Januari 2026",
+      "lastUpdatedDate": "April 2026",
       "intro": {
         "title": "Pendahuluan",
-        "content": "Privasimu penting bagi kami. OwnJournal dioperasikan oleh {{companyName}}, sebuah perusahaan yang terdaftar di {{companyCountry}}. Kebijakan Privasi ini menjelaskan bagaimana OwnJournal mengumpulkan, menggunakan, dan melindungi informasimu. Kami merancang OwnJournal dengan privasi sebagai prinsip utama."
+        "content": "Privasi Anda penting bagi kami. OwnJournal dioperasikan oleh {{companyName}}, perusahaan yang terdaftar di {{companyCountry}}. Kebijakan Privasi ini menjelaskan bagaimana OwnJournal mengumpulkan, menggunakan, dan melindungi informasi Anda. Kami merancang OwnJournal dengan privasi sebagai prinsip inti."
       },
       "dataController": {
         "title": "Pengendali Data",
-        "content": "Pengendali data untuk OwnJournal adalah {{companyName}}. Untuk pertanyaan terkait perlindungan data, kamu bisa menghubungi kami di {{companyEmail}}."
+        "content": "Pengendali data untuk OwnJournal adalah {{companyName}}. Untuk pertanyaan terkait perlindungan data, Anda dapat menghubungi kami di {{companyEmail}}."
       },
       "collection": {
         "title": "Informasi yang Kami Kumpulkan",
-        "content": "Informasi pribadi yang kami kumpulkan sangat minimal—alamat emailmu untuk keperluan autentikasi, dan nama tampilanmu jika disediakan oleh penyedia autentikasi eksternal (seperti Google). Nama tampilan hanya digunakan untuk autentikasi dan pengelolaan akun dan tidak pernah dipublikasikan. Selain itu, kami mengumpulkan statistik penggunaan agregat yang tidak dapat diidentifikasi secara pribadi seperti tampilan halaman, jenis perangkat, negara, dan sumber referensi. Data analitik ini tidak menggunakan cookie, tidak melacak pengguna individu, dan tidak bisa dikaitkan dengan akunmu. Saat kamu menggunakan enkripsi E2E, konten jurnalmu dienkripsi di perangkatmu dan kami tidak bisa membacanya. Dalam mode Sederhana, data jurnalmu disinkronkan ke penyedia cloud pilihanmu tanpa enkripsi ujung-ke-ujung. Mode Sederhana ditujukan untuk kemudahan dan mungkin mengurangi privasi dibandingkan mode E2E; datamu tetap dilindungi oleh langkah-langkah keamanan standar penyedia cloud-mu."
+        "content": "Informasi pribadi yang kami kumpulkan minimal. Sehubungan dengan akun Anda, kami mengumpulkan: alamat email Anda, nama tampilan Anda (jika disediakan oleh penyedia autentikasi eksternal seperti Google atau Apple), dan — setelah Anda menghubungkan penyimpanan cloud — catatan tentang penyedia mana yang Anda pilih. Untuk menjalankan layanan jurnal, kami menyimpan sedikit data status di server kami — apakah pengaturan enkripsi Anda telah selesai, status langganan Anda, dan pengenal yang dibutuhkan oleh pemroses pembayaran kami (Stripe) untuk mengelola langganan Anda. Untuk memantau penggunaan yang adil dari fitur AI opsional, kami mencatat penghitung penggunaan per pengguna (jenis analisis yang dilakukan dan stempel waktu; tidak pernah konten entri Anda). Backend autentikasi kami juga menyimpan metadata sesi standar seperti stempel waktu masuk. Nama tampilan hanya digunakan untuk mempersonalisasi pengalaman Anda dalam aplikasi dan tidak pernah dipublikasikan. Untuk menampilkan harga langganan dalam mata uang lokal Anda, kami dapat sebentar mencari negara yang terkait dengan alamat IP Anda; hanya kode negara yang dihasilkan yang digunakan, tidak ditautkan ke akun Anda, dan kami tidak menyimpan alamat IP Anda. Kami tidak menggunakan analitik pihak ketiga, SDK iklan, atau pelacak antar aplikasi. Saat Anda menggunakan enkripsi ujung ke ujung (E2E), konten jurnal Anda dienkripsi di perangkat Anda dan kami tidak dapat membacanya. Dalam mode Simple, data jurnal Anda disinkronkan dengan penyedia cloud pilihan Anda tanpa enkripsi ujung ke ujung. Mode Simple ditujukan untuk kenyamanan dan dapat mengurangi privasi dibandingkan dengan mode E2E; data Anda tetap dilindungi oleh langkah-langkah keamanan standar penyedia cloud Anda."
       },
       "usage": {
         "title": "Bagaimana Kami Menggunakan Informasi",
-        "content": "Kami menggunakan alamat emailmu semata-mata untuk autentikasi akun dan notifikasi layanan penting. Kami tidak menjual informasi pribadimu atau membagikannya dengan pihak ketiga untuk tujuan pemasaran."
+        "content": "Kami menggunakan informasi yang kami kumpulkan untuk tujuan berikut: alamat email Anda untuk autentikasi akun dan pemberitahuan layanan penting; nama tampilan Anda untuk mempersonalisasi pengalaman Anda dalam aplikasi; pilihan penyedia penyimpanan dan status pengaturan enkripsi Anda untuk menghubungkan Anda kembali ke akun yang benar dan melanjutkan sinkronisasi; status langganan Anda untuk memberikan atau membatasi akses ke fitur berbayar; pengenal yang digunakan oleh pemroses pembayaran kami (Stripe) untuk mengelola langganan Anda; dan penghitung penggunaan AI untuk memberlakukan batas penggunaan yang adil pada fitur AI opsional. Kami tidak menjual informasi pribadi Anda atau membagikannya dengan pihak ketiga untuk tujuan pemasaran."
       },
       "storage": {
         "title": "Penyimpanan Data",
-        "content": "Catatan jurnalmu disimpan di penyedia penyimpanan cloud pilihanmu (Google Drive, Dropbox, atau Nextcloud)—bukan di server kami. Kamu mempertahankan kontrol penuh atas tempat penyimpanan datamu. Kami hanya menyimpan informasi akun yang diperlukan untuk autentikasi."
+        "content": "Entri jurnal Anda disimpan di penyedia penyimpanan cloud pilihan Anda (Google Drive, Dropbox, Nextcloud, atau iCloud Drive) — bukan di server kami. Anda tetap memiliki kendali penuh atas tempat data Anda disimpan. Di server kami (dioperasikan melalui backend autentikasi dan basis data kami), kami hanya menyimpan informasi yang dibutuhkan untuk menjalankan layanan: detail autentikasi Anda, nama tampilan, pilihan penyedia penyimpanan, status pengaturan enkripsi, status langganan, pengenal yang digunakan oleh pemroses pembayaran kami (Stripe) untuk mengelola langganan Anda, dan penghitung penggunaan fitur AI per pengguna. Pembayaran diproses oleh penyedia pembayaran kami (Stripe untuk web, Apple In-App Purchase di iOS, Google Play Billing di Android); kami tidak menyimpan detail lengkap kartu pembayaran Anda di server kami."
       },
       "encryption": {
         "title": "Enkripsi Ujung-ke-Ujung",
@@ -2182,11 +2202,11 @@
       },
       "zeroKnowledge": {
         "title": "Arsitektur Zero-Knowledge",
-        "content": "OwnJournal dirancang agar kami tidak bisa mengakses atau membaca konten jurnalmu. Dengan enkripsi E2E diaktifkan, hanya kamu yang memegang kata sandi untuk mendekripsi datamu—ini dikenal sebagai arsitektur zero-knowledge. Jika kamu menggunakan fitur AI opsional, konten dikirim sebagaimana dijelaskan di \"Fitur AI dan Pemrosesan\" di atas."
+        "content": "Arsitektur zero-knowledge kami berlaku untuk konten jurnal Anda yang dienkripsi ujung ke ujung: dengan enkripsi E2E aktif, hanya Anda yang memiliki kata sandi yang diperlukan untuk mendekripsi data Anda, dan kami tidak dapat mengakses atau membacanya. Informasi akun yang diperlukan untuk menjalankan layanan — seperti alamat email Anda, nama tampilan, pilihan penyedia penyimpanan, status langganan, dan penghitung penggunaan AI — secara wajar dapat kami baca. Jika Anda menggunakan fitur AI opsional, teks yang relevan didekripsi di perangkat Anda dan dikirim seperti yang dijelaskan dalam bagian \"Fitur AI dan Pemrosesan\" kami di bawah ini."
       },
       "thirdParty": {
         "title": "Layanan Pihak Ketiga",
-        "content": "Kami berintegrasi dengan penyedia penyimpanan cloud (Google Drive, Dropbox, Nextcloud) untuk sinkronisasi data. Layanan-layanan ini memiliki kebijakan privasi mereka sendiri. Kami menggunakan layanan autentikasi untuk proses masuk yang aman. Saat kamu menggunakan fitur AI opsional, data diproses oleh penyedia layanan AI kami. Setiap layanan pihak ketiga beroperasi di bawah ketentuan dan praktik privasi mereka sendiri."
+        "content": "Kami berintegrasi dengan layanan pihak ketiga berikut, masing-masing beroperasi berdasarkan ketentuan dan praktik privasinya sendiri: penyedia penyimpanan cloud (Google Drive, Dropbox, Nextcloud, iCloud Drive) untuk sinkronisasi dengan akun Anda sendiri; layanan autentikasi (Google, Apple) dan backend autentikasi kami untuk login yang aman; penyedia pembayaran (Stripe untuk web, Apple In-App Purchase di iOS, Google Play Billing di Android) untuk menangani langganan; dan penyedia layanan AI (Google Gemini, OpenAI) ketika Anda memilih untuk menggunakan fitur AI opsional."
       },
       "syncIdentifier": {
         "title": "Identifikasi sinkronisasi dan perangkat",
@@ -2194,7 +2214,7 @@
       },
       "aiProcessing": {
         "title": "Fitur AI dan Pemrosesan",
-        "content": "OwnJournal menawarkan fitur opsional berbasis AI seperti analisis suasana hati dan saran, yang tersedia secara eksklusif untuk pelanggan Plus. Pemrosesan AI hanya terjadi saat kamu, sebagai pelanggan Plus, secara eksplisit menggunakan fitur-fitur ini. Saat kamu menggunakan fitur AI, teks yang relevan didekripsi di perangkatmu terlebih dahulu, kemudian dikirim ke layanan AI melalui tindakan eksplisitmu; konten jurnalmu dikirim ke penyedia AI kami — saat ini Google (Gemini) atau OpenAI — melalui API mereka. OwnJournal tidak menyimpan input atau output AI di server kami. Penyedia-penyedia ini mungkin menyimpan prompt dan output untuk jangka waktu terbatas untuk pemantauan penyalahgunaan dan penegakan kebijakan, sesuai kebijakan mereka saat ini. Pemrosesan AI mungkin terjadi di luar EEA; baik Google maupun OpenAI mempertahankan perlindungan transfer data yang memadai seperti Standard Contractual Clauses. OwnJournal tidak ikut serta dalam program penyedia mana pun yang memungkinkan data AI digunakan untuk pelatihan atau peningkatan model. Kamu bisa memilih untuk tidak menggunakan fitur AI, dan melakukan hal itu tidak memengaruhi fungsionalitas journaling inti."
+        "content": "OwnJournal menawarkan fitur AI opsional seperti analisis suasana hati dan saran, yang tersedia secara eksklusif untuk pelanggan Plus. Pemrosesan AI hanya terjadi ketika Anda, sebagai pelanggan Plus, secara eksplisit menggunakan fitur ini. Saat Anda menggunakan fitur AI, teks yang relevan didekripsi terlebih dahulu di perangkat Anda, lalu dikirim ke layanan AI melalui tindakan eksplisit Anda; konten jurnal Anda dikirim ke penyedia AI kami — saat ini Google (Gemini), dengan OpenAI sebagai alternatif — melalui API berbayar mereka. Kami tidak menyimpan input atau output AI di server kami; kami hanya mencatat penghitung per pengguna dari penggunaan fitur AI (jenis analisis yang dilakukan dan stempel waktu, tidak pernah kontennya) untuk memberlakukan batas penggunaan yang adil. Penyedia ini dapat menyimpan prompt dan output untuk jangka waktu terbatas untuk pemantauan penyalahgunaan dan penegakan kebijakan, sesuai kebijakan mereka saat ini. Pemrosesan AI dapat terjadi di luar EEA; baik Google maupun OpenAI mempertahankan perlindungan transfer data yang sesuai seperti Klausul Kontrak Standar. Kami menggunakan tingkat berbayar dari penyedia AI ini, di mana prompt dan output tidak digunakan untuk melatih atau meningkatkan model penyedia. Anda dapat memilih untuk tidak menggunakan fitur AI, dan melakukannya tidak memengaruhi fungsi inti jurnal."
       },
       "diagnostics": {
         "title": "Diagnostik dan Log Crash",
@@ -2202,15 +2222,15 @@
       },
       "retention": {
         "title": "Penyimpanan Data",
-        "content": "Data jurnalmu tetap di penyimpanan cloud-mu sampai kamu menghapusnya. Informasi akun disimpan selama akunmu aktif. Kamu bisa menghapus akunmu kapan saja, yang akan menghapus data akunmu dari sistem autentikasi kami."
+        "content": "Data jurnal Anda tetap di penyimpanan cloud Anda hingga Anda menghapusnya. Informasi akun yang disimpan di server kami dipertahankan selama akun Anda aktif. Saat Anda menghapus akun Anda, kami segera menghapus profil Anda, catatan langganan, penghitung penggunaan AI, dan data autentikasi dari sistem kami. Catatan transaksi yang dimiliki oleh pemroses pembayaran kami (Stripe, Apple, Google) disimpan oleh mereka berdasarkan kebijakan mereka sendiri dan hukum yang berlaku; Anda dapat meminta akses atau penghapusan catatan tersebut langsung dengan penyedia yang relevan."
       },
       "accountDeletion": {
         "title": "Penghapusan Akun",
-        "content": "Kamu bisa menghapus akunmu kapan saja melalui Pengaturan di aplikasi atau dengan menghubungi kami di {{companyEmail}}. Penghapusan akun menghilangkan profil, langganan, dan data autentikasimu dari sistem kami. Data jurnal di penyimpanan cloud-mu tetap di bawah kendalimu dan bisa kamu hapus di sana."
+        "content": "Anda dapat menghapus akun Anda kapan saja melalui Pengaturan dalam aplikasi atau dengan menghubungi kami di {{companyEmail}}. Penghapusan akun menghapus profil, langganan, penghitung penggunaan AI, dan data autentikasi Anda dari sistem kami. Data jurnal di penyimpanan cloud Anda tetap berada di bawah kendali Anda dan dapat dihapus di sana oleh Anda."
       },
       "legalBasis": {
         "title": "Dasar Hukum Pemrosesan",
-        "content": "Kami memproses datamu berdasarkan: (1) Pelaksanaan kontrak - untuk menyediakan layanan journaling yang kamu daftarkan; (2) Kepentingan yang sah - untuk menjaga keamanan layanan dan mencegah penyalahgunaan; (3) Persetujuan - untuk fitur opsional seperti analisis AI. Kamu bisa mencabut persetujuan untuk fitur opsional kapan saja."
+        "content": "Kami memproses data Anda berdasarkan: (1) Pelaksanaan kontrak — untuk menyediakan layanan jurnal yang Anda daftarkan; (2) Kepentingan sah — untuk menjaga keamanan layanan dan mencegah penyalahgunaan, serta untuk memberlakukan batas penggunaan yang adil pada fitur AI opsional; dan (3) Persetujuan — untuk fitur opsional seperti analisis AI (Anda dapat menarik persetujuan kapan saja)."
       },
       "dpo": {
         "title": "Petugas Perlindungan Data (DPO)",
@@ -2218,11 +2238,11 @@
       },
       "rights": {
         "title": "Hak-Hakmu",
-        "content": "Berdasarkan GDPR dan undang-undang privasi serupa, kamu memiliki hak untuk: mengakses datamu, mengekspor datamu (portabilitas), mengoreksi data yang tidak akurat, menghapus datamu (penghapusan), membatasi pemrosesan, menolak pemrosesan, dan mengajukan keluhan ke otoritas perlindungan data setempat. Untuk penduduk UE, kamu bisa menghubungi otoritas pengawas nasionalmu. Di {{companyCountry}}, ini adalah {{supervisoryAuthority}} di {{supervisoryAuthorityUrl}}. Untuk menggunakan hak-hak ini, hubungi kami di {{companyEmail}}."
+        "content": "Berdasarkan GDPR dan undang-undang privasi serupa, Anda memiliki hak untuk: mengakses data Anda, mengekspor data Anda (portabilitas), memperbaiki data yang tidak akurat, menghapus data Anda (penghapusan), membatasi pemrosesan, menolak pemrosesan, dan mengajukan keluhan ke otoritas perlindungan data setempat. Untuk penduduk UE, Anda dapat menghubungi otoritas pengawasan nasional Anda. Di {{companyCountry}}, ini adalah {{supervisoryAuthority}} di {{supervisoryAuthorityUrl}}. Untuk menggunakan hak-hak ini, hubungi kami di {{companyEmail}}."
       },
       "children": {
         "title": "Privasi Anak-Anak",
-        "content": "OwnJournal tidak ditujukan untuk anak-anak di bawah 13 tahun. Kami tidak secara sadar mengumpulkan informasi pribadi dari anak-anak. Jika kamu yakin kami secara tidak sengaja mengumpulkan informasi tersebut, silakan hubungi kami."
+        "content": "OwnJournal tidak ditujukan untuk anak-anak di bawah usia 13 tahun, atau usia persetujuan digital yang lebih tinggi yang berlaku di negara Anda (hingga 16 tahun di beberapa Negara Anggota UE). Kami tidak secara sadar mengumpulkan informasi pribadi dari anak-anak di bawah usia yang berlaku. Jika Anda yakin kami secara tidak sengaja mengumpulkan informasi tersebut, harap hubungi kami."
       },
       "changes": {
         "title": "Perubahan Kebijakan Ini",
@@ -2230,7 +2250,19 @@
       },
       "contact": {
         "title": "Hubungi Kami",
-        "content": "Jika kamu memiliki pertanyaan tentang Kebijakan Privasi ini, ingin menggunakan hak datamu, atau memiliki kekhawatiran, silakan hubungi kami di {{companyEmail}}. Kami berusaha merespons dalam 30 hari."
+        "content": "Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini, ingin menggunakan hak data Anda, atau memiliki kekhawatiran, harap hubungi kami di {{companyEmail}}. Kami berusaha untuk merespons dalam waktu 30 hari."
+      },
+      "localStorage": {
+        "title": "Cookie dan Penyimpanan Lokal",
+        "content": "OwnJournal tidak menggunakan cookie pihak ketiga, cookie iklan, atau pelacak antar aplikasi. Aplikasi menggunakan penyimpanan lokal perangkat Anda (localStorage browser dan IndexedDB di web; penyimpanan lokal yang setara di perangkat seluler dan desktop) untuk menyimpan kunci enkripsi, entri jurnal, status sinkronisasi, dan preferensi Anda di perangkat Anda. Data lokal ini per pengguna dan tetap berada di perangkat Anda kecuali Anda secara eksplisit mengekspornya atau menyinkronkannya dengan penyedia penyimpanan cloud pilihan Anda. Autentikasi menggunakan token sesi yang diterbitkan oleh backend autentikasi kami dan disimpan secara lokal di perangkat Anda. Anda dapat menghapus data lokal kapan saja dari Pengaturan atau dengan menghapus penyimpanan browser Anda."
+      },
+      "internationalTransfers": {
+        "title": "Transfer Data Internasional",
+        "content": "Beberapa penyedia layanan kami memproses data di luar Wilayah Ekonomi Eropa (EEA). Backend autentikasi dan basis data kami, penyedia pembayaran (Stripe, Apple, Google), penyedia AI (Google, OpenAI), dan penyedia penyimpanan cloud pilihan Anda dapat mentransfer atau memproses data di negara-negara yang belum menerima keputusan kecukupan dari Komisi Eropa. Dalam kasus tersebut, kami dan penyedia mengandalkan perlindungan yang sesuai berdasarkan Pasal 46 GDPR, seperti Klausul Kontrak Standar (SCC) Komisi Eropa bersama dengan langkah-langkah teknis dan organisasi tambahan. Anda dapat meminta informasi lebih lanjut tentang perlindungan yang berlaku dengan menghubungi kami."
+      },
+      "californiaRights": {
+        "title": "Hak Privasi Negara Bagian AS",
+        "content": "Jika Anda adalah penduduk California atau negara bagian AS lainnya dengan undang-undang privasi konsumen yang komprehensif (seperti Virginia, Colorado, Connecticut, Utah, Texas, atau lainnya yang diberlakukan), Anda memiliki hak terkait informasi pribadi Anda yang dapat mencakup: hak untuk mengetahui informasi pribadi apa yang kami kumpulkan, hak untuk menghapus informasi pribadi Anda, hak untuk mengoreksi informasi pribadi yang tidak akurat, hak untuk menolak penggunaan tertentu (termasuk penjualan atau pembagian informasi pribadi), dan hak untuk membatasi penggunaan informasi pribadi yang sensitif. Kami tidak menjual informasi pribadi Anda dan tidak membagikannya untuk iklan perilaku lintas konteks. Untuk menggunakan hak Anda, hubungi kami di alamat yang tertera di bagian \"Hubungi Kami\"."
       }
     }
   },

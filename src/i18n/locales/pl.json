@@ -2108,70 +2108,90 @@
     "privacyPolicy": "Polityka prywatności",
     "terms": {
       "title": "Warunki usługi",
-      "lastUpdatedDate": "Styczeń 2026",
+      "lastUpdatedDate": "Kwiecień 2026",
       "acceptance": {
         "title": "1. Akceptacja warunków",
-        "content": "Uzyskując dostęp lub korzystając z OwnJournal, zgadzasz się być związany niniejszymi Warunkami usługi. Jeśli nie zgadzasz się z tymi warunkami, prosimy nie korzystać z naszej usługi."
+        "content": "Uzyskując dostęp do OwnJournal lub korzystając z niego, zgadzasz się być związany niniejszymi Warunkami świadczenia usług wraz z naszą Polityką prywatności, która stanowi część niniejszych Warunków. Aby korzystać z OwnJournal, musisz mieć co najmniej 13 lat lub wyższy wiek zgody cyfrowej obowiązujący w Twoim kraju (do 16 lat w niektórych państwach członkowskich UE). Jeśli nie zgadzasz się na te Warunki, nie korzystaj z usługi."
       },
       "description": {
         "title": "2. Opis usługi",
-        "content": "OwnJournal to aplikacja do prowadzenia osobistego dziennika prowadzona przez {{companyName}}, firmę zarejestrowaną w {{companyCountry}}. Pozwala tworzyć, przechowywać i zarządzać wpisami dziennika. Zapewniamy opcje szyfrowania end-to-end i obsługujemy różnych dostawców magazynu w chmurze do synchronizacji danych między urządzeniami. Subskrybenci Plus mają dostęp do opcjonalnych funkcji opartych na AI, takich jak analiza nastroju i sugestie; przetwarzanie AI odbywa się tylko wtedy, gdy te funkcje są jawnie używane."
+        "content": "OwnJournal jest osobistą aplikacją dziennika prowadzoną przez {{companyName}}, spółkę zarejestrowaną w {{companyCountry}}. Pozwala tworzyć, przechowywać, przeszukiwać i analizować Twoje wpisy do dziennika w sieci, na iOS, Androidzie i komputerze. Wnosisz własny magazyn w chmurze (Google Drive, Dropbox, Nextcloud lub iCloud Drive) do synchronizacji między urządzeniami lub możesz korzystać z aplikacji całkowicie offline z lokalnym przechowywaniem. Oferujemy szyfrowanie end-to-end (E2E) oraz tryb Simple bez szyfrowania end-to-end. Subskrybenci Plus mają dostęp do opcjonalnych funkcji wspieranych przez AI, takich jak analiza nastroju i sugestie."
       },
       "accounts": {
         "title": "3. Konta użytkowników",
-        "content": "Jesteś odpowiedzialny za zachowanie poufności poświadczeń konta i haseł szyfrowania. Zgadzasz się przyjąć odpowiedzialność za wszystkie działania, które mają miejsce na Twoim koncie. Jeśli używasz szyfrowania E2E, jesteś wyłącznie odpowiedzialny za zapamiętanie hasła szyfrowania — nie możemy odzyskać zaszyfrowanych danych, jeśli zapomnisz hasła."
+        "content": "Jesteś odpowiedzialny za zachowanie poufności swoich danych logowania i wszelkich haseł szyfrowania, które ustawisz. Zgadzasz się przyjąć odpowiedzialność za wszystkie działania, które mają miejsce w ramach Twojego konta, i nie udostępniać swoich danych innym. Jeśli korzystasz z szyfrowania E2E, jesteś wyłącznie odpowiedzialny za zapamiętanie hasła szyfrowania — nie możemy odzyskać zaszyfrowanych danych w przypadku ich utraty. Nie wolno Ci podszywać się pod inną osobę ani błędnie przedstawiać swojej tożsamości podczas tworzenia lub korzystania z konta."
       },
       "dataStorage": {
-        "title": "4. Przechowywanie danych i prywatność",
-        "content": "Twoje wpisy dziennika są przechowywane u wybranego dostawcy magazynu w chmurze (Google Drive, Dropbox lub Nextcloud). Z włączonym szyfrowaniem E2E Twoje dane są szyfrowane na urządzeniu przed przesłaniem. Nie mamy dostępu do zaszyfrowanych treści. W trybie prostym dane są synchronizowane bez szyfrowania. Zapoznaj się z naszą Polityką prywatności po szczegółowe informacje o tym, jak przetwarzamy Twoje dane."
+        "title": "8. Przechowywanie danych i prywatność",
+        "content": "Wpisy do Twojego dziennika są przechowywane u wybranego przez Ciebie dostawcy chmury (Google Drive, Dropbox, Nextcloud lub iCloud Drive) — nie na naszych serwerach. Przy włączonym szyfrowaniu E2E Twoje dane są szyfrowane na Twoim urządzeniu, zanim je opuszczą; nie mamy dostępu do Twojej zaszyfrowanej zawartości. W trybie Simple Twoje dane są synchronizowane bez szyfrowania end-to-end. Nasze postępowanie z informacjami osobowymi opisano w naszej Polityce prywatności."
       },
       "intellectualProperty": {
-        "title": "5. Własność intelektualna",
-        "content": "Zachowujesz wszystkie prawa do treści dziennika. Aplikacja OwnJournal, w tym jej projekt, kod i branding, jest naszą własnością i jest chroniona prawem własności intelektualnej. Nie możesz kopiować, modyfikować ani rozpowszechniać aplikacji bez zgody."
+        "title": "7. Własność intelektualna",
+        "content": "Zachowujesz wszystkie prawa do tworzonych przez siebie treści dziennika. Pod warunkiem przestrzegania niniejszych Warunków przyznajemy Ci ograniczoną, niewyłączną, nieprzenoszalną, nielicencjonowalną podlicencyjnie i odwołalną licencję na zainstalowanie i używanie OwnJournal do Twojego użytku osobistego. Aplikacja OwnJournal — w tym jej kod źródłowy, projekt i marka — należy do {{companyName}} i jest chroniona przepisami prawa własności intelektualnej. Nie możesz kopiować, modyfikować, rozpowszechniać, sprzedawać ani tworzyć dzieł pochodnych aplikacji, z wyjątkiem przypadków wyraźnie dozwolonych przez niniejsze Warunki lub obowiązujące prawo."
       },
       "limitation": {
-        "title": "6. Ograniczenie odpowiedzialności",
-        "content": "OwnJournal jest dostarczany \"tak jak jest\" bez żadnych gwarancji. Nie ponosimy odpowiedzialności za utratę danych, przerwy w świadczeniu usług ani szkody wynikające z korzystania z aplikacji, z wyjątkiem zakresu, w jakim taka odpowiedzialność nie może być wyłączona lub ograniczona na mocy obowiązującego prawa. Żadne postanowienia niniejszych warunków nie wyłączają ani nie ograniczają naszej odpowiedzialności za rażące zaniedbanie, umyślne działanie lub jakąkolwiek inną odpowiedzialność, która nie może być prawnie wyłączona. Korzystasz z usługi na własne ryzyko."
+        "title": "9. Ograniczenie odpowiedzialności",
+        "content": "OwnJournal jest dostarczany \"taki, jaki jest\" i \"w zależności od dostępności\" bez jakichkolwiek gwarancji, wyrażonych lub dorozumianych. Nie gwarantujemy, że usługa będzie nieprzerwana ani wolna od błędów, ani że nie wystąpi utrata danych. W maksymalnym zakresie dozwolonym przez prawo nie ponosimy odpowiedzialności za utratę danych, przerwy w świadczeniu usługi ani za szkody pośrednie, przypadkowe, szczególne, następcze lub karne wynikające z korzystania z usługi. Nic w niniejszych Warunkach nie wyłącza ani nie ogranicza naszej odpowiedzialności za śmierć lub obrażenia ciała spowodowane zaniedbaniem, oszustwem, rażącym niedbalstwem, umyślnym naruszeniem lub jakąkolwiek inną odpowiedzialnością, której nie można zgodnie z prawem wyłączyć. Jeśli jesteś konsumentem, niniejsza klauzula nie wpływa na Twoje prawa ustawowe."
       },
       "termination": {
-        "title": "7. Rozwiązanie",
-        "content": "Zastrzegamy sobie prawo do zawieszenia lub zamknięcia Twojego konta w przypadku naruszenia niniejszych warunków. Możesz usunąć swoje konto w dowolnym momencie przez ustawienia aplikacji."
+        "title": "10. Rozwiązanie umowy",
+        "content": "Możesz usunąć swoje konto w dowolnym momencie poprzez Ustawienia aplikacji. Po usunięciu informacje o Twoim koncie są usuwane zgodnie z opisem w Polityce prywatności. Możemy zawiesić lub rozwiązać Twoje konto, jeśli istotnie naruszysz te Warunki — w tym naruszenia sekcji Akceptowalne użytkowanie — pod warunkiem, że damy Ci rozsądne powiadomienie i możliwość naprawienia naruszenia (jeśli jest to możliwe) przed rozwiązaniem, z wyjątkiem przypadków poważnego nadużycia, nielegalnej działalności lub gdy wymaga tego prawo. Możemy również zaprzestać świadczenia usługi z co najmniej 30-dniowym wyprzedzeniem."
       },
       "changes": {
-        "title": "8. Zmiany warunków",
-        "content": "Możemy od czasu do czasu aktualizować te warunki. Dalsze korzystanie z OwnJournal po zmianach stanowi akceptację nowych warunków. Powiadomimy użytkowników o istotnych zmianach przez aplikację."
+        "title": "11. Zmiany warunków",
+        "content": "Możemy okresowo aktualizować niniejsze Warunki. W przypadku zmian, które są wyjaśniające, techniczne lub wymagane przez prawo, zaktualizujemy te Warunki i datę \"Ostatniej aktualizacji\" bez wcześniejszego powiadomienia. W przypadku zmian, które istotnie wpływają na Twoje prawa lub obowiązki jako konsumenta (takich jak podwyżki cen, znaczące zmiany w usłudze lub nowe ograniczenia użytkowania), zapewnimy co najmniej 30-dniowe wcześniejsze powiadomienie za pośrednictwem e-maila i aplikacji. Jeśli nie akceptujesz istotnych zmian, możesz anulować subskrypcję i zaprzestać korzystania z usługi przed wejściem zmian w życie, a kolejny okres subskrypcji nie zostanie obciążony."
       },
       "contact": {
-        "title": "9. Kontakt",
-        "content": "Jeśli masz pytania dotyczące tych warunków, skontaktuj się z nami pod adresem {{companyEmail}}."
+        "title": "14. Kontakt",
+        "content": "Jeśli masz pytania dotyczące niniejszych Warunków, skontaktuj się z nami pod adresem {{companyEmail}}."
       },
       "governingLaw": {
-        "title": "10. Prawo właściwe",
-        "content": "Niniejsze warunki podlegają prawu {{companyCountry}}. Wszelkie spory będą rozstrzygane przez sądy szwedzkie. Nie wpływa to na żadne obowiązkowe prawa ochrony konsumenta, które możesz posiadać na mocy prawa kraju Twojego zamieszkania."
+        "title": "15. Prawo właściwe",
+        "content": "Niniejsze Warunki podlegają prawu {{companyCountry}}. Wszelkie spory będą rozstrzygane przez sądy szwedzkie. Nie wpływa to na żadne bezwzględnie obowiązujące prawa konsumenckie, które mogą Ci przysługiwać na mocy prawa kraju zamieszkania."
+      },
+      "subscriptions": {
+        "title": "4. Subskrypcje, rozliczenia i anulowanie",
+        "content": "OwnJournal oferuje opcjonalny płatny poziom (\"Plus\") sprzedawany jako subskrypcja z automatycznym odnawianiem. W Apple App Store (iOS) subskrypcje są rozliczane za pośrednictwem Twojego Apple ID i zarządzane w ustawieniach Twojego konta App Store. Płatność jest pobierana z Twojego Apple ID przy potwierdzeniu zakupu. Twoja subskrypcja odnawia się automatycznie, chyba że automatyczne odnawianie zostanie wyłączone co najmniej 24 godziny przed końcem bieżącego okresu. Twoje konto jest obciążane za odnowienie w ciągu 24 godzin przed końcem bieżącego okresu. Anulowanie wchodzi w życie z końcem bieżącego okresu rozliczeniowego, a wszelka niewykorzystana część bezpłatnego okresu próbnego przepada wraz z rozpoczęciem płatnej subskrypcji. W Google Play (Android) subskrypcje są rozliczane za pośrednictwem Twojego konta Google Play i zarządzane w ustawieniach subskrypcji Google Play; obowiązują te same zasady automatycznego odnawiania i anulowania. W sieci subskrypcje są rozliczane za pośrednictwem Stripe i zarządzane w ustawieniach Twojego konta w OwnJournal. Ceny są wyświetlane w Twojej walucie lokalnej tam, gdzie to możliwe, i obejmują wszelkie obowiązujące podatki. Bezpłatne okresy próbne, jeśli są oferowane, automatycznie konwertują się w płatną subskrypcję na koniec okresu próbnego, chyba że zostaną anulowane przed jego końcem."
+      },
+      "withdrawal": {
+        "title": "5. Prawo do odstąpienia (konsumenci UE/EOG)",
+        "content": "Jeśli jesteś konsumentem w Unii Europejskiej, Europejskim Obszarze Gospodarczym lub innej jurysdykcji przyznającej równoważne prawa, masz 14-dniowe prawo do odstąpienia od dowolnej płatnej subskrypcji nabytej za pośrednictwem naszej strony internetowej (przez Stripe), bez podawania przyczyny. Okres ten rozpoczyna się w dniu zawarcia umowy. Aby skorzystać z tego prawa, skontaktuj się z nami pod adresem {{companyEmail}} w ciągu 14 dni, a my zwrócimy kwotę subskrypcji. Decydując się na rozpoczęcie korzystania z płatnej usługi przed upływem 14-dniowego okresu odstąpienia, wyraźnie żądasz natychmiastowego wykonania i przyjmujesz do wiadomości, że tracisz prawo do odstąpienia, gdy usługa zostanie w pełni wykonana. W przypadku częściowego wykonania usługi możemy zatrzymać kwotę proporcjonalną do wykorzystania usługi przez Ciebie. W przypadku zakupów dokonanych za pośrednictwem Apple App Store lub Google Play wnioski o zwrot środków są obsługiwane przez Apple lub Google zgodnie z ich politykami, a opisane powyżej prawo do odstąpienia nie ma zastosowania do tych zakupów."
+      },
+      "acceptableUse": {
+        "title": "6. Akceptowalne użytkowanie",
+        "content": "Zgadzasz się nie używać OwnJournal: (a) do naruszania jakiegokolwiek obowiązującego prawa lub przepisu; (b) do przesyłania, przechowywania lub przetwarzania nielegalnych treści, w tym materiałów przedstawiających seksualne wykorzystywanie dzieci, treści przedstawiających czyny bez zgody lub treści naruszających prawa własności intelektualnej innych osób; (c) do prób uzyskania nieautoryzowanego dostępu do naszych systemów, systemów naszych dostawców usług lub kont innych użytkowników; (d) do obchodzenia limitów uczciwego użytkowania funkcji AI lub mechanizmów zakupowych narzuconych przez platformę; (e) do inżynierii wstecznej, dekompilacji lub innego rodzaju prób wyprowadzenia kodu źródłowego aplikacji poza prawami wyraźnie przyznanymi przez obowiązujące prawo; lub (f) do prowadzenia automatycznych systemów wysyłających nieproporcjonalnie duże ilości żądań do naszych serwerów lub do naszych dostawców AI."
+      },
+      "appleTerms": {
+        "title": "12. Dodatkowe warunki dla Apple App Store",
+        "content": "Jeśli pozyskałeś OwnJournal z Apple App Store, obowiązują następujące dodatkowe warunki: (a) Niniejsze Warunki są zawarte wyłącznie między Tobą a {{companyName}}, a nie z Apple. {{companyName}} (a nie Apple) ponosi wyłączną odpowiedzialność za OwnJournal i jego treść. (b) {{companyName}} ponosi wyłączną odpowiedzialność za świadczenie usług konserwacji i wsparcia w odniesieniu do OwnJournal, zgodnie z niniejszymi Warunkami lub wymogami obowiązującego prawa. Apple nie ma żadnego obowiązku świadczenia usług konserwacji i wsparcia w odniesieniu do OwnJournal. (c) W przypadku jakiejkolwiek niezgodności OwnJournal z obowiązującą gwarancją możesz powiadomić Apple, a Apple zwróci cenę zakupu (jeśli istnieje) za aplikację; w maksymalnym zakresie dozwolonym przez obowiązujące prawo Apple nie będzie miało żadnych innych zobowiązań gwarancyjnych w odniesieniu do OwnJournal. (d) {{companyName}} ponosi wyłączną odpowiedzialność za rozpatrywanie wszelkich roszczeń z Twojej strony lub z strony osób trzecich dotyczących OwnJournal lub Twojego posiadania i korzystania z OwnJournal, w tym roszczeń z tytułu odpowiedzialności za produkt, roszczeń, że OwnJournal nie spełnia obowiązujących wymogów prawnych lub regulacyjnych, oraz roszczeń wynikających z przepisów dotyczących ochrony konsumentów lub podobnych. (e) W przypadku roszczenia osoby trzeciej, że OwnJournal lub Twoje posiadanie i korzystanie z OwnJournal narusza prawa własności intelektualnej tej osoby trzeciej, {{companyName}} (a nie Apple) będzie wyłącznie odpowiedzialny za zbadanie, obronę, ugodę i zaspokojenie tego roszczenia. (f) Oświadczasz i zapewniasz, że nie znajdujesz się w kraju objętym embargiem rządu USA ani uznanym za kraj „wspierający terroryzm\" oraz że nie znajdujesz się na żadnej liście rządu USA dotyczącej zabronionych lub ograniczonych stron. (g) Apple i jej podmioty zależne są stronami trzecimi uprawnionymi z tytułu niniejszych Warunków, a po Twojej akceptacji Apple ma prawo (i uznaje się, że je zaakceptowała) egzekwować niniejsze Warunki wobec Ciebie jako strona trzecia uprawniona."
+      },
+      "severability": {
+        "title": "13. Klauzula salwatoryjna",
+        "content": "Jeśli jakiekolwiek postanowienie niniejszych Warunków zostanie uznane za nieważne lub niewykonalne przez właściwy sąd, postanowienie to zostanie zmodyfikowane w minimalnym zakresie niezbędnym do uczynienia go wykonalnym lub odłączone od niniejszych Warunków, jeśli nie można go uczynić wykonalnym, a pozostałe postanowienia pozostaną w pełnej mocy."
       }
     },
     "privacy": {
       "title": "Polityka prywatności",
-      "lastUpdatedDate": "Styczeń 2026",
+      "lastUpdatedDate": "Kwiecień 2026",
       "intro": {
         "title": "Wprowadzenie",
-        "content": "Twoja prywatność jest dla nas ważna. OwnJournal jest prowadzony przez {{companyName}}, firmę zarejestrowaną w {{companyCountry}}. Niniejsza Polityka prywatności wyjaśnia, jak OwnJournal zbiera, wykorzystuje i chroni Twoje informacje. Zaprojektowaliśmy OwnJournal z prywatnością jako podstawową zasadą."
+        "content": "Twoja prywatność jest dla nas ważna. OwnJournal jest obsługiwany przez {{companyName}}, spółkę zarejestrowaną w {{companyCountry}}. Niniejsza Polityka prywatności wyjaśnia, w jaki sposób OwnJournal zbiera, wykorzystuje i chroni Twoje informacje. Zaprojektowaliśmy OwnJournal z prywatnością jako fundamentalną zasadą."
       },
       "dataController": {
         "title": "Administrator danych",
-        "content": "Administratorem danych dla OwnJournal jest {{companyName}}. W sprawach dotyczących ochrony danych możesz skontaktować się z nami pod adresem {{companyEmail}}."
+        "content": "Administratorem danych OwnJournal jest {{companyName}}. W sprawach dotyczących ochrony danych możesz skontaktować się z nami pod adresem {{companyEmail}}."
       },
       "collection": {
         "title": "Informacje, które zbieramy",
-        "content": "Zbierane przez nas dane osobowe są minimalne: Twój adres e-mail do celów uwierzytelniania oraz Twoja nazwa wyświetlana, jeśli jest dostarczana przez zewnętrznego dostawcę uwierzytelniania (takiego jak Google). Nazwy wyświetlane są używane wyłącznie do uwierzytelniania i zarządzania kontem i nigdy nie są upubliczniane. Ponadto zbieramy nieidentyfikowalne osobiście, zagregowane statystyki użytkowania, takie jak wyświetlenia stron, typ urządzenia, kraj i źródło odesłania. Te dane analityczne nie używają plików cookie, nie śledzą indywidualnych użytkowników i nie mogą być powiązane z Twoim kontem. Gdy używasz szyfrowania E2E, zawartość Twojego dziennika jest szyfrowana na Twoim urządzeniu i nie możemy jej odczytać. W trybie prostym dane Twojego dziennika są synchronizowane z wybranym dostawcą pamięci w chmurze bez szyfrowania end-to-end. Tryb prosty jest przeznaczony dla wygody i może zmniejszyć prywatność w porównaniu z trybem E2E; Twoje dane pozostają chronione przez standardowe środki bezpieczeństwa Twojego dostawcy chmury."
+        "content": "Zbierane przez nas dane osobowe są minimalne. W związku z Twoim kontem zbieramy: Twój adres e-mail, Twoją nazwę wyświetlaną (jeśli jest dostarczana przez zewnętrznego dostawcę uwierzytelniania, takiego jak Google lub Apple) oraz — gdy podłączysz pamięć w chmurze — zapis o tym, którego dostawcę wybrałeś. Aby obsługiwać usługę dziennika, przechowujemy na naszych serwerach niewielką ilość danych stanu — informację o tym, czy konfiguracja szyfrowania jest ukończona, status Twojej subskrypcji oraz identyfikatory potrzebne naszemu procesorowi płatności (Stripe) do zarządzania Twoją subskrypcją. Aby monitorować uczciwe korzystanie z opcjonalnych funkcji AI, rejestrujemy liczniki wykorzystania na użytkownika (typ wykonanej analizy oraz znacznik czasu; nigdy treści Twoich wpisów). Nasze zaplecze uwierzytelniania przechowuje również standardowe metadane sesji, takie jak znaczniki czasu logowania. Nazwy wyświetlane są używane wyłącznie do personalizacji Twojego doświadczenia w aplikacji i nigdy nie są upubliczniane. Aby wyświetlać ceny subskrypcji w Twojej lokalnej walucie, możemy krótko sprawdzić kraj powiązany z Twoim adresem IP; używany jest wyłącznie wynikowy kod kraju, nie jest powiązany z Twoim kontem i nie przechowujemy Twojego adresu IP. Nie korzystamy z zewnętrznych usług analitycznych, SDK reklamowych ani narzędzi śledzących między aplikacjami. Gdy korzystasz z szyfrowania end-to-end (E2E), zawartość Twojego dziennika jest szyfrowana na Twoim urządzeniu i nie możemy jej odczytać. W trybie Simple dane Twojego dziennika są synchronizowane z wybranym dostawcą chmury bez szyfrowania end-to-end. Tryb Simple służy wygodzie i może zmniejszać prywatność w porównaniu z trybem E2E; Twoje dane pozostają chronione standardowymi środkami bezpieczeństwa Twojego dostawcy chmury."
       },
       "usage": {
         "title": "Jak wykorzystujemy informacje",
-        "content": "Używamy Twojego adresu e-mail wyłącznie do uwierzytelniania konta i ważnych powiadomień o usłudze. Nie sprzedajemy Twoich danych osobowych ani nie udostępniamy ich osobom trzecim w celach marketingowych."
+        "content": "Wykorzystujemy zbierane informacje w następujących celach: Twój adres e-mail do uwierzytelniania konta i ważnych powiadomień serwisowych; Twoją nazwę wyświetlaną do personalizacji doświadczenia w aplikacji; Twój wybór dostawcy pamięci i status konfiguracji szyfrowania, aby ponownie połączyć Cię z właściwym kontem i wznowić synchronizację; status Twojej subskrypcji do udzielania lub ograniczania dostępu do funkcji płatnych; identyfikatory wykorzystywane przez naszego procesora płatności (Stripe) do zarządzania Twoją subskrypcją; oraz liczniki wykorzystania AI do egzekwowania limitów uczciwego użytkowania opcjonalnych funkcji AI. Nie sprzedajemy Twoich danych osobowych ani nie udostępniamy ich osobom trzecim w celach marketingowych."
       },
       "storage": {
         "title": "Przechowywanie danych",
-        "content": "Twoje wpisy dziennika są przechowywane u wybranego dostawcy magazynu w chmurze (Google Drive, Dropbox lub Nextcloud) — nie na naszych serwerach. Zachowujesz pełną kontrolę nad tym, gdzie przechowywane są Twoje dane. Przechowujemy tylko informacje o koncie niezbędne do uwierzytelniania."
+        "content": "Wpisy z dziennika są przechowywane u wybranego przez Ciebie dostawcy chmury (Google Drive, Dropbox, Nextcloud lub iCloud Drive) — nie na naszych serwerach. Zachowujesz pełną kontrolę nad tym, gdzie przechowywane są Twoje dane. Na naszych serwerach (obsługiwanych przez nasze zaplecze uwierzytelniania i bazy danych) przechowujemy wyłącznie informacje niezbędne do działania usługi: Twoje dane uwierzytelniające, nazwę wyświetlaną, wybór dostawcy pamięci, status konfiguracji szyfrowania, status subskrypcji, identyfikatory wykorzystywane przez naszego procesora płatności (Stripe) do zarządzania Twoją subskrypcją oraz liczniki wykorzystania funkcji AI na użytkownika. Płatności są przetwarzane przez naszych dostawców płatności (Stripe w wersji internetowej, Apple In-App Purchase w iOS, Google Play Billing w Androidzie); nie przechowujemy pełnych danych Twojej karty płatniczej na naszych serwerach."
       },
       "encryption": {
         "title": "Szyfrowanie End-to-End",
@@ -2179,11 +2199,11 @@
       },
       "zeroKnowledge": {
         "title": "Architektura Zero-Knowledge",
-        "content": "OwnJournal jest zaprojektowany tak, że nie możemy uzyskać dostępu ani odczytać treści Twojego dziennika. Przy włączonym E2E tylko Ty znasz hasło do odszyfrowania danych — to jest architektura zero-knowledge. Przy korzystaniu z opcjonalnych funkcji AI treść jest wysyłana zgodnie z opisem w sekcji „Funkcje AI i przetwarzanie\" powyżej."
+        "content": "Nasza architektura zero-knowledge dotyczy zawartości Twojego dziennika szyfrowanej end-to-end: przy włączonym szyfrowaniu E2E tylko Ty posiadasz hasło niezbędne do odszyfrowania danych, a my nie możemy ich odczytać ani uzyskać do nich dostępu. Informacje o koncie niezbędne do działania usługi — takie jak Twój adres e-mail, nazwa wyświetlana, wybór dostawcy pamięci, status subskrypcji oraz liczniki wykorzystania AI — są dla nas z konieczności czytelne. Jeśli korzystasz z opcjonalnych funkcji AI, odpowiedni tekst jest odszyfrowywany na Twoim urządzeniu i wysyłany w sposób opisany w naszej sekcji „Funkcje AI i przetwarzanie\" poniżej."
       },
       "thirdParty": {
         "title": "Usługi zewnętrzne",
-        "content": "Integrujemy się z dostawcami magazynu w chmurze (Google Drive, Dropbox, Nextcloud) do synchronizacji danych. Te usługi mają własne polityki prywatności. Używamy usług uwierzytelniania do bezpiecznego logowania. Gdy korzystasz z opcjonalnych funkcji AI, dane są przetwarzane przez naszego dostawcę usług AI. Każda usługa zewnętrzna działa zgodnie z własnymi warunkami i praktykami prywatności."
+        "content": "Współpracujemy z następującymi usługami zewnętrznymi, z których każda działa zgodnie z własnymi warunkami i praktykami w zakresie prywatności: dostawcy chmury (Google Drive, Dropbox, Nextcloud, iCloud Drive) do synchronizacji z Twoim własnym kontem; usługi uwierzytelniania (Google, Apple) oraz nasze zaplecze uwierzytelniania do bezpiecznego logowania; dostawcy płatności (Stripe w wersji internetowej, Apple In-App Purchase w iOS, Google Play Billing w Androidzie) do obsługi subskrypcji; oraz dostawcy usług AI (Google Gemini, OpenAI), gdy zdecydujesz się skorzystać z opcjonalnych funkcji AI."
       },
       "syncIdentifier": {
         "title": "Identyfikator synchronizacji i urządzenia",
@@ -2191,7 +2211,7 @@
       },
       "aiProcessing": {
         "title": "Funkcje AI i przetwarzanie",
-        "content": "OwnJournal oferuje opcjonalne funkcje oparte na AI, takie jak analiza nastroju i sugestie, dostępne wyłącznie dla subskrybentów Plus. Przetwarzanie AI odbywa się tylko wtedy, gdy Ty, jako subskrybent Plus, jawnie korzystasz z tych funkcji. Gdy korzystasz z funkcji AI, odpowiedni tekst jest najpierw odszyfrowywany na Twoim urządzeniu, a następnie wysyłany do usługi AI poprzez Twoje jawne działanie; treść dziennika jest wysyłana do naszych dostawców AI -- obecnie Google (Gemini) lub OpenAI -- przez ich API. OwnJournal nie przechowuje danych wejściowych ani wyjściowych AI na naszych serwerach. Ci dostawcy mogą przechowywać zapytania i odpowiedzi przez ograniczony czas do monitorowania nadużyć i egzekwowania zasad, zgodnie z ich aktualnymi zasadami. Przetwarzanie AI może odbywać się poza EOG; zarówno Google, jak i OpenAI utrzymują odpowiednie zabezpieczenia transferu danych, takie jak Standardowe Klauzule Umowne. OwnJournal nie zgadza się na żadne programy dostawców, które pozwalają na wykorzystanie danych AI do trenowania lub ulepszania modeli. Możesz zdecydować się nie korzystać z funkcji AI, co nie wpływa na podstawową funkcjonalność dziennika."
+        "content": "OwnJournal oferuje opcjonalne funkcje wspierane przez AI, takie jak analiza nastroju i sugestie, dostępne wyłącznie dla subskrybentów Plus. Przetwarzanie AI odbywa się tylko wtedy, gdy Ty jako subskrybent Plus jawnie korzystasz z tych funkcji. Gdy korzystasz z funkcji AI, odpowiedni tekst jest najpierw odszyfrowywany na Twoim urządzeniu, a następnie wysyłany do usługi AI poprzez Twoje wyraźne działanie; treść Twojego dziennika jest wysyłana do naszego dostawcy AI — obecnie Google (Gemini), z OpenAI jako alternatywą — za pośrednictwem ich płatnych API. Nie przechowujemy danych wejściowych ani wyjściowych AI na naszych serwerach; rejestrujemy jedynie liczniki na użytkownika dotyczące korzystania z funkcji AI (typ wykonanej analizy i znacznik czasu, nigdy treść) w celu egzekwowania limitów uczciwego użytkowania. Ci dostawcy mogą przechowywać podpowiedzi i wyniki przez ograniczony czas w celu monitorowania nadużyć i egzekwowania zasad, zgodnie z ich obowiązującymi politykami. Przetwarzanie AI może odbywać się poza EOG; zarówno Google, jak i OpenAI utrzymują odpowiednie zabezpieczenia dotyczące transferu danych, takie jak Standardowe Klauzule Umowne. Korzystamy z płatnych poziomów tych dostawców AI, w ramach których podpowiedzi i wyniki nie są wykorzystywane do trenowania ani ulepszania modeli dostawcy. Możesz zdecydować się nie korzystać z funkcji AI, a wybór ten nie wpływa na podstawową funkcjonalność dziennika."
       },
       "diagnostics": {
         "title": "Diagnostyka i logi awarii",
@@ -2199,15 +2219,15 @@
       },
       "retention": {
         "title": "Przechowywanie danych",
-        "content": "Dane dziennika pozostają w Twoim magazynie w chmurze, dopóki ich nie usuniesz. Informacje o koncie są przechowywane, gdy Twoje konto jest aktywne. Możesz usunąć swoje konto w dowolnym momencie, co usunie dane konta z naszego systemu uwierzytelniania."
+        "content": "Dane Twojego dziennika pozostają w Twojej pamięci w chmurze do momentu ich usunięcia. Informacje o koncie przechowywane na naszych serwerach są zatrzymywane tak długo, jak Twoje konto jest aktywne. Gdy usuniesz swoje konto, niezwłocznie usuwamy z naszych systemów Twój profil, zapis subskrypcji, liczniki wykorzystania AI i dane uwierzytelniające. Zapisy transakcji posiadane przez naszych dostawców płatności (Stripe, Apple, Google) są przechowywane przez nich zgodnie z ich własnymi zasadami i obowiązującym prawem; możesz zażądać dostępu do takich zapisów lub ich usunięcia bezpośrednio u odpowiedniego dostawcy."
       },
       "accountDeletion": {
         "title": "Usuwanie konta",
-        "content": "Możesz usunąć swoje konto w dowolnym momencie za pomocą Ustawień w aplikacji lub kontaktując się z nami pod adresem {{companyEmail}}. Usunięcie konta usuwa Twój profil, subskrypcję i dane uwierzytelniania z naszych systemów. Dane dziennika w Twojej chmurze pozostają pod Twoją kontrolą i możesz je tam usunąć."
+        "content": "Możesz w dowolnej chwili usunąć swoje konto za pomocą Ustawień w aplikacji lub kontaktując się z nami pod adresem {{companyEmail}}. Usunięcie konta usuwa Twój profil, subskrypcję, liczniki wykorzystania AI i dane uwierzytelniające z naszych systemów. Dane dziennika w Twojej pamięci w chmurze pozostają pod Twoją kontrolą i mogą zostać tam usunięte przez Ciebie."
       },
       "legalBasis": {
         "title": "Podstawa prawna przetwarzania",
-        "content": "Przetwarzamy Twoje dane na podstawie: (1) Wykonania umowy - w celu świadczenia usługi prowadzenia dziennika, na którą się zapisałeś; (2) Uzasadnionych interesów - w celu utrzymania bezpieczeństwa usługi i zapobiegania nadużyciom; (3) Zgody - na opcjonalne funkcje, takie jak analiza AI. Możesz wycofać zgodę na opcjonalne funkcje w dowolnym momencie."
+        "content": "Przetwarzamy Twoje dane na podstawie: (1) Wykonania umowy — w celu świadczenia usługi dziennika, do której się zapisałeś; (2) Prawnie uzasadnionych interesów — w celu utrzymania bezpieczeństwa usługi i zapobiegania nadużyciom oraz egzekwowania limitów uczciwego użytkowania opcjonalnych funkcji AI; oraz (3) Zgody — dla funkcji opcjonalnych, takich jak analiza AI (zgodę można wycofać w dowolnym momencie)."
       },
       "dpo": {
         "title": "Inspektor Ochrony Danych (IOD)",
@@ -2215,11 +2235,11 @@
       },
       "rights": {
         "title": "Twoje prawa",
-        "content": "Na mocy RODO i podobnych przepisów o prywatności masz prawo do: dostępu do swoich danych, eksportu danych (przenoszalność), poprawiania niedokładnych danych, usuwania danych (wymazanie), ograniczenia przetwarzania, sprzeciwu wobec przetwarzania i złożenia skargi do lokalnego organu ochrony danych. Dla mieszkańców UE możesz skontaktować się z krajowym organem nadzorczym. W {{companyCountry}} jest to {{supervisoryAuthority}} pod adresem {{supervisoryAuthorityUrl}}. Aby skorzystać z tych praw, skontaktuj się z nami pod adresem {{companyEmail}}."
+        "content": "Zgodnie z RODO i podobnymi przepisami o ochronie prywatności masz prawo do: dostępu do swoich danych, eksportu swoich danych (przenoszalność), poprawiania nieprawidłowych danych, usunięcia swoich danych (prawo do bycia zapomnianym), ograniczenia przetwarzania, sprzeciwu wobec przetwarzania oraz złożenia skargi do lokalnego organu ochrony danych. Dla mieszkańców UE możesz skontaktować się z krajowym organem nadzorczym. W {{companyCountry}} jest to {{supervisoryAuthority}} pod adresem {{supervisoryAuthorityUrl}}. Aby skorzystać z tych praw, skontaktuj się z nami pod adresem {{companyEmail}}."
       },
       "children": {
         "title": "Prywatność dzieci",
-        "content": "OwnJournal nie jest przeznaczony dla dzieci poniżej 13 lat. Nie zbieramy świadomie danych osobowych od dzieci. Jeśli uważasz, że przypadkowo zebraliśmy takie informacje, skontaktuj się z nami."
+        "content": "OwnJournal nie jest przeznaczony dla dzieci poniżej 13. roku życia ani wyższego wieku zgody cyfrowej obowiązującego w Twoim kraju (do 16 lat w niektórych państwach członkowskich UE). Świadomie nie zbieramy danych osobowych od dzieci poniżej obowiązującego wieku. Jeśli uważasz, że niezamierzenie zebraliśmy takie informacje, skontaktuj się z nami."
       },
       "changes": {
         "title": "Zmiany w tej polityce",
@@ -2227,7 +2247,19 @@
       },
       "contact": {
         "title": "Skontaktuj się z nami",
-        "content": "Jeśli masz pytania dotyczące tej Polityki prywatności, chcesz skorzystać ze swoich praw do danych lub masz jakiekolwiek obawy, skontaktuj się z nami pod adresem {{companyEmail}}. Staramy się odpowiedzieć w ciągu 30 dni."
+        "content": "Jeśli masz pytania dotyczące niniejszej Polityki prywatności, chcesz skorzystać z praw do swoich danych lub masz jakiekolwiek wątpliwości, skontaktuj się z nami pod adresem {{companyEmail}}. Staramy się odpowiadać w ciągu 30 dni."
+      },
+      "localStorage": {
+        "title": "Pliki cookie i pamięć lokalna",
+        "content": "OwnJournal nie używa plików cookie podmiotów trzecich, plików cookie reklamowych ani narzędzi śledzących między aplikacjami. Aplikacja korzysta z pamięci lokalnej Twojego urządzenia (localStorage przeglądarki i IndexedDB w sieci; równoważne lokalne magazyny na urządzeniach mobilnych i komputerach stacjonarnych) do przechowywania kluczy szyfrowania, wpisów dziennika, stanu synchronizacji i preferencji na Twoim urządzeniu. Te dane lokalne są przypisane do użytkownika i pozostają na Twoim urządzeniu, chyba że jawnie je wyeksportujesz lub zsynchronizujesz z wybranym dostawcą chmury. Uwierzytelnianie wykorzystuje tokeny sesji wydawane przez nasze zaplecze uwierzytelniania i przechowywane lokalnie na Twoim urządzeniu. Możesz wyczyścić dane lokalne w dowolnej chwili w Ustawieniach lub czyszcząc pamięć przeglądarki."
+      },
+      "internationalTransfers": {
+        "title": "Międzynarodowe transfery danych",
+        "content": "Niektórzy z naszych usługodawców przetwarzają dane poza Europejskim Obszarem Gospodarczym (EOG). Nasze zaplecze uwierzytelniania i bazy danych, dostawcy płatności (Stripe, Apple, Google), dostawcy AI (Google, OpenAI) oraz wybrany przez Ciebie dostawca chmury mogą przesyłać lub przetwarzać dane w krajach, które nie otrzymały decyzji o adekwatności od Komisji Europejskiej. W takich przypadkach my i dostawcy opieramy się na odpowiednich zabezpieczeniach na podstawie art. 46 RODO, takich jak Standardowe Klauzule Umowne (SCC) Komisji Europejskiej wraz z uzupełniającymi środkami technicznymi i organizacyjnymi. Możesz poprosić o więcej informacji na temat obowiązujących zabezpieczeń, kontaktując się z nami."
+      },
+      "californiaRights": {
+        "title": "Prawa do prywatności w stanach USA",
+        "content": "Jeśli jesteś mieszkańcem Kalifornii lub innego stanu USA z kompleksową ustawą o prywatności konsumentów (np. Wirginii, Kolorado, Connecticut, Utah, Teksasu lub innych w miarę ich uchwalania), masz prawa dotyczące Twoich danych osobowych, które mogą obejmować: prawo do wiedzy, jakie dane osobowe zbieramy, prawo do usunięcia swoich danych osobowych, prawo do skorygowania nieprawidłowych danych osobowych, prawo do rezygnacji z określonych zastosowań (w tym sprzedaży lub udostępniania danych osobowych) oraz prawo do ograniczenia wykorzystywania wrażliwych danych osobowych. Nie sprzedajemy Twoich danych osobowych i nie udostępniamy ich w celach reklamy behawioralnej między kontekstami. Aby skorzystać ze swoich praw, skontaktuj się z nami pod adresem podanym w sekcji „Kontakt\"."
       }
     }
   },

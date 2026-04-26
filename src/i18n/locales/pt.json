@@ -2108,70 +2108,90 @@
     "privacyPolicy": "Política de Privacidade",
     "terms": {
       "title": "Termos de Serviço",
-      "lastUpdatedDate": "Janeiro 2026",
+      "lastUpdatedDate": "Abril 2026",
       "acceptance": {
-        "title": "1. Aceitação dos Termos",
-        "content": "Ao acessar ou usar o OwnJournal, você concorda em ficar vinculado a estes Termos de Serviço. Se você não concorda com estes termos, por favor não use nosso serviço."
+        "title": "1. Aceitação dos termos",
+        "content": "Ao aceder ou utilizar o OwnJournal, concorda em ficar vinculado por estes Termos de Serviço juntamente com a nossa Política de Privacidade, que faz parte destes Termos. Deve ter pelo menos 13 anos, ou a idade superior de consentimento digital aplicável no seu país (até 16 anos em alguns Estados-Membros da UE), para utilizar o OwnJournal. Se não concordar com estes Termos, não utilize o serviço."
       },
       "description": {
-        "title": "2. Descrição do Serviço",
-        "content": "OwnJournal é um aplicação de diário pessoal que permite criar, armazenar e gerir suas entradas de diário. Fornecemos opções de encriptação ponta a ponta e suportamos vários provedores de armazenamento em nuvem para sincronizar seus dados entre dispositivos. Assinantes Plus têm acesso a recursos opcionais com IA, como análise de humor e sugestões; o processamento de IA ocorre apenas quando esses recursos são usados explicitamente."
+        "title": "2. Descrição do serviço",
+        "content": "O OwnJournal é uma aplicação pessoal de diário operada por {{companyName}}, uma empresa registada em {{companyCountry}}. Permite-lhe criar, armazenar, pesquisar e analisar as suas entradas de diário na web, no iOS, no Android e no desktop. Utiliza o seu próprio armazenamento na cloud (Google Drive, Dropbox, Nextcloud ou iCloud Drive) para sincronização entre dispositivos, ou pode utilizar a aplicação totalmente offline com armazenamento local. Oferecemos encriptação de ponta a ponta (E2E) e um modo Simple sem encriptação de ponta a ponta. Os subscritores Plus têm acesso a funcionalidades opcionais com IA, como análise de humor e sugestões."
       },
       "accounts": {
-        "title": "3. Contas de Usuário",
-        "content": "Você é responsável por manter a confidencialidade das credenciais da sua conta e palavra-passes de encriptação. Você concorda em aceitar responsabilidade por todas as atividades que ocorrem em sua conta. Se você usar encriptação E2E, você é o único responsável por lembrar sua palavra-passe de encriptação—não podemos recuperar dados encriptados se você perder sua palavra-passe."
+        "title": "3. Contas de utilizador",
+        "content": "É responsável por manter a confidencialidade das suas credenciais de início de sessão e de qualquer palavra-passe de encriptação que defina. Concorda em assumir a responsabilidade por todas as atividades que ocorram na sua conta e em não partilhar as suas credenciais com outros. Se utilizar a encriptação E2E, é o único responsável por se lembrar da sua palavra-passe de encriptação — não conseguimos recuperar dados encriptados se forem perdidos. Não pode fazer-se passar por outra pessoa nem deturpar a sua identidade ao criar ou utilizar uma conta."
       },
       "dataStorage": {
-        "title": "4. Armazenamento de Dados e Privacidade",
-        "content": "Suas entradas de diário são armazenadas no provedor de armazenamento em nuvem escolhido (Google Drive, Dropbox ou Nextcloud). Com encriptação E2E habilitada, seus dados são encriptados no seu dispositivo antes de serem enviados. Não temos acesso ao seu conteúdo encriptado. No modo Simples, os dados são sincronizados sem encriptação. Consulte nossa Política de Privacidade para informações detalhadas sobre como tratamos seus dados."
+        "title": "8. Armazenamento de dados e privacidade",
+        "content": "As entradas do seu diário são armazenadas no fornecedor de armazenamento em cloud que escolher (Google Drive, Dropbox, Nextcloud ou iCloud Drive) — não nos nossos servidores. Com a encriptação E2E ativada, os seus dados são encriptados no seu dispositivo antes de o deixarem; não conseguimos aceder aos seus conteúdos encriptados. No modo Simple, os seus dados são sincronizados sem encriptação de ponta a ponta. O nosso tratamento de informações pessoais é descrito na nossa Política de Privacidade."
       },
       "intellectualProperty": {
-        "title": "5. Propriedade Intelectual",
-        "content": "Você mantém todos os direitos sobre o conteúdo do seu diário. O aplicação OwnJournal, incluindo seu design, código e marca, é de nossa propriedade e protegido por leis de propriedade intelectual. Você não pode copiar, modificar ou distribuir a aplicação sem permissão."
+        "title": "7. Propriedade intelectual",
+        "content": "Mantém todos os direitos sobre os conteúdos do diário que cria. Sujeito ao cumprimento destes Termos, concedemos-lhe uma licença limitada, não exclusiva, não transferível, não sublicenciável e revogável para instalar e utilizar o OwnJournal para o seu uso pessoal. A aplicação OwnJournal — incluindo o seu código-fonte, design e marca — é propriedade de {{companyName}} e está protegida pelas leis de propriedade intelectual. Não pode copiar, modificar, distribuir, vender ou criar trabalhos derivados da aplicação, salvo conforme expressamente permitido por estes Termos ou pela lei aplicável."
       },
       "limitation": {
-        "title": "6. Limitação de Responsabilidade",
-        "content": "OwnJournal é fornecido \"como está\" sem garantias de qualquer tipo. Não somos responsáveis por qualquer perda de dados, interrupções de serviço ou danos decorrentes do seu uso da aplicação, exceto na medida em que tal responsabilidade não possa ser eliminada ou limitada pela lei aplicável. Nada nestes termos exclui ou limita nossa responsabilidade por negligência grave, má conduta intencional ou qualquer outra responsabilidade que não possa ser legalmente eliminada. Você usa o serviço por sua conta e risco."
+        "title": "9. Limitação de responsabilidade",
+        "content": "O OwnJournal é fornecido \"tal como está\" e \"conforme disponível\" sem garantias de qualquer tipo, expressas ou implícitas. Não garantimos que o serviço seja ininterrupto ou isento de erros, nem que não ocorrerá perda de dados. Na medida máxima permitida pela lei, não somos responsáveis por perda de dados, interrupção do serviço ou danos indiretos, incidentais, especiais, consequenciais ou punitivos decorrentes da utilização do serviço. Nada nestes Termos exclui ou limita a nossa responsabilidade por morte ou danos pessoais causados por negligência, fraude, negligência grosseira, conduta dolosa ou qualquer outra responsabilidade que não possa ser legalmente excluída. Se for um consumidor, esta cláusula não afeta os seus direitos legais."
       },
       "termination": {
-        "title": "7. Rescisão",
-        "content": "Reservamo-nos o direito de suspender ou encerrar sua conta se você violar estes termos. Você pode eliminar sua conta a qualquer momento através das definições da aplicação."
+        "title": "10. Cessação",
+        "content": "Pode eliminar a sua conta a qualquer momento através das Definições da aplicação. Após a eliminação, as informações da sua conta são removidas conforme descrito na Política de Privacidade. Podemos suspender ou cessar a sua conta se violar materialmente estes Termos — incluindo violações da secção Uso Aceitável — desde que lhe demos um aviso razoável e a oportunidade de sanar a violação (quando seja sanável) antes da cessação, exceto em casos de abuso grave, atividade ilegal ou quando exigido por lei. Podemos também descontinuar o serviço com um aviso de pelo menos 30 dias."
       },
       "changes": {
-        "title": "8. Alterações nos Termos",
-        "content": "Podemos atualizar estes termos de tempos em tempos. O uso continuado do OwnJournal após as alterações constitui aceitação dos novos termos. Notificaremos os utilizadores sobre alterações significativas através da aplicação."
+        "title": "11. Alterações aos termos",
+        "content": "Podemos atualizar estes Termos de tempos a tempos. Para alterações que sejam clarificadoras, técnicas ou exigidas por lei, atualizaremos estes Termos e a data de \"Última atualização\" sem aviso prévio. Para alterações que afetem materialmente os seus direitos ou obrigações como consumidor (tais como aumentos de preço, alterações significativas ao serviço ou novas restrições de uso), forneceremos um aviso prévio de pelo menos 30 dias por e-mail e através da aplicação. Se não aceitar as alterações materiais, pode cancelar a sua subscrição e deixar de utilizar o serviço antes de as alterações entrarem em vigor, e não será cobrado pelo próximo período de subscrição."
       },
       "contact": {
-        "title": "9. Contato",
-        "content": "Se você tiver dúvidas sobre estes termos, entre em contato conosco em support@ownjournal.app."
+        "title": "14. Contacto",
+        "content": "Se tiver questões sobre estes Termos, contacte-nos através de {{companyEmail}}."
       },
       "governingLaw": {
-        "title": "10. Lei Aplicável",
-        "content": "Estes termos são regidos pelas leis da Suécia. Quaisquer disputas serão resolvidas nos tribunais suecos. Isso não afeta quaisquer direitos obrigatórios de proteção ao consumidor que você possa ter sob as leis do seu país de residência."
+        "title": "15. Lei aplicável",
+        "content": "Estes Termos regem-se pelas leis de {{companyCountry}}. Quaisquer litígios serão resolvidos nos tribunais suecos. Isto não afeta quaisquer direitos imperativos de proteção do consumidor que possa ter ao abrigo das leis do seu país de residência."
+      },
+      "subscriptions": {
+        "title": "4. Subscrições, faturação e cancelamento",
+        "content": "O OwnJournal oferece um nível pago opcional (\"Plus\") vendido como subscrição com renovação automática. Na Apple App Store (iOS), as subscrições são faturadas através do seu Apple ID e geridas nas definições da sua conta da App Store. O pagamento é cobrado ao seu Apple ID na confirmação da compra. A sua subscrição é renovada automaticamente, salvo se a renovação automática for desativada pelo menos 24 horas antes do fim do período em curso. A sua conta é cobrada pela renovação nas 24 horas anteriores ao fim do período em curso. O cancelamento produz efeitos no fim do período pago em curso, e qualquer parte não utilizada de um período de avaliação gratuito é perdida quando inicia uma subscrição paga. No Google Play (Android), as subscrições são faturadas através da sua conta Google Play e geridas nas definições de subscrição do Google Play; aplicam-se os mesmos princípios de renovação automática e cancelamento. Na web, as subscrições são faturadas através do Stripe e geridas nas definições da sua conta dentro do OwnJournal. Os preços são apresentados na sua moeda local quando suportado e incluem quaisquer impostos aplicáveis. As avaliações gratuitas, quando oferecidas, convertem-se automaticamente em subscrição paga no fim do período de avaliação, salvo se forem canceladas antes do fim."
+      },
+      "withdrawal": {
+        "title": "5. Direito de retratação (consumidores UE/EEE)",
+        "content": "Se for um consumidor na União Europeia, no Espaço Económico Europeu ou noutra jurisdição que confira direitos equivalentes, dispõe de um direito de retratação de 14 dias para se desvincular de qualquer subscrição paga adquirida através do nosso website (via Stripe), sem necessidade de indicar qualquer motivo. Este prazo começa no dia da celebração do contrato. Para exercer este direito, contacte-nos através de {{companyEmail}} no prazo de 14 dias e procederemos ao reembolso do valor da subscrição. Ao optar por começar a utilizar o serviço pago antes de expirar o prazo de retratação de 14 dias, solicita expressamente a execução imediata e reconhece que perde o direito de retratação assim que o serviço tiver sido integralmente prestado. Quando o serviço tiver sido parcialmente prestado, podemos reter um valor proporcional ao uso que tenha feito do serviço. Para compras efetuadas através da Apple App Store ou do Google Play, os pedidos de reembolso são tratados pela Apple ou pelo Google de acordo com as respetivas políticas, e o direito de retratação descrito acima não se aplica a essas compras."
+      },
+      "acceptableUse": {
+        "title": "6. Uso aceitável",
+        "content": "Concorda em não utilizar o OwnJournal: (a) para violar qualquer lei ou regulamento aplicável; (b) para carregar, armazenar ou processar conteúdos ilegais, incluindo material de abuso sexual de crianças, conteúdos que retratem atos não consensuais ou conteúdos que infrinjam os direitos de propriedade intelectual de terceiros; (c) para tentar obter acesso não autorizado aos nossos sistemas, aos sistemas dos nossos prestadores de serviços ou às contas de outros utilizadores; (d) para contornar limites de uso justo das funcionalidades de IA ou mecanismos de compra impostos pela plataforma; (e) para fazer engenharia inversa, descompilar ou tentar de outra forma derivar o código-fonte da aplicação para além dos direitos expressamente concedidos pela lei aplicável; ou (f) para operar sistemas automatizados que enviem volumes desproporcionados de pedidos para os nossos servidores ou para os nossos fornecedores de IA."
+      },
+      "appleTerms": {
+        "title": "12. Termos adicionais para a Apple App Store",
+        "content": "Se obteve o OwnJournal através da Apple App Store, aplicam-se os seguintes termos adicionais: (a) Estes Termos são celebrados apenas entre si e {{companyName}}, e não com a Apple. {{companyName}} (e não a Apple) é o único responsável pelo OwnJournal e pelo seu conteúdo. (b) {{companyName}} é o único responsável pela prestação de serviços de manutenção e suporte relativos ao OwnJournal, conforme especificado nestes Termos ou conforme exigido pela lei aplicável. A Apple não tem qualquer obrigação de fornecer serviços de manutenção e suporte relativos ao OwnJournal. (c) No caso de o OwnJournal não estar em conformidade com qualquer garantia aplicável, pode notificar a Apple, e a Apple reembolsará o preço de compra (caso exista) da aplicação; na medida máxima permitida pela lei aplicável, a Apple não terá qualquer outra obrigação de garantia em relação ao OwnJournal. (d) {{companyName}} é o único responsável por tratar quaisquer reclamações por si ou por terceiros relativas ao OwnJournal ou à sua posse e utilização do OwnJournal, incluindo reclamações de responsabilidade pelo produto, reclamações de que o OwnJournal não cumpre qualquer requisito legal ou regulamentar aplicável e reclamações decorrentes de legislação de proteção do consumidor ou semelhante. (e) No caso de uma reclamação de terceiros de que o OwnJournal ou a sua posse e utilização do OwnJournal infringe os direitos de propriedade intelectual desse terceiro, {{companyName}} (não a Apple) será o único responsável pela investigação, defesa, solução e descarga dessa reclamação. (f) Declara e garante que não está localizado num país sujeito a embargo do Governo dos EUA ou designado como país que \"apoia o terrorismo\" e que não consta de qualquer lista do Governo dos EUA de partes proibidas ou restritas. (g) A Apple e as suas subsidiárias são terceiros beneficiários destes Termos e, mediante a sua aceitação, a Apple tem o direito (e considera-se que aceitou esse direito) de fazer cumprir estes Termos contra si na qualidade de terceiro beneficiário."
+      },
+      "severability": {
+        "title": "13. Divisibilidade",
+        "content": "Se qualquer disposição destes Termos for considerada inválida ou inexequível por um tribunal competente, essa disposição será modificada na medida mínima necessária para a tornar exequível, ou removida destes Termos se não puder tornar-se exequível, e as restantes disposições permanecerão em pleno vigor."
       }
     },
     "privacy": {
       "title": "Política de Privacidade",
-      "lastUpdatedDate": "Janeiro 2026",
+      "lastUpdatedDate": "Abril 2026",
       "intro": {
         "title": "Introdução",
-        "content": "Sua privacidade é importante para nós. Esta Política de Privacidade explica como o OwnJournal coleta, usa e protege suas informações. Projetamos o OwnJournal com privacidade como princípio fundamental."
+        "content": "A sua privacidade é importante para nós. O OwnJournal é operado por {{companyName}}, uma empresa registada em {{companyCountry}}. Esta Política de Privacidade explica como o OwnJournal recolhe, utiliza e protege as suas informações. Concebemos o OwnJournal com a privacidade como princípio fundamental."
       },
       "dataController": {
         "title": "Responsável pelo tratamento",
-        "content": "O responsável pelo tratamento de dados do OwnJournal é {{companyName}}. Para questões sobre proteção de dados, pode contactar-nos em {{companyEmail}}."
+        "content": "O responsável pelo tratamento de dados do OwnJournal é {{companyName}}. Para questões relativas à proteção de dados, pode contactar-nos através de {{companyEmail}}."
       },
       "collection": {
         "title": "Informações que Coletamos",
-        "content": "As informações pessoais que coletamos são mínimas: seu endereço de e-mail para fins de autenticação e seu nome de exibição, se fornecido por um provedor de autenticação externo (como Google). Os nomes de exibição são usados apenas para autenticação e gestão de conta e nunca são tornados públicos. Além disso, coletamos estatísticas de uso agregadas e não identificáveis pessoalmente, como visualizações de página, tipo de dispositivo, país e fonte de referência. Esses dados analíticos não usam cookies, não rastreiam utilizadors individuais e não podem ser vinculados à sua conta. Quando você usa encriptação E2E, o conteúdo do seu diário é encriptado no seu dispositivo e não podemos lê-lo. No modo Simples, os dados do seu diário são sincronizados com seu provedor de armazenamento em nuvem escolhido sem encriptação de ponta a ponta. O modo Simples é destinado à conveniência e pode reduzir a privacidade em comparação com o modo E2E; seus dados permanecem protegidos pelas medidas de segurança padrão do seu provedor de nuvem."
+        "content": "As informações pessoais que recolhemos são mínimas. Em relação à sua conta, recolhemos: o seu endereço de e-mail, o seu nome de exibição (caso seja fornecido por um fornecedor de autenticação externo como o Google ou a Apple) e — assim que ligar um armazenamento na cloud — um registo do fornecedor que escolheu. Para operar o serviço de diário, mantemos uma pequena quantidade de estado nos nossos servidores — se a configuração da encriptação está concluída, o estado da sua subscrição e os identificadores de que o nosso processador de pagamentos (Stripe) precisa para gerir a sua subscrição. Para monitorizar o uso justo das funcionalidades de IA opcionais, registamos contadores de utilização por utilizador (o tipo de análise efetuada e um carimbo de data/hora; nunca o conteúdo das suas entradas). O nosso backend de autenticação também mantém metadados de sessão padrão, como carimbos de data/hora de início de sessão. Os nomes de exibição são utilizados apenas para personalizar a sua experiência na aplicação e nunca são tornados públicos. Para mostrar os preços de subscrição na sua moeda local, podemos consultar brevemente o país associado ao seu endereço IP; apenas o código do país resultante é utilizado, não é associado à sua conta e não armazenamos o seu endereço IP. Não utilizamos serviços de análise de terceiros, SDKs de publicidade nem rastreadores entre aplicações. Quando utiliza a encriptação de ponta a ponta (E2E), o conteúdo do seu diário é encriptado no seu dispositivo e não podemos lê-lo. No modo Simple, os dados do seu diário são sincronizados com o fornecedor de cloud escolhido sem encriptação de ponta a ponta. O modo Simple destina-se à conveniência e pode reduzir a privacidade em comparação com o modo E2E; os seus dados continuam protegidos pelas medidas de segurança padrão do seu fornecedor de cloud."
       },
       "usage": {
         "title": "Como Usamos as Informações",
-        "content": "Usamos seu endereço de email exclusivamente para autenticação de conta e notificações importantes do serviço. Não vendemos suas informações pessoais nem as compartilhamos com terceiros para fins de marketing."
+        "content": "Utilizamos as informações que recolhemos para os seguintes fins: o seu endereço de e-mail para autenticação da conta e notificações importantes do serviço; o seu nome de exibição para personalizar a sua experiência na aplicação; a sua escolha de fornecedor de armazenamento e o estado da configuração da encriptação para o reconectar à conta certa e retomar a sincronização; o estado da sua subscrição para conceder ou restringir o acesso a funcionalidades pagas; os identificadores utilizados pelo nosso processador de pagamentos (Stripe) para gerir a sua subscrição; e os contadores de utilização de IA para aplicar limites de uso justo às funcionalidades de IA opcionais. Não vendemos as suas informações pessoais nem as partilhamos com terceiros para fins de marketing."
       },
       "storage": {
         "title": "Armazenamento de Dados",
-        "content": "Suas entradas de diário são armazenadas no provedor de armazenamento em nuvem escolhido (Google Drive, Dropbox ou Nextcloud)—não em nossos servidores. Você mantém controle total sobre onde seus dados são armazenados. Armazenamos apenas as informações da sua conta necessárias para autenticação."
+        "content": "As entradas do seu diário são armazenadas no fornecedor de armazenamento em cloud que escolher (Google Drive, Dropbox, Nextcloud ou iCloud Drive) — não nos nossos servidores. Mantém o controlo total sobre onde os seus dados são armazenados. Nos nossos servidores (operados através do nosso backend de autenticação e base de dados), armazenamos apenas as informações necessárias para operar o serviço: os seus dados de autenticação, nome de exibição, escolha de fornecedor de armazenamento, estado de configuração da encriptação, estado da subscrição, os identificadores utilizados pelo nosso processador de pagamentos (Stripe) para gerir a sua subscrição e contadores de utilização de funcionalidades de IA por utilizador. Os pagamentos são processados pelos nossos fornecedores de pagamento (Stripe para a web, Apple In-App Purchase no iOS e Google Play Billing no Android); não armazenamos os dados completos do seu cartão de pagamento nos nossos servidores."
       },
       "encryption": {
         "title": "Encriptação Ponta a Ponta",
@@ -2179,11 +2199,11 @@
       },
       "zeroKnowledge": {
         "title": "Arquitetura Zero-Conhecimento",
-        "content": "OwnJournal é projetado para que não possamos acessar ou ler o conteúdo do seu diário. Com a criptografia E2E ativada, somente você possui a senha para descriptografar seus dados — isso é arquitetura zero-knowledge. Se você usar funcionalidades de IA opcionais, o conteúdo é enviado conforme descrito na seção \"Funcionalidades de IA e processamento\" acima."
+        "content": "A nossa arquitetura de conhecimento zero aplica-se ao conteúdo do seu diário encriptado de ponta a ponta: com a encriptação E2E ativada, apenas você possui a palavra-passe necessária para desencriptar os seus dados, e nós não conseguimos aceder a eles nem lê-los. As informações da conta necessárias para operar o serviço — como o seu endereço de e-mail, nome de exibição, escolha de fornecedor de armazenamento, estado da subscrição e contadores de utilização de IA — são necessariamente legíveis para nós. Se utilizar funcionalidades de IA opcionais, o texto relevante é desencriptado no seu dispositivo e enviado conforme descrito na nossa secção \"Funcionalidades de IA e processamento\" abaixo."
       },
       "thirdParty": {
         "title": "Serviços de Terceiros",
-        "content": "Integramos com provedores de armazenamento em nuvem (Google Drive, Dropbox, Nextcloud) para sincronização de dados. Esses serviços têm suas próprias políticas de privacidade. Usamos serviços de autenticação para início de sessão seguro. Quando você usa recursos opcionais de IA, os dados são processados pelo nosso provedor de serviço de IA. Cada serviço de terceiros opera sob seus próprios termos e práticas de privacidade."
+        "content": "Integramos os seguintes serviços de terceiros, cada um a operar sob os seus próprios termos e práticas de privacidade: fornecedores de armazenamento em cloud (Google Drive, Dropbox, Nextcloud, iCloud Drive) para sincronização com a sua própria conta; serviços de autenticação (Google, Apple) e o nosso backend de autenticação para um início de sessão seguro; fornecedores de pagamento (Stripe para a web, Apple In-App Purchase no iOS, Google Play Billing no Android) para o tratamento de subscrições; e fornecedores de serviços de IA (Google Gemini, OpenAI) quando opta por utilizar as funcionalidades de IA opcionais."
       },
       "syncIdentifier": {
         "title": "Identificador de sincronização e dispositivo",
@@ -2191,7 +2211,7 @@
       },
       "aiProcessing": {
         "title": "Recursos de IA e Processamento",
-        "content": "OwnJournal oferece recursos opcionais com IA, como análise de humor e sugestões, disponíveis exclusivamente para assinantes Plus. O processamento de IA ocorre apenas quando você, como assinante Plus, usa explicitamente esses recursos. Quando você usa recursos de IA, o texto relevante é primeiro desencriptado no seu dispositivo e depois enviado ao serviço de IA através da sua ação explícita; o conteúdo do seu diário é enviado para nossos provedores de IA -- atualmente Google (Gemini) ou OpenAI -- através de suas APIs. OwnJournal não armazena entradas ou saídas de IA em nossos servidores. Estes provedores podem reter prompts e saídas por um período limitado para monitoramento de abuso e aplicação de políticas, conforme suas políticas atuais. O processamento de IA pode ocorrer fora do EEE; tanto o Google quanto a OpenAI mantêm guardadaguardas apropriadas de transferência de dados, como Cláusulas Contratuais Padrão. OwnJournal não opta por nenhum programa de provedor que permita que dados de IA sejam usados para treinamento ou melhoria de modelos. Você pode optar por não usar recursos de IA, e isso não afeta a funcionalidade principal do diário."
+        "content": "O OwnJournal oferece funcionalidades opcionais com IA, como análise de humor e sugestões, disponíveis exclusivamente para subscritores Plus. O processamento por IA ocorre apenas quando você, como subscritor Plus, utiliza explicitamente estas funcionalidades. Quando utiliza as funcionalidades de IA, o texto relevante é primeiro desencriptado no seu dispositivo e depois enviado para o serviço de IA através da sua ação explícita; o conteúdo do seu diário é enviado para o nosso fornecedor de IA — atualmente Google (Gemini), com a OpenAI como alternativa — através das respetivas APIs pagas. Não armazenamos entradas ou saídas de IA nos nossos servidores; apenas registamos contadores por utilizador da utilização das funcionalidades de IA (o tipo de análise efetuada e um carimbo de data/hora, nunca o conteúdo) para aplicar limites de uso justo. Estes fornecedores podem reter pedidos e respostas durante um período limitado para monitorização de abusos e aplicação de políticas, de acordo com as suas políticas atuais. O processamento de IA pode ocorrer fora do EEE; tanto a Google como a OpenAI mantêm salvaguardas adequadas para a transferência de dados, como Cláusulas Contratuais-Tipo. Utilizamos os planos pagos destes fornecedores de IA, ao abrigo dos quais os pedidos e as respostas não são utilizados para treinar ou melhorar os modelos do fornecedor. Pode optar por não utilizar as funcionalidades de IA, e fazê-lo não afeta a funcionalidade principal do diário."
       },
       "diagnostics": {
         "title": "Diagnósticos e Logs de Falhas",
@@ -2199,15 +2219,15 @@
       },
       "retention": {
         "title": "Retenção de Dados",
-        "content": "Os dados do seu diário permanecem no seu armazenamento em nuvem até você excluí-los. As informações da conta são retidas enquanto sua conta estiver ativa. Você pode eliminar sua conta a qualquer momento, o que removerá os dados da sua conta do nosso sistema de autenticação."
+        "content": "Os dados do seu diário permanecem no seu armazenamento em cloud até serem eliminados por si. As informações da conta armazenadas nos nossos servidores são conservadas enquanto a sua conta estiver ativa. Quando elimina a sua conta, eliminamos imediatamente o seu perfil, registo de subscrição, contadores de utilização de IA e dados de autenticação dos nossos sistemas. Os registos de transações detidos pelos nossos processadores de pagamento (Stripe, Apple, Google) são conservados por estes ao abrigo das suas próprias políticas e da legislação aplicável; pode solicitar o acesso ou a eliminação desses registos diretamente junto do fornecedor relevante."
       },
       "accountDeletion": {
         "title": "Exclusão de conta",
-        "content": "Você pode eliminar sua conta a qualquer momento pelas Definições na aplicação ou entrando em contato conosco em {{companyEmail}}. A eliminação da conta remove seu perfil, assinatura e dados de autenticação dos nossos sistemas. Os dados do diário no seu armazenamento em nuvem permanecem sob seu controle e podem ser eliminados por você lá."
+        "content": "Pode eliminar a sua conta a qualquer momento através das Definições na aplicação ou contactando-nos em {{companyEmail}}. A eliminação da conta remove o seu perfil, subscrição, contadores de utilização de IA e dados de autenticação dos nossos sistemas. Os dados do diário no seu armazenamento em cloud permanecem sob o seu controlo e podem ser eliminados aí por si."
       },
       "legalBasis": {
         "title": "Base Legal para Processamento",
-        "content": "Processamos seus dados com base em: (1) Execução do contrato - para fornecer o serviço de diário para o qual você se cadastrou; (2) Interesses legítimos - para manter a segurança do serviço e prevenir abuso; (3) Consentimento - para recursos opcionais como análise de IA. Você pode retirar o consentimento para recursos opcionais a qualquer momento."
+        "content": "Tratamos os seus dados com base em: (1) Execução do contrato — para fornecer o serviço de diário ao qual subscreveu; (2) Interesses legítimos — para manter a segurança do serviço e prevenir abusos, e para aplicar limites de uso justo às funcionalidades de IA opcionais; e (3) Consentimento — para funcionalidades opcionais como a análise por IA (pode retirar o consentimento a qualquer momento)."
       },
       "dpo": {
         "title": "Encarregado de Proteção de Dados (DPO)",
@@ -2215,11 +2235,11 @@
       },
       "rights": {
         "title": "Seus Direitos",
-        "content": "Sob o GDPR e leis de privacidade similares, você tem o direito de: acessar seus dados, exportar seus dados (portabilidade), corrigir dados imprecisos, eliminar seus dados (apagamento), restringir o processamento, objetar ao processamento e registrar uma reclamação junto à sua autoridade local de proteção de dados. Para residentes da UE, você pode contatar sua autoridade supervisora nacional. Para exercer esses direitos, entre em contato conosco em support@ownjournal.app."
+        "content": "Ao abrigo do RGPD e de leis de privacidade semelhantes, tem o direito de: aceder aos seus dados, exportar os seus dados (portabilidade), corrigir dados inexatos, eliminar os seus dados (apagamento), restringir o tratamento, opor-se ao tratamento e apresentar uma reclamação junto da sua autoridade local de proteção de dados. Para residentes da UE, pode contactar a sua autoridade nacional de supervisão. Em {{companyCountry}}, esta é {{supervisoryAuthority}} em {{supervisoryAuthorityUrl}}. Para exercer estes direitos, contacte-nos através de {{companyEmail}}."
       },
       "children": {
         "title": "Privacidade de Crianças",
-        "content": "OwnJournal não é destinado a crianças menores de 13 anos. Não coletamos intencionalmente informações pessoais de crianças. Se você acredita que coletamos inadvertidamente tais informações, entre em contato conosco."
+        "content": "O OwnJournal não se destina a crianças com menos de 13 anos, ou à idade superior de consentimento digital aplicável no seu país (até 16 anos em alguns Estados-Membros da UE). Não recolhemos conscientemente informações pessoais de crianças com idade inferior à aplicável. Se acreditar que recolhemos inadvertidamente essas informações, contacte-nos."
       },
       "changes": {
         "title": "Alterações nesta Política",
@@ -2227,7 +2247,19 @@
       },
       "contact": {
         "title": "Contate-nos",
-        "content": "Se você tiver dúvidas sobre esta Política de Privacidade, deseja exercer seus direitos de dados ou tem alguma preocupação, entre em contato conosco em support@ownjournal.app. Buscamos responder dentro de 30 dias."
+        "content": "Se tiver questões sobre esta Política de Privacidade, deseja exercer os seus direitos sobre dados ou tem alguma preocupação, contacte-nos através de {{companyEmail}}. Procuramos responder no prazo de 30 dias."
+      },
+      "localStorage": {
+        "title": "Cookies e armazenamento local",
+        "content": "O OwnJournal não utiliza cookies de terceiros, cookies publicitários nem rastreadores entre aplicações. A aplicação utiliza o armazenamento local do seu dispositivo (localStorage do navegador e IndexedDB na web; armazenamentos locais equivalentes em dispositivos móveis e computadores) para manter as suas chaves de encriptação, entradas do diário, estado de sincronização e preferências no seu dispositivo. Estes dados locais são por utilizador e permanecem no seu dispositivo, salvo se os exportar explicitamente ou os sincronizar com o fornecedor de armazenamento em cloud que escolheu. A autenticação utiliza tokens de sessão emitidos pelo nosso backend de autenticação e armazenados localmente no seu dispositivo. Pode limpar os dados locais a qualquer momento a partir das Definições ou limpando o armazenamento do seu navegador."
+      },
+      "internationalTransfers": {
+        "title": "Transferências internacionais de dados",
+        "content": "Alguns dos nossos prestadores de serviços tratam dados fora do Espaço Económico Europeu (EEE). O nosso backend de autenticação e base de dados, os fornecedores de pagamento (Stripe, Apple, Google), os fornecedores de IA (Google, OpenAI) e o seu fornecedor de armazenamento em cloud podem transferir ou tratar dados em países que não receberam uma decisão de adequação da Comissão Europeia. Nesses casos, nós e os fornecedores baseamo-nos em garantias adequadas ao abrigo do artigo 46.º do RGPD, como as Cláusulas Contratuais-Tipo (CCT) da Comissão Europeia, em conjunto com medidas técnicas e organizacionais complementares. Pode solicitar mais informações sobre as garantias em vigor contactando-nos."
+      },
+      "californiaRights": {
+        "title": "Direitos de privacidade dos estados dos EUA",
+        "content": "Se for residente da Califórnia ou de outro estado dos EUA com uma lei abrangente de privacidade do consumidor (como Virgínia, Colorado, Connecticut, Utah, Texas ou outros, conforme promulgados), tem direitos relativos às suas informações pessoais que podem incluir: o direito de saber que informações pessoais recolhemos, o direito de eliminar as suas informações pessoais, o direito de corrigir informações pessoais inexatas, o direito de recusar determinadas utilizações (incluindo a venda ou partilha de informações pessoais) e o direito de limitar a utilização de informações pessoais sensíveis. Não vendemos as suas informações pessoais nem as partilhamos para publicidade comportamental entre contextos. Para exercer os seus direitos, contacte-nos no endereço indicado na secção \"Contacte-nos\"."
       }
     }
   },

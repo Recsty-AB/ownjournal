@@ -2108,70 +2108,90 @@
     "privacyPolicy": "Privacybeleid",
     "terms": {
       "title": "Algemene voorwaarden",
-      "lastUpdatedDate": "Januari 2026",
+      "lastUpdatedDate": "April 2026",
       "acceptance": {
-        "title": "1. Acceptatie van voorwaarden",
-        "content": "Door toegang te krijgen tot of gebruik te maken van OwnJournal, gaat u akkoord met deze Algemene voorwaarden. Als u niet akkoord gaat met deze voorwaarden, gebruik dan onze dienst niet."
+        "title": "1. Aanvaarding van de voorwaarden",
+        "content": "Door OwnJournal te openen of te gebruiken, ga je akkoord met deze Servicevoorwaarden samen met ons Privacybeleid, dat deel uitmaakt van deze Voorwaarden. Je moet minimaal 13 jaar oud zijn, of de hogere leeftijd van digitale toestemming die in jouw land van toepassing is (tot 16 jaar in sommige EU-lidstaten), om OwnJournal te gebruiken. Als je niet akkoord gaat met deze Voorwaarden, gebruik de dienst dan niet."
       },
       "description": {
         "title": "2. Beschrijving van de dienst",
-        "content": "OwnJournal is een persoonlijke dagboekapplicatie beheerd door {{companyName}}, een bedrijf geregistreerd in {{companyCountry}}. Hiermee kunt u uw dagboekitems maken, opslaan en beheren. We bieden end-to-end encryptieopties en ondersteunen verschillende cloudopslagproviders voor het synchroniseren van uw gegevens tussen apparaten. Plus-abonnees hebben toegang tot optionele AI-gestuurde functies zoals stemmingsanalyse en suggesties; AI-verwerking vindt alleen plaats wanneer deze functies expliciet worden gebruikt."
+        "content": "OwnJournal is een persoonlijke dagboekapplicatie die wordt beheerd door {{companyName}}, een onderneming geregistreerd in {{companyCountry}}. Hiermee kun je je dagboekvermeldingen aanmaken, opslaan, doorzoeken en analyseren op web, iOS, Android en desktop. Je gebruikt je eigen cloudopslag (Google Drive, Dropbox, Nextcloud of iCloud Drive) voor synchronisatie tussen apparaten, of je kunt de applicatie volledig offline gebruiken met lokale opslag. We bieden end-to-end-versleuteling (E2E) en een Simple-modus zonder end-to-end-versleuteling. Plus-abonnees hebben toegang tot optionele AI-functies zoals stemmingsanalyse en suggesties."
       },
       "accounts": {
         "title": "3. Gebruikersaccounts",
-        "content": "U bent verantwoordelijk voor het vertrouwelijk houden van uw accountgegevens en encryptiewachtwoorden. U gaat ermee akkoord verantwoordelijkheid te accepteren voor alle activiteiten die plaatsvinden onder uw account. Als u E2E-encryptie gebruikt, bent u als enige verantwoordelijk voor het onthouden van uw encryptiewachtwoord—wij kunnen versleutelde gegevens niet herstellen als u uw wachtwoord verliest."
+        "content": "Je bent verantwoordelijk voor het vertrouwelijk houden van je inloggegevens en elk versleutelingswachtwoord dat je instelt. Je gaat ermee akkoord verantwoordelijkheid te nemen voor alle activiteiten die plaatsvinden onder je account en je gegevens niet met anderen te delen. Als je E2E-versleuteling gebruikt, ben je als enige verantwoordelijk voor het onthouden van je versleutelingswachtwoord — we kunnen versleutelde gegevens niet herstellen als deze verloren gaan. Je mag je niet voordoen als een andere persoon of je identiteit verkeerd voorstellen bij het aanmaken of gebruiken van een account."
       },
       "dataStorage": {
-        "title": "4. Gegevensopslag & Privacy",
-        "content": "Uw dagboekitems worden opgeslagen bij uw gekozen cloudopslagprovider (Google Drive, Dropbox of Nextcloud). Met E2E-encryptie ingeschakeld, worden uw gegevens versleuteld op uw apparaat voordat ze worden geüpload. Wij hebben geen toegang tot uw versleutelde inhoud. In eenvoudige modus worden gegevens gesynchroniseerd zonder encryptie. Raadpleeg ons Privacybeleid voor gedetailleerde informatie over hoe wij uw gegevens verwerken."
+        "title": "8. Gegevensopslag en privacy",
+        "content": "Je dagboekvermeldingen worden opgeslagen bij de cloudopslagprovider die je kiest (Google Drive, Dropbox, Nextcloud of iCloud Drive) — niet op onze servers. Met E2E-versleuteling ingeschakeld worden je gegevens versleuteld op je apparaat voordat ze het verlaten; wij hebben geen toegang tot je versleutelde inhoud. In de Simple-modus worden je gegevens gesynchroniseerd zonder end-to-end-versleuteling. Onze omgang met persoonlijke informatie is beschreven in ons Privacybeleid."
       },
       "intellectualProperty": {
-        "title": "5. Intellectueel eigendom",
-        "content": "U behoudt alle rechten op uw dagboekinhoud. De OwnJournal-applicatie, inclusief ontwerp, code en branding, is ons eigendom en wordt beschermd door intellectuele eigendomswetten. U mag de applicatie niet kopiëren, wijzigen of verspreiden zonder toestemming."
+        "title": "7. Intellectuele eigendom",
+        "content": "Je behoudt alle rechten op de dagboekinhoud die je creëert. Onder voorbehoud van naleving van deze Voorwaarden verlenen wij je een beperkte, niet-exclusieve, niet-overdraagbare, niet-sublicentieerbare en herroepbare licentie om OwnJournal te installeren en te gebruiken voor je persoonlijke gebruik. De OwnJournal-applicatie — inclusief de broncode, het ontwerp en de branding — is eigendom van {{companyName}} en wordt beschermd door wetten op intellectueel eigendom. Je mag de applicatie niet kopiëren, wijzigen, verspreiden, verkopen of er afgeleide werken van maken, behalve voor zover uitdrukkelijk toegestaan onder deze Voorwaarden of toepasselijk recht."
       },
       "limitation": {
-        "title": "6. Beperking van aansprakelijkheid",
-        "content": "OwnJournal wordt geleverd \"zoals het is\" zonder garanties van welke aard dan ook. Wij zijn niet aansprakelijk voor enig gegevensverlies, dienstonderbrekingen of schade voortvloeiend uit uw gebruik van de applicatie, behalve voor zover dergelijke aansprakelijkheid niet kan worden uitgesloten of beperkt onder toepasselijk recht. Niets in deze voorwaarden sluit onze aansprakelijkheid uit of beperkt deze voor grove nalatigheid, opzettelijk wangedrag of enige andere aansprakelijkheid die wettelijk niet kan worden uitgesloten. U gebruikt de dienst op eigen risico."
+        "title": "9. Beperking van aansprakelijkheid",
+        "content": "OwnJournal wordt geleverd \"as is\" en \"as available\" zonder garanties van welke aard dan ook, expliciet of impliciet. We garanderen niet dat de dienst ononderbroken of vrij van fouten zal zijn, of dat er geen gegevensverlies zal optreden. Voor zover wettelijk toegestaan zijn wij niet aansprakelijk voor verlies van gegevens, onderbreking van de dienst of indirecte, incidentele, speciale, gevolg- of bestraffende schade die voortvloeit uit je gebruik van de dienst. Niets in deze Voorwaarden sluit onze aansprakelijkheid uit of beperkt deze voor overlijden of persoonlijk letsel veroorzaakt door nalatigheid, fraude, grove nalatigheid, opzettelijk wangedrag of enige andere aansprakelijkheid die niet wettelijk kan worden uitgesloten. Als je een consument bent, doet deze clausule geen afbreuk aan je wettelijke rechten."
       },
       "termination": {
-        "title": "7. Beëindiging",
-        "content": "Wij behouden ons het recht voor om uw account op te schorten of te beëindigen als u deze voorwaarden schendt. U kunt uw account op elk moment verwijderen via de applicatie-instellingen."
+        "title": "10. Beëindiging",
+        "content": "Je kunt je account op elk moment verwijderen via de Instellingen van de applicatie. Bij verwijdering worden je accountgegevens verwijderd zoals beschreven in het Privacybeleid. We kunnen je account opschorten of beëindigen als je deze Voorwaarden materieel schendt — inclusief overtredingen van het gedeelte Aanvaardbaar gebruik — op voorwaarde dat we je een redelijke kennisgeving en de gelegenheid geven om de schending te herstellen (waar dat mogelijk is) voordat we beëindigen, behalve in gevallen van ernstig misbruik, illegale activiteit of waar de wet dit vereist. We kunnen de dienst ook beëindigen met een opzegtermijn van ten minste 30 dagen."
       },
       "changes": {
-        "title": "8. Wijzigingen in voorwaarden",
-        "content": "Wij kunnen deze voorwaarden van tijd tot tijd bijwerken. Voortgezet gebruik van OwnJournal na wijzigingen betekent acceptatie van de nieuwe voorwaarden. Wij zullen gebruikers informeren over significante wijzigingen via de applicatie."
+        "title": "11. Wijzigingen van de voorwaarden",
+        "content": "We kunnen deze Voorwaarden van tijd tot tijd bijwerken. Voor wijzigingen die verduidelijkend, technisch of wettelijk vereist zijn, werken we deze Voorwaarden en de datum \"Laatst bijgewerkt\" bij zonder voorafgaande kennisgeving. Voor wijzigingen die je rechten of verplichtingen als consument materieel beïnvloeden (zoals prijsverhogingen, ingrijpende wijzigingen in de dienst of nieuwe gebruiksbeperkingen), zullen we ten minste 30 dagen vooraf kennisgeving doen via e-mail en via de applicatie. Als je materiële wijzigingen niet accepteert, kun je je abonnement opzeggen en het gebruik van de dienst stoppen voordat de wijzigingen van kracht worden, en je wordt niet in rekening gebracht voor de komende abonnementsperiode."
       },
       "contact": {
-        "title": "9. Contact",
-        "content": "Als u vragen heeft over deze voorwaarden, neem dan contact met ons op via {{companyEmail}}."
+        "title": "14. Contact",
+        "content": "Als je vragen hebt over deze Voorwaarden, neem dan contact met ons op via {{companyEmail}}."
       },
       "governingLaw": {
-        "title": "10. Toepasselijk recht",
-        "content": "Deze voorwaarden worden beheerst door de wetten van {{companyCountry}}. Geschillen worden beslecht door Zweedse rechtbanken. Dit heeft geen invloed op eventuele verplichte consumentenbeschermingsrechten die u mogelijk heeft onder de wetten van uw land van verblijf."
+        "title": "15. Toepasselijk recht",
+        "content": "Deze Voorwaarden worden beheerst door het recht van {{companyCountry}}. Geschillen worden beslecht door de Zweedse rechtbanken. Dit doet geen afbreuk aan dwingende rechten van consumentenbescherming die je hebt onder het recht van je land van verblijf."
+      },
+      "subscriptions": {
+        "title": "4. Abonnementen, facturering en opzegging",
+        "content": "OwnJournal biedt een optioneel betaald niveau (\"Plus\") aan, verkocht als een automatisch verlengend abonnement. Op de Apple App Store (iOS) worden abonnementen gefactureerd via je Apple ID en beheerd in de instellingen van je App Store-account. De betaling wordt bij bevestiging van de aankoop in rekening gebracht op je Apple ID. Je abonnement wordt automatisch verlengd, tenzij automatische verlenging wordt uitgeschakeld minimaal 24 uur voor het einde van de huidige periode. Je account wordt voor de verlenging in rekening gebracht binnen 24 uur voor het einde van de huidige periode. Opzegging gaat in aan het einde van de huidige betaalde periode, en eventueel ongebruikt deel van een gratis proefperiode vervalt zodra je een betaald abonnement start. Op Google Play (Android) worden abonnementen gefactureerd via je Google Play-account en beheerd in de Google Play-abonnementsinstellingen; dezelfde principes van automatische verlenging en opzegging gelden. Op het web worden abonnementen gefactureerd via Stripe en beheerd in je accountinstellingen binnen OwnJournal. Prijzen worden waar ondersteund weergegeven in je lokale valuta en zijn inclusief eventuele toepasselijke belastingen. Gratis proefperiodes, indien aangeboden, worden aan het einde van de proefperiode automatisch omgezet in een betaald abonnement, tenzij ze vóór het einde van de proefperiode worden geannuleerd."
+      },
+      "withdrawal": {
+        "title": "5. Herroepingsrecht (EU/EER-consumenten)",
+        "content": "Als je een consument bent in de Europese Unie, de Europese Economische Ruimte of een ander rechtsgebied dat gelijkwaardige rechten verleent, heb je een herroepingsrecht van 14 dagen om een betaald abonnement dat via onze website (via Stripe) is gekocht te herroepen, zonder opgaaf van reden. Deze termijn begint op de dag waarop het contract wordt gesloten. Om dit recht uit te oefenen, neem binnen 14 dagen contact met ons op via {{companyEmail}}, en wij zullen het abonnementsbedrag terugbetalen. Door ervoor te kiezen de betaalde dienst te beginnen gebruiken voordat de herroepingstermijn van 14 dagen is verstreken, vraag je uitdrukkelijk om onmiddellijke uitvoering en erken je dat je het herroepingsrecht verliest zodra de dienst volledig is geleverd. Wanneer de dienst gedeeltelijk is geleverd, kunnen we een bedrag inhouden dat in verhouding staat tot het gebruik dat je van de dienst hebt gemaakt. Voor aankopen via de Apple App Store of Google Play worden terugbetalingsverzoeken afgehandeld door Apple of Google volgens hun respectieve beleid, en het hierboven beschreven herroepingsrecht is niet van toepassing op die aankopen."
+      },
+      "acceptableUse": {
+        "title": "6. Aanvaardbaar gebruik",
+        "content": "Je gaat ermee akkoord OwnJournal niet te gebruiken: (a) om enige toepasselijke wet of regelgeving te overtreden; (b) om inhoud te uploaden, op te slaan of te verwerken die illegaal is, waaronder materiaal van seksueel misbruik van kinderen, inhoud die niet-instemmende handelingen weergeeft, of inhoud die de intellectuele eigendomsrechten van anderen schendt; (c) om ongeoorloofde toegang te krijgen tot onze systemen, de systemen van onze dienstverleners of de accounts van andere gebruikers; (d) om limieten voor eerlijk gebruik van AI-functies of door het platform verplichte aankoopmechanismen te omzeilen; (e) om de applicatie te reverse-engineeren, te decompileren of anderszins te proberen de broncode af te leiden buiten de rechten die uitdrukkelijk zijn toegekend door toepasselijk recht; of (f) om geautomatiseerde systemen te exploiteren die onevenredig grote hoeveelheden verzoeken sturen naar onze servers of naar onze AI-providers."
+      },
+      "appleTerms": {
+        "title": "12. Aanvullende voorwaarden voor de Apple App Store",
+        "content": "Als je OwnJournal hebt verkregen via de Apple App Store, gelden de volgende aanvullende voorwaarden: (a) Deze Voorwaarden worden uitsluitend gesloten tussen jou en {{companyName}}, niet met Apple. {{companyName}} (niet Apple) is als enige verantwoordelijk voor OwnJournal en de inhoud ervan. (b) {{companyName}} is als enige verantwoordelijk voor het verlenen van onderhouds- en ondersteuningsdiensten met betrekking tot OwnJournal, zoals gespecificeerd in deze Voorwaarden of zoals vereist door toepasselijk recht. Apple heeft geen enkele verplichting tot het verlenen van onderhouds- en ondersteuningsdiensten met betrekking tot OwnJournal. (c) In het geval dat OwnJournal niet voldoet aan een toepasselijke garantie, kun je Apple op de hoogte stellen, en Apple zal de aankoopprijs (indien van toepassing) van de applicatie terugbetalen; voor zover wettelijk toegestaan heeft Apple geen andere garantieverplichting met betrekking tot OwnJournal. (d) {{companyName}} is als enige verantwoordelijk voor het afhandelen van eventuele claims van jou of derden met betrekking tot OwnJournal of je bezit en gebruik van OwnJournal, inclusief productaansprakelijkheidsclaims, claims dat OwnJournal niet voldoet aan een toepasselijke wettelijke of regelgevende vereiste, en claims voortvloeiend uit consumentenbeschermings- of soortgelijke wetgeving. (e) In geval van een claim van een derde dat OwnJournal of je bezit en gebruik van OwnJournal inbreuk maakt op de intellectuele eigendomsrechten van die derde, is {{companyName}} (niet Apple) als enige verantwoordelijk voor het onderzoek, de verdediging, de schikking en de afwikkeling van die claim. (f) Je verklaart en garandeert dat je je niet bevindt in een land dat onderworpen is aan een embargo van de Amerikaanse regering of dat is aangewezen als een land dat \"terrorisme ondersteunt\", en dat je niet voorkomt op enige Amerikaanse overheidslijst van verboden of beperkte partijen. (g) Apple en haar dochterondernemingen zijn derde-begunstigden van deze Voorwaarden, en bij je acceptatie heeft Apple het recht (en wordt geacht dit recht te hebben aanvaard) om deze Voorwaarden tegen jou af te dwingen als derde-begunstigde."
+      },
+      "severability": {
+        "title": "13. Scheidbaarheid",
+        "content": "Als een bepaling van deze Voorwaarden door een bevoegde rechter ongeldig of onafdwingbaar wordt bevonden, wordt die bepaling tot het minimum noodzakelijke gewijzigd om afdwingbaar te zijn, of uit deze Voorwaarden geschrapt indien deze niet afdwingbaar gemaakt kan worden, en blijven de overige bepalingen volledig van kracht."
       }
     },
     "privacy": {
       "title": "Privacybeleid",
-      "lastUpdatedDate": "Januari 2026",
+      "lastUpdatedDate": "April 2026",
       "intro": {
         "title": "Inleiding",
-        "content": "Uw privacy is belangrijk voor ons. OwnJournal wordt beheerd door {{companyName}}, een bedrijf geregistreerd in {{companyCountry}}. Dit Privacybeleid legt uit hoe OwnJournal uw informatie verzamelt, gebruikt en beschermt. We hebben OwnJournal ontworpen met privacy als kernprincipe."
+        "content": "Je privacy is belangrijk voor ons. OwnJournal wordt beheerd door {{companyName}}, een onderneming geregistreerd in {{companyCountry}}. Dit privacybeleid legt uit hoe OwnJournal je informatie verzamelt, gebruikt en beschermt. We hebben OwnJournal ontworpen met privacy als kernprincipe."
       },
       "dataController": {
         "title": "Verwerkingsverantwoordelijke",
-        "content": "De verwerkingsverantwoordelijke voor OwnJournal is {{companyName}}. Voor vragen over gegevensbescherming kunt u contact met ons opnemen via {{companyEmail}}."
+        "content": "De verwerkingsverantwoordelijke voor OwnJournal is {{companyName}}. Voor gegevensbeschermingsvragen kun je ons bereiken via {{companyEmail}}."
       },
       "collection": {
         "title": "Informatie die we verzamelen",
-        "content": "De persoonlijke informatie die we verzamelen is minimaal: uw e-mailadres voor authenticatiedoeleinden en uw weergavenaam indien verstrekt door een externe authenticatieprovider (zoals Google). Weergavenamen worden alleen gebruikt voor authenticatie en accountbeheer en worden nooit openbaar gemaakt. Daarnaast verzamelen we niet-persoonlijk identificeerbare, geaggregeerde gebruiksstatistieken zoals paginaweergaven, apparaattype, land en verwijzingsbron. Deze analysegegevens gebruiken geen cookies, volgen geen individuele gebruikers en kunnen niet aan uw account worden gekoppeld. Wanneer u E2E-versleuteling gebruikt, wordt uw dagboekinhoud op uw apparaat versleuteld en kunnen wij deze niet lezen. In de eenvoudige modus worden uw dagboekgegevens gesynchroniseerd met uw gekozen cloudopslagprovider zonder end-to-end-versleuteling. De eenvoudige modus is bedoeld voor gemak en kan de privacy verminderen in vergelijking met de E2E-modus; uw gegevens blijven beschermd door de standaard beveiligingsmaatregelen van uw cloudprovider."
+        "content": "De persoonlijke informatie die we verzamelen is minimaal. In verband met je account verzamelen we: je e-mailadres, je weergavenaam (indien deze door een externe authenticatieprovider zoals Google of Apple wordt verstrekt) en — zodra je cloudopslag verbindt — een vermelding van welke provider je hebt gekozen. Om de dagboekdienst te laten draaien, bewaren we een kleine hoeveelheid statusinformatie op onze servers: of je versleutelingsinstelling voltooid is, je abonnementsstatus en de identificatoren die onze betalingsverwerker (Stripe) nodig heeft om je abonnement te beheren. Om eerlijk gebruik van optionele AI-functies te bewaken, registreren we gebruikstellers per gebruiker (het type uitgevoerde analyse en een tijdstempel; nooit de inhoud van je vermeldingen). Onze authenticatiebackend bewaart ook standaard sessie-metagegevens zoals aanmeldtijdstempels. Weergavenamen worden uitsluitend gebruikt om je ervaring in de app te personaliseren en worden nooit openbaar gemaakt. Om abonnementsprijzen in je lokale valuta te tonen, kunnen we kort het land opzoeken dat aan je IP-adres is gekoppeld; alleen de resulterende landcode wordt gebruikt, deze wordt niet aan je account gekoppeld en we slaan je IP-adres niet op. We gebruiken geen analysediensten van derden, advertentie-SDK's of trackers tussen apps. Wanneer je end-to-end-versleuteling (E2E) gebruikt, wordt de inhoud van je dagboek op je apparaat versleuteld en kunnen wij die niet lezen. In de Simple-modus worden je dagboekgegevens zonder end-to-end-versleuteling gesynchroniseerd met je gekozen cloudprovider. De Simple-modus is bedoeld voor gemak en kan de privacy verminderen ten opzichte van de E2E-modus; je gegevens blijven beschermd door de standaardbeveiligingsmaatregelen van je cloudprovider."
       },
       "usage": {
         "title": "Hoe we informatie gebruiken",
-        "content": "We gebruiken uw e-mailadres uitsluitend voor accountauthenticatie en belangrijke servicemeldingen. We verkopen uw persoonlijke informatie niet en delen deze niet met derden voor marketingdoeleinden."
+        "content": "We gebruiken de informatie die we verzamelen voor de volgende doeleinden: je e-mailadres voor accountauthenticatie en belangrijke servicemeldingen; je weergavenaam om je ervaring in de app te personaliseren; je keuze voor opslagprovider en de status van je versleutelingsinstelling om je opnieuw met het juiste account te verbinden en de synchronisatie te hervatten; je abonnementsstatus om toegang tot betaalde functies toe te kennen of te beperken; de identificatoren die onze betalingsverwerker (Stripe) gebruikt om je abonnement te beheren; en AI-gebruikstellers om eerlijk-gebruik-limieten op optionele AI-functies te handhaven. We verkopen je persoonlijke informatie niet en delen deze niet met derden voor marketingdoeleinden."
       },
       "storage": {
         "title": "Gegevensopslag",
-        "content": "Uw dagboekitems worden opgeslagen bij uw gekozen cloudopslagprovider (Google Drive, Dropbox of Nextcloud)—niet op onze servers. U behoudt volledige controle over waar uw gegevens worden opgeslagen. We slaan alleen uw accountinformatie op die nodig is voor authenticatie."
+        "content": "Je dagboekvermeldingen worden opgeslagen bij de cloudopslagprovider die je kiest (Google Drive, Dropbox, Nextcloud of iCloud Drive) – niet op onze servers. Je behoudt volledige controle over waar je gegevens worden opgeslagen. Op onze servers (beheerd via onze authenticatie- en databasebackend) bewaren we alleen de informatie die nodig is om de dienst te laten draaien: je authenticatiegegevens, weergavenaam, keuze voor opslagprovider, status van versleutelingsinstelling, abonnementsstatus, de identificatoren die onze betalingsverwerker (Stripe) gebruikt om je abonnement te beheren en gebruikstellers voor AI-functies per gebruiker. Betalingen worden verwerkt door onze betalingsproviders (Stripe voor het web, Apple In-App Purchase op iOS, Google Play Billing op Android); we slaan geen volledige betaalkaartgegevens op onze servers op."
       },
       "encryption": {
         "title": "End-to-End encryptie",
@@ -2179,11 +2199,11 @@
       },
       "zeroKnowledge": {
         "title": "Zero Knowledge-architectuur",
-        "content": "OwnJournal is zo ontworpen dat wij uw dagboekinhoud niet kunnen inzien of lezen. Met E2E-versleuteling ingeschakeld bent alleen u in het bezit van het wachtwoord — dit heet zero knowledge-architectuur. Bij gebruik van optionele AI-functies wordt inhoud verzonden zoals beschreven in de sectie \"AI-functies en verwerking\" hierboven."
+        "content": "Onze zero-knowledge-architectuur is van toepassing op de end-to-end-versleutelde inhoud van je dagboek: met E2E-versleuteling ingeschakeld bezit alleen jij het wachtwoord dat nodig is om je gegevens te ontsleutelen, en wij kunnen ze niet inzien of lezen. Accountinformatie die nodig is om de dienst te laten draaien — zoals je e-mailadres, weergavenaam, keuze voor opslagprovider, abonnementsstatus en AI-gebruikstellers — is noodzakelijkerwijs door ons leesbaar. Als je optionele AI-functies gebruikt, wordt de relevante tekst op je apparaat ontsleuteld en verzonden zoals beschreven in onze sectie \"AI-functies en verwerking\" hieronder."
       },
       "thirdParty": {
         "title": "Diensten van derden",
-        "content": "We integreren met cloudopslagproviders (Google Drive, Dropbox, Nextcloud) voor gegevenssynchronisatie. Deze diensten hebben hun eigen privacybeleid. We gebruiken authenticatiediensten voor veilig inloggen. Wanneer u optionele AI-functies gebruikt, worden gegevens verwerkt door onze AI-serviceprovider. Elke dienst van derden opereert onder zijn eigen voorwaarden en privacypraktijken."
+        "content": "We integreren met de volgende diensten van derden, die elk onder hun eigen voorwaarden en privacypraktijken werken: cloudopslagproviders (Google Drive, Dropbox, Nextcloud, iCloud Drive) voor synchronisatie met je eigen account; authenticatiediensten (Google, Apple) en onze authenticatiebackend voor veilig inloggen; betalingsproviders (Stripe voor het web, Apple In-App Purchase op iOS, Google Play Billing op Android) voor het afhandelen van abonnementen; en AI-dienstverleners (Google Gemini, OpenAI) wanneer je ervoor kiest om optionele AI-functies te gebruiken."
       },
       "syncIdentifier": {
         "title": "Sync- en apparaat-ID",
@@ -2191,7 +2211,7 @@
       },
       "aiProcessing": {
         "title": "AI-functies en verwerking",
-        "content": "OwnJournal biedt optionele AI-gestuurde functies zoals stemmingsanalyse en suggesties, exclusief beschikbaar voor Plus-abonnees. AI-verwerking vindt alleen plaats wanneer u, als Plus-abonnee, deze functies expliciet gebruikt. Wanneer u AI-functies gebruikt, wordt de relevante tekst eerst op uw apparaat ontsleuteld en vervolgens via uw expliciete actie naar de AI-service verzonden; uw dagboekinhoud wordt verzonden naar onze AI-providers -- momenteel Google (Gemini) of OpenAI -- via hun API's. OwnJournal slaat AI-invoer of -uitvoer niet op onze servers op. Deze providers kunnen prompts en uitvoer tijdelijk bewaren voor misbruikmonitoring en beleidshandhaving, volgens hun huidige beleid. AI-verwerking kan plaatsvinden buiten de EER; zowel Google als OpenAI handhaven passende gegevensoverdrachtswaarborgen zoals Standaard Contractuele Bepalingen. OwnJournal kiest niet voor providerprogramma's die toestaan dat AI-gegevens worden gebruikt voor modeltraining of verbetering. U kunt ervoor kiezen om geen AI-functies te gebruiken, en dit heeft geen invloed op de kernfunctionaliteit van het dagboek."
+        "content": "OwnJournal biedt optionele AI-functies zoals stemmingsanalyse en suggesties, die uitsluitend beschikbaar zijn voor Plus-abonnees. AI-verwerking vindt alleen plaats wanneer jij als Plus-abonnee deze functies expliciet gebruikt. Wanneer je AI-functies gebruikt, wordt de relevante tekst eerst op je apparaat ontsleuteld en vervolgens via jouw expliciete actie naar de AI-dienst verzonden; de inhoud van je dagboek wordt naar onze AI-provider gestuurd — momenteel Google (Gemini), met OpenAI als alternatief — via hun betaalde API's. We slaan AI-invoer of -uitvoer niet op onze servers; we registreren alleen gebruikstellers per gebruiker van AI-functies (het type uitgevoerde analyse en een tijdstempel, nooit de inhoud) om eerlijk-gebruik-limieten te handhaven. Deze providers kunnen prompts en uitvoer gedurende een beperkte periode bewaren voor misbruikbewaking en handhaving van het beleid, volgens hun huidige beleid. AI-verwerking kan buiten de EER plaatsvinden; zowel Google als OpenAI hanteren passende waarborgen voor gegevensoverdracht, zoals Modelcontractbepalingen. We gebruiken de betaalde niveaus van deze AI-providers, waaronder prompts en uitvoer niet worden gebruikt om de modellen van de provider te trainen of te verbeteren. Je kunt ervoor kiezen om geen AI-functies te gebruiken, en dat heeft geen invloed op de kernfunctionaliteit van het dagboek."
       },
       "diagnostics": {
         "title": "Diagnostiek en crashlogs",
@@ -2199,15 +2219,15 @@
       },
       "retention": {
         "title": "Gegevensbewaring",
-        "content": "Uw dagboekgegevens blijven in uw cloudopslag totdat u deze verwijdert. Accountinformatie wordt bewaard zolang uw account actief is. U kunt uw account op elk moment verwijderen, waardoor uw accountgegevens worden verwijderd uit ons authenticatiesysteem."
+        "content": "Je dagboekgegevens blijven in je cloudopslag totdat je ze verwijdert. Accountinformatie die op onze servers is opgeslagen, wordt bewaard zolang je account actief is. Wanneer je je account verwijdert, verwijderen we onmiddellijk je profiel, abonnementsrecord, AI-gebruikstellers en authenticatiegegevens uit onze systemen. Transactierecords die in handen zijn van onze betalingsproviders (Stripe, Apple, Google) worden door hen bewaard volgens hun eigen beleid en het toepasselijke recht; je kunt rechtstreeks bij de betreffende provider toegang of verwijdering van die records aanvragen."
       },
       "accountDeletion": {
         "title": "Account verwijderen",
-        "content": "U kunt uw account op elk moment verwijderen via Instellingen in de app of door contact met ons op te nemen via {{companyEmail}}. Bij het verwijderen van het account worden uw profiel, abonnement en authenticatiegegevens uit onze systemen verwijderd. Dagboekgegevens in uw cloudopslag blijven onder uw beheer en kunnen daar door u worden verwijderd."
+        "content": "Je kunt je account op elk moment verwijderen via Instellingen in de app of door contact met ons op te nemen via {{companyEmail}}. Bij accountverwijdering worden je profiel, abonnement, AI-gebruikstellers en authenticatiegegevens uit onze systemen verwijderd. Dagboekgegevens in je cloudopslag blijven onder jouw controle en kunnen daar door jou worden verwijderd."
       },
       "legalBasis": {
         "title": "Rechtsgrond voor verwerking",
-        "content": "We verwerken uw gegevens op basis van: (1) Uitvoering van contract - om de dagboekdienst te leveren waarvoor u zich heeft aangemeld; (2) Gerechtvaardigde belangen - om de dienstveiligheid te handhaven en misbruik te voorkomen; (3) Toestemming - voor optionele functies zoals AI-analyse. U kunt uw toestemming voor optionele functies op elk moment intrekken."
+        "content": "We verwerken je gegevens op basis van: (1) Uitvoering van de overeenkomst — om de dagboekdienst te leveren waarvoor je je hebt aangemeld; (2) Gerechtvaardigde belangen — om de beveiliging van de dienst te handhaven en misbruik te voorkomen, en om eerlijk-gebruik-limieten op optionele AI-functies te handhaven; en (3) Toestemming — voor optionele functies zoals AI-analyse (je kunt je toestemming op elk moment intrekken)."
       },
       "dpo": {
         "title": "Functionaris voor gegevensbescherming (FG)",
@@ -2215,11 +2235,11 @@
       },
       "rights": {
         "title": "Uw rechten",
-        "content": "Onder de AVG en soortgelijke privacywetten heeft u het recht om: uw gegevens in te zien, uw gegevens te exporteren (portabiliteit), onjuiste gegevens te corrigeren, uw gegevens te verwijderen (wissing), verwerking te beperken, bezwaar te maken tegen verwerking, en een klacht in te dienen bij uw lokale gegevensbeschermingsautoriteit. Voor EU-inwoners kunt u contact opnemen met uw nationale toezichthoudende autoriteit. In {{companyCountry}} is dit {{supervisoryAuthority}} op {{supervisoryAuthorityUrl}}. Om deze rechten uit te oefenen, neem contact met ons op via {{companyEmail}}."
+        "content": "Onder de AVG en vergelijkbare privacywetgeving heb je het recht om: toegang te krijgen tot je gegevens, je gegevens te exporteren (overdraagbaarheid), onjuiste gegevens te corrigeren, je gegevens te verwijderen (vergetelheid), de verwerking te beperken, bezwaar te maken tegen de verwerking en een klacht in te dienen bij je lokale gegevensbeschermingsautoriteit. Voor EU-burgers kun je contact opnemen met je nationale toezichthoudende autoriteit. In {{companyCountry}} is dit {{supervisoryAuthority}} via {{supervisoryAuthorityUrl}}. Om deze rechten uit te oefenen, neem contact met ons op via {{companyEmail}}."
       },
       "children": {
         "title": "Privacy van kinderen",
-        "content": "OwnJournal is niet bedoeld voor kinderen onder de 13 jaar. We verzamelen niet bewust persoonlijke informatie van kinderen. Als u denkt dat we per ongeluk dergelijke informatie hebben verzameld, neem dan contact met ons op."
+        "content": "OwnJournal is niet bedoeld voor kinderen jonger dan 13 jaar of de hogere leeftijd van digitale toestemming die in jouw land van toepassing is (tot 16 jaar in sommige EU-lidstaten). We verzamelen niet bewust persoonlijke informatie van kinderen onder de toepasselijke leeftijd. Als je denkt dat we per ongeluk dergelijke informatie hebben verzameld, neem dan contact met ons op."
       },
       "changes": {
         "title": "Wijzigingen in dit beleid",
@@ -2227,7 +2247,19 @@
       },
       "contact": {
         "title": "Contact opnemen",
-        "content": "Als u vragen heeft over dit Privacybeleid, uw gegevensrechten wilt uitoefenen, of enige zorgen heeft, neem dan contact met ons op via {{companyEmail}}. We streven ernaar binnen 30 dagen te reageren."
+        "content": "Als je vragen hebt over dit privacybeleid, je gegevensrechten wilt uitoefenen of zorgen hebt, neem dan contact met ons op via {{companyEmail}}. We streven ernaar binnen 30 dagen te reageren."
+      },
+      "localStorage": {
+        "title": "Cookies en lokale opslag",
+        "content": "OwnJournal gebruikt geen cookies van derden, advertentiecookies of trackers tussen apps. De applicatie gebruikt de lokale opslag van je apparaat (browser-localStorage en IndexedDB op het web; equivalente lokale opslag op mobiel en desktop) om je versleutelingssleutels, dagboekvermeldingen, synchronisatiestatus en voorkeuren op je apparaat te bewaren. Deze lokale gegevens zijn per gebruiker en blijven op je apparaat tenzij je ze expliciet exporteert of synchroniseert met je gekozen cloudopslagprovider. Authenticatie gebruikt sessietokens die worden uitgegeven door onze authenticatiebackend en lokaal op je apparaat worden opgeslagen. Je kunt lokale gegevens op elk moment wissen vanuit Instellingen of door de opslag van je browser te wissen."
+      },
+      "internationalTransfers": {
+        "title": "Internationale gegevensoverdrachten",
+        "content": "Sommige van onze dienstverleners verwerken gegevens buiten de Europese Economische Ruimte (EER). Onze authenticatie- en databasebackend, betalingsproviders (Stripe, Apple, Google), AI-providers (Google, OpenAI) en je gekozen cloudopslagprovider kunnen gegevens overdragen of verwerken in landen die geen adequaatheidsbesluit van de Europese Commissie hebben ontvangen. In die gevallen baseren wij en de providers ons op passende waarborgen op grond van artikel 46 AVG, zoals de Modelcontractbepalingen (SCC's) van de Europese Commissie samen met aanvullende technische en organisatorische maatregelen. Je kunt meer informatie over de getroffen waarborgen aanvragen door contact met ons op te nemen."
+      },
+      "californiaRights": {
+        "title": "Privacyrechten van Amerikaanse staten",
+        "content": "Als je inwoner bent van Californië of een andere Amerikaanse staat met een uitgebreide consumentenprivacywet (zoals Virginia, Colorado, Connecticut, Utah, Texas of andere zoals aangenomen), heb je rechten met betrekking tot je persoonlijke informatie die kunnen omvatten: het recht om te weten welke persoonlijke informatie we verzamelen, het recht om je persoonlijke informatie te verwijderen, het recht om onjuiste persoonlijke informatie te corrigeren, het recht om je af te melden voor bepaald gebruik (waaronder de verkoop of het delen van persoonlijke informatie) en het recht om het gebruik van gevoelige persoonlijke informatie te beperken. We verkopen je persoonlijke informatie niet en delen deze niet voor cross-context gedragsgerichte reclame. Om je rechten uit te oefenen, neem contact met ons op via het adres in de sectie \"Contact\"."
       }
     }
   },

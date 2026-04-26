@@ -2108,70 +2108,90 @@
     "privacyPolicy": "Tietosuojakäytäntö",
     "terms": {
       "title": "Käyttöehdot",
-      "lastUpdatedDate": "Tammikuu 2026",
+      "lastUpdatedDate": "Huhtikuu 2026",
       "acceptance": {
         "title": "1. Ehtojen hyväksyminen",
-        "content": "Käyttämällä OwnJournalia hyväksyt nämä käyttöehdot. Jos et hyväksy näitä ehtoja, älä käytä palveluamme."
+        "content": "Käyttämällä tai siirtymällä OwnJournaliin sitoudut näihin Käyttöehtoihin yhdessä Tietosuojakäytäntömme kanssa, joka on osa näitä Ehtoja. Sinun on oltava vähintään 13 vuotta vanha tai maassasi sovellettava korkeampi digitaalisen suostumuksen ikä (joissakin EU:n jäsenvaltioissa jopa 16 vuotta), jotta voit käyttää OwnJournalia. Jos et hyväksy näitä Ehtoja, älä käytä palvelua."
       },
       "description": {
         "title": "2. Palvelun kuvaus",
-        "content": "OwnJournal on henkilökohtainen päiväkirjasovellus, jota ylläpitää {{companyName}}, {{companyCountry}}ssa rekisteröity yritys. Sen avulla voit luoda, tallentaa ja hallita päiväkirjamerkintöjäsi. Tarjoamme päästä päähän -salausvaihtoehdon ja tuemme erilaisia pilvipalveluntarjoajia tietojesi synkronointiin laitteiden välillä. Plus-tilaajilla on pääsy valinnaisiin AI-pohjaisiin ominaisuuksiin, kuten mieliala-analyysiin ja ehdotuksiin; AI-käsittely tapahtuu vain, kun näitä ominaisuuksia käytetään nimenomaisesti."
+        "content": "OwnJournal on henkilökohtainen päiväkirjasovellus, jota operoi {{companyName}}, joka on rekisteröity yritys maassa {{companyCountry}}. Sen avulla voit luoda, tallentaa, hakea ja analysoida päiväkirjamerkintöjäsi verkossa, iOS:ssä, Androidilla ja työpöydällä. Tuot oman pilvitallennustilasi (Google Drive, Dropbox, Nextcloud tai iCloud Drive) synkronointia varten laitteiden välillä, tai voit käyttää sovellusta täysin offline-tilassa paikallisella tallennuksella. Tarjoamme päästä päähän -salauksen (E2E) ja Simple-tilan ilman päästä päähän -salausta. Plus-tilaajilla on pääsy valinnaisiin tekoälypohjaisiin toimintoihin, kuten mielialan analyysiin ja ehdotuksiin."
       },
       "accounts": {
         "title": "3. Käyttäjätilit",
-        "content": "Olet vastuussa tilitietojesi ja salaussalasanojen pitämisestä luottamuksellisina. Hyväksyt vastuun kaikesta tililläsi tapahtuvasta toiminnasta. Jos käytät E2E-salausta, olet yksin vastuussa salaussalasanasi muistamisesta - emme voi palauttaa salattuja tietoja, jos menetät salasanasi."
+        "content": "Olet vastuussa kirjautumistietojesi ja kaikkien asettamiesi salausavainsanojen luottamuksellisuuden säilyttämisestä. Hyväksyt vastuusi kaikista tilisi alla tapahtuvista toiminnoista etkä jaa kirjautumistietojasi muille. Jos käytät E2E-salausta, olet yksin vastuussa salasanasi muistamisesta — emme voi palauttaa salattuja tietoja, jos ne menetetään. Et saa esiintyä toisena henkilönä tai esittää virheellisesti henkilöllisyyttäsi tiliä luodessasi tai käyttäessäsi."
       },
       "dataStorage": {
-        "title": "4. Tietojen tallennus ja yksityisyys",
-        "content": "Päiväkirjamerkintäsi tallennetaan valitsemallesi pilvipalveluntarjoajalle (Google Drive, Dropbox tai Nextcloud). E2E-salauksen ollessa käytössä tietosi salataan laitteellasi ennen lataamista. Meillä ei ole pääsyä salattuun sisältöösi. Yksinkertaisessa tilassa tiedot synkronoidaan ilman salausta. Katso tietosuojakäytäntömme saadaksesi yksityiskohtaisia tietoja tietojesi käsittelystä."
+        "title": "8. Tietojen tallennus ja yksityisyys",
+        "content": "Päiväkirjamerkintäsi tallennetaan valitsemallesi pilvitallennuspalveluntarjoajalle (Google Drive, Dropbox, Nextcloud tai iCloud Drive) — ei palvelimillemme. E2E-salauksen ollessa käytössä tietosi salataan laitteellasi ennen kuin ne lähtevät siitä; emme voi käyttää salattuja sisältöjäsi. Simple-tilassa tietosi synkronoidaan ilman päästä päähän -salausta. Henkilötietojen käsittely on kuvattu Tietosuojakäytännössämme."
       },
       "intellectualProperty": {
-        "title": "5. Immateriaalioikeudet",
-        "content": "Säilytät kaikki oikeudet päiväkirjasisältöösi. OwnJournal-sovellus, mukaan lukien sen suunnittelu, koodi ja brändi, on omaisuuttamme ja suojattu immateriaalioikeuslainsäädännöllä. Et saa kopioida, muokata tai jakaa sovellusta ilman lupaa."
+        "title": "7. Immateriaalioikeudet",
+        "content": "Säilytät kaikki oikeudet luomaasi päiväkirjasisältöön. Edellyttäen että noudatat näitä Ehtoja, myönnämme sinulle rajoitetun, ei-yksinomaisen, siirtokelvottoman, ei-alilisensoitavan ja peruutettavissa olevan lisenssin asentaa ja käyttää OwnJournalia henkilökohtaiseen käyttöön. OwnJournal-sovellus — mukaan lukien sen lähdekoodi, suunnittelu ja brändäys — on yrityksen {{companyName}} omaisuutta ja immateriaalioikeuslainsäädännön suojaama. Et saa kopioida, muokata, jakaa, myydä tai luoda johdannaisteoksia sovelluksesta, paitsi siltä osin kuin se on nimenomaisesti sallittua näiden Ehtojen tai sovellettavan lain mukaan."
       },
       "limitation": {
-        "title": "6. Vastuun rajoitus",
-        "content": "OwnJournal toimitetaan \"sellaisena kuin se on\" ilman minkäänlaisia takuita. Emme ole vastuussa tietojen menetyksestä, palvelun keskeytyksistä tai vahingoista, jotka aiheutuvat sovelluksen käytöstäsi, paitsi siltä osin kuin tällaista vastuuta ei voida sulkea pois tai rajoittaa sovellettavan lain nojalla. Mikään näissä ehdoissa ei sulje pois tai rajoita vastuutamme törkeästä huolimattomuudesta, tahallisuudesta tai muusta vastuusta, jota ei voida laillisesti sulkea pois. Käytät palvelua omalla vastuullasi."
+        "title": "9. Vastuunrajoitus",
+        "content": "OwnJournal tarjotaan \"sellaisena kuin se on\" ja \"sellaisena kuin se on saatavilla\" ilman minkäänlaisia takuita, suoria tai epäsuoria. Emme takaa, että palvelu on keskeytymätön tai virheetön, tai että tietoja ei menetetä. Sovellettavan lainsäädännön sallimassa enimmäismäärässä emme ole vastuussa tietojen menetyksestä, palvelun keskeytyksestä tai välillisistä, satunnaisista, erityisistä, seurannaisista tai rangaistusluonteisista vahingoista, jotka aiheutuvat palvelun käytöstäsi. Mikään näissä Ehdoissa ei sulje pois tai rajoita vastuumme kuolemasta tai henkilövahingosta, joka aiheutuu huolimattomuudesta, petoksesta, törkeästä huolimattomuudesta, tahallisesta väärinkäytöksestä tai muusta vastuusta, jota ei voida lain mukaan sulkea pois. Jos olet kuluttaja, tämä lauseke ei vaikuta lakisääteisiin oikeuksiisi."
       },
       "termination": {
-        "title": "7. Päättyminen",
-        "content": "Pidätämme oikeuden keskeyttää tai lopettaa tilisi, jos rikot näitä ehtoja. Voit poistaa tilisi milloin tahansa sovellusasetuksista."
+        "title": "10. Irtisanominen",
+        "content": "Voit poistaa tilisi milloin tahansa sovelluksen Asetusten kautta. Poistamisen yhteydessä tilitietosi poistetaan Tietosuojakäytännössä kuvatulla tavalla. Voimme keskeyttää tai irtisanoa tilisi, jos rikot olennaisesti näitä Ehtoja — mukaan lukien Hyväksyttävän käytön osion rikkomukset — edellyttäen, että annamme sinulle kohtuullisen ilmoituksen ja mahdollisuuden korjata rikkomus (jos se on korjattavissa) ennen irtisanomista, paitsi vakavan väärinkäytön, laittoman toiminnan tai lain niin vaatiessa. Voimme myös lopettaa palvelun vähintään 30 päivän varoitusajalla."
       },
       "changes": {
-        "title": "8. Ehtojen muutokset",
-        "content": "Saatamme päivittää näitä ehtoja aika ajoin. OwnJournalin jatkuva käyttö muutosten jälkeen merkitsee uusien ehtojen hyväksymistä. Ilmoitamme käyttäjille olennaisista muutoksista sovelluksen kautta."
+        "title": "11. Ehtojen muutokset",
+        "content": "Voimme päivittää näitä Ehtoja ajoittain. Selventävien, teknisten tai lain edellyttämien muutosten osalta päivitämme nämä Ehdot ja \"Viimeksi päivitetty\" -päivämäärän ilman ennakkoilmoitusta. Sellaisten muutosten osalta, jotka vaikuttavat olennaisesti oikeuksiisi tai velvollisuuksiisi kuluttajana (kuten hinnankorotukset, merkittävät palvelumuutokset tai uudet käyttörajoitukset), annamme vähintään 30 päivän ennakkoilmoituksen sähköpostitse ja sovelluksen kautta. Jos et hyväksy olennaisia muutoksia, voit peruuttaa tilauksesi ja lopettaa palvelun käytön ennen kuin muutokset tulevat voimaan, eikä sinulta veloiteta seuraavaa tilausjaksoa."
       },
       "contact": {
-        "title": "9. Yhteystiedot",
-        "content": "Jos sinulla on kysyttävää näistä ehdoista, ota meihin yhteyttä osoitteessa {{companyEmail}}."
+        "title": "14. Yhteystiedot",
+        "content": "Jos sinulla on kysyttävää näistä Ehdoista, ota meihin yhteyttä osoitteessa {{companyEmail}}."
       },
       "governingLaw": {
-        "title": "10. Sovellettava laki",
-        "content": "Näitä ehtoja säännellään {{companyCountry}}n lainsäädännön mukaisesti. Kaikki riidat ratkaistaan ruotsalaisissa tuomioistuimissa. Tämä ei vaikuta pakottaviin kuluttajaoikeuksiin, joita sinulla saattaa olla asuinmaasi lainsäädännön nojalla."
+        "title": "15. Sovellettava laki",
+        "content": "Näihin Ehtoihin sovelletaan {{companyCountry}}n lakia. Mahdolliset riidat ratkaistaan ruotsalaisissa tuomioistuimissa. Tämä ei vaikuta pakottaviin kuluttajansuojaoikeuksiisi, joita sinulla saattaa olla asuinmaasi lakien mukaan."
+      },
+      "subscriptions": {
+        "title": "4. Tilaukset, laskutus ja peruutus",
+        "content": "OwnJournal tarjoaa valinnaisen maksullisen tason (\"Plus\"), joka myydään automaattisesti uudistuvana tilauksena. Apple App Storessa (iOS) tilaukset laskutetaan Apple ID:si kautta ja niitä hallinnoidaan App Store -tilisi asetuksissa. Maksu veloitetaan Apple ID:ltäsi oston vahvistuksen yhteydessä. Tilauksesi uusiutuu automaattisesti, ellei automaattista uusimista oteta pois käytöstä vähintään 24 tuntia ennen nykyisen jakson päättymistä. Tiltäsi veloitetaan uusimisesta 24 tunnin sisällä ennen nykyisen jakson päättymistä. Peruutus astuu voimaan nykyisen maksullisen jakson lopussa, ja kaikki ilmaisen kokeilujakson käyttämätön osa menetetään, kun aloitat maksullisen tilauksen. Google Playssa (Android) tilaukset laskutetaan Google Play -tilisi kautta ja niitä hallinnoidaan Google Playn tilausasetuksissa; samat automaattisen uusimisen ja peruuttamisen periaatteet pätevät. Verkossa tilaukset laskutetaan Stripen kautta ja niitä hallinnoidaan tilisi asetuksissa OwnJournalissa. Hinnat näytetään paikallisessa valuutassasi siellä missä mahdollista ja sisältävät kaikki sovellettavat verot. Ilmaiset kokeilujaksot, kun niitä tarjotaan, muuttuvat automaattisesti maksulliseksi tilaukseksi kokeilujakson päättyessä, ellei niitä peruuteta ennen kokeilun päättymistä."
+      },
+      "withdrawal": {
+        "title": "5. Peruuttamisoikeus (EU:n/ETA:n kuluttajat)",
+        "content": "Jos olet kuluttaja Euroopan unionissa, Euroopan talousalueella tai muulla lainkäyttöalueella, joka myöntää vastaavat oikeudet, sinulla on 14 päivän peruuttamisoikeus peruuttaa mikä tahansa verkkosivustomme kautta (Stripen kautta) ostettu maksullinen tilaus ilman syytä. Tämä jakso alkaa sopimuksen tekemispäivänä. Käyttääksesi tätä oikeutta ota meihin yhteyttä osoitteessa {{companyEmail}} 14 päivän kuluessa, ja palautamme tilausmaksun. Jos päätät aloittaa maksullisen palvelun käytön ennen kuin 14 päivän peruuttamisaika päättyy, pyydät nimenomaisesti välitöntä suoritusta ja hyväksyt, että menetät peruuttamisoikeuden, kun palvelu on toimitettu kokonaan. Jos palvelu on toimitettu osittain, voimme pidättää määrän, joka on suhteessa siihen käyttöön, joka sinulla on ollut palvelusta. Apple App Storen tai Google Playn kautta tehdyissä ostoissa palautuspyynnöt käsittelee Apple tai Google heidän omien käytäntöjensä mukaisesti, eikä yllä kuvattu peruuttamisoikeus koske näitä ostoja."
+      },
+      "acceptableUse": {
+        "title": "6. Hyväksyttävä käyttö",
+        "content": "Sitoudut olemaan käyttämättä OwnJournalia: (a) sovellettavan lain tai säädöksen rikkomiseen; (b) laittoman sisällön lataamiseen, tallentamiseen tai käsittelyyn, mukaan lukien lasten seksuaalista hyväksikäyttöä esittävä materiaali, ei-suostumukseen perustuvia tekoja kuvaavat sisällöt tai sisällöt, jotka loukkaavat muiden immateriaalioikeuksia; (c) yritykseen päästä luvattomasti järjestelmiimme, palveluntarjoajiemme järjestelmiin tai muiden käyttäjien tileihin; (d) tekoälytoimintojen reilun käytön rajojen tai alustan vaatimien ostomekanismien kiertämiseen; (e) käänteismallinnukseen, dekompilointiin tai muulla tavalla yritykseen johtaa sovelluksen lähdekoodi sovellettavan lain nimenomaisesti myöntämien oikeuksien ulkopuolella; tai (f) automaattisten järjestelmien käyttämiseen, jotka lähettävät kohtuuttoman suuria määriä pyyntöjä palvelimillemme tai tekoälypalveluntarjoajillemme."
+      },
+      "appleTerms": {
+        "title": "12. Apple App Storen lisäehdot",
+        "content": "Jos olet hankkinut OwnJournalin Apple App Storesta, sovelletaan seuraavia lisäehtoja: (a) Nämä Ehdot tehdään vain sinun ja {{companyName}}n välillä, ei Applen kanssa. {{companyName}} (ei Apple) on yksin vastuussa OwnJournalista ja sen sisällöstä. (b) {{companyName}} on yksin vastuussa OwnJournaliin liittyvien ylläpito- ja tukipalvelujen tarjoamisesta näissä Ehdoissa määritetyllä tavalla tai sovellettavan lain edellyttämällä tavalla. Applella ei ole minkäänlaista velvollisuutta tarjota OwnJournaliin liittyviä ylläpito- ja tukipalveluja. (c) Jos OwnJournal ei vastaa sovellettavaa takuuta, voit ilmoittaa siitä Applelle, ja Apple palauttaa sovelluksen ostohinnan (jos sellainen on); sovellettavan lain sallimassa enimmäismäärässä Applella ei ole muita takuusuhteen velvoitteita OwnJournaliin nähden. (d) {{companyName}} on yksin vastuussa kaikkien sinun tai kolmannen osapuolen esittämien OwnJournaliin tai sen hallintaan ja käyttöön liittyvien vaatimusten käsittelystä, mukaan lukien tuotevastuuvaatimukset, vaatimukset siitä, että OwnJournal ei vastaa sovellettavaa lakia tai säädöstä, sekä vaatimukset, jotka perustuvat kuluttajansuojaan tai vastaavaan lainsäädäntöön. (e) Jos kolmas osapuoli vaatii, että OwnJournal tai sen hallinta ja käyttö loukkaavat kyseisen kolmannen osapuolen immateriaalioikeuksia, {{companyName}} (ei Apple) on yksin vastuussa kyseisen vaatimuksen tutkinnasta, puolustamisesta, sovittelusta ja täyttämisestä. (f) Vakuutat ja takaat, ettet sijaitse maassa, johon kohdistuu Yhdysvaltain hallituksen vientikielto tai joka on nimetty \"terrorismia tukevaksi\" maaksi, etkä ole millään Yhdysvaltain hallituksen kiellettyjen tai rajoitettujen osapuolten luettelolla. (g) Apple ja Applen tytäryhtiöt ovat näiden Ehtojen kolmansia hyödynsaajia, ja hyväksyttyäsi nämä Apple on oikeutettu (ja katsotaan hyväksyneen oikeuden) panemaan nämä Ehdot täytäntöön sinua vastaan kolmantena hyödynsaajana."
+      },
+      "severability": {
+        "title": "13. Pätemättömyysehto",
+        "content": "Jos jokin näiden Ehtojen säännös todetaan toimivaltaisen tuomioistuimen toimesta pätemättömäksi tai täytäntöönpanokelvottomaksi, kyseistä säännöstä on muutettava vain siinä määrin kuin se on tarpeen täytäntöönpanokelpoisuuden saavuttamiseksi, tai erotettava näistä Ehdoista, jos sitä ei voida saada täytäntöönpanokelpoiseksi, ja loput säännökset pysyvät täysimääräisesti voimassa."
       }
     },
     "privacy": {
       "title": "Tietosuojakäytäntö",
-      "lastUpdatedDate": "Tammikuu 2026",
+      "lastUpdatedDate": "Huhtikuu 2026",
       "intro": {
         "title": "Johdanto",
-        "content": "Yksityisyytesi on meille tärkeää. OwnJournalia ylläpitää {{companyName}}, {{companyCountry}}ssa rekisteröity yritys. Tämä tietosuojakäytäntö selittää, miten OwnJournal kerää, käyttää ja suojaa tietojasi. Suunnittelimme OwnJournalin yksityisyys ydinperiaatteena."
+        "content": "Yksityisyytesi on meille tärkeää. OwnJournalia operoi {{companyName}}, joka on rekisteröity yritys maassa {{companyCountry}}. Tämä tietosuojakäytäntö selittää, miten OwnJournal kerää, käyttää ja suojaa tietojasi. Suunnittelimme OwnJournalin yksityisyys keskeisenä periaatteena."
       },
       "dataController": {
         "title": "Rekisterinpitäjä",
-        "content": "OwnJournalin rekisterinpitäjä on {{companyName}}. Tietosuojakysymyksissä voit ottaa meihin yhteyttä osoitteessa {{companyEmail}}."
+        "content": "OwnJournalin rekisterinpitäjä on {{companyName}}. Tietosuojaa koskevissa kysymyksissä voit ottaa meihin yhteyttä osoitteessa {{companyEmail}}."
       },
       "collection": {
         "title": "Keräämämme tiedot",
-        "content": "Keräämämme henkilötiedot ovat minimaaliset: sähköpostiosoitteesi todennustarkoituksiin sekä näyttönimesi, jos ulkoinen todennuspalveluntarjoaja (kuten Google) sen toimittaa. Näyttönimiä käytetään vain todennukseen ja tilin hallintaan, eikä niitä koskaan julkisteta. Lisäksi keräämme ei-henkilökohtaisesti tunnistettavia, koottuja käyttötilastoja, kuten sivukatseluja, laitetyyppiä, maata ja viittauslähdettä. Nämä analytiikkatiedot eivät käytä evästeitä, eivät seuraa yksittäisiä käyttäjiä eivätkä ole yhdistettävissä tiliisi. Kun käytät E2E-salausta, päiväkirjasisältösi salataan laitteellasi emmekä voi lukea sitä. Yksinkertaisessa tilassa päiväkirjatietosi synkronoidaan valitsemallesi pilvipalveluntarjoajalle ilman päästä päähän -salausta. Yksinkertainen tila on tarkoitettu mukavuuteen ja saattaa vähentää yksityisyyttä verrattuna E2E-tilaan; tietosi pysyvät suojattuina pilvipalveluntarjoajasi vakioturvatoimenpiteillä."
+        "content": "Keräämämme henkilötiedot ovat vähäisiä. Tilisi yhteydessä keräämme: sähköpostiosoitteesi, näyttönimesi (jos sen toimittaa ulkoinen todennuspalvelu, kuten Google tai Apple) ja — kun yhdistät pilvitallennustilan — merkinnän siitä, minkä palveluntarjoajan olet valinnut. Päiväkirjapalvelun ylläpitämiseksi pidämme palvelimillamme pienen määrän tilatietoa — onko salausasetuksesi valmis, tilauksesi tila ja tunnisteet, joita maksupalveluntarjoajamme (Stripe) tarvitsee tilauksesi hallintaan. Valinnaisten tekoälytoimintojen reilun käytön valvomiseksi tallennamme käyttäjäkohtaisia käyttölaskureita (suoritetun analyysin tyypin ja aikaleiman; ei koskaan merkintöjesi sisältöä). Todennustaustajärjestelmämme säilyttää myös vakiomuotoisia istuntotietoja, kuten kirjautumisaikaleimoja. Näyttönimiä käytetään vain sovelluskokemuksesi personointiin, eikä niitä koskaan julkisteta. Tilauksen hintojen näyttämiseksi paikallisessa valuutassasi voimme tilapäisesti tarkistaa IP-osoitteeseesi liittyvän maan; vain saatua maakoodia käytetään, sitä ei yhdistetä tiliisi, eikä IP-osoitettasi tallenneta. Emme käytä kolmannen osapuolen analytiikkaa, mainos-SDK:ita tai sovellusten välisiä seurantaohjelmia. Kun käytät päästä päähän -salausta (E2E), päiväkirjasi sisältö salataan laitteellasi, emmekä voi lukea sitä. Simple-tilassa päiväkirjasi tiedot synkronoidaan valitsemasi pilvipalveluntarjoajan kanssa ilman päästä päähän -salausta. Simple-tila on tarkoitettu mukavuuteen ja voi heikentää yksityisyyttä E2E-tilaan verrattuna; tietosi pysyvät kuitenkin pilvipalveluntarjoajasi vakiosuojausten suojaamina."
       },
       "usage": {
         "title": "Miten käytämme tietoja",
-        "content": "Käytämme sähköpostiosoitettasi yksinomaan tilin todennukseen ja tärkeisiin palveluilmoituksiin. Emme myy henkilötietojasi tai jaa niitä kolmansille osapuolille markkinointitarkoituksiin."
+        "content": "Käytämme keräämiämme tietoja seuraaviin tarkoituksiin: sähköpostiosoitteesi tilin todennukseen ja tärkeisiin palveluilmoituksiin; näyttönimesi sovelluskokemuksesi personointiin; tallennuspalveluntarjoajan valintasi ja salausasetustilasi yhdistääksemme sinut takaisin oikeaan tiliin ja jatkaaksemme synkronointia; tilauksesi tila myöntääksemme tai rajoittaaksemme pääsyn maksullisiin ominaisuuksiin; tunnisteet, joita maksupalveluntarjoajamme (Stripe) käyttää tilauksesi hallintaan; sekä tekoälyn käyttölaskurit valinnaisten tekoälytoimintojen reilun käytön rajojen valvomiseksi. Emme myy henkilötietojasi emmekä jaa niitä kolmansille osapuolille markkinointitarkoituksiin."
       },
       "storage": {
         "title": "Tietojen tallennus",
-        "content": "Päiväkirjamerkintäsi tallennetaan valitsemallesi pilvipalveluntarjoajalle (Google Drive, Dropbox tai Nextcloud) - ei palvelimillemme. Säilytät täyden hallinnan siitä, mihin tietosi tallennetaan. Tallennamme vain todennukseen tarvittavat tilitiedot."
+        "content": "Päiväkirjamerkintäsi tallennetaan valitsemasi pilvitallennuspalvelun (Google Drive, Dropbox, Nextcloud tai iCloud Drive) tarjoajalle — ei palvelimillemme. Säilytät täyden hallinnan siitä, mihin tietosi tallennetaan. Palvelimillamme (joita käytetään todennus- ja tietokantataustajärjestelmämme kautta) säilytämme vain palvelun toiminnan kannalta välttämättömät tiedot: todennustietosi, näyttönimesi, tallennuspalveluntarjoajan valintasi, salausasetustilasi, tilauksesi tilan, tunnisteet, joita maksupalveluntarjoajamme (Stripe) käyttää tilauksesi hallintaan, sekä käyttäjäkohtaiset tekoälyominaisuuksien käyttölaskurit. Maksut käsittelevät maksupalveluntarjoajamme (Stripe verkossa, Apple In-App Purchase iOS:ssä ja Google Play Billing Androidilla); maksukorttisi täydellisiä tietoja ei säilytetä palvelimillamme."
       },
       "encryption": {
         "title": "Päästä päähän -salaus",
@@ -2179,11 +2199,11 @@
       },
       "zeroKnowledge": {
         "title": "Zero Knowledge -arkkitehtuuri",
-        "content": "OwnJournal on suunniteltu niin, ettemme voi käyttää tai lukea päiväkirjasi sisältöä. E2E-salauksen ollessa käytössä vain sinä tiedät salasanan — tämä tunnetaan zero knowledge -arkkitehtuurina. Jos käytät valinnaisia AI-ominaisuuksia, sisältö lähetetään kuten yllä olevassa kohdassa \"AI-ominaisuudet ja käsittely\" on kuvattu."
+        "content": "Zero-knowledge-arkkitehtuurimme koskee päästä päähän -salattua päiväkirjasisältöäsi: kun E2E-salaus on käytössä, vain sinulla on tietojesi salauksen purkamiseen tarvittava salasana, emmekä me voi päästä niihin käsiksi tai lukea niitä. Palvelun toiminnan kannalta välttämättömät tilitiedot — kuten sähköpostiosoitteesi, näyttönimesi, tallennuspalveluntarjoajan valintasi, tilauksesi tila ja tekoälyn käyttölaskurit — ovat välttämättä luettavissamme. Jos käytät valinnaisia tekoälytoimintoja, asianomainen teksti puretaan laitteellasi ja lähetetään, kuten alla olevassa osiossa \"Tekoälytoiminnot ja käsittely\" on kuvattu."
       },
       "thirdParty": {
         "title": "Kolmannen osapuolen palvelut",
-        "content": "Integroimme pilvipalveluntarjoajiin (Google Drive, Dropbox, Nextcloud) tietojen synkronointia varten. Näillä palveluilla on omat tietosuojakäytäntönsä. Käytämme todennuspalveluita turvalliseen kirjautumiseen. Kun käytät valinnaisia AI-ominaisuuksia, tietoja käsittelee AI-palveluntarjoajamme. Kukin kolmannen osapuolen palvelu toimii omien ehtojensa ja tietosuojakäytäntöjensä mukaisesti."
+        "content": "Integroimme seuraavien kolmansien osapuolten palveluiden kanssa, jotka kukin toimivat omien ehtojensa ja tietosuojakäytäntöjensä mukaan: pilvitallennuspalvelut (Google Drive, Dropbox, Nextcloud, iCloud Drive) synkronoimaan oman tilisi kanssa; todennuspalvelut (Google, Apple) ja todennuksen taustajärjestelmämme turvalliseen kirjautumiseen; maksupalveluntarjoajat (Stripe verkossa, Apple In-App Purchase iOS:ssä, Google Play Billing Androidilla) tilausten käsittelyyn; sekä tekoälypalveluntarjoajat (Google Gemini, OpenAI), kun valitset valinnaisten tekoälytoimintojen käytön."
       },
       "syncIdentifier": {
         "title": "Synkronointi- ja laitetunniste",
@@ -2191,7 +2211,7 @@
       },
       "aiProcessing": {
         "title": "AI-ominaisuudet ja käsittely",
-        "content": "OwnJournal tarjoaa valinnaisia AI-pohjaisia ominaisuuksia, kuten mieliala-analyysin ja ehdotukset, yksinomaan Plus-tilaajille. AI-käsittely tapahtuu vain, kun sinä Plus-tilaajana nimenomaisesti käytät näitä ominaisuuksia. Kun käytät AI-ominaisuuksia, asiaankuuluva teksti puretaan laitteellasi ensin ja lähetetään sitten AI-palveluun nimenomaisella toiminnallasi; päiväkirjasi sisältö lähetetään AI-palveluntarjoajillemme -- tällä hetkellä Google (Gemini) tai OpenAI -- heidän API:ensa kautta. OwnJournal ei tallenna AI-syötteitä tai -tuloksia palvelimillemme. Nämä palveluntarjoajat voivat säilyttää kehotteita ja tuloksia rajoitetun ajan väärinkäytön valvontaa ja käytäntöjen noudattamista varten voimassa olevien käytäntöjensä mukaisesti. AI-käsittely voi tapahtua ETA:n ulkopuolella; sekä Google että OpenAI ylläpitävät asianmukaisia tiedonsiirron suojatoimia, kuten vakiosopimuslausekkeita. OwnJournal ei valitse mukaan palveluntarjoajan ohjelmiin, jotka sallivat AI-tietojen käytön mallin kouluttamiseen tai parantamiseen. Voit valita, ettet käytä AI-ominaisuuksia, eikä tämä vaikuta päiväkirjan ydintoiminnallisuuteen."
+        "content": "OwnJournal tarjoaa valinnaisia tekoälypohjaisia toimintoja, kuten mielialan analyysiä ja ehdotuksia, jotka ovat käytettävissä ainoastaan Plus-tilaajille. Tekoälykäsittelyä tapahtuu vain, kun sinä Plus-tilaajana käytät näitä toimintoja erikseen. Kun käytät tekoälytoimintoja, asianomainen teksti puretaan ensin laitteellasi ja lähetetään sitten tekoälypalveluun nimenomaisella toimellasi; päiväkirjasisältösi lähetetään tekoälypalveluntarjoajallemme — tällä hetkellä Google (Gemini), vaihtoehtona OpenAI — heidän maksullisten API:idensa kautta. Emme tallenna tekoälyn syötteitä tai tulosteita palvelimillemme; tallennamme vain käyttäjäkohtaisia tekoälyominaisuuksien käyttölaskureita (suoritetun analyysin tyypin ja aikaleiman, ei koskaan sisältöä) reilun käytön rajojen valvomiseksi. Nämä palveluntarjoajat voivat säilyttää kehotteet ja tulosteet rajoitetun ajan väärinkäytön valvontaa ja käytäntöjen täytäntöönpanoa varten heidän nykyisten käytäntöjensä mukaisesti. Tekoälykäsittely voi tapahtua ETA-alueen ulkopuolella; sekä Google että OpenAI ylläpitävät asianmukaisia tiedonsiirron suojatoimia, kuten vakiosopimuslausekkeita. Käytämme näiden tekoälypalveluntarjoajien maksullisia tasoja, joiden mukaan kehotteita ja tulosteita ei käytetä palveluntarjoajan mallien kouluttamiseen tai parantamiseen. Voit valita olla käyttämättä tekoälytoimintoja, eikä tämä vaikuta päiväkirjan ydintoimintoihin."
       },
       "diagnostics": {
         "title": "Diagnostiikka ja kaatumislokit",
@@ -2199,15 +2219,15 @@
       },
       "retention": {
         "title": "Tietojen säilytys",
-        "content": "Päiväkirjatietosi säilyvät pilvitallennustilassasi, kunnes poistat ne. Tilitiedot säilytetään, kun tilisi on aktiivinen. Voit poistaa tilisi milloin tahansa, mikä poistaa tilitietosi todennusjärjestelmästämme."
+        "content": "Päiväkirjatietosi pysyvät pilvitallennuksessasi, kunnes poistat ne. Palvelimillamme tallennettuja tilitietoja säilytetään niin kauan kuin tilisi on aktiivinen. Kun poistat tilisi, poistamme välittömästi profiilisi, tilausmerkintäsi, tekoälyn käyttölaskurit ja todennustiedot järjestelmistämme. Maksupalveluntarjoajiemme (Stripe, Apple, Google) hallussa olevia tapahtumatietoja säilytetään heidän omien käytäntöjensä ja sovellettavan lainsäädännön mukaisesti; voit pyytää pääsyä näihin tietueisiin tai niiden poistamista suoraan asianomaiselta palveluntarjoajalta."
       },
       "accountDeletion": {
         "title": "Tilin poistaminen",
-        "content": "Voit poistaa tilisi milloin tahansa sovelluksen Asetukset-kohdasta tai ottamalla meihin yhteyttä osoitteeseen {{companyEmail}}. Tilin poistaminen poistaa profiilisi, tilauksesi ja todennustietosi järjestelmistämme. Päiväkirjatiedot pilvitallennustilassasi pysyvät hallinnassasi ja voit poistaa ne sieltä itse."
+        "content": "Voit poistaa tilisi milloin tahansa sovelluksen Asetukset-valikosta tai ottamalla meihin yhteyttä osoitteessa {{companyEmail}}. Tilin poistaminen poistaa profiilisi, tilauksesi, tekoälyn käyttölaskurit ja todennustiedot järjestelmistämme. Päiväkirjatiedot pilvitallennuksessasi pysyvät hallinnassasi ja voit poistaa ne sieltä itse."
       },
       "legalBasis": {
         "title": "Käsittelyn oikeusperusta",
-        "content": "Käsittelemme tietojasi seuraavilla perusteilla: (1) Sopimuksen täytäntöönpano - tarjotaksemme päiväkirjapalvelun, johon rekisteröidyit; (2) Oikeutetut edut - ylläpitääksemme palvelun turvallisuutta ja estääksemme väärinkäyttöä; (3) Suostumus - valinnaisille ominaisuuksille, kuten AI-analyysille. Voit peruuttaa suostumuksen valinnaisille ominaisuuksille milloin tahansa."
+        "content": "Käsittelemme tietojasi seuraavien perusteiden nojalla: (1) Sopimuksen täyttäminen — tarjotaksemme päiväkirjapalvelun, johon olet kirjautunut; (2) Oikeutetut edut — palvelun turvallisuuden ylläpitämiseksi ja väärinkäytösten estämiseksi sekä reilun käytön rajojen valvomiseksi valinnaisissa tekoälytoiminnoissa; ja (3) Suostumus — valinnaisia toimintoja, kuten tekoälyanalyysiä varten (voit peruuttaa suostumuksesi milloin tahansa)."
       },
       "dpo": {
         "title": "Tietosuojavastaava (DPO)",
@@ -2215,11 +2235,11 @@
       },
       "rights": {
         "title": "Oikeutesi",
-        "content": "GDPR:n ja vastaavien tietosuojalakien nojalla sinulla on oikeus: saada pääsy tietoihisi, viedä tietosi (siirrettävyys), korjata virheelliset tiedot, poistaa tietosi (poistaminen), rajoittaa käsittelyä, vastustaa käsittelyä ja tehdä valitus paikalliselle tietosuojaviranomaisellesi. Suomen kansalaisille voit ottaa yhteyttä {{supervisoryAuthority}}un osoitteessa {{supervisoryAuthorityUrl}}. Käyttääksesi näitä oikeuksia ota meihin yhteyttä osoitteessa {{companyEmail}}."
+        "content": "GDPR:n ja vastaavien tietosuojalakien mukaan sinulla on oikeus: saada pääsy tietoihisi, viedä tietosi (siirrettävyys), oikaista virheellisiä tietoja, poistaa tietosi (poistaminen), rajoittaa käsittelyä, vastustaa käsittelyä ja tehdä valitus paikalliselle tietosuojaviranomaiselle. EU-asukkaat voivat ottaa yhteyttä kansalliseen valvontaviranomaiseensa. Maassa {{companyCountry}} tämä on {{supervisoryAuthority}} osoitteessa {{supervisoryAuthorityUrl}}. Käyttääksesi näitä oikeuksia ota meihin yhteyttä osoitteessa {{companyEmail}}."
       },
       "children": {
         "title": "Lasten yksityisyys",
-        "content": "OwnJournal ei ole tarkoitettu alle 13-vuotiaille lapsille. Emme tietoisesti kerää henkilötietoja lapsilta. Jos uskot, että olemme vahingossa keränneet tällaisia tietoja, ota meihin yhteyttä."
+        "content": "OwnJournalia ei ole tarkoitettu alle 13-vuotiaille lapsille tai maassasi sovellettavalle korkeammalle digitaalisen suostumuksen iälle (joissakin EU:n jäsenvaltioissa jopa 16 vuoteen). Emme tietoisesti kerää henkilötietoja sovellettavan iän alittavilta lapsilta. Jos uskot, että olemme tahattomasti keränneet tällaisia tietoja, ota yhteyttä."
       },
       "changes": {
         "title": "Muutokset tähän käytäntöön",
@@ -2227,7 +2247,19 @@
       },
       "contact": {
         "title": "Ota meihin yhteyttä",
-        "content": "Jos sinulla on kysyttävää tästä tietosuojakäytännöstä, haluat käyttää tietosuojaoikeuksiasi tai sinulla on muita huolenaiheita, ota meihin yhteyttä osoitteessa {{companyEmail}}. Pyrimme vastaamaan 30 päivän kuluessa."
+        "content": "Jos sinulla on kysyttävää tästä tietosuojakäytännöstä, haluat käyttää tieto-oikeuksiasi tai sinulla on huolia, ota meihin yhteyttä osoitteessa {{companyEmail}}. Pyrimme vastaamaan 30 päivän kuluessa."
+      },
+      "localStorage": {
+        "title": "Evästeet ja paikallinen tallennus",
+        "content": "OwnJournal ei käytä kolmannen osapuolen evästeitä, mainosevästeitä tai sovellusten välisiä seurantaohjelmia. Sovellus käyttää laitteesi paikallista tallennusta (selaimen localStorage ja IndexedDB verkossa; vastaavat paikalliset tallennustilat mobiili- ja työpöytäsovelluksissa) säilyttääkseen salausavaimesi, päiväkirjamerkintäsi, synkronointitilan ja asetukset laitteellasi. Nämä paikalliset tiedot ovat käyttäjäkohtaisia ja pysyvät laitteellasi, ellet vie niitä erikseen tai synkronoi niitä valitsemasi pilvitallennuspalvelun tarjoajan kanssa. Todennukseen käytetään istuntotunnuksia, jotka todennustaustajärjestelmämme antaa ja jotka tallennetaan paikallisesti laitteellesi. Voit poistaa paikalliset tiedot milloin tahansa Asetuksista tai tyhjentämällä selaimesi tallennuksen."
+      },
+      "internationalTransfers": {
+        "title": "Kansainväliset tiedonsiirrot",
+        "content": "Jotkin palveluntarjoajistamme käsittelevät tietoja Euroopan talousalueen (ETA) ulkopuolella. Todennus- ja tietokantataustajärjestelmämme, maksupalveluntarjoajat (Stripe, Apple, Google), tekoälypalveluntarjoajat (Google, OpenAI) ja valitsemasi pilvitallennuspalveluntarjoaja voivat siirtää tai käsitellä tietoja maissa, jotka eivät ole saaneet Euroopan komission tietosuojan riittävyyttä koskevaa päätöstä. Tällaisissa tapauksissa me ja palveluntarjoajat luotamme GDPR:n 46 artiklan mukaisiin asianmukaisiin suojatoimiin, kuten Euroopan komission vakiosopimuslausekkeisiin (SCC) sekä täydentäviin teknisiin ja organisatorisiin toimenpiteisiin. Voit pyytää lisätietoja käytössä olevista suojatoimista ottamalla meihin yhteyttä."
+      },
+      "californiaRights": {
+        "title": "Yhdysvaltain osavaltioiden yksityisyydensuojaoikeudet",
+        "content": "Jos olet Kalifornian tai muun Yhdysvaltain osavaltion asukas, jossa on kattava kuluttajan yksityisyydensuojalaki (kuten Virginia, Colorado, Connecticut, Utah, Texas tai muut säädetyssä muodossa), sinulla on henkilötietoihisi liittyviä oikeuksia, joihin voi sisältyä: oikeus tietää, mitä henkilötietoja keräämme, oikeus poistaa henkilötietosi, oikeus oikaista virheelliset henkilötiedot, oikeus kieltäytyä tietyistä käyttötarkoituksista (mukaan lukien henkilötietojen myynti tai jakaminen) ja oikeus rajoittaa arkaluonteisten henkilötietojen käyttöä. Emme myy henkilötietojasi emmekä jaa niitä kontekstien välistä käyttäytymiseen perustuvaa mainontaa varten. Käyttääksesi oikeuksiasi ota meihin yhteyttä osoitteessa, joka on mainittu osiossa \"Yhteystiedot\"."
       }
     }
   },

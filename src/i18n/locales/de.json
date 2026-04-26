@@ -2108,70 +2108,90 @@
     "privacyPolicy": "Datenschutzrichtlinie",
     "terms": {
       "title": "Nutzungsbedingungen",
-      "lastUpdatedDate": "Januar 2026",
+      "lastUpdatedDate": "April 2026",
       "acceptance": {
         "title": "1. Annahme der Bedingungen",
-        "content": "Durch den Zugriff auf oder die Nutzung von OwnJournal stimmen Sie diesen Nutzungsbedingungen zu. Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie unseren Dienst bitte nicht."
+        "content": "Indem Sie auf OwnJournal zugreifen oder es nutzen, erklären Sie sich mit diesen Nutzungsbedingungen sowie unserer Datenschutzerklärung, die Bestandteil dieser Bedingungen ist, einverstanden. Sie müssen mindestens 13 Jahre alt sein, oder das in Ihrem Land geltende höhere Alter der digitalen Einwilligung (in einigen EU-Mitgliedstaaten bis zu 16 Jahre), um OwnJournal zu nutzen. Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie den Dienst bitte nicht."
       },
       "description": {
         "title": "2. Dienstbeschreibung",
-        "content": "OwnJournal ist eine persönliche Tagebuchanwendung, mit der Sie Tagebucheinträge erstellen, speichern und verwalten können. Wir bieten Ende-zu-Ende-Verschlüsselungsoptionen und unterstützen verschiedene Cloud-Speicheranbieter zur Synchronisierung Ihrer Daten über Geräte hinweg. Plus-Abonnenten haben Zugriff auf optionale KI-gestützte Funktionen wie Stimmungsanalyse und Vorschläge; KI-Verarbeitung erfolgt nur, wenn diese Funktionen explizit genutzt werden."
+        "content": "OwnJournal ist eine persönliche Tagebuch-Anwendung, die von {{companyName}} betrieben wird, einem in {{companyCountry}} eingetragenen Unternehmen. Sie ermöglicht es Ihnen, Ihre Tagebucheinträge im Web, auf iOS, Android und auf dem Desktop zu erstellen, zu speichern, zu durchsuchen und zu analysieren. Sie verwenden Ihren eigenen Cloud-Speicher (Google Drive, Dropbox, Nextcloud oder iCloud Drive) zur Synchronisierung zwischen Geräten oder können die Anwendung vollständig offline mit lokaler Speicherung nutzen. Wir bieten Ende-zu-Ende-Verschlüsselung (E2E) und einen Simple-Modus ohne Ende-zu-Ende-Verschlüsselung an. Plus-Abonnenten haben Zugriff auf optionale KI-gestützte Funktionen wie Stimmungsanalyse und Vorschläge."
       },
       "accounts": {
         "title": "3. Benutzerkonten",
-        "content": "Sie sind für die Geheimhaltung Ihrer Kontoanmeldedaten und Verschlüsselungspasswörter verantwortlich. Sie stimmen zu, die Verantwortung für alle Aktivitäten zu übernehmen, die unter Ihrem Konto stattfinden. Wenn Sie E2E-Verschlüsselung verwenden, sind Sie allein dafür verantwortlich, sich Ihr Verschlüsselungspasswort zu merken – wir können verschlüsselte Daten nicht wiederherstellen, wenn Sie Ihr Passwort verlieren."
+        "content": "Sie sind dafür verantwortlich, die Vertraulichkeit Ihrer Anmeldedaten und jedes von Ihnen festgelegten Verschlüsselungspassworts zu wahren. Sie erklären sich bereit, die Verantwortung für alle Aktivitäten unter Ihrem Konto zu übernehmen und Ihre Anmeldedaten nicht mit anderen zu teilen. Wenn Sie die E2E-Verschlüsselung verwenden, sind Sie allein dafür verantwortlich, sich Ihr Verschlüsselungspasswort zu merken – wir können verschlüsselte Daten nicht wiederherstellen, wenn diese verloren gehen. Sie dürfen sich beim Erstellen oder Verwenden eines Kontos nicht als eine andere Person ausgeben oder Ihre Identität falsch darstellen."
       },
       "dataStorage": {
-        "title": "4. Datenspeicherung & Datenschutz",
-        "content": "Ihre Tagebucheinträge werden bei Ihrem gewählten Cloud-Speicheranbieter gespeichert (Google Drive, Dropbox oder Nextcloud). Bei aktivierter E2E-Verschlüsselung werden Ihre Daten auf Ihrem Gerät verschlüsselt, bevor sie hochgeladen werden. Wir haben keinen Zugriff auf Ihre verschlüsselten Inhalte. Im einfachen Modus werden Daten ohne Verschlüsselung synchronisiert. Bitte beachten Sie unsere Datenschutzrichtlinie für detaillierte Informationen darüber, wie wir mit Ihren Daten umgehen."
+        "title": "8. Datenspeicherung und Datenschutz",
+        "content": "Ihre Tagebucheinträge werden bei dem von Ihnen gewählten Cloud-Speicheranbieter (Google Drive, Dropbox, Nextcloud oder iCloud Drive) gespeichert – nicht auf unseren Servern. Mit aktivierter E2E-Verschlüsselung werden Ihre Daten auf Ihrem Gerät verschlüsselt, bevor sie es verlassen; wir können auf Ihre verschlüsselten Inhalte nicht zugreifen. Im Simple-Modus werden Ihre Daten ohne Ende-zu-Ende-Verschlüsselung synchronisiert. Unser Umgang mit personenbezogenen Daten ist in unserer Datenschutzerklärung beschrieben."
       },
       "intellectualProperty": {
-        "title": "5. Geistiges Eigentum",
-        "content": "Sie behalten alle Rechte an Ihren Tagebuchinhalten. Die OwnJournal-Anwendung, einschließlich ihres Designs, Codes und Brandings, gehört uns und ist durch Gesetze zum geistigen Eigentum geschützt. Sie dürfen die Anwendung nicht ohne Genehmigung kopieren, modifizieren oder verbreiten."
+        "title": "7. Geistiges Eigentum",
+        "content": "Sie behalten alle Rechte an den von Ihnen erstellten Tagebuchinhalten. Vorbehaltlich Ihrer Einhaltung dieser Bedingungen gewähren wir Ihnen eine beschränkte, nicht ausschließliche, nicht übertragbare, nicht unterlizenzierbare und widerrufliche Lizenz zur Installation und Nutzung von OwnJournal für Ihre persönliche Nutzung. Die OwnJournal-Anwendung – einschließlich ihres Quellcodes, Designs und Brandings – ist Eigentum von {{companyName}} und durch Gesetze zum Schutz des geistigen Eigentums geschützt. Sie dürfen die Anwendung nicht kopieren, modifizieren, verbreiten, verkaufen oder abgeleitete Werke davon erstellen, sofern dies nicht ausdrücklich nach diesen Bedingungen oder geltendem Recht gestattet ist."
       },
       "limitation": {
-        "title": "6. Haftungsbeschränkung",
-        "content": "OwnJournal wird \"wie besehen\" ohne jegliche Garantien bereitgestellt. Wir haften nicht für Datenverlust, Dienstunterbrechungen oder Schäden, die aus Ihrer Nutzung der Anwendung entstehen, außer soweit diese Haftung nach geltendem Recht nicht ausgeschlossen oder beschränkt werden kann. Nichts in diesen Bedingungen schließt unsere Haftung für grobe Fahrlässigkeit, vorsätzliches Fehlverhalten oder andere gesetzlich nicht ausschließbare Haftung aus oder beschränkt sie. Sie nutzen den Dienst auf eigenes Risiko."
+        "title": "9. Haftungsbeschränkung",
+        "content": "OwnJournal wird „wie besehen\" und „wie verfügbar\" ohne ausdrückliche oder stillschweigende Garantien jeglicher Art bereitgestellt. Wir gewährleisten nicht, dass der Dienst ununterbrochen oder fehlerfrei sein wird oder dass kein Datenverlust auftreten wird. Im größtmöglichen gesetzlich zulässigen Umfang haften wir nicht für Datenverluste, Dienstunterbrechungen oder mittelbare, beiläufige, besondere, Folge- oder Strafschäden, die sich aus Ihrer Nutzung des Dienstes ergeben. Nichts in diesen Bedingungen schließt unsere Haftung für Tod oder Personenschäden infolge von Fahrlässigkeit, Betrug, grober Fahrlässigkeit, vorsätzlichem Fehlverhalten oder andere Haftung, die rechtlich nicht ausgeschlossen werden kann, aus oder beschränkt sie. Wenn Sie Verbraucher sind, lässt diese Klausel Ihre gesetzlichen Rechte unberührt."
       },
       "termination": {
-        "title": "7. Kündigung",
-        "content": "Wir behalten uns das Recht vor, Ihr Konto zu suspendieren oder zu kündigen, wenn Sie gegen diese Bedingungen verstoßen. Sie können Ihr Konto jederzeit über die Anwendungseinstellungen löschen."
+        "title": "10. Kündigung",
+        "content": "Sie können Ihr Konto jederzeit über die Einstellungen der Anwendung löschen. Bei Löschung werden Ihre Kontoinformationen wie in der Datenschutzerklärung beschrieben entfernt. Wir können Ihr Konto sperren oder kündigen, wenn Sie diese Bedingungen wesentlich verletzen – einschließlich Verstößen gegen den Abschnitt „Zulässige Nutzung\" – sofern wir Ihnen vor der Kündigung eine angemessene Frist und Gelegenheit zur Behebung des Verstoßes (sofern dieser behebbar ist) einräumen, außer in Fällen schweren Missbrauchs, illegaler Aktivitäten oder wenn dies gesetzlich vorgeschrieben ist. Wir können den Dienst auch mit einer Frist von mindestens 30 Tagen einstellen."
       },
       "changes": {
-        "title": "8. Änderungen der Bedingungen",
-        "content": "Wir können diese Bedingungen von Zeit zu Zeit aktualisieren. Die fortgesetzte Nutzung von OwnJournal nach Änderungen stellt die Annahme der neuen Bedingungen dar. Wir werden Benutzer über wesentliche Änderungen durch die Anwendung informieren."
+        "title": "11. Änderungen der Bedingungen",
+        "content": "Wir können diese Bedingungen von Zeit zu Zeit aktualisieren. Bei Änderungen, die klärend, technisch oder gesetzlich vorgeschrieben sind, aktualisieren wir diese Bedingungen und das Datum „Zuletzt aktualisiert\" ohne vorherige Ankündigung. Bei Änderungen, die Ihre Rechte oder Pflichten als Verbraucher wesentlich beeinflussen (wie Preiserhöhungen, wesentliche Änderungen am Dienst oder neue Nutzungsbeschränkungen), werden wir mindestens 30 Tage im Voraus per E-Mail und über die Anwendung darüber informieren. Wenn Sie wesentliche Änderungen nicht akzeptieren, können Sie Ihr Abonnement kündigen und die Nutzung des Dienstes einstellen, bevor die Änderungen in Kraft treten, und Ihnen wird der bevorstehende Abrechnungszeitraum nicht in Rechnung gestellt."
       },
       "contact": {
-        "title": "9. Kontakt",
-        "content": "Bei Fragen zu diesen Bedingungen kontaktieren Sie uns bitte unter support@ownjournal.app."
+        "title": "14. Kontakt",
+        "content": "Wenn Sie Fragen zu diesen Bedingungen haben, kontaktieren Sie uns bitte unter {{companyEmail}}."
       },
       "governingLaw": {
-        "title": "10. Anwendbares Recht",
-        "content": "Diese Bedingungen unterliegen schwedischem Recht. Streitigkeiten werden vor schwedischen Gerichten beigelegt. Dies berührt nicht zwingende Verbraucherschutzrechte, die Sie nach den Gesetzen Ihres Wohnsitzlandes haben mögen."
+        "title": "15. Anwendbares Recht",
+        "content": "Diese Bedingungen unterliegen dem Recht von {{companyCountry}}. Streitigkeiten werden vor schwedischen Gerichten beigelegt. Dies berührt keine zwingenden Verbraucherschutzrechte, die Ihnen nach dem Recht Ihres Wohnsitzlandes zustehen."
+      },
+      "subscriptions": {
+        "title": "4. Abonnements, Abrechnung und Kündigung",
+        "content": "OwnJournal bietet eine optionale kostenpflichtige Stufe („Plus\") als automatisch verlängerndes Abonnement an. Im Apple App Store (iOS) werden Abonnements über Ihre Apple-ID abgerechnet und in den Kontoeinstellungen Ihres App Store verwaltet. Die Zahlung wird bei der Bestätigung des Kaufs Ihrer Apple-ID belastet. Ihr Abonnement verlängert sich automatisch, sofern die automatische Verlängerung nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums deaktiviert wird. Ihr Konto wird innerhalb von 24 Stunden vor Ablauf des aktuellen Zeitraums für die Verlängerung belastet. Die Kündigung wird zum Ende des aktuellen bezahlten Zeitraums wirksam, und ein nicht genutzter Anteil einer kostenlosen Testphase verfällt, wenn Sie ein kostenpflichtiges Abonnement abschließen. Im Google Play (Android) werden Abonnements über Ihr Google-Play-Konto abgerechnet und in den Google-Play-Abonnementeinstellungen verwaltet; es gelten die gleichen Grundsätze für die automatische Verlängerung und Kündigung. Im Web werden Abonnements über Stripe abgerechnet und in den Kontoeinstellungen innerhalb von OwnJournal verwaltet. Die Preise werden, wo unterstützt, in Ihrer Landeswährung angezeigt und verstehen sich inklusive aller anfallenden Steuern. Eventuelle kostenlose Testphasen werden am Ende der Testphase automatisch in ein kostenpflichtiges Abonnement umgewandelt, sofern sie nicht vor Ablauf der Testphase gekündigt werden."
+      },
+      "withdrawal": {
+        "title": "5. Widerrufsrecht (EU/EWR-Verbraucher)",
+        "content": "Wenn Sie Verbraucher in der Europäischen Union, im Europäischen Wirtschaftsraum oder in einer anderen Rechtsordnung mit gleichwertigen Rechten sind, haben Sie ein 14-tägiges Recht, jedes über unsere Website (über Stripe) erworbene kostenpflichtige Abonnement ohne Angabe von Gründen zu widerrufen. Diese Frist beginnt am Tag des Vertragsabschlusses. Um dieses Recht auszuüben, kontaktieren Sie uns innerhalb von 14 Tagen unter {{companyEmail}}, und wir werden den Abonnementbetrag erstatten. Wenn Sie wählen, den kostenpflichtigen Dienst vor Ablauf der 14-tägigen Widerrufsfrist zu nutzen, verlangen Sie ausdrücklich die sofortige Leistung und erkennen an, dass Sie das Widerrufsrecht verlieren, sobald der Dienst vollständig erbracht wurde. Wurde der Dienst teilweise erbracht, können wir einen Betrag einbehalten, der proportional zu der von Ihnen genutzten Leistung ist. Für Käufe, die über den Apple App Store oder Google Play getätigt werden, werden Erstattungsanträge von Apple bzw. Google gemäß deren jeweiligen Richtlinien bearbeitet, und das oben beschriebene Widerrufsrecht gilt für solche Käufe nicht."
+      },
+      "acceptableUse": {
+        "title": "6. Zulässige Nutzung",
+        "content": "Sie verpflichten sich, OwnJournal nicht zu nutzen: (a) um geltendes Recht oder Vorschriften zu verletzen; (b) um Inhalte hochzuladen, zu speichern oder zu verarbeiten, die illegal sind, einschließlich Material zum sexuellen Missbrauch von Kindern, Inhalte, die nicht einvernehmliche Handlungen darstellen, oder Inhalte, die die geistigen Eigentumsrechte anderer verletzen; (c) um sich unbefugten Zugang zu unseren Systemen, den Systemen unserer Dienstleister oder den Konten anderer Nutzer zu verschaffen; (d) um Fair-Use-Beschränkungen für KI-Funktionen oder von der Plattform vorgeschriebene Kaufmechanismen zu umgehen; (e) um die Anwendung über die durch geltendes Recht ausdrücklich gewährten Rechte hinaus zurückzuentwickeln, zu dekompilieren oder anderweitig zu versuchen, deren Quellcode abzuleiten; oder (f) um automatisierte Systeme zu betreiben, die unverhältnismäßig große Mengen von Anfragen an unsere Server oder unsere KI-Anbieter senden."
+      },
+      "appleTerms": {
+        "title": "12. Zusätzliche Bedingungen für den Apple App Store",
+        "content": "Wenn Sie OwnJournal aus dem Apple App Store bezogen haben, gelten die folgenden zusätzlichen Bedingungen: (a) Diese Bedingungen werden ausschließlich zwischen Ihnen und {{companyName}}, nicht mit Apple, geschlossen. {{companyName}} (nicht Apple) ist allein für OwnJournal und dessen Inhalte verantwortlich. (b) {{companyName}} ist allein verantwortlich für die Bereitstellung von Wartungs- und Supportleistungen in Bezug auf OwnJournal, wie in diesen Bedingungen festgelegt oder gemäß geltendem Recht erforderlich. Apple ist in keiner Weise verpflichtet, Wartungs- und Supportleistungen in Bezug auf OwnJournal zu erbringen. (c) Im Falle eines Versagens von OwnJournal hinsichtlich einer geltenden Gewährleistung können Sie Apple benachrichtigen, und Apple wird den Kaufpreis (sofern vorhanden) für die Anwendung erstatten; im größtmöglichen gesetzlich zulässigen Umfang hat Apple keinerlei sonstige Gewährleistungspflichten in Bezug auf OwnJournal. (d) {{companyName}} ist allein verantwortlich für die Bearbeitung jeglicher Ansprüche, die von Ihnen oder Dritten in Bezug auf OwnJournal oder Ihren Besitz und Gebrauch von OwnJournal erhoben werden, einschließlich Produkthaftungsansprüchen, Ansprüchen, dass OwnJournal nicht den geltenden gesetzlichen oder behördlichen Anforderungen entspricht, und Ansprüchen aus Verbraucherschutz- oder ähnlichen Gesetzen. (e) Im Falle eines Anspruchs Dritter, dass OwnJournal oder Ihr Besitz und Gebrauch von OwnJournal die Rechte am geistigen Eigentum dieses Dritten verletzt, ist {{companyName}} (nicht Apple) allein verantwortlich für die Untersuchung, Verteidigung, Beilegung und Erfüllung dieses Anspruchs. (f) Sie versichern und gewährleisten, dass Sie sich nicht in einem Land befinden, das einem US-Regierungsembargo unterliegt oder als „terrorismusunterstützendes\" Land eingestuft ist, und dass Sie nicht auf einer Liste der US-Regierung über verbotene oder eingeschränkte Parteien stehen. (g) Apple und die Tochtergesellschaften von Apple sind Drittbegünstigte dieser Bedingungen, und mit Ihrer Annahme hat Apple das Recht (und gilt als angenommen), diese Bedingungen Ihnen gegenüber als Drittbegünstigter durchzusetzen."
+      },
+      "severability": {
+        "title": "13. Salvatorische Klausel",
+        "content": "Sollte eine Bestimmung dieser Bedingungen von einem zuständigen Gericht für ungültig oder nicht durchsetzbar befunden werden, ist diese Bestimmung im geringstmöglichen Umfang zu modifizieren, um sie durchsetzbar zu machen, oder von diesen Bedingungen abzutrennen, falls sie nicht durchsetzbar gemacht werden kann; die übrigen Bestimmungen bleiben in vollem Umfang in Kraft."
       }
     },
     "privacy": {
       "title": "Datenschutzrichtlinie",
-      "lastUpdatedDate": "Januar 2026",
+      "lastUpdatedDate": "April 2026",
       "intro": {
         "title": "Einführung",
-        "content": "Ihre Privatsphäre ist uns wichtig. Diese Datenschutzrichtlinie erklärt, wie OwnJournal Ihre Informationen sammelt, verwendet und schützt. Wir haben OwnJournal mit Datenschutz als Kernprinzip entwickelt."
+        "content": "Ihre Privatsphäre ist uns wichtig. OwnJournal wird von {{companyName}} betrieben, einem in {{companyCountry}} eingetragenen Unternehmen. Diese Datenschutzerklärung erläutert, wie OwnJournal Ihre Informationen erhebt, verwendet und schützt. Wir haben OwnJournal mit Datenschutz als Kernprinzip entwickelt."
       },
       "dataController": {
         "title": "Verantwortlicher",
-        "content": "Verantwortlicher für OwnJournal ist {{companyName}}. Datenschutzanfragen: {{companyEmail}}."
+        "content": "Der für die Datenverarbeitung Verantwortliche von OwnJournal ist {{companyName}}. Bei Datenschutzanfragen können Sie uns unter {{companyEmail}} kontaktieren."
       },
       "collection": {
         "title": "Informationen, die wir sammeln",
-        "content": "Die persönlichen Informationen, die wir sammeln, sind minimal – Ihre E-Mail-Adresse zu Authentifizierungszwecken sowie Ihr Anzeigename, falls dieser von einem externen Authentifizierungsanbieter (wie Google) bereitgestellt wird. Anzeigenamen werden nur für Authentifizierung und Kontoverwaltung verwendet und niemals öffentlich gemacht. Zusätzlich sammeln wir nicht personenbezogene, aggregierte Nutzungsstatistiken wie Seitenaufrufe, Gerätetyp, Land und Verweisquelle. Diese Analysedaten verwenden keine Cookies, verfolgen keine einzelnen Benutzer und können nicht mit Ihrem Konto verknüpft werden. Bei Verwendung von E2E-Verschlüsselung wird Ihr Tagebuchinhalt auf Ihrem Gerät verschlüsselt und wir können ihn nicht lesen. Im einfachen Modus werden Ihre Tagebuchdaten ohne Ende-zu-Ende-Verschlüsselung an Ihren gewählten Cloud-Anbieter synchronisiert. Der einfache Modus ist für Bequemlichkeit gedacht und bietet möglicherweise weniger Datenschutz als der E2E-Modus; Ihre Daten bleiben durch die Standardsicherheitsmaßnahmen Ihres Cloud-Anbieters geschützt."
+        "content": "Die personenbezogenen Daten, die wir erheben, sind minimal. Im Zusammenhang mit Ihrem Konto erheben wir: Ihre E-Mail-Adresse, Ihren Anzeigenamen (sofern dieser von einem externen Anmeldedienst wie Google oder Apple bereitgestellt wird) und – sobald Sie einen Cloud-Speicher verbinden – einen Eintrag, welchen Anbieter Sie gewählt haben. Zum Betrieb des Tagebuchdienstes speichern wir auf unseren Servern eine geringe Menge an Zustandsinformationen – ob Ihre Verschlüsselungseinrichtung abgeschlossen ist, Ihren Abonnementstatus sowie die Kennungen, die unser Zahlungsdienstleister (Stripe) zur Verwaltung Ihres Abonnements benötigt. Zur Überwachung der fairen Nutzung optionaler KI-Funktionen erfassen wir nutzerbezogene Nutzungszähler (die Art der durchgeführten Analyse und einen Zeitstempel; niemals den Inhalt Ihrer Einträge). Unser Authentifizierungs-Backend speichert außerdem standardmäßige Sitzungsmetadaten wie Anmelde-Zeitstempel. Anzeigenamen werden ausschließlich zur Personalisierung Ihrer Erfahrung in der App verwendet und niemals öffentlich gemacht. Um Abonnementpreise in Ihrer lokalen Währung anzuzeigen, kann das mit Ihrer IP-Adresse verknüpfte Land kurzzeitig ermittelt werden; nur der ermittelte Ländercode wird verwendet, er wird nicht mit Ihrem Konto verknüpft, und Ihre IP-Adresse wird nicht gespeichert. Wir verwenden keine Analyse-Dienste Dritter, Werbe-SDKs oder app-übergreifende Tracker. Wenn Sie die Ende-zu-Ende-Verschlüsselung (E2E) verwenden, werden Ihre Tagebuchinhalte auf Ihrem Gerät verschlüsselt und sind für uns unlesbar. Im Simple-Modus werden Ihre Tagebuchdaten ohne Ende-zu-Ende-Verschlüsselung mit Ihrem gewählten Cloud-Anbieter synchronisiert. Der Simple-Modus dient der Bequemlichkeit und kann den Datenschutz im Vergleich zum E2E-Modus verringern; Ihre Daten bleiben durch die Standard-Sicherheitsmaßnahmen Ihres Cloud-Anbieters geschützt."
       },
       "usage": {
         "title": "Wie wir Informationen verwenden",
-        "content": "Wir verwenden Ihre E-Mail-Adresse ausschließlich für Kontoauthentifizierung und wichtige Dienstbenachrichtigungen. Wir verkaufen Ihre persönlichen Informationen nicht und teilen sie nicht für Marketingzwecke mit Dritten."
+        "content": "Wir verwenden die erhobenen Informationen für folgende Zwecke: Ihre E-Mail-Adresse zur Kontoauthentifizierung und für wichtige Servicebenachrichtigungen; Ihren Anzeigenamen zur Personalisierung Ihrer Erfahrung in der App; Ihre Wahl des Speicheranbieters und den Status Ihrer Verschlüsselungseinrichtung, um Sie wieder mit dem richtigen Konto zu verbinden und die Synchronisierung fortzusetzen; Ihren Abonnementstatus, um den Zugriff auf kostenpflichtige Funktionen zu gewähren oder einzuschränken; die von unserem Zahlungsdienstleister (Stripe) verwendeten Kennungen zur Verwaltung Ihres Abonnements; sowie KI-Nutzungszähler zur Durchsetzung von Fair-Use-Limits für optionale KI-Funktionen. Wir verkaufen Ihre personenbezogenen Daten nicht und geben sie nicht zu Marketingzwecken an Dritte weiter."
       },
       "storage": {
         "title": "Datenspeicherung",
-        "content": "Ihre Tagebucheinträge werden bei Ihrem gewählten Cloud-Speicheranbieter gespeichert (Google Drive, Dropbox oder Nextcloud) – nicht auf unseren Servern. Sie behalten die volle Kontrolle darüber, wo Ihre Daten gespeichert werden. Wir speichern nur Ihre für die Authentifizierung erforderlichen Kontoinformationen."
+        "content": "Ihre Tagebucheinträge werden bei Ihrem gewählten Cloud-Speicheranbieter (Google Drive, Dropbox, Nextcloud oder iCloud Drive) gespeichert – nicht auf unseren Servern. Sie behalten die volle Kontrolle darüber, wo Ihre Daten gespeichert werden. Auf unseren Servern (betrieben über unser Authentifizierungs- und Datenbank-Backend) speichern wir nur die für den Betrieb des Dienstes notwendigen Informationen: Ihre Authentifizierungsdaten, Ihren Anzeigenamen, Ihre Wahl des Speicheranbieters, den Status Ihrer Verschlüsselungseinrichtung, Ihren Abonnementstatus, die von unserem Zahlungsdienstleister (Stripe) zur Verwaltung Ihres Abonnements verwendeten Kennungen sowie nutzerbezogene Nutzungszähler für KI-Funktionen. Zahlungen werden von unseren Zahlungsanbietern abgewickelt (Stripe im Web, Apple In-App Purchase unter iOS, Google Play Billing unter Android); vollständige Zahlungsdaten Ihrer Karte werden nicht auf unseren Servern gespeichert."
       },
       "encryption": {
         "title": "Ende-zu-Ende-Verschlüsselung",
@@ -2179,11 +2199,11 @@
       },
       "zeroKnowledge": {
         "title": "Zero-Knowledge-Architektur",
-        "content": "OwnJournal ist so konzipiert, dass wir Ihre Tagebuchinhalte weder einsehen noch lesen können. Bei E2E-Verschlüsselung können nur Sie Ihre Daten entschlüsseln – das ist Zero-Knowledge-Architektur. Bei Nutzung optionaler KI-Funktionen werden Inhalte wie im Abschnitt „KI-Funktionen und Verarbeitung“ beschrieben übertragen."
+        "content": "Unsere Zero-Knowledge-Architektur gilt für Ihre Ende-zu-Ende-verschlüsselten Tagebuchinhalte: Mit aktivierter E2E-Verschlüsselung halten nur Sie das zur Entschlüsselung Ihrer Daten erforderliche Passwort, und wir können nicht darauf zugreifen oder sie lesen. Kontoinformationen, die für den Betrieb des Dienstes erforderlich sind – wie Ihre E-Mail-Adresse, Ihr Anzeigename, Ihre Wahl des Speicheranbieters, Ihr Abonnementstatus und KI-Nutzungszähler – sind für uns notwendigerweise lesbar. Wenn Sie optionale KI-Funktionen verwenden, wird der relevante Text auf Ihrem Gerät entschlüsselt und gesendet, wie im folgenden Abschnitt „KI-Funktionen und Verarbeitung\" beschrieben."
       },
       "thirdParty": {
         "title": "Drittanbieter-Dienste",
-        "content": "Wir integrieren mit Cloud-Speicheranbietern (Google Drive, Dropbox, Nextcloud) für die Datensynchronisierung. Diese Dienste haben ihre eigenen Datenschutzrichtlinien. Wir verwenden Authentifizierungsdienste für sichere Anmeldung. Wenn Sie optionale KI-Funktionen nutzen, werden Daten von unserem KI-Dienstanbieter verarbeitet. Jeder Drittanbieterdienst arbeitet nach seinen eigenen Bedingungen und Datenschutzpraktiken."
+        "content": "Wir integrieren die folgenden Drittanbieter-Dienste, die jeweils unter ihren eigenen Bedingungen und Datenschutzpraktiken arbeiten: Cloud-Speicheranbieter (Google Drive, Dropbox, Nextcloud, iCloud Drive) für die Synchronisierung mit Ihrem eigenen Konto; Authentifizierungsdienste (Google, Apple) und unser Authentifizierungs-Backend für die sichere Anmeldung; Zahlungsanbieter (Stripe im Web, Apple In-App Purchase unter iOS, Google Play Billing unter Android) für die Abwicklung von Abonnements; sowie KI-Dienstanbieter (Google Gemini, OpenAI), wenn Sie optionale KI-Funktionen nutzen."
       },
       "syncIdentifier": {
         "title": "Sync- und Gerätekennung",
@@ -2191,7 +2211,7 @@
       },
       "aiProcessing": {
         "title": "KI-Funktionen und Verarbeitung",
-        "content": "OwnJournal bietet optionale KI-gestützte Funktionen wie Stimmungsanalyse und Vorschläge, die ausschließlich Plus-Abonnenten zur Verfügung stehen. KI-Verarbeitung erfolgt nur, wenn Sie als Plus-Abonnent diese Funktionen explizit nutzen. Bei Verwendung von KI-Funktionen wird der relevante Text zuerst auf Ihrem Gerät entschlüsselt und dann durch Ihre explizite Aktion an den KI-Dienst gesendet; Ihr Tagebuchinhalt wird an unsere KI-Anbieter -- derzeit Google (Gemini) oder OpenAI -- über deren APIs gesendet. OwnJournal speichert keine KI-Eingaben oder -Ausgaben auf unseren Servern. Diese Anbieter können Prompts und Ausgaben für einen begrenzten Zeitraum zur Missbrauchsüberwachung und Richtliniendurchsetzung gemäß ihren aktuellen Richtlinien aufbewahren. KI-Verarbeitung kann außerhalb des EWR stattfinden; sowohl Google als auch OpenAI unterhalten angemessene Datentransferschutzmaßnahmen wie Standardvertragsklauseln. OwnJournal nimmt nicht an Anbieterprogrammen teil, die es erlauben, KI-Daten für Modelltraining oder -verbesserung zu verwenden. Sie können sich entscheiden, KI-Funktionen nicht zu nutzen, und dies beeinträchtigt die Kerntagebuchfunktionalität nicht."
+        "content": "OwnJournal bietet optionale KI-gestützte Funktionen wie Stimmungsanalysen und Vorschläge an, die ausschließlich Plus-Abonnenten zur Verfügung stehen. Eine KI-Verarbeitung erfolgt nur, wenn Sie als Plus-Abonnent diese Funktionen ausdrücklich nutzen. Wenn Sie KI-Funktionen verwenden, wird der relevante Text zunächst auf Ihrem Gerät entschlüsselt und dann durch Ihre ausdrückliche Aktion an den KI-Dienst gesendet; Ihre Tagebuchinhalte werden über die kostenpflichtigen APIs unseres KI-Anbieters gesendet – derzeit Google (Gemini), mit OpenAI als Alternative. Wir speichern KI-Eingaben oder -Ausgaben nicht auf unseren Servern; wir erfassen lediglich nutzerbezogene Zähler der KI-Funktionsnutzung (die Art der durchgeführten Analyse und einen Zeitstempel, niemals den Inhalt) zur Durchsetzung von Fair-Use-Limits. Diese Anbieter können Eingabeaufforderungen und Ausgaben gemäß ihren aktuellen Richtlinien für einen begrenzten Zeitraum zur Missbrauchsüberwachung und Durchsetzung von Richtlinien aufbewahren. Die KI-Verarbeitung kann außerhalb des EWR erfolgen; sowohl Google als auch OpenAI verfügen über angemessene Schutzmaßnahmen für die Datenübermittlung wie die Standardvertragsklauseln. Wir verwenden die kostenpflichtigen Stufen dieser KI-Anbieter, bei denen Eingabeaufforderungen und Ausgaben nicht zum Trainieren oder Verbessern der Anbietermodelle verwendet werden. Sie können sich gegen die Nutzung der KI-Funktionen entscheiden, ohne dass dies die zentrale Tagebuchfunktionalität beeinträchtigt."
       },
       "diagnostics": {
         "title": "Diagnose und Absturzprotokolle",
@@ -2199,15 +2219,15 @@
       },
       "retention": {
         "title": "Datenspeicherung",
-        "content": "Ihre Tagebuchdaten bleiben in Ihrem Cloud-Speicher, bis Sie sie löschen. Kontoinformationen werden aufbewahrt, solange Ihr Konto aktiv ist. Sie können Ihr Konto jederzeit löschen, wodurch Ihre Kontodaten aus unserem Authentifizierungssystem entfernt werden."
+        "content": "Ihre Tagebuchdaten verbleiben in Ihrem Cloud-Speicher, bis Sie sie löschen. Auf unseren Servern gespeicherte Kontoinformationen werden aufbewahrt, solange Ihr Konto aktiv ist. Wenn Sie Ihr Konto löschen, löschen wir Ihr Profil, Ihren Abonnementdatensatz, KI-Nutzungszähler und Ihre Authentifizierungsdaten unverzüglich aus unseren Systemen. Transaktionsdatensätze, die von unseren Zahlungsdienstleistern (Stripe, Apple, Google) gehalten werden, werden von diesen gemäß ihren eigenen Richtlinien und geltendem Recht aufbewahrt; Sie können den Zugriff auf solche Datensätze oder deren Löschung direkt beim jeweiligen Anbieter anfordern."
       },
       "accountDeletion": {
         "title": "Kontolöschung",
-        "content": "Sie können Ihr Konto jederzeit über Einstellungen in der App oder per Kontaktaufnahme unter {{companyEmail}} löschen. Die Kontolöschung entfernt Ihr Profil, Abonnement und Authentifizierungsdaten aus unseren Systemen. Tagebuchdaten in Ihrem Cloud-Speicher bleiben unter Ihrer Kontrolle und können dort von Ihnen gelöscht werden."
+        "content": "Sie können Ihr Konto jederzeit über die Einstellungen in der App oder durch Kontaktaufnahme mit uns unter {{companyEmail}} löschen. Die Kontolöschung entfernt Ihr Profil, Ihr Abonnement, KI-Nutzungszähler und Authentifizierungsdaten aus unseren Systemen. Tagebuchdaten in Ihrem Cloud-Speicher bleiben unter Ihrer Kontrolle und können dort von Ihnen gelöscht werden."
       },
       "legalBasis": {
         "title": "Rechtsgrundlage für die Verarbeitung",
-        "content": "Wir verarbeiten Ihre Daten auf Grundlage von: (1) Vertragserfüllung – um den Tagebuchdienst bereitzustellen, für den Sie sich angemeldet haben; (2) Berechtigte Interessen – um die Dienstsicherheit aufrechtzuerhalten und Missbrauch zu verhindern; (3) Einwilligung – für optionale Funktionen wie KI-Analyse. Sie können Ihre Einwilligung für optionale Funktionen jederzeit widerrufen."
+        "content": "Wir verarbeiten Ihre Daten auf folgender Grundlage: (1) Vertragserfüllung – zur Bereitstellung des von Ihnen abonnierten Tagebuchdienstes; (2) Berechtigte Interessen – zur Aufrechterhaltung der Dienstsicherheit und zur Missbrauchsverhinderung sowie zur Durchsetzung von Fair-Use-Limits für optionale KI-Funktionen; und (3) Einwilligung – für optionale Funktionen wie KI-Analyse (Sie können Ihre Einwilligung jederzeit widerrufen)."
       },
       "dpo": {
         "title": "Datenschutzbeauftragter (DSB)",
@@ -2215,11 +2235,11 @@
       },
       "rights": {
         "title": "Ihre Rechte",
-        "content": "Nach der DSGVO und ähnlichen Datenschutzgesetzen haben Sie das Recht auf: Zugriff auf Ihre Daten, Export Ihrer Daten (Portabilität), Berichtigung unrichtiger Daten, Löschung Ihrer Daten, Einschränkung der Verarbeitung, Widerspruch gegen die Verarbeitung und Beschwerde bei Ihrer lokalen Datenschutzbehörde. Für EU-Einwohner können Sie sich an Ihre nationale Aufsichtsbehörde wenden. Um diese Rechte auszuüben, kontaktieren Sie uns unter support@ownjournal.app."
+        "content": "Nach der DSGVO und ähnlichen Datenschutzgesetzen haben Sie das Recht auf: Zugriff auf Ihre Daten, Datenübertragbarkeit, Berichtigung unrichtiger Daten, Löschung Ihrer Daten, Einschränkung der Verarbeitung, Widerspruch gegen die Verarbeitung sowie Beschwerde bei Ihrer lokalen Datenschutzbehörde. EU-Bürger können sich an ihre nationale Aufsichtsbehörde wenden. In {{companyCountry}} ist dies {{supervisoryAuthority}} unter {{supervisoryAuthorityUrl}}. Um diese Rechte auszuüben, kontaktieren Sie uns unter {{companyEmail}}."
       },
       "children": {
         "title": "Datenschutz für Kinder",
-        "content": "OwnJournal ist nicht für Kinder unter 13 Jahren bestimmt. Wir sammeln wissentlich keine persönlichen Informationen von Kindern. Wenn Sie glauben, dass wir versehentlich solche Informationen gesammelt haben, kontaktieren Sie uns bitte."
+        "content": "OwnJournal ist nicht für Kinder unter 13 Jahren bestimmt oder das in Ihrem Land geltende höhere Alter der digitalen Einwilligung (in einigen EU-Mitgliedstaaten bis zu 16 Jahre). Wir erheben wissentlich keine personenbezogenen Daten von Kindern unter dem geltenden Alter. Wenn Sie der Meinung sind, dass wir versehentlich solche Informationen erhoben haben, kontaktieren Sie uns bitte."
       },
       "changes": {
         "title": "Änderungen dieser Richtlinie",
@@ -2227,7 +2247,19 @@
       },
       "contact": {
         "title": "Kontaktieren Sie uns",
-        "content": "Bei Fragen zu dieser Datenschutzrichtlinie, zur Ausübung Ihrer Datenrechte oder bei Bedenken kontaktieren Sie uns bitte unter support@ownjournal.app. Wir bemühen uns, innerhalb von 30 Tagen zu antworten."
+        "content": "Wenn Sie Fragen zu dieser Datenschutzerklärung haben, Ihre Datenrechte ausüben möchten oder Bedenken haben, kontaktieren Sie uns bitte unter {{companyEmail}}. Wir bemühen uns, innerhalb von 30 Tagen zu antworten."
+      },
+      "localStorage": {
+        "title": "Cookies und lokaler Speicher",
+        "content": "OwnJournal verwendet keine Drittanbieter-Cookies, Werbe-Cookies oder app-übergreifende Tracker. Die Anwendung verwendet den lokalen Speicher Ihres Geräts (im Web Browser-localStorage und IndexedDB; auf Mobilgeräten und Desktops gleichwertige lokale Speicher), um Ihre Verschlüsselungsschlüssel, Tagebucheinträge, den Sync-Status und Einstellungen auf Ihrem Gerät zu speichern. Diese lokalen Daten sind nutzerbezogen und verbleiben auf Ihrem Gerät, sofern Sie sie nicht ausdrücklich exportieren oder mit Ihrem gewählten Cloud-Speicheranbieter synchronisieren. Die Authentifizierung verwendet Sitzungstoken, die von unserem Authentifizierungs-Backend ausgestellt und lokal auf Ihrem Gerät gespeichert werden. Sie können lokale Daten jederzeit über die Einstellungen oder durch Leeren des Browser-Speichers löschen."
+      },
+      "internationalTransfers": {
+        "title": "Internationale Datenübermittlungen",
+        "content": "Einige unserer Dienstanbieter verarbeiten Daten außerhalb des Europäischen Wirtschaftsraums (EWR). Unser Authentifizierungs- und Datenbank-Backend, Zahlungsanbieter (Stripe, Apple, Google), KI-Anbieter (Google, OpenAI) und Ihr gewählter Cloud-Speicheranbieter können Daten in Länder übermitteln oder dort verarbeiten, für die kein Angemessenheitsbeschluss der Europäischen Kommission vorliegt. In solchen Fällen stützen wir uns gemeinsam mit den Anbietern auf geeignete Garantien gemäß Artikel 46 DSGVO, wie die Standardvertragsklauseln (SCC) der Europäischen Kommission in Verbindung mit ergänzenden technischen und organisatorischen Maßnahmen. Sie können weitere Informationen zu den getroffenen Schutzmaßnahmen anfordern, indem Sie uns kontaktieren."
+      },
+      "californiaRights": {
+        "title": "Datenschutzrechte für US-Bundesstaaten",
+        "content": "Wenn Sie in Kalifornien oder einem anderen US-Bundesstaat mit einem umfassenden Verbraucherdatenschutzgesetz wohnen (wie Virginia, Colorado, Connecticut, Utah, Texas oder anderen, sofern erlassen), haben Sie Rechte bezüglich Ihrer personenbezogenen Daten, die Folgendes umfassen können: das Recht zu erfahren, welche personenbezogenen Daten wir erheben, das Recht auf Löschung Ihrer personenbezogenen Daten, das Recht auf Berichtigung unrichtiger personenbezogener Daten, das Recht, bestimmten Verwendungen zu widersprechen (einschließlich des Verkaufs oder der Weitergabe personenbezogener Daten), und das Recht, die Verwendung sensibler personenbezogener Daten einzuschränken. Wir verkaufen Ihre personenbezogenen Daten nicht und geben sie nicht für kontextübergreifende verhaltensbasierte Werbung weiter. Um Ihre Rechte auszuüben, kontaktieren Sie uns unter der im Abschnitt „Kontakt\" angegebenen Adresse."
       }
     }
   },

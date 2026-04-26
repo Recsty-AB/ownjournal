@@ -14,8 +14,11 @@
  * - Example: 1.0.0 = 10000
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Read version from package.json
 const packageJsonPath = path.join(__dirname, '../package.json');
