@@ -27,6 +27,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { useToast } from "@/hooks/use-toast";
 import { isNativePlatform } from "@/utils/nativeExport";
+import { canShowPurchaseCTA } from "@/utils/platformDetection";
 import logo from "@/assets/logo.png";
 
 interface User {
@@ -270,10 +271,16 @@ export const Header = ({
                   <span>{t("header.importData")}</span>
                 </DropdownMenuItem>
 
-                <DropdownMenuItem onClick={onExportToFile} className="cursor-pointer">
-                  <FileText className="mr-2 h-5 w-5" />
-                  <span>{t("settings.dataManagement.exportFile")}</span>
-                </DropdownMenuItem>
+                {/* PDF/Word export is Plus-only. On native (iOS/Android) free
+                    users we hide the entry point entirely to avoid showing a
+                    locked feature that references a paid tier without an IAP
+                    product. Pro users on native still see it. */}
+                {(user?.isPro || canShowPurchaseCTA()) && (
+                  <DropdownMenuItem onClick={onExportToFile} className="cursor-pointer">
+                    <FileText className="mr-2 h-5 w-5" />
+                    <span>{t("settings.dataManagement.exportFile")}</span>
+                  </DropdownMenuItem>
+                )}
 
                 <DropdownMenuItem onClick={onToggleTheme} className="cursor-pointer sm:hidden">
                   {isDarkMode ? (

@@ -1519,7 +1519,8 @@
     "exportError": "Export fehlgeschlagen",
     "exportErrorDesc": "{{format}} konnte nicht erstellt werden. Bitte versuchen Sie es erneut.",
     "upgradePrompt": "Upgraden Sie auf Plus, um Exportfunktionen freizuschalten",
-    "entriesReady": "{{count}} Einträge bereit zum Exportieren."
+    "entriesReady": "{{count}} Einträge bereit zum Exportieren.",
+    "unavailableNative": "Dokument-Exporte sind in dieser App-Version nicht verfügbar."
   },
   "subscription": {
     "title": "Abonnement",
@@ -1529,7 +1530,7 @@
     "upgradeButton": "Auf Plus upgraden",
     "manageButton": "Abonnement verwalten",
     "proMember": "Plus-Mitglied",
-    "enjoyingFeatures": "KI-Analyse, Vorschläge & Premium-Funktionen genießen",
+    "enjoyingFeatures": "KI-Analyse, Vorschläge & alle Funktionen genießen",
     "unlockInsights": "Plus-Funktionen freischalten",
     "description": "Erhalten Sie KI-gestützte Zusammenfassungen, Stimmungsanalysen und Schlüsselbegriff-Extraktion für Ihre Tagebucheinträge",
     "smartSummaries": "Intelligente Zusammenfassungen",

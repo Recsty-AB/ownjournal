@@ -1519,7 +1519,8 @@
     "exportError": "Eksport mislykkedes",
     "exportErrorDesc": "Kunne ikke generere {{format}}. Prøv igen.",
     "upgradePrompt": "Opgrader til Plus for at låse op for eksportfunktioner",
-    "entriesReady": "{{count}} indlæg klar til eksport."
+    "entriesReady": "{{count}} indlæg klar til eksport.",
+    "unavailableNative": "Dokumenteksport er ikke tilgængelig i denne app-version."
   },
   "subscription": {
     "title": "Abonnement",
@@ -1529,7 +1530,7 @@
     "upgradeButton": "Opgrader til Plus",
     "manageButton": "Administrer abonnement",
     "proMember": "Plus-medlem",
-    "enjoyingFeatures": "Nyd AI-analyse, forslag og premium-funktioner",
+    "enjoyingFeatures": "Nyd AI-analyse, forslag og alle funktioner",
     "unlockInsights": "Lås Plus-funktioner op",
     "description": "Få AI-drevne opsummeringer, sentimentanalyse og nøglefrasudtræk til dine dagbogsindlæg",
     "smartSummaries": "Smarte opsummeringer",

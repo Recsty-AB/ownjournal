@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /home/robin/Documents/gitrepos/ownjournal/ownjournal/LICENSE*)",
+      "Bash(python3 *)",
+      "Bash(npm view *)",
+      "Bash(node scripts/patch-ios-plugins.cjs)",
+      "Bash(npx eslint *)",
+      "Bash(npx tsc *)"
+    ]
+  }
+}

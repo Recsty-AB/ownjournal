@@ -1519,7 +1519,8 @@
     "exportError": "Export mislukt",
     "exportErrorDesc": "Kan {{format}} niet genereren. Probeer het opnieuw.",
     "upgradePrompt": "Upgrade naar Plus om exportfuncties te ontgrendelen",
-    "entriesReady": "{{count}} items klaar om te exporteren."
+    "entriesReady": "{{count}} items klaar om te exporteren.",
+    "unavailableNative": "Documentexports zijn niet beschikbaar in deze versie van de app."
   },
   "subscription": {
     "title": "Abonnement",
@@ -1529,7 +1530,7 @@
     "upgradeButton": "Upgraden naar Plus",
     "manageButton": "Abonnement beheren",
     "proMember": "Plus-lid",
-    "enjoyingFeatures": "Geniet van AI-analyse, suggesties en premiumfuncties",
+    "enjoyingFeatures": "Geniet van AI-analyse, suggesties en alle functies",
     "unlockInsights": "Plus-functies ontgrendelen",
     "description": "Krijg AI-gestuurde samenvattingen, sentimentanalyse en extractie van kernzinnen voor uw dagboekitems",
     "smartSummaries": "Slimme samenvattingen",

@@ -1522,7 +1522,8 @@
     "exportError": "ส่งออกไม่สำเร็จ",
     "exportErrorDesc": "สร้าง {{format}} ไม่สำเร็จ กรุณาลองอีกครั้ง",
     "upgradePrompt": "อัปเกรดเป็น Plus เพื่อปลดล็อกฟีเจอร์ส่งออก",
-    "entriesReady": "{{count}} รายการพร้อมส่งออก"
+    "entriesReady": "{{count}} รายการพร้อมส่งออก",
+    "unavailableNative": "การส่งออกเอกสารไม่สามารถใช้ได้ในแอปเวอร์ชันนี้"
   },
   "subscription": {
     "title": "สมาชิก",
@@ -1532,7 +1533,7 @@
     "upgradeButton": "อัปเกรดเป็น Plus",
     "manageButton": "จัดการสมาชิก",
     "proMember": "สมาชิก Plus",
-    "enjoyingFeatures": "เพลิดเพลินกับ AI วิเคราะห์ คำแนะนำ และฟีเจอร์ Premium",
+    "enjoyingFeatures": "เพลิดเพลินกับ AI วิเคราะห์ คำแนะนำ และฟีเจอร์ทั้งหมด",
     "unlockInsights": "ปลดล็อกฟีเจอร์ Plus",
     "description": "รับสรุปอัจฉริยะ วิเคราะห์อารมณ์ และสกัดวลีสำคัญจากรายการบันทึกด้วย AI",
     "smartSummaries": "สรุปอัจฉริยะ",

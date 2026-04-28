@@ -28,6 +28,7 @@ import { isE2EEnabled } from "@/utils/encryptionModeStorage";
 import { getMockTrendAnalysis } from "@/demo/mockAIResponses";
 import { computeTimeBuckets, shouldUseTimeBuckets, type EntryWithDateAndMetadata } from "@/utils/timeBucketAggregation";
 import { getDateLocale } from "@/utils/dateLocale";
+import { canShowPurchaseCTA } from "@/utils/platformDetection";
 
 interface TrendAnalysisProps {
   entries: JournalEntryData[];
@@ -904,6 +905,13 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
     // Show weekly limit message
     return "weekly";
   };
+
+  // On native (iOS/Android) free users, hide the trend analysis surface
+  // entirely. The empty-state form shows a Crown icon + "Plus" toast on tap;
+  // the results view (only reachable if the user had Plus previously) shows a
+  // Crown re-analyze button. App stores flag both as references to a paid
+  // tier without a corresponding in-app purchase.
+  if (!isPro && !canShowPurchaseCTA()) return null;
 
   if (!analysis || isSelectingPeriod) {
     return (

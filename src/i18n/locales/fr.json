@@ -1519,7 +1519,8 @@
     "exportError": "Échec de l'exportation",
     "exportErrorDesc": "Échec de la génération de {{format}}. Veuillez réessayer.",
     "upgradePrompt": "Passez à Plus pour débloquer les fonctionnalités d'exportation",
-    "entriesReady": "{{count}} entrées prêtes à exporter."
+    "entriesReady": "{{count}} entrées prêtes à exporter.",
+    "unavailableNative": "Les exportations de documents ne sont pas disponibles dans cette version de l'application."
   },
   "subscription": {
     "title": "Abonnement",
@@ -1529,7 +1530,7 @@
     "upgradeButton": "Passer à Plus",
     "manageButton": "Gérer l'abonnement",
     "proMember": "Membre Plus",
-    "enjoyingFeatures": "Profitez de l'analyse IA, des suggestions et des fonctionnalités premium",
+    "enjoyingFeatures": "Profitez de l'analyse IA, des suggestions et de toutes les fonctionnalités",
     "unlockInsights": "Débloquer les fonctionnalités Plus",
     "description": "Obtenez des résumés alimentés par l'IA, une analyse des sentiments et une extraction des phrases clés pour vos entrées de journal",
     "smartSummaries": "Résumés intelligents",

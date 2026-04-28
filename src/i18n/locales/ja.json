@@ -1522,7 +1522,8 @@
     "exportError": "書き出しに失敗しました",
     "exportErrorDesc": "{{format}}の書き出し中にエラーが発生しました。",
     "upgradePrompt": "Plusにアップグレードして書き出し機能をアンロック",
-    "entriesReady": "{{count}}件の日記を書き出せます。"
+    "entriesReady": "{{count}}件の日記を書き出せます。",
+    "unavailableNative": "ドキュメントのエクスポートはこのアプリバージョンでは利用できません。"
   },
   "subscription": {
     "title": "サブスクリプション",
@@ -1532,7 +1533,7 @@
     "upgradeButton": "Plusにアップグレード",
     "manageButton": "サブスクリプションを管理",
     "proMember": "Plusメンバー",
-    "enjoyingFeatures": "AI分析・提案とプレミアム機能を利用中",
+    "enjoyingFeatures": "AI分析・提案とすべての機能を利用中",
     "unlockInsights": "Plus機能を解放",
     "description": "AIによる要約、感情分析、キーフレーズ抽出を日記に活用",
     "smartSummaries": "スマート要約",

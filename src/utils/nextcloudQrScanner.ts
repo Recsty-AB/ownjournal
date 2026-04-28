@@ -11,6 +11,20 @@
  */
 
 import { getPlatformInfo } from '@/utils/platformDetection';
+import { registerPlugin } from '@capacitor/core';
+
+interface OwnJournalQrScannerPlugin {
+  isSupported(): Promise<{ supported: boolean }>;
+  checkPermissions(): Promise<{ camera: 'granted' | 'denied' | 'prompt' | 'restricted' }>;
+  requestPermissions(): Promise<{ camera: 'granted' | 'denied' | 'prompt' | 'restricted' }>;
+  scan(): Promise<{ rawValue: string | null; cancelled: boolean }>;
+}
+
+const OwnJournalQrScanner = registerPlugin<OwnJournalQrScannerPlugin>('OwnJournalQrScanner');
+
+function isIOSNative(): boolean {
+  return getPlatformInfo().platform === 'capacitor-ios';
+}
 
 export interface NextcloudQrConfig {
   serverUrl: string;
@@ -120,6 +134,72 @@ export function isQrScanningAvailable(): boolean {
   return getPlatformInfo().isCapacitor;
 }
 
+class QrPermissionError extends Error {}
+class QrUnsupportedError extends Error {}
+
+/**
+ * iOS path: thin wrapper around our AVFoundation-based plugin.
+ * Returns the raw QR string, or null if the user cancelled.
+ */
+async function scanWithNativePlugin(): Promise<string | null> {
+  const { supported } = await OwnJournalQrScanner.isSupported();
+  if (!supported) {
+    throw new QrUnsupportedError('Camera is not available on this device');
+  }
+
+  let perm = await OwnJournalQrScanner.checkPermissions();
+  if (perm.camera === 'denied' || perm.camera === 'restricted') {
+    throw new QrPermissionError(
+      'Camera permission was denied. Please enable camera access in your device settings.'
+    );
+  }
+  if (perm.camera !== 'granted') {
+    perm = await OwnJournalQrScanner.requestPermissions();
+    if (perm.camera !== 'granted') {
+      throw new QrPermissionError('Camera permission is required to scan QR codes');
+    }
+  }
+
+  const result = await OwnJournalQrScanner.scan();
+  if (result.cancelled) return null;
+  return result.rawValue;
+}
+
+/**
+ * Android path: @capacitor-mlkit/barcode-scanning.
+ * Returns the raw QR string, or null if the user cancelled.
+ */
+async function scanWithMlkit(): Promise<string | null> {
+  const { BarcodeScanner, BarcodeFormat } = await import('@capacitor-mlkit/barcode-scanning');
+
+  const { supported } = await BarcodeScanner.isSupported();
+  if (!supported) {
+    throw new QrUnsupportedError('Barcode scanning is not supported on this device');
+  }
+
+  let perm = await BarcodeScanner.checkPermissions();
+  if (perm.camera === 'denied') {
+    throw new QrPermissionError(
+      'Camera permission was denied. Please enable camera access in your device settings.'
+    );
+  }
+  if (perm.camera !== 'granted') {
+    try {
+      perm = await BarcodeScanner.requestPermissions();
+    } catch (e) {
+      console.error('Permission request failed:', e);
+      throw new QrPermissionError('Failed to request camera permission.');
+    }
+    if (perm.camera !== 'granted') {
+      throw new QrPermissionError('Camera permission is required to scan QR codes');
+    }
+  }
+
+  const result = await BarcodeScanner.scan({ formats: [BarcodeFormat.QrCode] });
+  if (!result.barcodes || result.barcodes.length === 0) return null;
+  return result.barcodes[0].rawValue ?? '';
+}
+
 /**
  * Scan a Nextcloud QR code using the device camera
  * Only works on native iOS/Android platforms
@@ -134,61 +214,12 @@ export async function scanNextcloudQr(): Promise<QrScanResult> {
   }
 
   try {
-    // Dynamic import to prevent web build issues
-    const { BarcodeScanner, BarcodeFormat } = await import('@capacitor-mlkit/barcode-scanning');
+    const rawValue = isIOSNative()
+      ? await scanWithNativePlugin()
+      : await scanWithMlkit();
 
-    // Check if scanning is supported
-    const { supported } = await BarcodeScanner.isSupported();
-    if (!supported) {
-      return {
-        success: false,
-        error: 'not_supported',
-        errorMessage: 'Barcode scanning is not supported on this device',
-      };
-    }
-
-    // Check and request camera permission with better handling
-    let permissionStatus = await BarcodeScanner.checkPermissions();
-
-    if (permissionStatus.camera === 'denied') {
-      // Permission was previously denied - user needs to enable in settings
-      return {
-        success: false,
-        error: 'permission_denied',
-        errorMessage: 'Camera permission was denied. Please enable camera access in your device settings.',
-      };
-    }
-
-    if (permissionStatus.camera !== 'granted') {
-      // Request permission - this should trigger the system dialog
-      try {
-        const requestResult = await BarcodeScanner.requestPermissions();
-        permissionStatus = requestResult;
-      } catch (permError) {
-        console.error('Permission request failed:', permError);
-        return {
-          success: false,
-          error: 'permission_denied',
-          errorMessage: 'Failed to request camera permission.',
-        };
-      }
-      
-      if (permissionStatus.camera !== 'granted') {
-        return {
-          success: false,
-          error: 'permission_denied',
-          errorMessage: 'Camera permission is required to scan QR codes',
-        };
-      }
-    }
-
-    // Start scanning
-    const result = await BarcodeScanner.scan({
-      formats: [BarcodeFormat.QrCode],
-    });
-
-    // User cancelled
-    if (!result.barcodes || result.barcodes.length === 0) {
+    // null means the user cancelled
+    if (rawValue === null) {
       return {
         success: false,
         error: 'cancelled',
@@ -196,10 +227,7 @@ export async function scanNextcloudQr(): Promise<QrScanResult> {
       };
     }
 
-    // Parse the QR code content
-    const qrContent = result.barcodes[0].rawValue;
-    
-    if (!qrContent) {
+    if (!rawValue) {
       return {
         success: false,
         error: 'invalid_format',
@@ -207,8 +235,7 @@ export async function scanNextcloudQr(): Promise<QrScanResult> {
       };
     }
 
-    const config = parseNextcloudQr(qrContent);
-    
+    const config = parseNextcloudQr(rawValue);
     if (!config) {
       return {
         success: false,
@@ -217,11 +244,22 @@ export async function scanNextcloudQr(): Promise<QrScanResult> {
       };
     }
 
-    return {
-      success: true,
-      config,
-    };
+    return { success: true, config };
   } catch (error) {
+    if (error instanceof QrPermissionError) {
+      return {
+        success: false,
+        error: 'permission_denied',
+        errorMessage: error.message,
+      };
+    }
+    if (error instanceof QrUnsupportedError) {
+      return {
+        success: false,
+        error: 'not_supported',
+        errorMessage: error.message,
+      };
+    }
     // Handle specific error cases
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     
