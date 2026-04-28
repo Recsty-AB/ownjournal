@@ -26,6 +26,10 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>OwnJournal uses the camera to scan Nextcloud login QR codes so you can connect your storage without typing long credentials.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>OwnJournal accesses your photo library so you can attach images to journal entries. Photos stay on your device or sync only to your own cloud storage.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

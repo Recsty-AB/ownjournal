@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import { MOOD_EMOJI } from "@/utils/moodEmoji";
 import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
 import { computeActivityCorrelations, SCORE_TO_MOOD } from "@/utils/moodAnalytics";
+import { canShowPurchaseCTA } from "@/utils/platformDetection";
 import type { JournalEntryData } from "./JournalEntry";
 
 interface MoodCorrelationsProps {
@@ -44,6 +45,12 @@ export const MoodCorrelations = ({ entries, isPro }: MoodCorrelationsProps) => {
   // Check if there are any entries with activities at all
   const hasActivities = entries.some(e => e.activities && e.activities.length > 0);
   if (!hasActivities && correlations.length === 0) return null;
+
+  // On native (iOS/Android), free users see no Plus marketing surface — hide
+  // the lock card entirely to avoid app-store rejections for referencing a
+  // paid tier without a corresponding in-app purchase product. Pro users on
+  // native still get the full feature.
+  if (!isPro && !canShowPurchaseCTA()) return null;
 
   return (
     <Collapsible open={!isCollapsed} onOpenChange={(open) => setIsCollapsed(!open)}>

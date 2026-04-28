@@ -1519,7 +1519,8 @@
     "exportError": "Vienti epäonnistui",
     "exportErrorDesc": "{{format}} ei voitu luoda. Yritä uudelleen.",
     "upgradePrompt": "Päivitä Plus-tilaan avataksesi vientiominaisuudet",
-    "entriesReady": "{{count}} merkintää valmiina vietäväksi."
+    "entriesReady": "{{count}} merkintää valmiina vietäväksi.",
+    "unavailableNative": "Asiakirjojen vienti ei ole käytettävissä tässä sovellusversiossa."
   },
   "subscription": {
     "title": "Tilaus",
@@ -1529,7 +1530,7 @@
     "upgradeButton": "Päivitä Plus-tilaan",
     "manageButton": "Hallinnoi tilausta",
     "proMember": "Plus-jäsen",
-    "enjoyingFeatures": "Nauti AI-analyysistä, ehdotuksista ja premium-ominaisuuksista",
+    "enjoyingFeatures": "Nauti tekoälyanalyysistä, ehdotuksista ja kaikista ominaisuuksista",
     "unlockInsights": "Avaa Plus-ominaisuudet",
     "description": "Saat AI-pohjaiset yhteenvedot, tunnelma-analyysin ja avainsanojen poimimisen päiväkirjamerkinnöillesi",
     "smartSummaries": "Älykkäät yhteenvedot",

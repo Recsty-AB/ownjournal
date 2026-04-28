@@ -1522,7 +1522,8 @@
     "exportError": "Ekspor Gagal",
     "exportErrorDesc": "Gagal membuat {{format}}. Silakan coba lagi.",
     "upgradePrompt": "Upgrade ke Plus untuk membuka fitur ekspor",
-    "entriesReady": "{{count}} catatan siap diekspor."
+    "entriesReady": "{{count}} catatan siap diekspor.",
+    "unavailableNative": "Ekspor dokumen tidak tersedia di versi aplikasi ini."
   },
   "subscription": {
     "title": "Langganan",
@@ -1532,7 +1533,7 @@
     "upgradeButton": "Upgrade ke Plus",
     "manageButton": "Kelola Langganan",
     "proMember": "Anggota Plus",
-    "enjoyingFeatures": "Menikmati analisis AI, saran & fitur Premium",
+    "enjoyingFeatures": "Menikmati analisis AI, saran & semua fitur",
     "unlockInsights": "Buka Fitur Plus",
     "description": "Dapatkan ringkasan berbasis AI, analisis sentimen, dan ekstraksi frasa kunci untuk catatan jurnalmu",
     "smartSummaries": "Ringkasan Cerdas",

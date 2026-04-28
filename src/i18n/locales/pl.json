@@ -1519,7 +1519,8 @@
     "exportError": "Eksport nie powiódł się",
     "exportErrorDesc": "Nie udało się wygenerować {{format}}. Spróbuj ponownie.",
     "upgradePrompt": "Przejdź na Plus, aby odblokować funkcje eksportu",
-    "entriesReady": "{{count}} wpisów gotowych do eksportu."
+    "entriesReady": "{{count}} wpisów gotowych do eksportu.",
+    "unavailableNative": "Eksport dokumentów jest niedostępny w tej wersji aplikacji."
   },
   "subscription": {
     "title": "Subskrypcja",
@@ -1529,7 +1530,7 @@
     "upgradeButton": "Uaktualnij do Plus",
     "manageButton": "Zarządzaj subskrypcją",
     "proMember": "Członek Plus",
-    "enjoyingFeatures": "Korzystasz z analizy AI, sugestii i funkcji premium",
+    "enjoyingFeatures": "Korzystasz z analizy AI, sugestii i wszystkich funkcji",
     "unlockInsights": "Odblokuj funkcje Plus",
     "description": "Otrzymuj podsumowania z AI, analizę sentymentu i ekstrakcję kluczowych fraz do wpisów dziennika",
     "smartSummaries": "Inteligentne podsumowania",

@@ -1519,7 +1519,8 @@
     "exportError": "Exportação Falhou",
     "exportErrorDesc": "Falha ao gerar {{format}}. Tente novamente.",
     "upgradePrompt": "Faça upgrade para Plus para desbloquear recursos de exportação",
-    "entriesReady": "{{count}} entradas prontas para exportar."
+    "entriesReady": "{{count}} entradas prontas para exportar.",
+    "unavailableNative": "As exportações de documentos não estão disponíveis nesta versão da aplicação."
   },
   "subscription": {
     "title": "Assinatura",
@@ -1529,7 +1530,7 @@
     "upgradeButton": "Fazer Upgrade para Plus",
     "manageButton": "Gerir Assinatura",
     "proMember": "Membro Plus",
-    "enjoyingFeatures": "Aproveitando análise de IA, sugestões e recursos premium",
+    "enjoyingFeatures": "Aproveitando análise de IA, sugestões e todos os recursos",
     "unlockInsights": "Desbloquear recursos Plus",
     "description": "Obtenha resumos com IA, análise de sentimento e extração de frases-chave para suas entradas de diário",
     "smartSummaries": "Resumos Inteligentes",

@@ -1519,7 +1519,8 @@
     "exportError": "导出失败",
     "exportErrorDesc": "生成 {{format}} 失败。请重试。",
     "upgradePrompt": "升级到 Plus 以解锁导出功能",
-    "entriesReady": "{{count}} 条条目已准备好导出。"
+    "entriesReady": "{{count}} 条条目已准备好导出。",
+    "unavailableNative": "此应用版本不支持文档导出。"
   },
   "subscription": {
     "title": "订阅",
@@ -1529,7 +1530,7 @@
     "upgradeButton": "升级到 Plus",
     "manageButton": "管理订阅",
     "proMember": "Plus 会员",
-    "enjoyingFeatures": "享受 AI 分析、建议与进阶功能",
+    "enjoyingFeatures": "享受 AI 分析、建议与所有功能",
     "unlockInsights": "解锁 Plus 功能",
     "description": "获取 AI 驱动的摘要、情绪分析和关键短语提取，用于您的日记条目",
     "smartSummaries": "智能摘要",

@@ -1519,7 +1519,8 @@
     "exportError": "匯出失敗",
     "exportErrorDesc": "產生 {{format}} 失敗。請重試。",
     "upgradePrompt": "升級為 Plus 以解鎖匯出功能",
-    "entriesReady": "{{count}} 條條目已準備好匯出。"
+    "entriesReady": "{{count}} 條條目已準備好匯出。",
+    "unavailableNative": "此應用程式版本不支援文件匯出。"
   },
   "subscription": {
     "title": "訂閱",
@@ -1529,7 +1530,7 @@
     "upgradeButton": "升級為 Plus",
     "manageButton": "管理訂閱",
     "proMember": "Plus 會員",
-    "enjoyingFeatures": "享受 AI 分析、建議與進階功能",
+    "enjoyingFeatures": "享受 AI 分析、建議與所有功能",
     "unlockInsights": "解鎖Plus功能",
     "description": "獲取 AI 驅動的摘要、情緒分析和日記條目的關鍵片語擷取",
     "smartSummaries": "智慧摘要",

@@ -1522,7 +1522,8 @@
     "exportError": "Xuất thất bại",
     "exportErrorDesc": "Không thể tạo {{format}}. Vui lòng thử lại.",
     "upgradePrompt": "Nâng cấp lên Plus để mở khóa tính năng xuất",
-    "entriesReady": "{{count}} bài viết sẵn sàng xuất."
+    "entriesReady": "{{count}} bài viết sẵn sàng xuất.",
+    "unavailableNative": "Tính năng xuất tài liệu không khả dụng trong phiên bản ứng dụng này."
   },
   "subscription": {
     "title": "Đăng ký",
@@ -1532,7 +1533,7 @@
     "upgradeButton": "Nâng cấp lên Plus",
     "manageButton": "Quản lý đăng ký",
     "proMember": "Thành viên Plus",
-    "enjoyingFeatures": "Đang tận hưởng phân tích AI, gợi ý và các tính năng cao cấp",
+    "enjoyingFeatures": "Đang tận hưởng phân tích AI, gợi ý và mọi tính năng",
     "unlockInsights": "Mở khóa tính năng Plus",
     "description": "Nhận tóm tắt thông minh, phân tích cảm xúc và trích xuất cụm từ chính cho các bài viết nhật ký của bạn",
     "smartSummaries": "Tóm tắt thông minh",

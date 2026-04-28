@@ -1519,7 +1519,8 @@
     "exportError": "Error de exportación",
     "exportErrorDesc": "No se pudo generar {{format}}. Por favor, inténtalo de nuevo.",
     "upgradePrompt": "Actualiza a Plus para desbloquear funciones de exportación",
-    "entriesReady": "{{count}} entradas listas para exportar."
+    "entriesReady": "{{count}} entradas listas para exportar.",
+    "unavailableNative": "Las exportaciones de documentos no están disponibles en esta versión de la aplicación."
   },
   "subscription": {
     "title": "Suscripción",
@@ -1529,7 +1530,7 @@
     "upgradeButton": "Actualizar a Plus",
     "manageButton": "Gestionar suscripción",
     "proMember": "Miembro Plus",
-    "enjoyingFeatures": "Disfrutando de análisis con IA, sugerencias y funciones premium",
+    "enjoyingFeatures": "Disfrutando de análisis con IA, sugerencias y todas las funciones",
     "unlockInsights": "Desbloquear funciones Plus",
     "description": "Obtén resúmenes impulsados por IA, análisis de sentimientos y extracción de frases clave para tus entradas de diario",
     "smartSummaries": "Resúmenes inteligentes",

@@ -1519,7 +1519,8 @@
     "exportError": "Esportazione fallita",
     "exportErrorDesc": "Impossibile generare {{format}}. Riprova.",
     "upgradePrompt": "Fai l'upgrade a Plus per sbloccare le funzionalità di esportazione",
-    "entriesReady": "{{count}} voci pronte per l'esportazione."
+    "entriesReady": "{{count}} voci pronte per l'esportazione.",
+    "unavailableNative": "Le esportazioni di documenti non sono disponibili in questa versione dell'app."
   },
   "subscription": {
     "title": "Abbonamento",
@@ -1529,7 +1530,7 @@
     "upgradeButton": "Passa a Plus",
     "manageButton": "Gestisci abbonamento",
     "proMember": "Membro Plus",
-    "enjoyingFeatures": "Goditi analisi AI, suggerimenti e funzionalità premium",
+    "enjoyingFeatures": "Goditi analisi AI, suggerimenti e tutte le funzionalità",
     "unlockInsights": "Sblocca funzionalità Plus",
     "description": "Ottieni riepiloghi basati su AI, analisi del sentimento ed estrazione di frasi chiave per le tue voci di diario",
     "smartSummaries": "Riepiloghi intelligenti",

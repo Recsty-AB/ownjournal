@@ -464,7 +464,10 @@ export const SettingsDialog = ({
             {t('settings.dataManagement.importBackup')}
           </Button>
         </div>
-        {onExportToFile && (
+        {/* PDF/Word export entry — hidden on native for free users, same
+            reasoning as the Header dropdown item. Pro users on native keep
+            access. */}
+        {onExportToFile && (isPro || canShowPurchaseCTA()) && (
           <Button onClick={onExportToFile} variant="outline" className="w-full">
             <FileText className="w-4 h-4 mr-2" />
             {t('settings.dataManagement.exportFile')}

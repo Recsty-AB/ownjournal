@@ -1519,7 +1519,8 @@
     "exportError": "내보내기 실패",
     "exportErrorDesc": "{{format}} 생성에 실패했습니다. 다시 시도하세요.",
     "upgradePrompt": "Plus로 업그레이드하여 내보내기 기능 잠금 해제",
-    "entriesReady": "{{count}}개 항목을 내보낼 준비가 되었습니다."
+    "entriesReady": "{{count}}개 항목을 내보낼 준비가 되었습니다.",
+    "unavailableNative": "문서 내보내기는 이 앱 버전에서 사용할 수 없습니다."
   },
   "subscription": {
     "title": "구독",
@@ -1529,7 +1530,7 @@
     "upgradeButton": "Plus로 업그레이드",
     "manageButton": "구독 관리",
     "proMember": "Plus 회원",
-    "enjoyingFeatures": "AI 분석, 제안 및 프리미엄 기능 이용 중",
+    "enjoyingFeatures": "AI 분석, 제안 및 모든 기능 이용 중",
     "unlockInsights": "Plus 기능 잠금 해제",
     "description": "일기 항목에 대한 AI 기반 요약, 감정 분석 및 핵심 문구 추출을 받으세요",
     "smartSummaries": "스마트 요약",

@@ -8,6 +8,7 @@ import { aiCacheService } from "@/services/aiCacheService";
 import { localAI } from "@/services/localAI";
 import { aiModeStorage } from "@/utils/aiModeStorage";
 import { aiUsageLimits } from "@/services/aiUsageLimits";
+import { canShowPurchaseCTA } from "@/utils/platformDetection";
 import { useTranslation } from "react-i18next";
 
 interface TitleSuggestionProps {
@@ -304,6 +305,13 @@ export const TitleSuggestion = ({ content, tags = [], mood, onApply, isPro }: Ti
       }
     }
   };
+
+  // On native (iOS/Android) free users, hide the entire suggestion surface to
+  // avoid Plus/Crown branding that app stores flag as referencing a paid tier
+  // without a corresponding in-app purchase product. The generation handler
+  // would already bail for !isPro, but rendering the disabled button (with
+  // Crown icon) is itself the compliance signal we need to remove.
+  if (!isPro && !canShowPurchaseCTA()) return null;
 
   if (suggestedTitles.length > 0 && showSuggestion) {
     const currentTitle = suggestedTitles[currentTitleIndex];

@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
@@ -1029,14 +1029,12 @@ export const NextcloudSync = ({ onConfigChange, masterKey, onRequirePassword, is
           )}
         </div>
         
+        <Button variant="outline" size="sm" onClick={() => setShowCorsHelp(true)}>
+          <HelpCircle className="w-4 h-4 mr-2" />
+          {t('nextcloudHelp.setupHelp')}
+        </Button>
         <Dialog open={showCorsHelp} onOpenChange={setShowCorsHelp}>
-          <DialogTrigger asChild>
-            <Button variant="outline" size="sm">
-              <HelpCircle className="w-4 h-4 mr-2" />
-              {t('nextcloudHelp.setupHelp')}
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto" aria-describedby="nextcloud-help-dialog-description">
+          <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto z-[120]" aria-describedby="nextcloud-help-dialog-description">
             <DialogHeader>
               <DialogTitle>{t('nextcloudHelp.dialogTitle')}</DialogTitle>
               <DialogDescription id="nextcloud-help-dialog-description">

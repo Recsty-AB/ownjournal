@@ -1524,7 +1524,8 @@
     "exportError": "Export Failed",
     "exportErrorDesc": "Failed to generate {{format}}. Please try again.",
     "upgradePrompt": "Upgrade to Plus to unlock export features",
-    "entriesReady": "{{count}} entries ready to export."
+    "entriesReady": "{{count}} entries ready to export.",
+    "unavailableNative": "Document exports are not available in this app version."
   },
   "subscription": {
     "title": "Subscription",
@@ -1534,7 +1535,7 @@
     "upgradeButton": "Upgrade to Plus",
     "manageButton": "Manage Subscription",
     "proMember": "Plus Member",
-    "enjoyingFeatures": "Enjoying AI analysis, suggestions & premium features",
+    "enjoyingFeatures": "Enjoying AI analysis, suggestions & all features",
     "unlockInsights": "Unlock Plus Features",
     "description": "Get AI-powered summaries, sentiment analysis, and key phrase extraction for your journal entries",
     "smartSummaries": "Smart Summaries",
