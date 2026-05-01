@@ -6,10 +6,11 @@ A privacy-first encrypted journaling Progressive Web App with zero-knowledge arc
 
 - **End-to-end encryption** — AES-256-GCM client-side encryption; your data is never stored in plaintext on servers
 - **Bring Your Own Storage** — Sync to Google Drive, Dropbox, Nextcloud, or iCloud (your cloud, your data)
+- **Native iCloud sync on iOS** — Zero-UI CloudKit integration on iOS native builds; no extra prompts or sign-ins (web and Android use OAuth-based providers)
 - **Offline-first** — Works without internet via IndexedDB, syncs when connected
 - **Multi-platform** — Web/PWA, Android, iOS (Capacitor), Desktop (Electron)
-- **Client-side AI** — Optional sentiment analysis and summarization via transformers.js (runs locally)
-- **21 languages** — Full i18n support
+- **Client-side AI** — Optional sentiment analysis and summarization via transformers.js (runs locally, WebGPU when available)
+- **21 languages** — Full i18n support, natively translated
 - **Markdown editor** — Formatting with live preview
 - **Tags & moods** — Organize and track your emotional journey
 
@@ -39,7 +40,7 @@ Copy `.env.example` to `.env` and fill in your values. At minimum you need:
 | `VITE_SUPABASE_PROJECT_ID` | Yes | Supabase project ID |
 | `VITE_GOOGLE_CLIENT_ID` | No | Google Drive sync / Google Sign-In |
 | `VITE_DROPBOX_CLIENT_ID` | No | Dropbox sync |
-| `VITE_APPLE_CLIENT_ID` | No | Apple Sign-In |
+| `VITE_APPLE_CLIENT_ID` | No | Apple Sign-In (currently disabled via feature flag) |
 | `VITE_STRIPE_PUBLISHABLE_KEY` | No | Subscription billing |
 
 See [OAUTH_SETUP_GUIDE.md](OAUTH_SETUP_GUIDE.md) for OAuth provider configuration.
@@ -67,7 +68,8 @@ See [OAUTH_SETUP_GUIDE.md](OAUTH_SETUP_GUIDE.md) for OAuth provider configuratio
 1. User sets password → PBKDF2 derives key → generates AES-GCM master key
 2. Master key encrypts/decrypts journal entries
 3. Master key itself is encrypted with the password-derived key and stored
-4. Two modes: **E2E** (password required) and **Simple** (no encryption)
+4. Cloud provider OAuth tokens are also encrypted with the master key
+5. Two modes: **E2E** (password required) and **Simple** (no encryption)
 
 ### Tech Stack
 
@@ -105,31 +107,48 @@ src/
 ```bash
 npm run dev           # Dev server (port 8080)
 npm run build         # Production build
+npm run build:dev     # Development-mode build
 npm run lint          # ESLint
 npm run test          # Vitest (watch mode)
 npm run test -- --run # Vitest (single run)
 npm run test:coverage # Coverage report
+npm run test:ui       # Vitest UI
+
+# iOS (requires macOS + Xcode)
+npm run ios:sync      # Build, sync Capacitor, patch native plugins
+npm run ios:open      # Open Xcode project
+npm run ios:run       # Build and run on simulator/device
 ```
 
 ## Deployment
 
-### Web (Cloudflare Pages / Vercel / Netlify)
+### Web (Cloudflare Pages)
+
+OwnJournal deploys to **Cloudflare Pages**. The build is a static SPA (`dist/`) with a couple of platform-specific files:
+
+- `public/_headers` — sets `Content-Type: application/json` for `/.well-known/assetlinks.json` (Android App Links) and `/.well-known/apple-app-site-association` (iOS Universal Links)
+- `public/_redirects` — serves `.well-known` files statically, redirects `/storage-callback` to the `ownjournal://` custom scheme for native OAuth, and falls back to `index.html` for SPA routes
 
 ```bash
 npm run build   # Output in dist/
 ```
 
-Set the environment variables from `.env.example` in your hosting provider's dashboard.
+Set the environment variables from `.env.example` in the Cloudflare Pages project settings (Production and Preview environments).
 
 ### Mobile (iOS / Android)
 
 ```bash
-npm run build && npx cap sync
-npx cap open ios      # Requires macOS + Xcode
-npx cap open android  # Requires Android Studio
+# iOS
+npm run ios:sync && npm run ios:open    # Requires macOS + Xcode
+
+# Android
+npm run build && npx cap sync android
+npx cap open android                    # Requires Android Studio
 ```
 
-See [ANDROID_SETUP.md](ANDROID_SETUP.md), [IOS_SETUP.md](IOS_SETUP.md), and [CAPACITOR_SETUP.md](CAPACITOR_SETUP.md).
+On native builds, purchase CTAs are gated by `canShowPurchaseCTA()` in `src/utils/platformDetection.ts` to comply with App Store anti-steering rules and Google Play billing policy.
+
+See [ANDROID_SETUP.md](ANDROID_SETUP.md), [IOS_SETUP.md](IOS_SETUP.md), [CAPACITOR_SETUP.md](CAPACITOR_SETUP.md), and [docs/CLOUDKIT_ICLOUD.md](docs/CLOUDKIT_ICLOUD.md) for the native iCloud plugin.
 
 ### Desktop (Electron)
 
@@ -149,12 +168,16 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## Documentation
 
+- [CHANGELOG.md](CHANGELOG.md) — Release history
 - [OAUTH_SETUP_GUIDE.md](OAUTH_SETUP_GUIDE.md) — OAuth provider setup
 - [SYNC_ARCHITECTURE.md](SYNC_ARCHITECTURE.md) — Sync design and compaction
 - [ENCRYPTION_FLOW_FIXES.md](ENCRYPTION_FLOW_FIXES.md) — Encryption internals
-- [TEST_SETUP.md](TEST_SETUP.md) — Test configuration
-- [ANDROID_SETUP.md](ANDROID_SETUP.md) / [IOS_SETUP.md](IOS_SETUP.md) — Mobile builds
-- [ELECTRON_SETUP.md](ELECTRON_SETUP.md) — Desktop builds
+- [STORAGE_CONNECTION_FLOW.md](STORAGE_CONNECTION_FLOW.md) / [STORAGE_CONNECTION_STATE_MACHINE.md](STORAGE_CONNECTION_STATE_MACHINE.md) — Provider connection lifecycle
+- [NEXTCLOUD_ENCRYPTION_FLOW.md](NEXTCLOUD_ENCRYPTION_FLOW.md) — Nextcloud-specific encryption notes
+- [TEST_SETUP.md](TEST_SETUP.md) / [TESTING_GUIDE_PHASE4.md](TESTING_GUIDE_PHASE4.md) — Test configuration and strategy
+- [ANDROID_SETUP.md](ANDROID_SETUP.md) / [ANDROID_QUICKSTART.md](ANDROID_QUICKSTART.md) / [IOS_SETUP.md](IOS_SETUP.md) / [CAPACITOR_SETUP.md](CAPACITOR_SETUP.md) — Mobile builds
+- [docs/CLOUDKIT_ICLOUD.md](docs/CLOUDKIT_ICLOUD.md) / [docs/APPLE_SIGNIN_SETUP.md](docs/APPLE_SIGNIN_SETUP.md) — Apple platform integrations
+- [ELECTRON_SETUP.md](ELECTRON_SETUP.md) / [DESKTOP_BUILD_GUIDE.md](DESKTOP_BUILD_GUIDE.md) — Desktop builds
 
 ## License
 
