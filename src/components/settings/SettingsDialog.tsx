@@ -538,18 +538,19 @@ export const SettingsDialog = ({
       </TabsContent>
 
       <TabsContent value="account" className="space-y-6 mt-4">
-        {/* Subscription */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold">{t('settings.sections.subscription')}</h3>
-          {/*
-            Same plan surface rules as the main page:
-            - Web / desktop: full SubscriptionBanner.
-            - Native + Pro: SubscriptionBanner (Pro status card). The
-              Manage Subscription button inside is internally gated and
-              won't render on native.
-            - Native + Free: minimal status row. No CTAs, no Stripe.
-          */}
-          {canShowPurchaseCTA() || isPro ? (
+        {/*
+          Subscription section is only rendered when there's a real
+          surface to show:
+          - Web / desktop free: promotional SubscriptionBanner.
+          - Web / desktop / native Pro: SubscriptionBanner Pro status card.
+          - Native + Free: nothing. Apple guideline 3.1.1 treats any plan-
+            tier label ("Free Plan", "Basic", etc.) as a reference to a
+            paid tier; without an IAP product we cannot reference tiers
+            at all, including the surrounding "Subscription" heading.
+        */}
+        {(canShowPurchaseCTA() || isPro) && (
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">{t('settings.sections.subscription')}</h3>
             <SubscriptionBanner
               onUpgrade={onUpgrade}
               isPro={isPro}
@@ -560,17 +561,8 @@ export const SettingsDialog = ({
               subscriptionStatus={subscriptionStatus}
               hasUsedTrial={hasUsedTrial}
             />
-          ) : (
-            <div className="rounded-lg border border-border bg-muted/40 px-4 py-3 flex items-center justify-between">
-              <span className="text-sm text-muted-foreground">
-                {t('subscription.currentPlan')}
-              </span>
-              <span className="text-sm font-medium">
-                {t('subscription.freePlan')}
-              </span>
-            </div>
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Email Address */}
         <div className="space-y-4">
