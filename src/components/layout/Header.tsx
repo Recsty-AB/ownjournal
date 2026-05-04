@@ -246,11 +246,14 @@ export const Header = ({
                         <Crown className="w-3 h-3" />
                         <span className="text-xs">{t("header.proMember")}</span>
                       </div>
-                    ) : (
+                    ) : canShowPurchaseCTA() ? (
+                      // "Free Plan" implies a paid plan exists; without IAP
+                      // we can't reference plan tiers on Capacitor iOS/Android
+                      // (App Store guideline 3.1.1). Web/desktop only.
                       <span className="text-xs text-muted-foreground">
                         {t("subscription.freePlan")}
                       </span>
-                    )}
+                    ) : null}
                   </div>
                 </div>
 

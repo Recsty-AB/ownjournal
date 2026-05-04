@@ -1,6 +1,6 @@
 import { saveAs } from "file-saver";
 import { isNativePlatform, saveJsonBackupNative, shareFileNative } from "@/utils/nativeExport";
-import { canShowPurchaseCTA, getPlatformInfo } from "@/utils/platformDetection";
+import { canShowPurchaseCTA } from "@/utils/platformDetection";
 import { Share2 } from "lucide-react";
 import i18n from "@/i18n/config";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
@@ -2966,11 +2966,12 @@ const Index = () => {
               purely a status/celebration card. SubscriptionBanner itself
               hides the Manage Subscription button on native via an
               internal canShowPurchaseCTA() check.
-            - Native + Free: minimal status row with "Current Plan / Free
-              Plan" — no promotional content, no CTA, no pricing — so the
-              home screen stays compliant with store anti-steering rules.
+            - Native + Free: render nothing. Apple guideline 3.1.1
+              treats any plan-tier label ("Free Plan", "Basic", etc.) as
+              a reference to a paid tier; without an IAP product we cannot
+              reference tiers at all. Follow the Netflix/Spotify pattern.
           */}
-          {canShowPurchaseCTA() || isPro ? (
+          {(canShowPurchaseCTA() || isPro) && (
             <SubscriptionBanner
               onUpgrade={handleUpgrade}
               isPro={isPro}
@@ -2978,16 +2979,7 @@ const Index = () => {
               subscriptionStatus={subscriptionStatus}
               hasUsedTrial={hasUsedTrial}
             />
-          ) : getPlatformInfo().isMobile ? (
-            <div className="rounded-lg border border-border bg-muted/40 px-4 py-3 flex items-center justify-between">
-              <span className="text-sm text-muted-foreground">
-                {t('subscription.currentPlan')}
-              </span>
-              <span className="text-sm font-medium">
-                {t('subscription.freePlan')}
-              </span>
-            </div>
-          ) : null}
+          )}
 
           {/* Collapsible insight cards — three-across on desktop, stacked below lg.
               Each wrapper spans all 3 columns when its card is expanded (Radix
