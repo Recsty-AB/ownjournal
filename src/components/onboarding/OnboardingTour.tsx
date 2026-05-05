@@ -25,8 +25,7 @@ const CustomTooltip = ({
   size,
 }: TooltipRenderProps) => {
   const { t } = useTranslation();
-  const isWelcomeOrComplete = step.placement === 'center';
-  
+
   return (
     <div
       {...tooltipProps}
@@ -45,7 +44,10 @@ const CustomTooltip = ({
       </div>
       
       {/* Footer */}
-      <div className="px-5 py-4 bg-muted/30 border-t border-border flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div
+        className="px-5 pt-4 bg-muted/30 border-t border-border flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+        style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom, 0px))' }}
+      >
         <div className="flex items-center justify-center sm:justify-start gap-2">
           {/* Progress dots */}
           <div className="flex gap-1.5">
@@ -64,17 +66,15 @@ const CustomTooltip = ({
         </div>
         
         <div className="flex items-center justify-center sm:justify-end gap-2">
-          {!isWelcomeOrComplete && (
-            <Button
-              {...skipProps}
-              variant="ghost"
-              size="sm"
-              className="text-xs text-muted-foreground h-8 px-2"
-            >
-              {t('onboardingTour.buttons.skip', 'Skip')}
-            </Button>
-          )}
-          
+          <Button
+            {...skipProps}
+            variant="ghost"
+            size="sm"
+            className="text-xs text-muted-foreground h-8 px-2"
+          >
+            {t('onboardingTour.buttons.skip', 'Skip')}
+          </Button>
+
           {index > 0 && (
             <Button
               {...backProps}
