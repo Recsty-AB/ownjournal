@@ -138,7 +138,7 @@ export const Header = ({
             <>
               <img src={logo} alt="OwnJournal" className="w-8 h-8 object-contain" />
               <div>
-                <h1 className="text-xl font-bold text-foreground">{t("app.name")}</h1>
+                <h1 className="text-xl font-bold text-foreground whitespace-nowrap">{t("app.name")}</h1>
                 <p className="text-xs text-muted-foreground hidden sm:block">{t("app.tagline")}</p>
               </div>
             </>
