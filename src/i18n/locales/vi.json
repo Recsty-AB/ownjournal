@@ -1570,7 +1570,18 @@
     "checkoutCanceled": "Đã hủy thanh toán",
     "checkoutCanceledDesc": "Bạn có thể nâng cấp bất cứ lúc nào từ phần cài đặt.",
     "portalReturn": "Chào mừng quay lại!",
-    "portalReturnDesc": "Cài đặt đăng ký đã được cập nhật."
+    "portalReturnDesc": "Cài đặt đăng ký đã được cập nhật.",
+    "purchasePending": "Giao dịch mua đang chờ xử lý",
+    "purchaseFailed": "Giao dịch mua thất bại",
+    "restoreSuccess": "Đã khôi phục giao dịch mua",
+    "restoreNothing": "Không có giao dịch mua để khôi phục",
+    "restoreFailed": "Khôi phục thất bại",
+    "restorePurchases": "Khôi phục giao dịch mua",
+    "nativeSubWarningTitle": "Hủy đăng ký trên cửa hàng trước",
+    "nativeSubWarningDesc": "Đăng ký Plus của bạn được mua qua {{store}}. Xóa tài khoản tại đây sẽ KHÔNG hủy đăng ký — bạn vẫn sẽ bị tính phí. Mở {{store}} để hủy, sau đó quay lại xóa tài khoản.",
+    "nativeSubManageCta": "Mở {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Xóa",

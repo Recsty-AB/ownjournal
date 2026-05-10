@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "结账已取消",
     "checkoutCanceledDesc": "您可以随时从设置中升级。",
     "portalReturn": "欢迎回来！",
-    "portalReturnDesc": "您的订阅设置已更新。"
+    "portalReturnDesc": "您的订阅设置已更新。",
+    "purchasePending": "购买待处理",
+    "purchaseFailed": "购买失败",
+    "restoreSuccess": "已恢复购买",
+    "restoreNothing": "没有可恢复的购买",
+    "restoreFailed": "恢复失败",
+    "restorePurchases": "恢复购买",
+    "nativeSubWarningTitle": "请先取消商店订阅",
+    "nativeSubWarningDesc": "您的 Plus 订阅是通过{{store}}购买的。在此删除账户不会取消订阅 — 仍会继续向您收费。请先打开{{store}}取消订阅，再回来删除账户。",
+    "nativeSubManageCta": "打开{{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "清除",

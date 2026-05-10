@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "Paiement annulé",
     "checkoutCanceledDesc": "Vous pouvez passer à Plus à tout moment depuis les paramètres.",
     "portalReturn": "Bon retour !",
-    "portalReturnDesc": "Vos paramètres d'abonnement ont été mis à jour."
+    "portalReturnDesc": "Vos paramètres d'abonnement ont été mis à jour.",
+    "purchasePending": "Achat en attente",
+    "purchaseFailed": "Échec de l'achat",
+    "restoreSuccess": "Achats restaurés",
+    "restoreNothing": "Aucun achat à restaurer",
+    "restoreFailed": "Échec de la restauration",
+    "restorePurchases": "Restaurer les achats",
+    "nativeSubWarningTitle": "Annulez d'abord votre abonnement sur la boutique",
+    "nativeSubWarningDesc": "Votre abonnement Plus a été acheté via {{store}}. Supprimer votre compte ici NE l'annule PAS — vous continuerez à être facturé. Ouvrez {{store}} pour annuler, puis revenez supprimer votre compte.",
+    "nativeSubManageCta": "Ouvrir {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Effacer",

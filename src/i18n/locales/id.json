@@ -1570,7 +1570,18 @@
     "checkoutCanceled": "Checkout dibatalkan",
     "checkoutCanceledDesc": "Kamu bisa upgrade kapan saja dari pengaturan.",
     "portalReturn": "Selamat datang kembali!",
-    "portalReturnDesc": "Pengaturan langgananmu telah diperbarui."
+    "portalReturnDesc": "Pengaturan langgananmu telah diperbarui.",
+    "purchasePending": "Pembelian tertunda",
+    "purchaseFailed": "Pembelian gagal",
+    "restoreSuccess": "Pembelian dipulihkan",
+    "restoreNothing": "Tidak ada pembelian untuk dipulihkan",
+    "restoreFailed": "Gagal memulihkan",
+    "restorePurchases": "Pulihkan pembelian",
+    "nativeSubWarningTitle": "Batalkan langganan toko Anda terlebih dahulu",
+    "nativeSubWarningDesc": "Langganan Plus Anda dibeli melalui {{store}}. Menghapus akun di sini TIDAK akan membatalkannya — Anda akan terus ditagih. Buka {{store}} untuk membatalkan, lalu kembali untuk menghapus akun Anda.",
+    "nativeSubManageCta": "Buka {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Hapus",

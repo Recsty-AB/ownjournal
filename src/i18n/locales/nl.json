@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "Afrekenen geannuleerd",
     "checkoutCanceledDesc": "U kunt op elk moment upgraden vanuit de instellingen.",
     "portalReturn": "Welkom terug!",
-    "portalReturnDesc": "Uw abonnementsinstellingen zijn bijgewerkt."
+    "portalReturnDesc": "Uw abonnementsinstellingen zijn bijgewerkt.",
+    "purchasePending": "Aankoop in afwachting",
+    "purchaseFailed": "Aankoop mislukt",
+    "restoreSuccess": "Aankopen hersteld",
+    "restoreNothing": "Geen aankopen om te herstellen",
+    "restoreFailed": "Herstellen mislukt",
+    "restorePurchases": "Aankopen herstellen",
+    "nativeSubWarningTitle": "Zeg eerst je store-abonnement op",
+    "nativeSubWarningDesc": "Je Plus-abonnement is gekocht via {{store}}. Door je account hier te verwijderen wordt het abonnement NIET opgezegd — er wordt nog steeds afgeschreven. Open {{store}} om op te zeggen en kom dan terug om je account te verwijderen.",
+    "nativeSubManageCta": "{{store}} openen",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Wissen",

@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "Pagamento annullato",
     "checkoutCanceledDesc": "Puoi effettuare l'upgrade in qualsiasi momento dalle impostazioni.",
     "portalReturn": "Bentornato!",
-    "portalReturnDesc": "Le impostazioni del tuo abbonamento sono state aggiornate."
+    "portalReturnDesc": "Le impostazioni del tuo abbonamento sono state aggiornate.",
+    "purchasePending": "Acquisto in sospeso",
+    "purchaseFailed": "Acquisto non riuscito",
+    "restoreSuccess": "Acquisti ripristinati",
+    "restoreNothing": "Nessun acquisto da ripristinare",
+    "restoreFailed": "Ripristino non riuscito",
+    "restorePurchases": "Ripristina acquisti",
+    "nativeSubWarningTitle": "Annulla prima l'abbonamento dello store",
+    "nativeSubWarningDesc": "Il tuo abbonamento Plus è stato acquistato tramite {{store}}. Eliminare l'account qui NON lo annulla — continuerai a essere addebitato. Apri {{store}} per annullarlo, poi torna a eliminare l'account.",
+    "nativeSubManageCta": "Apri {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Cancella",

@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "चेकआउट रद्द हुआ",
     "checkoutCanceledDesc": "आप कभी भी सेटिंग्स से अपग्रेड कर सकते हैं।",
     "portalReturn": "वापस स्वागत है!",
-    "portalReturnDesc": "आपकी सब्सक्रिप्शन सेटिंग्स अपडेट हो गई हैं।"
+    "portalReturnDesc": "आपकी सब्सक्रिप्शन सेटिंग्स अपडेट हो गई हैं।",
+    "purchasePending": "खरीदारी लंबित",
+    "purchaseFailed": "खरीदारी विफल",
+    "restoreSuccess": "खरीदारी पुनर्स्थापित",
+    "restoreNothing": "पुनर्स्थापित करने के लिए कोई खरीदारी नहीं",
+    "restoreFailed": "पुनर्स्थापना विफल",
+    "restorePurchases": "खरीदारी पुनर्स्थापित करें",
+    "nativeSubWarningTitle": "पहले अपनी स्टोर सदस्यता रद्द करें",
+    "nativeSubWarningDesc": "आपकी Plus सदस्यता {{store}} के माध्यम से खरीदी गई थी। यहाँ अपना खाता हटाने से यह रद्द नहीं होगी — आपसे शुल्क लगता रहेगा। रद्द करने के लिए {{store}} खोलें, फिर अपना खाता हटाने के लिए वापस आएं।",
+    "nativeSubManageCta": "{{store}} खोलें",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "साफ करें",

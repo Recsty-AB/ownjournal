@@ -1572,7 +1572,18 @@
     "checkoutCanceled": "Checkout canceled",
     "checkoutCanceledDesc": "You can upgrade anytime from the settings.",
     "portalReturn": "Welcome back!",
-    "portalReturnDesc": "Your subscription settings have been updated."
+    "portalReturnDesc": "Your subscription settings have been updated.",
+    "purchasePending": "Purchase pending",
+    "purchaseFailed": "Purchase failed",
+    "restoreSuccess": "Purchases restored",
+    "restoreNothing": "No purchases to restore",
+    "restoreFailed": "Restore failed",
+    "restorePurchases": "Restore Purchases",
+    "nativeSubWarningTitle": "Cancel your store subscription first",
+    "nativeSubWarningDesc": "Your Plus subscription was purchased through {{store}}. Deleting your account here does NOT cancel it — you'll keep being charged. Open {{store}} to cancel, then return to delete your account.",
+    "nativeSubManageCta": "Open {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Clear",

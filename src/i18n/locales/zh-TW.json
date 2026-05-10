@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "結帳已取消",
     "checkoutCanceledDesc": "您可以隨時從設定中升級。",
     "portalReturn": "歡迎回來！",
-    "portalReturnDesc": "您的訂閱設定已更新。"
+    "portalReturnDesc": "您的訂閱設定已更新。",
+    "purchasePending": "購買處理中",
+    "purchaseFailed": "購買失敗",
+    "restoreSuccess": "已恢復購買",
+    "restoreNothing": "沒有可恢復的購買",
+    "restoreFailed": "恢復失敗",
+    "restorePurchases": "恢復購買",
+    "nativeSubWarningTitle": "請先取消商店訂閱",
+    "nativeSubWarningDesc": "您的 Plus 訂閱是透過 {{store}} 購買的。在此刪除帳號不會取消訂閱 — 仍會繼續向您收費。請先開啟 {{store}} 取消訂閱，再回來刪除帳號。",
+    "nativeSubManageCta": "開啟 {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "清除",

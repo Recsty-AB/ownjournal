@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "Bezahlung abgebrochen",
     "checkoutCanceledDesc": "Sie können jederzeit in den Einstellungen upgraden.",
     "portalReturn": "Willkommen zurück!",
-    "portalReturnDesc": "Ihre Abonnementeinstellungen wurden aktualisiert."
+    "portalReturnDesc": "Ihre Abonnementeinstellungen wurden aktualisiert.",
+    "purchasePending": "Kauf ausstehend",
+    "purchaseFailed": "Kauf fehlgeschlagen",
+    "restoreSuccess": "Käufe wiederhergestellt",
+    "restoreNothing": "Keine wiederherzustellenden Käufe",
+    "restoreFailed": "Wiederherstellung fehlgeschlagen",
+    "restorePurchases": "Käufe wiederherstellen",
+    "nativeSubWarningTitle": "Kündigen Sie zuerst Ihr Store-Abonnement",
+    "nativeSubWarningDesc": "Ihr Plus-Abonnement wurde über {{store}} gekauft. Wenn Sie Ihr Konto hier löschen, wird das Abonnement NICHT gekündigt – Ihnen wird weiterhin Geld berechnet. Öffnen Sie {{store}}, um zu kündigen, und löschen Sie dann Ihr Konto.",
+    "nativeSubManageCta": "{{store}} öffnen",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Löschen",

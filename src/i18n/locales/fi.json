@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "Maksaminen peruutettu",
     "checkoutCanceledDesc": "Voit päivittää milloin tahansa asetuksista.",
     "portalReturn": "Tervetuloa takaisin!",
-    "portalReturnDesc": "Tilausasetuksesi on päivitetty."
+    "portalReturnDesc": "Tilausasetuksesi on päivitetty.",
+    "purchasePending": "Osto vireillä",
+    "purchaseFailed": "Osto epäonnistui",
+    "restoreSuccess": "Ostot palautettu",
+    "restoreNothing": "Ei palautettavia ostoja",
+    "restoreFailed": "Palautus epäonnistui",
+    "restorePurchases": "Palauta ostot",
+    "nativeSubWarningTitle": "Peruuta ensin kaupan tilaus",
+    "nativeSubWarningDesc": "Plus-tilauksesi on ostettu palvelusta {{store}}. Tilin poistaminen täältä EI peruuta tilausta — sinulta veloitetaan edelleen. Avaa {{store}} ja peruuta tilaus, palaa sitten poistamaan tilisi.",
+    "nativeSubManageCta": "Avaa {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Tyhjennä",

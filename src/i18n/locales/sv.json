@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "Betalning avbruten",
     "checkoutCanceledDesc": "Du kan uppgradera när som helst från inställningarna.",
     "portalReturn": "Välkommen tillbaka!",
-    "portalReturnDesc": "Dina prenumerationsinställningar har uppdaterats."
+    "portalReturnDesc": "Dina prenumerationsinställningar har uppdaterats.",
+    "purchasePending": "Köp väntar",
+    "purchaseFailed": "Köpet misslyckades",
+    "restoreSuccess": "Köp återställda",
+    "restoreNothing": "Inga köp att återställa",
+    "restoreFailed": "Återställningen misslyckades",
+    "restorePurchases": "Återställ köp",
+    "nativeSubWarningTitle": "Avsluta din butiksprenumeration först",
+    "nativeSubWarningDesc": "Din Plus-prenumeration köptes via {{store}}. Att ta bort ditt konto här avslutar den INTE — du kommer fortfarande att debiteras. Öppna {{store}} för att avsluta, och kom sedan tillbaka för att ta bort ditt konto.",
+    "nativeSubManageCta": "Öppna {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Rensa",

@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "Betaling annulleret",
     "checkoutCanceledDesc": "Du kan opgradere når som helst fra indstillingerne.",
     "portalReturn": "Velkommen tilbage!",
-    "portalReturnDesc": "Dine abonnementsindstillinger er blevet opdateret."
+    "portalReturnDesc": "Dine abonnementsindstillinger er blevet opdateret.",
+    "purchasePending": "Køb afventer",
+    "purchaseFailed": "Køb mislykkedes",
+    "restoreSuccess": "Køb gendannet",
+    "restoreNothing": "Ingen køb at gendanne",
+    "restoreFailed": "Gendannelse mislykkedes",
+    "restorePurchases": "Gendan køb",
+    "nativeSubWarningTitle": "Annullér dit butiksabonnement først",
+    "nativeSubWarningDesc": "Dit Plus-abonnement blev købt via {{store}}. Sletning af din konto her annullerer det IKKE — du vil stadig blive opkrævet. Åbn {{store}} for at annullere, og slet derefter din konto.",
+    "nativeSubManageCta": "Åbn {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Ryd",

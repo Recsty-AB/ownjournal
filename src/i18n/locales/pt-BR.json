@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "Pagamento cancelado",
     "checkoutCanceledDesc": "Você pode fazer o upgrade a qualquer momento nas configurações.",
     "portalReturn": "Bem-vindo de volta!",
-    "portalReturnDesc": "Suas configurações de assinatura foram atualizadas."
+    "portalReturnDesc": "Suas configurações de assinatura foram atualizadas.",
+    "purchasePending": "Compra pendente",
+    "purchaseFailed": "Falha na compra",
+    "restoreSuccess": "Compras restauradas",
+    "restoreNothing": "Nenhuma compra para restaurar",
+    "restoreFailed": "Falha ao restaurar",
+    "restorePurchases": "Restaurar compras",
+    "nativeSubWarningTitle": "Cancele primeiro sua assinatura na loja",
+    "nativeSubWarningDesc": "Sua assinatura Plus foi comprada por meio da {{store}}. Excluir sua conta aqui NÃO a cancela — você continuará sendo cobrado. Abra a {{store}} para cancelar e volte para excluir sua conta.",
+    "nativeSubManageCta": "Abrir {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Limpar",

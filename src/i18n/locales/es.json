@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "Pago cancelado",
     "checkoutCanceledDesc": "Puedes actualizar en cualquier momento desde la configuración.",
     "portalReturn": "¡Bienvenido de nuevo!",
-    "portalReturnDesc": "Tu configuración de suscripción ha sido actualizada."
+    "portalReturnDesc": "Tu configuración de suscripción ha sido actualizada.",
+    "purchasePending": "Compra pendiente",
+    "purchaseFailed": "Compra fallida",
+    "restoreSuccess": "Compras restauradas",
+    "restoreNothing": "No hay compras para restaurar",
+    "restoreFailed": "Restauración fallida",
+    "restorePurchases": "Restaurar compras",
+    "nativeSubWarningTitle": "Cancela primero tu suscripción de la tienda",
+    "nativeSubWarningDesc": "Tu suscripción Plus se compró a través de {{store}}. Eliminar tu cuenta aquí NO la cancela — se te seguirá cobrando. Abre {{store}} para cancelarla y luego vuelve para eliminar tu cuenta.",
+    "nativeSubManageCta": "Abrir {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Limpiar",

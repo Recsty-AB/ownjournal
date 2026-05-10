@@ -274,10 +274,19 @@ export const iapService = {
   async openManageSubscription(): Promise<void> {
     if (!isNative()) throw new IAPError('NOT_AVAILABLE', 'IAP not available on this platform');
     const { platform } = getPlatformInfo();
-    const url = platform === 'capacitor-ios'
-      ? 'https://apps.apple.com/account/subscriptions'
-      : `https://play.google.com/store/account/subscriptions?sku=${PLUS_PRODUCT_ID_ANDROID}&package=app.ownjournal`;
+    const provider: IAPProvider = platform === 'capacitor-ios' ? 'apple' : 'google';
     const { Browser } = await import('@capacitor/browser');
-    await Browser.open({ url });
+    await Browser.open({ url: getStoreSubscriptionUrl(provider) });
   },
 };
+
+/**
+ * Returns the platform's "manage subscription" URL for a given provider.
+ * Web/desktop callers can use this directly with window.open(); native
+ * callers should prefer iapService.openManageSubscription() so the
+ * Capacitor in-app browser is used.
+ */
+export function getStoreSubscriptionUrl(provider: IAPProvider): string {
+  if (provider === 'apple') return 'https://apps.apple.com/account/subscriptions';
+  return `https://play.google.com/store/account/subscriptions?sku=${PLUS_PRODUCT_ID_ANDROID}&package=app.ownjournal`;
+}

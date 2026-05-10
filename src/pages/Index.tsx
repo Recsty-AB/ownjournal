@@ -93,6 +93,7 @@ const Index = () => {
   });
   const [isPro, setIsPro] = useState(false);
   const [subscriptionStatus, setSubscriptionStatus] = useState<string | null>(null);
+  const [subscriptionProvider, setSubscriptionProvider] = useState<'stripe' | 'apple' | 'google' | null>(null);
   const [hasUsedTrial, setHasUsedTrial] = useState(true); // default true to avoid flashing trial CTA
   const [currentPeriodEnd, setCurrentPeriodEnd] = useState<string | null>(null);
   const [showExportDialog, setShowExportDialog] = useState(false);
@@ -841,11 +842,13 @@ const Index = () => {
     if (cached) {
       setIsPro(cached.is_pro);
       setSubscriptionStatus(cached.subscription_status ?? null);
+      setSubscriptionProvider(cached.provider ?? null);
       setHasUsedTrial(cached.has_used_trial ?? false);
       setCurrentPeriodEnd(cached.current_period_end ?? null);
     } else {
       setIsPro(false);
       setSubscriptionStatus(null);
+      setSubscriptionProvider(null);
       setHasUsedTrial(false);
       setCurrentPeriodEnd(null);
     }
@@ -853,7 +856,7 @@ const Index = () => {
     try {
       const { data, error } = await supabase
         .from("subscriptions")
-        .select("is_pro, current_period_end, subscription_status, has_used_trial")
+        .select("is_pro, current_period_end, subscription_status, has_used_trial, provider")
         .eq("user_id", user.id)
         .single();
 
@@ -861,6 +864,7 @@ const Index = () => {
       const isPro = data?.is_pro || false;
       setIsPro(isPro);
       setSubscriptionStatus(data?.subscription_status ?? null);
+      setSubscriptionProvider(data?.provider ?? null);
       setHasUsedTrial(data?.has_used_trial ?? false);
       setCurrentPeriodEnd(data?.current_period_end ?? null);
       setCachedSubscription(user.id, {
@@ -868,6 +872,7 @@ const Index = () => {
         current_period_end: data?.current_period_end ?? null,
         subscription_status: data?.subscription_status ?? null,
         has_used_trial: data?.has_used_trial ?? false,
+        provider: data?.provider ?? null,
       });
     } catch (error) {
       // Network failed. If we had a cache hit above, keep the optimistic
@@ -2955,6 +2960,7 @@ const Index = () => {
         isUpgrading={isUpgrading}
         onSignOut={handleSignOut}
         subscriptionStatus={subscriptionStatus}
+        subscriptionProvider={subscriptionProvider}
         hasUsedTrial={hasUsedTrial}
       />
 

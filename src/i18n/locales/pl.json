@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "Płatność anulowana",
     "checkoutCanceledDesc": "Możesz uaktualnić w dowolnym momencie w ustawieniach.",
     "portalReturn": "Witamy z powrotem!",
-    "portalReturnDesc": "Twoje ustawienia subskrypcji zostały zaktualizowane."
+    "portalReturnDesc": "Twoje ustawienia subskrypcji zostały zaktualizowane.",
+    "purchasePending": "Zakup oczekuje",
+    "purchaseFailed": "Zakup nie powiódł się",
+    "restoreSuccess": "Zakupy przywrócone",
+    "restoreNothing": "Brak zakupów do przywrócenia",
+    "restoreFailed": "Przywracanie nie powiodło się",
+    "restorePurchases": "Przywróć zakupy",
+    "nativeSubWarningTitle": "Najpierw anuluj subskrypcję w sklepie",
+    "nativeSubWarningDesc": "Twoja subskrypcja Plus została zakupiona przez {{store}}. Usunięcie konta tutaj NIE anuluje jej — nadal będziesz obciążany. Otwórz {{store}}, aby anulować, a następnie wróć, aby usunąć konto.",
+    "nativeSubManageCta": "Otwórz {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Wyczyść",

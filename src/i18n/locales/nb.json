@@ -1567,7 +1567,18 @@
     "checkoutCanceled": "Betaling avbrutt",
     "checkoutCanceledDesc": "Du kan oppgradere når som helst fra innstillingene.",
     "portalReturn": "Velkommen tilbake!",
-    "portalReturnDesc": "Abonnementsinnstillingene dine er oppdatert."
+    "portalReturnDesc": "Abonnementsinnstillingene dine er oppdatert.",
+    "purchasePending": "Kjøp venter",
+    "purchaseFailed": "Kjøpet mislyktes",
+    "restoreSuccess": "Kjøp gjenopprettet",
+    "restoreNothing": "Ingen kjøp å gjenopprette",
+    "restoreFailed": "Gjenoppretting mislyktes",
+    "restorePurchases": "Gjenopprett kjøp",
+    "nativeSubWarningTitle": "Avslutt butikkabonnementet ditt først",
+    "nativeSubWarningDesc": "Plus-abonnementet ditt ble kjøpt gjennom {{store}}. Å slette kontoen din her avslutter det IKKE — du vil fortsatt bli belastet. Åpne {{store}} for å avslutte, og kom deretter tilbake for å slette kontoen din.",
+    "nativeSubManageCta": "Åpne {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "Rydd",

@@ -1,7 +1,7 @@
 import { buildAppLink } from "@/config/app";
 import { canShowAnyPurchaseCTA, canShowNativeCheckout, canShowStripeCheckout } from "@/utils/platformDetection";
 import { NativePaywall } from "@/components/subscription/NativePaywall";
-import { iapService, IAPError } from "@/services/iapService";
+import { iapService, IAPError, getStoreSubscriptionUrl } from "@/services/iapService";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 import { X, AlertTriangle, LogOut, Mail } from "lucide-react";
@@ -117,6 +117,7 @@ interface SettingsDialogProps {
   isUpgrading?: boolean;
   onSignOut?: () => void;
   subscriptionStatus?: string | null;
+  subscriptionProvider?: 'stripe' | 'apple' | 'google' | null;
   hasUsedTrial?: boolean;
 }
 
@@ -135,6 +136,7 @@ export const SettingsDialog = ({
   isUpgrading = false,
   onSignOut,
   subscriptionStatus,
+  subscriptionProvider,
   hasUsedTrial,
 }: SettingsDialogProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -710,6 +712,50 @@ export const SettingsDialog = ({
             <AlertTriangle className="w-5 h-5 text-destructive" />
             <h3 className="text-lg font-semibold text-destructive">{t('settings.deleteAccount.title')}</h3>
           </div>
+          {(() => {
+            const hasActiveNativeSub = isPro && (subscriptionProvider === 'apple' || subscriptionProvider === 'google');
+            if (!hasActiveNativeSub) return null;
+            const storeName = subscriptionProvider === 'apple'
+              ? t('subscription.appStore')
+              : t('subscription.googlePlay');
+            const handleOpenStore = async () => {
+              if (canShowNativeCheckout()) {
+                try {
+                  await iapService.openManageSubscription();
+                } catch (err) {
+                  if (err instanceof IAPError && err.code === 'USER_CANCELLED') return;
+                  // Fall through to web URL on any other failure.
+                  window.open(getStoreSubscriptionUrl(subscriptionProvider), '_blank', 'noopener,noreferrer');
+                }
+              } else {
+                window.open(getStoreSubscriptionUrl(subscriptionProvider), '_blank', 'noopener,noreferrer');
+              }
+            };
+            return (
+              <div className="space-y-3 p-3 bg-destructive/10 border border-destructive/40 rounded-md">
+                <div className="flex items-start gap-2">
+                  <AlertTriangle className="w-4 h-4 text-destructive flex-shrink-0 mt-0.5" />
+                  <div className="space-y-1">
+                    <p className="text-sm font-semibold text-destructive">
+                      {t('subscription.nativeSubWarningTitle')}
+                    </p>
+                    <p className="text-xs text-destructive/90">
+                      {t('subscription.nativeSubWarningDesc', { store: storeName })}
+                    </p>
+                  </div>
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full border-destructive/40 hover:bg-destructive/20"
+                  onClick={handleOpenStore}
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  {t('subscription.nativeSubManageCta', { store: storeName })}
+                </Button>
+              </div>
+            );
+          })()}
           <p className="text-sm text-muted-foreground">
             {t('settings.deleteAccount.description')}
           </p>
@@ -743,19 +789,23 @@ export const SettingsDialog = ({
               />
             </div>
           )}
-          <Button 
+          <Button
             onClick={handleDeleteAccount}
             variant="destructive"
             className="w-full"
-            disabled={deleteConfirmText !== SAFETY_CONSTANTS.DELETE_ACCOUNT_CONFIRMATION || isDeleting}
+            disabled={
+              deleteConfirmText !== SAFETY_CONSTANTS.DELETE_ACCOUNT_CONFIRMATION ||
+              isDeleting ||
+              (isPro && (subscriptionProvider === 'apple' || subscriptionProvider === 'google'))
+            }
           >
             {isDeleting ? (
               deletionProgress ? (
-                deletionProgress.phase === 'local' 
+                deletionProgress.phase === 'local'
                   ? t('settings.deleteAccount.deletingLocal')
-                  : t('settings.deleteAccount.deletingCloud', { 
-                      current: deletionProgress.current, 
-                      total: deletionProgress.total 
+                  : t('settings.deleteAccount.deletingCloud', {
+                      current: deletionProgress.current,
+                      total: deletionProgress.total
                     })
               ) : t('common.loading')
             ) : t('settings.deleteAccount.button')}

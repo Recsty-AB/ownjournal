@@ -1570,7 +1570,18 @@
     "checkoutCanceled": "ยกเลิกการชำระเงินแล้ว",
     "checkoutCanceledDesc": "สามารถอัปเกรดได้ทุกเมื่อจากตั้งค่า",
     "portalReturn": "ยินดีต้อนรับกลับ!",
-    "portalReturnDesc": "การตั้งค่าสมาชิกได้รับการอัปเดตแล้ว"
+    "portalReturnDesc": "การตั้งค่าสมาชิกได้รับการอัปเดตแล้ว",
+    "purchasePending": "การซื้ออยู่ระหว่างดำเนินการ",
+    "purchaseFailed": "การซื้อล้มเหลว",
+    "restoreSuccess": "กู้คืนการซื้อแล้ว",
+    "restoreNothing": "ไม่มีการซื้อให้กู้คืน",
+    "restoreFailed": "การกู้คืนล้มเหลว",
+    "restorePurchases": "กู้คืนการซื้อ",
+    "nativeSubWarningTitle": "ยกเลิกการสมัครสมาชิกในร้านค้าก่อน",
+    "nativeSubWarningDesc": "การสมัครสมาชิก Plus ของคุณซื้อผ่าน {{store}} การลบบัญชีของคุณที่นี่จะไม่ยกเลิกการสมัครสมาชิก — คุณจะยังคงถูกเรียกเก็บเงิน เปิด {{store}} เพื่อยกเลิก แล้วกลับมาลบบัญชีของคุณ",
+    "nativeSubManageCta": "เปิด {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "calendar": {
     "clear": "ล้าง",
