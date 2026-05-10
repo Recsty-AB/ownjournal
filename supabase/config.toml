@@ -12,6 +12,9 @@ verify_jwt = false
 [functions.stripe-webhook]
 verify_jwt = false
 
+[functions.revenuecat-webhook]
+verify_jwt = false
+
 [functions.google-drive-token]
 verify_jwt = false
 

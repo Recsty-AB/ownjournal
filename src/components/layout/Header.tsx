@@ -27,7 +27,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { useToast } from "@/hooks/use-toast";
 import { isNativePlatform } from "@/utils/nativeExport";
-import { canShowPurchaseCTA } from "@/utils/platformDetection";
+import { canShowAnyPurchaseCTA } from "@/utils/platformDetection";
 import logo from "@/assets/logo.png";
 
 interface User {
@@ -246,7 +246,7 @@ export const Header = ({
                         <Crown className="w-3 h-3" />
                         <span className="text-xs">{t("header.proMember")}</span>
                       </div>
-                    ) : canShowPurchaseCTA() ? (
+                    ) : canShowAnyPurchaseCTA() ? (
                       // "Free Plan" implies a paid plan exists; without IAP
                       // we can't reference plan tiers on Capacitor iOS/Android
                       // (App Store guideline 3.1.1). Web/desktop only.
@@ -278,7 +278,7 @@ export const Header = ({
                     users we hide the entry point entirely to avoid showing a
                     locked feature that references a paid tier without an IAP
                     product. Pro users on native still see it. */}
-                {(user?.isPro || canShowPurchaseCTA()) && (
+                {(user?.isPro || canShowAnyPurchaseCTA()) && (
                   <DropdownMenuItem onClick={onExportToFile} className="cursor-pointer">
                     <FileText className="mr-2 h-5 w-5" />
                     <span>{t("settings.dataManagement.exportFile")}</span>

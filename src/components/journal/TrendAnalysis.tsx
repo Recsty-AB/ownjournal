@@ -28,7 +28,7 @@ import { isE2EEnabled } from "@/utils/encryptionModeStorage";
 import { getMockTrendAnalysis } from "@/demo/mockAIResponses";
 import { computeTimeBuckets, shouldUseTimeBuckets, type EntryWithDateAndMetadata } from "@/utils/timeBucketAggregation";
 import { getDateLocale } from "@/utils/dateLocale";
-import { canShowPurchaseCTA } from "@/utils/platformDetection";
+import { canShowAnyPurchaseCTA } from "@/utils/platformDetection";
 
 interface TrendAnalysisProps {
   entries: JournalEntryData[];
@@ -911,7 +911,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
   // the results view (only reachable if the user had Plus previously) shows a
   // Crown re-analyze button. App stores flag both as references to a paid
   // tier without a corresponding in-app purchase.
-  if (!isPro && !canShowPurchaseCTA()) return null;
+  if (!isPro && !canShowAnyPurchaseCTA()) return null;
 
   if (!analysis || isSelectingPeriod) {
     return (

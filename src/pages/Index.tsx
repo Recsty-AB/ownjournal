@@ -1,6 +1,7 @@
 import { saveAs } from "file-saver";
 import { isNativePlatform, saveJsonBackupNative, shareFileNative } from "@/utils/nativeExport";
-import { canShowPurchaseCTA } from "@/utils/platformDetection";
+import { canShowAnyPurchaseCTA, canShowNativeCheckout, canShowStripeCheckout } from "@/utils/platformDetection";
+import { NativePaywall } from "@/components/subscription/NativePaywall";
 import { Share2 } from "lucide-react";
 import i18n from "@/i18n/config";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
@@ -26,6 +27,7 @@ import { SUPABASE_CONFIG } from "@/config/supabase";
 import { buildAppLink } from "@/config/app";
 import { aiCacheService } from "@/services/aiCacheService";
 import { connectionStateManager } from "@/services/connectionStateManager";
+import { iapService } from "@/services/iapService";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { ToastAction } from "@/components/ui/toast";
@@ -732,10 +734,16 @@ const Index = () => {
       if (userId) {
         // Synchronous localStorage migration – safe because localStorage is sync.
         migrateLocalStorageToUserScope(userId);
+        // Bind native IAP user (no-op on web/desktop). Fire-and-forget so a
+        // RevenueCat outage cannot block the auth flow.
+        iapService.init(userId).catch((err) => {
+          if (import.meta.env.DEV) console.warn('iapService.init failed:', err);
+        });
       } else {
         // User signed out (possibly from another tab) — clear in-memory connections
         // so the next user never inherits the previous user's cloud storage state.
         connectionStateManager.clearAll();
+        iapService.logOut().catch(() => { /* benign */ });
       }
 
       // Handle password recovery event - show dialog to set new password
@@ -763,6 +771,9 @@ const Index = () => {
         setCurrentUserId(userId);
         if (userId) {
           migrateLocalStorageToUserScope(userId);
+          iapService.init(userId).catch((err) => {
+            if (import.meta.env.DEV) console.warn('iapService.init failed:', err);
+          });
         }
 
         setSession(session);
@@ -2399,12 +2410,12 @@ const Index = () => {
   };
 
   const handleUpgrade = async (currency: string = 'USD') => {
-    // Defense in depth: Apple App Store and Google Play policies prohibit
-    // directing users to external payment for digital goods from inside
-    // native apps. All purchase CTAs are already hidden on native via
-    // canShowPurchaseCTA(), but guard the handler itself so a stale ref
-    // or future regression can't still reach Stripe checkout.
-    if (!canShowPurchaseCTA()) {
+    // Defense in depth: this handler routes to Stripe checkout, which is
+    // disallowed on native (Apple/Google forbid linking to external
+    // payment). Native purchases use iapService.purchase() via
+    // NativePaywall instead. UI already hides Stripe CTAs on native, but
+    // guard the handler itself so a stale ref can't reach Stripe.
+    if (!canShowStripeCheckout()) {
       return;
     }
 
@@ -2960,18 +2971,11 @@ const Index = () => {
 
           {/*
             Plan surface above the mood calendar:
-            - Web / desktop: full SubscriptionBanner (Pro celebration card
-              for Plus members, promotional upgrade card for free users).
-            - Native + Pro: same SubscriptionBanner — the Pro branch is
-              purely a status/celebration card. SubscriptionBanner itself
-              hides the Manage Subscription button on native via an
-              internal canShowPurchaseCTA() check.
-            - Native + Free: render nothing. Apple guideline 3.1.1
-              treats any plan-tier label ("Free Plan", "Basic", etc.) as
-              a reference to a paid tier; without an IAP product we cannot
-              reference tiers at all. Follow the Netflix/Spotify pattern.
+            - Pro (any platform): SubscriptionBanner status card.
+            - Native + Free: NativePaywall (StoreKit / Play Billing).
+            - Web/desktop + Free: SubscriptionBanner upgrade card → Stripe.
           */}
-          {(canShowPurchaseCTA() || isPro) && (
+          {isPro ? (
             <SubscriptionBanner
               onUpgrade={handleUpgrade}
               isPro={isPro}
@@ -2979,7 +2983,17 @@ const Index = () => {
               subscriptionStatus={subscriptionStatus}
               hasUsedTrial={hasUsedTrial}
             />
-          )}
+          ) : canShowNativeCheckout() ? (
+            <NativePaywall onPurchased={fetchSubscription} />
+          ) : canShowStripeCheckout() ? (
+            <SubscriptionBanner
+              onUpgrade={handleUpgrade}
+              isPro={isPro}
+              isLoading={isUpgrading}
+              subscriptionStatus={subscriptionStatus}
+              hasUsedTrial={hasUsedTrial}
+            />
+          ) : null}
 
           {/* Collapsible insight cards — three-across on desktop, stacked below lg.
               Each wrapper spans all 3 columns when its card is expanded (Radix
