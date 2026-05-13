@@ -158,7 +158,7 @@ serve(async (req) => {
             is_pro: isActive,
             subscription_status: subscription.status,
             stripe_subscription_id: subscription.id,
-            plan_name: 'plus',
+            plan_name: isActive ? 'plus' : 'free',
             current_period_start: periodStart
               ? new Date(periodStart * 1000).toISOString()
               : null,
@@ -190,7 +190,7 @@ serve(async (req) => {
             is_pro: isActive,
             subscription_status: subscription.status,
             stripe_subscription_id: subscription.id,
-            plan_name: 'plus',
+            plan_name: isActive ? 'plus' : 'free',
             current_period_start: periodStart
               ? new Date(periodStart * 1000).toISOString()
               : null,
@@ -245,6 +245,7 @@ serve(async (req) => {
           .from('subscriptions')
           .update({
             is_pro: false,
+            plan_name: 'free',
             subscription_status: 'canceled',
             updated_at: new Date().toISOString(),
           })

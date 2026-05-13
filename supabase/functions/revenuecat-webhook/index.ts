@@ -178,6 +178,7 @@ function buildUpdate(event: RCEvent, provider: "apple" | "google"): Subscription
       return {
         ...base,
         is_pro: false,
+        plan_name: "free",
         subscription_status: event.type === "REFUND" ? "refunded"
                           : event.type === "SUBSCRIPTION_PAUSED" ? "paused"
                           : "expired",
