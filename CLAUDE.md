@@ -163,9 +163,8 @@ Supabase config is hardcoded in `src/config/supabase.ts` (not read from env at r
 
 Detailed guides are in the root directory:
 - `SYNC_ARCHITECTURE.md` - Sync design and compaction strategy
-- `ENCRYPTION_FLOW_FIXES.md` - Encryption flow details and fixes
 - `STORAGE_CONNECTION_FLOW.md` / `STORAGE_CONNECTION_STATE_MACHINE.md` - Storage connection lifecycle
 - `OAUTH_SETUP_GUIDE.md` - OAuth redirect URI configuration
-- `TEST_SETUP.md` / `TESTING_GUIDE_PHASE4.md` - Test setup and strategy
+- `TEST_SETUP.md` - Test setup and strategy
 - `ANDROID_SETUP.md` / `IOS_SETUP.md` / `CAPACITOR_SETUP.md` - Mobile builds
 - `ELECTRON_SETUP.md` / `DESKTOP_BUILD_GUIDE.md` - Desktop builds

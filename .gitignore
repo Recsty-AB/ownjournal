@@ -30,6 +30,13 @@ supabase/.temp/cli-latest
 .claude/settings.json
 test-results.json
 
+# Internal operational docs — kept locally, not published
+STORE_SETUP_IAP.md
+SECURITY_FIXES.md
+FIXES_APPLIED.md
+TESTING_GUIDE_PHASE4.md
+ENCRYPTION_FLOW_FIXES.md
+
 # iOS (Capacitor)
 ios/App/App/public/
 ios/App/Pods/
