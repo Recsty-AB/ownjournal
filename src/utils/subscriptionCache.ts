@@ -5,12 +5,15 @@
 
 const CACHE_KEY_PREFIX = 'subscription_cache_';
 
+export type SubscriptionProvider = 'stripe' | 'apple' | 'google';
+
 export interface CachedSubscription {
   is_pro: boolean;
   fetched_at: number;
   current_period_end?: string | null;
   subscription_status?: string | null;
   has_used_trial?: boolean;
+  provider?: SubscriptionProvider | null;
 }
 
 function cacheKey(userId: string): string {
@@ -47,7 +50,13 @@ export function getCachedSubscription(userId: string): CachedSubscription | null
  */
 export function setCachedSubscription(
   userId: string,
-  data: { is_pro: boolean; current_period_end?: string | null; subscription_status?: string | null; has_used_trial?: boolean }
+  data: {
+    is_pro: boolean;
+    current_period_end?: string | null;
+    subscription_status?: string | null;
+    has_used_trial?: boolean;
+    provider?: SubscriptionProvider | null;
+  }
 ): void {
   try {
     const entry: CachedSubscription = {
@@ -56,6 +65,7 @@ export function setCachedSubscription(
       current_period_end: data.current_period_end ?? undefined,
       subscription_status: data.subscription_status ?? undefined,
       has_used_trial: data.has_used_trial ?? undefined,
+      provider: data.provider ?? undefined,
     };
     localStorage.setItem(cacheKey(userId), JSON.stringify(entry));
   } catch (e) {

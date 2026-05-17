@@ -171,10 +171,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 - [CHANGELOG.md](CHANGELOG.md) — Release history
 - [OAUTH_SETUP_GUIDE.md](OAUTH_SETUP_GUIDE.md) — OAuth provider setup
 - [SYNC_ARCHITECTURE.md](SYNC_ARCHITECTURE.md) — Sync design and compaction
-- [ENCRYPTION_FLOW_FIXES.md](ENCRYPTION_FLOW_FIXES.md) — Encryption internals
 - [STORAGE_CONNECTION_FLOW.md](STORAGE_CONNECTION_FLOW.md) / [STORAGE_CONNECTION_STATE_MACHINE.md](STORAGE_CONNECTION_STATE_MACHINE.md) — Provider connection lifecycle
 - [NEXTCLOUD_ENCRYPTION_FLOW.md](NEXTCLOUD_ENCRYPTION_FLOW.md) — Nextcloud-specific encryption notes
-- [TEST_SETUP.md](TEST_SETUP.md) / [TESTING_GUIDE_PHASE4.md](TESTING_GUIDE_PHASE4.md) — Test configuration and strategy
+- [TEST_SETUP.md](TEST_SETUP.md) — Test configuration and strategy
 - [ANDROID_SETUP.md](ANDROID_SETUP.md) / [ANDROID_QUICKSTART.md](ANDROID_QUICKSTART.md) / [IOS_SETUP.md](IOS_SETUP.md) / [CAPACITOR_SETUP.md](CAPACITOR_SETUP.md) — Mobile builds
 - [docs/CLOUDKIT_ICLOUD.md](docs/CLOUDKIT_ICLOUD.md) / [docs/APPLE_SIGNIN_SETUP.md](docs/APPLE_SIGNIN_SETUP.md) — Apple platform integrations
 - [ELECTRON_SETUP.md](ELECTRON_SETUP.md) / [DESKTOP_BUILD_GUIDE.md](DESKTOP_BUILD_GUIDE.md) — Desktop builds

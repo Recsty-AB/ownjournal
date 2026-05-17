@@ -9,7 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { aiMetadataService } from "@/services/aiMetadataService";
 import type { EntryAIMetadata } from "@/types/aiMetadata";
 import { aiUsageLimits } from "@/services/aiUsageLimits";
-import { canShowPurchaseCTA } from "@/utils/platformDetection";
+import { canShowAnyPurchaseCTA } from "@/utils/platformDetection";
 import { useTranslation } from "react-i18next";
 import { storageServiceV2 } from "@/services/storageServiceV2";
 import { getMockAnalysis } from "@/demo/mockAIResponses";
@@ -401,7 +401,7 @@ export const AIAnalysis = ({ entryId, content, createdAt, tags, mood, isPro, isD
   // because it shows a Crown icon and a disabled CTA that app stores read as
   // referencing a paid tier. Existing metadata from a prior Pro period still
   // renders below — that's a results view, not a paywall.
-  if (!metadata && !isPro && !canShowPurchaseCTA()) return null;
+  if (!metadata && !isPro && !canShowAnyPurchaseCTA()) return null;
 
   if (!metadata) {
     return (

@@ -32,8 +32,18 @@ const languages = [
   { code: 'th', name: 'ไทย' },
 ];
 
-const isNativeIOS = !!(window as any).Capacitor?.isNativePlatform?.() &&
-  (window as any).Capacitor?.getPlatform?.() === 'ios';
+// Use the OS-native <select> on any Capacitor native build (iOS WKWebView and
+// Android WebView both lose touch events to Radix's portaled dropdown), and on
+// any touch-primary web device (covers Android Chrome PWA, where the portaled
+// Select inside the portaled Dialog can be eaten by outside-click handling).
+const useNativeSelect = (() => {
+  const isCapNative = !!(window as any).Capacitor?.isNativePlatform?.();
+  if (isCapNative) return true;
+  if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+    return window.matchMedia('(pointer: coarse)').matches;
+  }
+  return false;
+})();
 
 export const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
@@ -56,9 +66,7 @@ export const LanguageSwitcher = () => {
 
   const currentLanguage = getCurrentLanguage();
 
-  // On iOS native, use a native <select> because Radix UI's portal-based
-  // dropdown doesn't receive touch events in Capacitor's WKWebView.
-  if (isNativeIOS) {
+  if (useNativeSelect) {
     return (
       <div className="flex items-center gap-2">
         <Languages className="w-4 h-4 text-muted-foreground" />

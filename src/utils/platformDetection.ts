@@ -177,18 +177,34 @@ export function isPlatformCategory(category: PlatformCategory): boolean {
 }
 
 /**
- * Whether purchase CTAs (subscription banners, upgrade buttons, Stripe
- * checkout entry points, billing portal links) may be shown in the UI.
+ * Whether Stripe checkout / billing-portal entry points may be shown.
  *
- * Returns false on Capacitor iOS and Android because both stores' policies
- * prohibit in-app CTAs that direct users to external payment for digital
- * goods consumed within the app. On native, surfaces must show a neutral
- * "Plus feature" lock state with no link, no pricing, and no reference
- * to purchasing channels.
+ * Apple App Store and Google Play prohibit in-app CTAs that direct users to
+ * external payment for digital goods consumed within the app, so this is
+ * false on Capacitor iOS/Android. Web and Electron remain true.
  */
-export function canShowPurchaseCTA(): boolean {
+export function canShowStripeCheckout(): boolean {
   const { platform } = getPlatformInfo();
   return platform !== 'capacitor-ios' && platform !== 'capacitor-android';
+}
+
+/**
+ * Whether the native StoreKit / Google Play Billing paywall can be shown.
+ * True only inside Capacitor iOS or Android. Web/Electron use Stripe.
+ */
+export function canShowNativeCheckout(): boolean {
+  const { platform } = getPlatformInfo();
+  return platform === 'capacitor-ios' || platform === 'capacitor-android';
+}
+
+/**
+ * Whether ANY purchase CTA can be shown (Stripe on web/desktop, native on
+ * iOS/Android). Use this to decide whether to render upgrade surfaces at
+ * all; use the more specific predicates above to decide which checkout flow
+ * to invoke.
+ */
+export function canShowAnyPurchaseCTA(): boolean {
+  return canShowStripeCheckout() || canShowNativeCheckout();
 }
 
 /**

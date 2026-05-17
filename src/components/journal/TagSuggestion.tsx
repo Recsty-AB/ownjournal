@@ -9,7 +9,7 @@ import { aiCacheService } from "@/services/aiCacheService";
 import { localAI } from "@/services/localAI";
 import { aiModeStorage } from "@/utils/aiModeStorage";
 import { aiUsageLimits } from "@/services/aiUsageLimits";
-import { canShowPurchaseCTA } from "@/utils/platformDetection";
+import { canShowAnyPurchaseCTA } from "@/utils/platformDetection";
 import { useTranslation } from "react-i18next";
 
 interface TagSuggestionProps {
@@ -421,7 +421,7 @@ export const TagSuggestion = ({
   // On native (iOS/Android) free users, hide the entire suggestion surface to
   // avoid Plus/Crown branding that app stores flag as referencing a paid tier
   // without a corresponding in-app purchase product.
-  if (!isPro && !canShowPurchaseCTA()) return null;
+  if (!isPro && !canShowAnyPurchaseCTA()) return null;
 
   if ((hasTagSets || hasSuggestedActivities) && showSuggestion) {
     const currentTags = hasTagSets ? allTagSets[currentSetIndex] : [];

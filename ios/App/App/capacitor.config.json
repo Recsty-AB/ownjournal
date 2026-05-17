@@ -19,13 +19,13 @@
 		"backgroundColor": "#f9f8f5"
 	},
 	"packageClassList": [
-		"OwnJournalQrScannerPlugin",
-		"CloudKitPlugin",
-		"AppleSignInPlugin",
 		"FileOpenerPlugin",
+		"BarcodeScannerPlugin",
 		"AppPlugin",
 		"CAPBrowserPlugin",
 		"FilesystemPlugin",
-		"SharePlugin"
+		"SharePlugin",
+		"StatusBarPlugin",
+		"PurchasesPlugin"
 	]
 }
