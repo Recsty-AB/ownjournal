@@ -30,11 +30,15 @@ import { useToast } from "@/hooks/use-toast";
 import {
   Crown, Sparkles, Brain, Lightbulb, Tag, TrendingUp, FileText, FileType, Loader2, RotateCcw,
 } from "lucide-react";
-import { iapService, IAPError, type IAPProduct } from "@/services/iapService";
+import { iapService, IAPError, type IAPProduct, type IAPEntitlement } from "@/services/iapService";
 
 interface NativePaywallProps {
-  /** Called when a purchase completes successfully. Parent should refresh subscription state. */
-  onPurchased?: () => void;
+  /**
+   * Called when a purchase (or restore) grants Plus. Receives the entitlement
+   * so the parent can flip the UI to Plus immediately, without waiting for the
+   * RevenueCat → webhook → DB round-trip.
+   */
+  onPurchased?: (entitlement?: IAPEntitlement) => void;
 }
 
 const proFeatures = [
@@ -97,7 +101,7 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
           title: t("subscription.upgradeSuccess"),
           description: t("subscription.upgradeSuccessDesc"),
         });
-        onPurchased?.();
+        onPurchased?.(ent);
       } else {
         toast({
           title: t("subscription.purchasePending", "Purchase pending"),
@@ -127,7 +131,7 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
         toast({
           title: t("subscription.restoreSuccess", "Purchases restored"),
         });
-        onPurchased?.();
+        onPurchased?.(ent);
       } else {
         toast({
           title: t("subscription.restoreNothing", "No purchases to restore"),

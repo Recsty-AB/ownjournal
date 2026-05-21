@@ -27,7 +27,7 @@ import { SUPABASE_CONFIG } from "@/config/supabase";
 import { buildAppLink } from "@/config/app";
 import { aiCacheService } from "@/services/aiCacheService";
 import { connectionStateManager } from "@/services/connectionStateManager";
-import { iapService } from "@/services/iapService";
+import { iapService, type IAPEntitlement } from "@/services/iapService";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { ToastAction } from "@/components/ui/toast";
@@ -884,6 +884,66 @@ const Index = () => {
   useEffect(() => {
     fetchSubscription();
   }, [fetchSubscription]);
+
+  // After a native (RevenueCat) purchase the StoreKit/Play entitlement is known
+  // on-device immediately, but the durable is_pro flag is only written once the
+  // RevenueCat → revenuecat-webhook round-trip lands (which can take tens of
+  // seconds). Unlike the Stripe web flow — where the redirect back happens after
+  // Stripe's near-instant webhook — nothing here re-checks the row, so poll until
+  // is_pro flips. Never downgrade the optimistic Plus state set below.
+  const reconcilePurchase = useCallback(async () => {
+    if (!user) return;
+    for (let attempt = 0; attempt < 10; attempt++) {
+      await new Promise((r) => setTimeout(r, 3000)); // ~30s total
+      try {
+        const { data } = await supabase
+          .from("subscriptions")
+          .select("is_pro, current_period_end, subscription_status, has_used_trial, provider")
+          .eq("user_id", user.id)
+          .single();
+        if (data?.is_pro) {
+          setIsPro(true);
+          setSubscriptionStatus(data.subscription_status ?? null);
+          setSubscriptionProvider(data.provider ?? null);
+          setHasUsedTrial(data.has_used_trial ?? false);
+          setCurrentPeriodEnd(data.current_period_end ?? null);
+          setCachedSubscription(user.id, {
+            is_pro: true,
+            current_period_end: data.current_period_end ?? null,
+            subscription_status: data.subscription_status ?? null,
+            has_used_trial: data.has_used_trial ?? false,
+            provider: data.provider ?? null,
+          });
+          return;
+        }
+      } catch {
+        /* transient; keep polling */
+      }
+    }
+  }, [user]);
+
+  // Flip to Plus instantly from the on-device entitlement returned by
+  // iapService.purchase()/restore(), then reconcile with the server so the
+  // webhook-written row becomes the source of truth.
+  const handleNativePurchased = useCallback((ent?: IAPEntitlement) => {
+    if (ent?.isPro && user) {
+      const status = ent.isInTrial ? "trialing" : "active";
+      const periodEnd = ent.expiresAt ? ent.expiresAt.toISOString() : null;
+      setIsPro(true);
+      setSubscriptionStatus(status);
+      setSubscriptionProvider(ent.provider ?? null);
+      if (ent.isInTrial) setHasUsedTrial(true);
+      setCurrentPeriodEnd(periodEnd);
+      setCachedSubscription(user.id, {
+        is_pro: true,
+        current_period_end: periodEnd,
+        subscription_status: status,
+        has_used_trial: ent.isInTrial || hasUsedTrial,
+        provider: ent.provider ?? null,
+      });
+    }
+    reconcilePurchase();
+  }, [user, hasUsedTrial, reconcilePurchase]);
 
   // Handle Stripe checkout success/cancel URL parameters
   useEffect(() => {
@@ -2990,7 +3050,7 @@ const Index = () => {
               hasUsedTrial={hasUsedTrial}
             />
           ) : canShowNativeCheckout() ? (
-            <NativePaywall onPurchased={fetchSubscription} />
+            <NativePaywall onPurchased={handleNativePurchased} />
           ) : canShowStripeCheckout() ? (
             <SubscriptionBanner
               onUpgrade={handleUpgrade}
