@@ -600,7 +600,9 @@
       "changeFailedDesc": "Veuillez vérifier l'adresse e-mail et réessayer.",
       "fetchFailed": "Impossible de charger votre e-mail actuel. Veuillez réessayer.",
       "sameEmail": "Le nouvel e-mail est identique à l'actuel",
-      "invalidEmail": "Veuillez entrer une adresse e-mail valide"
+      "invalidEmail": "Veuillez entrer une adresse e-mail valide",
+      "notConfirmed": "Changement d'e-mail non confirmé",
+      "notConfirmedDesc": "Veuillez confirmer votre nouvelle adresse e-mail en cliquant sur le lien que nous avons envoyé avant que ce changement puisse être finalisé."
     },
     "deleteAccount": {
       "title": "Supprimer le compte",

@@ -46,7 +46,19 @@ Deno.serve(async (req) => {
       )
     }
 
-    console.log(`Syncing email for user: ${userId} to: ${newEmail}`)
+    // Refuse to propagate an email the user has not actually confirmed. With
+    // Supabase "Confirm email change" enabled this is the normal state by the
+    // time we're called; the check is a defense against the setting being off
+    // (or future regressions) where an attacker with a hijacked session could
+    // otherwise redirect password-reset email to themselves.
+    if (!user.email_confirmed_at) {
+      return new Response(
+        JSON.stringify({ error: 'email_not_confirmed' }),
+        { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    console.log(`Syncing email for user: ${userId}`)
 
     // Create admin client for database operations
     const supabaseAdmin = createClient(

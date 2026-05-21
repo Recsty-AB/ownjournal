@@ -600,7 +600,9 @@
       "changeFailedDesc": "Bitte überprüfen Sie die E-Mail-Adresse und versuchen Sie es erneut.",
       "fetchFailed": "Ihre aktuelle E-Mail konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
       "sameEmail": "Neue E-Mail ist dieselbe wie die aktuelle",
-      "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+      "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "notConfirmed": "E-Mail-Änderung noch nicht bestätigt",
+      "notConfirmedDesc": "Bitte bestätige deine neue E-Mail-Adresse, indem du auf den Link in der gesendeten E-Mail klickst, bevor diese Änderung abgeschlossen werden kann."
     },
     "deleteAccount": {
       "title": "Konto löschen",

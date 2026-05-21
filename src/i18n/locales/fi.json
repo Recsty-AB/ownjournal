@@ -600,7 +600,9 @@
       "changeFailedDesc": "Tarkista sähköpostiosoite ja yritä uudelleen.",
       "fetchFailed": "Nykyistä sähköpostia ei voitu ladata. Yritä uudelleen.",
       "sameEmail": "Uusi sähköposti on sama kuin nykyinen",
-      "invalidEmail": "Anna kelvollinen sähköpostiosoite"
+      "invalidEmail": "Anna kelvollinen sähköpostiosoite",
+      "notConfirmed": "Sähköpostimuutosta ei ole vielä vahvistettu",
+      "notConfirmedDesc": "Vahvista uusi sähköpostiosoitteesi napsauttamalla lähettämäämme linkkiä, ennen kuin tämä muutos voi tulla voimaan."
     },
     "deleteAccount": {
       "title": "Poista tili",

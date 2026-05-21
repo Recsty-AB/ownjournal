@@ -600,7 +600,9 @@
       "changeFailedDesc": "請檢查電子郵件地址並重試。",
       "fetchFailed": "無法載入您目前的電子郵件。請重試。",
       "sameEmail": "新電子郵件與目前相同",
-      "invalidEmail": "請輸入有效的電子郵件地址"
+      "invalidEmail": "請輸入有效的電子郵件地址",
+      "notConfirmed": "電子郵件變更尚未確認",
+      "notConfirmedDesc": "請點擊我們寄送的連結以確認您的新電子郵件地址，此變更才能完成。"
     },
     "deleteAccount": {
       "title": "刪除帳戶",

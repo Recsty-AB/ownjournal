@@ -600,7 +600,9 @@
       "changeFailedDesc": "Silakan periksa alamat email dan coba lagi.",
       "fetchFailed": "Tidak bisa memuat email saat ini. Silakan coba lagi.",
       "sameEmail": "Email baru sama dengan yang sekarang",
-      "invalidEmail": "Masukkan alamat email yang valid"
+      "invalidEmail": "Masukkan alamat email yang valid",
+      "notConfirmed": "Perubahan email belum dikonfirmasi",
+      "notConfirmedDesc": "Konfirmasikan alamat email baru Anda dengan mengklik tautan yang kami kirim sebelum perubahan ini dapat diselesaikan."
     },
     "deleteAccount": {
       "title": "Hapus Akun",

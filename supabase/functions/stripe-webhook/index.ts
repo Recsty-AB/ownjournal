@@ -73,13 +73,32 @@ serve(async (req) => {
       });
     }
 
-    console.log('Webhook event received:', event.type);
+    console.log('Webhook event received:', event.type, event.id);
 
     // Initialize Supabase admin client
     const supabaseAdmin = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     );
+
+    // Idempotency: short-circuit if this event.id has already been processed.
+    // Stripe retries non-2xx responses and the dashboard has a "Resend event"
+    // button, so duplicates are routine. Mirror the iap_processed_events
+    // ordering used for the RevenueCat webhook: read here, write at the end
+    // so a failure between sig-verify and update causes Stripe to retry.
+    const { data: alreadyProcessed } = await supabaseAdmin
+      .from('stripe_processed_events')
+      .select('event_id')
+      .eq('event_id', event.id)
+      .maybeSingle();
+
+    if (alreadyProcessed) {
+      console.log(`Duplicate Stripe event ${event.id}, skipping`);
+      return new Response(
+        JSON.stringify({ received: true, duplicate: true }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
 
     // Handle the event
     switch (event.type) {
@@ -263,8 +282,22 @@ serve(async (req) => {
         console.log(`Unhandled event type: ${event.type}`);
     }
 
+    // Record the event_id last, so a failed update is retried by Stripe instead
+    // of silently dropped. Unique-violation on a concurrent retry is benign.
+    const { error: recErr } = await supabaseAdmin
+      .from('stripe_processed_events')
+      .insert({
+        event_id: event.id,
+        event_type: event.type,
+        event_created: event.created,
+      });
+
+    if (recErr && (recErr as { code?: string }).code !== '23505') {
+      console.error('Failed to record processed Stripe event:', recErr);
+    }
+
     return new Response(
-      JSON.stringify({ received: true }), 
+      JSON.stringify({ received: true }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       }

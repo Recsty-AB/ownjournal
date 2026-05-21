@@ -213,6 +213,13 @@ export const SettingsDialog = ({
 
             if (error) {
               console.error('Failed to sync email:', error);
+              if ((error as { context?: { status?: number } }).context?.status === 403) {
+                toast({
+                  title: t('settings.email.notConfirmed'),
+                  description: t('settings.email.notConfirmedDesc'),
+                  variant: 'destructive',
+                });
+              }
             } else {
               setCurrentEmail(newUserEmail);
               setPendingEmailChange(false);

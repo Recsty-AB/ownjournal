@@ -600,7 +600,9 @@
       "changeFailedDesc": "Por favor verifica la dirección de correo e inténtalo de nuevo.",
       "fetchFailed": "No se pudo cargar tu correo actual. Inténtalo de nuevo.",
       "sameEmail": "El nuevo correo es igual al actual",
-      "invalidEmail": "Por favor ingresa una dirección de correo válida"
+      "invalidEmail": "Por favor ingresa una dirección de correo válida",
+      "notConfirmed": "Cambio de correo aún no confirmado",
+      "notConfirmedDesc": "Confirma tu nueva dirección de correo haciendo clic en el enlace que te enviamos antes de que se complete este cambio."
     },
     "deleteAccount": {
       "title": "Eliminar cuenta",

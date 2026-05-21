@@ -600,7 +600,9 @@
       "changeFailedDesc": "Sjekk e-postadressen og prøv igjen.",
       "fetchFailed": "Kunne ikke laste inn din nåværende e-post. Prøv igjen.",
       "sameEmail": "Ny e-post er den samme som nåværende",
-      "invalidEmail": "Vennligst skriv inn en gyldig e-postadresse"
+      "invalidEmail": "Vennligst skriv inn en gyldig e-postadresse",
+      "notConfirmed": "E-postendring ikke bekreftet ennå",
+      "notConfirmedDesc": "Bekreft den nye e-postadressen din ved å klikke på lenken vi sendte før denne endringen kan fullføres."
     },
     "deleteAccount": {
       "title": "Slett konto",

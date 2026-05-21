@@ -600,7 +600,9 @@
       "changeFailedDesc": "Kontrollera e-postadressen och försök igen.",
       "fetchFailed": "Kunde inte ladda din nuvarande e-post. Försök igen.",
       "sameEmail": "Ny e-post är samma som nuvarande",
-      "invalidEmail": "Ange en giltig e-postadress"
+      "invalidEmail": "Ange en giltig e-postadress",
+      "notConfirmed": "E-postbyte ännu inte bekräftat",
+      "notConfirmedDesc": "Bekräfta din nya e-postadress genom att klicka på länken vi skickade innan denna ändring kan slutföras."
     },
     "deleteAccount": {
       "title": "Radera konto",

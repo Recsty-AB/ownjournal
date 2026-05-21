@@ -600,7 +600,9 @@
       "changeFailedDesc": "メールアドレスを確認して再試行してください。",
       "fetchFailed": "現在のメールを読み込めませんでした。再試行してください。",
       "sameEmail": "新しいメールは現在のメールと同じです",
-      "invalidEmail": "有効なメールアドレスを入力してください"
+      "invalidEmail": "有効なメールアドレスを入力してください",
+      "notConfirmed": "メールアドレスの変更が未確認です",
+      "notConfirmedDesc": "変更を完了するには、送信されたリンクをクリックして新しいメールアドレスを確認してください。"
     },
     "deleteAccount": {
       "title": "アカウント削除",

@@ -600,7 +600,9 @@
       "changeFailedDesc": "Controleer het e-mailadres en probeer opnieuw.",
       "fetchFailed": "Kan uw huidige e-mail niet laden. Probeer opnieuw.",
       "sameEmail": "Nieuwe e-mail is hetzelfde als huidige",
-      "invalidEmail": "Voer een geldig e-mailadres in"
+      "invalidEmail": "Voer een geldig e-mailadres in",
+      "notConfirmed": "E-mailwijziging nog niet bevestigd",
+      "notConfirmedDesc": "Bevestig je nieuwe e-mailadres door op de link te klikken die we hebben gestuurd voordat deze wijziging kan worden voltooid."
     },
     "deleteAccount": {
       "title": "Account verwijderen",

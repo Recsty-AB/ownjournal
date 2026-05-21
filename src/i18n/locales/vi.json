@@ -600,7 +600,9 @@
       "changeFailedDesc": "Vui lòng kiểm tra địa chỉ email và thử lại.",
       "fetchFailed": "Không thể tải email hiện tại. Vui lòng thử lại.",
       "sameEmail": "Email mới giống email hiện tại",
-      "invalidEmail": "Vui lòng nhập địa chỉ email hợp lệ"
+      "invalidEmail": "Vui lòng nhập địa chỉ email hợp lệ",
+      "notConfirmed": "Thay đổi email chưa được xác nhận",
+      "notConfirmedDesc": "Vui lòng xác nhận địa chỉ email mới bằng cách nhấp vào liên kết chúng tôi đã gửi trước khi thay đổi này có thể hoàn tất."
     },
     "deleteAccount": {
       "title": "Xóa tài khoản",

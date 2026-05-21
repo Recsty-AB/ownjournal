@@ -600,7 +600,9 @@
       "changeFailedDesc": "Please check the email address and try again.",
       "fetchFailed": "Could not load your current email. Please try again.",
       "sameEmail": "New email is the same as current",
-      "invalidEmail": "Please enter a valid email address"
+      "invalidEmail": "Please enter a valid email address",
+      "notConfirmed": "Email change not yet confirmed",
+      "notConfirmedDesc": "Please confirm your new email address by clicking the link we sent before this change can complete."
     },
     "deleteAccount": {
       "title": "Delete Account",

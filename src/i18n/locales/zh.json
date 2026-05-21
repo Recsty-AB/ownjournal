@@ -600,7 +600,9 @@
       "changeFailedDesc": "请检查电子邮箱地址并重试。",
       "fetchFailed": "无法加载您当前的邮箱。请重试。",
       "sameEmail": "新邮箱与当前相同",
-      "invalidEmail": "请输入有效的电子邮箱地址"
+      "invalidEmail": "请输入有效的电子邮箱地址",
+      "notConfirmed": "邮箱地址变更尚未确认",
+      "notConfirmedDesc": "请点击我们发送的链接以确认您的新邮箱地址，然后此变更才能完成。"
     },
     "deleteAccount": {
       "title": "删除账户",
