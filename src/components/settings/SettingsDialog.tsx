@@ -461,10 +461,10 @@ export const SettingsDialog = ({
   const settingsContent = (
     <Tabs key={open ? 'tabs-open' : 'tabs-closed'} defaultValue={defaultTab} className="w-full">
       <TabsList className="flex flex-wrap gap-1 justify-start w-full">
-        <TabsTrigger value="storage" className="flex-1 min-w-0">{t('settings.tabs.storage')}</TabsTrigger>
-        <TabsTrigger value="preferences" className="flex-1 min-w-0">{t('settings.tabs.preferences')}</TabsTrigger>
-        <TabsTrigger value="account" className="flex-1 min-w-0">{t('settings.tabs.account')}</TabsTrigger>
-        <TabsTrigger value="diagnostics" className="flex-1 min-w-0">{t('settings.tabs.diagnostics')}</TabsTrigger>
+        <TabsTrigger value="storage" className="flex-1 min-w-0 px-1.5 sm:px-4 text-xs sm:text-sm truncate">{t('settings.tabs.storage')}</TabsTrigger>
+        <TabsTrigger value="preferences" className="flex-1 min-w-0 px-1.5 sm:px-4 text-xs sm:text-sm truncate">{t('settings.tabs.preferences')}</TabsTrigger>
+        <TabsTrigger value="account" className="flex-1 min-w-0 px-1.5 sm:px-4 text-xs sm:text-sm truncate">{t('settings.tabs.account')}</TabsTrigger>
+        <TabsTrigger value="diagnostics" className="flex-1 min-w-0 px-1.5 sm:px-4 text-xs sm:text-sm truncate">{t('settings.tabs.diagnostics')}</TabsTrigger>
       </TabsList>
       
       <TabsContent value="storage" className="space-y-4 mt-4">
