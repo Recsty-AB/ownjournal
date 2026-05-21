@@ -1580,7 +1580,10 @@
     "nativeSubWarningDesc": "Dit Plus-abonnement blev købt via {{store}}. Sletning af din konto her annullerer det IKKE — du vil stadig blive opkrævet. Åbn {{store}} for at annullere, og slet derefter din konto.",
     "nativeSubManageCta": "Åbn {{store}}",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Køb i appen er ikke tilgængelige lige nu",
+    "iapUnavailableDesc": "Vi kunne ikke få forbindelse til butikken. Tjek din forbindelse, og prøv igen.",
+    "tryAgain": "Prøv igen"
   },
   "calendar": {
     "clear": "Ryd",

@@ -1583,7 +1583,10 @@
     "nativeSubWarningDesc": "Langganan Plus Anda dibeli melalui {{store}}. Menghapus akun di sini TIDAK akan membatalkannya — Anda akan terus ditagih. Buka {{store}} untuk membatalkan, lalu kembali untuk menghapus akun Anda.",
     "nativeSubManageCta": "Buka {{store}}",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Pembelian dalam aplikasi sedang tidak tersedia",
+    "iapUnavailableDesc": "Kami tidak dapat menghubungi toko. Periksa koneksi Anda dan coba lagi.",
+    "tryAgain": "Coba lagi"
   },
   "calendar": {
     "clear": "Hapus",

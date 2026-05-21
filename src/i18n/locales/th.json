@@ -1583,7 +1583,10 @@
     "nativeSubWarningDesc": "การสมัครสมาชิก Plus ของคุณซื้อผ่าน {{store}} การลบบัญชีของคุณที่นี่จะไม่ยกเลิกการสมัครสมาชิก — คุณจะยังคงถูกเรียกเก็บเงิน เปิด {{store}} เพื่อยกเลิก แล้วกลับมาลบบัญชีของคุณ",
     "nativeSubManageCta": "เปิด {{store}}",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "ขณะนี้ไม่สามารถซื้อในแอปได้",
+    "iapUnavailableDesc": "เราไม่สามารถเชื่อมต่อกับสโตร์ได้ โปรดตรวจสอบการเชื่อมต่อของคุณแล้วลองอีกครั้ง",
+    "tryAgain": "ลองอีกครั้ง"
   },
   "calendar": {
     "clear": "ล้าง",

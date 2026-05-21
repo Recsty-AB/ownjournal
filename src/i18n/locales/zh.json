@@ -1580,7 +1580,10 @@
     "nativeSubWarningDesc": "您的 Plus 订阅是通过{{store}}购买的。在此删除账户不会取消订阅 — 仍会继续向您收费。请先打开{{store}}取消订阅，再回来删除账户。",
     "nativeSubManageCta": "打开{{store}}",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "应用内购买当前不可用",
+    "iapUnavailableDesc": "无法连接到商店。请检查您的网络连接后重试。",
+    "tryAgain": "重试"
   },
   "calendar": {
     "clear": "清除",

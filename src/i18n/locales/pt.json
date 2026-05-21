@@ -1580,7 +1580,10 @@
     "nativeSubWarningDesc": "A sua subscrição Plus foi adquirida através da {{store}}. Eliminar a sua conta aqui NÃO a cancela — continuará a ser cobrado. Abra a {{store}} para cancelar e depois volte para eliminar a sua conta.",
     "nativeSubManageCta": "Abrir {{store}}",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "As compras na aplicação não estão disponíveis de momento",
+    "iapUnavailableDesc": "Não foi possível ligar à loja. Verifique a sua ligação e tente novamente.",
+    "tryAgain": "Tentar novamente"
   },
   "calendar": {
     "clear": "Limpar",

@@ -1580,7 +1580,10 @@
     "nativeSubWarningDesc": "Votre abonnement Plus a été acheté via {{store}}. Supprimer votre compte ici NE l'annule PAS — vous continuerez à être facturé. Ouvrez {{store}} pour annuler, puis revenez supprimer votre compte.",
     "nativeSubManageCta": "Ouvrir {{store}}",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Les achats intégrés ne sont pas disponibles pour le moment",
+    "iapUnavailableDesc": "Impossible de joindre la boutique. Vérifiez votre connexion et réessayez.",
+    "tryAgain": "Réessayer"
   },
   "calendar": {
     "clear": "Effacer",

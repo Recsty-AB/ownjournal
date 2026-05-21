@@ -1580,7 +1580,10 @@
     "nativeSubWarningDesc": "Je Plus-abonnement is gekocht via {{store}}. Door je account hier te verwijderen wordt het abonnement NIET opgezegd — er wordt nog steeds afgeschreven. Open {{store}} om op te zeggen en kom dan terug om je account te verwijderen.",
     "nativeSubManageCta": "{{store}} openen",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "In-app-aankopen zijn momenteel niet beschikbaar",
+    "iapUnavailableDesc": "We konden de store niet bereiken. Controleer je verbinding en probeer het opnieuw.",
+    "tryAgain": "Opnieuw proberen"
   },
   "calendar": {
     "clear": "Wissen",

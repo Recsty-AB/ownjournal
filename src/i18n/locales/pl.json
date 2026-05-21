@@ -1580,7 +1580,10 @@
     "nativeSubWarningDesc": "Twoja subskrypcja Plus została zakupiona przez {{store}}. Usunięcie konta tutaj NIE anuluje jej — nadal będziesz obciążany. Otwórz {{store}}, aby anulować, a następnie wróć, aby usunąć konto.",
     "nativeSubManageCta": "Otwórz {{store}}",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Zakupy w aplikacji są teraz niedostępne",
+    "iapUnavailableDesc": "Nie udało się połączyć ze sklepem. Sprawdź połączenie i spróbuj ponownie.",
+    "tryAgain": "Spróbuj ponownie"
   },
   "calendar": {
     "clear": "Wyczyść",

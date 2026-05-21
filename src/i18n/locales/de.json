@@ -1580,7 +1580,10 @@
     "nativeSubWarningDesc": "Ihr Plus-Abonnement wurde über {{store}} gekauft. Wenn Sie Ihr Konto hier löschen, wird das Abonnement NICHT gekündigt – Ihnen wird weiterhin Geld berechnet. Öffnen Sie {{store}}, um zu kündigen, und löschen Sie dann Ihr Konto.",
     "nativeSubManageCta": "{{store}} öffnen",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "In-App-Käufe sind derzeit nicht verfügbar",
+    "iapUnavailableDesc": "Wir konnten den Store nicht erreichen. Bitte überprüfe deine Verbindung und versuche es erneut.",
+    "tryAgain": "Erneut versuchen"
   },
   "calendar": {
     "clear": "Löschen",

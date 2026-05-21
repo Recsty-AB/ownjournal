@@ -1580,7 +1580,10 @@
     "nativeSubWarningDesc": "您的 Plus 訂閱是透過 {{store}} 購買的。在此刪除帳號不會取消訂閱 — 仍會繼續向您收費。請先開啟 {{store}} 取消訂閱，再回來刪除帳號。",
     "nativeSubManageCta": "開啟 {{store}}",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "目前無法使用應用程式內購買",
+    "iapUnavailableDesc": "無法連線到商店。請檢查您的網路連線後再試一次。",
+    "tryAgain": "再試一次"
   },
   "calendar": {
     "clear": "清除",

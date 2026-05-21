@@ -1580,7 +1580,10 @@
     "nativeSubWarningDesc": "आपकी Plus सदस्यता {{store}} के माध्यम से खरीदी गई थी। यहाँ अपना खाता हटाने से यह रद्द नहीं होगी — आपसे शुल्क लगता रहेगा। रद्द करने के लिए {{store}} खोलें, फिर अपना खाता हटाने के लिए वापस आएं।",
     "nativeSubManageCta": "{{store}} खोलें",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "इन-ऐप खरीदारी अभी उपलब्ध नहीं है",
+    "iapUnavailableDesc": "हम स्टोर तक नहीं पहुँच सके। कृपया अपना कनेक्शन जाँचें और फिर से प्रयास करें।",
+    "tryAgain": "फिर से प्रयास करें"
   },
   "calendar": {
     "clear": "साफ करें",

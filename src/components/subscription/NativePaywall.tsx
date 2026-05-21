@@ -55,9 +55,16 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
   const [isLoadingProduct, setIsLoadingProduct] = useState(true);
   const [isPurchasing, setIsPurchasing] = useState(false);
   const [isRestoring, setIsRestoring] = useState(false);
+  // True when the store/RevenueCat couldn't be reached or no product loaded —
+  // distinct from a failed purchase. Shows a retryable "unavailable" message
+  // instead of silently leaving the paywall in a dead state.
+  const [loadFailed, setLoadFailed] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
+    setIsLoadingProduct(true);
+    setLoadFailed(false);
     (async () => {
       try {
         const [products, eligible] = await Promise.all([
@@ -65,16 +72,21 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
           iapService.isEligibleForTrial(),
         ]);
         if (cancelled) return;
-        setProduct(products[0] ?? null);
+        const loaded = products[0] ?? null;
+        setProduct(loaded);
         setIsEligibleForTrial(eligible);
+        if (!loaded) setLoadFailed(true);
       } catch (err) {
         if (import.meta.env.DEV) console.warn("Failed to load IAP product:", err);
+        if (!cancelled) setLoadFailed(true);
       } finally {
         if (!cancelled) setIsLoadingProduct(false);
       }
     })();
     return () => { cancelled = true; };
-  }, []);
+  }, [reloadKey]);
+
+  const handleRetry = () => setReloadKey((k) => k + 1);
 
   const handlePurchase = async () => {
     setIsPurchasing(true);
@@ -147,11 +159,7 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
         {t("subscription.priceYearly", { yearlyPrice: product.priceFormatted })}
       </p>
     )
-  ) : (
-    <p className="text-sm text-destructive">
-      {t("subscription.purchaseFailed", "Purchase could not be completed")}
-    </p>
-  );
+  ) : null;
 
   return (
     <Card className="p-4 sm:p-6 bg-gradient-subtle border-2 border-dashed border-primary/20 mb-4 sm:mb-6">
@@ -177,31 +185,48 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
           ))}
         </div>
 
-        <div className="space-y-1 sm:space-y-2">{priceLine}</div>
+        {loadFailed && !isLoadingProduct ? (
+          <div className="space-y-2">
+            <p className="text-sm font-medium text-destructive">
+              {t("subscription.iapUnavailable", "In-app purchases aren't available right now")}
+            </p>
+            <p className="text-xs text-muted-foreground max-w-md mx-auto">
+              {t("subscription.iapUnavailableDesc", "We couldn't reach the store. Please check your connection and try again.")}
+            </p>
+            <Button variant="outline" size="sm" onClick={handleRetry} className="mt-1">
+              <RotateCcw className="w-3.5 h-3.5 mr-1.5" />
+              {t("subscription.tryAgain", "Try again")}
+            </Button>
+          </div>
+        ) : (
+          <>
+            <div className="space-y-1 sm:space-y-2">{priceLine}</div>
 
-        <Button
-          onClick={handlePurchase}
-          disabled={isPurchasing || isLoadingProduct || !product}
-          className="w-full sm:w-auto bg-gradient-primary shadow-glow"
-        >
-          {isPurchasing ? (
-            <>
-              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-              {t("subscription.processing")}
-            </>
-          ) : (
-            <>
-              <Crown className="w-4 h-4 mr-2" />
-              {isEligibleForTrial
-                ? t("subscription.trialCta", "Start Free Trial")
-                : t("subscription.upgradeToPro")}
-            </>
-          )}
-        </Button>
+            <Button
+              onClick={handlePurchase}
+              disabled={isPurchasing || isLoadingProduct || !product}
+              className="w-full sm:w-auto bg-gradient-primary shadow-glow"
+            >
+              {isPurchasing ? (
+                <>
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  {t("subscription.processing")}
+                </>
+              ) : (
+                <>
+                  <Crown className="w-4 h-4 mr-2" />
+                  {isEligibleForTrial
+                    ? t("subscription.trialCta", "Start Free Trial")
+                    : t("subscription.upgradeToPro")}
+                </>
+              )}
+            </Button>
 
-        <p className="text-[10px] sm:text-xs text-muted-foreground">
-          {t("subscription.cancelAnytime")}
-        </p>
+            <p className="text-[10px] sm:text-xs text-muted-foreground">
+              {t("subscription.cancelAnytime")}
+            </p>
+          </>
+        )}
 
         <div className="pt-2 border-t border-border/50">
           <Button

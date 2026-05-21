@@ -79,6 +79,13 @@ const state: RuntimeState = {
   userId: null,
 };
 
+// In-flight init promise so callers (e.g. the paywall mounting before init
+// resolves) can await readiness instead of racing. `lastInitError` keeps the
+// real reason a prior init() failed so methods surface it instead of a generic
+// "init() not called".
+let initPromise: Promise<void> | null = null;
+let lastInitError: unknown = null;
+
 function isNative(): boolean {
   const { platform } = getPlatformInfo();
   return platform === 'capacitor-ios' || platform === 'capacitor-android';
@@ -96,8 +103,49 @@ function platformProductId(): string {
 }
 
 async function loadPurchases() {
-  const mod = await import('@revenuecat/purchases-capacitor');
-  return mod.Purchases;
+  const { Purchases } = await import('@revenuecat/purchases-capacitor');
+  // Return the plugin wrapped in a plain object. A Capacitor plugin proxy
+  // returns a callable for ANY property access — including `.then` — so it
+  // looks "thenable". Returning it bare from an async function makes the JS
+  // runtime try to unwrap it via `Purchases.then(resolve, reject)`, which
+  // dispatches a native call to a non-existent `then` method and crashes with
+  // `"Purchases.then()" is not implemented`. Wrapping it avoids that.
+  return { Purchases };
+}
+
+/** Run the actual RevenueCat configure/logIn for `userId`. */
+async function doInit(userId: string): Promise<void> {
+  const apiKey = platformApiKey();
+  if (!apiKey) {
+    throw new IAPError('NOT_INITIALIZED',
+      'RevenueCat API key missing. Set VITE_REVENUECAT_IOS_KEY / VITE_REVENUECAT_ANDROID_KEY.');
+  }
+
+  const { Purchases } = await loadPurchases();
+  if (!state.initialized) {
+    if (import.meta.env.DEV) {
+      const { LOG_LEVEL } = await import('@revenuecat/purchases-capacitor');
+      try { await Purchases.setLogLevel({ level: LOG_LEVEL.DEBUG }); } catch { /* non-fatal */ }
+    }
+    await Purchases.configure({ apiKey, appUserID: userId });
+    state.initialized = true;
+  } else if (state.userId !== userId) {
+    await Purchases.logIn({ appUserID: userId });
+  }
+  state.userId = userId;
+}
+
+/**
+ * Block until init has completed. Awaits an in-flight init() (so a method
+ * called before init resolves waits rather than throwing), and re-throws the
+ * real init error so callers see the underlying reason. Throws NOT_INITIALIZED
+ * only when init() was never attempted (e.g. no signed-in user).
+ */
+async function ensureInitialized(): Promise<void> {
+  if (state.initialized) return;
+  if (initPromise) { await initPromise; return; }
+  if (lastInitError) throw lastInitError;
+  throw new IAPError('NOT_INITIALIZED', 'iapService.init() not called');
 }
 
 function mapStore(store: string | undefined): IAPProvider | null {
@@ -172,37 +220,26 @@ export const iapService = {
     if (!isNative()) return;
     if (state.initialized && state.userId === userId) return;
 
-    const apiKey = platformApiKey();
-    if (!apiKey) {
-      throw new IAPError('NOT_INITIALIZED',
-        'RevenueCat API key missing. Set VITE_REVENUECAT_IOS_KEY / VITE_REVENUECAT_ANDROID_KEY.');
-    }
-
-    const Purchases = await loadPurchases();
-    if (!state.initialized) {
-      if (import.meta.env.DEV) {
-        const { LOG_LEVEL } = await import('@revenuecat/purchases-capacitor');
-        try { await Purchases.setLogLevel({ level: LOG_LEVEL.DEBUG }); } catch { /* non-fatal */ }
-      }
-      await Purchases.configure({ apiKey, appUserID: userId });
-      state.initialized = true;
-    } else if (state.userId !== userId) {
-      await Purchases.logIn({ appUserID: userId });
-    }
-    state.userId = userId;
+    // Store the in-flight promise so concurrent callers await readiness. On
+    // failure, clear it (and remember the error) so the next init() retries —
+    // a transient configure error then self-heals on the next paywall open.
+    initPromise = doInit(userId)
+      .then(() => { lastInitError = null; })
+      .catch((err) => { lastInitError = err; initPromise = null; throw err; });
+    return initPromise;
   },
 
   async logOut(): Promise<void> {
     if (!isNative() || !state.initialized) return;
-    const Purchases = await loadPurchases();
+    const { Purchases } = await loadPurchases();
     try { await Purchases.logOut(); } catch { /* benign — anonymous already */ }
     state.userId = null;
   },
 
   async getProducts(): Promise<IAPProduct[]> {
     if (!isNative()) return [];
-    if (!state.initialized) throw new IAPError('NOT_INITIALIZED', 'iapService.init() not called');
-    const Purchases = await loadPurchases();
+    await ensureInitialized();
+    const { Purchases } = await loadPurchases();
     const offerings = await Purchases.getOfferings();
     const found = findPlusPackage(offerings);
     if (!found?.product) return [];
@@ -218,9 +255,9 @@ export const iapService = {
 
   async purchase(): Promise<IAPEntitlement> {
     if (!isNative()) throw new IAPError('NOT_AVAILABLE', 'IAP not available on this platform');
-    if (!state.initialized) throw new IAPError('NOT_INITIALIZED', 'iapService.init() not called');
+    await ensureInitialized();
 
-    const Purchases = await loadPurchases();
+    const { Purchases } = await loadPurchases();
     const offerings = await Purchases.getOfferings();
     const found = findPlusPackage(offerings);
     if (!found?.pkg) throw new IAPError('PRODUCT_UNAVAILABLE', 'Plus package not configured in RevenueCat offering');
@@ -237,16 +274,16 @@ export const iapService = {
 
   async restore(): Promise<IAPEntitlement> {
     if (!isNative()) throw new IAPError('NOT_AVAILABLE', 'IAP not available on this platform');
-    if (!state.initialized) throw new IAPError('NOT_INITIALIZED', 'iapService.init() not called');
-    const Purchases = await loadPurchases();
+    await ensureInitialized();
+    const { Purchases } = await loadPurchases();
     const { customerInfo } = await Purchases.restorePurchases();
     return deriveEntitlement(customerInfo);
   },
 
   async getActiveEntitlement(): Promise<IAPEntitlement> {
     if (!isNative()) return EMPTY_ENTITLEMENT;
-    if (!state.initialized) return EMPTY_ENTITLEMENT;
-    const Purchases = await loadPurchases();
+    try { await ensureInitialized(); } catch { return EMPTY_ENTITLEMENT; }
+    const { Purchases } = await loadPurchases();
     const { customerInfo } = await Purchases.getCustomerInfo();
     return deriveEntitlement(customerInfo);
   },
@@ -258,10 +295,10 @@ export const iapService = {
    */
   async isEligibleForTrial(): Promise<boolean> {
     if (!isNative()) return false;
-    if (!state.initialized) return false;
-    const Purchases = await loadPurchases();
-    const productId = platformProductId();
     try {
+      await ensureInitialized();
+      const { Purchases } = await loadPurchases();
+      const productId = platformProductId();
       const res = await Purchases.checkTrialOrIntroductoryPriceEligibility({ productIdentifiers: [productId] });
       const entry = (res as Record<string, { status: number }>)[productId];
       // status === 1 (UNKNOWN) or 2 (INELIGIBLE) → not eligible. 3 (ELIGIBLE) → eligible.

@@ -1580,7 +1580,10 @@
     "nativeSubWarningDesc": "Plus 구독은 {{store}}을(를) 통해 구매되었습니다. 여기서 계정을 삭제해도 구독은 취소되지 않으며 계속 요금이 청구됩니다. {{store}}을(를) 열어 취소한 후 다시 돌아와 계정을 삭제하세요.",
     "nativeSubManageCta": "{{store}} 열기",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "지금은 인앱 구매를 사용할 수 없습니다",
+    "iapUnavailableDesc": "스토어에 연결할 수 없습니다. 연결 상태를 확인한 후 다시 시도해 주세요.",
+    "tryAgain": "다시 시도"
   },
   "calendar": {
     "clear": "지우기",

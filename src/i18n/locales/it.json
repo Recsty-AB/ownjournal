@@ -1580,7 +1580,10 @@
     "nativeSubWarningDesc": "Il tuo abbonamento Plus è stato acquistato tramite {{store}}. Eliminare l'account qui NON lo annulla — continuerai a essere addebitato. Apri {{store}} per annullarlo, poi torna a eliminare l'account.",
     "nativeSubManageCta": "Apri {{store}}",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Gli acquisti in-app non sono disponibili al momento",
+    "iapUnavailableDesc": "Non siamo riusciti a raggiungere lo store. Controlla la connessione e riprova.",
+    "tryAgain": "Riprova"
   },
   "calendar": {
     "clear": "Cancella",

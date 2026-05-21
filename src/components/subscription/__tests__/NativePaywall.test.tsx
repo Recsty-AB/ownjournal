@@ -75,12 +75,34 @@ describe('NativePaywall', () => {
     });
   });
 
-  it('renders the destructive purchase-failed copy when getProducts returns empty', async () => {
+  it('shows the iapUnavailable state with a Try again button when no product loads', async () => {
     iapMocks.getProducts.mockResolvedValue([]);
     const { container } = renderPaywall();
     await waitFor(() => {
-      expect(container.textContent).toContain('subscription.purchaseFailed');
+      expect(container.textContent).toContain('subscription.iapUnavailable');
     });
+    // A retry affordance is offered, and the generic purchase-failed copy is NOT
+    // used for an init/load failure (that string is reserved for failed purchases).
+    expect(screen.getByRole('button', { name: /tryAgain/ })).toBeTruthy();
+    expect(container.textContent).not.toContain('subscription.purchaseFailed');
+  });
+
+  it('shows the iapUnavailable state when getProducts throws (e.g. init failed)', async () => {
+    iapMocks.getProducts.mockRejectedValue(new MockIAPError('NOT_INITIALIZED', 'iapService.init() not called'));
+    const { container } = renderPaywall();
+    await waitFor(() => {
+      expect(container.textContent).toContain('subscription.iapUnavailable');
+    });
+  });
+
+  it('retries loading the product when Try again is clicked', async () => {
+    iapMocks.getProducts.mockResolvedValueOnce([]); // first load fails
+    const { container } = renderPaywall();
+    await waitFor(() => expect(container.textContent).toContain('subscription.iapUnavailable'));
+    iapMocks.getProducts.mockResolvedValue([defaultProduct]); // second load succeeds
+    fireEvent.click(screen.getByRole('button', { name: /tryAgain/ }));
+    await waitFor(() => expect(container.textContent).toContain('subscription.trialPricing'));
+    expect(iapMocks.getProducts).toHaveBeenCalledTimes(2);
   });
 
   it('renders Privacy and Terms links pointing to /privacy and /terms', async () => {

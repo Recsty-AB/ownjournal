@@ -1580,7 +1580,10 @@
     "nativeSubWarningDesc": "Plus-abonnementet ditt ble kjøpt gjennom {{store}}. Å slette kontoen din her avslutter det IKKE — du vil fortsatt bli belastet. Åpne {{store}} for å avslutte, og kom deretter tilbake for å slette kontoen din.",
     "nativeSubManageCta": "Åpne {{store}}",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Kjøp i appen er ikke tilgjengelig akkurat nå",
+    "iapUnavailableDesc": "Vi fikk ikke kontakt med butikken. Sjekk tilkoblingen din og prøv igjen.",
+    "tryAgain": "Prøv igjen"
   },
   "calendar": {
     "clear": "Rydd",

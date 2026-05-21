@@ -1585,7 +1585,10 @@
     "nativeSubWarningDesc": "Your Plus subscription was purchased through {{store}}. Deleting your account here does NOT cancel it — you'll keep being charged. Open {{store}} to cancel, then return to delete your account.",
     "nativeSubManageCta": "Open {{store}}",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "In-app purchases aren’t available right now",
+    "iapUnavailableDesc": "We couldn’t reach the store. Please check your connection and try again.",
+    "tryAgain": "Try again"
   },
   "calendar": {
     "clear": "Clear",

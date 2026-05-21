@@ -1583,7 +1583,10 @@
     "nativeSubWarningDesc": "Đăng ký Plus của bạn được mua qua {{store}}. Xóa tài khoản tại đây sẽ KHÔNG hủy đăng ký — bạn vẫn sẽ bị tính phí. Mở {{store}} để hủy, sau đó quay lại xóa tài khoản.",
     "nativeSubManageCta": "Mở {{store}}",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Mua hàng trong ứng dụng hiện không khả dụng",
+    "iapUnavailableDesc": "Chúng tôi không thể kết nối tới cửa hàng. Vui lòng kiểm tra kết nối và thử lại.",
+    "tryAgain": "Thử lại"
   },
   "calendar": {
     "clear": "Xóa",

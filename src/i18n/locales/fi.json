@@ -1580,7 +1580,10 @@
     "nativeSubWarningDesc": "Plus-tilauksesi on ostettu palvelusta {{store}}. Tilin poistaminen täältä EI peruuta tilausta — sinulta veloitetaan edelleen. Avaa {{store}} ja peruuta tilaus, palaa sitten poistamaan tilisi.",
     "nativeSubManageCta": "Avaa {{store}}",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Sovelluksen sisäiset ostot eivät ole juuri nyt käytettävissä",
+    "iapUnavailableDesc": "Kauppaan ei saatu yhteyttä. Tarkista verkkoyhteytesi ja yritä uudelleen.",
+    "tryAgain": "Yritä uudelleen"
   },
   "calendar": {
     "clear": "Tyhjennä",
