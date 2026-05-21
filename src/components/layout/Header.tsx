@@ -128,7 +128,7 @@ export const Header = ({
     <header className="sticky top-0 z-[100] w-full border-b border-border bg-background/80 backdrop-blur-md" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo / Back Button */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           {showBackButton ? (
             <Button variant="ghost" size="sm" onClick={onBack} className="gap-2">
               <ArrowLeft className="w-4 h-4" />
@@ -136,9 +136,9 @@ export const Header = ({
             </Button>
           ) : (
             <>
-              <img src={logo} alt="OwnJournal" className="w-8 h-8 object-contain" />
-              <div>
-                <h1 className="text-lg sm:text-xl font-bold text-foreground whitespace-nowrap">{t("app.name")}</h1>
+              <img src={logo} alt="OwnJournal" className="w-8 h-8 object-contain flex-shrink-0" />
+              <div className="min-w-0">
+                <h1 className="text-lg sm:text-xl font-bold text-foreground truncate">{t("app.name")}</h1>
                 <p className="text-xs text-muted-foreground hidden sm:block">{t("app.tagline")}</p>
               </div>
             </>
@@ -146,7 +146,7 @@ export const Header = ({
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-1 sm:gap-2">
+        <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
           {/* Sync Status Indicator (only when user is authenticated) */}
           {user && (
             <>
