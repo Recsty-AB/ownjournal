@@ -1818,8 +1818,18 @@ const Index = () => {
           const hashParams = new URLSearchParams(parsed.hash.substring(1));
           const accessToken = hashParams.get('access_token');
           const refreshToken = hashParams.get('refresh_token');
+          const code = parsed.searchParams.get('code');
+          const errorParam = parsed.searchParams.get('error') || hashParams.get('error');
+          const errorDescription =
+            parsed.searchParams.get('error_description') || hashParams.get('error_description');
 
-          if (accessToken && refreshToken) {
+          if (errorParam) {
+            toast({
+              title: t('auth.error'),
+              description: errorDescription || errorParam,
+              variant: "destructive",
+            });
+          } else if (accessToken && refreshToken) {
             const { error: sessionError } = await supabase.auth.setSession({
               access_token: accessToken,
               refresh_token: refreshToken,
@@ -1827,6 +1837,23 @@ const Index = () => {
             if (sessionError) {
               toast({ title: t('auth.error'), description: sessionError.message, variant: "destructive" });
             }
+          } else if (code) {
+            // On Android, App Links may have already triggered Supabase's
+            // detectSessionInUrl, which exchanges the code internally. Re-exchanging
+            // would fail (PKCE codes are single-use). Skip if a session already exists.
+            const { data: { session: existingSession } } = await supabase.auth.getSession();
+            if (!existingSession) {
+              const { error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
+              if (exchangeError) {
+                toast({ title: t('auth.error'), description: exchangeError.message, variant: "destructive" });
+              }
+            }
+          } else {
+            toast({
+              title: t('auth.error'),
+              description: t('auth.callbackMissingTokens'),
+              variant: "destructive",
+            });
           }
         } catch (parseError) {
           if (import.meta.env.DEV) console.error('Error parsing OAuth callback:', parseError);

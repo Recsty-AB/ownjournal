@@ -128,7 +128,7 @@
     "help": "Hjælp"
   },
   "auth": {
-    "title": "Personlig dagbog",
+    "title": "OwnJournal",
     "subtitle": "Et trygt sted for dine tanker",
     "signInTitle": "Log ind for at fortsætte",
     "email": "E-mail",
@@ -197,7 +197,8 @@
     "noAccountFound": "Ingen konto fundet",
     "noAccountFoundDesc": "Der findes ingen konto med denne e-mailadresse. Kontroller e-mailen eller opret en ny konto.",
     "rateLimited": "For mange anmodninger",
-    "rateLimitedDesc": "Af sikkerhedsgrunde skal du vente et øjeblik, før du anmoder om et nyt nulstillingslink."
+    "rateLimitedDesc": "Af sikkerhedsgrunde skal du vente et øjeblik, før du anmoder om et nyt nulstillingslink.",
+    "callbackMissingTokens": "Login blev ikke fuldført. Prøv venligst igen."
   },
   "features": {
     "endToEnd": "End-to-end",

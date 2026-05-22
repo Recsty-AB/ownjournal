@@ -128,7 +128,7 @@
     "help": "Aide"
   },
   "auth": {
-    "title": "Journal Personnel",
+    "title": "OwnJournal",
     "subtitle": "Un endroit sûr pour vos pensées",
     "signInTitle": "Connectez-vous pour continuer",
     "email": "E-mail",
@@ -197,7 +197,8 @@
     "noAccountFound": "Aucun compte trouvé",
     "noAccountFoundDesc": "Aucun compte n'existe avec cette adresse e-mail. Veuillez vérifier l'e-mail ou créer un nouveau compte.",
     "rateLimited": "Trop de requêtes",
-    "rateLimitedDesc": "Pour des raisons de sécurité, veuillez patienter un moment avant de demander un nouveau lien de réinitialisation."
+    "rateLimitedDesc": "Pour des raisons de sécurité, veuillez patienter un moment avant de demander un nouveau lien de réinitialisation.",
+    "callbackMissingTokens": "La connexion n’a pas abouti. Veuillez réessayer."
   },
   "features": {
     "endToEnd": "De bout en bout",

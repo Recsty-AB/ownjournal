@@ -128,7 +128,7 @@
     "help": "說明"
   },
   "auth": {
-    "title": "個人日記",
+    "title": "OwnJournal",
     "subtitle": "您思緒的安全港",
     "signInTitle": "登入以繼續",
     "email": "電子郵件",
@@ -197,7 +197,8 @@
     "noAccountFound": "未找到帳戶",
     "noAccountFoundDesc": "此電子郵件地址沒有關聯帳戶。請檢查電子郵件或建立新帳戶。",
     "rateLimited": "請求過多",
-    "rateLimitedDesc": "出於安全考慮，請稍等片刻再請求新的重置連結。"
+    "rateLimitedDesc": "出於安全考慮，請稍等片刻再請求新的重置連結。",
+    "callbackMissingTokens": "登入未完成，請重試。"
   },
   "features": {
     "endToEnd": "端對端",

@@ -128,7 +128,7 @@
     "help": "Bantuan"
   },
   "auth": {
-    "title": "Jurnal Pribadi",
+    "title": "OwnJournal",
     "subtitle": "Tempat aman untuk pikiranmu",
     "signInTitle": "Masuk untuk melanjutkan",
     "email": "Email",
@@ -197,7 +197,8 @@
     "noAccountFound": "Akun tidak ditemukan",
     "noAccountFoundDesc": "Tidak ada akun dengan alamat email ini. Periksa email atau buat akun baru.",
     "rateLimited": "Terlalu banyak permintaan",
-    "rateLimitedDesc": "Demi keamanan, tunggu sebentar sebelum meminta tautan reset lagi."
+    "rateLimitedDesc": "Demi keamanan, tunggu sebentar sebelum meminta tautan reset lagi.",
+    "callbackMissingTokens": "Masuk tidak selesai. Silakan coba lagi."
   },
   "features": {
     "endToEnd": "End-to-End",

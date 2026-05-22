@@ -128,7 +128,7 @@
     "help": "Pomoc"
   },
   "auth": {
-    "title": "Osobisty dziennik",
+    "title": "OwnJournal",
     "subtitle": "Bezpieczne miejsce dla Twoich myśli",
     "signInTitle": "Zaloguj się, aby kontynuować",
     "email": "E-mail",
@@ -197,7 +197,8 @@
     "noAccountFound": "Nie znaleziono konta",
     "noAccountFoundDesc": "Nie istnieje konto z tym adresem e-mail. Sprawdź adres e-mail lub utwórz nowe konto.",
     "rateLimited": "Za dużo żądań",
-    "rateLimitedDesc": "Ze względów bezpieczeństwa poczekaj chwilę przed kolejną prośbą o link do resetowania."
+    "rateLimitedDesc": "Ze względów bezpieczeństwa poczekaj chwilę przed kolejną prośbą o link do resetowania.",
+    "callbackMissingTokens": "Logowanie nie zostało ukończone. Spróbuj ponownie."
   },
   "features": {
     "endToEnd": "End-to-End",

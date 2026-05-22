@@ -128,7 +128,7 @@
     "help": "ヘルプ"
   },
   "auth": {
-    "title": "個人日記",
+    "title": "OwnJournal",
     "subtitle": "あなたの想いを、安心して記す場所",
     "signInTitle": "続けるにはサインイン",
     "email": "メールアドレス",
@@ -197,7 +197,8 @@
     "noAccountFound": "アカウントが見つかりません",
     "noAccountFoundDesc": "このメールアドレスのアカウントは存在しません。メールを確認するか、新しいアカウントを作成してください。",
     "rateLimited": "リクエストが多すぎます",
-    "rateLimitedDesc": "セキュリティのため、しばらく待ってからリセットリンクを再度リクエストしてください。"
+    "rateLimitedDesc": "セキュリティのため、しばらく待ってからリセットリンクを再度リクエストしてください。",
+    "callbackMissingTokens": "サインインが完了しませんでした。もう一度お試しください。"
   },
   "features": {
     "endToEnd": "エンドツーエンド",

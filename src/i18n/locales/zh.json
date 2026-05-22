@@ -128,7 +128,7 @@
     "help": "帮助"
   },
   "auth": {
-    "title": "个人日记",
+    "title": "OwnJournal",
     "subtitle": "您思想的安全港湾",
     "signInTitle": "登录以继续",
     "email": "邮箱",
@@ -197,7 +197,8 @@
     "noAccountFound": "未找到账户",
     "noAccountFoundDesc": "此电子邮件地址没有关联账户。请检查电子邮件或创建新账户。",
     "rateLimited": "请求过多",
-    "rateLimitedDesc": "出于安全考虑，请稍等片刻再请求新的重置链接。"
+    "rateLimitedDesc": "出于安全考虑，请稍等片刻再请求新的重置链接。",
+    "callbackMissingTokens": "登录未完成，请重试。"
   },
   "features": {
     "endToEnd": "端到端",

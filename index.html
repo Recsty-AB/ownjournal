@@ -67,15 +67,17 @@
 
   <body>
     <div id="root"></div>
-    <!-- Native OAuth trampoline: redirect /storage-callback to ownjournal:// scheme
-         so iOS SFSafariViewController bounces back to the native app.
-         Runs before React loads to avoid any delay or auth redirect. -->
+    <!-- Native OAuth trampoline: redirect /storage-callback and /oauth-callback
+         to the ownjournal:// scheme so iOS SFSafariViewController bounces back
+         to the native app. Runs before React loads to avoid any delay or auth
+         redirect. The hash fragment must be preserved because Supabase OAuth
+         (Google) returns access_token / refresh_token in the hash, not the query. -->
     <script>
       (function() {
         if (window.Capacitor) return; // Already in native app, let React handle it
         var p = window.location.pathname;
         if (p === '/storage-callback' || p === '/oauth-callback') {
-          var deepLink = 'ownjournal:/' + p + window.location.search;
+          var deepLink = 'ownjournal:/' + p + window.location.search + window.location.hash;
           window.location.replace(deepLink);
         }
       })();

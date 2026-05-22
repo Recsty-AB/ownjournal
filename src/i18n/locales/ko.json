@@ -128,7 +128,7 @@
     "help": "도움말"
   },
   "auth": {
-    "title": "개인 일기장",
+    "title": "OwnJournal",
     "subtitle": "당신의 생각을 위한 안전한 공간",
     "signInTitle": "계속하려면 로그인하세요",
     "email": "이메일",
@@ -197,7 +197,8 @@
     "noAccountFound": "계정을 찾을 수 없습니다",
     "noAccountFoundDesc": "이 이메일 주소로 등록된 계정이 없습니다. 이메일을 확인하거나 새 계정을 만드세요.",
     "rateLimited": "요청이 너무 많습니다",
-    "rateLimitedDesc": "보안을 위해 재설정 링크를 다시 요청하기 전에 잠시 기다려 주세요."
+    "rateLimitedDesc": "보안을 위해 재설정 링크를 다시 요청하기 전에 잠시 기다려 주세요.",
+    "callbackMissingTokens": "로그인이 완료되지 않았습니다. 다시 시도해 주세요."
   },
   "features": {
     "endToEnd": "종단간",

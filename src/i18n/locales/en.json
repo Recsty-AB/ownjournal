@@ -128,7 +128,7 @@
     "help": "Help"
   },
   "auth": {
-    "title": "Personal Journal",
+    "title": "OwnJournal",
     "subtitle": "A safe place for your thoughts",
     "signInTitle": "Sign in to continue",
     "email": "Email",
@@ -197,7 +197,8 @@
     "noAccountFound": "No account found",
     "noAccountFoundDesc": "No account exists with this email address. Please check the email or create a new account.",
     "rateLimited": "Too many requests",
-    "rateLimitedDesc": "For security, please wait a moment before requesting another reset link."
+    "rateLimitedDesc": "For security, please wait a moment before requesting another reset link.",
+    "callbackMissingTokens": "Sign-in did not complete. Please try again."
   },
   "features": {
     "endToEnd": "End-to-End",

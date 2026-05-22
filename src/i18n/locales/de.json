@@ -128,7 +128,7 @@
     "help": "Hilfe"
   },
   "auth": {
-    "title": "Persönliches Tagebuch",
+    "title": "OwnJournal",
     "subtitle": "Ein sicherer Ort für Ihre Gedanken",
     "signInTitle": "Anmelden um fortzufahren",
     "email": "E-Mail",
@@ -197,7 +197,8 @@
     "noAccountFound": "Kein Konto gefunden",
     "noAccountFoundDesc": "Mit dieser E-Mail-Adresse existiert kein Konto. Bitte überprüfen Sie die E-Mail oder erstellen Sie ein neues Konto.",
     "rateLimited": "Zu viele Anfragen",
-    "rateLimitedDesc": "Aus Sicherheitsgründen warten Sie bitte einen Moment, bevor Sie einen neuen Reset-Link anfordern."
+    "rateLimitedDesc": "Aus Sicherheitsgründen warten Sie bitte einen Moment, bevor Sie einen neuen Reset-Link anfordern.",
+    "callbackMissingTokens": "Anmeldung wurde nicht abgeschlossen. Bitte versuche es erneut."
   },
   "features": {
     "endToEnd": "Ende-zu-Ende",

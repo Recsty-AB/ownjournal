@@ -128,7 +128,7 @@
     "help": "Ohje"
   },
   "auth": {
-    "title": "Henkilökohtainen päiväkirja",
+    "title": "OwnJournal",
     "subtitle": "Turvallinen paikka ajatuksillesi",
     "signInTitle": "Kirjaudu jatkaaksesi",
     "email": "Sähköposti",
@@ -197,7 +197,8 @@
     "noAccountFound": "Tiliä ei löytynyt",
     "noAccountFoundDesc": "Tällä sähköpostiosoitteella ei ole tiliä. Tarkista sähköposti tai luo uusi tili.",
     "rateLimited": "Liian monta pyyntöä",
-    "rateLimitedDesc": "Turvallisuussyistä odota hetki ennen kuin pyydät uutta nollauslinkkiä."
+    "rateLimitedDesc": "Turvallisuussyistä odota hetki ennen kuin pyydät uutta nollauslinkkiä.",
+    "callbackMissingTokens": "Kirjautumista ei viimeistelty. Yritä uudelleen."
   },
   "features": {
     "endToEnd": "Päästä päähän",

@@ -128,7 +128,7 @@
     "help": "Trợ giúp"
   },
   "auth": {
-    "title": "Nhật ký cá nhân",
+    "title": "OwnJournal",
     "subtitle": "Nơi an toàn cho những suy nghĩ của bạn",
     "signInTitle": "Đăng nhập để tiếp tục",
     "email": "Email",
@@ -197,7 +197,8 @@
     "noAccountFound": "Không tìm thấy tài khoản",
     "noAccountFoundDesc": "Không có tài khoản nào với địa chỉ email này. Vui lòng kiểm tra email hoặc tạo tài khoản mới.",
     "rateLimited": "Quá nhiều yêu cầu",
-    "rateLimitedDesc": "Vì lý do bảo mật, vui lòng đợi một lát trước khi yêu cầu liên kết đặt lại khác."
+    "rateLimitedDesc": "Vì lý do bảo mật, vui lòng đợi một lát trước khi yêu cầu liên kết đặt lại khác.",
+    "callbackMissingTokens": "Đăng nhập chưa hoàn tất. Vui lòng thử lại."
   },
   "features": {
     "endToEnd": "Mã hóa",

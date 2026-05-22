@@ -128,7 +128,7 @@
     "help": "Hjälp"
   },
   "auth": {
-    "title": "Personlig dagbok",
+    "title": "OwnJournal",
     "subtitle": "En trygg plats för dina tankar",
     "signInTitle": "Logga in för att fortsätta",
     "email": "E-post",
@@ -197,7 +197,8 @@
     "noAccountFound": "Inget konto hittades",
     "noAccountFoundDesc": "Det finns inget konto med denna e-postadress. Kontrollera e-postadressen eller skapa ett nytt konto.",
     "rateLimited": "För många förfrågningar",
-    "rateLimitedDesc": "Av säkerhetsskäl, vänta en stund innan du begär en ny återställningslänk."
+    "rateLimitedDesc": "Av säkerhetsskäl, vänta en stund innan du begär en ny återställningslänk.",
+    "callbackMissingTokens": "Inloggningen slutfördes inte. Försök igen."
   },
   "features": {
     "endToEnd": "End-to-end",

@@ -128,7 +128,7 @@
     "help": "Aiuto"
   },
   "auth": {
-    "title": "Diario personale",
+    "title": "OwnJournal",
     "subtitle": "Un posto sicuro per i tuoi pensieri",
     "signInTitle": "Accedi per continuare",
     "email": "E-mail",
@@ -197,7 +197,8 @@
     "noAccountFound": "Nessun account trovato",
     "noAccountFoundDesc": "Non esiste un account con questo indirizzo email. Verifica l'email o crea un nuovo account.",
     "rateLimited": "Troppe richieste",
-    "rateLimitedDesc": "Per sicurezza, attendi un momento prima di richiedere un altro link di reimpostazione."
+    "rateLimitedDesc": "Per sicurezza, attendi un momento prima di richiedere un altro link di reimpostazione.",
+    "callbackMissingTokens": "L’accesso non è stato completato. Riprova."
   },
   "features": {
     "endToEnd": "End-to-end",

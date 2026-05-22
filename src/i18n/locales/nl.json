@@ -128,7 +128,7 @@
     "help": "Help"
   },
   "auth": {
-    "title": "Persoonlijk dagboek",
+    "title": "OwnJournal",
     "subtitle": "Een veilige plek voor uw gedachten",
     "signInTitle": "Log in om door te gaan",
     "email": "E-mail",
@@ -197,7 +197,8 @@
     "noAccountFound": "Geen account gevonden",
     "noAccountFoundDesc": "Er bestaat geen account met dit e-mailadres. Controleer het e-mailadres of maak een nieuw account aan.",
     "rateLimited": "Te veel verzoeken",
-    "rateLimitedDesc": "Wacht om veiligheidsredenen even voordat u een nieuwe resetlink aanvraagt."
+    "rateLimitedDesc": "Wacht om veiligheidsredenen even voordat u een nieuwe resetlink aanvraagt.",
+    "callbackMissingTokens": "Aanmelden is niet voltooid. Probeer het opnieuw."
   },
   "features": {
     "endToEnd": "End-to-End",
