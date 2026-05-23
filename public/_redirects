@@ -1,11 +1,16 @@
 # Serve .well-known (e.g. assetlinks.json) as static files; must appear before any SPA catch-all
 /.well-known/*  /.well-known/:splat  200
 
-# Native OAuth trampoline: redirect storage callback to custom scheme
+# Native OAuth trampoline: redirect callbacks to the ownjournal:// custom scheme
 # so iOS SFSafariViewController bounces back to the native app.
-# Query params (code, state) are preserved automatically.
-# Android App Links intercept before this redirect fires, so Android is unaffected.
+# Query params (code, state) are preserved automatically by the host.
+# Android App Links and iOS Universal Links intercept before this redirect fires,
+# so the 302 only matters for iOS Simulator and any environment where Universal
+# Links don't resolve. Using a server-side 302 (rather than a JS trampoline in
+# index.html) is intentional: SFSafariViewController drops query params when
+# JS-initiated custom-scheme transitions occur, but follows HTTP redirects cleanly.
 /storage-callback  ownjournal://storage-callback  302
+/oauth-callback    ownjournal://oauth-callback    302
 
 # SPA catch-all: serve index.html for all other routes
 /*  /index.html  200

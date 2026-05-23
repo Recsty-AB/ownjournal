@@ -1849,10 +1849,13 @@ const Index = () => {
               }
             }
           } else {
+            // TEMPORARY DIAGNOSTIC — remove once we identify the URL iOS actually receives
+            console.warn('[OAuth callback] unhandled URL:', event.url);
             toast({
               title: t('auth.error'),
-              description: t('auth.callbackMissingTokens'),
+              description: `${t('auth.callbackMissingTokens')} (debug: ${event.url})`,
               variant: "destructive",
+              duration: 30000,
             });
           }
         } catch (parseError) {
