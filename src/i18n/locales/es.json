@@ -128,7 +128,7 @@
     "help": "Ayuda"
   },
   "auth": {
-    "title": "Diario Personal",
+    "title": "OwnJournal",
     "subtitle": "Un refugio seguro para tus pensamientos",
     "signInTitle": "Inicia sesión para continuar",
     "email": "Correo electrónico",
@@ -197,7 +197,8 @@
     "noAccountFound": "No se encontró cuenta",
     "noAccountFoundDesc": "No existe una cuenta con este correo electrónico. Por favor verifica el correo o crea una cuenta nueva.",
     "rateLimited": "Demasiadas solicitudes",
-    "rateLimitedDesc": "Por seguridad, espere un momento antes de solicitar otro enlace de restablecimiento."
+    "rateLimitedDesc": "Por seguridad, espere un momento antes de solicitar otro enlace de restablecimiento.",
+    "callbackMissingTokens": "El inicio de sesión no se completó. Inténtalo de nuevo."
   },
   "features": {
     "endToEnd": "De extremo a extremo",
@@ -600,7 +601,9 @@
       "changeFailedDesc": "Por favor verifica la dirección de correo e inténtalo de nuevo.",
       "fetchFailed": "No se pudo cargar tu correo actual. Inténtalo de nuevo.",
       "sameEmail": "El nuevo correo es igual al actual",
-      "invalidEmail": "Por favor ingresa una dirección de correo válida"
+      "invalidEmail": "Por favor ingresa una dirección de correo válida",
+      "notConfirmed": "Cambio de correo aún no confirmado",
+      "notConfirmedDesc": "Confirma tu nueva dirección de correo haciendo clic en el enlace que te enviamos antes de que se complete este cambio."
     },
     "deleteAccount": {
       "title": "Eliminar cuenta",
@@ -1532,7 +1535,7 @@
     "proMember": "Miembro Plus",
     "enjoyingFeatures": "Disfrutando de análisis con IA, sugerencias y todas las funciones",
     "unlockInsights": "Desbloquear funciones Plus",
-    "description": "Obtén resúmenes impulsados por IA, análisis de sentimientos y extracción de frases clave para tus entradas de diario",
+    "description": "Obtén resúmenes con IA, análisis de ánimo y sugerencias inteligentes de etiquetas para cada entrada.",
     "smartSummaries": "Resúmenes inteligentes",
     "moodTracking": "Registro de ánimo",
     "keyInsights": "Perspectivas clave",
@@ -1547,7 +1550,7 @@
     "upgradeFailedDesc": "Ocurrió un error al actualizar tu suscripción. Por favor, inténtalo de nuevo.",
     "features": {
       "title": "Funciones Plus",
-      "aiAnalysis": "Análisis inteligente con IA",
+      "aiAnalysis": "Análisis con IA",
       "titleSuggestions": "Sugerencias de título con IA",
       "tagSuggestions": "Sugerencias inteligentes de etiquetas",
       "trendAnalysis": "Análisis de ánimo y tendencias",
@@ -1567,7 +1570,21 @@
     "checkoutCanceled": "Pago cancelado",
     "checkoutCanceledDesc": "Puedes actualizar en cualquier momento desde la configuración.",
     "portalReturn": "¡Bienvenido de nuevo!",
-    "portalReturnDesc": "Tu configuración de suscripción ha sido actualizada."
+    "portalReturnDesc": "Tu configuración de suscripción ha sido actualizada.",
+    "purchasePending": "Compra pendiente",
+    "purchaseFailed": "Compra fallida",
+    "restoreSuccess": "Compras restauradas",
+    "restoreNothing": "No hay compras para restaurar",
+    "restoreFailed": "Restauración fallida",
+    "restorePurchases": "Restaurar compras",
+    "nativeSubWarningTitle": "Cancela primero tu suscripción de la tienda",
+    "nativeSubWarningDesc": "Tu suscripción Plus se compró a través de {{store}}. Eliminar tu cuenta aquí NO la cancela — se te seguirá cobrando. Abre {{store}} para cancelarla y luego vuelve para eliminar tu cuenta.",
+    "nativeSubManageCta": "Abrir {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Las compras dentro de la app no están disponibles ahora mismo",
+    "iapUnavailableDesc": "No pudimos conectar con la tienda. Comprueba tu conexión e inténtalo de nuevo.",
+    "tryAgain": "Intentar de nuevo"
   },
   "calendar": {
     "clear": "Limpiar",

@@ -128,7 +128,7 @@
     "help": "Aide"
   },
   "auth": {
-    "title": "Journal Personnel",
+    "title": "OwnJournal",
     "subtitle": "Un endroit sûr pour vos pensées",
     "signInTitle": "Connectez-vous pour continuer",
     "email": "E-mail",
@@ -197,7 +197,8 @@
     "noAccountFound": "Aucun compte trouvé",
     "noAccountFoundDesc": "Aucun compte n'existe avec cette adresse e-mail. Veuillez vérifier l'e-mail ou créer un nouveau compte.",
     "rateLimited": "Trop de requêtes",
-    "rateLimitedDesc": "Pour des raisons de sécurité, veuillez patienter un moment avant de demander un nouveau lien de réinitialisation."
+    "rateLimitedDesc": "Pour des raisons de sécurité, veuillez patienter un moment avant de demander un nouveau lien de réinitialisation.",
+    "callbackMissingTokens": "La connexion n’a pas abouti. Veuillez réessayer."
   },
   "features": {
     "endToEnd": "De bout en bout",
@@ -600,7 +601,9 @@
       "changeFailedDesc": "Veuillez vérifier l'adresse e-mail et réessayer.",
       "fetchFailed": "Impossible de charger votre e-mail actuel. Veuillez réessayer.",
       "sameEmail": "Le nouvel e-mail est identique à l'actuel",
-      "invalidEmail": "Veuillez entrer une adresse e-mail valide"
+      "invalidEmail": "Veuillez entrer une adresse e-mail valide",
+      "notConfirmed": "Changement d'e-mail non confirmé",
+      "notConfirmedDesc": "Veuillez confirmer votre nouvelle adresse e-mail en cliquant sur le lien que nous avons envoyé avant que ce changement puisse être finalisé."
     },
     "deleteAccount": {
       "title": "Supprimer le compte",
@@ -1532,7 +1535,7 @@
     "proMember": "Membre Plus",
     "enjoyingFeatures": "Profitez de l'analyse IA, des suggestions et de toutes les fonctionnalités",
     "unlockInsights": "Débloquer les fonctionnalités Plus",
-    "description": "Obtenez des résumés alimentés par l'IA, une analyse des sentiments et une extraction des phrases clés pour vos entrées de journal",
+    "description": "Obtenez des résumés par IA, une analyse de l'humeur et des suggestions de tags intelligents pour chaque entrée.",
     "smartSummaries": "Résumés intelligents",
     "moodTracking": "Suivi d'humeur",
     "keyInsights": "Insights clés",
@@ -1547,7 +1550,7 @@
     "upgradeFailedDesc": "Une erreur s'est produite lors de la mise à niveau de votre abonnement. Veuillez réessayer.",
     "features": {
       "title": "Fonctionnalités Plus",
-      "aiAnalysis": "Analyse IA intelligente",
+      "aiAnalysis": "Analyse IA",
       "titleSuggestions": "Suggestions de titres IA",
       "tagSuggestions": "Suggestions de tags intelligents",
       "trendAnalysis": "Insights d'humeur et tendances",
@@ -1567,7 +1570,21 @@
     "checkoutCanceled": "Paiement annulé",
     "checkoutCanceledDesc": "Vous pouvez passer à Plus à tout moment depuis les paramètres.",
     "portalReturn": "Bon retour !",
-    "portalReturnDesc": "Vos paramètres d'abonnement ont été mis à jour."
+    "portalReturnDesc": "Vos paramètres d'abonnement ont été mis à jour.",
+    "purchasePending": "Achat en attente",
+    "purchaseFailed": "Échec de l'achat",
+    "restoreSuccess": "Achats restaurés",
+    "restoreNothing": "Aucun achat à restaurer",
+    "restoreFailed": "Échec de la restauration",
+    "restorePurchases": "Restaurer les achats",
+    "nativeSubWarningTitle": "Annulez d'abord votre abonnement sur la boutique",
+    "nativeSubWarningDesc": "Votre abonnement Plus a été acheté via {{store}}. Supprimer votre compte ici NE l'annule PAS — vous continuerez à être facturé. Ouvrez {{store}} pour annuler, puis revenez supprimer votre compte.",
+    "nativeSubManageCta": "Ouvrir {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Les achats intégrés ne sont pas disponibles pour le moment",
+    "iapUnavailableDesc": "Impossible de joindre la boutique. Vérifiez votre connexion et réessayez.",
+    "tryAgain": "Réessayer"
   },
   "calendar": {
     "clear": "Effacer",

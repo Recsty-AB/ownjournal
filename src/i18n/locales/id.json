@@ -128,7 +128,7 @@
     "help": "Bantuan"
   },
   "auth": {
-    "title": "Jurnal Pribadi",
+    "title": "OwnJournal",
     "subtitle": "Tempat aman untuk pikiranmu",
     "signInTitle": "Masuk untuk melanjutkan",
     "email": "Email",
@@ -197,7 +197,8 @@
     "noAccountFound": "Akun tidak ditemukan",
     "noAccountFoundDesc": "Tidak ada akun dengan alamat email ini. Periksa email atau buat akun baru.",
     "rateLimited": "Terlalu banyak permintaan",
-    "rateLimitedDesc": "Demi keamanan, tunggu sebentar sebelum meminta tautan reset lagi."
+    "rateLimitedDesc": "Demi keamanan, tunggu sebentar sebelum meminta tautan reset lagi.",
+    "callbackMissingTokens": "Masuk tidak selesai. Silakan coba lagi."
   },
   "features": {
     "endToEnd": "End-to-End",
@@ -600,7 +601,9 @@
       "changeFailedDesc": "Silakan periksa alamat email dan coba lagi.",
       "fetchFailed": "Tidak bisa memuat email saat ini. Silakan coba lagi.",
       "sameEmail": "Email baru sama dengan yang sekarang",
-      "invalidEmail": "Masukkan alamat email yang valid"
+      "invalidEmail": "Masukkan alamat email yang valid",
+      "notConfirmed": "Perubahan email belum dikonfirmasi",
+      "notConfirmedDesc": "Konfirmasikan alamat email baru Anda dengan mengklik tautan yang kami kirim sebelum perubahan ini dapat diselesaikan."
     },
     "deleteAccount": {
       "title": "Hapus Akun",
@@ -1535,7 +1538,7 @@
     "proMember": "Anggota Plus",
     "enjoyingFeatures": "Menikmati analisis AI, saran & semua fitur",
     "unlockInsights": "Buka Fitur Plus",
-    "description": "Dapatkan ringkasan berbasis AI, analisis sentimen, dan ekstraksi frasa kunci untuk catatan jurnalmu",
+    "description": "Dapatkan ringkasan berbasis AI, analisis suasana hati, dan saran tag cerdas untuk setiap catatan.",
     "smartSummaries": "Ringkasan Cerdas",
     "moodTracking": "Pelacakan Suasana Hati",
     "keyInsights": "Wawasan Utama",
@@ -1550,7 +1553,7 @@
     "upgradeFailedDesc": "Terjadi kesalahan saat meng-upgrade langgananmu. Silakan coba lagi.",
     "features": {
       "title": "Fitur Plus",
-      "aiAnalysis": "Analisis AI Cerdas",
+      "aiAnalysis": "Analisis AI",
       "titleSuggestions": "Saran Judul AI",
       "tagSuggestions": "Saran Tag Cerdas",
       "trendAnalysis": "Wawasan Suasana Hati & Tren",
@@ -1570,7 +1573,21 @@
     "checkoutCanceled": "Checkout dibatalkan",
     "checkoutCanceledDesc": "Kamu bisa upgrade kapan saja dari pengaturan.",
     "portalReturn": "Selamat datang kembali!",
-    "portalReturnDesc": "Pengaturan langgananmu telah diperbarui."
+    "portalReturnDesc": "Pengaturan langgananmu telah diperbarui.",
+    "purchasePending": "Pembelian tertunda",
+    "purchaseFailed": "Pembelian gagal",
+    "restoreSuccess": "Pembelian dipulihkan",
+    "restoreNothing": "Tidak ada pembelian untuk dipulihkan",
+    "restoreFailed": "Gagal memulihkan",
+    "restorePurchases": "Pulihkan pembelian",
+    "nativeSubWarningTitle": "Batalkan langganan toko Anda terlebih dahulu",
+    "nativeSubWarningDesc": "Langganan Plus Anda dibeli melalui {{store}}. Menghapus akun di sini TIDAK akan membatalkannya — Anda akan terus ditagih. Buka {{store}} untuk membatalkan, lalu kembali untuk menghapus akun Anda.",
+    "nativeSubManageCta": "Buka {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Pembelian dalam aplikasi sedang tidak tersedia",
+    "iapUnavailableDesc": "Kami tidak dapat menghubungi toko. Periksa koneksi Anda dan coba lagi.",
+    "tryAgain": "Coba lagi"
   },
   "calendar": {
     "clear": "Hapus",

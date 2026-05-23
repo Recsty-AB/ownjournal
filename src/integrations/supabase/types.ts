@@ -79,13 +79,22 @@ export type Database = {
       }
       subscriptions: {
         Row: {
+          apple_original_transaction_id: string | null
+          apple_product_id: string | null
           created_at: string
           current_period_end: string | null
           current_period_start: string | null
+          google_base_plan_id: string | null
+          google_product_id: string | null
+          google_purchase_token: string | null
           has_used_trial: boolean
           id: string
           is_pro: boolean | null
+          last_provider_event_at: string | null
+          last_provider_event_id: string | null
           plan_name: string | null
+          provider: Database["public"]["Enums"]["subscription_provider"] | null
+          revenuecat_app_user_id: string | null
           stripe_customer_id: string | null
           stripe_subscription_id: string | null
           subscription_status: string | null
@@ -93,13 +102,22 @@ export type Database = {
           user_id: string
         }
         Insert: {
+          apple_original_transaction_id?: string | null
+          apple_product_id?: string | null
           created_at?: string
           current_period_end?: string | null
           current_period_start?: string | null
+          google_base_plan_id?: string | null
+          google_product_id?: string | null
+          google_purchase_token?: string | null
           has_used_trial?: boolean | null
           id?: string
           is_pro?: boolean | null
+          last_provider_event_at?: string | null
+          last_provider_event_id?: string | null
           plan_name?: string | null
+          provider?: Database["public"]["Enums"]["subscription_provider"] | null
+          revenuecat_app_user_id?: string | null
           stripe_customer_id?: string | null
           stripe_subscription_id?: string | null
           subscription_status?: string | null
@@ -107,13 +125,22 @@ export type Database = {
           user_id: string
         }
         Update: {
+          apple_original_transaction_id?: string | null
+          apple_product_id?: string | null
           created_at?: string
           current_period_end?: string | null
           current_period_start?: string | null
+          google_base_plan_id?: string | null
+          google_product_id?: string | null
+          google_purchase_token?: string | null
           has_used_trial?: boolean | null
           id?: string
           is_pro?: boolean | null
+          last_provider_event_at?: string | null
+          last_provider_event_id?: string | null
           plan_name?: string | null
+          provider?: Database["public"]["Enums"]["subscription_provider"] | null
+          revenuecat_app_user_id?: string | null
           stripe_customer_id?: string | null
           stripe_subscription_id?: string | null
           subscription_status?: string | null
@@ -146,7 +173,7 @@ export type Database = {
       }
     }
     Enums: {
-      [_ in never]: never
+      subscription_provider: "stripe" | "apple" | "google"
     }
     CompositeTypes: {
       [_ in never]: never

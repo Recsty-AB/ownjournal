@@ -5,7 +5,7 @@ import { Crown, Sparkles, Brain, Lightbulb, Tag, TrendingUp, FileText, FileType,
 import { useTranslation } from "react-i18next";
 import { useLocalizedPricing } from "@/hooks/useLocalizedPricing";
 import { CurrencyCode } from "@/config/pricing";
-import { canShowPurchaseCTA } from "@/utils/platformDetection";
+import { canShowStripeCheckout } from "@/utils/platformDetection";
 
 interface SubscriptionBannerProps {
   onUpgrade: (currency: CurrencyCode) => void;
@@ -62,7 +62,7 @@ export const SubscriptionBanner = ({
             (crown icon, "Plus Member" label, feature confirmation text) is
             purely informational status and stays visible on all platforms.
           */}
-          {canShowPurchaseCTA() && hasStripeCustomer && onManageSubscription && (
+          {canShowStripeCheckout() && hasStripeCustomer && onManageSubscription && (
             <Button
               variant="secondary"
               size="sm"

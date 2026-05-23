@@ -128,7 +128,7 @@
     "help": "Ajuda"
   },
   "auth": {
-    "title": "Diário Pessoal",
+    "title": "OwnJournal",
     "subtitle": "Um lugar seguro para seus pensamentos",
     "signInTitle": "Entre para continuar",
     "email": "E-mail",
@@ -197,7 +197,8 @@
     "noAccountFound": "Nenhuma conta encontrada",
     "noAccountFoundDesc": "Não existe conta com este endereço de email. Por favor verifique o email ou crie uma nova conta.",
     "rateLimited": "Muitas solicitações",
-    "rateLimitedDesc": "Por segurança, aguarde um momento antes de solicitar outro link de redefinição."
+    "rateLimitedDesc": "Por segurança, aguarde um momento antes de solicitar outro link de redefinição.",
+    "callbackMissingTokens": "O início de sessão não foi concluído. Tente novamente."
   },
   "features": {
     "endToEnd": "Ponta a Ponta",
@@ -600,7 +601,9 @@
       "changeFailedDesc": "Por favor, verifique o endereço de e-mail e tente novamente.",
       "fetchFailed": "Não foi possível carregar seu e-mail atual. Tente novamente.",
       "sameEmail": "O novo e-mail é igual ao atual",
-      "invalidEmail": "Por favor, insira um endereço de e-mail válido"
+      "invalidEmail": "Por favor, insira um endereço de e-mail válido",
+      "notConfirmed": "Alteração de email ainda não confirmada",
+      "notConfirmedDesc": "Por favor, confirme o seu novo endereço de email clicando no link que enviámos antes que esta alteração possa ser concluída."
     },
     "deleteAccount": {
       "title": "Eliminar conta",
@@ -1532,7 +1535,7 @@
     "proMember": "Membro Plus",
     "enjoyingFeatures": "Aproveitando análise de IA, sugestões e todos os recursos",
     "unlockInsights": "Desbloquear recursos Plus",
-    "description": "Obtenha resumos com IA, análise de sentimento e extração de frases-chave para suas entradas de diário",
+    "description": "Obtenha resumos com IA, análise de humor e sugestões de tags inteligentes para cada entrada.",
     "smartSummaries": "Resumos Inteligentes",
     "moodTracking": "Rastreamento de Humor",
     "keyInsights": "Insights Principais",
@@ -1547,7 +1550,7 @@
     "upgradeFailedDesc": "Ocorreu um erro ao fazer upgrade da sua assinatura. Tente novamente.",
     "features": {
       "title": "Recursos Plus",
-      "aiAnalysis": "Análise de IA Inteligente",
+      "aiAnalysis": "Análise de IA",
       "titleSuggestions": "Sugestões de Título com IA",
       "tagSuggestions": "Sugestões de Tags Inteligentes",
       "trendAnalysis": "Insights de Humor e Tendências",
@@ -1567,7 +1570,21 @@
     "checkoutCanceled": "Pagamento cancelado",
     "checkoutCanceledDesc": "Você pode fazer o upgrade a qualquer momento nas definições.",
     "portalReturn": "Bem-vindo de volta!",
-    "portalReturnDesc": "Suas definições de assinatura foram atualizadas."
+    "portalReturnDesc": "Suas definições de assinatura foram atualizadas.",
+    "purchasePending": "Compra pendente",
+    "purchaseFailed": "Falha na compra",
+    "restoreSuccess": "Compras restauradas",
+    "restoreNothing": "Não há compras para restaurar",
+    "restoreFailed": "Falha ao restaurar",
+    "restorePurchases": "Restaurar compras",
+    "nativeSubWarningTitle": "Cancele primeiro a sua subscrição na loja",
+    "nativeSubWarningDesc": "A sua subscrição Plus foi adquirida através da {{store}}. Eliminar a sua conta aqui NÃO a cancela — continuará a ser cobrado. Abra a {{store}} para cancelar e depois volte para eliminar a sua conta.",
+    "nativeSubManageCta": "Abrir {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "iapUnavailable": "As compras na aplicação não estão disponíveis de momento",
+    "iapUnavailableDesc": "Não foi possível ligar à loja. Verifique a sua ligação e tente novamente.",
+    "tryAgain": "Tentar novamente"
   },
   "calendar": {
     "clear": "Limpar",

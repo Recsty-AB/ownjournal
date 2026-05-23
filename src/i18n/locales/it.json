@@ -128,7 +128,7 @@
     "help": "Aiuto"
   },
   "auth": {
-    "title": "Diario personale",
+    "title": "OwnJournal",
     "subtitle": "Un posto sicuro per i tuoi pensieri",
     "signInTitle": "Accedi per continuare",
     "email": "E-mail",
@@ -197,7 +197,8 @@
     "noAccountFound": "Nessun account trovato",
     "noAccountFoundDesc": "Non esiste un account con questo indirizzo email. Verifica l'email o crea un nuovo account.",
     "rateLimited": "Troppe richieste",
-    "rateLimitedDesc": "Per sicurezza, attendi un momento prima di richiedere un altro link di reimpostazione."
+    "rateLimitedDesc": "Per sicurezza, attendi un momento prima di richiedere un altro link di reimpostazione.",
+    "callbackMissingTokens": "L’accesso non è stato completato. Riprova."
   },
   "features": {
     "endToEnd": "End-to-end",
@@ -600,7 +601,9 @@
       "changeFailedDesc": "Controlla l'indirizzo email e riprova.",
       "fetchFailed": "Impossibile caricare la tua email attuale. Riprova.",
       "sameEmail": "La nuova email è uguale a quella attuale",
-      "invalidEmail": "Inserisci un indirizzo email valido"
+      "invalidEmail": "Inserisci un indirizzo email valido",
+      "notConfirmed": "Modifica email non ancora confermata",
+      "notConfirmedDesc": "Conferma il tuo nuovo indirizzo email facendo clic sul link che abbiamo inviato prima che questa modifica possa essere completata."
     },
     "deleteAccount": {
       "title": "Elimina account",
@@ -1532,7 +1535,7 @@
     "proMember": "Membro Plus",
     "enjoyingFeatures": "Goditi analisi AI, suggerimenti e tutte le funzionalità",
     "unlockInsights": "Sblocca funzionalità Plus",
-    "description": "Ottieni riepiloghi basati su AI, analisi del sentimento ed estrazione di frasi chiave per le tue voci di diario",
+    "description": "Ottieni riepiloghi basati su AI, analisi dell'umore e suggerimenti tag intelligenti per ogni voce.",
     "smartSummaries": "Riepiloghi intelligenti",
     "moodTracking": "Registro dell'umore",
     "keyInsights": "Approfondimenti chiave",
@@ -1547,7 +1550,7 @@
     "upgradeFailedDesc": "Si è verificato un errore durante l'aggiornamento dell'abbonamento. Riprova.",
     "features": {
       "title": "Funzionalità Plus",
-      "aiAnalysis": "Analisi AI intelligente",
+      "aiAnalysis": "Analisi AI",
       "titleSuggestions": "Suggerimenti titolo AI",
       "tagSuggestions": "Suggerimenti tag intelligenti",
       "trendAnalysis": "Approfondimenti umore e tendenze",
@@ -1567,7 +1570,21 @@
     "checkoutCanceled": "Pagamento annullato",
     "checkoutCanceledDesc": "Puoi effettuare l'upgrade in qualsiasi momento dalle impostazioni.",
     "portalReturn": "Bentornato!",
-    "portalReturnDesc": "Le impostazioni del tuo abbonamento sono state aggiornate."
+    "portalReturnDesc": "Le impostazioni del tuo abbonamento sono state aggiornate.",
+    "purchasePending": "Acquisto in sospeso",
+    "purchaseFailed": "Acquisto non riuscito",
+    "restoreSuccess": "Acquisti ripristinati",
+    "restoreNothing": "Nessun acquisto da ripristinare",
+    "restoreFailed": "Ripristino non riuscito",
+    "restorePurchases": "Ripristina acquisti",
+    "nativeSubWarningTitle": "Annulla prima l'abbonamento dello store",
+    "nativeSubWarningDesc": "Il tuo abbonamento Plus è stato acquistato tramite {{store}}. Eliminare l'account qui NON lo annulla — continuerai a essere addebitato. Apri {{store}} per annullarlo, poi torna a eliminare l'account.",
+    "nativeSubManageCta": "Apri {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Gli acquisti in-app non sono disponibili al momento",
+    "iapUnavailableDesc": "Non siamo riusciti a raggiungere lo store. Controlla la connessione e riprova.",
+    "tryAgain": "Riprova"
   },
   "calendar": {
     "clear": "Cancella",

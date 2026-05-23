@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import { MOOD_EMOJI } from "@/utils/moodEmoji";
 import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
 import { computeActivityCorrelations, SCORE_TO_MOOD } from "@/utils/moodAnalytics";
-import { canShowPurchaseCTA } from "@/utils/platformDetection";
+import { canShowAnyPurchaseCTA } from "@/utils/platformDetection";
 import type { JournalEntryData } from "./JournalEntry";
 
 interface MoodCorrelationsProps {
@@ -50,7 +50,7 @@ export const MoodCorrelations = ({ entries, isPro }: MoodCorrelationsProps) => {
   // the lock card entirely to avoid app-store rejections for referencing a
   // paid tier without a corresponding in-app purchase product. Pro users on
   // native still get the full feature.
-  if (!isPro && !canShowPurchaseCTA()) return null;
+  if (!isPro && !canShowAnyPurchaseCTA()) return null;
 
   return (
     <Collapsible open={!isCollapsed} onOpenChange={(open) => setIsCollapsed(!open)}>

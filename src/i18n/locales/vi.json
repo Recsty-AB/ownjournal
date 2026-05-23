@@ -128,7 +128,7 @@
     "help": "Trợ giúp"
   },
   "auth": {
-    "title": "Nhật ký cá nhân",
+    "title": "OwnJournal",
     "subtitle": "Nơi an toàn cho những suy nghĩ của bạn",
     "signInTitle": "Đăng nhập để tiếp tục",
     "email": "Email",
@@ -197,7 +197,8 @@
     "noAccountFound": "Không tìm thấy tài khoản",
     "noAccountFoundDesc": "Không có tài khoản nào với địa chỉ email này. Vui lòng kiểm tra email hoặc tạo tài khoản mới.",
     "rateLimited": "Quá nhiều yêu cầu",
-    "rateLimitedDesc": "Vì lý do bảo mật, vui lòng đợi một lát trước khi yêu cầu liên kết đặt lại khác."
+    "rateLimitedDesc": "Vì lý do bảo mật, vui lòng đợi một lát trước khi yêu cầu liên kết đặt lại khác.",
+    "callbackMissingTokens": "Đăng nhập chưa hoàn tất. Vui lòng thử lại."
   },
   "features": {
     "endToEnd": "Mã hóa",
@@ -600,7 +601,9 @@
       "changeFailedDesc": "Vui lòng kiểm tra địa chỉ email và thử lại.",
       "fetchFailed": "Không thể tải email hiện tại. Vui lòng thử lại.",
       "sameEmail": "Email mới giống email hiện tại",
-      "invalidEmail": "Vui lòng nhập địa chỉ email hợp lệ"
+      "invalidEmail": "Vui lòng nhập địa chỉ email hợp lệ",
+      "notConfirmed": "Thay đổi email chưa được xác nhận",
+      "notConfirmedDesc": "Vui lòng xác nhận địa chỉ email mới bằng cách nhấp vào liên kết chúng tôi đã gửi trước khi thay đổi này có thể hoàn tất."
     },
     "deleteAccount": {
       "title": "Xóa tài khoản",
@@ -1535,7 +1538,7 @@
     "proMember": "Thành viên Plus",
     "enjoyingFeatures": "Đang tận hưởng phân tích AI, gợi ý và mọi tính năng",
     "unlockInsights": "Mở khóa tính năng Plus",
-    "description": "Nhận tóm tắt thông minh, phân tích cảm xúc và trích xuất cụm từ chính cho các bài viết nhật ký của bạn",
+    "description": "Nhận tóm tắt từ AI, phân tích tâm trạng và gợi ý thẻ thông minh cho mỗi bài viết.",
     "smartSummaries": "Tóm tắt thông minh",
     "moodTracking": "Theo dõi tâm trạng",
     "keyInsights": "Nhận định quan trọng",
@@ -1550,7 +1553,7 @@
     "upgradeFailedDesc": "Đã xảy ra lỗi khi nâng cấp đăng ký. Vui lòng thử lại.",
     "features": {
       "title": "Tính năng Plus",
-      "aiAnalysis": "Phân tích AI thông minh",
+      "aiAnalysis": "Phân tích AI",
       "titleSuggestions": "Gợi ý tiêu đề AI",
       "tagSuggestions": "Gợi ý thẻ thông minh",
       "trendAnalysis": "Phân tích tâm trạng và xu hướng",
@@ -1570,7 +1573,21 @@
     "checkoutCanceled": "Đã hủy thanh toán",
     "checkoutCanceledDesc": "Bạn có thể nâng cấp bất cứ lúc nào từ phần cài đặt.",
     "portalReturn": "Chào mừng quay lại!",
-    "portalReturnDesc": "Cài đặt đăng ký đã được cập nhật."
+    "portalReturnDesc": "Cài đặt đăng ký đã được cập nhật.",
+    "purchasePending": "Giao dịch mua đang chờ xử lý",
+    "purchaseFailed": "Giao dịch mua thất bại",
+    "restoreSuccess": "Đã khôi phục giao dịch mua",
+    "restoreNothing": "Không có giao dịch mua để khôi phục",
+    "restoreFailed": "Khôi phục thất bại",
+    "restorePurchases": "Khôi phục giao dịch mua",
+    "nativeSubWarningTitle": "Hủy đăng ký trên cửa hàng trước",
+    "nativeSubWarningDesc": "Đăng ký Plus của bạn được mua qua {{store}}. Xóa tài khoản tại đây sẽ KHÔNG hủy đăng ký — bạn vẫn sẽ bị tính phí. Mở {{store}} để hủy, sau đó quay lại xóa tài khoản.",
+    "nativeSubManageCta": "Mở {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Mua hàng trong ứng dụng hiện không khả dụng",
+    "iapUnavailableDesc": "Chúng tôi không thể kết nối tới cửa hàng. Vui lòng kiểm tra kết nối và thử lại.",
+    "tryAgain": "Thử lại"
   },
   "calendar": {
     "clear": "Xóa",

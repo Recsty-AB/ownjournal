@@ -1,6 +1,7 @@
 import { saveAs } from "file-saver";
 import { isNativePlatform, saveJsonBackupNative, shareFileNative } from "@/utils/nativeExport";
-import { canShowPurchaseCTA } from "@/utils/platformDetection";
+import { canShowAnyPurchaseCTA, canShowNativeCheckout, canShowStripeCheckout } from "@/utils/platformDetection";
+import { NativePaywall } from "@/components/subscription/NativePaywall";
 import { Share2 } from "lucide-react";
 import i18n from "@/i18n/config";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
@@ -26,6 +27,7 @@ import { SUPABASE_CONFIG } from "@/config/supabase";
 import { buildAppLink } from "@/config/app";
 import { aiCacheService } from "@/services/aiCacheService";
 import { connectionStateManager } from "@/services/connectionStateManager";
+import { iapService, type IAPEntitlement } from "@/services/iapService";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { ToastAction } from "@/components/ui/toast";
@@ -91,6 +93,7 @@ const Index = () => {
   });
   const [isPro, setIsPro] = useState(false);
   const [subscriptionStatus, setSubscriptionStatus] = useState<string | null>(null);
+  const [subscriptionProvider, setSubscriptionProvider] = useState<'stripe' | 'apple' | 'google' | null>(null);
   const [hasUsedTrial, setHasUsedTrial] = useState(true); // default true to avoid flashing trial CTA
   const [currentPeriodEnd, setCurrentPeriodEnd] = useState<string | null>(null);
   const [showExportDialog, setShowExportDialog] = useState(false);
@@ -732,10 +735,16 @@ const Index = () => {
       if (userId) {
         // Synchronous localStorage migration – safe because localStorage is sync.
         migrateLocalStorageToUserScope(userId);
+        // Bind native IAP user (no-op on web/desktop). Fire-and-forget so a
+        // RevenueCat outage cannot block the auth flow.
+        iapService.init(userId).catch((err) => {
+          if (import.meta.env.DEV) console.warn('iapService.init failed:', err);
+        });
       } else {
         // User signed out (possibly from another tab) — clear in-memory connections
         // so the next user never inherits the previous user's cloud storage state.
         connectionStateManager.clearAll();
+        iapService.logOut().catch(() => { /* benign */ });
       }
 
       // Handle password recovery event - show dialog to set new password
@@ -763,6 +772,9 @@ const Index = () => {
         setCurrentUserId(userId);
         if (userId) {
           migrateLocalStorageToUserScope(userId);
+          iapService.init(userId).catch((err) => {
+            if (import.meta.env.DEV) console.warn('iapService.init failed:', err);
+          });
         }
 
         setSession(session);
@@ -830,11 +842,13 @@ const Index = () => {
     if (cached) {
       setIsPro(cached.is_pro);
       setSubscriptionStatus(cached.subscription_status ?? null);
+      setSubscriptionProvider(cached.provider ?? null);
       setHasUsedTrial(cached.has_used_trial ?? false);
       setCurrentPeriodEnd(cached.current_period_end ?? null);
     } else {
       setIsPro(false);
       setSubscriptionStatus(null);
+      setSubscriptionProvider(null);
       setHasUsedTrial(false);
       setCurrentPeriodEnd(null);
     }
@@ -842,7 +856,7 @@ const Index = () => {
     try {
       const { data, error } = await supabase
         .from("subscriptions")
-        .select("is_pro, current_period_end, subscription_status, has_used_trial")
+        .select("is_pro, current_period_end, subscription_status, has_used_trial, provider")
         .eq("user_id", user.id)
         .single();
 
@@ -850,6 +864,7 @@ const Index = () => {
       const isPro = data?.is_pro || false;
       setIsPro(isPro);
       setSubscriptionStatus(data?.subscription_status ?? null);
+      setSubscriptionProvider(data?.provider ?? null);
       setHasUsedTrial(data?.has_used_trial ?? false);
       setCurrentPeriodEnd(data?.current_period_end ?? null);
       setCachedSubscription(user.id, {
@@ -857,6 +872,7 @@ const Index = () => {
         current_period_end: data?.current_period_end ?? null,
         subscription_status: data?.subscription_status ?? null,
         has_used_trial: data?.has_used_trial ?? false,
+        provider: data?.provider ?? null,
       });
     } catch (error) {
       // Network failed. If we had a cache hit above, keep the optimistic
@@ -868,6 +884,66 @@ const Index = () => {
   useEffect(() => {
     fetchSubscription();
   }, [fetchSubscription]);
+
+  // After a native (RevenueCat) purchase the StoreKit/Play entitlement is known
+  // on-device immediately, but the durable is_pro flag is only written once the
+  // RevenueCat → revenuecat-webhook round-trip lands (which can take tens of
+  // seconds). Unlike the Stripe web flow — where the redirect back happens after
+  // Stripe's near-instant webhook — nothing here re-checks the row, so poll until
+  // is_pro flips. Never downgrade the optimistic Plus state set below.
+  const reconcilePurchase = useCallback(async () => {
+    if (!user) return;
+    for (let attempt = 0; attempt < 10; attempt++) {
+      await new Promise((r) => setTimeout(r, 3000)); // ~30s total
+      try {
+        const { data } = await supabase
+          .from("subscriptions")
+          .select("is_pro, current_period_end, subscription_status, has_used_trial, provider")
+          .eq("user_id", user.id)
+          .single();
+        if (data?.is_pro) {
+          setIsPro(true);
+          setSubscriptionStatus(data.subscription_status ?? null);
+          setSubscriptionProvider(data.provider ?? null);
+          setHasUsedTrial(data.has_used_trial ?? false);
+          setCurrentPeriodEnd(data.current_period_end ?? null);
+          setCachedSubscription(user.id, {
+            is_pro: true,
+            current_period_end: data.current_period_end ?? null,
+            subscription_status: data.subscription_status ?? null,
+            has_used_trial: data.has_used_trial ?? false,
+            provider: data.provider ?? null,
+          });
+          return;
+        }
+      } catch {
+        /* transient; keep polling */
+      }
+    }
+  }, [user]);
+
+  // Flip to Plus instantly from the on-device entitlement returned by
+  // iapService.purchase()/restore(), then reconcile with the server so the
+  // webhook-written row becomes the source of truth.
+  const handleNativePurchased = useCallback((ent?: IAPEntitlement) => {
+    if (ent?.isPro && user) {
+      const status = ent.isInTrial ? "trialing" : "active";
+      const periodEnd = ent.expiresAt ? ent.expiresAt.toISOString() : null;
+      setIsPro(true);
+      setSubscriptionStatus(status);
+      setSubscriptionProvider(ent.provider ?? null);
+      if (ent.isInTrial) setHasUsedTrial(true);
+      setCurrentPeriodEnd(periodEnd);
+      setCachedSubscription(user.id, {
+        is_pro: true,
+        current_period_end: periodEnd,
+        subscription_status: status,
+        has_used_trial: ent.isInTrial || hasUsedTrial,
+        provider: ent.provider ?? null,
+      });
+    }
+    reconcilePurchase();
+  }, [user, hasUsedTrial, reconcilePurchase]);
 
   // Handle Stripe checkout success/cancel URL parameters
   useEffect(() => {
@@ -1742,8 +1818,18 @@ const Index = () => {
           const hashParams = new URLSearchParams(parsed.hash.substring(1));
           const accessToken = hashParams.get('access_token');
           const refreshToken = hashParams.get('refresh_token');
+          const code = parsed.searchParams.get('code');
+          const errorParam = parsed.searchParams.get('error') || hashParams.get('error');
+          const errorDescription =
+            parsed.searchParams.get('error_description') || hashParams.get('error_description');
 
-          if (accessToken && refreshToken) {
+          if (errorParam) {
+            toast({
+              title: t('auth.error'),
+              description: errorDescription || errorParam,
+              variant: "destructive",
+            });
+          } else if (accessToken && refreshToken) {
             const { error: sessionError } = await supabase.auth.setSession({
               access_token: accessToken,
               refresh_token: refreshToken,
@@ -1751,6 +1837,23 @@ const Index = () => {
             if (sessionError) {
               toast({ title: t('auth.error'), description: sessionError.message, variant: "destructive" });
             }
+          } else if (code) {
+            // On Android, App Links may have already triggered Supabase's
+            // detectSessionInUrl, which exchanges the code internally. Re-exchanging
+            // would fail (PKCE codes are single-use). Skip if a session already exists.
+            const { data: { session: existingSession } } = await supabase.auth.getSession();
+            if (!existingSession) {
+              const { error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
+              if (exchangeError) {
+                toast({ title: t('auth.error'), description: exchangeError.message, variant: "destructive" });
+              }
+            }
+          } else {
+            toast({
+              title: t('auth.error'),
+              description: t('auth.callbackMissingTokens'),
+              variant: "destructive",
+            });
           }
         } catch (parseError) {
           if (import.meta.env.DEV) console.error('Error parsing OAuth callback:', parseError);
@@ -2399,12 +2502,12 @@ const Index = () => {
   };
 
   const handleUpgrade = async (currency: string = 'USD') => {
-    // Defense in depth: Apple App Store and Google Play policies prohibit
-    // directing users to external payment for digital goods from inside
-    // native apps. All purchase CTAs are already hidden on native via
-    // canShowPurchaseCTA(), but guard the handler itself so a stale ref
-    // or future regression can't still reach Stripe checkout.
-    if (!canShowPurchaseCTA()) {
+    // Defense in depth: this handler routes to Stripe checkout, which is
+    // disallowed on native (Apple/Google forbid linking to external
+    // payment). Native purchases use iapService.purchase() via
+    // NativePaywall instead. UI already hides Stripe CTAs on native, but
+    // guard the handler itself so a stale ref can't reach Stripe.
+    if (!canShowStripeCheckout()) {
       return;
     }
 
@@ -2944,6 +3047,7 @@ const Index = () => {
         isUpgrading={isUpgrading}
         onSignOut={handleSignOut}
         subscriptionStatus={subscriptionStatus}
+        subscriptionProvider={subscriptionProvider}
         hasUsedTrial={hasUsedTrial}
       />
 
@@ -2960,18 +3064,11 @@ const Index = () => {
 
           {/*
             Plan surface above the mood calendar:
-            - Web / desktop: full SubscriptionBanner (Pro celebration card
-              for Plus members, promotional upgrade card for free users).
-            - Native + Pro: same SubscriptionBanner — the Pro branch is
-              purely a status/celebration card. SubscriptionBanner itself
-              hides the Manage Subscription button on native via an
-              internal canShowPurchaseCTA() check.
-            - Native + Free: render nothing. Apple guideline 3.1.1
-              treats any plan-tier label ("Free Plan", "Basic", etc.) as
-              a reference to a paid tier; without an IAP product we cannot
-              reference tiers at all. Follow the Netflix/Spotify pattern.
+            - Pro (any platform): SubscriptionBanner status card.
+            - Native + Free: NativePaywall (StoreKit / Play Billing).
+            - Web/desktop + Free: SubscriptionBanner upgrade card → Stripe.
           */}
-          {(canShowPurchaseCTA() || isPro) && (
+          {isPro ? (
             <SubscriptionBanner
               onUpgrade={handleUpgrade}
               isPro={isPro}
@@ -2979,7 +3076,17 @@ const Index = () => {
               subscriptionStatus={subscriptionStatus}
               hasUsedTrial={hasUsedTrial}
             />
-          )}
+          ) : canShowNativeCheckout() ? (
+            <NativePaywall onPurchased={handleNativePurchased} />
+          ) : canShowStripeCheckout() ? (
+            <SubscriptionBanner
+              onUpgrade={handleUpgrade}
+              isPro={isPro}
+              isLoading={isUpgrading}
+              subscriptionStatus={subscriptionStatus}
+              hasUsedTrial={hasUsedTrial}
+            />
+          ) : null}
 
           {/* Collapsible insight cards — three-across on desktop, stacked below lg.
               Each wrapper spans all 3 columns when its card is expanded (Radix

@@ -128,7 +128,7 @@
     "help": "說明"
   },
   "auth": {
-    "title": "個人日記",
+    "title": "OwnJournal",
     "subtitle": "您思緒的安全港",
     "signInTitle": "登入以繼續",
     "email": "電子郵件",
@@ -197,7 +197,8 @@
     "noAccountFound": "未找到帳戶",
     "noAccountFoundDesc": "此電子郵件地址沒有關聯帳戶。請檢查電子郵件或建立新帳戶。",
     "rateLimited": "請求過多",
-    "rateLimitedDesc": "出於安全考慮，請稍等片刻再請求新的重置連結。"
+    "rateLimitedDesc": "出於安全考慮，請稍等片刻再請求新的重置連結。",
+    "callbackMissingTokens": "登入未完成，請重試。"
   },
   "features": {
     "endToEnd": "端對端",
@@ -600,7 +601,9 @@
       "changeFailedDesc": "請檢查電子郵件地址並重試。",
       "fetchFailed": "無法載入您目前的電子郵件。請重試。",
       "sameEmail": "新電子郵件與目前相同",
-      "invalidEmail": "請輸入有效的電子郵件地址"
+      "invalidEmail": "請輸入有效的電子郵件地址",
+      "notConfirmed": "電子郵件變更尚未確認",
+      "notConfirmedDesc": "請點擊我們寄送的連結以確認您的新電子郵件地址，此變更才能完成。"
     },
     "deleteAccount": {
       "title": "刪除帳戶",
@@ -1532,7 +1535,7 @@
     "proMember": "Plus 會員",
     "enjoyingFeatures": "享受 AI 分析、建議與所有功能",
     "unlockInsights": "解鎖Plus功能",
-    "description": "獲取 AI 驅動的摘要、情緒分析和日記條目的關鍵片語擷取",
+    "description": "為每篇日記獲取 AI 摘要、心情分析和智慧標籤建議。",
     "smartSummaries": "智慧摘要",
     "moodTracking": "心情追蹤",
     "keyInsights": "關鍵洞察",
@@ -1547,7 +1550,7 @@
     "upgradeFailedDesc": "升級訂閱時發生錯誤。請重試。",
     "features": {
       "title": "Plus 功能",
-      "aiAnalysis": "智慧 AI 分析",
+      "aiAnalysis": "AI 分析",
       "titleSuggestions": "AI 標題建議",
       "tagSuggestions": "智慧標籤建議",
       "trendAnalysis": "心情與趨勢洞察",
@@ -1567,7 +1570,21 @@
     "checkoutCanceled": "結帳已取消",
     "checkoutCanceledDesc": "您可以隨時從設定中升級。",
     "portalReturn": "歡迎回來！",
-    "portalReturnDesc": "您的訂閱設定已更新。"
+    "portalReturnDesc": "您的訂閱設定已更新。",
+    "purchasePending": "購買處理中",
+    "purchaseFailed": "購買失敗",
+    "restoreSuccess": "已恢復購買",
+    "restoreNothing": "沒有可恢復的購買",
+    "restoreFailed": "恢復失敗",
+    "restorePurchases": "恢復購買",
+    "nativeSubWarningTitle": "請先取消商店訂閱",
+    "nativeSubWarningDesc": "您的 Plus 訂閱是透過 {{store}} 購買的。在此刪除帳號不會取消訂閱 — 仍會繼續向您收費。請先開啟 {{store}} 取消訂閱，再回來刪除帳號。",
+    "nativeSubManageCta": "開啟 {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "iapUnavailable": "目前無法使用應用程式內購買",
+    "iapUnavailableDesc": "無法連線到商店。請檢查您的網路連線後再試一次。",
+    "tryAgain": "再試一次"
   },
   "calendar": {
     "clear": "清除",

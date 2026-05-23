@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Download, FileText, File, Loader2, Lock, Share2 } from 'lucide-react';
 import { exportToPDF, exportToWord, type JournalEntry, type NativeExportResult } from '@/utils/journalExport';
 import { isNativePlatform, shareFileNative, openFileNative } from '@/utils/nativeExport';
-import { canShowPurchaseCTA } from '@/utils/platformDetection';
+import { canShowAnyPurchaseCTA } from '@/utils/platformDetection';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from 'react-i18next';
 import { ToastAction } from '@/components/ui/toast';
@@ -184,7 +184,7 @@ export const ExportDialog = ({
           {/* PDF Export — hidden on native for free users to avoid Lock/Plus
               branding that app stores read as referencing a paid tier without
               an in-app purchase product. */}
-          {(isPro || canShowPurchaseCTA()) && (
+          {(isPro || canShowAnyPurchaseCTA()) && (
             <div className="flex items-start gap-4 p-4 rounded-lg border border-border bg-muted/50">
               <div className="flex-shrink-0 mt-1">
                 <div className="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-900/20 flex items-center justify-center">
@@ -227,7 +227,7 @@ export const ExportDialog = ({
           )}
 
           {/* Word Export — same gating as PDF above. */}
-          {(isPro || canShowPurchaseCTA()) && (
+          {(isPro || canShowAnyPurchaseCTA()) && (
             <div className="flex items-start gap-4 p-4 rounded-lg border border-border bg-muted/50">
               <div className="flex-shrink-0 mt-1">
                 <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center">
@@ -270,7 +270,7 @@ export const ExportDialog = ({
             </div>
           )}
 
-          {!isPro && !canShowPurchaseCTA() && (
+          {!isPro && !canShowAnyPurchaseCTA() && (
             <div className="text-center py-6">
               <p className="text-sm text-muted-foreground">
                 {t('exportDialog.unavailableNative')}
@@ -278,7 +278,7 @@ export const ExportDialog = ({
             </div>
           )}
 
-          {!isPro && canShowPurchaseCTA() && (
+          {!isPro && canShowAnyPurchaseCTA() && (
             <div className="text-center pt-2">
               <p className="text-sm text-muted-foreground">
                 {t('exportDialog.upgradePrompt')}

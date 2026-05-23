@@ -151,17 +151,24 @@ serve(async (req) => {
     }
 
     if (!stripeCustomerId) {
-      // Check if customer exists in Stripe by email
+      // Adopt an existing Stripe customer ONLY when its metadata explicitly
+      // identifies this Supabase user. Adopting by email alone is unsafe:
+      // a different person who happens to share the same email (legacy
+      // customer, post-migration record, support-created record) would
+      // silently grant their entitlement state to this user.
       const existingCustomers = await stripe.customers.list({
         email: userEmail,
-        limit: 1,
+        limit: 100,
       });
 
-      if (existingCustomers.data.length > 0) {
-        stripeCustomerId = existingCustomers.data[0].id;
-        console.log('Found existing Stripe customer by email:', stripeCustomerId);
+      const owned = existingCustomers.data.find(
+        (c) => c.metadata?.user_id === userId,
+      );
+
+      if (owned) {
+        stripeCustomerId = owned.id;
+        console.log('Adopted existing Stripe customer (metadata match):', stripeCustomerId);
       } else {
-        // Create new Stripe customer
         const customer = await stripe.customers.create({
           email: userEmail,
           metadata: {
@@ -190,21 +197,10 @@ serve(async (req) => {
     if (existingSub) {
       console.log('User already has active subscription:', existingSub.id, 'status:', existingSub.status);
 
-      // Sync the database to match Stripe reality
-      await supabaseAdmin
-        .from('subscriptions')
-        .update({
-          is_pro: true,
-          plan_name: 'plus',
-          subscription_status: existingSub.status,
-          stripe_subscription_id: existingSub.id,
-          current_period_start: new Date(existingSub.current_period_start * 1000).toISOString(),
-          current_period_end: new Date(existingSub.current_period_end * 1000).toISOString(),
-          updated_at: new Date().toISOString(),
-          ...(existingSub.status === 'trialing' && { has_used_trial: true }),
-        })
-        .eq('user_id', userId);
-
+      // is_pro / subscription_status / period fields are written exclusively
+      // by stripe-webhook so that there is a single source of truth and no
+      // race between checkout and webhook deliveries. If the DB looks stale,
+      // resend the latest event from the Stripe dashboard instead.
       return new Response(
         JSON.stringify({ alreadyActive: true }),
         {

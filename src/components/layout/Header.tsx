@@ -27,7 +27,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { useToast } from "@/hooks/use-toast";
 import { isNativePlatform } from "@/utils/nativeExport";
-import { canShowPurchaseCTA } from "@/utils/platformDetection";
+import { canShowAnyPurchaseCTA } from "@/utils/platformDetection";
 import logo from "@/assets/logo.png";
 
 interface User {
@@ -128,7 +128,7 @@ export const Header = ({
     <header className="sticky top-0 z-[100] w-full border-b border-border bg-background/80 backdrop-blur-md" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo / Back Button */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           {showBackButton ? (
             <Button variant="ghost" size="sm" onClick={onBack} className="gap-2">
               <ArrowLeft className="w-4 h-4" />
@@ -136,9 +136,9 @@ export const Header = ({
             </Button>
           ) : (
             <>
-              <img src={logo} alt="OwnJournal" className="w-8 h-8 object-contain" />
-              <div>
-                <h1 className="text-lg sm:text-xl font-bold text-foreground whitespace-nowrap">{t("app.name")}</h1>
+              <img src={logo} alt="OwnJournal" className="w-8 h-8 object-contain flex-shrink-0" />
+              <div className="min-w-0">
+                <h1 className="text-lg sm:text-xl font-bold text-foreground truncate">{t("app.name")}</h1>
                 <p className="text-xs text-muted-foreground hidden sm:block">{t("app.tagline")}</p>
               </div>
             </>
@@ -146,7 +146,7 @@ export const Header = ({
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-1 sm:gap-2">
+        <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
           {/* Sync Status Indicator (only when user is authenticated) */}
           {user && (
             <>
@@ -246,7 +246,7 @@ export const Header = ({
                         <Crown className="w-3 h-3" />
                         <span className="text-xs">{t("header.proMember")}</span>
                       </div>
-                    ) : canShowPurchaseCTA() ? (
+                    ) : canShowAnyPurchaseCTA() ? (
                       // "Free Plan" implies a paid plan exists; without IAP
                       // we can't reference plan tiers on Capacitor iOS/Android
                       // (App Store guideline 3.1.1). Web/desktop only.
@@ -278,7 +278,7 @@ export const Header = ({
                     users we hide the entry point entirely to avoid showing a
                     locked feature that references a paid tier without an IAP
                     product. Pro users on native still see it. */}
-                {(user?.isPro || canShowPurchaseCTA()) && (
+                {(user?.isPro || canShowAnyPurchaseCTA()) && (
                   <DropdownMenuItem onClick={onExportToFile} className="cursor-pointer">
                     <FileText className="mr-2 h-5 w-5" />
                     <span>{t("settings.dataManagement.exportFile")}</span>

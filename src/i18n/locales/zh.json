@@ -128,7 +128,7 @@
     "help": "帮助"
   },
   "auth": {
-    "title": "个人日记",
+    "title": "OwnJournal",
     "subtitle": "您思想的安全港湾",
     "signInTitle": "登录以继续",
     "email": "邮箱",
@@ -197,7 +197,8 @@
     "noAccountFound": "未找到账户",
     "noAccountFoundDesc": "此电子邮件地址没有关联账户。请检查电子邮件或创建新账户。",
     "rateLimited": "请求过多",
-    "rateLimitedDesc": "出于安全考虑，请稍等片刻再请求新的重置链接。"
+    "rateLimitedDesc": "出于安全考虑，请稍等片刻再请求新的重置链接。",
+    "callbackMissingTokens": "登录未完成，请重试。"
   },
   "features": {
     "endToEnd": "端到端",
@@ -600,7 +601,9 @@
       "changeFailedDesc": "请检查电子邮箱地址并重试。",
       "fetchFailed": "无法加载您当前的邮箱。请重试。",
       "sameEmail": "新邮箱与当前相同",
-      "invalidEmail": "请输入有效的电子邮箱地址"
+      "invalidEmail": "请输入有效的电子邮箱地址",
+      "notConfirmed": "邮箱地址变更尚未确认",
+      "notConfirmedDesc": "请点击我们发送的链接以确认您的新邮箱地址，然后此变更才能完成。"
     },
     "deleteAccount": {
       "title": "删除账户",
@@ -1532,7 +1535,7 @@
     "proMember": "Plus 会员",
     "enjoyingFeatures": "享受 AI 分析、建议与所有功能",
     "unlockInsights": "解锁 Plus 功能",
-    "description": "获取 AI 驱动的摘要、情绪分析和关键短语提取，用于您的日记条目",
+    "description": "为每篇日记获取 AI 摘要、心情分析和智能标签建议。",
     "smartSummaries": "智能摘要",
     "moodTracking": "心情追踪",
     "keyInsights": "关键洞察",
@@ -1547,7 +1550,7 @@
     "upgradeFailedDesc": "升级订阅时出错。请重试。",
     "features": {
       "title": "Plus 功能",
-      "aiAnalysis": "智能 AI 分析",
+      "aiAnalysis": "AI 分析",
       "titleSuggestions": "AI 标题建议",
       "tagSuggestions": "智能标签建议",
       "trendAnalysis": "心情与趋势洞察",
@@ -1567,7 +1570,21 @@
     "checkoutCanceled": "结账已取消",
     "checkoutCanceledDesc": "您可以随时从设置中升级。",
     "portalReturn": "欢迎回来！",
-    "portalReturnDesc": "您的订阅设置已更新。"
+    "portalReturnDesc": "您的订阅设置已更新。",
+    "purchasePending": "购买待处理",
+    "purchaseFailed": "购买失败",
+    "restoreSuccess": "已恢复购买",
+    "restoreNothing": "没有可恢复的购买",
+    "restoreFailed": "恢复失败",
+    "restorePurchases": "恢复购买",
+    "nativeSubWarningTitle": "请先取消商店订阅",
+    "nativeSubWarningDesc": "您的 Plus 订阅是通过{{store}}购买的。在此删除账户不会取消订阅 — 仍会继续向您收费。请先打开{{store}}取消订阅，再回来删除账户。",
+    "nativeSubManageCta": "打开{{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "iapUnavailable": "应用内购买当前不可用",
+    "iapUnavailableDesc": "无法连接到商店。请检查您的网络连接后重试。",
+    "tryAgain": "重试"
   },
   "calendar": {
     "clear": "清除",

@@ -128,7 +128,7 @@
     "help": "Hjelp"
   },
   "auth": {
-    "title": "Personlig dagbok",
+    "title": "OwnJournal",
     "subtitle": "Et trygt sted for tankene dine",
     "signInTitle": "Logg inn for å fortsette",
     "email": "E-post",
@@ -197,7 +197,8 @@
     "noAccountFound": "Ingen konto funnet",
     "noAccountFoundDesc": "Det finnes ingen konto med denne e-postadressen. Vennligst sjekk e-posten eller opprett en ny konto.",
     "rateLimited": "For mange forespørsler",
-    "rateLimitedDesc": "Av sikkerhetsgrunner, vennligst vent et øyeblikk før du ber om en ny tilbakestillingslenke."
+    "rateLimitedDesc": "Av sikkerhetsgrunner, vennligst vent et øyeblikk før du ber om en ny tilbakestillingslenke.",
+    "callbackMissingTokens": "Innloggingen ble ikke fullført. Prøv på nytt."
   },
   "features": {
     "endToEnd": "Ende-til-ende",
@@ -600,7 +601,9 @@
       "changeFailedDesc": "Sjekk e-postadressen og prøv igjen.",
       "fetchFailed": "Kunne ikke laste inn din nåværende e-post. Prøv igjen.",
       "sameEmail": "Ny e-post er den samme som nåværende",
-      "invalidEmail": "Vennligst skriv inn en gyldig e-postadresse"
+      "invalidEmail": "Vennligst skriv inn en gyldig e-postadresse",
+      "notConfirmed": "E-postendring ikke bekreftet ennå",
+      "notConfirmedDesc": "Bekreft den nye e-postadressen din ved å klikke på lenken vi sendte før denne endringen kan fullføres."
     },
     "deleteAccount": {
       "title": "Slett konto",
@@ -1532,7 +1535,7 @@
     "proMember": "Plus-medlem",
     "enjoyingFeatures": "Nyt AI-analyse, forslag og alle funksjoner",
     "unlockInsights": "Lås opp Plus-funksjoner",
-    "description": "Få AI-drevne oppsummeringer, sentimentanalyse og nøkkelfraseutvinning for dagbokinnleggene dine",
+    "description": "Få AI-drevne oppsummeringer, humøranalyse og smarte etikettforslag for hvert innlegg.",
     "smartSummaries": "Smarte oppsummeringer",
     "moodTracking": "Humørsporing",
     "keyInsights": "Nøkkelinnsikter",
@@ -1547,7 +1550,7 @@
     "upgradeFailedDesc": "Det oppstod en feil under oppgradering av abonnementet. Prøv igjen.",
     "features": {
       "title": "Plus-funksjoner",
-      "aiAnalysis": "Smart AI-analyse",
+      "aiAnalysis": "AI-analyse",
       "titleSuggestions": "AI-tittelforslag",
       "tagSuggestions": "Smarte etikettforslag",
       "trendAnalysis": "Humør- og trendinnsikter",
@@ -1567,7 +1570,21 @@
     "checkoutCanceled": "Betaling avbrutt",
     "checkoutCanceledDesc": "Du kan oppgradere når som helst fra innstillingene.",
     "portalReturn": "Velkommen tilbake!",
-    "portalReturnDesc": "Abonnementsinnstillingene dine er oppdatert."
+    "portalReturnDesc": "Abonnementsinnstillingene dine er oppdatert.",
+    "purchasePending": "Kjøp venter",
+    "purchaseFailed": "Kjøpet mislyktes",
+    "restoreSuccess": "Kjøp gjenopprettet",
+    "restoreNothing": "Ingen kjøp å gjenopprette",
+    "restoreFailed": "Gjenoppretting mislyktes",
+    "restorePurchases": "Gjenopprett kjøp",
+    "nativeSubWarningTitle": "Avslutt butikkabonnementet ditt først",
+    "nativeSubWarningDesc": "Plus-abonnementet ditt ble kjøpt gjennom {{store}}. Å slette kontoen din her avslutter det IKKE — du vil fortsatt bli belastet. Åpne {{store}} for å avslutte, og kom deretter tilbake for å slette kontoen din.",
+    "nativeSubManageCta": "Åpne {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "iapUnavailable": "Kjøp i appen er ikke tilgjengelig akkurat nå",
+    "iapUnavailableDesc": "Vi fikk ikke kontakt med butikken. Sjekk tilkoblingen din og prøv igjen.",
+    "tryAgain": "Prøv igjen"
   },
   "calendar": {
     "clear": "Rydd",

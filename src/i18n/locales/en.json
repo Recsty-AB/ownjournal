@@ -128,7 +128,7 @@
     "help": "Help"
   },
   "auth": {
-    "title": "Personal Journal",
+    "title": "OwnJournal",
     "subtitle": "A safe place for your thoughts",
     "signInTitle": "Sign in to continue",
     "email": "Email",
@@ -197,7 +197,8 @@
     "noAccountFound": "No account found",
     "noAccountFoundDesc": "No account exists with this email address. Please check the email or create a new account.",
     "rateLimited": "Too many requests",
-    "rateLimitedDesc": "For security, please wait a moment before requesting another reset link."
+    "rateLimitedDesc": "For security, please wait a moment before requesting another reset link.",
+    "callbackMissingTokens": "Sign-in did not complete. Please try again."
   },
   "features": {
     "endToEnd": "End-to-End",
@@ -600,7 +601,9 @@
       "changeFailedDesc": "Please check the email address and try again.",
       "fetchFailed": "Could not load your current email. Please try again.",
       "sameEmail": "New email is the same as current",
-      "invalidEmail": "Please enter a valid email address"
+      "invalidEmail": "Please enter a valid email address",
+      "notConfirmed": "Email change not yet confirmed",
+      "notConfirmedDesc": "Please confirm your new email address by clicking the link we sent before this change can complete."
     },
     "deleteAccount": {
       "title": "Delete Account",
@@ -1537,7 +1540,7 @@
     "proMember": "Plus Member",
     "enjoyingFeatures": "Enjoying AI analysis, suggestions & all features",
     "unlockInsights": "Unlock Plus Features",
-    "description": "Get AI-powered summaries, sentiment analysis, and key phrase extraction for your journal entries",
+    "description": "Get AI-powered summaries, mood analysis, and smart tag suggestions for every entry.",
     "smartSummaries": "Smart Summaries",
     "moodTracking": "Mood Tracking",
     "keyInsights": "Key Insights",
@@ -1552,7 +1555,7 @@
     "upgradeFailedDesc": "An error occurred while upgrading your subscription. Please try again.",
     "features": {
       "title": "Plus Features",
-      "aiAnalysis": "Smart AI Analysis",
+      "aiAnalysis": "AI Analysis",
       "titleSuggestions": "AI Title Suggestions",
       "tagSuggestions": "Smart Tag Suggestions",
       "trendAnalysis": "Mood & Trend Insights",
@@ -1572,7 +1575,21 @@
     "checkoutCanceled": "Checkout canceled",
     "checkoutCanceledDesc": "You can upgrade anytime from the settings.",
     "portalReturn": "Welcome back!",
-    "portalReturnDesc": "Your subscription settings have been updated."
+    "portalReturnDesc": "Your subscription settings have been updated.",
+    "purchasePending": "Purchase pending",
+    "purchaseFailed": "Purchase failed",
+    "restoreSuccess": "Purchases restored",
+    "restoreNothing": "No purchases to restore",
+    "restoreFailed": "Restore failed",
+    "restorePurchases": "Restore Purchases",
+    "nativeSubWarningTitle": "Cancel your store subscription first",
+    "nativeSubWarningDesc": "Your Plus subscription was purchased through {{store}}. Deleting your account here does NOT cancel it — you'll keep being charged. Open {{store}} to cancel, then return to delete your account.",
+    "nativeSubManageCta": "Open {{store}}",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "iapUnavailable": "In-app purchases aren’t available right now",
+    "iapUnavailableDesc": "We couldn’t reach the store. Please check your connection and try again.",
+    "tryAgain": "Try again"
   },
   "calendar": {
     "clear": "Clear",

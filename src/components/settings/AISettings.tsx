@@ -7,6 +7,7 @@ import { Brain, Cloud, AlertCircle, Lock, Crown, CheckCircle2, ExternalLink, Loa
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import { aiPermissions } from "@/utils/aiPermissions";
+import { canShowStripeCheckout } from "@/utils/platformDetection";
 import { supabase } from "@/integrations/supabase/client";
 
 interface AISettingsProps {
@@ -42,6 +43,7 @@ export const AISettings = ({ onUpgrade, isUpgrading = false }: AISettingsProps) 
   }, []);
 
   const handleManageSubscription = async () => {
+    if (!canShowStripeCheckout()) return;
     setIsLoadingPortal(true);
     try {
       const { data: { session } } = await supabase.auth.getSession();
@@ -105,7 +107,7 @@ export const AISettings = ({ onUpgrade, isUpgrading = false }: AISettingsProps) 
                     {t('settings.ai.allFeaturesUnlocked')}
                   </p>
                 </div>
-                {stripeCustomerId && (
+                {canShowStripeCheckout() && stripeCustomerId && (
                   <Button
                     variant="outline"
                     size="sm"

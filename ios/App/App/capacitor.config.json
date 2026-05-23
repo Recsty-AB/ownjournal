@@ -26,6 +26,8 @@
 		"AppPlugin",
 		"CAPBrowserPlugin",
 		"FilesystemPlugin",
-		"SharePlugin"
+		"SharePlugin",
+		"StatusBarPlugin",
+		"PurchasesPlugin"
 	]
 }

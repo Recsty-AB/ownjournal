@@ -1,5 +1,7 @@
 import { buildAppLink } from "@/config/app";
-import { canShowPurchaseCTA } from "@/utils/platformDetection";
+import { canShowAnyPurchaseCTA, canShowNativeCheckout, canShowStripeCheckout } from "@/utils/platformDetection";
+import { NativePaywall } from "@/components/subscription/NativePaywall";
+import { iapService, IAPError, getStoreSubscriptionUrl } from "@/services/iapService";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 import { X, AlertTriangle, LogOut, Mail } from "lucide-react";
@@ -23,6 +25,82 @@ import { supabase } from "@/integrations/supabase/client";
 import { storageServiceV2 } from "@/services/storageServiceV2";
 import { SAFETY_CONSTANTS } from "@/config/features";
 import { CurrencyCode } from "@/config/pricing";
+import { ExternalLink, RotateCcw, Loader2 } from "lucide-react";
+
+/**
+ * Native-only buttons paired with the subscription card on iOS/Android:
+ *   - Manage Subscription: opens the App Store / Play Store subscription
+ *     management page. Required by App Store guideline 3.1.2.
+ *   - Restore Purchases: required by App Store guideline 3.1.1, regardless
+ *     of current entitlement (a user re-installing or signing in on a new
+ *     device must be able to recover their purchase).
+ */
+const NativeSubscriptionActions = ({ isPro }: { isPro: boolean }) => {
+  const { t } = useTranslation();
+  const { toast } = useToast();
+  const [isOpening, setIsOpening] = useState(false);
+  const [isRestoring, setIsRestoring] = useState(false);
+
+  const handleOpenManage = async () => {
+    setIsOpening(true);
+    try {
+      await iapService.openManageSubscription();
+    } catch (err) {
+      if (!(err instanceof IAPError) || err.code !== 'USER_CANCELLED') {
+        toast({
+          variant: 'destructive',
+          title: t('subscription.purchaseFailed', 'Purchase could not be completed'),
+          description: err instanceof Error ? err.message : String(err),
+        });
+      }
+    } finally {
+      setIsOpening(false);
+    }
+  };
+
+  const handleRestore = async () => {
+    setIsRestoring(true);
+    try {
+      const ent = await iapService.restore();
+      toast({
+        title: ent.isPro
+          ? t('subscription.restoreSuccess', 'Purchases restored')
+          : t('subscription.restoreNothing', 'No purchases to restore'),
+      });
+    } catch (err) {
+      toast({
+        variant: 'destructive',
+        title: t('subscription.restoreFailed', 'Restore failed'),
+        description: err instanceof Error ? err.message : String(err),
+      });
+    } finally {
+      setIsRestoring(false);
+    }
+  };
+
+  return (
+    <div className="flex flex-col gap-2">
+      {isPro && (
+        <Button variant="outline" size="sm" onClick={handleOpenManage} disabled={isOpening}>
+          {isOpening ? (
+            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+          ) : (
+            <ExternalLink className="w-4 h-4 mr-2" />
+          )}
+          {t('subscription.manageButton')}
+        </Button>
+      )}
+      <Button variant="ghost" size="sm" onClick={handleRestore} disabled={isRestoring}>
+        {isRestoring ? (
+          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+        ) : (
+          <RotateCcw className="w-4 h-4 mr-2" />
+        )}
+        {t('subscription.restorePurchases', 'Restore Purchases')}
+      </Button>
+    </div>
+  );
+};
 
 interface SettingsDialogProps {
   open: boolean;
@@ -39,6 +117,7 @@ interface SettingsDialogProps {
   isUpgrading?: boolean;
   onSignOut?: () => void;
   subscriptionStatus?: string | null;
+  subscriptionProvider?: 'stripe' | 'apple' | 'google' | null;
   hasUsedTrial?: boolean;
 }
 
@@ -57,6 +136,7 @@ export const SettingsDialog = ({
   isUpgrading = false,
   onSignOut,
   subscriptionStatus,
+  subscriptionProvider,
   hasUsedTrial,
 }: SettingsDialogProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -133,6 +213,13 @@ export const SettingsDialog = ({
 
             if (error) {
               console.error('Failed to sync email:', error);
+              if ((error as { context?: { status?: number } }).context?.status === 403) {
+                toast({
+                  title: t('settings.email.notConfirmed'),
+                  description: t('settings.email.notConfirmedDesc'),
+                  variant: 'destructive',
+                });
+              }
             } else {
               setCurrentEmail(newUserEmail);
               setPendingEmailChange(false);
@@ -197,11 +284,10 @@ export const SettingsDialog = ({
   };
 
   const handleManageSubscription = useCallback(async () => {
-    // Same store-policy guard as handleUpgrade — customer portal is an
-    // external payment management surface and must not be reachable from
-    // inside the native app. UI already hides the button on native, but
-    // guard the handler itself as defense in depth.
-    if (!canShowPurchaseCTA()) {
+    // Stripe billing portal is web/desktop only. Native users see the
+    // "Manage in App Store / Play Store" button below, which routes
+    // through iapService.openManageSubscription() instead.
+    if (!canShowStripeCheckout()) {
       return;
     }
     setIsManagingSubscription(true);
@@ -375,10 +461,10 @@ export const SettingsDialog = ({
   const settingsContent = (
     <Tabs key={open ? 'tabs-open' : 'tabs-closed'} defaultValue={defaultTab} className="w-full">
       <TabsList className="flex flex-wrap gap-1 justify-start w-full">
-        <TabsTrigger value="storage" className="flex-1 min-w-0">{t('settings.tabs.storage')}</TabsTrigger>
-        <TabsTrigger value="preferences" className="flex-1 min-w-0">{t('settings.tabs.preferences')}</TabsTrigger>
-        <TabsTrigger value="account" className="flex-1 min-w-0">{t('settings.tabs.account')}</TabsTrigger>
-        <TabsTrigger value="diagnostics" className="flex-1 min-w-0">{t('settings.tabs.diagnostics')}</TabsTrigger>
+        <TabsTrigger value="storage" className="flex-1 min-w-0 px-1.5 sm:px-4 text-xs sm:text-sm truncate">{t('settings.tabs.storage')}</TabsTrigger>
+        <TabsTrigger value="preferences" className="flex-1 min-w-0 px-1.5 sm:px-4 text-xs sm:text-sm truncate">{t('settings.tabs.preferences')}</TabsTrigger>
+        <TabsTrigger value="account" className="flex-1 min-w-0 px-1.5 sm:px-4 text-xs sm:text-sm truncate">{t('settings.tabs.account')}</TabsTrigger>
+        <TabsTrigger value="diagnostics" className="flex-1 min-w-0 px-1.5 sm:px-4 text-xs sm:text-sm truncate">{t('settings.tabs.diagnostics')}</TabsTrigger>
       </TabsList>
       
       <TabsContent value="storage" className="space-y-4 mt-4">
@@ -467,7 +553,7 @@ export const SettingsDialog = ({
         {/* PDF/Word export entry — hidden on native for free users, same
             reasoning as the Header dropdown item. Pro users on native keep
             access. */}
-        {onExportToFile && (isPro || canShowPurchaseCTA()) && (
+        {onExportToFile && (isPro || canShowAnyPurchaseCTA()) && (
           <Button onClick={onExportToFile} variant="outline" className="w-full">
             <FileText className="w-4 h-4 mr-2" />
             {t('settings.dataManagement.exportFile')}
@@ -539,28 +625,45 @@ export const SettingsDialog = ({
 
       <TabsContent value="account" className="space-y-6 mt-4">
         {/*
-          Subscription section is only rendered when there's a real
-          surface to show:
-          - Web / desktop free: promotional SubscriptionBanner.
-          - Web / desktop / native Pro: SubscriptionBanner Pro status card.
-          - Native + Free: nothing. Apple guideline 3.1.1 treats any plan-
-            tier label ("Free Plan", "Basic", etc.) as a reference to a
-            paid tier; without an IAP product we cannot reference tiers
-            at all, including the surrounding "Subscription" heading.
+          Subscription section:
+          - Pro (any platform): SubscriptionBanner status card + (if native)
+            "Manage in App Store / Play Store" button.
+          - Native + Free: NativePaywall (StoreKit / Play Billing).
+          - Web/desktop + Free: SubscriptionBanner upgrade card → Stripe.
+          - Native + Free with no entitlement: Restore Purchases button is
+            still shown so a user who paid on another device can recover.
         */}
-        {(canShowPurchaseCTA() || isPro) && (
+        {(canShowAnyPurchaseCTA() || isPro) && (
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">{t('settings.sections.subscription')}</h3>
-            <SubscriptionBanner
-              onUpgrade={onUpgrade}
-              isPro={isPro}
-              isLoading={isUpgrading}
-              onManageSubscription={handleManageSubscription}
-              isManagingSubscription={isManagingSubscription}
-              hasStripeCustomer={!!stripeCustomerId}
-              subscriptionStatus={subscriptionStatus}
-              hasUsedTrial={hasUsedTrial}
-            />
+            {isPro ? (
+              <SubscriptionBanner
+                onUpgrade={onUpgrade}
+                isPro={isPro}
+                isLoading={isUpgrading}
+                onManageSubscription={handleManageSubscription}
+                isManagingSubscription={isManagingSubscription}
+                hasStripeCustomer={!!stripeCustomerId}
+                subscriptionStatus={subscriptionStatus}
+                hasUsedTrial={hasUsedTrial}
+              />
+            ) : canShowNativeCheckout() ? (
+              <NativePaywall />
+            ) : (
+              <SubscriptionBanner
+                onUpgrade={onUpgrade}
+                isPro={isPro}
+                isLoading={isUpgrading}
+                onManageSubscription={handleManageSubscription}
+                isManagingSubscription={isManagingSubscription}
+                hasStripeCustomer={!!stripeCustomerId}
+                subscriptionStatus={subscriptionStatus}
+                hasUsedTrial={hasUsedTrial}
+              />
+            )}
+            {canShowNativeCheckout() && (
+              <NativeSubscriptionActions isPro={isPro} />
+            )}
           </div>
         )}
 
@@ -616,6 +719,50 @@ export const SettingsDialog = ({
             <AlertTriangle className="w-5 h-5 text-destructive" />
             <h3 className="text-lg font-semibold text-destructive">{t('settings.deleteAccount.title')}</h3>
           </div>
+          {(() => {
+            const hasActiveNativeSub = isPro && (subscriptionProvider === 'apple' || subscriptionProvider === 'google');
+            if (!hasActiveNativeSub) return null;
+            const storeName = subscriptionProvider === 'apple'
+              ? t('subscription.appStore')
+              : t('subscription.googlePlay');
+            const handleOpenStore = async () => {
+              if (canShowNativeCheckout()) {
+                try {
+                  await iapService.openManageSubscription();
+                } catch (err) {
+                  if (err instanceof IAPError && err.code === 'USER_CANCELLED') return;
+                  // Fall through to web URL on any other failure.
+                  window.open(getStoreSubscriptionUrl(subscriptionProvider), '_blank', 'noopener,noreferrer');
+                }
+              } else {
+                window.open(getStoreSubscriptionUrl(subscriptionProvider), '_blank', 'noopener,noreferrer');
+              }
+            };
+            return (
+              <div className="space-y-3 p-3 bg-destructive/10 border border-destructive/40 rounded-md">
+                <div className="flex items-start gap-2">
+                  <AlertTriangle className="w-4 h-4 text-destructive flex-shrink-0 mt-0.5" />
+                  <div className="space-y-1">
+                    <p className="text-sm font-semibold text-destructive">
+                      {t('subscription.nativeSubWarningTitle')}
+                    </p>
+                    <p className="text-xs text-destructive/90">
+                      {t('subscription.nativeSubWarningDesc', { store: storeName })}
+                    </p>
+                  </div>
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full border-destructive/40 hover:bg-destructive/20"
+                  onClick={handleOpenStore}
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  {t('subscription.nativeSubManageCta', { store: storeName })}
+                </Button>
+              </div>
+            );
+          })()}
           <p className="text-sm text-muted-foreground">
             {t('settings.deleteAccount.description')}
           </p>
@@ -649,19 +796,23 @@ export const SettingsDialog = ({
               />
             </div>
           )}
-          <Button 
+          <Button
             onClick={handleDeleteAccount}
             variant="destructive"
             className="w-full"
-            disabled={deleteConfirmText !== SAFETY_CONSTANTS.DELETE_ACCOUNT_CONFIRMATION || isDeleting}
+            disabled={
+              deleteConfirmText !== SAFETY_CONSTANTS.DELETE_ACCOUNT_CONFIRMATION ||
+              isDeleting ||
+              (isPro && (subscriptionProvider === 'apple' || subscriptionProvider === 'google'))
+            }
           >
             {isDeleting ? (
               deletionProgress ? (
-                deletionProgress.phase === 'local' 
+                deletionProgress.phase === 'local'
                   ? t('settings.deleteAccount.deletingLocal')
-                  : t('settings.deleteAccount.deletingCloud', { 
-                      current: deletionProgress.current, 
-                      total: deletionProgress.total 
+                  : t('settings.deleteAccount.deletingCloud', {
+                      current: deletionProgress.current,
+                      total: deletionProgress.total
                     })
               ) : t('common.loading')
             ) : t('settings.deleteAccount.button')}

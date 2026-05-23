@@ -128,7 +128,7 @@
     "help": "Hilfe"
   },
   "auth": {
-    "title": "Persönliches Tagebuch",
+    "title": "OwnJournal",
     "subtitle": "Ein sicherer Ort für Ihre Gedanken",
     "signInTitle": "Anmelden um fortzufahren",
     "email": "E-Mail",
@@ -197,7 +197,8 @@
     "noAccountFound": "Kein Konto gefunden",
     "noAccountFoundDesc": "Mit dieser E-Mail-Adresse existiert kein Konto. Bitte überprüfen Sie die E-Mail oder erstellen Sie ein neues Konto.",
     "rateLimited": "Zu viele Anfragen",
-    "rateLimitedDesc": "Aus Sicherheitsgründen warten Sie bitte einen Moment, bevor Sie einen neuen Reset-Link anfordern."
+    "rateLimitedDesc": "Aus Sicherheitsgründen warten Sie bitte einen Moment, bevor Sie einen neuen Reset-Link anfordern.",
+    "callbackMissingTokens": "Anmeldung wurde nicht abgeschlossen. Bitte versuche es erneut."
   },
   "features": {
     "endToEnd": "Ende-zu-Ende",
@@ -600,7 +601,9 @@
       "changeFailedDesc": "Bitte überprüfen Sie die E-Mail-Adresse und versuchen Sie es erneut.",
       "fetchFailed": "Ihre aktuelle E-Mail konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
       "sameEmail": "Neue E-Mail ist dieselbe wie die aktuelle",
-      "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+      "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "notConfirmed": "E-Mail-Änderung noch nicht bestätigt",
+      "notConfirmedDesc": "Bitte bestätige deine neue E-Mail-Adresse, indem du auf den Link in der gesendeten E-Mail klickst, bevor diese Änderung abgeschlossen werden kann."
     },
     "deleteAccount": {
       "title": "Konto löschen",
@@ -1532,7 +1535,7 @@
     "proMember": "Plus-Mitglied",
     "enjoyingFeatures": "KI-Analyse, Vorschläge & alle Funktionen genießen",
     "unlockInsights": "Plus-Funktionen freischalten",
-    "description": "Erhalten Sie KI-gestützte Zusammenfassungen, Stimmungsanalysen und Schlüsselbegriff-Extraktion für Ihre Tagebucheinträge",
+    "description": "Erhalten Sie KI-gestützte Zusammenfassungen, Stimmungsanalysen und intelligente Tag-Vorschläge für jeden Eintrag.",
     "smartSummaries": "Intelligente Zusammenfassungen",
     "moodTracking": "Stimmungsverfolgung",
     "keyInsights": "Wichtige Erkenntnisse",
@@ -1547,7 +1550,7 @@
     "upgradeFailedDesc": "Beim Upgrade Ihres Abonnements ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
     "features": {
       "title": "Plus-Funktionen",
-      "aiAnalysis": "Intelligente KI-Analyse",
+      "aiAnalysis": "KI-Analyse",
       "titleSuggestions": "KI-Titelvorschläge",
       "tagSuggestions": "Intelligente Tag-Vorschläge",
       "trendAnalysis": "Stimmungs- und Trend-Einblicke",
@@ -1567,7 +1570,21 @@
     "checkoutCanceled": "Bezahlung abgebrochen",
     "checkoutCanceledDesc": "Sie können jederzeit in den Einstellungen upgraden.",
     "portalReturn": "Willkommen zurück!",
-    "portalReturnDesc": "Ihre Abonnementeinstellungen wurden aktualisiert."
+    "portalReturnDesc": "Ihre Abonnementeinstellungen wurden aktualisiert.",
+    "purchasePending": "Kauf ausstehend",
+    "purchaseFailed": "Kauf fehlgeschlagen",
+    "restoreSuccess": "Käufe wiederhergestellt",
+    "restoreNothing": "Keine wiederherzustellenden Käufe",
+    "restoreFailed": "Wiederherstellung fehlgeschlagen",
+    "restorePurchases": "Käufe wiederherstellen",
+    "nativeSubWarningTitle": "Kündigen Sie zuerst Ihr Store-Abonnement",
+    "nativeSubWarningDesc": "Ihr Plus-Abonnement wurde über {{store}} gekauft. Wenn Sie Ihr Konto hier löschen, wird das Abonnement NICHT gekündigt – Ihnen wird weiterhin Geld berechnet. Öffnen Sie {{store}}, um zu kündigen, und löschen Sie dann Ihr Konto.",
+    "nativeSubManageCta": "{{store}} öffnen",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "iapUnavailable": "In-App-Käufe sind derzeit nicht verfügbar",
+    "iapUnavailableDesc": "Wir konnten den Store nicht erreichen. Bitte überprüfe deine Verbindung und versuche es erneut.",
+    "tryAgain": "Erneut versuchen"
   },
   "calendar": {
     "clear": "Löschen",
