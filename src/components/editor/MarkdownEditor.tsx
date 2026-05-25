@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Eye, Edit } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import remarkBreaks from "remark-breaks";
 
 interface MarkdownEditorProps {
   value: string;
@@ -43,7 +44,7 @@ export const MarkdownEditor = ({ value, onChange, placeholder }: MarkdownEditorP
       
       <TabsContent value="preview" className="mt-2">
         <div className="min-h-[300px] p-4 border rounded-lg bg-background prose prose-sm max-w-none">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
             {value || t('editor.noContentPreview')}
           </ReactMarkdown>
         </div>
