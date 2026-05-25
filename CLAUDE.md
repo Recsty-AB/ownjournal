@@ -125,6 +125,9 @@ Delete unreachable or superseded code immediately. Do not keep it behind comment
 ### Store compliance (native builds)
 On Capacitor (iOS/Android) builds, all purchase CTAs must be gated by `canShowPurchaseCTA()` from `src/utils/platformDetection.ts`. Apple and Google reject builds that link to web checkout from native. The rollout for this landed in v1.0.16 — when touching anything subscription/purchase-facing, verify the CTA is still gated.
 
+### Commit messages
+Do not append `Co-Authored-By: Claude …` (or any other AI-tool signature) to commit messages. Plain commit message only.
+
 ## Testing
 
 ### Setup

@@ -8,6 +8,9 @@ import { Calendar, Tag, Heart, Save, Edit3, Trash2, ImagePlus, X, Loader2, FileT
 import { format } from "date-fns";
 import { getDateLocale } from "@/utils/dateLocale";
 import { MarkdownEditor } from "@/components/editor/MarkdownEditor";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkBreaks from "remark-breaks";
 import { AIAnalysis } from "./AIAnalysis";
 import { TitleSuggestion } from "./TitleSuggestion";
 import { TagSuggestion } from "./TagSuggestion";
@@ -632,8 +635,10 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
 
         <h2 className="text-2xl font-semibold mb-4 text-foreground">{entry.title}</h2>
         
-        <div className="prose prose-lg max-w-none mb-6 text-foreground">
-          <div className="whitespace-pre-wrap leading-relaxed">{entry.body}</div>
+        <div className="prose prose-lg max-w-none mb-6 text-foreground leading-relaxed">
+          <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
+            {entry.body}
+          </ReactMarkdown>
         </div>
 
         {entry.images && entry.images.length > 0 && (
@@ -796,8 +801,11 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
             };
             const customActivities = activities.filter(a => !PREDEFINED_ACTIVITIES.some(p => p.key === a));
 
-            // Shared content rendered both inline (desktop) and in drawer (mobile)
-            const ActivityList = ({ vertical = false }: { vertical?: boolean }) => (
+            // Shared content rendered both inline (desktop) and in drawer (mobile).
+            // Must be a render function (not a component declared in render) — declaring
+            // a component inside render creates a new type every keystroke, which would
+            // unmount/remount the Input and steal focus.
+            const renderActivityList = (vertical: boolean = false) => (
               <>
                 <div className={vertical ? "grid grid-cols-2 gap-2" : "flex flex-wrap gap-2"}>
                   {PREDEFINED_ACTIVITIES.map((activity) => (
@@ -873,7 +881,7 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
                         </DrawerTitle>
                       </DrawerHeader>
                       <div className="px-4 pb-4 space-y-4 overflow-y-auto">
-                        <ActivityList vertical />
+                        {renderActivityList(true)}
                       </div>
                       <DrawerFooter>
                         <DrawerClose asChild>
@@ -894,7 +902,7 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
                   <span className="text-sm xl:text-base text-muted-foreground">{t('activities.label')}</span>
                 </div>
                 <div className="sm:ml-7 space-y-2">
-                  <ActivityList />
+                  {renderActivityList()}
                 </div>
               </div>
             );
