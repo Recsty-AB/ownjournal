@@ -63,14 +63,18 @@ export const MoodStats = ({ entries }: MoodStatsProps) => {
     return positive.reduce((sum, d) => sum + d.percentage, 0);
   }, [distribution]);
 
-  const bestDay = useMemo(() => {
-    if (dayOfWeekAvg.length === 0) return null;
-    return dayOfWeekAvg.reduce((best, d) => d.avgScore > best.avgScore ? d : best);
-  }, [dayOfWeekAvg]);
-
-  const worstDay = useMemo(() => {
-    if (dayOfWeekAvg.length === 0) return null;
-    return dayOfWeekAvg.reduce((worst, d) => d.avgScore < worst.avgScore ? d : worst);
+  // Suppress best/worst on ties: surfacing an arbitrary tied day would read
+  // as a statistical claim that isn't supported by the data.
+  const { bestDay, worstDay } = useMemo(() => {
+    if (dayOfWeekAvg.length < 2) return { bestDay: null, worstDay: null };
+    const maxScore = Math.max(...dayOfWeekAvg.map(d => d.avgScore));
+    const minScore = Math.min(...dayOfWeekAvg.map(d => d.avgScore));
+    const topDays = dayOfWeekAvg.filter(d => d.avgScore === maxScore);
+    const bottomDays = dayOfWeekAvg.filter(d => d.avgScore === minScore);
+    return {
+      bestDay: topDays.length === 1 ? topDays[0] : null,
+      worstDay: bottomDays.length === 1 ? bottomDays[0] : null,
+    };
   }, [dayOfWeekAvg]);
 
   // Chart configs for shadcn chart wrapper
@@ -149,7 +153,7 @@ export const MoodStats = ({ entries }: MoodStatsProps) => {
                   {t('moodStats.bestDay', { day: bestDay.dayName })}
                 </Badge>
               )}
-              {worstDay && bestDay && worstDay.dayName !== bestDay.dayName && (
+              {worstDay && (
                 <Badge variant="secondary">
                   {t('moodStats.worstDay', { day: worstDay.dayName })}
                 </Badge>
