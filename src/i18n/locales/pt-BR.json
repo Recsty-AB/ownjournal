@@ -1584,7 +1584,12 @@
     "googlePlay": "Google Play",
     "iapUnavailable": "As compras no app não estão disponíveis no momento",
     "iapUnavailableDesc": "Não foi possível conectar à loja. Verifique sua conexão e tente novamente.",
-    "tryAgain": "Tentar novamente"
+    "tryAgain": "Tentar novamente",
+    "disclosureTitle": "OwnJournal Plus — Assinatura anual",
+    "disclosureLength": "Assinatura anual com renovação automática.",
+    "priceWithMonthly": "{{yearlyPrice}}/ano (cerca de {{monthlyEquivalent}}/mês)",
+    "renewalApple": "O pagamento será cobrado no seu Apple ID no momento da confirmação da compra. Sua assinatura é renovada automaticamente pelo mesmo preço, a menos que a renovação automática seja desativada com pelo menos 24 horas de antecedência ao fim do período atual. Você pode gerenciar e cancelar sua assinatura nas configurações da sua conta da App Store após a compra.",
+    "renewalGoogle": "O pagamento será cobrado na sua conta do Google Play no momento da confirmação da compra. Sua assinatura é renovada automaticamente pelo mesmo preço, a menos que seja cancelada nas suas assinaturas do Google Play com pelo menos 24 horas de antecedência ao fim do período atual."
   },
   "calendar": {
     "clear": "Limpar",

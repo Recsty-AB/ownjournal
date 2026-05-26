@@ -1584,7 +1584,12 @@
     "googlePlay": "Google Play",
     "iapUnavailable": "지금은 인앱 구매를 사용할 수 없습니다",
     "iapUnavailableDesc": "스토어에 연결할 수 없습니다. 연결 상태를 확인한 후 다시 시도해 주세요.",
-    "tryAgain": "다시 시도"
+    "tryAgain": "다시 시도",
+    "disclosureTitle": "OwnJournal Plus — 연간 구독",
+    "disclosureLength": "1년 자동 갱신 구독.",
+    "priceWithMonthly": "{{yearlyPrice}}/년 (약 {{monthlyEquivalent}}/월)",
+    "renewalApple": "구매 확인 시 Apple ID로 결제됩니다. 현재 기간 종료 최소 24시간 전에 자동 갱신을 끄지 않는 한, 구독은 동일한 가격으로 자동 갱신됩니다. 구매 후 App Store 계정 설정에서 구독을 관리하고 취소할 수 있습니다.",
+    "renewalGoogle": "구매 확인 시 Google Play 계정으로 결제됩니다. 현재 기간 종료 최소 24시간 전에 Google Play 구독에서 취소하지 않는 한, 구독은 동일한 가격으로 자동 갱신됩니다."
   },
   "calendar": {
     "clear": "지우기",

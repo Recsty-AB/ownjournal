@@ -1584,7 +1584,12 @@
     "googlePlay": "Google Play",
     "iapUnavailable": "Les achats intégrés ne sont pas disponibles pour le moment",
     "iapUnavailableDesc": "Impossible de joindre la boutique. Vérifiez votre connexion et réessayez.",
-    "tryAgain": "Réessayer"
+    "tryAgain": "Réessayer",
+    "disclosureTitle": "OwnJournal Plus — Abonnement annuel",
+    "disclosureLength": "Abonnement annuel avec renouvellement automatique.",
+    "priceWithMonthly": "{{yearlyPrice}}/an (environ {{monthlyEquivalent}}/mois)",
+    "renewalApple": "Le paiement sera prélevé sur votre identifiant Apple à la confirmation de l'achat. Votre abonnement se renouvelle automatiquement au même prix, sauf désactivation du renouvellement automatique au moins 24 heures avant la fin de la période en cours. Vous pouvez gérer et annuler votre abonnement dans les réglages de votre compte App Store après l'achat.",
+    "renewalGoogle": "Le paiement sera prélevé sur votre compte Google Play à la confirmation de l'achat. Votre abonnement se renouvelle automatiquement au même prix, sauf annulation dans vos abonnements Google Play au moins 24 heures avant la fin de la période en cours."
   },
   "calendar": {
     "clear": "Effacer",

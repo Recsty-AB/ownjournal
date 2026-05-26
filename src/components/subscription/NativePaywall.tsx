@@ -16,8 +16,9 @@
  * checking our own has_used_trial flag (which only tracks Stripe trials).
  *
  * Required by App Store guideline 3.1.1: Restore Purchases button.
- * Required by App Store guideline 3.1.2: Privacy + Terms links visible on the
- * paywall before purchase confirmation.
+ * Required by App Store guideline 3.1.2: subscription title, length, price
+ * (with per-month equivalent), auto-renew/manage-in-store disclosure, and
+ * Privacy + Terms links visible on the paywall before purchase confirmation.
  */
 
 import { useEffect, useState } from "react";
@@ -31,6 +32,7 @@ import {
   Crown, Sparkles, Brain, Lightbulb, Tag, TrendingUp, FileText, FileType, Loader2, RotateCcw,
 } from "lucide-react";
 import { iapService, IAPError, type IAPProduct, type IAPEntitlement } from "@/services/iapService";
+import { getPlatformInfo } from "@/utils/platformDetection";
 
 interface NativePaywallProps {
   /**
@@ -50,9 +52,29 @@ const proFeatures = [
   { key: "wordExport", icon: FileType },
 ];
 
+/**
+ * Yearly price → per-month equivalent, formatted in the product's currency.
+ * Used in the App Store 3.1.2 disclosure ("$19.99/year — about $1.67/month").
+ * Returns null if the product or its priceAmountMicros is missing/zero.
+ */
+function formatMonthlyEquivalent(product: IAPProduct | null, locale?: string): string | null {
+  if (!product || !product.priceAmountMicros || !product.currencyCode) return null;
+  const monthlyAmount = product.priceAmountMicros / 12 / 1_000_000;
+  try {
+    return new Intl.NumberFormat(locale || undefined, {
+      style: "currency",
+      currency: product.currencyCode,
+      maximumFractionDigits: 2,
+    }).format(monthlyAmount);
+  } catch {
+    return null;
+  }
+}
+
 export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { toast } = useToast();
+  const isIOS = getPlatformInfo().platform === "capacitor-ios";
 
   const [product, setProduct] = useState<IAPProduct | null>(null);
   const [isEligibleForTrial, setIsEligibleForTrial] = useState(false);
@@ -248,6 +270,37 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
             {t("subscription.restorePurchases", "Restore Purchases")}
           </Button>
         </div>
+
+        {/*
+          App Store guideline 3.1.2(c) requires the following visible on the
+          paywall before purchase: subscription title, length, price (and
+          per-unit price where applicable), and the auto-renew / manage-in-
+          store disclosure. The block below combines them. Hidden if the
+          product hasn't loaded yet (the load-failed branch already showed
+          its own state above).
+        */}
+        {product && !loadFailed && (
+          <div className="pt-3 mt-1 border-t border-border/50 space-y-1.5 text-[10px] sm:text-xs text-muted-foreground max-w-md mx-auto text-left">
+            <p className="font-semibold text-foreground text-center">
+              {t("subscription.disclosureTitle")}
+            </p>
+            <p className="text-center">
+              {(() => {
+                const monthly = formatMonthlyEquivalent(product, i18n.language);
+                return monthly
+                  ? t("subscription.priceWithMonthly", {
+                      yearlyPrice: product.priceFormatted,
+                      monthlyEquivalent: monthly,
+                    })
+                  : t("subscription.priceYearly", { yearlyPrice: product.priceFormatted });
+              })()}
+            </p>
+            <p className="text-center">{t("subscription.disclosureLength")}</p>
+            <p>
+              {t(isIOS ? "subscription.renewalApple" : "subscription.renewalGoogle")}
+            </p>
+          </div>
+        )}
 
         {/*
           App Store guideline 3.1.2 requires Privacy + Terms links visible

@@ -1584,7 +1584,12 @@
     "googlePlay": "Google Play",
     "iapUnavailable": "In-app-aankopen zijn momenteel niet beschikbaar",
     "iapUnavailableDesc": "We konden de store niet bereiken. Controleer je verbinding en probeer het opnieuw.",
-    "tryAgain": "Opnieuw proberen"
+    "tryAgain": "Opnieuw proberen",
+    "disclosureTitle": "OwnJournal Plus — Jaarabonnement",
+    "disclosureLength": "Jaarabonnement met automatische verlenging.",
+    "priceWithMonthly": "{{yearlyPrice}}/jaar (ongeveer {{monthlyEquivalent}}/maand)",
+    "renewalApple": "De betaling wordt bij aankoopbevestiging van je Apple ID afgeschreven. Je abonnement wordt automatisch verlengd tegen dezelfde prijs, tenzij automatische verlenging ten minste 24 uur vóór het einde van de huidige periode wordt uitgeschakeld. Je kunt je abonnement na aankoop beheren en opzeggen via je App Store-accountinstellingen.",
+    "renewalGoogle": "De betaling wordt bij aankoopbevestiging van je Google Play-account afgeschreven. Je abonnement wordt automatisch verlengd tegen dezelfde prijs, tenzij het ten minste 24 uur vóór het einde van de huidige periode wordt opgezegd in je Google Play-abonnementen."
   },
   "calendar": {
     "clear": "Wissen",
