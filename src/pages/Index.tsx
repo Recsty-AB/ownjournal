@@ -42,7 +42,7 @@ import { SyncProgressBar } from "@/components/sync/SyncProgressBar";
 import { translateCloudError } from "@/utils/translateCloudError";
 import { isNextcloudEncryptionError } from "@/utils/cloudErrorCodes";
 import { isInAppBrowser, getInAppBrowserName } from "@/utils/inAppBrowserDetection";
-import { getCachedSubscription, setCachedSubscription } from "@/utils/subscriptionCache";
+import { getCachedSubscription, setCachedSubscription, isEntitlementActive } from "@/utils/subscriptionCache";
 import { setSigningOut } from "@/utils/signOutState";
 
 /** Sort entries by entry date (newest first), then createdAt, then id. Used for consistent list order. */
@@ -861,14 +861,20 @@ const Index = () => {
         .single();
 
       if (error) throw error;
-      const isPro = data?.is_pro || false;
+      // Derive effective Plus from (is_pro, current_period_end). A stale
+      // is_pro=true row whose period has already ended (e.g. a missed
+      // EXPIRATION webhook) must not grant Plus on the live fetch — see
+      // isEntitlementActive in subscriptionCache.ts. Cache the RAW DB
+      // values so future cache reads can still evaluate against the
+      // original period_end.
+      const isPro = isEntitlementActive(data?.is_pro ?? false, data?.current_period_end);
       setIsPro(isPro);
       setSubscriptionStatus(data?.subscription_status ?? null);
       setSubscriptionProvider(data?.provider ?? null);
       setHasUsedTrial(data?.has_used_trial ?? false);
       setCurrentPeriodEnd(data?.current_period_end ?? null);
       setCachedSubscription(user.id, {
-        is_pro: isPro,
+        is_pro: data?.is_pro ?? false,
         current_period_end: data?.current_period_end ?? null,
         subscription_status: data?.subscription_status ?? null,
         has_used_trial: data?.has_used_trial ?? false,

@@ -21,9 +21,33 @@ function cacheKey(userId: string): string {
 }
 
 /**
+ * Derive effective entitlement from `(is_pro, current_period_end)`.
+ *
+ * Both the cache (offline read) and the live Supabase fetch use this so a
+ * stale `is_pro=true` row whose period has already ended doesn't grant Plus.
+ * Without this, missed RevenueCat/Stripe webhooks leave clients (and the
+ * `ai-analyze` server gate) believing an expired user is still Pro.
+ *
+ * `null` end is treated as open-ended (lifetime/manual). Unparseable date
+ * does NOT downgrade — we'd rather over-grant on bad data than yank Plus
+ * from a paying user because of a serialization quirk.
+ */
+export function isEntitlementActive(
+  isPro: boolean,
+  currentPeriodEnd: string | null | undefined,
+): boolean {
+  if (!isPro) return false;
+  if (!currentPeriodEnd) return true;
+  const end = new Date(currentPeriodEnd).getTime();
+  if (Number.isNaN(end)) return true;
+  return Date.now() <= end;
+}
+
+/**
  * Get cached subscription for a user, if present and valid.
  * Cache is valid indefinitely for "use last known state when offline";
- * if current_period_end is set and in the past, returns null.
+ * if current_period_end is set and in the past, is_pro is downgraded to
+ * false on read (other fields preserved so has_used_trial stays accurate).
  */
 export function getCachedSubscription(userId: string): CachedSubscription | null {
   try {
@@ -31,15 +55,8 @@ export function getCachedSubscription(userId: string): CachedSubscription | null
     if (!raw) return null;
     const cached = JSON.parse(raw) as CachedSubscription;
     if (typeof cached?.is_pro !== 'boolean' || typeof cached?.fetched_at !== 'number') return null;
-    if (cached.current_period_end) {
-      const end = new Date(cached.current_period_end).getTime();
-      if (Number.isNaN(end) || Date.now() > end) {
-        // Subscription expired — revoke is_pro but preserve other fields
-        // so has_used_trial remains accurate while offline
-        return { ...cached, is_pro: false };
-      }
-    }
-    return cached;
+    const active = isEntitlementActive(cached.is_pro, cached.current_period_end);
+    return active ? cached : { ...cached, is_pro: false };
   } catch {
     return null;
   }
