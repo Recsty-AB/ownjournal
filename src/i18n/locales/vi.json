@@ -1587,7 +1587,12 @@
     "googlePlay": "Google Play",
     "iapUnavailable": "Mua hàng trong ứng dụng hiện không khả dụng",
     "iapUnavailableDesc": "Chúng tôi không thể kết nối tới cửa hàng. Vui lòng kiểm tra kết nối và thử lại.",
-    "tryAgain": "Thử lại"
+    "tryAgain": "Thử lại",
+    "disclosureTitle": "OwnJournal Plus — Đăng ký hằng năm",
+    "disclosureLength": "Đăng ký hằng năm tự động gia hạn.",
+    "priceWithMonthly": "{{yearlyPrice}}/năm (khoảng {{monthlyEquivalent}}/tháng)",
+    "renewalApple": "Thanh toán sẽ được tính vào Apple ID của bạn khi xác nhận mua. Gói đăng ký của bạn tự động gia hạn với cùng mức giá trừ khi tự động gia hạn được tắt ít nhất 24 giờ trước khi kết thúc kỳ hiện tại. Bạn có thể quản lý và hủy đăng ký trong cài đặt tài khoản App Store sau khi mua.",
+    "renewalGoogle": "Thanh toán sẽ được tính vào tài khoản Google Play của bạn khi xác nhận mua. Gói đăng ký của bạn tự động gia hạn với cùng mức giá trừ khi bị hủy trong gói đăng ký Google Play của bạn ít nhất 24 giờ trước khi kết thúc kỳ hiện tại."
   },
   "calendar": {
     "clear": "Xóa",

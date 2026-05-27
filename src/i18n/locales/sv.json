@@ -1584,7 +1584,12 @@
     "googlePlay": "Google Play",
     "iapUnavailable": "Köp i appen är inte tillgängliga just nu",
     "iapUnavailableDesc": "Vi kunde inte nå butiken. Kontrollera din anslutning och försök igen.",
-    "tryAgain": "Försök igen"
+    "tryAgain": "Försök igen",
+    "disclosureTitle": "OwnJournal Plus — Årsprenumeration",
+    "disclosureLength": "Årsprenumeration som förnyas automatiskt.",
+    "priceWithMonthly": "{{yearlyPrice}}/år (ca {{monthlyEquivalent}}/månad)",
+    "renewalApple": "Betalningen dras från ditt Apple-ID vid köpbekräftelse. Prenumerationen förnyas automatiskt till samma pris om automatisk förnyelse inte stängs av senast 24 timmar före slutet av den aktuella perioden. Du kan hantera och säga upp din prenumeration i App Store-kontoinställningarna efter köpet.",
+    "renewalGoogle": "Betalningen dras från ditt Google Play-konto vid köpbekräftelse. Prenumerationen förnyas automatiskt till samma pris om den inte sägs upp i dina Google Play-prenumerationer senast 24 timmar före slutet av den aktuella perioden."
   },
   "calendar": {
     "clear": "Rensa",

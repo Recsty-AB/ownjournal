@@ -1584,7 +1584,12 @@
     "googlePlay": "Google Play",
     "iapUnavailable": "Sovelluksen sisäiset ostot eivät ole juuri nyt käytettävissä",
     "iapUnavailableDesc": "Kauppaan ei saatu yhteyttä. Tarkista verkkoyhteytesi ja yritä uudelleen.",
-    "tryAgain": "Yritä uudelleen"
+    "tryAgain": "Yritä uudelleen",
+    "disclosureTitle": "OwnJournal Plus — Vuositilaus",
+    "disclosureLength": "Vuoden mittainen automaattisesti uusiutuva tilaus.",
+    "priceWithMonthly": "{{yearlyPrice}}/vuosi (noin {{monthlyEquivalent}}/kk)",
+    "renewalApple": "Maksu veloitetaan Apple-tunnukseltasi oston vahvistuksen yhteydessä. Tilauksesi uusiutuu automaattisesti samalla hinnalla, ellei automaattista uusiutumista poisteta käytöstä vähintään 24 tuntia ennen kuluvan jakson päättymistä. Voit hallita ja peruuttaa tilauksesi App Storen tilisi asetuksissa oston jälkeen.",
+    "renewalGoogle": "Maksu veloitetaan Google Play -tililtäsi oston vahvistuksen yhteydessä. Tilauksesi uusiutuu automaattisesti samalla hinnalla, ellei sitä peruuteta Google Play -tilauksissasi vähintään 24 tuntia ennen kuluvan jakson päättymistä."
   },
   "calendar": {
     "clear": "Tyhjennä",

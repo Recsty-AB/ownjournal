@@ -1587,7 +1587,12 @@
     "googlePlay": "Google Play",
     "iapUnavailable": "Pembelian dalam aplikasi sedang tidak tersedia",
     "iapUnavailableDesc": "Kami tidak dapat menghubungi toko. Periksa koneksi Anda dan coba lagi.",
-    "tryAgain": "Coba lagi"
+    "tryAgain": "Coba lagi",
+    "disclosureTitle": "OwnJournal Plus — Langganan Tahunan",
+    "disclosureLength": "Langganan tahunan dengan perpanjangan otomatis.",
+    "priceWithMonthly": "{{yearlyPrice}}/tahun (sekitar {{monthlyEquivalent}}/bulan)",
+    "renewalApple": "Pembayaran akan dibebankan ke Apple ID Anda saat konfirmasi pembelian. Langganan diperpanjang otomatis dengan harga yang sama kecuali perpanjangan otomatis dimatikan setidaknya 24 jam sebelum akhir periode saat ini. Anda dapat mengelola dan membatalkan langganan di pengaturan akun App Store Anda setelah pembelian.",
+    "renewalGoogle": "Pembayaran akan dibebankan ke akun Google Play Anda saat konfirmasi pembelian. Langganan diperpanjang otomatis dengan harga yang sama kecuali dibatalkan di langganan Google Play Anda setidaknya 24 jam sebelum akhir periode saat ini."
   },
   "calendar": {
     "clear": "Hapus",
