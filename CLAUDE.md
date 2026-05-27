@@ -128,6 +128,20 @@ On Capacitor (iOS/Android) builds, all purchase CTAs must be gated by `canShowPu
 ### Commit messages
 Do not append `Co-Authored-By: Claude …` (or any other AI-tool signature) to commit messages. Plain commit message only.
 
+### Supabase migrations: explicit GRANTs on new public tables
+Supabase is changing the default so `public` schema tables are NOT exposed to the Data API (PostgREST / supabase-js) without an explicit `GRANT`. New projects: enforced 2026-05-30. Existing projects (us): enforced on **new** tables 2026-10-30. Existing tables keep working.
+
+When a migration adds a new table in `public`, include the grants in the same migration:
+```sql
+CREATE TABLE public.foo (...);
+ALTER TABLE public.foo ENABLE ROW LEVEL SECURITY;
+-- pick the roles you actually need; almost always just `authenticated`
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.foo TO authenticated;
+-- only if anonymous read is genuinely required (rare here):
+-- GRANT SELECT ON public.foo TO anon;
+```
+RLS is still the security boundary; the GRANT only controls whether PostgREST exposes the table at all. Without the GRANT, the table will exist but supabase-js calls against it will return PGRST errors. This rule does NOT apply to SQL functions / views or to non-`public` schemas.
+
 ## Testing
 
 ### Setup
