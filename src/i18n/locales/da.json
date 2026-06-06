@@ -1589,7 +1589,12 @@
     "disclosureLength": "Årligt abonnement med automatisk fornyelse.",
     "priceWithMonthly": "{{yearlyPrice}}/år (ca. {{monthlyEquivalent}}/måned)",
     "renewalApple": "Betalingen trækkes fra dit Apple-id ved købsbekræftelse. Abonnementet fornyes automatisk til samme pris, medmindre automatisk fornyelse deaktiveres mindst 24 timer før udgangen af den aktuelle periode. Du kan administrere og opsige dit abonnement i indstillingerne for din App Store-konto efter købet.",
-    "renewalGoogle": "Betalingen trækkes fra din Google Play-konto ved købsbekræftelse. Abonnementet fornyes automatisk til samme pris, medmindre det opsiges i dine Google Play-abonnementer mindst 24 timer før udgangen af den aktuelle periode."
+    "renewalGoogle": "Betalingen trækkes fra din Google Play-konto ved købsbekræftelse. Abonnementet fornyes automatisk til samme pris, medmindre det opsiges i dine Google Play-abonnementer mindst 24 timer før udgangen af den aktuelle periode.",
+    "iapOnly": {
+      "title": "Tilgængelig i appen",
+      "description": "I din region er OwnJournal Plus tilgængelig via mobilappen. Hent den i butikken for at abonnere.",
+      "getOnPlay": "Hent den på Google Play"
+    }
   },
   "calendar": {
     "clear": "Ryd",

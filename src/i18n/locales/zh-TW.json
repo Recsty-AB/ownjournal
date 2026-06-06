@@ -1589,7 +1589,12 @@
     "disclosureLength": "1 年期自動續訂訂閱。",
     "priceWithMonthly": "{{yearlyPrice}}/年（約 {{monthlyEquivalent}}/月）",
     "renewalApple": "購買確認時將從你的 Apple ID 扣款。除非在當前期間結束前至少 24 小時關閉自動續訂，否則訂閱將以相同價格自動續訂。購買後，你可以在 App Store 帳戶設定中管理和取消訂閱。",
-    "renewalGoogle": "購買確認時將從你的 Google Play 帳戶扣款。除非在當前期間結束前至少 24 小時在 Google Play 訂閱中取消，否則訂閱將以相同價格自動續訂。"
+    "renewalGoogle": "購買確認時將從你的 Google Play 帳戶扣款。除非在當前期間結束前至少 24 小時在 Google Play 訂閱中取消，否則訂閱將以相同價格自動續訂。",
+    "iapOnly": {
+      "title": "可在應用程式中使用",
+      "description": "在您所在的地區，OwnJournal Plus 可透過行動應用程式使用。請從商店下載以訂閱。",
+      "getOnPlay": "前往 Google Play 下載"
+    }
   },
   "calendar": {
     "clear": "清除",

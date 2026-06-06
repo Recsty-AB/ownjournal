@@ -1589,7 +1589,12 @@
     "disclosureLength": "Vuoden mittainen automaattisesti uusiutuva tilaus.",
     "priceWithMonthly": "{{yearlyPrice}}/vuosi (noin {{monthlyEquivalent}}/kk)",
     "renewalApple": "Maksu veloitetaan Apple-tunnukseltasi oston vahvistuksen yhteydessä. Tilauksesi uusiutuu automaattisesti samalla hinnalla, ellei automaattista uusiutumista poisteta käytöstä vähintään 24 tuntia ennen kuluvan jakson päättymistä. Voit hallita ja peruuttaa tilauksesi App Storen tilisi asetuksissa oston jälkeen.",
-    "renewalGoogle": "Maksu veloitetaan Google Play -tililtäsi oston vahvistuksen yhteydessä. Tilauksesi uusiutuu automaattisesti samalla hinnalla, ellei sitä peruuteta Google Play -tilauksissasi vähintään 24 tuntia ennen kuluvan jakson päättymistä."
+    "renewalGoogle": "Maksu veloitetaan Google Play -tililtäsi oston vahvistuksen yhteydessä. Tilauksesi uusiutuu automaattisesti samalla hinnalla, ellei sitä peruuteta Google Play -tilauksissasi vähintään 24 tuntia ennen kuluvan jakson päättymistä.",
+    "iapOnly": {
+      "title": "Saatavilla sovelluksessa",
+      "description": "Alueellasi OwnJournal Plus on saatavilla mobiilisovelluksen kautta. Lataa se kaupasta tilataksesi.",
+      "getOnPlay": "Hae Google Playstä"
+    }
   },
   "calendar": {
     "clear": "Tyhjennä",

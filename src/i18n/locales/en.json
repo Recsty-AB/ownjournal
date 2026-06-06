@@ -1594,7 +1594,12 @@
     "disclosureLength": "1-year auto-renewing subscription.",
     "priceWithMonthly": "{{yearlyPrice}}/year (about {{monthlyEquivalent}}/month)",
     "renewalApple": "Payment is charged to your Apple ID at confirmation of purchase. Your subscription renews automatically at the same price unless auto-renew is turned off at least 24 hours before the end of the current period. You can manage and cancel your subscription in your App Store account settings after purchase.",
-    "renewalGoogle": "Payment is charged to your Google Play account at confirmation of purchase. Your subscription renews automatically at the same price unless cancelled in your Google Play subscriptions at least 24 hours before the end of the current period."
+    "renewalGoogle": "Payment is charged to your Google Play account at confirmation of purchase. Your subscription renews automatically at the same price unless cancelled in your Google Play subscriptions at least 24 hours before the end of the current period.",
+    "iapOnly": {
+      "title": "Available in the app",
+      "description": "In your region, OwnJournal Plus is available through the mobile app. Get it from the store to subscribe.",
+      "getOnPlay": "Get it on Google Play"
+    }
   },
   "calendar": {
     "clear": "Clear",
