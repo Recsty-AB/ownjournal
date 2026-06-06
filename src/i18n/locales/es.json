@@ -1589,7 +1589,12 @@
     "disclosureLength": "Suscripción anual con renovación automática.",
     "priceWithMonthly": "{{yearlyPrice}}/año (aprox. {{monthlyEquivalent}}/mes)",
     "renewalApple": "El pago se cargará a tu ID de Apple al confirmar la compra. Tu suscripción se renueva automáticamente al mismo precio a menos que desactives la renovación automática al menos 24 horas antes del final del periodo actual. Puedes gestionar y cancelar tu suscripción en los ajustes de tu cuenta de App Store después de la compra.",
-    "renewalGoogle": "El pago se cargará a tu cuenta de Google Play al confirmar la compra. Tu suscripción se renueva automáticamente al mismo precio a menos que la canceles en tus suscripciones de Google Play al menos 24 horas antes del final del periodo actual."
+    "renewalGoogle": "El pago se cargará a tu cuenta de Google Play al confirmar la compra. Tu suscripción se renueva automáticamente al mismo precio a menos que la canceles en tus suscripciones de Google Play al menos 24 horas antes del final del periodo actual.",
+    "iapOnly": {
+      "title": "Disponible en la app",
+      "description": "En tu región, OwnJournal Plus está disponible a través de la app móvil. Descárgala desde la tienda para suscribirte.",
+      "getOnPlay": "Disponible en Google Play"
+    }
   },
   "calendar": {
     "clear": "Limpiar",

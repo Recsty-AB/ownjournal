@@ -1,11 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Crown, Sparkles, Brain, Lightbulb, Tag, TrendingUp, FileText, FileType, Loader2, ExternalLink } from "lucide-react";
+import { Crown, Sparkles, Brain, Lightbulb, Tag, TrendingUp, FileText, FileType, Loader2, ExternalLink, Smartphone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedPricing } from "@/hooks/useLocalizedPricing";
+import { useIapOnlyRegion } from "@/hooks/useIapOnlyRegion";
 import { CurrencyCode } from "@/config/pricing";
 import { canShowStripeCheckout } from "@/utils/platformDetection";
+import { PLAY_STORE_URL } from "@/config/app";
 
 interface SubscriptionBannerProps {
   onUpgrade: (currency: CurrencyCode) => void;
@@ -39,6 +41,11 @@ export const SubscriptionBanner = ({
 }: SubscriptionBannerProps) => {
   const { t } = useTranslation();
   const { currency, yearlyPrice, isDetecting } = useLocalizedPricing();
+  // UK VAT / NETP compliance: users in IAP-only regions (see
+  // @/config/iapOnlyCountries) must not be offered direct Stripe checkout —
+  // route them to the store instead. Self-contained here so every render site
+  // of this banner (Index + SettingsDialog) gets the behaviour.
+  const { isIapOnly, isLoading: isRegionLoading } = useIapOnlyRegion();
 
   const isTrialing = isPro && subscriptionStatus === 'trialing';
 
@@ -107,43 +114,69 @@ export const SubscriptionBanner = ({
           ))}
         </div>
 
-        <div className="space-y-1 sm:space-y-2">
-          {isDetecting ? (
-            <Skeleton className="h-7 sm:h-8 w-24 mx-auto" />
-          ) : showTrialCta ? (
-            <p className="text-xl sm:text-2xl font-bold text-primary">
-              {t('subscription.trialPricing', '14 days free, then {{yearlyPrice}}/year', { yearlyPrice })}
+        {isRegionLoading ? (
+          // Wait for region detection before showing any CTA so a UK user
+          // never sees the Stripe button flash before it's replaced.
+          <Skeleton className="h-16 w-full max-w-xs mx-auto" />
+        ) : isIapOnly ? (
+          // UK VAT / NETP compliance: do NOT offer Stripe checkout here.
+          // Point the user to the app store IAP path instead, where Apple /
+          // Google handle UK VAT. See @/config/iapOnlyCountries.
+          <div className="space-y-2 sm:space-y-3">
+            <p className="text-sm font-semibold text-foreground">
+              {t('subscription.iapOnly.title', 'Available in the app')}
             </p>
-          ) : (
-            <p className="text-xl sm:text-2xl font-bold text-primary">
-              {t('subscription.priceYearly', { yearlyPrice })}
+            <p className="text-xs sm:text-sm text-muted-foreground max-w-md mx-auto">
+              {t('subscription.iapOnly.description', 'In your region, OwnJournal Plus is available through the mobile app. Get it from the store to subscribe.')}
             </p>
-          )}
-        </div>
+            <Button asChild className="w-full sm:w-auto bg-gradient-primary shadow-glow">
+              <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
+                <Smartphone className="w-4 h-4 mr-2" />
+                {t('subscription.iapOnly.getOnPlay', 'Get it on Google Play')}
+              </a>
+            </Button>
+          </div>
+        ) : (
+          <>
+            <div className="space-y-1 sm:space-y-2">
+              {isDetecting ? (
+                <Skeleton className="h-7 sm:h-8 w-24 mx-auto" />
+              ) : showTrialCta ? (
+                <p className="text-xl sm:text-2xl font-bold text-primary">
+                  {t('subscription.trialPricing', '14 days free, then {{yearlyPrice}}/year', { yearlyPrice })}
+                </p>
+              ) : (
+                <p className="text-xl sm:text-2xl font-bold text-primary">
+                  {t('subscription.priceYearly', { yearlyPrice })}
+                </p>
+              )}
+            </div>
 
-        <Button
-          onClick={() => onUpgrade(currency)}
-          disabled={isLoading}
-          className="w-full sm:w-auto bg-gradient-primary shadow-glow"
-        >
-          {isLoading ? (
-            <>
-              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-              {t('subscription.processing')}
-            </>
-          ) : (
-            <>
-              <Crown className="w-4 h-4 mr-2" />
-              {showTrialCta
-                ? t('subscription.trialCta', 'Start Free Trial')
-                : t('subscription.upgradeToPro')}
-            </>
-          )}
-        </Button>
+            <Button
+              onClick={() => onUpgrade(currency)}
+              disabled={isLoading}
+              className="w-full sm:w-auto bg-gradient-primary shadow-glow"
+            >
+              {isLoading ? (
+                <>
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  {t('subscription.processing')}
+                </>
+              ) : (
+                <>
+                  <Crown className="w-4 h-4 mr-2" />
+                  {showTrialCta
+                    ? t('subscription.trialCta', 'Start Free Trial')
+                    : t('subscription.upgradeToPro')}
+                </>
+              )}
+            </Button>
 
-        <p className="text-[10px] sm:text-xs text-muted-foreground">
-          {t('subscription.cancelAnytime')}
-        </p>
+            <p className="text-[10px] sm:text-xs text-muted-foreground">
+              {t('subscription.cancelAnytime')}
+            </p>
+          </>
+        )}
       </div>
     </Card>
   );

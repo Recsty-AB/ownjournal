@@ -1592,7 +1592,12 @@
     "disclosureLength": "Langganan tahunan dengan perpanjangan otomatis.",
     "priceWithMonthly": "{{yearlyPrice}}/tahun (sekitar {{monthlyEquivalent}}/bulan)",
     "renewalApple": "Pembayaran akan dibebankan ke Apple ID Anda saat konfirmasi pembelian. Langganan diperpanjang otomatis dengan harga yang sama kecuali perpanjangan otomatis dimatikan setidaknya 24 jam sebelum akhir periode saat ini. Anda dapat mengelola dan membatalkan langganan di pengaturan akun App Store Anda setelah pembelian.",
-    "renewalGoogle": "Pembayaran akan dibebankan ke akun Google Play Anda saat konfirmasi pembelian. Langganan diperpanjang otomatis dengan harga yang sama kecuali dibatalkan di langganan Google Play Anda setidaknya 24 jam sebelum akhir periode saat ini."
+    "renewalGoogle": "Pembayaran akan dibebankan ke akun Google Play Anda saat konfirmasi pembelian. Langganan diperpanjang otomatis dengan harga yang sama kecuali dibatalkan di langganan Google Play Anda setidaknya 24 jam sebelum akhir periode saat ini.",
+    "iapOnly": {
+      "title": "Tersedia di aplikasi",
+      "description": "Di wilayah Anda, OwnJournal Plus tersedia melalui aplikasi seluler. Dapatkan dari toko untuk berlangganan.",
+      "getOnPlay": "Dapatkan di Google Play"
+    }
   },
   "calendar": {
     "clear": "Hapus",

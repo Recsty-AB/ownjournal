@@ -1592,7 +1592,12 @@
     "disclosureLength": "1年間の自動更新サブスクリプション。",
     "priceWithMonthly": "{{yearlyPrice}}/年（月額換算 約{{monthlyEquivalent}}）",
     "renewalApple": "購入確定時にApple IDから代金が請求されます。現在の期間終了の少なくとも24時間前までに自動更新をオフにしない限り、サブスクリプションは同じ価格で自動的に更新されます。購入後、App Storeのアカウント設定からサブスクリプションを管理・解約できます。",
-    "renewalGoogle": "購入確定時にGoogle Playアカウントから代金が請求されます。現在の期間終了の少なくとも24時間前までにGoogle Playのサブスクリプションで解約しない限り、同じ価格で自動的に更新されます。"
+    "renewalGoogle": "購入確定時にGoogle Playアカウントから代金が請求されます。現在の期間終了の少なくとも24時間前までにGoogle Playのサブスクリプションで解約しない限り、同じ価格で自動的に更新されます。",
+    "iapOnly": {
+      "title": "アプリで利用可能",
+      "description": "お住まいの地域では、OwnJournal Plus はモバイルアプリからご利用いただけます。ストアから入手して登録してください。",
+      "getOnPlay": "Google Play で手に入れよう"
+    }
   },
   "calendar": {
     "clear": "クリア",

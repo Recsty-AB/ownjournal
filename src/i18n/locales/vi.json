@@ -1592,7 +1592,12 @@
     "disclosureLength": "Đăng ký hằng năm tự động gia hạn.",
     "priceWithMonthly": "{{yearlyPrice}}/năm (khoảng {{monthlyEquivalent}}/tháng)",
     "renewalApple": "Thanh toán sẽ được tính vào Apple ID của bạn khi xác nhận mua. Gói đăng ký của bạn tự động gia hạn với cùng mức giá trừ khi tự động gia hạn được tắt ít nhất 24 giờ trước khi kết thúc kỳ hiện tại. Bạn có thể quản lý và hủy đăng ký trong cài đặt tài khoản App Store sau khi mua.",
-    "renewalGoogle": "Thanh toán sẽ được tính vào tài khoản Google Play của bạn khi xác nhận mua. Gói đăng ký của bạn tự động gia hạn với cùng mức giá trừ khi bị hủy trong gói đăng ký Google Play của bạn ít nhất 24 giờ trước khi kết thúc kỳ hiện tại."
+    "renewalGoogle": "Thanh toán sẽ được tính vào tài khoản Google Play của bạn khi xác nhận mua. Gói đăng ký của bạn tự động gia hạn với cùng mức giá trừ khi bị hủy trong gói đăng ký Google Play của bạn ít nhất 24 giờ trước khi kết thúc kỳ hiện tại.",
+    "iapOnly": {
+      "title": "Có sẵn trong ứng dụng",
+      "description": "Tại khu vực của bạn, OwnJournal Plus có sẵn thông qua ứng dụng di động. Tải xuống từ cửa hàng để đăng ký.",
+      "getOnPlay": "Tải trên Google Play"
+    }
   },
   "calendar": {
     "clear": "Xóa",

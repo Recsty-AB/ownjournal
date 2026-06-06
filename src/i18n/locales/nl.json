@@ -1589,7 +1589,12 @@
     "disclosureLength": "Jaarabonnement met automatische verlenging.",
     "priceWithMonthly": "{{yearlyPrice}}/jaar (ongeveer {{monthlyEquivalent}}/maand)",
     "renewalApple": "De betaling wordt bij aankoopbevestiging van je Apple ID afgeschreven. Je abonnement wordt automatisch verlengd tegen dezelfde prijs, tenzij automatische verlenging ten minste 24 uur vóór het einde van de huidige periode wordt uitgeschakeld. Je kunt je abonnement na aankoop beheren en opzeggen via je App Store-accountinstellingen.",
-    "renewalGoogle": "De betaling wordt bij aankoopbevestiging van je Google Play-account afgeschreven. Je abonnement wordt automatisch verlengd tegen dezelfde prijs, tenzij het ten minste 24 uur vóór het einde van de huidige periode wordt opgezegd in je Google Play-abonnementen."
+    "renewalGoogle": "De betaling wordt bij aankoopbevestiging van je Google Play-account afgeschreven. Je abonnement wordt automatisch verlengd tegen dezelfde prijs, tenzij het ten minste 24 uur vóór het einde van de huidige periode wordt opgezegd in je Google Play-abonnementen.",
+    "iapOnly": {
+      "title": "Beschikbaar in de app",
+      "description": "In jouw regio is OwnJournal Plus beschikbaar via de mobiele app. Download deze in de store om je te abonneren.",
+      "getOnPlay": "Ontdek het op Google Play"
+    }
   },
   "calendar": {
     "clear": "Wissen",

@@ -1589,7 +1589,12 @@
     "disclosureLength": "1-jähriges automatisch verlängertes Abonnement.",
     "priceWithMonthly": "{{yearlyPrice}}/Jahr (ca. {{monthlyEquivalent}}/Monat)",
     "renewalApple": "Die Zahlung wird bei Kaufbestätigung von deiner Apple-ID abgebucht. Dein Abonnement verlängert sich automatisch zum gleichen Preis, sofern die automatische Verlängerung nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums deaktiviert wird. Du kannst dein Abonnement nach dem Kauf in deinen App Store-Kontoeinstellungen verwalten und kündigen.",
-    "renewalGoogle": "Die Zahlung wird bei Kaufbestätigung von deinem Google Play-Konto abgebucht. Dein Abonnement verlängert sich automatisch zum gleichen Preis, sofern es nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums in deinen Google Play-Abonnements gekündigt wird."
+    "renewalGoogle": "Die Zahlung wird bei Kaufbestätigung von deinem Google Play-Konto abgebucht. Dein Abonnement verlängert sich automatisch zum gleichen Preis, sofern es nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums in deinen Google Play-Abonnements gekündigt wird.",
+    "iapOnly": {
+      "title": "In der App verfügbar",
+      "description": "In deiner Region ist OwnJournal Plus über die mobile App verfügbar. Lade sie im Store herunter, um zu abonnieren.",
+      "getOnPlay": "Bei Google Play herunterladen"
+    }
   },
   "calendar": {
     "clear": "Löschen",

@@ -28,6 +28,8 @@ import { buildAppLink } from "@/config/app";
 import { aiCacheService } from "@/services/aiCacheService";
 import { connectionStateManager } from "@/services/connectionStateManager";
 import { iapService, type IAPEntitlement } from "@/services/iapService";
+import { isIapOnlyCountry } from "@/config/iapOnlyCountries";
+import { getCachedCountry } from "@/utils/userCountry";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { ToastAction } from "@/components/ui/toast";
@@ -2514,6 +2516,14 @@ const Index = () => {
     // NativePaywall instead. UI already hides Stripe CTAs on native, but
     // guard the handler itself so a stale ref can't reach Stripe.
     if (!canShowStripeCheckout()) {
+      return;
+    }
+
+    // UK VAT / NETP compliance: never start Stripe checkout for a user in an
+    // IAP-only region (see @/config/iapOnlyCountries). The UI already swaps
+    // the CTA for a store link, and create-checkout rejects these server-side
+    // — this just avoids a doomed round-trip if a stale ref reaches here.
+    if (isIapOnlyCountry(getCachedCountry())) {
       return;
     }
 

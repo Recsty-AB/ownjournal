@@ -1,6 +1,8 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 import Stripe from "https://esm.sh/stripe@14.21.0?target=deno";
+import { getRequestCountry } from "../_shared/geo.ts";
+import { isIapOnlyCountry } from "../_shared/iapOnlyCountries.ts";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -127,6 +129,10 @@ serve(async (req) => {
       .maybeSingle();
 
     let stripeCustomerId = subscription?.stripe_customer_id;
+    // Billing-address country of the resolved Stripe customer, if any. Used
+    // by the UK VAT / NETP compliance guard below alongside the request IP
+    // country. Stays null for brand-new customers (no address on file yet).
+    let billingCountry: string | null = null;
 
     // Validate existing customer ID or create new one
     if (stripeCustomerId) {
@@ -138,6 +144,7 @@ serve(async (req) => {
           console.log('Stored customer was deleted in Stripe, will create new customer');
           stripeCustomerId = null;
         } else {
+          billingCountry = customer.address?.country ?? null;
           console.log('Verified existing Stripe customer:', stripeCustomerId);
         }
       } catch (customerError: any) {
@@ -167,6 +174,7 @@ serve(async (req) => {
 
       if (owned) {
         stripeCustomerId = owned.id;
+        billingCountry = owned.address?.country ?? null;
         console.log('Adopted existing Stripe customer (metadata match):', stripeCustomerId);
       } else {
         const customer = await stripe.customers.create({
@@ -184,6 +192,29 @@ serve(async (req) => {
         .from('subscriptions')
         .update({ stripe_customer_id: stripeCustomerId })
         .eq('user_id', userId);
+    }
+
+    // UK VAT / NETP (non-established taxable person) compliance guard.
+    // Recsty AB is Swedish and not established in the jurisdictions in
+    // IAP_ONLY_COUNTRIES, which apply a zero VAT-registration threshold on
+    // B2C digital sales — so even one direct Stripe sale there creates a VAT
+    // obligation. Apple/Google remit that VAT on IAP, so such users must go
+    // through the App Store / Play Store instead. This is the server-side
+    // backstop: a client-only check is bypassable, so we refuse to create the
+    // Checkout Session here. We treat the user as IAP-only if EITHER the
+    // request IP country OR the Stripe billing-address country is listed
+    // (where the consumer is, not where the card is).
+    const ipCountry = await getRequestCountry(req);
+    if (isIapOnlyCountry(ipCountry) || isIapOnlyCountry(billingCountry)) {
+      const blockedCountry = isIapOnlyCountry(ipCountry) ? ipCountry : billingCountry;
+      console.log('Blocked Stripe checkout for IAP-only country:', blockedCountry, '(user:', userId, ')');
+      return new Response(
+        JSON.stringify({ error: 'iap_only_region', country: blockedCountry }),
+        {
+          status: 403,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     }
 
     // Check if the customer already has an active or trialing subscription in Stripe
