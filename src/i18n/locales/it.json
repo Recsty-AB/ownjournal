@@ -1573,6 +1573,8 @@
     "portalReturnDesc": "Le impostazioni del tuo abbonamento sono state aggiornate.",
     "purchasePending": "Acquisto in sospeso",
     "purchaseFailed": "Acquisto non riuscito",
+    "purchasePendingDesc": "Il tuo acquisto è in attesa di approvazione. Attiveremo Plus non appena sarà confermato.",
+    "purchaseFailedDesc": "Si è verificato un problema e non ti è stato addebitato nulla. Riprova.",
     "restoreSuccess": "Acquisti ripristinati",
     "restoreNothing": "Nessun acquisto da ripristinare",
     "restoreFailed": "Ripristino non riuscito",

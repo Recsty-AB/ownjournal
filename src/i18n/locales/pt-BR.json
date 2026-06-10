@@ -1573,6 +1573,8 @@
     "portalReturnDesc": "Suas configurações de assinatura foram atualizadas.",
     "purchasePending": "Compra pendente",
     "purchaseFailed": "Falha na compra",
+    "purchasePendingDesc": "Sua compra está aguardando aprovação. Vamos liberar o Plus assim que for confirmada.",
+    "purchaseFailedDesc": "Algo deu errado e nenhuma cobrança foi feita. Tente novamente.",
     "restoreSuccess": "Compras restauradas",
     "restoreNothing": "Nenhuma compra para restaurar",
     "restoreFailed": "Falha ao restaurar",

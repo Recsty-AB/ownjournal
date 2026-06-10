@@ -1573,6 +1573,8 @@
     "portalReturnDesc": "您的訂閱設定已更新。",
     "purchasePending": "購買處理中",
     "purchaseFailed": "購買失敗",
+    "purchasePendingDesc": "您的購買正在等待核准。一經確認，我們會立即解鎖 Plus。",
+    "purchaseFailedDesc": "發生錯誤，且尚未向您收費。請再試一次。",
     "restoreSuccess": "已恢復購買",
     "restoreNothing": "沒有可恢復的購買",
     "restoreFailed": "恢復失敗",

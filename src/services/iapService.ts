@@ -46,6 +46,9 @@ export type IAPErrorCode =
   | 'NETWORK'
   | 'PRODUCT_UNAVAILABLE'
   | 'PURCHASE_INVALID'
+  | 'PAYMENT_PENDING'
+  | 'STORE_PROBLEM'
+  | 'NOT_ALLOWED'
   | 'INELIGIBLE'
   | 'UNKNOWN';
 
@@ -177,23 +180,35 @@ function deriveEntitlement(customerInfo: unknown): IAPEntitlement {
   };
 }
 
-function findPlusPackage(offerings: unknown): {
-  pkg: unknown;
-  product: { identifier: string; priceString: string; price: number; currencyCode: string;
-    introPrice?: { periodNumberOfUnits: number; periodUnit: string } | null } | null;
-} | null {
-  const o = offerings as {
-    current?: { availablePackages?: Array<{
-      identifier: string;
-      product?: { identifier: string; priceString: string; price: number; currencyCode: string;
-        introPrice?: { periodNumberOfUnits: number; periodUnit: string } | null };
-    }> };
-  } | undefined;
-  const pkgs = o?.current?.availablePackages ?? [];
-  // Prefer the package matching our product ID; fall back to the first annual package.
+type RCProduct = {
+  identifier: string; priceString: string; price: number; currencyCode: string;
+  introPrice?: { periodNumberOfUnits: number; periodUnit: string } | null;
+};
+type RCPackage = { identifier: string; product?: RCProduct };
+type RCOffering = { availablePackages?: RCPackage[] };
+
+function findPlusPackage(offerings: unknown): { pkg: unknown; product: RCProduct | null } | null {
+  const o = offerings as { current?: RCOffering | null; all?: Record<string, RCOffering> } | undefined;
   const wantedId = platformProductId();
-  const exact = pkgs.find((p) => p.product?.identifier === wantedId);
-  const candidate = exact ?? pkgs.find((p) => /\$rc_annual|annual|yearly/i.test(p.identifier));
+
+  const pick = (off?: RCOffering | null): RCPackage | null => {
+    const pkgs = off?.availablePackages ?? [];
+    // Prefer the package matching our product ID; fall back to the first annual package.
+    const exact = pkgs.find((p) => p.product?.identifier === wantedId);
+    return exact ?? pkgs.find((p) => /\$rc_annual|annual|yearly/i.test(p.identifier)) ?? null;
+  };
+
+  // Prefer the current offering, then fall back to ANY configured offering that
+  // contains our product. This survives a common RevenueCat misconfiguration
+  // where no offering is marked "current" (offerings.current === null) — which
+  // would otherwise leave the paywall empty and surface as a purchase error.
+  let candidate = pick(o?.current);
+  if (!candidate && o?.all) {
+    for (const off of Object.values(o.all)) {
+      candidate = pick(off);
+      if (candidate) break;
+    }
+  }
   if (!candidate) return null;
   return { pkg: candidate, product: candidate.product ?? null };
 }
@@ -209,6 +224,31 @@ function introOfferToDays(intro: { periodNumberOfUnits: number; periodUnit: stri
     case 'YEAR': return { kind: 'free_trial', periodDays: n * 365 };
     default: return null;
   }
+}
+
+/**
+ * Maps a native purchase failure (RevenueCat / StoreKit / Play Billing) to an
+ * IAPError with a stable code the UI can branch on. The store error shape
+ * varies by platform and SDK version, so we inspect both the numeric/string
+ * `code` and the message text. `userCancelled` is the one reliably-typed
+ * signal and is checked first. PAYMENT_PENDING (deferred / Ask-to-Buy /
+ * sandbox approval) must NOT be surfaced as a failure — the purchase may still
+ * complete, so the paywall shows a "pending" state instead of a red error.
+ */
+function mapPurchaseError(err: unknown): IAPError {
+  const e = err as { code?: string | number; userCancelled?: boolean; message?: string };
+  const message = e?.message || 'Purchase failed';
+  if (e?.userCancelled) return new IAPError('USER_CANCELLED', message, err);
+
+  const haystack = `${e?.code ?? ''} ${message}`.toUpperCase();
+  if (haystack.includes('CANCEL')) return new IAPError('USER_CANCELLED', message, err);
+  if (haystack.includes('PENDING') || haystack.includes('DEFERRED')) return new IAPError('PAYMENT_PENDING', message, err);
+  if (haystack.includes('NETWORK') || haystack.includes('OFFLINE')) return new IAPError('NETWORK', message, err);
+  if (haystack.includes('NOT_ALLOWED') || haystack.includes('NOTALLOWED')) return new IAPError('NOT_ALLOWED', message, err);
+  if (haystack.includes('STORE_PROBLEM') || haystack.includes('STOREPROBLEM')) return new IAPError('STORE_PROBLEM', message, err);
+  if (haystack.includes('PRODUCT') || haystack.includes('NOT_AVAILABLE')) return new IAPError('PRODUCT_UNAVAILABLE', message, err);
+  if (haystack.includes('INVALID') || haystack.includes('RECEIPT')) return new IAPError('PURCHASE_INVALID', message, err);
+  return new IAPError('UNKNOWN', message, err);
 }
 
 export const iapService = {
@@ -266,9 +306,7 @@ export const iapService = {
       const result = await Purchases.purchasePackage({ aPackage: found.pkg as never });
       return deriveEntitlement(result.customerInfo);
     } catch (err) {
-      const e = err as { code?: string; userCancelled?: boolean; message?: string };
-      if (e.userCancelled) throw new IAPError('USER_CANCELLED', 'User cancelled purchase', err);
-      throw new IAPError('UNKNOWN', e.message ?? 'Purchase failed', err);
+      throw mapPurchaseError(err);
     }
   },
 

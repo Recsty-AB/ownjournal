@@ -1573,6 +1573,8 @@
     "portalReturnDesc": "Vos paramètres d'abonnement ont été mis à jour.",
     "purchasePending": "Achat en attente",
     "purchaseFailed": "Échec de l'achat",
+    "purchasePendingDesc": "Votre achat est en attente d'approbation. Nous activerons Plus dès qu'il sera confirmé.",
+    "purchaseFailedDesc": "Une erreur s'est produite et vous n'avez pas été débité. Veuillez réessayer.",
     "restoreSuccess": "Achats restaurés",
     "restoreNothing": "Aucun achat à restaurer",
     "restoreFailed": "Échec de la restauration",

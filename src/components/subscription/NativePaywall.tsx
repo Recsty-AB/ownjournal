@@ -114,6 +114,12 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
 
   const handleRetry = () => setReloadKey((k) => k + 1);
 
+  const showPending = () =>
+    toast({
+      title: t("subscription.purchasePending", "Purchase pending"),
+      description: t("subscription.purchasePendingDesc"),
+    });
+
   const handlePurchase = async () => {
     setIsPurchasing(true);
     try {
@@ -125,20 +131,28 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
         });
         onPurchased?.(ent);
       } else {
-        toast({
-          title: t("subscription.purchasePending", "Purchase pending"),
-          description: t("subscription.purchasePending"),
-        });
+        // Resolved without an active entitlement — typically a deferred /
+        // awaiting-approval purchase. Treat as pending, not a failure.
+        showPending();
       }
     } catch (err) {
-      if (err instanceof IAPError && err.code === "USER_CANCELLED") {
-        // No toast — user explicitly cancelled.
-        return;
+      if (err instanceof IAPError) {
+        // User explicitly dismissed the sheet — no toast at all.
+        if (err.code === "USER_CANCELLED") return;
+        // Deferred / Ask-to-Buy / sandbox approval — the purchase may still
+        // complete, so this is a pending state, not an error.
+        if (err.code === "PAYMENT_PENDING") {
+          showPending();
+          return;
+        }
       }
+      if (import.meta.env.DEV) console.warn("IAP purchase failed:", err);
+      // Show a friendly, localized message rather than the raw store error
+      // string (App Store 2.1(b): a cryptic error is a poor user experience).
       toast({
         variant: "destructive",
         title: t("subscription.purchaseFailed", "Purchase failed"),
-        description: err instanceof Error ? err.message : String(err),
+        description: t("subscription.purchaseFailedDesc"),
       });
     } finally {
       setIsPurchasing(false);
@@ -275,15 +289,16 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
           App Store guideline 3.1.2(c) requires the following visible on the
           paywall before purchase: subscription title, length, price (and
           per-unit price where applicable), and the auto-renew / manage-in-
-          store disclosure. The block below combines them. Hidden if the
-          product hasn't loaded yet (the load-failed branch already showed
-          its own state above).
+          store disclosure. The static parts (title, length, renewal terms)
+          always render — even if the live store price can't be fetched — so
+          the required disclosure is never missing. The price line is shown
+          once the product has loaded (it reflects the exact store price).
         */}
-        {product && !loadFailed && (
-          <div className="pt-3 mt-1 border-t border-border/50 space-y-1.5 text-[10px] sm:text-xs text-muted-foreground max-w-md mx-auto text-left">
-            <p className="font-semibold text-foreground text-center">
-              {t("subscription.disclosureTitle")}
-            </p>
+        <div className="pt-3 mt-1 border-t border-border/50 space-y-1.5 text-[10px] sm:text-xs text-muted-foreground max-w-md mx-auto text-left">
+          <p className="font-semibold text-foreground text-center">
+            {t("subscription.disclosureTitle")}
+          </p>
+          {product && (
             <p className="text-center">
               {(() => {
                 const monthly = formatMonthlyEquivalent(product, i18n.language);
@@ -295,12 +310,12 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
                   : t("subscription.priceYearly", { yearlyPrice: product.priceFormatted });
               })()}
             </p>
-            <p className="text-center">{t("subscription.disclosureLength")}</p>
-            <p>
-              {t(isIOS ? "subscription.renewalApple" : "subscription.renewalGoogle")}
-            </p>
-          </div>
-        )}
+          )}
+          <p className="text-center">{t("subscription.disclosureLength")}</p>
+          <p>
+            {t(isIOS ? "subscription.renewalApple" : "subscription.renewalGoogle")}
+          </p>
+        </div>
 
         {/*
           App Store guideline 3.1.2 requires Privacy + Terms links visible

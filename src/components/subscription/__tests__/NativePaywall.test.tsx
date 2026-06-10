@@ -168,6 +168,44 @@ describe('NativePaywall', () => {
     })));
   });
 
+  it('does NOT leak the raw store error string into the failure toast', async () => {
+    iapMocks.purchase.mockRejectedValue(new MockIAPError('UNKNOWN', 'StoreKit error 0x1234 receipt invalid'));
+    renderPaywall();
+    await waitFor(() => expect(iapMocks.getProducts).toHaveBeenCalled());
+    fireEvent.click(screen.getByRole('button', { name: /trialCta|upgradeToPro/ }));
+    await waitFor(() => expect(toastMock).toHaveBeenCalledWith(expect.objectContaining({
+      variant: 'destructive',
+      description: 'subscription.purchaseFailedDesc',
+    })));
+    // The cryptic underlying message must never reach the user (App Store 2.1(b)).
+    const calls = toastMock.mock.calls.flat();
+    expect(JSON.stringify(calls)).not.toContain('StoreKit error');
+  });
+
+  it('treats a PAYMENT_PENDING error as pending, not a failure', async () => {
+    iapMocks.purchase.mockRejectedValue(new MockIAPError('PAYMENT_PENDING', 'deferred'));
+    renderPaywall();
+    await waitFor(() => expect(iapMocks.getProducts).toHaveBeenCalled());
+    fireEvent.click(screen.getByRole('button', { name: /trialCta|upgradeToPro/ }));
+    await waitFor(() => expect(toastMock).toHaveBeenCalledWith(expect.objectContaining({
+      title: 'subscription.purchasePending',
+    })));
+    // It must NOT be shown as a destructive failure.
+    expect(toastMock).not.toHaveBeenCalledWith(expect.objectContaining({ variant: 'destructive' }));
+  });
+
+  it('always shows the 3.1.2 disclosure (title + length) even when the product fails to load', async () => {
+    iapMocks.getProducts.mockResolvedValue([]);
+    const { container } = renderPaywall();
+    await waitFor(() => expect(container.textContent).toContain('subscription.iapUnavailable'));
+    // Required subscription disclosure must remain visible regardless of price load.
+    expect(container.textContent).toContain('subscription.disclosureTitle');
+    expect(container.textContent).toContain('subscription.disclosureLength');
+    const hrefs = screen.getAllByRole('link').map((a) => a.getAttribute('href'));
+    expect(hrefs).toContain('/privacy');
+    expect(hrefs).toContain('/terms');
+  });
+
   it('clicking Restore calls iapService.restore() and toasts restoreSuccess on isPro:true', async () => {
     iapMocks.restore.mockResolvedValue({ isPro: true });
     const onPurchased = vi.fn();

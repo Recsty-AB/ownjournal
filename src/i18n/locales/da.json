@@ -1573,6 +1573,8 @@
     "portalReturnDesc": "Dine abonnementsindstillinger er blevet opdateret.",
     "purchasePending": "Køb afventer",
     "purchaseFailed": "Køb mislykkedes",
+    "purchasePendingDesc": "Dit køb afventer godkendelse. Vi låser Plus op, så snart det er bekræftet.",
+    "purchaseFailedDesc": "Noget gik galt, og du blev ikke opkrævet. Prøv igen.",
     "restoreSuccess": "Køb gendannet",
     "restoreNothing": "Ingen køb at gendanne",
     "restoreFailed": "Gendannelse mislykkedes",

@@ -1573,6 +1573,8 @@
     "portalReturnDesc": "Ihre Abonnementeinstellungen wurden aktualisiert.",
     "purchasePending": "Kauf ausstehend",
     "purchaseFailed": "Kauf fehlgeschlagen",
+    "purchasePendingDesc": "Dein Kauf wartet auf Bestätigung. Wir schalten Plus frei, sobald er bestätigt ist.",
+    "purchaseFailedDesc": "Etwas ist schiefgelaufen und dir wurde nichts berechnet. Bitte versuche es erneut.",
     "restoreSuccess": "Käufe wiederhergestellt",
     "restoreNothing": "Keine wiederherzustellenden Käufe",
     "restoreFailed": "Wiederherstellung fehlgeschlagen",

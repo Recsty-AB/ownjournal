@@ -1576,6 +1576,8 @@
     "portalReturnDesc": "Pengaturan langgananmu telah diperbarui.",
     "purchasePending": "Pembelian tertunda",
     "purchaseFailed": "Pembelian gagal",
+    "purchasePendingDesc": "Pembelian Anda menunggu persetujuan. Kami akan membuka Plus segera setelah dikonfirmasi.",
+    "purchaseFailedDesc": "Terjadi kesalahan dan Anda tidak dikenai biaya. Silakan coba lagi.",
     "restoreSuccess": "Pembelian dipulihkan",
     "restoreNothing": "Tidak ada pembelian untuk dipulihkan",
     "restoreFailed": "Gagal memulihkan",

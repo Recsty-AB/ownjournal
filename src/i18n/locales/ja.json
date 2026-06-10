@@ -1576,6 +1576,8 @@
     "portalReturnDesc": "サブスクリプション設定が更新されました。",
     "purchasePending": "購入処理中",
     "purchaseFailed": "購入に失敗しました",
+    "purchasePendingDesc": "ご購入は承認待ちです。確認され次第、Plus のロックを解除します。",
+    "purchaseFailedDesc": "問題が発生し、料金は請求されていません。もう一度お試しください。",
     "restoreSuccess": "購入を復元しました",
     "restoreNothing": "復元できる購入はありません",
     "restoreFailed": "復元に失敗しました",

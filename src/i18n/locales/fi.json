@@ -1573,6 +1573,8 @@
     "portalReturnDesc": "Tilausasetuksesi on päivitetty.",
     "purchasePending": "Osto vireillä",
     "purchaseFailed": "Osto epäonnistui",
+    "purchasePendingDesc": "Ostosi odottaa hyväksyntää. Avaamme Plussan heti, kun se on vahvistettu.",
+    "purchaseFailedDesc": "Jokin meni vikaan eikä sinulta veloitettu mitään. Yritä uudelleen.",
     "restoreSuccess": "Ostot palautettu",
     "restoreNothing": "Ei palautettavia ostoja",
     "restoreFailed": "Palautus epäonnistui",

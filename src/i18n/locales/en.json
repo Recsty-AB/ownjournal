@@ -1578,6 +1578,8 @@
     "portalReturnDesc": "Your subscription settings have been updated.",
     "purchasePending": "Purchase pending",
     "purchaseFailed": "Purchase failed",
+    "purchasePendingDesc": "Your purchase is awaiting approval. We'll unlock Plus as soon as it's confirmed.",
+    "purchaseFailedDesc": "Something went wrong and you weren't charged. Please try again.",
     "restoreSuccess": "Purchases restored",
     "restoreNothing": "No purchases to restore",
     "restoreFailed": "Restore failed",

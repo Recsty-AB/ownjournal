@@ -189,6 +189,36 @@ describe('iapService.getProducts on iOS', () => {
     await expect(iapService.getProducts()).rejects.toBeInstanceOf(IAPError);
     await expect(iapService.getProducts()).rejects.toMatchObject({ code: 'NOT_INITIALIZED' });
   });
+
+  it('falls back to a non-current offering when offerings.current is null', async () => {
+    setPlatform('capacitor-ios');
+    vi.stubEnv('VITE_REVENUECAT_IOS_KEY', 'ios_key_xxx');
+    // RevenueCat dashboard with no "current" offering set, but the product
+    // exists inside another configured offering.
+    purchasesMock.getOfferings.mockResolvedValue({
+      current: null,
+      all: {
+        default: {
+          availablePackages: [{
+            identifier: '$rc_annual',
+            product: {
+              identifier: 'app.ownjournal.plus.yearly.v1',
+              priceString: '$19.99',
+              price: 19.99,
+              currencyCode: 'USD',
+              introPrice: null,
+            },
+          }],
+        },
+      },
+    });
+
+    const { iapService } = await loadIapService();
+    await iapService.init('user-1');
+    const products = await iapService.getProducts();
+    expect(products).toHaveLength(1);
+    expect(products[0].productId).toBe('app.ownjournal.plus.yearly.v1');
+  });
 });
 
 describe('iapService.purchase on iOS', () => {
@@ -218,6 +248,41 @@ describe('iapService.purchase on iOS', () => {
     const { iapService } = await loadIapService();
     await iapService.init('user-1');
     await expect(iapService.purchase()).rejects.toMatchObject({ code: 'UNKNOWN' });
+  });
+
+  it('maps a deferred/pending payment to PAYMENT_PENDING', async () => {
+    purchasesMock.purchasePackage.mockRejectedValue({ code: 'PAYMENT_PENDING_ERROR', message: 'payment pending' });
+    const { iapService } = await loadIapService();
+    await iapService.init('user-1');
+    await expect(iapService.purchase()).rejects.toMatchObject({ code: 'PAYMENT_PENDING' });
+  });
+
+  it('maps a store problem to STORE_PROBLEM', async () => {
+    purchasesMock.purchasePackage.mockRejectedValue({ code: 'STORE_PROBLEM_ERROR', message: 'store down' });
+    const { iapService } = await loadIapService();
+    await iapService.init('user-1');
+    await expect(iapService.purchase()).rejects.toMatchObject({ code: 'STORE_PROBLEM' });
+  });
+
+  it('maps a not-allowed error to NOT_ALLOWED', async () => {
+    purchasesMock.purchasePackage.mockRejectedValue({ code: 'PURCHASE_NOT_ALLOWED_ERROR', message: 'not allowed' });
+    const { iapService } = await loadIapService();
+    await iapService.init('user-1');
+    await expect(iapService.purchase()).rejects.toMatchObject({ code: 'NOT_ALLOWED' });
+  });
+
+  it('maps a network failure to NETWORK', async () => {
+    purchasesMock.purchasePackage.mockRejectedValue({ code: 'NETWORK_ERROR', message: 'offline' });
+    const { iapService } = await loadIapService();
+    await iapService.init('user-1');
+    await expect(iapService.purchase()).rejects.toMatchObject({ code: 'NETWORK' });
+  });
+
+  it('prefers userCancelled over any code string', async () => {
+    purchasesMock.purchasePackage.mockRejectedValue({ userCancelled: true, code: 'STORE_PROBLEM_ERROR', message: 'x' });
+    const { iapService } = await loadIapService();
+    await iapService.init('user-1');
+    await expect(iapService.purchase()).rejects.toMatchObject({ code: 'USER_CANCELLED' });
   });
 
   it('returns derived entitlement on success (Apple)', async () => {
