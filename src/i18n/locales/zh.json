@@ -1573,6 +1573,8 @@
     "portalReturnDesc": "您的订阅设置已更新。",
     "purchasePending": "购买待处理",
     "purchaseFailed": "购买失败",
+    "purchasePendingDesc": "您的购买正在等待批准。确认后我们会立即解锁 Plus。",
+    "purchaseFailedDesc": "出现错误，未向您收费。请重试。",
     "restoreSuccess": "已恢复购买",
     "restoreNothing": "没有可恢复的购买",
     "restoreFailed": "恢复失败",

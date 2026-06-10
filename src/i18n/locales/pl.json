@@ -1573,6 +1573,8 @@
     "portalReturnDesc": "Twoje ustawienia subskrypcji zostały zaktualizowane.",
     "purchasePending": "Zakup oczekuje",
     "purchaseFailed": "Zakup nie powiódł się",
+    "purchasePendingDesc": "Twój zakup oczekuje na zatwierdzenie. Odblokujemy Plus, gdy tylko zostanie potwierdzony.",
+    "purchaseFailedDesc": "Coś poszło nie tak i nie pobrano opłaty. Spróbuj ponownie.",
     "restoreSuccess": "Zakupy przywrócone",
     "restoreNothing": "Brak zakupów do przywrócenia",
     "restoreFailed": "Przywracanie nie powiodło się",

@@ -1573,6 +1573,8 @@
     "portalReturnDesc": "Dina prenumerationsinställningar har uppdaterats.",
     "purchasePending": "Köp väntar",
     "purchaseFailed": "Köpet misslyckades",
+    "purchasePendingDesc": "Ditt köp väntar på godkännande. Vi låser upp Plus så snart det har bekräftats.",
+    "purchaseFailedDesc": "Något gick fel och du debiterades inte. Försök igen.",
     "restoreSuccess": "Köp återställda",
     "restoreNothing": "Inga köp att återställa",
     "restoreFailed": "Återställningen misslyckades",

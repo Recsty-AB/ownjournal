@@ -1573,6 +1573,8 @@
     "portalReturnDesc": "Suas definições de assinatura foram atualizadas.",
     "purchasePending": "Compra pendente",
     "purchaseFailed": "Falha na compra",
+    "purchasePendingDesc": "A sua compra está a aguardar aprovação. Vamos desbloquear o Plus assim que for confirmada.",
+    "purchaseFailedDesc": "Algo correu mal e não foi cobrado. Tente novamente.",
     "restoreSuccess": "Compras restauradas",
     "restoreNothing": "Não há compras para restaurar",
     "restoreFailed": "Falha ao restaurar",

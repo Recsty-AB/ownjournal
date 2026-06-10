@@ -1573,6 +1573,8 @@
     "portalReturnDesc": "Uw abonnementsinstellingen zijn bijgewerkt.",
     "purchasePending": "Aankoop in afwachting",
     "purchaseFailed": "Aankoop mislukt",
+    "purchasePendingDesc": "Je aankoop wacht op goedkeuring. We ontgrendelen Plus zodra deze is bevestigd.",
+    "purchaseFailedDesc": "Er is iets misgegaan en er is niets in rekening gebracht. Probeer het opnieuw.",
     "restoreSuccess": "Aankopen hersteld",
     "restoreNothing": "Geen aankopen om te herstellen",
     "restoreFailed": "Herstellen mislukt",

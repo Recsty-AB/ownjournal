@@ -1576,6 +1576,8 @@
     "portalReturnDesc": "Cài đặt đăng ký đã được cập nhật.",
     "purchasePending": "Giao dịch mua đang chờ xử lý",
     "purchaseFailed": "Giao dịch mua thất bại",
+    "purchasePendingDesc": "Giao dịch mua của bạn đang chờ phê duyệt. Chúng tôi sẽ mở khóa Plus ngay khi được xác nhận.",
+    "purchaseFailedDesc": "Đã xảy ra lỗi và bạn chưa bị tính phí. Vui lòng thử lại.",
     "restoreSuccess": "Đã khôi phục giao dịch mua",
     "restoreNothing": "Không có giao dịch mua để khôi phục",
     "restoreFailed": "Khôi phục thất bại",

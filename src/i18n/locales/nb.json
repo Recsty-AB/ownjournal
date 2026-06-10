@@ -1573,6 +1573,8 @@
     "portalReturnDesc": "Abonnementsinnstillingene dine er oppdatert.",
     "purchasePending": "Kjøp venter",
     "purchaseFailed": "Kjøpet mislyktes",
+    "purchasePendingDesc": "Kjøpet ditt venter på godkjenning. Vi låser opp Plus så snart det er bekreftet.",
+    "purchaseFailedDesc": "Noe gikk galt, og du ble ikke belastet. Prøv igjen.",
     "restoreSuccess": "Kjøp gjenopprettet",
     "restoreNothing": "Ingen kjøp å gjenopprette",
     "restoreFailed": "Gjenoppretting mislyktes",
