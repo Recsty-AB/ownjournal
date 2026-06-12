@@ -21,6 +21,7 @@ import { hasStoredPassword as hasStoredPasswordUtil } from '@/utils/passwordStor
 import { aiMetadataService } from './aiMetadataService';
 import { cloudRateLimiter, AdaptiveRateLimiter } from '@/utils/adaptiveRateLimiter';
 import { CloudErrorCode, createCloudError, getCloudErrorCode, isCloudError } from '@/utils/cloudErrorCodes';
+import { FEATURES } from '@/config/features';
 
 // ============= CONSTANTS =============
 const ENCRYPTION_CONSTANTS = {
@@ -52,6 +53,10 @@ interface EncryptedKeyData {
   version: number;       // Increment on password change to detect stale keys
   createdAt: string;     // ISO timestamp when key was first created
   updatedAt: string;     // ISO timestamp when password was last changed
+  // KDF descriptor. Absent on legacy files written before the Argon2id migration
+  // (treated as PBKDF2). New files always record 'argon2id' + parameters.
+  kdf?: import('@/utils/encryption').KdfId;
+  kdfParams?: import('@/utils/encryption').Argon2idParams;
 }
 
 // ============= PHASE 1: Exponential Backoff Retry Logic =============
@@ -553,11 +558,16 @@ interface EncryptedEntry {
   encryptedData: string;
   iv: string;
   metadata: {
-    date: string;
-    tags: string[];
-    mood: string;
+    // Sync-critical timestamps — always present in plaintext metadata.
     createdAt: string;
     updatedAt: string;
+    // The fields below are PLAINTEXT only for legacy E2E entries (written before
+    // metadata encryption) and for Simple mode. New E2E entries carry these
+    // inside the encrypted payload instead, so they are optional here.
+    date?: string;
+    tags?: string[];
+    mood?: string;
+    activities?: string[];
     aiMetadata?: import('@/types/aiMetadata').EntryAIMetadata; // AI analysis metadata
   };
   // Phase 4: Version vector for conflict detection
@@ -1261,6 +1271,8 @@ class StorageServiceV2 {
               encryptedKey: encrypted.encryptedKey,
               iv: encrypted.iv,
               salt: encrypted.salt,
+              kdf: encrypted.kdf,
+              kdfParams: encrypted.kdfParams,
               version: 1,
               createdAt: new Date().toISOString(),
             }),
@@ -1311,9 +1323,12 @@ class StorageServiceV2 {
                   parsedData.encryptedKey,
                   parsedData.salt,
                   parsedData.iv,
-                  password
+                  password,
+                  { kdf: parsedData.kdf, kdfParams: parsedData.kdfParams }
                 );
                 keyLoadedFromCache = true;
+                // Opportunistically upgrade legacy PBKDF2 key files to Argon2id.
+                await this.migrateKeyKdfIfNeeded(parsedData.kdf, password);
                 if (import.meta.env.DEV) {
                   console.log('🔐 Master key pre-loaded from cache (indefinite)');
                   getMasterKeyFingerprint(this.masterKey!).then((fp) => console.log('[key-debug] masterKey fingerprint (init cache):', fp));
@@ -1670,6 +1685,8 @@ class StorageServiceV2 {
                   encryptedKey: encrypted.encryptedKey,
                   iv: encrypted.iv,
                   salt: encrypted.salt,
+                  kdf: encrypted.kdf,
+                  kdfParams: encrypted.kdfParams,
                   version: 1,
                   createdAt: new Date().toISOString(),
                 }),
@@ -1734,7 +1751,8 @@ class StorageServiceV2 {
             parsedData.encryptedKey,
             parsedData.salt,
             parsedData.iv,
-            password
+            password,
+            { kdf: parsedData.kdf, kdfParams: parsedData.kdfParams }
           );
           // If we got here, password is correct
           if (import.meta.env.DEV) console.log('✅ Password verified against local cache');
@@ -1756,7 +1774,8 @@ class StorageServiceV2 {
             parsed.encryptedKey,
             parsed.salt,
             parsed.iv,
-            password
+            password,
+            { kdf: parsed.kdf, kdfParams: parsed.kdfParams }
           );
           if (import.meta.env.DEV) console.log('✅ Password verified against cloud key');
           return { valid: true, source: 'cloud' };
@@ -1792,9 +1811,13 @@ class StorageServiceV2 {
             parsedData.encryptedKey,
             parsedData.salt,
             parsedData.iv,
-            password
+            password,
+            { kdf: parsedData.kdf, kdfParams: parsedData.kdfParams }
           );
           keyFromCacheValid = await this.trySampleDecrypt();
+          if (keyFromCacheValid) {
+            await this.migrateKeyKdfIfNeeded(parsedData.kdf, password);
+          }
           if (keyFromCacheValid) {
             this.passwordProvided = true;
             this.isInitialized = true;
@@ -2787,7 +2810,8 @@ class StorageServiceV2 {
               parsedData.encryptedKey,
               parsedData.salt,
               parsedData.iv,
-              password
+              password,
+              { kdf: parsedData.kdf, kdfParams: parsedData.kdfParams }
             );
             this.notifyMasterKeyListeners();
             usedCachedKey = true;
@@ -2843,11 +2867,15 @@ class StorageServiceV2 {
                       cloudParsed.encryptedKey,
                       cloudParsed.salt,
                       cloudParsed.iv,
-                      password
+                      password,
+                      { kdf: cloudParsed.kdf, kdfParams: cloudParsed.kdfParams }
                     );
                     const cachedFp = await getMasterKeyFingerprint(this.masterKey!);
                     const cloudFp = await getMasterKeyFingerprint(cloudMasterKey);
                     if (cachedFp === cloudFp) {
+                      // Same key — but if the cloud file is still legacy PBKDF2,
+                      // upgrade it to Argon2id now that we're online.
+                      await this.migrateKeyKdfIfNeeded(cloudParsed.kdf, password);
                       return; // Same key, cache is current
                     }
                     // Fingerprints differ - prefer whichever key can decrypt a sample entry
@@ -2983,7 +3011,8 @@ class StorageServiceV2 {
               parsedData.encryptedKey,
               parsedData.salt,
               parsedData.iv,
-              password
+              password,
+              { kdf: parsedData.kdf, kdfParams: parsedData.kdfParams }
             );
             this.notifyMasterKeyListeners();
             if (import.meta.env.DEV) {
@@ -2994,8 +3023,8 @@ class StorageServiceV2 {
 
             // Cache the key data with version for future sessions
             try {
-              await saveToIndexedDB('settings', { 
-                key: 'cachedEncryptionKeyData', 
+              await saveToIndexedDB('settings', {
+                key: 'cachedEncryptionKeyData',
                 value: keyData,
                 timestamp: Date.now(),
                 version: parsedData.version || 1
@@ -3004,7 +3033,10 @@ class StorageServiceV2 {
             } catch (cacheWriteError) {
               if (import.meta.env.DEV) console.warn('Failed to cache encryption key:', cacheWriteError);
             }
-            
+
+            // Opportunistically upgrade a legacy PBKDF2 cloud key file to Argon2id.
+            await this.migrateKeyKdfIfNeeded(parsedData.kdf, password);
+
             if (import.meta.env.DEV) console.log('✅ Successfully loaded and decrypted master key from cloud');
             return;
           } catch (decryptError) {
@@ -3236,18 +3268,37 @@ class StorageServiceV2 {
             
             // Parse the plain data
             const plainData = JSON.parse(entry.encryptedData);
-            
-            // Encrypt with master key
-            const dataToEncrypt = JSON.stringify({
+
+            // Encrypt with master key. Format v2 (gated, see saveEntry) moves
+            // sensitive metadata into the encrypted payload.
+            const v2 = FEATURES.CLOUD_CRYPTO_V2_WRITE;
+            const dataToEncrypt = JSON.stringify(v2 ? {
               title: plainData.title || '',
               body: plainData.body || '',
-              images: plainData.images || []
+              images: plainData.images || [],
+              date: entry.metadata.date,
+              tags: entry.metadata.tags,
+              mood: entry.metadata.mood,
+              activities: entry.metadata.activities || [],
+              aiMetadata: entry.metadata.aiMetadata,
+            } : {
+              title: plainData.title || '',
+              body: plainData.body || '',
+              images: plainData.images || [],
             });
-            
+
             const { encrypted, iv } = await encryptData(dataToEncrypt, this.masterKey!);
-            
-            // Create encrypted entry
-            const encryptedEntry: EncryptedEntry = {
+
+            const encryptedEntry: EncryptedEntry = v2 ? {
+              id: entry.id,
+              encryptedData: arrayBufferToBase64(encrypted),
+              iv: arrayBufferToBase64(iv),
+              versionVector: entry.versionVector,
+              metadata: {
+                createdAt: entry.metadata.createdAt,
+                updatedAt: entry.metadata.updatedAt,
+              },
+            } : {
               ...entry,
               encryptedData: arrayBufferToBase64(encrypted),
               iv: arrayBufferToBase64(iv),
@@ -3406,7 +3457,8 @@ class StorageServiceV2 {
         parsed.encryptedKey,
         parsed.salt,
         parsed.iv,
-        password
+        password,
+        { kdf: parsed.kdf, kdfParams: parsed.kdfParams }
       );
       const entries = await provider.listFiles('/OwnJournal/entries');
       const entryFiles = entries.filter((f: CloudFile) => f.name.startsWith('entry-') && f.name.endsWith('.json'));
@@ -3448,7 +3500,8 @@ class StorageServiceV2 {
           parsed.encryptedKey,
           parsed.salt,
           parsed.iv,
-          password
+          password,
+          { kdf: parsed.kdf, kdfParams: parsed.kdfParams }
         );
         this.masterKey = masterKey;
         this.notifyMasterKeyListeners();
@@ -3468,6 +3521,74 @@ class StorageServiceV2 {
       }
     }
     return false;
+  }
+
+  // Ensures the KDF migration runs at most once per session per password load.
+  private kdfMigrationAttempted = false;
+
+  /**
+   * Opportunistically upgrade a legacy PBKDF2-wrapped key file to Argon2id.
+   *
+   * Called after the master key has been successfully loaded with `loadedKdf`.
+   * The master key itself never changes — only the password-derived wrapper that
+   * protects it — so this is a pure security upgrade with no data re-encryption.
+   *
+   * Safety: best-effort only. Any failure is swallowed so a migration hiccup can
+   * never block unlock. The re-wrap reuses `saveMasterKeyToCloud`, which gates
+   * the overwrite behind `trySampleDecrypt()` (won't clobber a working cloud key).
+   * Offline (or no provider), the local cache is re-wrapped in place at the same
+   * version; the cloud copy upgrades on the next online unlock.
+   */
+  private async migrateKeyKdfIfNeeded(
+    loadedKdf: string | undefined,
+    password: string
+  ): Promise<void> {
+    // Rollout gate: re-wrapping the cloud key file to Argon2id locks out any of
+    // the user's devices still on a build without Argon2id read support. Only
+    // migrate once the v2 write flag is enabled (i.e. read support saturated).
+    if (!FEATURES.CLOUD_CRYPTO_V2_WRITE) return;
+    // Already Argon2id, or nothing to migrate with.
+    if (loadedKdf === 'argon2id' || !password || !this.masterKey) return;
+    if (this.kdfMigrationAttempted) return;
+    this.kdfMigrationAttempted = true;
+
+    try {
+      // Never migrate a key that can't actually decrypt this device's entries —
+      // that would risk persisting a wrong key over a correct one.
+      const canDecrypt = await this.trySampleDecrypt();
+      if (!canDecrypt) {
+        if (import.meta.env.DEV) console.warn('⏭️ Skipping KDF upgrade: current key cannot decrypt entries');
+        return;
+      }
+
+      const online = this.isOnline && cloudStorageService.getPrimaryProvider() !== null;
+      if (online) {
+        if (import.meta.env.DEV) console.log('🔐 Upgrading key wrapping PBKDF2 → Argon2id (cloud + cache)...');
+        await this.saveMasterKeyToCloud(password);
+      } else {
+        // Offline: re-wrap the local cache in place (same version — same key,
+        // same password, only the KDF changes).
+        const cachedKey = await getFromIndexedDB('settings', 'cachedEncryptionKeyData');
+        const existingVersion = cachedKey?.version || 1;
+        const reWrapped = await encryptMasterKey(this.masterKey, password);
+        await saveToIndexedDB('settings', {
+          key: 'cachedEncryptionKeyData',
+          value: JSON.stringify({
+            ...reWrapped,
+            version: existingVersion,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+          }),
+          timestamp: Date.now(),
+          version: existingVersion,
+        });
+        if (import.meta.env.DEV) console.log('🔐 Upgraded local key cache PBKDF2 → Argon2id (offline)');
+      }
+    } catch (err) {
+      // Migration is best-effort — never let it break unlock.
+      if (import.meta.env.DEV) console.warn('⚠️ KDF upgrade failed (will retry next session):', err);
+      this.kdfMigrationAttempted = false; // allow a retry next load
+    }
   }
 
   /**
@@ -3734,8 +3855,26 @@ class StorageServiceV2 {
       const aiMetadata = await aiMetadataService.getMetadata(entry.id);
       
       if (e2eMode && this.masterKey) {
-        // E2E mode - encrypt the entry
-        const plaintext = JSON.stringify({
+        // E2E mode - encrypt the entry.
+        // Format v2 places sensitive metadata (date, tags, mood, activities, and
+        // AI-derived aiMetadata such as summaries/people/stressors) INSIDE the
+        // encrypted payload so it never reaches the cloud in plaintext; only the
+        // sync-critical createdAt/updatedAt stay outside (already exposed via the
+        // cloud file's modified time). Gated: builds without v2 read support
+        // show v2 entries with missing date/tags/mood, and entry files are
+        // shared with the user's other devices through their cloud — so v1 is
+        // written until the read-capable release has saturated.
+        const v2 = FEATURES.CLOUD_CRYPTO_V2_WRITE;
+        const plaintext = JSON.stringify(v2 ? {
+          title: entry.title,
+          body: entry.body,
+          images: entry.images || [],
+          date: entry.date.toISOString(),
+          tags: entry.tags,
+          mood: entry.mood,
+          activities: entry.activities || [],
+          aiMetadata: aiMetadata || undefined,
+        } : {
           title: entry.title,
           body: entry.body,
           images: entry.images || [],
@@ -3746,11 +3885,11 @@ class StorageServiceV2 {
         // Phase 4: Update version vector with atomic read-modify-write
         // FIXED: Generate operation ID first for atomicity
         const operationId = await this.generateOperationId();
-        
+
         // Read existing vector
         const existingEntry: EncryptedEntry | undefined = await getFromIndexedDB('entries', entry.id);
         const currentVector: VersionVector = existingEntry?.versionVector || {};
-        
+
         // Use mergeVersionVectors for proper conflict-free merge
         const updatedVector: VersionVector = mergeVersionVectors(currentVector, {
           [this.deviceId]: operationId
@@ -3760,14 +3899,17 @@ class StorageServiceV2 {
           id: entry.id,
           encryptedData: arrayBufferToBase64(encrypted),
           iv: arrayBufferToBase64(iv),
-          metadata: {
+          metadata: v2 ? {
+            createdAt: entry.createdAt.toISOString(),
+            updatedAt: entry.updatedAt.toISOString(),
+          } : {
             date: entry.date.toISOString(),
             tags: entry.tags,
             mood: entry.mood,
             activities: entry.activities || [],
             createdAt: entry.createdAt.toISOString(),
             updatedAt: entry.updatedAt.toISOString(),
-            aiMetadata: aiMetadata || undefined, // Include AI metadata
+            aiMetadata: aiMetadata || undefined,
           },
           versionVector: updatedVector, // Phase 4
         };
@@ -4487,23 +4629,42 @@ class StorageServiceV2 {
         try {
           // Parse plain data
           const plainData = JSON.parse(entry.encryptedData);
-          
-          // Encrypt with master key
-          const dataToEncrypt = JSON.stringify({
+
+          // Encrypt with master key. Format v2 (gated, see saveEntry) moves
+          // sensitive metadata into the encrypted payload.
+          const v2 = FEATURES.CLOUD_CRYPTO_V2_WRITE;
+          const dataToEncrypt = JSON.stringify(v2 ? {
             title: plainData.title || '',
             body: plainData.body || '',
-            images: plainData.images || []
+            images: plainData.images || [],
+            date: entry.metadata.date,
+            tags: entry.metadata.tags,
+            mood: entry.metadata.mood,
+            activities: entry.metadata.activities || [],
+            aiMetadata: entry.metadata.aiMetadata,
+          } : {
+            title: plainData.title || '',
+            body: plainData.body || '',
+            images: plainData.images || [],
           });
-          
+
           const { encrypted, iv } = await encryptData(dataToEncrypt, this.masterKey!);
-          
-          // Create encrypted entry
-          const encryptedEntry: EncryptedEntry = {
+
+          const encryptedEntry: EncryptedEntry = v2 ? {
+            id: entry.id,
+            encryptedData: arrayBufferToBase64(encrypted),
+            iv: arrayBufferToBase64(iv),
+            versionVector: entry.versionVector,
+            metadata: {
+              createdAt: entry.metadata.createdAt,
+              updatedAt: entry.metadata.updatedAt,
+            },
+          } : {
             ...entry,
             encryptedData: arrayBufferToBase64(encrypted),
             iv: arrayBufferToBase64(iv),
           };
-          
+
           // Save to IndexedDB
           await saveToIndexedDB('entries', encryptedEntry);
           
@@ -4576,16 +4737,30 @@ class StorageServiceV2 {
           );
           
           const plainData = JSON.parse(decryptedData);
-          
-          // Create plaintext entry (store as JSON string with no IV)
+
+          // Create plaintext entry (store as JSON string with no IV).
+          // For new-format E2E entries the sensitive fields live in the decrypted
+          // payload, so recover them from there (falling back to legacy plaintext
+          // metadata) and restore them into Simple-mode plaintext metadata —
+          // otherwise the downgrade would drop date/tags/mood/activities.
           const plaintextEntry: EncryptedEntry = {
-            ...entry,
+            id: entry.id,
             encryptedData: JSON.stringify({
               title: plainData.title || '',
               body: plainData.body || '',
               images: plainData.images || []
             }),
             iv: '', // Empty IV indicates plaintext
+            versionVector: entry.versionVector,
+            metadata: {
+              date: plainData.date ?? entry.metadata.date,
+              tags: plainData.tags ?? entry.metadata.tags,
+              mood: plainData.mood ?? entry.metadata.mood,
+              activities: plainData.activities ?? entry.metadata.activities ?? [],
+              aiMetadata: plainData.aiMetadata ?? entry.metadata.aiMetadata,
+              createdAt: entry.metadata.createdAt,
+              updatedAt: entry.metadata.updatedAt,
+            },
           };
           
           // Save to IndexedDB
@@ -4764,7 +4939,8 @@ class StorageServiceV2 {
             parsedData.encryptedKey,
             parsedData.salt,
             parsedData.iv,
-            oldPassword
+            oldPassword,
+            { kdf: parsedData.kdf, kdfParams: parsedData.kdfParams }
           );
           keyValidated = true;
           if (import.meta.env.DEV) console.log('✅ Old password validated via local cache');
@@ -4829,7 +5005,8 @@ class StorageServiceV2 {
         testEncrypted.encryptedKey,
         testEncrypted.salt,
         testEncrypted.iv,
-        newPassword
+        newPassword,
+        { kdf: testEncrypted.kdf, kdfParams: testEncrypted.kdfParams }
       );
       
       if (!testDecrypted) {
@@ -4855,6 +5032,8 @@ class StorageServiceV2 {
         encryptedKey: encryptedData.encryptedKey,
         salt: encryptedData.salt,
         iv: encryptedData.iv,
+        kdf: encryptedData.kdf,
+        kdfParams: encryptedData.kdfParams,
         version: Date.now() // Use timestamp as version for conflict detection
       };
       await saveToIndexedDB('settings', { 
@@ -4888,10 +5067,14 @@ class StorageServiceV2 {
     let title: string;
     let body: string;
     let images: string[] = [];
-    
+    // Sensitive fields that, for new E2E entries, live inside the encrypted
+    // payload. Populated from the decrypted JSON when present; otherwise we fall
+    // back to plaintext metadata (legacy E2E entries and Simple mode).
+    let payload: { date?: string; tags?: string[]; mood?: string; activities?: string[]; aiMetadata?: import('@/types/aiMetadata').EntryAIMetadata } = {};
+
     // Check if entry has IV (indicates encrypted data)
     const entryIsEncrypted = encryptedEntry.iv && encryptedEntry.iv.length > 0;
-    
+
     if (entryIsEncrypted) {
       // Entry is encrypted - need master key to decrypt
       if (!this.masterKey) {
@@ -4914,6 +5097,14 @@ class StorageServiceV2 {
         title = parsed.title;
         body = parsed.body;
         images = parsed.images || [];
+        // New E2E entries carry these inside the payload; absent for legacy entries.
+        payload = {
+          date: parsed.date,
+          tags: parsed.tags,
+          mood: parsed.mood,
+          activities: parsed.activities,
+          aiMetadata: parsed.aiMetadata,
+        };
       } catch (error) {
         if (import.meta.env.DEV) console.error('Failed to decrypt entry:', encryptedEntry.id, error);
         if (import.meta.env.DEV && !this.decryptDebugFirstFailureLogged) {
@@ -4948,9 +5139,15 @@ class StorageServiceV2 {
       }
     }
 
+    // Resolve sensitive fields: prefer the encrypted payload (new E2E entries),
+    // fall back to plaintext metadata (legacy E2E entries and Simple mode).
+    const meta = encryptedEntry.metadata;
+    const aiMetadata = payload.aiMetadata ?? meta.aiMetadata;
+    const dateStr = payload.date ?? meta.date;
+
     // Restore AI metadata to local cache if present in entry
-    if (encryptedEntry.metadata.aiMetadata) {
-      await aiMetadataService.setMetadata(encryptedEntry.id, encryptedEntry.metadata.aiMetadata).catch(err => {
+    if (aiMetadata) {
+      await aiMetadataService.setMetadata(encryptedEntry.id, aiMetadata).catch(err => {
         if (import.meta.env.DEV) console.warn('Failed to restore AI metadata:', err);
       });
     }
@@ -4960,12 +5157,12 @@ class StorageServiceV2 {
       title,
       body,
       images,
-      date: new Date(encryptedEntry.metadata.date),
-      tags: encryptedEntry.metadata.tags,
-      mood: encryptedEntry.metadata.mood as any,
-      activities: encryptedEntry.metadata.activities || [],
-      createdAt: new Date(encryptedEntry.metadata.createdAt),
-      updatedAt: new Date(encryptedEntry.metadata.updatedAt),
+      date: new Date(dateStr ?? meta.createdAt),
+      tags: payload.tags ?? meta.tags ?? [],
+      mood: (payload.mood ?? meta.mood) as any,
+      activities: payload.activities ?? meta.activities ?? [],
+      createdAt: new Date(meta.createdAt),
+      updatedAt: new Date(meta.updatedAt),
     };
   }
 
@@ -6050,60 +6247,6 @@ class StorageServiceV2 {
     } catch (e) {
       // File deletion failed but that's OK - operations.log will prevent re-download
       if (import.meta.env.DEV) console.warn(`⚠️ File delete failed for ${id} (non-critical):`, e);
-    }
-  }
-
-  async quickSyncUpsert(entry: JournalEntryData): Promise<void> {
-    // CRITICAL: Check sync lock first - prevents sync during disconnect flow
-    if (this.syncDisabled) {
-      if (import.meta.env.DEV) console.log('⏭️ Quick sync blocked: syncDisabled flag is set');
-      return;
-    }
-    
-    const e2eMode = isE2EEnabled();
-    // FIXED: For E2E mode, require masterKey. For Simple mode, proceed without it
-    if (e2eMode && !this.masterKey) return;
-    if (!this.isOnline || !cloudStorageService.getPrimaryProvider()) return;
-
-    let payload: EncryptedEntry;
-    
-    if (e2eMode && this.masterKey) {
-      // E2E mode - encrypt the entry
-      const plaintext = JSON.stringify({ title: entry.title, body: entry.body, images: entry.images || [] });
-      const { encrypted, iv } = await encryptData(plaintext, this.masterKey);
-      payload = {
-        id: entry.id,
-        encryptedData: arrayBufferToBase64(encrypted),
-        iv: arrayBufferToBase64(iv),
-        metadata: {
-          date: entry.date.toISOString(),
-          tags: entry.tags,
-          mood: entry.mood,
-          createdAt: entry.createdAt.toISOString(),
-          updatedAt: entry.updatedAt.toISOString(),
-        },
-      };
-    } else {
-      // Simple mode - plain JSON (no encryption)
-      payload = {
-        id: entry.id,
-        encryptedData: JSON.stringify({ title: entry.title, body: entry.body, images: entry.images || [] }),
-        iv: '', // No IV in Simple mode
-        metadata: {
-          date: entry.date.toISOString(),
-          tags: entry.tags,
-          mood: entry.mood,
-          createdAt: entry.createdAt.toISOString(),
-          updatedAt: entry.updatedAt.toISOString(),
-        },
-      };
-    }
-
-    try {
-      await cloudStorageWithRetry.uploadToAll(`entries/entry-${entry.id}.json`, JSON.stringify(payload));
-      if (import.meta.env.DEV) console.log('✅ Quick upsert synced');
-    } catch (e) {
-      if (import.meta.env.DEV) console.warn('Quick upsert failed, will sync in background:', e);
     }
   }
 
