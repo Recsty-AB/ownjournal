@@ -333,6 +333,32 @@ class ConnectionStateManager {
           };
         }
 
+        // Fall back to env-only container config when stored credentials are missing.
+        // This is the WebKit eviction case: Safari ITP / DuckDuckGo wiped our
+        // localStorage (so SimpleMode/E2E credentials are gone), but the CloudKit
+        // session cookie can survive. The container config (token + id) lives in
+        // env vars, and CloudKit's setUpAuth() reuses the surviving Apple session,
+        // so we can silently reconnect without the user re-clicking "sync".
+        //
+        // Gated on the persisted iCloud primary preference so we never trigger
+        // CloudKit for users who never connected it. If the session is gone,
+        // setUpAuth() throws NeedsAppleSignInError, which tryAutoConnect handles
+        // gracefully (no popup — that only opens on an explicit button click).
+        if (!credentials && envContainer && envToken) {
+          const { PrimaryProviderStorage } = await import('@/utils/primaryProviderStorage');
+          if (PrimaryProviderStorage.get() === 'iCloud') {
+            credentials = {
+              provider: 'icloud',
+              containerId: envContainer,
+              apiToken: envToken,
+              environment: (envEnvironment as 'development' | 'production') || 'development',
+            };
+            if (import.meta.env.DEV) {
+              console.log('🔄 [iCloud] No stored credentials — attempting reconnect via env config + surviving CloudKit session');
+            }
+          }
+        }
+
         if (credentials) {
           const service = new ICloudService();
           await service.connect(credentials, masterKey || null);

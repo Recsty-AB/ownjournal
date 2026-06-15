@@ -25,6 +25,28 @@ export const registerServiceWorker = async (): Promise<ServiceWorkerRegistration
   }
 };
 
+/**
+ * Best-effort request for persistent storage so WebKit browsers (Safari ITP,
+ * which evicts script-writable storage after ~7 days of inactivity) are far less
+ * likely to evict our localStorage + IndexedDB — which is where the encryption
+ * mode and cloud-provider preferences live. Persistent storage is exempt from
+ * Safari's 7-day eviction cap.
+ *
+ * Idempotent and never throws. Returns the granted state (false if unsupported).
+ * Safe to call on every launch. Note: this is best-effort — Chromium grants based
+ * on engagement heuristics, and DuckDuckGo's clear-on-close ignores the grant
+ * entirely, so it does not guarantee retention in every browser.
+ */
+export const requestPersistentStorage = async (): Promise<boolean> => {
+  try {
+    if (!navigator.storage?.persist || !navigator.storage?.persisted) return false;
+    if (await navigator.storage.persisted()) return true; // already granted
+    return await navigator.storage.persist();
+  } catch {
+    return false;
+  }
+};
+
 export const requestNotificationPermission = async (): Promise<NotificationPermission> => {
   if ('Notification' in window) {
     const permission = await Notification.requestPermission();
