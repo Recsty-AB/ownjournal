@@ -67,6 +67,10 @@ DuckDuckGo clear-on-close, or CloudKit/Apple auth.
 
 ## 3. Manual — real device (the only authoritative test for the reported bug)
 
+Test target: the live Cloudflare Pages preview —
+**https://claude-user-email-review-hl8.ownjournal.pages.dev** (no local build
+needed; run these on a real Safari / DuckDuckGo device against this URL).
+
 ### Safari (macOS / iOS) — the case the fix targets
 1. [ ] Sign in, set **E2E + password**, connect **iCloud**, add an entry; confirm it syncs.
 2. [ ] Console: `await navigator.storage.persisted()` → **expect `true`**.
