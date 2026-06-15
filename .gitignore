@@ -29,6 +29,8 @@ dist-ssr
 supabase/.temp/cli-latest
 .claude/settings.json
 test-results.json
+test-results/
+playwright-report/
 
 # Internal operational docs — kept locally, not published
 STORE_SETUP_IAP.md
