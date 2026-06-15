@@ -53,6 +53,8 @@ const mockCrypto = {
 
 Object.defineProperty(global, 'crypto', {
   value: mockCrypto,
+  configurable: true, // allow individual tests to swap in Node's real WebCrypto
+  writable: true,
 });
 
 // Mock localStorage

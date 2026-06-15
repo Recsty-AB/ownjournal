@@ -5,11 +5,15 @@
  * 
  * Security model:
  * - Password is encrypted with AES-GCM using a device-specific key
+ * - The device key is a NON-EXTRACTABLE CryptoKey held in IndexedDB. Unlike the
+ *   previous extractable-JWK-in-localStorage design, an attacker with read access
+ *   to storage (XSS, malicious extension, forensics) can no longer exfiltrate the
+ *   key — WebCrypto will not export it. They can at most *use* it while the page
+ *   is live, which is a strictly higher bar.
  * - User can choose persistence mode: localStorage, sessionStorage, or none
- * - XSS risk is LOW due to React's built-in JSX escaping
- * - Main risk is shared devices or malicious browser extensions
- * 
- * @module passwordStorage - Last updated: 2026-01-28
+ * - Main residual risk is shared devices
+ *
+ * @module passwordStorage
  */
 
 import {
@@ -21,8 +25,15 @@ import { scopedKey } from './userScope';
 
 // Per-user: each account can have its own journal password
 const STORAGE_KEY = 'ownjournal_encrypted_password';
-// Device-level: same key used to encrypt all users' stored passwords on this device
+// Legacy device-key location: an EXTRACTABLE JWK in localStorage (pre-migration).
 const DEVICE_KEY_STORAGE = 'ownjournal_device_key';
+
+// Non-extractable device key lives in a dedicated IndexedDB store.
+const DEVICE_KEY_DB = 'ownjournal_secure';
+const DEVICE_KEY_STORE = 'keys';
+const DEVICE_KEY_ID = 'deviceKey';
+
+let deviceKeyPromise: Promise<CryptoKey> | null = null;
 
 /**
  * Get the appropriate storage based on persistence mode
@@ -37,42 +48,117 @@ function getStorage(): Storage | null {
   return null; // 'none' mode - don't persist
 }
 
+function openDeviceKeyDB(): Promise<IDBDatabase> {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DEVICE_KEY_DB, 1);
+    req.onupgradeneeded = () => {
+      if (!req.result.objectStoreNames.contains(DEVICE_KEY_STORE)) {
+        req.result.createObjectStore(DEVICE_KEY_STORE);
+      }
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+async function idbGetDeviceKey(): Promise<CryptoKey | null> {
+  const db = await openDeviceKeyDB();
+  try {
+    return await new Promise<CryptoKey | null>((resolve, reject) => {
+      const tx = db.transaction(DEVICE_KEY_STORE, 'readonly');
+      const req = tx.objectStore(DEVICE_KEY_STORE).get(DEVICE_KEY_ID);
+      req.onsuccess = () => resolve((req.result as CryptoKey) ?? null);
+      req.onerror = () => reject(req.error);
+    });
+  } finally {
+    db.close();
+  }
+}
+
+async function idbPutDeviceKey(key: CryptoKey): Promise<void> {
+  const db = await openDeviceKeyDB();
+  try {
+    await new Promise<void>((resolve, reject) => {
+      const tx = db.transaction(DEVICE_KEY_STORE, 'readwrite');
+      tx.objectStore(DEVICE_KEY_STORE).put(key, DEVICE_KEY_ID);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+  } finally {
+    db.close();
+  }
+}
+
 /**
- * Generate or retrieve device-specific encryption key
- * Always uses localStorage for the device key (needed for decryption)
+ * Get the device-specific encryption key as a NON-EXTRACTABLE CryptoKey.
+ *
+ * Resolution order:
+ *  1. Existing non-extractable key in IndexedDB.
+ *  2. Legacy extractable JWK in localStorage → migrate in place: re-import the
+ *     SAME key bytes as non-extractable, persist to IndexedDB, delete the JWK.
+ *     Preserving the bytes is important — the shared device key encrypts every
+ *     account's stored password on this device, so rotating it would orphan
+ *     other accounts' ciphertext. Migration keeps all of them decryptable.
+ *  3. Otherwise generate a fresh non-extractable key.
  */
 async function getDeviceKey(): Promise<CryptoKey> {
-  // Check if we already have a device key
-  const stored = localStorage.getItem(DEVICE_KEY_STORAGE);
-  
-  if (stored) {
+  if (deviceKeyPromise) return deviceKeyPromise;
+
+  deviceKeyPromise = (async () => {
+    // 1. Already migrated — non-extractable key in IndexedDB.
     try {
-      const keyData = JSON.parse(stored);
-      return await window.crypto.subtle.importKey(
-        'jwk',
-        keyData,
-        { name: 'AES-GCM', length: 256 },
-        true,
-        ['encrypt', 'decrypt']
-      );
+      const existing = await idbGetDeviceKey();
+      if (existing) return existing;
     } catch (error) {
-      console.error('Failed to import stored device key:', error);
-      // Fall through to generate new key
+      if (import.meta.env.DEV) console.warn('Device key IDB read failed:', error);
     }
+
+    // 2. Legacy extractable JWK in localStorage — migrate the same bytes.
+    const legacy = localStorage.getItem(DEVICE_KEY_STORAGE);
+    if (legacy) {
+      try {
+        const jwk = JSON.parse(legacy);
+        const extractable = await window.crypto.subtle.importKey(
+          'jwk',
+          jwk,
+          { name: 'AES-GCM', length: 256 },
+          true,
+          ['encrypt', 'decrypt']
+        );
+        const rawBytes = await window.crypto.subtle.exportKey('raw', extractable);
+        const nonExtractable = await window.crypto.subtle.importKey(
+          'raw',
+          rawBytes,
+          { name: 'AES-GCM', length: 256 },
+          false,
+          ['encrypt', 'decrypt']
+        );
+        await idbPutDeviceKey(nonExtractable);
+        localStorage.removeItem(DEVICE_KEY_STORAGE);
+        if (import.meta.env.DEV) console.log('🔐 Migrated device key to non-extractable IndexedDB storage');
+        return nonExtractable;
+      } catch (error) {
+        console.error('Failed to migrate legacy device key:', error);
+        // Fall through to generate a new key.
+      }
+    }
+
+    // 3. Fresh non-extractable key.
+    const key = await window.crypto.subtle.generateKey(
+      { name: 'AES-GCM', length: 256 },
+      false,
+      ['encrypt', 'decrypt']
+    );
+    await idbPutDeviceKey(key);
+    return key;
+  })();
+
+  try {
+    return await deviceKeyPromise;
+  } catch (error) {
+    deviceKeyPromise = null; // allow retry on failure
+    throw error;
   }
-  
-  // Generate new device key
-  const key = await window.crypto.subtle.generateKey(
-    { name: 'AES-GCM', length: 256 },
-    true,
-    ['encrypt', 'decrypt']
-  );
-  
-  // Store the key (always in localStorage - needed for decryption)
-  const exportedKey = await window.crypto.subtle.exportKey('jwk', key);
-  localStorage.setItem(DEVICE_KEY_STORAGE, JSON.stringify(exportedKey));
-  
-  return key;
 }
 
 /**

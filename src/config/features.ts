@@ -14,6 +14,27 @@ export const FEATURES = {
    * Set to true when Apple Sign-In is configured (Supabase Auth + Apple Developer)
    */
   APPLE_SIGNIN_ENABLED: true,
+
+  /**
+   * Cloud crypto format v2 — WRITE side of two security upgrades:
+   *  1. Master-key wrapping with Argon2id instead of legacy PBKDF2-SHA256/100k.
+   *  2. E2E entries carry tags/mood/activities/date/aiMetadata INSIDE the
+   *     encrypted payload instead of plaintext metadata.
+   *
+   * READ support for both formats is always on (shipped first, in every build
+   * that contains this flag). Clients on builds WITHOUT read support cannot
+   * open v2 artifacts: a v2 key file looks like a wrong password, and a v2
+   * entry loses its date/tags/mood on display. Because these artifacts are
+   * shared through the user's cloud across all their devices, enabling this
+   * flag is only safe once read-capable builds have saturated all platforms.
+   *
+   * DO NOT enable until the read-support release has been the minimum
+   * available version on every store/channel long enough for real-world
+   * update lag (recommendation: several release cycles). Flipping this is a
+   * one-way door per journal — once a v2 key file or entry is written, older
+   * builds can no longer fully read that journal.
+   */
+  CLOUD_CRYPTO_V2_WRITE: false,
 } as const;
 
 /**

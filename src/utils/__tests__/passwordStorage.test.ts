@@ -67,12 +67,13 @@ describe('passwordStorage', () => {
     expect(hasStoredPassword()).toBe(false); // Should auto-clear corrupted data
   });
 
-  it('should store device key in localStorage', async () => {
+  it('should NOT store the device key as an extractable JWK in localStorage', async () => {
     await storePassword('test-password');
 
-    // Should have created a device key
-    const deviceKey = localStorage.getItem('ownjournal_device_key');
-    expect(deviceKey).toBeTruthy();
+    // The device key now lives as a non-extractable CryptoKey in IndexedDB,
+    // never as an exportable JWK in localStorage.
+    const legacyDeviceKey = localStorage.getItem('ownjournal_device_key');
+    expect(legacyDeviceKey).toBeNull();
   });
 
   it('should call crypto.subtle.encrypt when storing', async () => {
