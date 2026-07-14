@@ -917,8 +917,11 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
     return (
       <Card className="p-4 sm:p-6 bg-gradient-subtle border-primary/20">
         <div className="space-y-4">
-          {/* Two-column layout on lg+: left = title+description, right = action bar + meta.
-              Below lg: stacks to single column in original order (title, description, action, meta). */}
+          {/* Two-column layout on lg+: left = title+description, right = action bar.
+              Below lg: stacks to single column (title, description, action). The meta row
+              lives outside this container at full card width — its status text can get long
+              (e.g. weekly-limit message) and must wrap instead of widening the right column
+              and squeezing the title. */}
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
             {/* Left column: title + description */}
             <div className="flex-1 min-w-0 space-y-2">
@@ -942,84 +945,82 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
               </p>
             </div>
 
-            {/* Right column: action bar on top, meta row below. Right-aligned on desktop. */}
-            <div className="flex-shrink-0 lg:w-auto space-y-3 lg:items-end lg:flex lg:flex-col">
-              {/* Action bar — dropdown and Analyze button */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 w-full lg:w-auto">
-                {isNativeIOS ? (
-                  <select
-                    value={dateRangePreset}
-                    onChange={(e) => setDateRangePreset(e.target.value as DateRangePreset)}
-                    className="w-full sm:w-[200px] min-h-11 px-3 py-2 rounded-md border border-input bg-background text-sm"
-                  >
-                    {DATE_RANGE_OPTIONS.map(option => (
-                      <option key={option.value} value={option.value}>{t(option.label)}</option>
-                    ))}
-                  </select>
-                ) : (
-                  <Select value={dateRangePreset} onValueChange={(value) => setDateRangePreset(value as DateRangePreset)}>
-                    <SelectTrigger className="w-full sm:w-[200px] min-h-11">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {DATE_RANGE_OPTIONS.map(option => (
-                        <SelectItem key={option.value} value={option.value}>
-                          {t(option.label)}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                )}
-
-                <Button
-                  onClick={handleAnalyze}
-                  disabled={loading || !canAnalyze() || !isPro || filteredEntries.length < 8}
-                  size="sm"
-                  className={cn(
-                    "w-full sm:w-auto sm:min-w-[160px] min-h-11 h-auto",
-                    isPro && "bg-gradient-primary"
-                  )}
-                  variant={isPro ? "default" : "outline"}
+            {/* Right column: action bar — dropdown and Analyze button */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 lg:flex-shrink-0">
+              {isNativeIOS ? (
+                <select
+                  value={dateRangePreset}
+                  onChange={(e) => setDateRangePreset(e.target.value as DateRangePreset)}
+                  className="w-full sm:w-[200px] min-h-11 px-3 py-2 rounded-md border border-input bg-background text-sm"
                 >
-                  {loading ? (
-                    <>
-                      <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 animate-spin flex-shrink-0" />
-                      <span>{t('trendAnalysis.analyzing')}</span>
-                    </>
-                  ) : isPro ? (
-                    <>
-                      <TrendingUp aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
-                      <span>{t('trendAnalysis.analyzePeriod')}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Crown aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
-                      <span>{t('trendAnalysis.analyzePeriod')}</span>
-                    </>
-                  )}
-                </Button>
-              </div>
+                  {DATE_RANGE_OPTIONS.map(option => (
+                    <option key={option.value} value={option.value}>{t(option.label)}</option>
+                  ))}
+                </select>
+              ) : (
+                <Select value={dateRangePreset} onValueChange={(value) => setDateRangePreset(value as DateRangePreset)}>
+                  <SelectTrigger className="w-full sm:w-[200px] min-h-11">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {DATE_RANGE_OPTIONS.map(option => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {t(option.label)}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              )}
 
-              {/* Meta row — entries count, need-8 hint, and weekly availability */}
-              <div role="list" className="flex items-center flex-wrap gap-x-2 gap-y-1 text-xs text-muted-foreground lg:justify-end">
-                <span role="listitem" className="inline-flex items-center gap-2">
-                  <FileText aria-hidden="true" className="w-3.5 h-3.5 flex-shrink-0" />
-                  <span>{t('trendAnalysis.entriesInPeriod', { count: filteredEntries.length })}</span>
-                </span>
-                {filteredEntries.length < 8 && (
+              <Button
+                onClick={handleAnalyze}
+                disabled={loading || !canAnalyze() || !isPro || filteredEntries.length < 8}
+                size="sm"
+                className={cn(
+                  "w-full sm:w-auto sm:min-w-[160px] min-h-11 h-auto",
+                  isPro && "bg-gradient-primary"
+                )}
+                variant={isPro ? "default" : "outline"}
+              >
+                {loading ? (
                   <>
-                    <span aria-hidden="true">·</span>
-                    <span role="listitem">{t('trendAnalysis.need8')}</span>
+                    <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 animate-spin flex-shrink-0" />
+                    <span>{t('trendAnalysis.analyzing')}</span>
+                  </>
+                ) : isPro ? (
+                  <>
+                    <TrendingUp aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
+                    <span>{t('trendAnalysis.analyzePeriod')}</span>
+                  </>
+                ) : (
+                  <>
+                    <Crown aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
+                    <span>{t('trendAnalysis.analyzePeriod')}</span>
                   </>
                 )}
-                <span aria-hidden="true">·</span>
-                {!canAnalyze() ? (
-                  <span role="listitem" className="text-amber-600 dark:text-amber-400 font-medium">{t('trendAnalysis.limitMessage')}</span>
-                ) : (
-                  <span role="listitem">{t('trendAnalysis.availableOnceWeek')}</span>
-                )}
-              </div>
+              </Button>
             </div>
+          </div>
+
+          {/* Meta row — entries count, need-8 hint, and weekly availability.
+              Full card width so long status text wraps under the header. */}
+          <div role="list" className="flex items-center flex-wrap gap-x-2 gap-y-1 text-xs text-muted-foreground">
+            <span role="listitem" className="inline-flex items-center gap-2">
+              <FileText aria-hidden="true" className="w-3.5 h-3.5 flex-shrink-0" />
+              <span>{t('trendAnalysis.entriesInPeriod', { count: filteredEntries.length })}</span>
+            </span>
+            {filteredEntries.length < 8 && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span role="listitem">{t('trendAnalysis.need8')}</span>
+              </>
+            )}
+            <span aria-hidden="true">·</span>
+            {!canAnalyze() ? (
+              <span role="listitem" className="text-amber-600 dark:text-amber-400 font-medium">{t('trendAnalysis.limitMessage')}</span>
+            ) : (
+              <span role="listitem">{t('trendAnalysis.availableOnceWeek')}</span>
+            )}
           </div>
 
           {/* Custom Date Range Pickers */}
