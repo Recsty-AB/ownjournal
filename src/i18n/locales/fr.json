@@ -85,7 +85,8 @@
     "preview": "Aperçu",
     "placeholder": "Écrivez votre entrée de journal... Utilisez le markdown pour le formatage :\n\n# Titre\n**gras** *italique*\n- point de liste",
     "markdownSupport": "Supporte : **gras**, *italique*, # titres, - listes",
-    "noContentPreview": "*Aucun contenu à prévisualiser*"
+    "noContentPreview": "*Aucun contenu à prévisualiser*",
+    "inlineTagHint": "Tapez # dans le texte pour ajouter des tags"
   },
   "import": {
     "invalidFormat": "Format de fichier d'importation invalide",
@@ -773,7 +774,8 @@
     "validationError": "Erreur de validation",
     "validationErrorDesc": "Veuillez vérifier votre entrée",
     "titlePlaceholder": "Titre de l'entrée...",
-    "saveEntry": "Enregistrer l'entrée"
+    "saveEntry": "Enregistrer l'entrée",
+    "inlineTagBadgeHint": "Ajoutés depuis les #tags du texte"
   },
   "storage": {
     "connecting": "Connexion...",
@@ -2426,5 +2428,33 @@
     "proFeatureDesc": "Les analyses d'activités sont disponibles avec un abonnement Plus",
     "tooltipAvg": "moy.",
     "tooltipEntries": "notes"
+  },
+  "notes": {
+    "journalTab": "Journal",
+    "title": "Notes",
+    "newNote": "Nouvelle note",
+    "searchPlaceholder": "Rechercher des notes...",
+    "titlePlaceholder": "Titre de la note (facultatif)",
+    "startWriting": "Écrivez votre note...",
+    "saveNote": "Enregistrer la note",
+    "emptyTitle": "Aucune note pour l'instant",
+    "emptyDesc": "Conservez des idées, des listes et des informations de référence qui ne sont pas liées à un jour précis.",
+    "noSearchResults": "Aucune note ne correspond à votre recherche.",
+    "deleteConfirmTitle": "Supprimer cette note ?",
+    "deleteConfirmDesc": "Cette note sera définitivement supprimée de votre stockage.",
+    "updated": "Mise à jour le {{date}}",
+    "saving": "Enregistrement de la note...",
+    "savingDesc": "Chiffrement et synchronisation de votre note.",
+    "saved": "Note enregistrée",
+    "savedDesc": "Votre note chiffrée a été enregistrée et synchronisée.",
+    "savedOfflineDesc": "Enregistré localement. Sera synchronisé lorsque vous serez de nouveau en ligne.",
+    "failedToSave": "Échec de l'enregistrement de la note",
+    "deleting": "Suppression de la note...",
+    "deletingDesc": "Suppression de la note du stockage et synchronisation avec le cloud.",
+    "deleted": "Note supprimée",
+    "deletedDesc": "Votre note a été supprimée et synchronisée.",
+    "deletedOfflineDesc": "Supprimé localement. Sera synchronisé lorsque vous serez de nouveau en ligne.",
+    "deleteFailed": "Échec de la suppression de la note",
+    "deleteFailedDesc": "Impossible de supprimer la note du stockage. Les modifications peuvent être annulées."
   }
 }

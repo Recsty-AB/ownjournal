@@ -85,7 +85,8 @@
     "preview": "预览",
     "placeholder": "写下您的日记...使用 Markdown 格式：\n\n# 标题\n**粗体** *斜体*\n- 列表项",
     "markdownSupport": "支持：**粗体**、*斜体*、# 标题、- 列表",
-    "noContentPreview": "*没有内容可预览*"
+    "noContentPreview": "*没有内容可预览*",
+    "inlineTagHint": "在文本中输入 # 即可添加标签"
   },
   "import": {
     "invalidFormat": "导入文件格式无效",
@@ -773,7 +774,8 @@
     "validationError": "验证错误",
     "validationErrorDesc": "请检查您的条目",
     "titlePlaceholder": "条目标题...",
-    "saveEntry": "保存条目"
+    "saveEntry": "保存条目",
+    "inlineTagBadgeHint": "来自文本中的 #标签"
   },
   "storage": {
     "connecting": "正在连接...",
@@ -2426,5 +2428,33 @@
     "proFeatureDesc": "活动分析需要订阅 Plus",
     "tooltipAvg": "均值",
     "tooltipEntries": "条记录"
+  },
+  "notes": {
+    "journalTab": "日记",
+    "title": "笔记",
+    "newNote": "新笔记",
+    "searchPlaceholder": "搜索笔记...",
+    "titlePlaceholder": "笔记标题（可选）",
+    "startWriting": "写下你的笔记...",
+    "saveNote": "保存笔记",
+    "emptyTitle": "还没有笔记",
+    "emptyDesc": "保存不属于特定日期的想法、清单和参考资料。",
+    "noSearchResults": "没有符合搜索的笔记。",
+    "deleteConfirmTitle": "删除此笔记？",
+    "deleteConfirmDesc": "此笔记将从你的存储中永久删除。",
+    "updated": "更新于 {{date}}",
+    "saving": "正在保存笔记...",
+    "savingDesc": "正在加密并同步你的笔记。",
+    "saved": "笔记已保存",
+    "savedDesc": "你的加密笔记已保存并同步。",
+    "savedOfflineDesc": "已保存到本地。恢复网络后将同步。",
+    "failedToSave": "保存笔记失败",
+    "deleting": "正在删除笔记...",
+    "deletingDesc": "正在从存储中移除笔记并同步到云端。",
+    "deleted": "笔记已删除",
+    "deletedDesc": "你的笔记已删除并同步。",
+    "deletedOfflineDesc": "已在本机删除。恢复网络后将同步。",
+    "deleteFailed": "删除笔记失败",
+    "deleteFailedDesc": "无法从存储中删除笔记。更改可能会被还原。"
   }
 }

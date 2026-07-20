@@ -85,7 +85,8 @@
     "preview": "Esikatselu",
     "placeholder": "Kirjoita päiväkirjamerkintäsi... Käytä markdownia muotoiluun:\n\n# Otsikko\n**lihavoitu** *kursivoitu*\n- luettelo",
     "markdownSupport": "Tukee: **lihavoitu**, *kursivoitu*, # otsikot, - luettelot",
-    "noContentPreview": "*Ei sisältöä esikatseltavaksi*"
+    "noContentPreview": "*Ei sisältöä esikatseltavaksi*",
+    "inlineTagHint": "Kirjoita # tekstiin lisätäksesi tunnisteita"
   },
   "import": {
     "invalidFormat": "Virheellinen tuontitiedostomuoto",
@@ -773,7 +774,8 @@
     "validationError": "Validointivirhe",
     "validationErrorDesc": "Tarkista merkintäsi",
     "titlePlaceholder": "Merkinnän otsikko...",
-    "saveEntry": "Tallenna merkintä"
+    "saveEntry": "Tallenna merkintä",
+    "inlineTagBadgeHint": "Lisätty tekstin #tunnisteista"
   },
   "storage": {
     "connecting": "Yhdistetään...",
@@ -2426,5 +2428,33 @@
     "proFeatureDesc": "Aktiviteettinäkymät ovat saatavilla Plus-tilauksella",
     "tooltipAvg": "keskim.",
     "tooltipEntries": "merkintää"
+  },
+  "notes": {
+    "journalTab": "Päiväkirja",
+    "title": "Muistiinpanot",
+    "newNote": "Uusi muistiinpano",
+    "searchPlaceholder": "Hae muistiinpanoja...",
+    "titlePlaceholder": "Muistiinpanon otsikko (valinnainen)",
+    "startWriting": "Kirjoita muistiinpanosi...",
+    "saveNote": "Tallenna muistiinpano",
+    "emptyTitle": "Ei vielä muistiinpanoja",
+    "emptyDesc": "Säilytä ideat, listat ja viitemateriaali, jotka eivät liity tiettyyn päivään.",
+    "noSearchResults": "Yksikään muistiinpano ei vastaa hakuasi.",
+    "deleteConfirmTitle": "Poistetaanko tämä muistiinpano?",
+    "deleteConfirmDesc": "Muistiinpano poistetaan pysyvästi tallennustilastasi.",
+    "updated": "Päivitetty {{date}}",
+    "saving": "Tallennetaan muistiinpanoa...",
+    "savingDesc": "Salataan ja synkronoidaan muistiinpanoasi.",
+    "saved": "Muistiinpano tallennettu",
+    "savedDesc": "Salattu muistiinpanosi on tallennettu ja synkronoitu.",
+    "savedOfflineDesc": "Tallennettu paikallisesti. Synkronoidaan, kun olet takaisin verkossa.",
+    "failedToSave": "Muistiinpanon tallennus epäonnistui",
+    "deleting": "Poistetaan muistiinpanoa...",
+    "deletingDesc": "Poistetaan muistiinpanoa tallennustilasta ja synkronoidaan pilveen.",
+    "deleted": "Muistiinpano poistettu",
+    "deletedDesc": "Muistiinpanosi on poistettu ja synkronoitu.",
+    "deletedOfflineDesc": "Poistettu paikallisesti. Synkronoidaan, kun olet takaisin verkossa.",
+    "deleteFailed": "Muistiinpanon poisto epäonnistui",
+    "deleteFailedDesc": "Muistiinpanoa ei voitu poistaa tallennustilasta. Muutokset voidaan palauttaa."
   }
 }

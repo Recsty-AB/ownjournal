@@ -569,6 +569,9 @@ interface EncryptedEntry {
     mood?: string;
     activities?: string[];
     aiMetadata?: import('@/types/aiMetadata').EntryAIMetadata; // AI analysis metadata
+    // 'note' for Notes-section documents; absent for journal entries. New E2E
+    // entries carry this inside the encrypted payload like the fields above.
+    type?: string;
   };
   // Phase 4: Version vector for conflict detection
   versionVector?: VersionVector;
@@ -3874,6 +3877,7 @@ class StorageServiceV2 {
           mood: entry.mood,
           activities: entry.activities || [],
           aiMetadata: aiMetadata || undefined,
+          type: entry.type,
         } : {
           title: entry.title,
           body: entry.body,
@@ -3910,6 +3914,7 @@ class StorageServiceV2 {
             createdAt: entry.createdAt.toISOString(),
             updatedAt: entry.updatedAt.toISOString(),
             aiMetadata: aiMetadata || undefined,
+            type: entry.type,
           },
           versionVector: updatedVector, // Phase 4
         };
@@ -3934,6 +3939,7 @@ class StorageServiceV2 {
             createdAt: entry.createdAt.toISOString(),
             updatedAt: entry.updatedAt.toISOString(),
             aiMetadata: aiMetadata || undefined, // Include AI metadata
+            type: entry.type,
           },
           versionVector: updatedVector,
         };
@@ -4122,6 +4128,7 @@ class StorageServiceV2 {
       mood: e.mood || 'okay',
       createdAt: e.createdAt?.toISOString() ?? new Date().toISOString(),
       updatedAt: e.updatedAt?.toISOString() ?? new Date().toISOString(),
+      ...(e.type === 'note' ? { type: 'note' as const } : {}),
     }));
 
     await saveToIndexedDB('settings', {
@@ -4172,6 +4179,7 @@ class StorageServiceV2 {
         images: [],
         createdAt: new Date(e.createdAt),
         updatedAt: new Date(e.updatedAt),
+        ...(e.type === 'note' ? { type: 'note' as const } : {}),
       }));
     } catch {
       return [];
@@ -5070,7 +5078,7 @@ class StorageServiceV2 {
     // Sensitive fields that, for new E2E entries, live inside the encrypted
     // payload. Populated from the decrypted JSON when present; otherwise we fall
     // back to plaintext metadata (legacy E2E entries and Simple mode).
-    let payload: { date?: string; tags?: string[]; mood?: string; activities?: string[]; aiMetadata?: import('@/types/aiMetadata').EntryAIMetadata } = {};
+    let payload: { date?: string; tags?: string[]; mood?: string; activities?: string[]; aiMetadata?: import('@/types/aiMetadata').EntryAIMetadata; type?: string } = {};
 
     // Check if entry has IV (indicates encrypted data)
     const entryIsEncrypted = encryptedEntry.iv && encryptedEntry.iv.length > 0;
@@ -5104,6 +5112,7 @@ class StorageServiceV2 {
           mood: parsed.mood,
           activities: parsed.activities,
           aiMetadata: parsed.aiMetadata,
+          type: parsed.type,
         };
       } catch (error) {
         if (import.meta.env.DEV) console.error('Failed to decrypt entry:', encryptedEntry.id, error);
@@ -5152,6 +5161,8 @@ class StorageServiceV2 {
       });
     }
 
+    const entryType = payload.type ?? meta.type;
+
     return {
       id: encryptedEntry.id,
       title,
@@ -5163,6 +5174,7 @@ class StorageServiceV2 {
       activities: payload.activities ?? meta.activities ?? [],
       createdAt: new Date(meta.createdAt),
       updatedAt: new Date(meta.updatedAt),
+      ...(entryType === 'note' ? { type: 'note' as const } : {}),
     };
   }
 

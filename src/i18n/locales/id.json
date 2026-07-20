@@ -85,7 +85,8 @@
     "preview": "Pratinjau",
     "placeholder": "Tulis catatan jurnalmu... Gunakan markdown untuk format:\n\n# Judul\n**tebal** *miring*\n- poin",
     "markdownSupport": "Mendukung: **tebal**, *miring*, # judul, - daftar",
-    "noContentPreview": "*Tidak ada konten untuk ditampilkan*"
+    "noContentPreview": "*Tidak ada konten untuk ditampilkan*",
+    "inlineTagHint": "Ketik # di teks untuk menambahkan tag"
   },
   "import": {
     "invalidFormat": "Format file impor tidak valid",
@@ -773,7 +774,8 @@
     "validationError": "Kesalahan Validasi",
     "validationErrorDesc": "Silakan periksa catatan kamu",
     "titlePlaceholder": "Judul catatan...",
-    "saveEntry": "Simpan Catatan"
+    "saveEntry": "Simpan Catatan",
+    "inlineTagBadgeHint": "Ditambahkan dari #tag di teks"
   },
   "storage": {
     "connecting": "Menghubungkan...",
@@ -2429,5 +2431,33 @@
     "proFeatureDesc": "Wawasan aktivitas tersedia dengan langganan Plus",
     "tooltipAvg": "rata-rata",
     "tooltipEntries": "catatan"
+  },
+  "notes": {
+    "journalTab": "Jurnal",
+    "title": "Memo",
+    "newNote": "Memo Baru",
+    "searchPlaceholder": "Cari memo...",
+    "titlePlaceholder": "Judul memo (opsional)",
+    "startWriting": "Tulis memo Anda...",
+    "saveNote": "Simpan Memo",
+    "emptyTitle": "Belum ada memo",
+    "emptyDesc": "Simpan ide, daftar, dan materi referensi yang tidak terikat pada hari tertentu.",
+    "noSearchResults": "Tidak ada memo yang cocok dengan pencarian Anda.",
+    "deleteConfirmTitle": "Hapus memo ini?",
+    "deleteConfirmDesc": "Memo ini akan dihapus secara permanen dari penyimpanan Anda.",
+    "updated": "Diperbarui {{date}}",
+    "saving": "Menyimpan memo...",
+    "savingDesc": "Mengenkripsi dan menyinkronkan memo Anda.",
+    "saved": "Memo tersimpan",
+    "savedDesc": "Memo terenkripsi Anda telah disimpan dan disinkronkan.",
+    "savedOfflineDesc": "Tersimpan secara lokal. Akan disinkronkan saat kembali online.",
+    "failedToSave": "Gagal menyimpan memo",
+    "deleting": "Menghapus memo...",
+    "deletingDesc": "Menghapus memo dari penyimpanan dan menyinkronkan ke cloud.",
+    "deleted": "Memo dihapus",
+    "deletedDesc": "Memo Anda telah dihapus dan disinkronkan.",
+    "deletedOfflineDesc": "Dihapus secara lokal. Akan disinkronkan saat kembali online.",
+    "deleteFailed": "Gagal menghapus memo",
+    "deleteFailedDesc": "Gagal menghapus memo dari penyimpanan. Perubahan mungkin dikembalikan."
   }
 }

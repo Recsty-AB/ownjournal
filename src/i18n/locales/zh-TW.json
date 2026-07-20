@@ -85,7 +85,8 @@
     "preview": "預覽",
     "placeholder": "寫下您的日記...使用 Markdown 格式化：\n\n# 標題\n**粗體** *斜體*\n- 項目符號",
     "markdownSupport": "支援：**粗體**、*斜體*、# 標題、- 列表",
-    "noContentPreview": "*沒有可預覽的內容*"
+    "noContentPreview": "*沒有可預覽的內容*",
+    "inlineTagHint": "在文字中輸入 # 即可新增標籤"
   },
   "import": {
     "invalidFormat": "匯入檔案格式無效",
@@ -773,7 +774,8 @@
     "validationError": "驗證錯誤",
     "validationErrorDesc": "請檢查您的條目",
     "titlePlaceholder": "條目標題...",
-    "saveEntry": "儲存條目"
+    "saveEntry": "儲存條目",
+    "inlineTagBadgeHint": "從文字中的 #標籤 加入"
   },
   "storage": {
     "connecting": "連線中...",
@@ -2426,5 +2428,33 @@
     "proFeatureDesc": "活動分析需要訂閱 Plus",
     "tooltipAvg": "均值",
     "tooltipEntries": "筆紀錄"
+  },
+  "notes": {
+    "journalTab": "日記",
+    "title": "筆記",
+    "newNote": "新筆記",
+    "searchPlaceholder": "搜尋筆記...",
+    "titlePlaceholder": "筆記標題（選填）",
+    "startWriting": "撰寫您的筆記...",
+    "saveNote": "儲存筆記",
+    "emptyTitle": "尚無筆記",
+    "emptyDesc": "保存不屬於特定日期的想法、清單和參考資料。",
+    "noSearchResults": "沒有符合搜尋的筆記。",
+    "deleteConfirmTitle": "刪除此筆記？",
+    "deleteConfirmDesc": "此筆記將從您的儲存空間中永久刪除。",
+    "updated": "更新於 {{date}}",
+    "saving": "儲存筆記中...",
+    "savingDesc": "正在加密並同步您的筆記。",
+    "saved": "筆記已儲存",
+    "savedDesc": "您的加密筆記已儲存並同步。",
+    "savedOfflineDesc": "已儲存至本機。上線後將同步。",
+    "failedToSave": "無法儲存筆記",
+    "deleting": "刪除筆記中...",
+    "deletingDesc": "正在從儲存空間移除筆記並同步至雲端。",
+    "deleted": "筆記已刪除",
+    "deletedDesc": "您的筆記已刪除並同步。",
+    "deletedOfflineDesc": "已於本機刪除。上線後將同步。",
+    "deleteFailed": "無法刪除筆記",
+    "deleteFailedDesc": "無法從儲存空間刪除筆記。變更可能會被還原。"
   }
 }

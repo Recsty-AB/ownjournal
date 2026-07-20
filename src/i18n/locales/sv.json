@@ -85,7 +85,8 @@
     "preview": "Förhandsgranska",
     "placeholder": "Skriv ditt dagboksinlägg... Använd markdown för formatering:\n\n# Rubrik\n**fet** *kursiv*\n- punkt",
     "markdownSupport": "Stöder: **fet**, *kursiv*, # rubriker, - listor",
-    "noContentPreview": "*Inget innehåll att förhandsgranska*"
+    "noContentPreview": "*Inget innehåll att förhandsgranska*",
+    "inlineTagHint": "Skriv # i texten för att lägga till taggar"
   },
   "import": {
     "invalidFormat": "Ogiltigt importfilformat",
@@ -773,7 +774,8 @@
     "validationError": "Valideringsfel",
     "validationErrorDesc": "Kontrollera ditt inlägg",
     "titlePlaceholder": "Inläggets titel...",
-    "saveEntry": "Spara inlägg"
+    "saveEntry": "Spara inlägg",
+    "inlineTagBadgeHint": "Tillagda från #taggar i texten"
   },
   "storage": {
     "connecting": "Ansluter...",
@@ -2426,5 +2428,33 @@
     "proFeatureDesc": "Aktivitetsinsikter ingår i Plus-prenumerationen",
     "tooltipAvg": "snitt",
     "tooltipEntries": "inlägg"
+  },
+  "notes": {
+    "journalTab": "Dagbok",
+    "title": "Anteckningar",
+    "newNote": "Ny anteckning",
+    "searchPlaceholder": "Sök anteckningar...",
+    "titlePlaceholder": "Anteckningens titel (valfritt)",
+    "startWriting": "Skriv din anteckning...",
+    "saveNote": "Spara anteckning",
+    "emptyTitle": "Inga anteckningar ännu",
+    "emptyDesc": "Spara idéer, listor och referensmaterial som inte hör till en viss dag.",
+    "noSearchResults": "Inga anteckningar matchar din sökning.",
+    "deleteConfirmTitle": "Ta bort denna anteckning?",
+    "deleteConfirmDesc": "Anteckningen tas bort permanent från din lagring.",
+    "updated": "Uppdaterad {{date}}",
+    "saving": "Sparar anteckning...",
+    "savingDesc": "Krypterar och synkroniserar din anteckning.",
+    "saved": "Anteckning sparad",
+    "savedDesc": "Din krypterade anteckning har sparats och synkroniserats.",
+    "savedOfflineDesc": "Sparat lokalt. Synkroniseras när du är online igen.",
+    "failedToSave": "Det gick inte att spara anteckningen",
+    "deleting": "Tar bort anteckning...",
+    "deletingDesc": "Tar bort anteckningen från lagringen och synkroniserar till molnet.",
+    "deleted": "Anteckning borttagen",
+    "deletedDesc": "Din anteckning har tagits bort och synkroniserats.",
+    "deletedOfflineDesc": "Borttaget lokalt. Synkroniseras när du är online igen.",
+    "deleteFailed": "Det gick inte att ta bort anteckningen",
+    "deleteFailedDesc": "Anteckningen kunde inte tas bort från lagringen. Ändringar kan återställas."
   }
 }

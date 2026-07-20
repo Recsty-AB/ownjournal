@@ -2,7 +2,7 @@ import { saveAs } from "file-saver";
 import { isNativePlatform, saveJsonBackupNative, shareFileNative } from "@/utils/nativeExport";
 import { canShowAnyPurchaseCTA, canShowNativeCheckout, canShowStripeCheckout } from "@/utils/platformDetection";
 import { NativePaywall } from "@/components/subscription/NativePaywall";
-import { Share2 } from "lucide-react";
+import { BookOpen, Share2, StickyNote } from "lucide-react";
 import i18n from "@/i18n/config";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
@@ -17,6 +17,9 @@ import { SubscriptionBanner } from "@/components/subscription/SubscriptionBanner
 import { SettingsDialog } from "@/components/settings/SettingsDialog";
 import { JournalEntryData } from "@/components/journal/JournalEntry";
 import { ExportDialog } from "@/components/journal/ExportDialog";
+import { NotesSection } from "@/components/notes/NotesSection";
+import type { NoteSaveData } from "@/components/notes/NoteCard";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { storageServiceV2 } from "@/services/storageServiceV2";
 import { encryptionStateManager } from "@/services/encryptionStateManager";
@@ -63,7 +66,13 @@ function sortEntriesByDateNewestFirst(entries: JournalEntryData[]): JournalEntry
 const Index = () => {
   const { t } = useTranslation();
   const [entries, setEntries] = useState<JournalEntryData[]>([]);
-  const sortedEntries = useMemo(() => sortEntriesByDateNewestFirst(entries), [entries]);
+  const [activeView, setActiveView] = useState<'journal' | 'notes'>('journal');
+  // Notes share the entries store but live in their own section; keep them out
+  // of the timeline, mood, and trend views.
+  const journalEntries = useMemo(() => entries.filter(e => e.type !== 'note'), [entries]);
+  const notes = useMemo(() => entries.filter(e => e.type === 'note'), [entries]);
+  const allTags = useMemo(() => Array.from(new Set(entries.flatMap(e => e.tags))), [entries]);
+  const sortedEntries = useMemo(() => sortEntriesByDateNewestFirst(journalEntries), [journalEntries]);
   const [user, setUser] = useState<{
     id: string;
     email?: string;
@@ -1737,10 +1746,11 @@ const Index = () => {
       setEntries((prev) => sortEntriesByDateNewestFirst([...prev, newEntry]));
     }
 
-    // Show immediate feedback
+    // Show immediate feedback (notes get their own wording)
+    const isNote = newEntry.type === 'note';
     const savingToast = toast({
-      title: t('index.savingEntry'),
-      description: t('index.savingEntryDesc'),
+      title: isNote ? t('notes.saving') : t('index.savingEntry'),
+      description: isNote ? t('notes.savingDesc') : t('index.savingEntryDesc'),
       duration: 30000, // Keep it visible until we update it
     });
 
@@ -1751,8 +1761,10 @@ const Index = () => {
       // Update the toast to show success (don't claim "synced" when offline)
       savingToast.update({
         id: savingToast.id,
-        title: t('index.entrySaved'),
-        description: navigator.onLine ? t('index.entrySavedDesc') : t('index.entrySavedOfflineDesc'),
+        title: isNote ? t('notes.saved') : t('index.entrySaved'),
+        description: navigator.onLine
+          ? (isNote ? t('notes.savedDesc') : t('index.entrySavedDesc'))
+          : (isNote ? t('notes.savedOfflineDesc') : t('index.entrySavedOfflineDesc')),
         duration: 3000,
       });
     } catch (error) {
@@ -1771,7 +1783,7 @@ const Index = () => {
       // Update toast to show error
       savingToast.update({
         id: savingToast.id,
-        title: t('index.failedToSaveEntry'),
+        title: isNote ? t('notes.failedToSave') : t('index.failedToSaveEntry'),
         description: error instanceof Error ? translateCloudError(error, t) : t('index.pleaseTryAgain'),
         variant: "destructive",
         duration: 5000,
@@ -1779,14 +1791,32 @@ const Index = () => {
     }
   };
 
+  const handleSaveNote = async (noteData: NoteSaveData) => {
+    const existing = noteData.id ? entries.find((e) => e.id === noteData.id) : null;
+    await handleSaveEntry({
+      ...(noteData.id && { id: noteData.id }),
+      type: 'note',
+      title: noteData.title,
+      body: noteData.body,
+      tags: noteData.tags,
+      // Notes are not time-specific; keep neutral values for the shared entry shape
+      mood: existing?.mood || 'okay',
+      date: existing?.date || new Date(),
+      activities: [],
+      images: existing?.images || [],
+    });
+  };
+
   const handleDeleteEntry = async (id: string) => {
+    const isNote = entries.find((entry) => entry.id === id)?.type === 'note';
+
     // Optimistic update - remove from UI immediately
     setEntries((prev) => prev.filter((entry) => entry.id !== id));
 
     // Show immediate feedback
     const deletingToast = toast({
-      title: t('index.deletingEntry'),
-      description: t('index.deletingEntryDesc'),
+      title: isNote ? t('notes.deleting') : t('index.deletingEntry'),
+      description: isNote ? t('notes.deletingDesc') : t('index.deletingEntryDesc'),
       duration: 30000, // Keep it visible until we update it
     });
 
@@ -1798,8 +1828,10 @@ const Index = () => {
       const isOnline = navigator.onLine && storageServiceV2.getSyncStatus().status !== 'offline';
       deletingToast.update({
         id: deletingToast.id,
-        title: t('index.entryDeleted'),
-        description: isOnline ? t('index.entryDeletedDesc') : t('index.entryDeletedOfflineDesc'),
+        title: isNote ? t('notes.deleted') : t('index.entryDeleted'),
+        description: isOnline
+          ? (isNote ? t('notes.deletedDesc') : t('index.entryDeletedDesc'))
+          : (isNote ? t('notes.deletedOfflineDesc') : t('index.entryDeletedOfflineDesc')),
         duration: 3000,
       });
     } catch (error) {
@@ -1811,8 +1843,8 @@ const Index = () => {
       // Update toast to show error
       deletingToast.update({
         id: deletingToast.id,
-        title: t('index.deletionFailed'),
-        description: t('index.deletionFailedDesc'),
+        title: isNote ? t('notes.deleteFailed') : t('index.deletionFailed'),
+        description: isNote ? t('notes.deleteFailedDesc') : t('index.deletionFailedDesc'),
         variant: "destructive",
         duration: 5000,
       });
@@ -3120,33 +3152,56 @@ const Index = () => {
             />
           ) : null}
 
+          {/* Journal / Notes view toggle */}
+          <Tabs value={activeView} onValueChange={(v) => setActiveView(v as 'journal' | 'notes')}>
+            <TabsList className="grid w-full grid-cols-2 sm:w-auto sm:inline-grid">
+              <TabsTrigger value="journal" className="flex items-center gap-2 sm:px-6">
+                <BookOpen className="w-4 h-4" />
+                {t('notes.journalTab')}
+              </TabsTrigger>
+              <TabsTrigger value="notes" className="flex items-center gap-2 sm:px-6">
+                <StickyNote className="w-4 h-4" />
+                {t('notes.title')}
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+
           {/* Collapsible insight cards — three-across on desktop, stacked below lg.
               Each wrapper spans all 3 columns when its card is expanded (Radix
               Collapsible sets data-state="open"), so expanded content gets full
               width while the other two stay compact. */}
-          {entries.length >= 1 && (
+          {activeView === 'journal' && journalEntries.length >= 1 && (
             <div className="grid gap-3 lg:grid-cols-3 items-start">
               <div className="lg:has-[[data-state=open]]:col-span-3 min-w-0">
-                <MoodCalendar entries={entries} />
+                <MoodCalendar entries={journalEntries} />
               </div>
-              {entries.length >= 3 && (
+              {journalEntries.length >= 3 && (
                 <div className="lg:has-[[data-state=open]]:col-span-3 min-w-0">
-                  <MoodStats entries={entries} />
+                  <MoodStats entries={journalEntries} />
                 </div>
               )}
-              {entries.length >= 5 && (
+              {journalEntries.length >= 5 && (
                 <div className="lg:has-[[data-state=open]]:col-span-3 min-w-0">
-                  <MoodCorrelations entries={entries} isPro={isPro} />
+                  <MoodCorrelations entries={journalEntries} isPro={isPro} />
                 </div>
               )}
             </div>
           )}
 
-          {entries.length >= 3 && (
+          {activeView === 'journal' && journalEntries.length >= 3 && (
             <TrendAnalysis
               key={`trend-${user?.id ?? 'anonymous'}`}
-              entries={entries}
+              entries={journalEntries}
               isPro={isPro}
+            />
+          )}
+
+          {activeView === 'notes' && (
+            <NotesSection
+              notes={notes}
+              allTags={allTags}
+              onSaveNote={handleSaveNote}
+              onDeleteNote={handleDeleteEntry}
             />
           )}
 
@@ -3230,15 +3285,17 @@ const Index = () => {
           )}
         </div>
 
-        <div className="tour-timeline">
-          <Timeline
-            entries={sortedEntries}
-            onSaveEntry={handleSaveEntry}
-            onDeleteEntry={handleDeleteEntry}
-            onEditingChange={setIsEditing}
-            isPro={isPro}
-          />
-        </div>
+        {activeView === 'journal' && (
+          <div className="tour-timeline">
+            <Timeline
+              entries={sortedEntries}
+              onSaveEntry={handleSaveEntry}
+              onDeleteEntry={handleDeleteEntry}
+              onEditingChange={setIsEditing}
+              isPro={isPro}
+            />
+          </div>
+        )}
       </main>
 
     </div>

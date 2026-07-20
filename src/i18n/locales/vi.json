@@ -85,7 +85,8 @@
     "preview": "Xem trước",
     "placeholder": "Viết nhật ký của bạn... Dùng markdown để định dạng:\n\n# Tiêu đề\n**đậm** *nghiêng*\n- gạch đầu dòng",
     "markdownSupport": "Hỗ trợ: **đậm**, *nghiêng*, # tiêu đề, - danh sách",
-    "noContentPreview": "*Chưa có nội dung để xem trước*"
+    "noContentPreview": "*Chưa có nội dung để xem trước*",
+    "inlineTagHint": "Gõ # trong văn bản để thêm thẻ"
   },
   "import": {
     "invalidFormat": "Định dạng tệp nhập không hợp lệ",
@@ -773,7 +774,8 @@
     "validationError": "Lỗi kiểm tra dữ liệu",
     "validationErrorDesc": "Vui lòng kiểm tra lại bài viết",
     "titlePlaceholder": "Tiêu đề bài viết...",
-    "saveEntry": "Lưu bài viết"
+    "saveEntry": "Lưu bài viết",
+    "inlineTagBadgeHint": "Được thêm từ #thẻ trong văn bản"
   },
   "storage": {
     "connecting": "Đang kết nối...",
@@ -2429,5 +2431,33 @@
     "proFeatureDesc": "Phân tích hoạt động khả dụng với gói Plus",
     "tooltipAvg": "trung bình",
     "tooltipEntries": "bài viết"
+  },
+  "notes": {
+    "journalTab": "Nhật ký",
+    "title": "Ghi chú",
+    "newNote": "Ghi chú mới",
+    "searchPlaceholder": "Tìm kiếm ghi chú...",
+    "titlePlaceholder": "Tiêu đề ghi chú (không bắt buộc)",
+    "startWriting": "Viết ghi chú của bạn...",
+    "saveNote": "Lưu ghi chú",
+    "emptyTitle": "Chưa có ghi chú nào",
+    "emptyDesc": "Lưu giữ ý tưởng, danh sách và tài liệu tham khảo không gắn với một ngày cụ thể.",
+    "noSearchResults": "Không có ghi chú nào khớp với tìm kiếm của bạn.",
+    "deleteConfirmTitle": "Xóa ghi chú này?",
+    "deleteConfirmDesc": "Ghi chú này sẽ bị xóa vĩnh viễn khỏi bộ nhớ lưu trữ của bạn.",
+    "updated": "Cập nhật {{date}}",
+    "saving": "Đang lưu ghi chú...",
+    "savingDesc": "Đang mã hóa và đồng bộ ghi chú của bạn.",
+    "saved": "Đã lưu ghi chú",
+    "savedDesc": "Ghi chú đã mã hóa của bạn đã được lưu và đồng bộ.",
+    "savedOfflineDesc": "Đã lưu tại máy. Sẽ đồng bộ khi có kết nối mạng.",
+    "failedToSave": "Không thể lưu ghi chú",
+    "deleting": "Đang xóa ghi chú...",
+    "deletingDesc": "Đang xóa ghi chú khỏi bộ nhớ lưu trữ và đồng bộ với đám mây.",
+    "deleted": "Đã xóa ghi chú",
+    "deletedDesc": "Ghi chú của bạn đã được xóa và đồng bộ.",
+    "deletedOfflineDesc": "Đã xóa tại máy. Sẽ đồng bộ khi có kết nối mạng.",
+    "deleteFailed": "Không thể xóa ghi chú",
+    "deleteFailedDesc": "Không thể xóa ghi chú khỏi bộ nhớ lưu trữ. Các thay đổi có thể bị hoàn tác."
   }
 }

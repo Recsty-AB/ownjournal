@@ -85,7 +85,8 @@
     "preview": "미리보기",
     "placeholder": "일기를 작성하세요... 마크다운 서식을 사용할 수 있습니다:\n\n# 제목\n**굵게** *기울임*\n- 목록 항목",
     "markdownSupport": "지원: **굵게**, *기울임*, # 제목, - 목록",
-    "noContentPreview": "*미리볼 내용이 없습니다*"
+    "noContentPreview": "*미리볼 내용이 없습니다*",
+    "inlineTagHint": "텍스트에 #을 입력하면 태그가 추가됩니다"
   },
   "import": {
     "invalidFormat": "잘못된 가져오기 파일 형식입니다",
@@ -773,7 +774,8 @@
     "validationError": "유효성 검사 오류",
     "validationErrorDesc": "항목을 확인하세요",
     "titlePlaceholder": "항목 제목...",
-    "saveEntry": "항목 저장"
+    "saveEntry": "항목 저장",
+    "inlineTagBadgeHint": "텍스트의 #태그에서 추가됨"
   },
   "storage": {
     "connecting": "연결 중...",
@@ -2426,5 +2428,33 @@
     "proFeatureDesc": "활동 분석은 Plus 구독이 필요합니다",
     "tooltipAvg": "평균",
     "tooltipEntries": "편"
+  },
+  "notes": {
+    "journalTab": "일기",
+    "title": "메모",
+    "newNote": "새 메모",
+    "searchPlaceholder": "메모 검색...",
+    "titlePlaceholder": "메모 제목 (선택 사항)",
+    "startWriting": "메모를 작성하세요...",
+    "saveNote": "메모 저장",
+    "emptyTitle": "아직 메모가 없습니다",
+    "emptyDesc": "특정 날짜에 얽매이지 않는 아이디어, 목록, 참고 자료를 보관하세요.",
+    "noSearchResults": "검색과 일치하는 메모가 없습니다.",
+    "deleteConfirmTitle": "이 메모를 삭제할까요?",
+    "deleteConfirmDesc": "이 메모는 저장소에서 영구적으로 삭제됩니다.",
+    "updated": "{{date}} 업데이트됨",
+    "saving": "메모 저장 중...",
+    "savingDesc": "메모를 암호화하고 동기화하고 있습니다.",
+    "saved": "메모 저장됨",
+    "savedDesc": "암호화된 메모가 저장되고 동기화되었습니다.",
+    "savedOfflineDesc": "로컬에 저장되었습니다. 온라인 상태가 되면 동기화됩니다.",
+    "failedToSave": "메모 저장 실패",
+    "deleting": "메모 삭제 중...",
+    "deletingDesc": "저장소에서 메모를 제거하고 클라우드와 동기화하고 있습니다.",
+    "deleted": "메모 삭제됨",
+    "deletedDesc": "메모가 삭제되고 동기화되었습니다.",
+    "deletedOfflineDesc": "로컬에서 삭제되었습니다. 온라인 상태가 되면 동기화됩니다.",
+    "deleteFailed": "메모 삭제 실패",
+    "deleteFailedDesc": "저장소에서 메모를 삭제하지 못했습니다. 변경 사항이 되돌려질 수 있습니다."
   }
 }

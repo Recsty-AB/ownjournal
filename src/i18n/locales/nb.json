@@ -85,7 +85,8 @@
     "preview": "Forhåndsvisning",
     "placeholder": "Skriv dagbokinnlegget ditt... Bruk markdown for formatering:\n\n# Overskrift\n**fet** *kursiv*\n- punktliste",
     "markdownSupport": "Støtter: **fet**, *kursiv*, # overskrifter, - lister",
-    "noContentPreview": "*Ingen innhold å forhåndsvise*"
+    "noContentPreview": "*Ingen innhold å forhåndsvise*",
+    "inlineTagHint": "Skriv # i teksten for å legge til etiketter"
   },
   "import": {
     "invalidFormat": "Ugyldig importfilformat",
@@ -773,7 +774,8 @@
     "validationError": "Valideringsfeil",
     "validationErrorDesc": "Sjekk innlegget ditt",
     "titlePlaceholder": "Innleggstittel...",
-    "saveEntry": "Lagre innlegg"
+    "saveEntry": "Lagre innlegg",
+    "inlineTagBadgeHint": "Lagt til fra #etiketter i teksten"
   },
   "storage": {
     "connecting": "Kobler til...",
@@ -2426,5 +2428,33 @@
     "proFeatureDesc": "Aktivitetsinnsikt er tilgjengelig med et Plus-abonnement",
     "tooltipAvg": "gj.sn.",
     "tooltipEntries": "innlegg"
+  },
+  "notes": {
+    "journalTab": "Dagbok",
+    "title": "Notater",
+    "newNote": "Nytt notat",
+    "searchPlaceholder": "Søk i notater...",
+    "titlePlaceholder": "Notattittel (valgfritt)",
+    "startWriting": "Skriv notatet ditt...",
+    "saveNote": "Lagre notat",
+    "emptyTitle": "Ingen notater ennå",
+    "emptyDesc": "Ta vare på ideer, lister og referansemateriale som ikke er knyttet til en bestemt dag.",
+    "noSearchResults": "Ingen notater samsvarer med søket ditt.",
+    "deleteConfirmTitle": "Slette dette notatet?",
+    "deleteConfirmDesc": "Notatet slettes permanent fra lagringen din.",
+    "updated": "Oppdatert {{date}}",
+    "saving": "Lagrer notat...",
+    "savingDesc": "Krypterer og synkroniserer notatet ditt.",
+    "saved": "Notat lagret",
+    "savedDesc": "Det krypterte notatet ditt er lagret og synkronisert.",
+    "savedOfflineDesc": "Lagret lokalt. Synkroniseres når du er tilbake på nett.",
+    "failedToSave": "Kunne ikke lagre notatet",
+    "deleting": "Sletter notat...",
+    "deletingDesc": "Fjerner notatet fra lagringen og synkroniserer til skyen.",
+    "deleted": "Notat slettet",
+    "deletedDesc": "Notatet ditt er slettet og synkronisert.",
+    "deletedOfflineDesc": "Slettet lokalt. Synkroniseres når du er tilbake på nett.",
+    "deleteFailed": "Kunne ikke slette notatet",
+    "deleteFailedDesc": "Kunne ikke slette notatet fra lagringen. Endringer kan bli tilbakestilt."
   }
 }
