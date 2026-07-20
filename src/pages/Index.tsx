@@ -35,7 +35,7 @@ import { Button } from "@/components/ui/button";
 import { ToastAction } from "@/components/ui/toast";
 import { retrievePassword, clearPassword, storePassword } from "@/utils/passwordStorage";
 import { journalNameStorage } from "@/utils/journalNameStorage";
-import { setCurrentUserId, getCurrentUserId, migrateLocalStorageToUserScope, clearUnscopedUserData, scopedKey } from "@/utils/userScope";
+import { setCurrentUserId, getCurrentUserId, getLastUserId, migrateLocalStorageToUserScope, clearUnscopedUserData, scopedKey } from "@/utils/userScope";
 import { useOnboarding } from "@/hooks/useOnboarding";
 import { OnboardingTour } from "@/components/onboarding/OnboardingTour";
 import { HelpDialog } from "@/components/help/HelpDialog";
@@ -93,11 +93,21 @@ const Index = () => {
   const [cloudSetupDone, setCloudSetupDone] = useState(() => {
     return localStorage.getItem("cloudSetupDone") === "true";
   });
-  const [isPro, setIsPro] = useState(false);
-  const [subscriptionStatus, setSubscriptionStatus] = useState<string | null>(null);
-  const [subscriptionProvider, setSubscriptionProvider] = useState<'stripe' | 'apple' | 'google' | null>(null);
-  const [hasUsedTrial, setHasUsedTrial] = useState(true); // default true to avoid flashing trial CTA
-  const [currentPeriodEnd, setCurrentPeriodEnd] = useState<string | null>(null);
+  // Seed subscription state synchronously from the last active user's cache
+  // (same last-user mechanism the entry snapshot uses). The journal UI can
+  // render from the snapshot before auth resolves, so without this seed a
+  // Plus member sees the free-tier upgrade card flash until the effects run.
+  // fetchSubscription() corrects the state once the real user is known.
+  const [initialCachedSub] = useState(() => {
+    const lastUserId = getLastUserId();
+    return lastUserId ? getCachedSubscription(lastUserId) : null;
+  });
+  const [isPro, setIsPro] = useState(initialCachedSub?.is_pro ?? false);
+  const [subscriptionStatus, setSubscriptionStatus] = useState<string | null>(initialCachedSub?.subscription_status ?? null);
+  const [subscriptionProvider, setSubscriptionProvider] = useState<'stripe' | 'apple' | 'google' | null>(initialCachedSub?.provider ?? null);
+  // Without a cache, default hasUsedTrial to true to avoid flashing the trial CTA
+  const [hasUsedTrial, setHasUsedTrial] = useState(initialCachedSub ? (initialCachedSub.has_used_trial ?? false) : true);
+  const [currentPeriodEnd, setCurrentPeriodEnd] = useState<string | null>(initialCachedSub?.current_period_end ?? null);
   const [showExportDialog, setShowExportDialog] = useState(false);
   const [journalName, setJournalName] = useState(() => journalNameStorage.getJournalName());
   const [showHelpDialog, setShowHelpDialog] = useState(false);
@@ -825,8 +835,14 @@ const Index = () => {
   // Fetch subscription status (uses cache when offline so Plus works offline)
   const fetchSubscription = useCallback(async () => {
     if (!user) {
+      // While auth is still resolving, keep the state seeded from the last
+      // user's cache — resetting here (this runs on mount, before getSession
+      // returns) would re-introduce the free-tier flash that seed prevents.
+      // Once auth resolves to signed-out, reset for real.
+      if (isAuthLoading) return;
       setIsPro(false);
       setSubscriptionStatus(null);
+      setSubscriptionProvider(null);
       setHasUsedTrial(true);
       setCurrentPeriodEnd(null);
       return;
@@ -887,7 +903,7 @@ const Index = () => {
       // value on screen. If we didn't, state is already at defaults.
       if (import.meta.env.DEV) console.error("Failed to fetch subscription:", error);
     }
-  }, [user]);
+  }, [user, isAuthLoading]);
 
   useEffect(() => {
     fetchSubscription();

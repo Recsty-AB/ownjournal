@@ -166,7 +166,14 @@ GitHub Actions workflow (`.github/workflows/ci.yml`):
 
 ## Environment Variables
 
-Required in `.env` for full functionality (not needed for basic dev):
+Required in `.env` for the app to boot (see `.env.example`) — without them the Supabase client throws at startup and the page stays blank:
+```
+VITE_SUPABASE_URL             # Supabase project URL
+VITE_SUPABASE_PUBLISHABLE_KEY # Supabase anon key
+VITE_SUPABASE_PROJECT_ID      # Supabase project id
+```
+
+Optional in `.env` for full functionality:
 ```
 VITE_GOOGLE_CLIENT_ID       # Google OAuth
 VITE_APPLE_CLIENT_ID        # Apple Sign-In
@@ -174,7 +181,7 @@ VITE_DROPBOX_CLIENT_ID      # Dropbox OAuth
 VITE_STRIPE_PUBLISHABLE_KEY # Stripe subscriptions
 ```
 
-Supabase config is hardcoded in `src/config/supabase.ts` (not read from env at runtime). CI uses `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`, and `VITE_SUPABASE_PROJECT_ID` as secrets for the build step.
+Supabase config is read from these env vars via `src/config/supabase.ts`. CI provides the three Supabase vars as secrets for the build step.
 
 ## Documentation Index
 
