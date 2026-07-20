@@ -138,6 +138,7 @@ vi.mock('@/utils/journalNameStorage', () => ({
 vi.mock('@/utils/userScope', () => ({
   setCurrentUserId: vi.fn(),
   getCurrentUserId: vi.fn(() => null),
+  getLastUserId: vi.fn(() => null),
   migrateLocalStorageToUserScope: vi.fn(),
   clearUnscopedUserData: vi.fn(),
   scopedKey: vi.fn((key: string) => key),
