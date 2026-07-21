@@ -85,7 +85,8 @@
     "preview": "プレビュー",
     "placeholder": "日記を書いてください。\nマークダウンで書式設定できます\n\n# 見出し\n**太字** *斜体*\n- 箇条書き",
     "markdownSupport": "対応: **太字**, *斜体*, # 見出し, - リスト",
-    "noContentPreview": "*プレビューするコンテンツがありません*"
+    "noContentPreview": "*プレビューするコンテンツがありません*",
+    "inlineTagHint": "テキスト内で # を入力するとタグを追加できます"
   },
   "import": {
     "invalidFormat": "無効なファイル形式",
@@ -773,7 +774,8 @@
     "validationError": "検証エラー",
     "validationErrorDesc": "日記を確認してください",
     "titlePlaceholder": "日記のタイトル",
-    "saveEntry": "日記を保存"
+    "saveEntry": "日記を保存",
+    "inlineTagBadgeHint": "テキスト内の #タグ から追加"
   },
   "storage": {
     "connecting": "接続中",
@@ -2429,5 +2431,33 @@
     "proFeatureDesc": "行動と気分の分析はPlusプランでご利用いただけます",
     "tooltipAvg": "平均",
     "tooltipEntries": "件"
+  },
+  "notes": {
+    "journalTab": "日記",
+    "title": "メモ",
+    "newNote": "新しいメモ",
+    "searchPlaceholder": "メモを検索",
+    "titlePlaceholder": "メモのタイトル（任意）",
+    "startWriting": "メモを書く...",
+    "saveNote": "メモを保存",
+    "emptyTitle": "まだメモがありません",
+    "emptyDesc": "特定の日付に紐づかないアイデアやリスト、参考資料を保存できます。",
+    "noSearchResults": "検索に一致するメモがありません。",
+    "deleteConfirmTitle": "このメモを削除しますか？",
+    "deleteConfirmDesc": "このメモはストレージから完全に削除されます。",
+    "updated": "更新: {{date}}",
+    "saving": "メモを保存中",
+    "savingDesc": "メモを暗号化して同期しています。",
+    "saved": "メモが保存されました",
+    "savedDesc": "暗号化されたメモが保存され、同期されました。",
+    "savedOfflineDesc": "ローカルに保存しました。オンラインに戻ると同期されます。",
+    "failedToSave": "メモの保存に失敗しました",
+    "deleting": "メモを削除中",
+    "deletingDesc": "ストレージからメモを削除し、クラウドと同期しています。",
+    "deleted": "メモが削除されました",
+    "deletedDesc": "メモが削除され、同期されました。",
+    "deletedOfflineDesc": "ローカルで削除しました。オンラインに戻ると同期されます。",
+    "deleteFailed": "メモの削除に失敗しました",
+    "deleteFailedDesc": "ストレージからメモを削除できませんでした。変更は元に戻る場合があります。"
   }
 }

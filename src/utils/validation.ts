@@ -33,6 +33,30 @@ export const journalEntrySchema = z.object({
   date: z.date(),
 });
 
+// Note validation schema — notes are not time-specific, so no date/mood/activities
+export const noteSchema = z.object({
+  title: z
+    .string()
+    .trim()
+    .max(200, { message: "Title must be less than 200 characters" })
+    .optional()
+    .default(""),
+  body: z
+    .string()
+    .trim()
+    .min(1, { message: "Note content is required" })
+    .max(50000, { message: "Note must be less than 50,000 characters" }),
+  tags: z
+    .array(
+      z
+        .string()
+        .trim()
+        .min(1)
+        .max(30, { message: "Tag must be less than 30 characters" })
+    )
+    .max(20, { message: "Maximum 20 tags allowed" }),
+});
+
 // Tag validation - supports Unicode (Japanese, Chinese, etc.)
 export const tagSchema = z
   .string()

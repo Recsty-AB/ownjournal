@@ -85,7 +85,8 @@
     "preview": "Voorbeeld",
     "placeholder": "Schrijf uw dagboekitem... Gebruik markdown voor opmaak:\n\n# Kop\n**vet** *cursief*\n- opsommingspunt",
     "markdownSupport": "Ondersteunt: **vet**, *cursief*, # koppen, - lijsten",
-    "noContentPreview": "*Geen inhoud om te bekijken*"
+    "noContentPreview": "*Geen inhoud om te bekijken*",
+    "inlineTagHint": "Typ # in de tekst om tags toe te voegen"
   },
   "import": {
     "invalidFormat": "Ongeldig importbestandsformaat",
@@ -773,7 +774,8 @@
     "validationError": "Validatiefout",
     "validationErrorDesc": "Controleer uw item",
     "titlePlaceholder": "Titel van item...",
-    "saveEntry": "Item opslaan"
+    "saveEntry": "Item opslaan",
+    "inlineTagBadgeHint": "Toegevoegd via #tags in de tekst"
   },
   "storage": {
     "connecting": "Verbinden...",
@@ -2426,5 +2428,33 @@
     "proFeatureDesc": "Activiteitsinzichten zijn beschikbaar met een Plus-abonnement",
     "tooltipAvg": "gem.",
     "tooltipEntries": "notities"
+  },
+  "notes": {
+    "journalTab": "Dagboek",
+    "title": "Notities",
+    "newNote": "Nieuwe notitie",
+    "searchPlaceholder": "Notities zoeken...",
+    "titlePlaceholder": "Titel van notitie (optioneel)",
+    "startWriting": "Schrijf uw notitie...",
+    "saveNote": "Notitie opslaan",
+    "emptyTitle": "Nog geen notities",
+    "emptyDesc": "Bewaar ideeën, lijsten en referentiemateriaal dat niet aan een specifieke dag gebonden is.",
+    "noSearchResults": "Geen notities komen overeen met uw zoekopdracht.",
+    "deleteConfirmTitle": "Deze notitie verwijderen?",
+    "deleteConfirmDesc": "Deze notitie wordt permanent uit uw opslag verwijderd.",
+    "updated": "Bijgewerkt {{date}}",
+    "saving": "Notitie opslaan...",
+    "savingDesc": "Uw notitie wordt versleuteld en gesynchroniseerd.",
+    "saved": "Notitie opgeslagen",
+    "savedDesc": "Uw versleutelde notitie is opgeslagen en gesynchroniseerd.",
+    "savedOfflineDesc": "Lokaal opgeslagen. Wordt gesynchroniseerd wanneer u weer online bent.",
+    "failedToSave": "Notitie opslaan mislukt",
+    "deleting": "Notitie verwijderen...",
+    "deletingDesc": "Notitie wordt uit de opslag verwijderd en gesynchroniseerd met de cloud.",
+    "deleted": "Notitie verwijderd",
+    "deletedDesc": "Uw notitie is verwijderd en gesynchroniseerd.",
+    "deletedOfflineDesc": "Lokaal verwijderd. Wordt gesynchroniseerd wanneer u weer online bent.",
+    "deleteFailed": "Notitie verwijderen mislukt",
+    "deleteFailedDesc": "Kan de notitie niet uit de opslag verwijderen. Wijzigingen kunnen worden teruggedraaid."
   }
 }

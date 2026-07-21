@@ -85,7 +85,8 @@
     "preview": "Visualizar",
     "placeholder": "Escreva sua entrada no diário... Use markdown para formatação:\n\n# Título\n**negrito** *itálico*\n- ponto",
     "markdownSupport": "Suporta: **negrito**, *itálico*, # títulos, - listas",
-    "noContentPreview": "*Sem conteúdo para visualizar*"
+    "noContentPreview": "*Sem conteúdo para visualizar*",
+    "inlineTagHint": "Escreva # no texto para adicionar tags"
   },
   "import": {
     "invalidFormat": "Formato de ficheiro de importação inválido",
@@ -773,7 +774,8 @@
     "validationError": "Erro de Validação",
     "validationErrorDesc": "Verifique sua entrada",
     "titlePlaceholder": "Título da entrada...",
-    "saveEntry": "Guardar Entrada"
+    "saveEntry": "Guardar Entrada",
+    "inlineTagBadgeHint": "Adicionadas das #tags no texto"
   },
   "storage": {
     "connecting": "A conectar...",
@@ -2426,5 +2428,33 @@
     "proFeatureDesc": "Insights de atividades estão disponíveis com uma assinatura Plus",
     "tooltipAvg": "média",
     "tooltipEntries": "entradas"
+  },
+  "notes": {
+    "journalTab": "Diário",
+    "title": "Notas",
+    "newNote": "Nova Nota",
+    "searchPlaceholder": "Pesquisar notas...",
+    "titlePlaceholder": "Título da nota (opcional)",
+    "startWriting": "Escreva a sua nota...",
+    "saveNote": "Guardar Nota",
+    "emptyTitle": "Ainda não há notas",
+    "emptyDesc": "Guarde ideias, listas e material de referência que não estão ligados a um dia específico.",
+    "noSearchResults": "Nenhuma nota corresponde à sua pesquisa.",
+    "deleteConfirmTitle": "Eliminar esta nota?",
+    "deleteConfirmDesc": "Esta nota será eliminada permanentemente do seu armazenamento.",
+    "updated": "Atualizada em {{date}}",
+    "saving": "A guardar nota...",
+    "savingDesc": "A encriptar e sincronizar a sua nota.",
+    "saved": "Nota guardada",
+    "savedDesc": "A sua nota encriptada foi guardada e sincronizada.",
+    "savedOfflineDesc": "Salvo localmente. Sincronizará quando você estiver online novamente.",
+    "failedToSave": "Falha ao guardar a nota",
+    "deleting": "A eliminar nota...",
+    "deletingDesc": "A remover a nota do armazenamento e a sincronizar com a nuvem.",
+    "deleted": "Nota eliminada",
+    "deletedDesc": "A sua nota foi eliminada e sincronizada.",
+    "deletedOfflineDesc": "Excluído localmente. Sincronizará quando você estiver online novamente.",
+    "deleteFailed": "Falha ao eliminar a nota",
+    "deleteFailedDesc": "Não foi possível eliminar a nota do armazenamento. As alterações podem ser revertidas."
   }
 }

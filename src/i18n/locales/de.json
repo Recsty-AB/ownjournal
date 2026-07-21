@@ -85,7 +85,8 @@
     "preview": "Vorschau",
     "placeholder": "Schreiben Sie Ihren Tagebucheintrag... Verwenden Sie Markdown für Formatierung:\n\n# Überschrift\n**fett** *kursiv*\n- Aufzählung",
     "markdownSupport": "Unterstützt: **fett**, *kursiv*, # Überschriften, - Listen",
-    "noContentPreview": "*Kein Inhalt für Vorschau*"
+    "noContentPreview": "*Kein Inhalt für Vorschau*",
+    "inlineTagHint": "Tippen Sie # im Text, um Tags hinzuzufügen"
   },
   "import": {
     "invalidFormat": "Ungültiges Importdateiformat",
@@ -773,7 +774,8 @@
     "validationError": "Validierungsfehler",
     "validationErrorDesc": "Bitte überprüfen Sie Ihren Eintrag",
     "titlePlaceholder": "Eintragtitel...",
-    "saveEntry": "Eintrag speichern"
+    "saveEntry": "Eintrag speichern",
+    "inlineTagBadgeHint": "Aus #Tags im Text hinzugefügt"
   },
   "storage": {
     "connecting": "Verbindung wird hergestellt...",
@@ -2426,5 +2428,33 @@
     "proFeatureDesc": "Aktivitäts-Einblicke sind mit einem Plus-Abo verfügbar",
     "tooltipAvg": "Ø",
     "tooltipEntries": "Einträge"
+  },
+  "notes": {
+    "journalTab": "Tagebuch",
+    "title": "Notizen",
+    "newNote": "Neue Notiz",
+    "searchPlaceholder": "Notizen durchsuchen...",
+    "titlePlaceholder": "Titel der Notiz (optional)",
+    "startWriting": "Schreiben Sie Ihre Notiz...",
+    "saveNote": "Notiz speichern",
+    "emptyTitle": "Noch keine Notizen",
+    "emptyDesc": "Bewahren Sie Ideen, Listen und Referenzmaterial auf, das nicht an einen bestimmten Tag gebunden ist.",
+    "noSearchResults": "Keine Notizen entsprechen Ihrer Suche.",
+    "deleteConfirmTitle": "Diese Notiz löschen?",
+    "deleteConfirmDesc": "Die Notiz wird dauerhaft aus Ihrem Speicher gelöscht.",
+    "updated": "Aktualisiert am {{date}}",
+    "saving": "Notiz wird gespeichert...",
+    "savingDesc": "Ihre Notiz wird verschlüsselt und synchronisiert.",
+    "saved": "Notiz gespeichert",
+    "savedDesc": "Ihre verschlüsselte Notiz wurde gespeichert und synchronisiert.",
+    "savedOfflineDesc": "Lokal gespeichert. Wird synchronisiert, wenn Sie wieder online sind.",
+    "failedToSave": "Notiz konnte nicht gespeichert werden",
+    "deleting": "Notiz wird gelöscht...",
+    "deletingDesc": "Notiz wird aus dem Speicher entfernt und mit der Cloud synchronisiert.",
+    "deleted": "Notiz gelöscht",
+    "deletedDesc": "Ihre Notiz wurde gelöscht und synchronisiert.",
+    "deletedOfflineDesc": "Lokal gelöscht. Wird synchronisiert, wenn Sie wieder online sind.",
+    "deleteFailed": "Notiz konnte nicht gelöscht werden",
+    "deleteFailedDesc": "Die Notiz konnte nicht aus dem Speicher gelöscht werden. Änderungen werden möglicherweise rückgängig gemacht."
   }
 }

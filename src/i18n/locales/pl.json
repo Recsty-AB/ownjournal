@@ -85,7 +85,8 @@
     "preview": "Podgląd",
     "placeholder": "Napisz swój wpis... Użyj markdown do formatowania:\n\n# Nagłówek\n**pogrubienie** *kursywa*\n- punkt listy",
     "markdownSupport": "Obsługuje: **pogrubienie**, *kursywa*, # nagłówki, - listy",
-    "noContentPreview": "*Brak treści do podglądu*"
+    "noContentPreview": "*Brak treści do podglądu*",
+    "inlineTagHint": "Wpisz # w tekście, aby dodać tagi"
   },
   "import": {
     "invalidFormat": "Nieprawidłowy format pliku importu",
@@ -773,7 +774,8 @@
     "validationError": "Błąd walidacji",
     "validationErrorDesc": "Sprawdź swój wpis",
     "titlePlaceholder": "Tytuł wpisu...",
-    "saveEntry": "Zapisz wpis"
+    "saveEntry": "Zapisz wpis",
+    "inlineTagBadgeHint": "Dodano z #tagów w tekście"
   },
   "storage": {
     "connecting": "Łączenie...",
@@ -2426,5 +2428,33 @@
     "proFeatureDesc": "Wgląd w aktywności jest dostępny z subskrypcją Plus",
     "tooltipAvg": "śr.",
     "tooltipEntries": "wpisów"
+  },
+  "notes": {
+    "journalTab": "Dziennik",
+    "title": "Notatki",
+    "newNote": "Nowa notatka",
+    "searchPlaceholder": "Szukaj notatek...",
+    "titlePlaceholder": "Tytuł notatki (opcjonalnie)",
+    "startWriting": "Napisz notatkę...",
+    "saveNote": "Zapisz notatkę",
+    "emptyTitle": "Brak notatek",
+    "emptyDesc": "Przechowuj pomysły, listy i materiały referencyjne, które nie są związane z konkretnym dniem.",
+    "noSearchResults": "Żadna notatka nie pasuje do wyszukiwania.",
+    "deleteConfirmTitle": "Usunąć tę notatkę?",
+    "deleteConfirmDesc": "Notatka zostanie trwale usunięta z Twojego magazynu.",
+    "updated": "Zaktualizowano {{date}}",
+    "saving": "Zapisywanie notatki...",
+    "savingDesc": "Szyfrowanie i synchronizowanie notatki.",
+    "saved": "Notatka zapisana",
+    "savedDesc": "Twoja zaszyfrowana notatka została zapisana i zsynchronizowana.",
+    "savedOfflineDesc": "Zapisano lokalnie. Zsynchronizuje się, gdy wrócisz online.",
+    "failedToSave": "Nie udało się zapisać notatki",
+    "deleting": "Usuwanie notatki...",
+    "deletingDesc": "Usuwanie notatki z magazynu i synchronizacja z chmurą.",
+    "deleted": "Notatka usunięta",
+    "deletedDesc": "Twoja notatka została usunięta i zsynchronizowana.",
+    "deletedOfflineDesc": "Usunięto lokalnie. Zsynchronizuje się, gdy wrócisz online.",
+    "deleteFailed": "Nie udało się usunąć notatki",
+    "deleteFailedDesc": "Nie udało się usunąć notatki z magazynu. Zmiany mogą zostać cofnięte."
   }
 }

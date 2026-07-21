@@ -85,7 +85,8 @@
     "preview": "Preview",
     "placeholder": "Write your journal entry... Use markdown for formatting:\n\n# Heading\n**bold** *italic*\n- bullet point",
     "markdownSupport": "Supports: **bold**, *italic*, # headers, - lists",
-    "noContentPreview": "*No content to preview*"
+    "noContentPreview": "*No content to preview*",
+    "inlineTagHint": "Type # in your text to add tags"
   },
   "import": {
     "invalidFormat": "Invalid import file format",
@@ -775,7 +776,8 @@
     "validationError": "Validation Error",
     "validationErrorDesc": "Please check your entry",
     "titlePlaceholder": "Entry title...",
-    "saveEntry": "Save Entry"
+    "saveEntry": "Save Entry",
+    "inlineTagBadgeHint": "Added from #tags in the text"
   },
   "storage": {
     "connecting": "Connecting...",
@@ -2431,5 +2433,33 @@
     "proFeatureDesc": "Activity insights are available with a Plus subscription",
     "tooltipAvg": "avg",
     "tooltipEntries": "entries"
+  },
+  "notes": {
+    "journalTab": "Journal",
+    "title": "Notes",
+    "newNote": "New Note",
+    "searchPlaceholder": "Search notes...",
+    "titlePlaceholder": "Note title (optional)",
+    "startWriting": "Write your note...",
+    "saveNote": "Save Note",
+    "emptyTitle": "No notes yet",
+    "emptyDesc": "Keep ideas, lists, and reference material that isn't tied to a specific day.",
+    "noSearchResults": "No notes match your search.",
+    "deleteConfirmTitle": "Delete this note?",
+    "deleteConfirmDesc": "This note will be permanently deleted from your storage.",
+    "updated": "Updated {{date}}",
+    "saving": "Saving note...",
+    "savingDesc": "Encrypting and syncing your note.",
+    "saved": "Note saved",
+    "savedDesc": "Your encrypted note has been saved and synced.",
+    "savedOfflineDesc": "Saved locally. Will sync when you're back online.",
+    "failedToSave": "Failed to save note",
+    "deleting": "Deleting note...",
+    "deletingDesc": "Removing note from storage and syncing to cloud.",
+    "deleted": "Note deleted",
+    "deletedDesc": "Your note has been deleted and synced.",
+    "deletedOfflineDesc": "Deleted locally. Will sync when you're back online.",
+    "deleteFailed": "Failed to delete note",
+    "deleteFailedDesc": "Failed to delete the note from storage. Changes may be reverted."
   }
 }

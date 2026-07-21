@@ -85,7 +85,8 @@
     "preview": "Forhåndsvisning",
     "placeholder": "Skriv dit dagbogsindlæg... Brug markdown til formatering:\n\n# Overskrift\n**fed** *kursiv*\n- punkttegn",
     "markdownSupport": "Understøtter: **fed**, *kursiv*, # overskrifter, - lister",
-    "noContentPreview": "*Intet indhold at forhåndsvise*"
+    "noContentPreview": "*Intet indhold at forhåndsvise*",
+    "inlineTagHint": "Skriv # i teksten for at tilføje tags"
   },
   "import": {
     "invalidFormat": "Ugyldigt importfilformat",
@@ -773,7 +774,8 @@
     "validationError": "Valideringsfejl",
     "validationErrorDesc": "Kontroller venligst dit indlæg",
     "titlePlaceholder": "Indlægstitel...",
-    "saveEntry": "Gem indlæg"
+    "saveEntry": "Gem indlæg",
+    "inlineTagBadgeHint": "Tilføjet fra #tags i teksten"
   },
   "storage": {
     "connecting": "Tilslutter...",
@@ -2426,5 +2428,33 @@
     "proFeatureDesc": "Aktivitetsindsigter er tilgængelige med et Plus-abonnement",
     "tooltipAvg": "gns",
     "tooltipEntries": "indlæg"
+  },
+  "notes": {
+    "journalTab": "Dagbog",
+    "title": "Noter",
+    "newNote": "Ny note",
+    "searchPlaceholder": "Søg i noter...",
+    "titlePlaceholder": "Notetitel (valgfri)",
+    "startWriting": "Skriv din note...",
+    "saveNote": "Gem note",
+    "emptyTitle": "Ingen noter endnu",
+    "emptyDesc": "Gem idéer, lister og referencemateriale, der ikke er knyttet til en bestemt dag.",
+    "noSearchResults": "Ingen noter matcher din søgning.",
+    "deleteConfirmTitle": "Slet denne note?",
+    "deleteConfirmDesc": "Noten slettes permanent fra dit lager.",
+    "updated": "Opdateret {{date}}",
+    "saving": "Gemmer note...",
+    "savingDesc": "Krypterer og synkroniserer din note.",
+    "saved": "Note gemt",
+    "savedDesc": "Din krypterede note er gemt og synkroniseret.",
+    "savedOfflineDesc": "Gemt lokalt. Synkroniseres, når du er online igen.",
+    "failedToSave": "Kunne ikke gemme noten",
+    "deleting": "Sletter note...",
+    "deletingDesc": "Fjerner noten fra lageret og synkroniserer til skyen.",
+    "deleted": "Note slettet",
+    "deletedDesc": "Din note er slettet og synkroniseret.",
+    "deletedOfflineDesc": "Slettet lokalt. Synkroniseres, når du er online igen.",
+    "deleteFailed": "Kunne ikke slette noten",
+    "deleteFailedDesc": "Noten kunne ikke slettes fra lageret. Ændringer kan blive rullet tilbage."
   }
 }

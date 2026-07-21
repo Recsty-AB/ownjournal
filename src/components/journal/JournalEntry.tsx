@@ -21,6 +21,7 @@ import jsPDF from "jspdf";
 import { Document, Paragraph, TextRun, Packer } from "docx";
 import { saveAs } from "file-saver";
 import { journalEntrySchema, tagSchema } from "@/utils/validation";
+import { extractInlineTags, mergeInlineTags } from "@/utils/inlineTags";
 import { MOOD_EMOJI } from "@/utils/moodEmoji";
 import { MOOD_BADGE_COLORS as moodColors } from "@/utils/moodColors";
 import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
@@ -50,6 +51,9 @@ export interface JournalEntryData {
   activities?: string[];
   createdAt: Date;
   updatedAt: Date;
+  // Notes reuse the journal entry storage/sync pipeline; absent means a
+  // regular (time-specific) journal entry. Notes ignore date/mood/activities.
+  type?: 'note';
 }
 
 interface JournalEntryProps {
@@ -98,6 +102,14 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
   const allUniqueTags = Array.from(new Set(allEntries.flatMap(e => e.tags)))
     .filter(tag => !tags.includes(tag)); // Exclude already selected tags
 
+  // Every known tag (including this entry's) for inline #tag autocomplete in the body
+  const autocompleteTags = Array.from(new Set([...allEntries.flatMap(e => e.tags), ...tags]));
+
+  // Tags typed inline as #tag in the body — merged into the entry's tags on save
+  const inlineTags = extractInlineTags(body).filter(
+    tag => !tags.some(existing => existing.toLowerCase() === tag.toLowerCase())
+  );
+
   // Sync state when entry prop updates (e.g., snapshot -> full decrypted data)
   // Only sync when NOT in edit mode to avoid overwriting user edits
   useEffect(() => {
@@ -139,13 +151,16 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
   }, [isEditMode, entry, onEditingChange, onEditEnd]);
 
  const handleSave = () => {
+    // Fold #tags typed inline in the body into the entry's tags
+    const finalTags = mergeInlineTags(tags, body);
+
     // Validate entry data
     try {
       journalEntrySchema.parse({
         date: selectedDate,
         title,
         body,
-        tags,
+        tags: finalTags,
         mood,
         activities,
       });
@@ -164,11 +179,12 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
       date: selectedDate,
       title,
       body,
-      tags,
+      tags: finalTags,
       mood,
       activities,
       images
     });
+    setTags(finalTags);
     setIsEditMode(false);
     onEditEnd?.();
     onEditingChange?.(false);
@@ -748,6 +764,7 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
           value={body}
           onChange={setBody}
           placeholder={t('journalEntry.startWriting')}
+          availableTags={autocompleteTags}
         />
 
         <div className="space-y-3">
@@ -947,7 +964,7 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
             </div>
           </div>
 
-          {tags.length > 0 && (
+          {(tags.length > 0 || inlineTags.length > 0) && (
             <div className="flex flex-wrap gap-2 sm:ml-7">
               {tags.map(tag => (
                 <Badge
@@ -957,6 +974,17 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
                   onClick={() => removeTag(tag)}
                 >
                   {tag} ×
+                </Badge>
+              ))}
+              {/* Tags typed as #tag in the body — removed by editing the text, not the chip */}
+              {inlineTags.map(tag => (
+                <Badge
+                  key={`inline-${tag}`}
+                  variant="outline"
+                  className="xl:text-base"
+                  title={t('journalEntry.inlineTagBadgeHint')}
+                >
+                  #{tag}
                 </Badge>
               ))}
             </div>
