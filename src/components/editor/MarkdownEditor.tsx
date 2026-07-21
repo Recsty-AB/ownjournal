@@ -39,6 +39,9 @@ export const MarkdownEditor = ({ value, onChange, placeholder, availableTags }: 
 
   const suggestions = suggest
     ? (availableTags ?? [])
+        // Only tags representable as an inline token — tags with spaces or other
+        // characters outside the #tag charset would break at the first space.
+        .filter((tag) => /^[\p{L}\p{N}][\p{L}\p{N}-]{0,29}$/u.test(tag))
         .filter((tag) => tag.toLowerCase().includes(suggest.query.toLowerCase()))
         .sort((a, b) => {
           const q = suggest.query.toLowerCase();
