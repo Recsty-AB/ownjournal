@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { TrendAnalysis } from '../TrendAnalysis';
 
 vi.mock('@/hooks/use-toast', () => ({
@@ -135,6 +136,37 @@ describe('TrendAnalysis', () => {
       <TrendAnalysis entries={mockEntries} isPro={false} />
     );
     expect(container).toBeInTheDocument();
+  });
+
+  it('starts with the setup form collapsed for non-pro users', () => {
+    const { container } = render(
+      <TrendAnalysis entries={mockEntries} isPro={false} />
+    );
+    expect(container.textContent).toContain('trendAnalysis.title');
+    expect(container.textContent).not.toContain('trendAnalysis.description');
+  });
+
+  it('expands the setup form when a non-pro user taps the header', async () => {
+    const user = userEvent.setup();
+    render(<TrendAnalysis entries={mockEntries} isPro={false} />);
+    await user.click(screen.getByText('trendAnalysis.title'));
+    expect(screen.getByText('trendAnalysis.description')).toBeInTheDocument();
+  });
+
+  it('starts with the setup form expanded for pro users', () => {
+    const { container } = render(
+      <TrendAnalysis entries={mockEntries} isPro={true} />
+    );
+    expect(container.textContent).toContain('trendAnalysis.description');
+  });
+
+  it('expands the setup form when pro status resolves after mount', () => {
+    const { container, rerender } = render(
+      <TrendAnalysis entries={mockEntries} isPro={false} />
+    );
+    expect(container.textContent).not.toContain('trendAnalysis.description');
+    rerender(<TrendAnalysis entries={mockEntries} isPro={true} />);
+    expect(container.textContent).toContain('trendAnalysis.description');
   });
 
   it('should handle many entries', () => {

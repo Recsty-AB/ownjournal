@@ -77,6 +77,18 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
   const [focusAreasOpen, setFocusAreasOpen] = useState(false); // Suggested Focus Areas collapsed by default
   const [reflectionOpen, setReflectionOpen] = useState(false); // Reflection collapsed by default
   const [isSelectingPeriod, setIsSelectingPeriod] = useState(false); // Track if user is selecting a new period
+  // Setup/empty-state card visibility. For free users the card is a permanent
+  // upsell (they can never run an analysis), so it starts collapsed like the
+  // sibling insight cards; Plus users get the form expanded so they can run
+  // their first analysis.
+  const [isSetupCollapsed, setIsSetupCollapsed] = useState(!isPro);
+
+  // Subscription state can resolve after first render (cold start before the
+  // cached subscription applies); expand once Plus is confirmed so paying
+  // users aren't left with a collapsed setup form.
+  useEffect(() => {
+    if (isPro) setIsSetupCollapsed(false);
+  }, [isPro]);
   const [dateRangePreset, setDateRangePreset] = useState<DateRangePreset>("last30days");
   const [customStartDate, setCustomStartDate] = useState<Date | undefined>(undefined);
   const [customEndDate, setCustomEndDate] = useState<Date | undefined>(undefined);
@@ -916,199 +928,218 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
   if (!analysis || isSelectingPeriod) {
     return (
       <Card className="p-4 sm:p-6 bg-gradient-subtle border-primary/20">
-        <div className="space-y-4">
-          {/* Two-column layout on lg+: left = title+description, right = action bar.
-              Below lg: stacks to single column (title, description, action). The meta row
-              lives outside this container at full card width — its status text can get long
-              (e.g. weekly-limit message) and must wrap instead of widening the right column
-              and squeezing the title. */}
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
-            {/* Left column: title + description */}
-            <div className="flex-1 min-w-0 space-y-2">
-              <div className="flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2 min-w-0">
-                  <TrendingUp aria-hidden="true" className="w-6 h-6 text-primary flex-shrink-0" />
-                  <h3 className="text-lg sm:text-xl font-semibold">{t('trendAnalysis.title')}</h3>
-                </div>
-                {analysis && (
-                  <Button
-                    onClick={() => setIsSelectingPeriod(false)}
-                    size="sm"
-                    variant="outline"
-                  >
-                    {t('trendAnalysis.backToInsights')}
-                  </Button>
-                )}
-              </div>
-              <p className="text-sm text-muted-foreground">
-                {t('trendAnalysis.description')}
-              </p>
+        <Collapsible open={!isSetupCollapsed} onOpenChange={(open) => setIsSetupCollapsed(!open)}>
+          {/* Header row mirrors the results view below: the whole row toggles
+              the card, matching the sibling insight cards. */}
+          <div
+            className="flex items-center justify-between gap-2 cursor-pointer min-h-[44px]"
+            onClick={() => setIsSetupCollapsed(!isSetupCollapsed)}
+          >
+            <div className="flex items-center gap-2 min-w-0">
+              <TrendingUp aria-hidden="true" className="w-6 h-6 text-primary flex-shrink-0" />
+              <h3 className="text-lg sm:text-xl font-semibold">{t('trendAnalysis.title')}</h3>
             </div>
-
-            {/* Right column: action bar — dropdown and Analyze button */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 lg:flex-shrink-0">
-              {isNativeIOS ? (
-                <select
-                  value={dateRangePreset}
-                  onChange={(e) => setDateRangePreset(e.target.value as DateRangePreset)}
-                  className="w-full sm:w-[200px] min-h-11 px-3 py-2 rounded-md border border-input bg-background text-sm"
+            <div className="flex items-center gap-2 flex-shrink-0">
+              {analysis && (
+                <Button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsSelectingPeriod(false);
+                  }}
+                  size="sm"
+                  variant="outline"
                 >
-                  {DATE_RANGE_OPTIONS.map(option => (
-                    <option key={option.value} value={option.value}>{t(option.label)}</option>
-                  ))}
-                </select>
-              ) : (
-                <Select value={dateRangePreset} onValueChange={(value) => setDateRangePreset(value as DateRangePreset)}>
-                  <SelectTrigger className="w-full sm:w-[200px] min-h-11">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {DATE_RANGE_OPTIONS.map(option => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {t(option.label)}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                  {t('trendAnalysis.backToInsights')}
+                </Button>
               )}
-
-              <Button
-                onClick={handleAnalyze}
-                disabled={loading || !canAnalyze() || !isPro || filteredEntries.length < 8}
-                size="sm"
-                className={cn(
-                  "w-full sm:w-auto sm:min-w-[160px] min-h-11 h-auto",
-                  isPro && "bg-gradient-primary"
-                )}
-                variant={isPro ? "default" : "outline"}
-              >
-                {loading ? (
-                  <>
-                    <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 animate-spin flex-shrink-0" />
-                    <span>{t('trendAnalysis.analyzing')}</span>
-                  </>
-                ) : isPro ? (
-                  <>
-                    <TrendingUp aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
-                    <span>{t('trendAnalysis.analyzePeriod')}</span>
-                  </>
-                ) : (
-                  <>
-                    <Crown aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
-                    <span>{t('trendAnalysis.analyzePeriod')}</span>
-                  </>
-                )}
-              </Button>
+              <ChevronDown className={cn(
+                "w-5 h-5 text-muted-foreground transition-transform duration-200 flex-shrink-0",
+                !isSetupCollapsed && "rotate-180"
+              )} />
             </div>
           </div>
 
-          {/* Meta row — entries count, need-8 hint, and weekly availability.
-              Full card width so long status text wraps under the header. */}
-          <div role="list" className="flex items-center flex-wrap gap-x-2 gap-y-1 text-xs text-muted-foreground">
-            <span role="listitem" className="inline-flex items-center gap-2">
-              <FileText aria-hidden="true" className="w-3.5 h-3.5 flex-shrink-0" />
-              <span>{t('trendAnalysis.entriesInPeriod', { count: filteredEntries.length })}</span>
-            </span>
-            {filteredEntries.length < 8 && (
-              <>
-                <span aria-hidden="true">·</span>
-                <span role="listitem">{t('trendAnalysis.need8')}</span>
-              </>
-            )}
-            <span aria-hidden="true">·</span>
-            {!canAnalyze() ? (
-              <span role="listitem" className="text-amber-600 dark:text-amber-400 font-medium">{t('trendAnalysis.limitMessage')}</span>
-            ) : (
-              <span role="listitem">{t('trendAnalysis.availableOnceWeek')}</span>
-            )}
-          </div>
+          <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
+            <div className="space-y-4 pt-4">
+              {/* Two-column layout on lg+: left = description, right = action bar.
+                  Below lg: stacks to single column. The meta row lives outside this
+                  container at full card width — its status text can get long (e.g.
+                  weekly-limit message) and must wrap instead of widening the right
+                  column and squeezing the description. */}
+              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
+                {/* Left column: description */}
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm text-muted-foreground">
+                    {t('trendAnalysis.description')}
+                  </p>
+                </div>
 
-          {/* Custom Date Range Pickers */}
-          {dateRangePreset === "custom" && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
-              <div className="space-y-2">
-                <label className="text-xs text-muted-foreground">{t('trendAnalysis.startDate')}</label>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className={cn(
-                        "w-full justify-start text-left font-normal",
-                        !customStartDate && "text-muted-foreground"
-                      )}
+                {/* Right column: action bar — dropdown and Analyze button */}
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 lg:flex-shrink-0">
+                  {isNativeIOS ? (
+                    <select
+                      value={dateRangePreset}
+                      onChange={(e) => setDateRangePreset(e.target.value as DateRangePreset)}
+                      className="w-full sm:w-[200px] min-h-11 px-3 py-2 rounded-md border border-input bg-background text-sm"
                     >
-                      <CalendarIcon aria-hidden="true" className="mr-2 h-4 w-4" />
-                      {customStartDate ? format(customStartDate, "PPP", { locale: dateLocale }) : t('trendAnalysis.pickDate')}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={customStartDate}
-                      onSelect={setCustomStartDate}
-                      disabled={(date) =>
-                        date > new Date() || (customEndDate && date > customEndDate)
-                      }
-                      initialFocus
-                      className="pointer-events-auto"
-                    />
-                  </PopoverContent>
-                </Popover>
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs text-muted-foreground">{t('trendAnalysis.endDate')}</label>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className={cn(
-                        "w-full justify-start text-left font-normal",
-                        !customEndDate && "text-muted-foreground"
-                      )}
-                    >
-                      <CalendarIcon aria-hidden="true" className="mr-2 h-4 w-4" />
-                      {customEndDate ? format(customEndDate, "PPP", { locale: dateLocale }) : t('trendAnalysis.pickDate')}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={customEndDate}
-                      onSelect={setCustomEndDate}
-                      disabled={(date) =>
-                        date > new Date() || (customStartDate && date < customStartDate)
-                      }
-                      initialFocus
-                      className="pointer-events-auto"
-                    />
-                  </PopoverContent>
-                </Popover>
-              </div>
-            </div>
-          )}
+                      {DATE_RANGE_OPTIONS.map(option => (
+                        <option key={option.value} value={option.value}>{t(option.label)}</option>
+                      ))}
+                    </select>
+                  ) : (
+                    <Select value={dateRangePreset} onValueChange={(value) => setDateRangePreset(value as DateRangePreset)}>
+                      <SelectTrigger className="w-full sm:w-[200px] min-h-11">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {DATE_RANGE_OPTIONS.map(option => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {t(option.label)}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  )}
 
-          {/* Progress bar during analysis */}
-          {loading && (
-            <div className="space-y-3 bg-background/50 p-4 rounded-lg border border-primary/20 max-w-2xl">
-              <div className="flex items-center justify-between text-sm">
-                <span className="font-medium text-foreground">{progress.currentAction}</span>
-                <span className="text-muted-foreground">
-                  {t('trendAnalysis.progress.step', { current: progress.step, total: progress.totalSteps })}
+                  <Button
+                    onClick={handleAnalyze}
+                    disabled={loading || !canAnalyze() || !isPro || filteredEntries.length < 8}
+                    size="sm"
+                    className={cn(
+                      "w-full sm:w-auto sm:min-w-[160px] min-h-11 h-auto",
+                      isPro && "bg-gradient-primary"
+                    )}
+                    variant={isPro ? "default" : "outline"}
+                  >
+                    {loading ? (
+                      <>
+                        <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 animate-spin flex-shrink-0" />
+                        <span>{t('trendAnalysis.analyzing')}</span>
+                      </>
+                    ) : isPro ? (
+                      <>
+                        <TrendingUp aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
+                        <span>{t('trendAnalysis.analyzePeriod')}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Crown aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
+                        <span>{t('trendAnalysis.analyzePeriod')}</span>
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </div>
+
+              {/* Meta row — entries count, need-8 hint, and weekly availability.
+                  Full card width so long status text wraps under the header. */}
+              <div role="list" className="flex items-center flex-wrap gap-x-2 gap-y-1 text-xs text-muted-foreground">
+                <span role="listitem" className="inline-flex items-center gap-2">
+                  <FileText aria-hidden="true" className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>{t('trendAnalysis.entriesInPeriod', { count: filteredEntries.length })}</span>
                 </span>
+                {filteredEntries.length < 8 && (
+                  <>
+                    <span aria-hidden="true">·</span>
+                    <span role="listitem">{t('trendAnalysis.need8')}</span>
+                  </>
+                )}
+                <span aria-hidden="true">·</span>
+                {!canAnalyze() ? (
+                  <span role="listitem" className="text-amber-600 dark:text-amber-400 font-medium">{t('trendAnalysis.limitMessage')}</span>
+                ) : (
+                  <span role="listitem">{t('trendAnalysis.availableOnceWeek')}</span>
+                )}
               </div>
-              <Progress value={(progress.step / progress.totalSteps) * 100} className="h-2" />
-              {progress.totalEntries > 0 && (
-                <div className="text-xs text-muted-foreground text-center">
-                  {t('trendAnalysis.progress.entryProgress', { current: progress.currentEntry, total: progress.totalEntries })}
+
+              {/* Custom Date Range Pickers */}
+              {dateRangePreset === "custom" && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
+                  <div className="space-y-2">
+                    <label className="text-xs text-muted-foreground">{t('trendAnalysis.startDate')}</label>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          className={cn(
+                            "w-full justify-start text-left font-normal",
+                            !customStartDate && "text-muted-foreground"
+                          )}
+                        >
+                          <CalendarIcon aria-hidden="true" className="mr-2 h-4 w-4" />
+                          {customStartDate ? format(customStartDate, "PPP", { locale: dateLocale }) : t('trendAnalysis.pickDate')}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={customStartDate}
+                          onSelect={setCustomStartDate}
+                          disabled={(date) =>
+                            date > new Date() || (customEndDate && date > customEndDate)
+                          }
+                          initialFocus
+                          className="pointer-events-auto"
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs text-muted-foreground">{t('trendAnalysis.endDate')}</label>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          className={cn(
+                            "w-full justify-start text-left font-normal",
+                            !customEndDate && "text-muted-foreground"
+                          )}
+                        >
+                          <CalendarIcon aria-hidden="true" className="mr-2 h-4 w-4" />
+                          {customEndDate ? format(customEndDate, "PPP", { locale: dateLocale }) : t('trendAnalysis.pickDate')}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={customEndDate}
+                          onSelect={setCustomEndDate}
+                          disabled={(date) =>
+                            date > new Date() || (customStartDate && date < customStartDate)
+                          }
+                          initialFocus
+                          className="pointer-events-auto"
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
                 </div>
               )}
-              <div className="flex items-center gap-2 text-xs text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 p-2 rounded-md">
-                <AlertTriangle aria-hidden="true" className="w-4 h-4 flex-shrink-0" />
-                <span>{t('trendAnalysis.progress.doNotCloseApp')}</span>
-              </div>
+
+              {/* Progress bar during analysis */}
+              {loading && (
+                <div className="space-y-3 bg-background/50 p-4 rounded-lg border border-primary/20 max-w-2xl">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-medium text-foreground">{progress.currentAction}</span>
+                    <span className="text-muted-foreground">
+                      {t('trendAnalysis.progress.step', { current: progress.step, total: progress.totalSteps })}
+                    </span>
+                  </div>
+                  <Progress value={(progress.step / progress.totalSteps) * 100} className="h-2" />
+                  {progress.totalEntries > 0 && (
+                    <div className="text-xs text-muted-foreground text-center">
+                      {t('trendAnalysis.progress.entryProgress', { current: progress.currentEntry, total: progress.totalEntries })}
+                    </div>
+                  )}
+                  <div className="flex items-center gap-2 text-xs text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 p-2 rounded-md">
+                    <AlertTriangle aria-hidden="true" className="w-4 h-4 flex-shrink-0" />
+                    <span>{t('trendAnalysis.progress.doNotCloseApp')}</span>
+                  </div>
+                </div>
+              )}
             </div>
-          )}
-        </div>
+          </CollapsibleContent>
+        </Collapsible>
       </Card>
     );
   }
