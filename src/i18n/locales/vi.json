@@ -1534,6 +1534,11 @@
     "title": "Đăng ký",
     "currentPlan": "Gói hiện tại",
     "freePlan": "Gói Miễn phí",
+    "planRow": {
+      "trialHint": "Dùng thử Plus miễn phí 14 ngày",
+      "unlockHint": "Mở khóa Plus",
+      "collapse": "Ẩn banner nâng cấp"
+    },
     "proPlan": "Gói Plus",
     "upgradeButton": "Nâng cấp lên Plus",
     "manageButton": "Quản lý đăng ký",

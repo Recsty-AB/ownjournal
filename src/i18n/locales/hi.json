@@ -1531,6 +1531,11 @@
     "title": "सब्सक्रिप्शन",
     "currentPlan": "वर्तमान प्लान",
     "freePlan": "फ्री प्लान",
+    "planRow": {
+      "trialHint": "Plus 14 दिन मुफ़्त आज़माएं",
+      "unlockHint": "Plus अनलॉक करें",
+      "collapse": "अपग्रेड बैनर छिपाएं"
+    },
     "proPlan": "Plus प्लान",
     "upgradeButton": "Plus में अपग्रेड करें",
     "manageButton": "सब्सक्रिप्शन प्रबंधित करें",

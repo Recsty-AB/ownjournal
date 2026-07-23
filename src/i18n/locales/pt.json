@@ -1531,6 +1531,11 @@
     "title": "Assinatura",
     "currentPlan": "Plano Atual",
     "freePlan": "Plano Gratuito",
+    "planRow": {
+      "trialHint": "Experimente o Plus grátis durante 14 dias",
+      "unlockHint": "Desbloquear o Plus",
+      "collapse": "Ocultar banner de upgrade"
+    },
     "proPlan": "Plano Plus",
     "upgradeButton": "Fazer Upgrade para Plus",
     "manageButton": "Gerir Assinatura",

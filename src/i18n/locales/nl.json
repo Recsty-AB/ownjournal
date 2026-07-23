@@ -1531,6 +1531,11 @@
     "title": "Abonnement",
     "currentPlan": "Huidig abonnement",
     "freePlan": "Gratis abonnement",
+    "planRow": {
+      "trialHint": "Probeer Plus 14 dagen gratis",
+      "unlockHint": "Plus ontgrendelen",
+      "collapse": "Upgradebanner verbergen"
+    },
     "proPlan": "Plus-abonnement",
     "upgradeButton": "Upgraden naar Plus",
     "manageButton": "Abonnement beheren",

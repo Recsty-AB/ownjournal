@@ -1531,6 +1531,11 @@
     "title": "订阅",
     "currentPlan": "当前套餐",
     "freePlan": "免费套餐",
+    "planRow": {
+      "trialHint": "免费试用 Plus 14 天",
+      "unlockHint": "解锁 Plus",
+      "collapse": "隐藏升级横幅"
+    },
     "proPlan": "Plus 套餐",
     "upgradeButton": "升级到 Plus",
     "manageButton": "管理订阅",

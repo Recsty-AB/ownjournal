@@ -1531,6 +1531,11 @@
     "title": "Suscripción",
     "currentPlan": "Plan actual",
     "freePlan": "Plan gratuito",
+    "planRow": {
+      "trialHint": "Prueba Plus gratis durante 14 días",
+      "unlockHint": "Desbloquear Plus",
+      "collapse": "Ocultar banner de actualización"
+    },
     "proPlan": "Plan Plus",
     "upgradeButton": "Actualizar a Plus",
     "manageButton": "Gestionar suscripción",

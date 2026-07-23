@@ -1531,6 +1531,11 @@
     "title": "Subskrypcja",
     "currentPlan": "Twój plan",
     "freePlan": "Plan darmowy",
+    "planRow": {
+      "trialHint": "Wypróbuj Plus za darmo przez 14 dni",
+      "unlockHint": "Odblokuj Plus",
+      "collapse": "Ukryj baner uaktualnienia"
+    },
     "proPlan": "Plan Plus",
     "upgradeButton": "Uaktualnij do Plus",
     "manageButton": "Zarządzaj subskrypcją",

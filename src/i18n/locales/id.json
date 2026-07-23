@@ -1534,6 +1534,11 @@
     "title": "Langganan",
     "currentPlan": "Paket Saat Ini",
     "freePlan": "Paket Gratis",
+    "planRow": {
+      "trialHint": "Coba Plus gratis selama 14 hari",
+      "unlockHint": "Buka Plus",
+      "collapse": "Sembunyikan banner upgrade"
+    },
     "proPlan": "Paket Plus",
     "upgradeButton": "Upgrade ke Plus",
     "manageButton": "Kelola Langganan",
