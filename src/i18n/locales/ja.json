@@ -1534,6 +1534,11 @@
     "title": "サブスクリプション",
     "currentPlan": "現在のプラン",
     "freePlan": "無料プラン",
+    "planRow": {
+      "trialHint": "Plusを14日間無料で試す",
+      "unlockHint": "Plusを解放",
+      "collapse": "アップグレードバナーを非表示"
+    },
     "proPlan": "Plusプラン",
     "upgradeButton": "Plusにアップグレード",
     "manageButton": "サブスクリプションを管理",

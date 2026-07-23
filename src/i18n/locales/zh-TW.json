@@ -1531,6 +1531,11 @@
     "title": "訂閱",
     "currentPlan": "目前方案",
     "freePlan": "免費方案",
+    "planRow": {
+      "trialHint": "免費試用 Plus 14 天",
+      "unlockHint": "解鎖 Plus",
+      "collapse": "隱藏升級橫幅"
+    },
     "proPlan": "Plus 方案",
     "upgradeButton": "升級為 Plus",
     "manageButton": "管理訂閱",

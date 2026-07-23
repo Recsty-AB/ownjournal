@@ -1534,6 +1534,11 @@
     "title": "สมาชิก",
     "currentPlan": "แพลนปัจจุบัน",
     "freePlan": "แพลนฟรี",
+    "planRow": {
+      "trialHint": "ลองใช้ Plus ฟรี 14 วัน",
+      "unlockHint": "ปลดล็อก Plus",
+      "collapse": "ซ่อนแบนเนอร์อัปเกรด"
+    },
     "proPlan": "แพลน Plus",
     "upgradeButton": "อัปเกรดเป็น Plus",
     "manageButton": "จัดการสมาชิก",

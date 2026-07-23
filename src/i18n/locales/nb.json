@@ -1531,6 +1531,11 @@
     "title": "Abonnement",
     "currentPlan": "Gjeldende abonnement",
     "freePlan": "Gratis abonnement",
+    "planRow": {
+      "trialHint": "Prøv Plus gratis i 14 dager",
+      "unlockHint": "Lås opp Plus",
+      "collapse": "Skjul oppgraderingsbanner"
+    },
     "proPlan": "Plus",
     "upgradeButton": "Oppgrader til Plus",
     "manageButton": "Administrer abonnement",

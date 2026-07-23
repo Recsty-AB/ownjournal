@@ -1531,6 +1531,11 @@
     "title": "Abonnement",
     "currentPlan": "Plan actuel",
     "freePlan": "Plan gratuit",
+    "planRow": {
+      "trialHint": "Essayez Plus gratuitement pendant 14 jours",
+      "unlockHint": "Débloquer Plus",
+      "collapse": "Masquer la bannière de mise à niveau"
+    },
     "proPlan": "Plan Plus",
     "upgradeButton": "Passer à Plus",
     "manageButton": "Gérer l'abonnement",

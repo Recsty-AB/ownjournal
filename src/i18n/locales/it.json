@@ -1531,6 +1531,11 @@
     "title": "Abbonamento",
     "currentPlan": "Piano attuale",
     "freePlan": "Piano gratuito",
+    "planRow": {
+      "trialHint": "Prova Plus gratis per 14 giorni",
+      "unlockHint": "Sblocca Plus",
+      "collapse": "Nascondi il banner di aggiornamento"
+    },
     "proPlan": "Piano Plus",
     "upgradeButton": "Passa a Plus",
     "manageButton": "Gestisci abbonamento",

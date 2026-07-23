@@ -1531,6 +1531,11 @@
     "title": "구독",
     "currentPlan": "현재 요금제",
     "freePlan": "무료 요금제",
+    "planRow": {
+      "trialHint": "Plus 14일 무료 체험",
+      "unlockHint": "Plus 잠금 해제",
+      "collapse": "업그레이드 배너 숨기기"
+    },
     "proPlan": "Plus 요금제",
     "upgradeButton": "Plus로 업그레이드",
     "manageButton": "구독 관리",

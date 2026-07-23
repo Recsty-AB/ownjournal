@@ -216,7 +216,9 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
           {t("subscription.description")}
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 max-w-lg mx-auto">
+        {/* 6 features: keep 3 columns from sm up so they fill two balanced
+            rows — 4 columns would leave a lopsided 4+2 split. */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 max-w-lg mx-auto">
           {proFeatures.map(({ key, icon: Icon }) => (
             <div key={key} className="text-center p-1.5 sm:p-2">
               <Icon className="w-4 sm:w-5 h-4 sm:h-5 mx-auto mb-1 text-primary" />

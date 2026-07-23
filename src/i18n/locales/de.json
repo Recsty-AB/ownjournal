@@ -1531,6 +1531,11 @@
     "title": "Abonnement",
     "currentPlan": "Aktueller Tarif",
     "freePlan": "Kostenloser Tarif",
+    "planRow": {
+      "trialHint": "Plus 14 Tage kostenlos testen",
+      "unlockHint": "Plus freischalten",
+      "collapse": "Upgrade-Banner ausblenden"
+    },
     "proPlan": "Plus-Tarif",
     "upgradeButton": "Auf Plus upgraden",
     "manageButton": "Abonnement verwalten",

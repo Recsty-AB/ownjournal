@@ -14,6 +14,7 @@ import { MoodStats } from "@/components/journal/MoodStats";
 import { MoodCorrelations } from "@/components/journal/MoodCorrelations";
 import { AuthScreen } from "@/components/auth/AuthScreen";
 import { SubscriptionBanner } from "@/components/subscription/SubscriptionBanner";
+import { DiscreetPlanBanner } from "@/components/subscription/DiscreetPlanBanner";
 import { SettingsDialog } from "@/components/settings/SettingsDialog";
 import { JournalEntryData } from "@/components/journal/JournalEntry";
 import { ExportDialog } from "@/components/journal/ExportDialog";
@@ -3129,8 +3130,11 @@ const Index = () => {
           {/*
             Plan surface above the mood calendar:
             - Pro (any platform): SubscriptionBanner status card.
-            - Native + Free: NativePaywall (StoreKit / Play Billing).
-            - Web/desktop + Free: SubscriptionBanner upgrade card → Stripe.
+            - Free: DiscreetPlanBanner — a one-line "Free Plan" row that
+              expands (on tap, or once per journaling milestone) into the
+              platform's full upgrade surface:
+              - Native: NativePaywall (StoreKit / Play Billing).
+              - Web/desktop: SubscriptionBanner upgrade card → Stripe.
           */}
           {isPro ? (
             <SubscriptionBanner
@@ -3141,15 +3145,22 @@ const Index = () => {
               hasUsedTrial={hasUsedTrial}
             />
           ) : canShowNativeCheckout() ? (
-            <NativePaywall onPurchased={handleNativePurchased} />
+            <DiscreetPlanBanner entryCount={journalEntries.length}>
+              <NativePaywall onPurchased={handleNativePurchased} />
+            </DiscreetPlanBanner>
           ) : canShowStripeCheckout() ? (
-            <SubscriptionBanner
-              onUpgrade={handleUpgrade}
-              isPro={isPro}
-              isLoading={isUpgrading}
-              subscriptionStatus={subscriptionStatus}
-              hasUsedTrial={hasUsedTrial}
-            />
+            <DiscreetPlanBanner
+              entryCount={journalEntries.length}
+              showTrialHint={!hasUsedTrial}
+            >
+              <SubscriptionBanner
+                onUpgrade={handleUpgrade}
+                isPro={isPro}
+                isLoading={isUpgrading}
+                subscriptionStatus={subscriptionStatus}
+                hasUsedTrial={hasUsedTrial}
+              />
+            </DiscreetPlanBanner>
           ) : null}
 
           {/* Journal / Notes view toggle */}

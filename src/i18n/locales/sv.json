@@ -1531,6 +1531,11 @@
     "title": "Prenumeration",
     "currentPlan": "Nuvarande plan",
     "freePlan": "Gratisplan",
+    "planRow": {
+      "trialHint": "Prova Plus gratis i 14 dagar",
+      "unlockHint": "Lås upp Plus",
+      "collapse": "Dölj uppgraderingsbanner"
+    },
     "proPlan": "Plus-plan",
     "upgradeButton": "Uppgradera till Plus",
     "manageButton": "Hantera prenumeration",

@@ -1531,6 +1531,11 @@
     "title": "Tilaus",
     "currentPlan": "Nykyinen tilaus",
     "freePlan": "Ilmainen tilaus",
+    "planRow": {
+      "trialHint": "Kokeile Plusia ilmaiseksi 14 päivää",
+      "unlockHint": "Avaa Plus",
+      "collapse": "Piilota päivitysbanneri"
+    },
     "proPlan": "Plus-tilaus",
     "upgradeButton": "Päivitä Plus-tilaan",
     "manageButton": "Hallinnoi tilausta",

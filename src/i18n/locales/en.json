@@ -1536,6 +1536,11 @@
     "title": "Subscription",
     "currentPlan": "Current Plan",
     "freePlan": "Free Plan",
+    "planRow": {
+      "trialHint": "Try Plus free for 14 days",
+      "unlockHint": "Unlock Plus",
+      "collapse": "Hide upgrade banner"
+    },
     "proPlan": "Plus Plan",
     "upgradeButton": "Upgrade to Plus",
     "manageButton": "Manage Subscription",
