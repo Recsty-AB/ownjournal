@@ -927,17 +927,21 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
 
   if (!analysis || isSelectingPeriod) {
     return (
-      <Card className="p-4 sm:p-6 bg-gradient-subtle border-primary/20">
+      <Card className="bg-gradient-subtle border-primary/20 overflow-hidden">
         <Collapsible open={!isSetupCollapsed} onOpenChange={(open) => setIsSetupCollapsed(!open)}>
-          {/* Header row mirrors the results view below: the whole row toggles
-              the card, matching the sibling insight cards. */}
+          {/* Compact header matching the sibling insight cards (MoodCalendar /
+              MoodStats / MoodCorrelations). A clickable div rather than a
+              CollapsibleTrigger button because it hosts the nested
+              "Back to insights" button (same pattern as the results header
+              below). */}
           <div
-            className="flex items-center justify-between gap-2 cursor-pointer min-h-[44px]"
+            className="w-full p-3 sm:p-4 flex items-center justify-between gap-2 cursor-pointer hover:bg-accent/50 transition-colors"
             onClick={() => setIsSetupCollapsed(!isSetupCollapsed)}
           >
             <div className="flex items-center gap-2 min-w-0">
-              <TrendingUp aria-hidden="true" className="w-6 h-6 text-primary flex-shrink-0" />
-              <h3 className="text-lg sm:text-xl font-semibold">{t('trendAnalysis.title')}</h3>
+              <TrendingUp aria-hidden="true" className="w-5 h-5 text-primary flex-shrink-0" />
+              <h3 className="font-semibold text-sm sm:text-base">{t('trendAnalysis.title')}</h3>
+              {!isPro && <Crown aria-hidden="true" className="w-4 h-4 text-amber-500 flex-shrink-0" />}
             </div>
             <div className="flex items-center gap-2 flex-shrink-0">
               {analysis && (
@@ -953,14 +957,14 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
                 </Button>
               )}
               <ChevronDown className={cn(
-                "w-5 h-5 text-muted-foreground transition-transform duration-200 flex-shrink-0",
+                "w-4 h-4 text-muted-foreground transition-transform duration-200 flex-shrink-0",
                 !isSetupCollapsed && "rotate-180"
               )} />
             </div>
           </div>
 
           <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
-            <div className="space-y-4 pt-4">
+            <div className="px-3 sm:px-4 pb-3 sm:pb-4 space-y-4">
               {/* Two-column layout on lg+: left = description, right = action bar.
                   Below lg: stacks to single column. The meta row lives outside this
                   container at full card width — its status text can get long (e.g.
