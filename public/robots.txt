@@ -1,14 +1,15 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+# App-internal routes: OAuth callbacks 302 to the ownjournal:// custom scheme
+# and checkout/portal routes just redirect to "/" — no content worth crawling.
+Disallow: /oauth-callback
+Disallow: /web-oauth-callback
+Disallow: /storage-callback
+Disallow: /portal-return
+Disallow: /checkout-success
+Disallow: /checkout-cancel
+# Parameterized duplicates of the homepage
+Disallow: /*?checkout=
+Disallow: /*?portal_return=
+
+Sitemap: https://ownjournal.app/sitemap.xml
