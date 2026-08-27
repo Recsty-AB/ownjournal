@@ -316,7 +316,7 @@
 				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = 2ZV26999P6;
 				INFOPLIST_FILE = App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -324,7 +324,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.26;
+				MARKETING_VERSION = 1.0.27;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -345,7 +345,7 @@
 				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = 2ZV26999P6;
 				INFOPLIST_FILE = App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -353,7 +353,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.26;
+				MARKETING_VERSION = 1.0.27;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
