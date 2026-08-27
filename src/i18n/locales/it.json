@@ -122,8 +122,6 @@
     "exportBackup": "Esporta backup dati",
     "importBackup": "Importa backup dati",
     "exportToFile": "Esporta su file",
-    "lightMode": "Modalità chiara",
-    "darkMode": "Modalità scura",
     "signOut": "Esci",
     "proMember": "Membro Plus",
     "help": "Aiuto"
@@ -668,6 +666,10 @@
       "manageSubscription": "Gestisci",
       "portalError": "Impossibile aprire la gestione abbonamento",
       "portalErrorDesc": "Riprova più tardi."
+    },
+    "appearance": {
+      "showInsights": "Mostra le analisi nella schermata iniziale",
+      "showInsightsHint": "Calendario dell'umore, statistiche dell'umore, correlazioni e analisi tendenze"
     }
   },
   "password": {
@@ -2461,5 +2463,13 @@
     "deletedOfflineDesc": "Eliminato localmente. Si sincronizzerà quando sarai di nuovo online.",
     "deleteFailed": "Impossibile eliminare la nota",
     "deleteFailedDesc": "Impossibile eliminare la nota dall'archivio. Le modifiche potrebbero essere annullate."
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Chiaro",
+    "dark": "Scuro",
+    "paper": "Carta",
+    "paperHint": "Carta è bianco pieno senza sfumature: il più leggibile sugli schermi e-ink.",
+    "switchTo": "Passa al tema {{theme}}"
   }
 }

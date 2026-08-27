@@ -122,8 +122,6 @@
     "exportBackup": "Export Backup Data",
     "importBackup": "Import Backup Data",
     "exportToFile": "Export to File",
-    "lightMode": "Light Mode",
-    "darkMode": "Dark Mode",
     "signOut": "Sign out",
     "proMember": "Plus Member",
     "help": "Help"
@@ -668,6 +666,10 @@
       "manageSubscription": "Manage",
       "portalError": "Could not open subscription manager",
       "portalErrorDesc": "Please try again later."
+    },
+    "appearance": {
+      "showInsights": "Show insights on home screen",
+      "showInsightsHint": "Mood Calendar, Mood Statistics, correlations and Trend Analysis"
     }
   },
   "password": {
@@ -2466,5 +2468,13 @@
     "deletedOfflineDesc": "Deleted locally. Will sync when you're back online.",
     "deleteFailed": "Failed to delete note",
     "deleteFailedDesc": "Failed to delete the note from storage. Changes may be reverted."
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "paper": "Paper",
+    "paperHint": "Paper is flat white with no gradients — easiest to read on e-ink screens.",
+    "switchTo": "Switch to {{theme}} theme"
   }
 }

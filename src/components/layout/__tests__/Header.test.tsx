@@ -65,7 +65,6 @@ describe('Header', () => {
       onExportData: vi.fn(),
       onImportData: vi.fn(),
       onSync: vi.fn(),
-      onToggleTheme: vi.fn(),
       onBack: vi.fn(),
     };
 
@@ -75,9 +74,7 @@ describe('Header', () => {
   });
 
   it('should render theme toggle', () => {
-    const { container } = render(
-      <Header user={mockUser} isDarkMode={false} />
-    );
+    const { container } = render(<Header user={mockUser} />);
     expect(container).toBeInTheDocument();
   });
 

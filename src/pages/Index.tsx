@@ -85,7 +85,10 @@ const Index = () => {
     access_token: string;
     expires_at?: number;
   } | null>(null);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // Insight cards (mood calendar/stats/correlations, trend analysis) can be
+  // hidden for a plainer home screen. Defaults to visible; the user-scoped
+  // value is re-read once auth resolves.
+  const [showInsights, setShowInsights] = useState(true);
   const [isAuthLoading, setIsAuthLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
@@ -831,14 +834,10 @@ const Index = () => {
     // Journal name (journalNameStorage already uses scopedKey internally)
     setJournalName(journalNameStorage.getJournalName());
 
-    // Theme
-    const savedTheme = localStorage.getItem(scopedKey("theme"));
-    if (savedTheme === "dark") {
-      setIsDarkMode(true);
-      document.documentElement.classList.add("dark");
-    } else if (savedTheme === "light") {
-      setIsDarkMode(false);
-      document.documentElement.classList.remove("dark");
+    // Insight card visibility
+    const savedInsights = localStorage.getItem(scopedKey("showInsights"));
+    if (savedInsights !== null) {
+      setShowInsights(savedInsights !== "false");
     }
   }, [user?.id]);
 
@@ -1648,16 +1647,6 @@ const Index = () => {
       });
     }
   }, [user, journalPassword, connectedProviders, cloudSetupDone, toast, t]);
-
-  // Check for saved theme preference (unscoped read for pre-auth render;
-  // the user-scoped re-read happens in the user?.id effect above).
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      setIsDarkMode(true);
-      document.documentElement.classList.add("dark");
-    }
-  }, []);  // intentionally unscoped – runs before auth; user-scoped re-read below
 
   // Refs for immediate access in event handlers (avoid stale closures)
   const needsPasswordRef = useRef(needsJournalPassword);
@@ -2545,17 +2534,9 @@ const Index = () => {
     }
   };
 
-  const handleToggleTheme = () => {
-    const newDarkMode = !isDarkMode;
-    setIsDarkMode(newDarkMode);
-
-    if (newDarkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem(scopedKey("theme"), "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem(scopedKey("theme"), "light");
-    }
+  const handleToggleInsights = (visible: boolean) => {
+    setShowInsights(visible);
+    localStorage.setItem(scopedKey("showInsights"), String(visible));
   };
 
   const handleUpgrade = async (currency: string = 'USD') => {
@@ -3068,8 +3049,6 @@ const Index = () => {
         onImportData={handleImportData}
         onExportToFile={handleExportToFile}
         onSync={handleSync}
-        isDarkMode={isDarkMode}
-        onToggleTheme={handleToggleTheme}
         showBackButton={isEditing}
         onBack={() => {
           window.dispatchEvent(new CustomEvent("app:back"));
@@ -3103,8 +3082,8 @@ const Index = () => {
         onExportData={handleExportData}
         onImportData={handleImportData}
         onExportToFile={handleExportToFile}
-        isDarkMode={isDarkMode}
-        onToggleTheme={handleToggleTheme}
+        showInsights={showInsights}
+        onToggleInsights={handleToggleInsights}
         defaultTab={settingsDefaultTab}
         onReopenSetup={restartTour}
         onUpgrade={handleUpgrade}
@@ -3181,7 +3160,7 @@ const Index = () => {
               Each wrapper spans all 3 columns when its card is expanded (Radix
               Collapsible sets data-state="open"), so expanded content gets full
               width while the other two stay compact. */}
-          {activeView === 'journal' && journalEntries.length >= 1 && (
+          {activeView === 'journal' && showInsights && journalEntries.length >= 1 && (
             <div className="grid gap-3 lg:grid-cols-3 items-start">
               <div className="lg:has-[[data-state=open]]:col-span-3 min-w-0">
                 <MoodCalendar entries={journalEntries} />
@@ -3199,7 +3178,7 @@ const Index = () => {
             </div>
           )}
 
-          {activeView === 'journal' && journalEntries.length >= 3 && (
+          {activeView === 'journal' && showInsights && journalEntries.length >= 3 && (
             <TrendAnalysis
               key={`trend-${user?.id ?? 'anonymous'}`}
               entries={journalEntries}

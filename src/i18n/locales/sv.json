@@ -122,8 +122,6 @@
     "exportBackup": "Exportera säkerhetskopia",
     "importBackup": "Importera säkerhetskopia",
     "exportToFile": "Exportera till fil",
-    "lightMode": "Ljust läge",
-    "darkMode": "Mörkt läge",
     "signOut": "Logga ut",
     "proMember": "Plus-medlem",
     "help": "Hjälp"
@@ -668,6 +666,10 @@
       "manageSubscription": "Hantera",
       "portalError": "Kunde inte öppna prenumerationshanteraren",
       "portalErrorDesc": "Försök igen senare."
+    },
+    "appearance": {
+      "showInsights": "Visa analyser på startskärmen",
+      "showInsightsHint": "Humörkalender, humörstatistik, samband och trendanalys"
     }
   },
   "password": {
@@ -2461,5 +2463,13 @@
     "deletedOfflineDesc": "Borttaget lokalt. Synkroniseras när du är online igen.",
     "deleteFailed": "Det gick inte att ta bort anteckningen",
     "deleteFailedDesc": "Anteckningen kunde inte tas bort från lagringen. Ändringar kan återställas."
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Ljust",
+    "dark": "Mörkt",
+    "paper": "Papper",
+    "paperHint": "Papper är helvitt utan toningar – lättast att läsa på e-bläckskärmar.",
+    "switchTo": "Byt till temat {{theme}}"
   }
 }

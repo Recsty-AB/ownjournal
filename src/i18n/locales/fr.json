@@ -122,8 +122,6 @@
     "exportBackup": "Exporter les données de sauvegarde",
     "importBackup": "Importer les données de sauvegarde",
     "exportToFile": "Exporter vers un fichier",
-    "lightMode": "Mode clair",
-    "darkMode": "Mode sombre",
     "signOut": "Se déconnecter",
     "proMember": "Membre Plus",
     "help": "Aide"
@@ -668,6 +666,10 @@
       "manageSubscription": "Gérer",
       "portalError": "Impossible d'ouvrir le gestionnaire d'abonnement",
       "portalErrorDesc": "Veuillez réessayer plus tard."
+    },
+    "appearance": {
+      "showInsights": "Afficher les analyses sur l'écran d'accueil",
+      "showInsightsHint": "Calendrier d'humeur, statistiques de l'humeur, corrélations et analyse des tendances"
     }
   },
   "password": {
@@ -2461,5 +2463,13 @@
     "deletedOfflineDesc": "Supprimé localement. Sera synchronisé lorsque vous serez de nouveau en ligne.",
     "deleteFailed": "Échec de la suppression de la note",
     "deleteFailedDesc": "Impossible de supprimer la note du stockage. Les modifications peuvent être annulées."
+  },
+  "theme": {
+    "label": "Thème",
+    "light": "Clair",
+    "dark": "Sombre",
+    "paper": "Papier",
+    "paperHint": "Papier est d'un blanc uni sans dégradés : le plus lisible sur les écrans e-ink.",
+    "switchTo": "Passer au thème {{theme}}"
   }
 }

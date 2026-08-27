@@ -122,8 +122,6 @@
     "exportBackup": "Xuất bản sao lưu",
     "importBackup": "Nhập bản sao lưu",
     "exportToFile": "Xuất ra tệp",
-    "lightMode": "Chế độ sáng",
-    "darkMode": "Chế độ tối",
     "signOut": "Đăng xuất",
     "proMember": "Thành viên Plus",
     "help": "Trợ giúp"
@@ -668,6 +666,10 @@
       "manageSubscription": "Quản lý",
       "portalError": "Không thể mở trình quản lý gói đăng ký",
       "portalErrorDesc": "Vui lòng thử lại sau."
+    },
+    "appearance": {
+      "showInsights": "Hiển thị phân tích trên màn hình chính",
+      "showInsightsHint": "Lịch tâm trạng, thống kê tâm trạng, tương quan và phân tích xu hướng"
     }
   },
   "password": {
@@ -2464,5 +2466,13 @@
     "deletedOfflineDesc": "Đã xóa tại máy. Sẽ đồng bộ khi có kết nối mạng.",
     "deleteFailed": "Không thể xóa ghi chú",
     "deleteFailedDesc": "Không thể xóa ghi chú khỏi bộ nhớ lưu trữ. Các thay đổi có thể bị hoàn tác."
+  },
+  "theme": {
+    "label": "Chủ đề",
+    "light": "Sáng",
+    "dark": "Tối",
+    "paper": "Giấy",
+    "paperHint": "Giấy là nền trắng phẳng, không chuyển màu — dễ đọc nhất trên màn hình e-ink.",
+    "switchTo": "Chuyển sang chủ đề {{theme}}"
   }
 }

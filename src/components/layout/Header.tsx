@@ -2,6 +2,8 @@ import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { SyncStatusIndicator } from "@/components/sync/SyncStatusIndicator";
+import { useAppTheme } from "@/hooks/useAppTheme";
+import { ThemeIcon } from "@/components/theme/ThemeIcon";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,8 +17,6 @@ import {
   LogOut,
   User,
   Menu,
-  Moon,
-  Sun,
   Download,
   Upload,
   RotateCw,
@@ -45,8 +45,6 @@ interface HeaderProps {
   onImportData?: (data: unknown) => void;
   onExportToFile?: () => void;
   onSync?: () => void;
-  isDarkMode?: boolean;
-  onToggleTheme?: () => void;
   showBackButton?: boolean;
   onBack?: () => void;
   syncStatus?: "idle" | "syncing" | "success" | "error" | "offline";
@@ -65,8 +63,6 @@ export const Header = ({
   onImportData,
   onExportToFile,
   onSync,
-  isDarkMode,
-  onToggleTheme,
   showBackButton,
   onBack,
   syncStatus = "idle",
@@ -76,6 +72,7 @@ export const Header = ({
   isProgressExpanded,
   onToggleProgressExpanded,
 }: HeaderProps) => {
+  const { activeTheme, nextTheme, cycleTheme } = useAppTheme();
   const [isSyncing, setIsSyncing] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -207,9 +204,16 @@ export const Header = ({
           )}
 
 
-          {/* Theme Toggle */}
-          <Button variant="ghost" size="sm" onClick={onToggleTheme} className="hidden sm:flex" aria-label={isDarkMode ? t('header.switchToLightMode', 'Switch to light mode') : t('header.switchToDarkMode', 'Switch to dark mode')}>
-            {isDarkMode ? <Sun aria-hidden="true" className="w-5 h-5" /> : <Moon aria-hidden="true" className="w-5 h-5" />}
+          {/* Theme cycle: light -> dark -> paper. The icon shows the current
+              theme; the label names the one a click switches to. */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={cycleTheme}
+            className="hidden sm:flex"
+            aria-label={t('theme.switchTo', { theme: t(`theme.${nextTheme}`) })}
+          >
+            <ThemeIcon theme={activeTheme} aria-hidden="true" className="w-5 h-5" />
           </Button>
 
           {/* User Menu */}
@@ -285,18 +289,9 @@ export const Header = ({
                   </DropdownMenuItem>
                 )}
 
-                <DropdownMenuItem onClick={onToggleTheme} className="cursor-pointer sm:hidden">
-                  {isDarkMode ? (
-                    <>
-                      <Sun className="mr-2 h-5 w-5" />
-                      <span>{t("header.lightMode")}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Moon className="mr-2 h-5 w-5" />
-                      <span>{t("header.darkMode")}</span>
-                    </>
-                  )}
+                <DropdownMenuItem onClick={cycleTheme} className="cursor-pointer sm:hidden">
+                  <ThemeIcon theme={nextTheme} className="mr-2 h-5 w-5" />
+                  <span>{t('theme.switchTo', { theme: t(`theme.${nextTheme}`) })}</span>
                 </DropdownMenuItem>
 
                 <DropdownMenuSeparator />

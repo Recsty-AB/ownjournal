@@ -122,8 +122,6 @@
     "exportBackup": "Eksporter sikkerhetskopi",
     "importBackup": "Importer sikkerhetskopi",
     "exportToFile": "Eksporter til fil",
-    "lightMode": "Lys modus",
-    "darkMode": "Mørk modus",
     "signOut": "Logg ut",
     "proMember": "Plus-medlem",
     "help": "Hjelp"
@@ -668,6 +666,10 @@
       "manageSubscription": "Administrer",
       "portalError": "Kunne ikke åpne abonnementsadministrasjonen",
       "portalErrorDesc": "Prøv igjen senere."
+    },
+    "appearance": {
+      "showInsights": "Vis innsikt på startskjermen",
+      "showInsightsHint": "Humørkalender, humørstatistikk, sammenhenger og trendanalyse"
     }
   },
   "password": {
@@ -2461,5 +2463,13 @@
     "deletedOfflineDesc": "Slettet lokalt. Synkroniseres når du er tilbake på nett.",
     "deleteFailed": "Kunne ikke slette notatet",
     "deleteFailedDesc": "Kunne ikke slette notatet fra lagringen. Endringer kan bli tilbakestilt."
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Lys",
+    "dark": "Mørk",
+    "paper": "Papir",
+    "paperHint": "Papir er helt hvitt uten fargeoverganger – enklest å lese på e-ink-skjermer.",
+    "switchTo": "Bytt til {{theme}}-tema"
   }
 }

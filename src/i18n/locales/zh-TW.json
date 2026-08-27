@@ -122,8 +122,6 @@
     "exportBackup": "匯出備份資料",
     "importBackup": "匯入備份資料",
     "exportToFile": "匯出為檔案",
-    "lightMode": "淺色模式",
-    "darkMode": "深色模式",
     "signOut": "登出",
     "proMember": "Plus會員",
     "help": "說明"
@@ -668,6 +666,10 @@
       "manageSubscription": "管理",
       "portalError": "無法開啟訂閱管理",
       "portalErrorDesc": "請稍後再試。"
+    },
+    "appearance": {
+      "showInsights": "在主畫面顯示分析",
+      "showInsightsHint": "心情日曆、心情統計、關聯分析與趨勢分析"
     }
   },
   "password": {
@@ -2461,5 +2463,13 @@
     "deletedOfflineDesc": "已於本機刪除。上線後將同步。",
     "deleteFailed": "無法刪除筆記",
     "deleteFailedDesc": "無法從儲存空間刪除筆記。變更可能會被還原。"
+  },
+  "theme": {
+    "label": "主題",
+    "light": "淺色",
+    "dark": "深色",
+    "paper": "紙質",
+    "paperHint": "紙質為純白無漸層，在電子紙螢幕上閱讀最清晰。",
+    "switchTo": "切換至{{theme}}主題"
   }
 }

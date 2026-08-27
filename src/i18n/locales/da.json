@@ -122,8 +122,6 @@
     "exportBackup": "Eksporter sikkerhedskopi",
     "importBackup": "Importer sikkerhedskopi",
     "exportToFile": "Eksporter til fil",
-    "lightMode": "Lys tilstand",
-    "darkMode": "Mørk tilstand",
     "signOut": "Log ud",
     "proMember": "Plus-medlem",
     "help": "Hjælp"
@@ -668,6 +666,10 @@
       "manageSubscription": "Administrer",
       "portalError": "Kunne ikke åbne abonnementsstyring",
       "portalErrorDesc": "Prøv venligst igen senere."
+    },
+    "appearance": {
+      "showInsights": "Vis indsigter på startskærmen",
+      "showInsightsHint": "Humørkalender, humørstatistik, sammenhænge og tendensanalyse"
     }
   },
   "password": {
@@ -2461,5 +2463,13 @@
     "deletedOfflineDesc": "Slettet lokalt. Synkroniseres, når du er online igen.",
     "deleteFailed": "Kunne ikke slette noten",
     "deleteFailedDesc": "Noten kunne ikke slettes fra lageret. Ændringer kan blive rullet tilbage."
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Lys",
+    "dark": "Mørk",
+    "paper": "Papir",
+    "paperHint": "Papir er helt hvidt uden farveovergange – nemmest at læse på e-ink-skærme.",
+    "switchTo": "Skift til {{theme}} tema"
   }
 }

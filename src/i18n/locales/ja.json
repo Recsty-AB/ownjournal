@@ -122,8 +122,6 @@
     "exportBackup": "バックアップをエクスポート",
     "importBackup": "バックアップをインポート",
     "exportToFile": "ファイルにエクスポート",
-    "lightMode": "ライトモード",
-    "darkMode": "ダークモード",
     "signOut": "サインアウト",
     "proMember": "Plusメンバー",
     "help": "ヘルプ"
@@ -668,6 +666,10 @@
       "manageSubscription": "管理",
       "portalError": "サブスクリプション管理を開けませんでした",
       "portalErrorDesc": "後でもう一度お試しください。"
+    },
+    "appearance": {
+      "showInsights": "ホーム画面に分析を表示",
+      "showInsightsHint": "気分カレンダー、気分の統計、相関、トレンド分析"
     }
   },
   "password": {
@@ -2464,5 +2466,13 @@
     "deletedOfflineDesc": "ローカルで削除しました。オンラインに戻ると同期されます。",
     "deleteFailed": "メモの削除に失敗しました",
     "deleteFailedDesc": "ストレージからメモを削除できませんでした。変更は元に戻る場合があります。"
+  },
+  "theme": {
+    "label": "テーマ",
+    "light": "ライト",
+    "dark": "ダーク",
+    "paper": "ペーパー",
+    "paperHint": "ペーパーはグラデーションのない純白で、電子ペーパー画面で最も読みやすい表示です。",
+    "switchTo": "{{theme}}テーマに切り替える"
   }
 }

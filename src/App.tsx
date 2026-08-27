@@ -4,10 +4,12 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
+import { APP_THEMES } from "./hooks/useAppTheme";
 import { Suspense, lazy } from "react";
 import Index from "./pages/Index";
 import "./i18n/config";
 import { useDocumentLangSync } from "./hooks/useDocumentMeta";
+import { useSystemChrome } from "./hooks/useSystemChrome";
 
 const Demo = lazy(() => import("./pages/Demo"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -21,6 +23,7 @@ const queryClient = new QueryClient();
 
 function AppShell() {
   useDocumentLangSync();
+  useSystemChrome();
   return (
     <BrowserRouter>
       <Suspense fallback={null}>
@@ -45,7 +48,7 @@ function AppShell() {
 
 function App() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem themes={[...APP_THEMES]}>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <Toaster />

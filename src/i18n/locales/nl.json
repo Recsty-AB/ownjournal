@@ -122,8 +122,6 @@
     "exportBackup": "Back-up exporteren",
     "importBackup": "Back-up importeren",
     "exportToFile": "Exporteren naar bestand",
-    "lightMode": "Lichte modus",
-    "darkMode": "Donkere modus",
     "signOut": "Uitloggen",
     "proMember": "Plus-lid",
     "help": "Help"
@@ -668,6 +666,10 @@
       "manageSubscription": "Beheren",
       "portalError": "Kan abonnementsbeheer niet openen",
       "portalErrorDesc": "Probeer het later opnieuw."
+    },
+    "appearance": {
+      "showInsights": "Inzichten op het startscherm tonen",
+      "showInsightsHint": "Stemmingskalender, stemmingsoverzicht, verbanden en trendanalyse"
     }
   },
   "password": {
@@ -2461,5 +2463,13 @@
     "deletedOfflineDesc": "Lokaal verwijderd. Wordt gesynchroniseerd wanneer u weer online bent.",
     "deleteFailed": "Notitie verwijderen mislukt",
     "deleteFailedDesc": "Kan de notitie niet uit de opslag verwijderen. Wijzigingen kunnen worden teruggedraaid."
+  },
+  "theme": {
+    "label": "Thema",
+    "light": "Licht",
+    "dark": "Donker",
+    "paper": "Papier",
+    "paperHint": "Papier is egaal wit zonder verlopen — het best leesbaar op e-inkschermen.",
+    "switchTo": "Overschakelen naar thema {{theme}}"
   }
 }
