@@ -6,6 +6,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { TouchSelect } from '@/components/ui/touch-select';
 import { Languages } from 'lucide-react';
 
 const languages = [
@@ -32,11 +33,11 @@ const languages = [
   { code: 'th', name: 'ไทย' },
 ];
 
-// Use the OS-native <select> on any Capacitor native build (iOS WKWebView and
+// Use the in-page TouchSelect on any Capacitor native build (iOS WKWebView and
 // Android WebView both lose touch events to Radix's portaled dropdown), and on
 // any touch-primary web device (covers Android Chrome PWA, where the portaled
 // Select inside the portaled Dialog can be eaten by outside-click handling).
-const useNativeSelect = (() => {
+const useTouchSelect = (() => {
   const isCapNative = !!(window as any).Capacitor?.isNativePlatform?.();
   if (isCapNative) return true;
   if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
@@ -46,7 +47,7 @@ const useNativeSelect = (() => {
 })();
 
 export const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -66,21 +67,18 @@ export const LanguageSwitcher = () => {
 
   const currentLanguage = getCurrentLanguage();
 
-  if (useNativeSelect) {
+  if (useTouchSelect) {
     return (
       <div className="flex items-center gap-2">
-        <Languages className="w-4 h-4 text-muted-foreground" />
-        <select
-          value={currentLanguage}
-          onChange={(e) => changeLanguage(e.target.value)}
-          className="w-[140px] h-10 px-3 py-2 rounded-md border border-input bg-background text-sm"
-        >
-          {languages.map((lang) => (
-            <option key={lang.code} value={lang.code}>
-              {lang.name}
-            </option>
-          ))}
-        </select>
+        <Languages className="w-4 h-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+        <div className="min-w-0 flex-1 max-w-[240px]">
+          <TouchSelect
+            value={currentLanguage}
+            onValueChange={changeLanguage}
+            options={languages.map((lang) => ({ value: lang.code, label: lang.name }))}
+            aria-label={t('settings.sections.language')}
+          />
+        </div>
       </div>
     );
   }

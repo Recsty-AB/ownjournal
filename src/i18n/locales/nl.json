@@ -2469,6 +2469,7 @@
     "light": "Licht",
     "dark": "Donker",
     "paper": "Papier",
+    "system": "Systeem",
     "paperHint": "Papier is egaal wit zonder verlopen — het best leesbaar op e-inkschermen.",
     "switchTo": "Overschakelen naar thema {{theme}}"
   }

@@ -2472,6 +2472,7 @@
     "light": "Terang",
     "dark": "Gelap",
     "paper": "Kertas",
+    "system": "Sistem",
     "paperHint": "Kertas berwarna putih polos tanpa gradien — paling mudah dibaca di layar e-ink.",
     "switchTo": "Beralih ke tema {{theme}}"
   }

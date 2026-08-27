@@ -10,6 +10,15 @@ export const APP_THEMES = ['light', 'dark', 'paper'] as const;
 export type AppTheme = (typeof APP_THEMES)[number];
 
 /**
+ * What the settings picker offers: every palette plus "follow the OS".
+ * `system` is a stored preference, never an applied palette — it resolves to
+ * `light` or `dark`, which is why it stays out of the header's cycle.
+ */
+export const THEME_PREFERENCES = [...APP_THEMES, 'system'] as const;
+
+export type ThemePreference = (typeof THEME_PREFERENCES)[number];
+
+/**
  * Single source of truth for the active theme.
  *
  * next-themes owns the `<html>` class and the persisted preference; nothing
@@ -29,13 +38,13 @@ export function useAppTheme() {
 
   return {
     /** The stored preference, which may be `system`. */
-    theme: theme ?? 'system',
+    theme: (theme ?? 'system') as ThemePreference,
     /** The palette actually applied right now — never `system`. */
     activeTheme,
     /** What `cycleTheme()` would switch to; useful for button labels. */
     nextTheme,
     isDarkMode: activeTheme === 'dark',
-    setTheme: setTheme as (theme: AppTheme | 'system') => void,
+    setTheme: setTheme as (theme: ThemePreference) => void,
     cycleTheme: () => setTheme(nextTheme),
   };
 }

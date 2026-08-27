@@ -20,7 +20,10 @@ import {
   NumberFormat,
 } from "docx";
 import { saveAs } from "file-saver";
-import { format } from "date-fns";
+import { format, type Locale } from "date-fns";
+import notoSansUrl from "@/assets/fonts/NotoSans-Regular.ttf?url";
+import notoSansDevanagariUrl from "@/assets/fonts/NotoSansDevanagari-Regular.ttf?url";
+import notoSansThaiUrl from "@/assets/fonts/NotoSansThai-Regular.ttf?url";
 import i18n from "@/i18n/config";
 import { getDateLocale } from "@/utils/dateLocale";
 import { isNativePlatform, saveFileNative, type NativeExportResult } from "@/utils/nativeExport";
@@ -34,11 +37,6 @@ const getLocale = () => getDateLocale(i18n.language);
 
 const t = (key: string) => i18n.t(key);
 
-// Check if current language needs CJK font
-const needsCJKFont = () => {
-  const lang = i18n.language.split("-")[0];
-  return lang === "ja" || lang === "zh" || lang === "ko";
-};
 
 // Convert base64 data URL to raw base64
 const extractBase64 = (dataUrl: string): string => {
@@ -63,6 +61,226 @@ const base64ToArrayBuffer = (base64: string): ArrayBuffer => {
     bytes[i] = binaryString.charCodeAt(i);
   }
   return bytes.buffer;
+};
+
+/* ------------------------------------------------------------------ *
+ * PDF typography
+ *
+ * jsPDF's built-in fonts encode WinAnsi (cp1252) only. Anything outside it —
+ * Polish, Vietnamese, Turkish, Greek, Cyrillic, Devanagari, Thai, CJK — used to
+ * come out of an export as mojibake. When a document needs more than WinAnsi we
+ * embed a Noto face; jsPDF subsets on save, so only the glyphs actually used are
+ * written into the file (~70 KB, not the whole 500 KB face).
+ *
+ * Documents that fit inside WinAnsi keep the built-in serif and embed nothing.
+ * ------------------------------------------------------------------ */
+
+type Script = "latin" | "devanagari" | "thai" | "cjk";
+
+interface EmbeddedFont {
+  /** Family name registered with jsPDF. */
+  family: string;
+  /** Its name inside jsPDF's virtual filesystem. */
+  file: string;
+  url: string;
+}
+
+const FONTS: Record<Script, EmbeddedFont> = {
+  // Latin Extended (Polish, Vietnamese, Turkish…), Greek and Cyrillic.
+  latin: { family: "NotoSans", file: "NotoSans-Regular.ttf", url: notoSansUrl },
+  devanagari: {
+    family: "NotoSansDevanagari",
+    file: "NotoSansDevanagari-Regular.ttf",
+    url: notoSansDevanagariUrl,
+  },
+  thai: { family: "NotoSansThai", file: "NotoSansThai-Regular.ttf", url: notoSansThaiUrl },
+  // The only one not bundled: Noto Sans CJK is ~18 MB per weight, so this stays
+  // a Google Fonts subset fetched at export time.
+  cjk: {
+    family: "NotoSansJP",
+    file: "NotoSansJP-Regular.ttf",
+    url: "https://fonts.gstatic.com/s/notosansjp/v52/-F6jfjtqLzI2JPCgQBnw7HFyzSD-AsregP8VFBEj75s.ttf",
+  },
+};
+
+/** The 27 printable characters cp1252 adds to Latin-1 in the 0x80–0x9F range. */
+const WINANSI_EXTRAS = new Set([
+  0x20ac, 0x201a, 0x0192, 0x201e, 0x2026, 0x2020, 0x2021, 0x02c6, 0x2030, 0x0160,
+  0x2039, 0x0152, 0x017d, 0x2018, 0x2019, 0x201c, 0x201d, 0x2022, 0x2013, 0x2014,
+  0x02dc, 0x2122, 0x0161, 0x203a, 0x0153, 0x017e, 0x0178,
+]);
+
+/** Can jsPDF's built-in fonts render this character? */
+const isWinAnsi = (codePoint: number): boolean =>
+  codePoint === 0x09 ||
+  codePoint === 0x0a ||
+  codePoint === 0x0d ||
+  (codePoint >= 0x20 && codePoint <= 0x7e) ||
+  (codePoint >= 0xa0 && codePoint <= 0xff) ||
+  WINANSI_EXTRAS.has(codePoint);
+
+const scriptOf = (codePoint: number): Script => {
+  if (codePoint >= 0x0900 && codePoint <= 0x097f) return "devanagari";
+  if (codePoint >= 0x0e00 && codePoint <= 0x0e7f) return "thai";
+  if (
+    (codePoint >= 0x2e80 && codePoint <= 0x9fff) || // kana, kanji, CJK punctuation
+    (codePoint >= 0xac00 && codePoint <= 0xd7af) || // hangul
+    (codePoint >= 0xf900 && codePoint <= 0xfaff) || // compatibility ideographs
+    (codePoint >= 0xff00 && codePoint <= 0xffef) // fullwidth forms
+  ) {
+    return "cjk";
+  }
+  return "latin";
+};
+
+/**
+ * Which face the document needs, or null when WinAnsi covers it.
+ *
+ * One PDF gets one face, so a document mixing scripts is typeset in whichever
+ * is most common — mixing Devanagari into a Cyrillic journal is not something
+ * a single embedded font can serve.
+ */
+const selectScript = (text: string): Script | null => {
+  const counts = new Map<Script, number>();
+
+  for (const char of text) {
+    const codePoint = char.codePointAt(0)!;
+    if (isWinAnsi(codePoint)) continue;
+    const script = scriptOf(codePoint);
+    counts.set(script, (counts.get(script) ?? 0) + 1);
+  }
+
+  let chosen: Script | null = null;
+  let best = 0;
+  for (const [script, count] of counts) {
+    if (count > best) {
+      chosen = script;
+      best = count;
+    }
+  }
+  return chosen;
+};
+
+const arrayBufferToBase64 = (buffer: ArrayBuffer): string => {
+  const bytes = new Uint8Array(buffer);
+  let binary = "";
+  // Chunked: passing half a megabyte of bytes to one apply() blows the
+  // argument limit, and concatenating byte by byte is quadratic.
+  for (let i = 0; i < bytes.length; i += 8192) {
+    binary += String.fromCharCode(...bytes.subarray(i, i + 8192));
+  }
+  return btoa(binary);
+};
+
+/**
+ * Register the face for `script` and return the family name to draw with, or
+ * null if it could not be fetched — a missing font degrades the typography, it
+ * must not fail the export.
+ */
+const loadFont = async (doc: jsPDF, script: Script): Promise<string | null> => {
+  const font = FONTS[script];
+  try {
+    const response = await fetch(font.url);
+    if (!response.ok) {
+      console.warn(`Could not load ${font.family} (HTTP ${response.status}); using the built-in font`);
+      return null;
+    }
+    doc.addFileToVFS(font.file, arrayBufferToBase64(await response.arrayBuffer()));
+    doc.addFont(font.file, font.family, "normal");
+    return font.family;
+  } catch (error) {
+    console.warn(`Could not load ${font.family}:`, error);
+    return null;
+  }
+};
+
+/**
+ * Set the face for the next draw. Only one weight of each Noto face is
+ * bundled, so while one is in use the requested serif style is dropped rather
+ * than synthesised.
+ */
+const applyFont = (
+  doc: jsPDF,
+  family: string | null,
+  style: "normal" | "bold" | "italic" | "bolditalic"
+) => {
+  if (family) {
+    doc.setFont(family, "normal");
+  } else {
+    doc.setFont("times", style);
+  }
+};
+
+/**
+ * jsPDF's built-in fonts encode WinAnsi only, and none of the Noto faces above
+ * carry pictographs either, so an emoji reaches the page as mojibake:
+ * "😐 Okay" prints as "Ø=Þ Okay". Drop pictographs, their skin-tone
+ * and flag modifiers, and the joiners/variation selectors that glue sequences
+ * together, then close the gaps they leave behind.
+ *
+ * ©, ® and ™ are pictographs too but *are* in WinAnsi, so they stay. Word
+ * export needs none of this — docx is UTF-8 and renders emoji fine.
+ */
+const WINANSI_PICTOGRAPHS = new Set(["\u00A9", "\u00AE", "\u2122"]);
+
+// Alternation rather than one character class: the keycap mark is a combining
+// character, and combining characters inside a class trip no-misleading-character-class.
+const PICTOGRAPH =
+  /\p{Extended_Pictographic}|[\u{1F3FB}-\u{1F3FF}]|[\u{1F1E6}-\u{1F1FF}]|\uFE0E|\uFE0F|\u20E3|\u200D/gu;
+
+const stripEmojiForPDF = (text: string): string =>
+  text
+    .replace(PICTOGRAPH, (char) => (WINANSI_PICTOGRAPHS.has(char) ? char : ""))
+    .replace(/[ \t]{2,}/g, " ")
+    // "Sonne 😀, Meer" would otherwise leave "Sonne , Meer". Only commas and
+    // full stops: French sets a space before ; : ! ? on purpose.
+    .replace(/[ \t]+([,.])/g, "$1")
+    .replace(/[ \t]+$/gm, "")
+    .trim();
+
+
+/**
+ * Every string the PDF is going to draw, which is what the face decision has to
+ * be made on. Entry text is not enough: month names and weekdays come from the
+ * chosen locale (Polish "październik", Japanese "8月13日") and the labels come
+ * from the UI language, so a journal written in plain ASCII can still need a
+ * face the built-in fonts cannot provide.
+ *
+ * Emoji are stripped first — they are removed from the PDF anyway, and must not
+ * drag in a font nobody needs.
+ */
+const pdfCorpus = (entries: JournalEntry[], journalName: string, locale: Locale): string => {
+  const parts: string[] = [
+    journalName,
+    t("export.entries"),
+    t("export.exportedOn"),
+    t("export.mood"),
+    format(new Date(), "PPP", { locale }),
+  ];
+
+  for (const entry of entries) {
+    const date = new Date(entry.date);
+    parts.push(
+      entry.title,
+      entry.body,
+      format(date, "PPPP", { locale }),
+      format(date, "MMMM", { locale })
+    );
+
+    if (entry.mood) parts.push(t(`journalEntry.moods.${entry.mood}`));
+
+    for (const activity of entry.activities ?? []) {
+      parts.push(
+        PREDEFINED_ACTIVITIES.some((predefined) => predefined.key === activity)
+          ? t(`activities.${activity}`)
+          : activity
+      );
+    }
+
+    parts.push(...(entry.tags ?? []));
+  }
+
+  return stripEmojiForPDF(parts.join("\n"));
 };
 
 export interface JournalEntry {
@@ -120,37 +338,14 @@ export const groupEntriesByYearMonth = (entries: JournalEntry[]): EntriesByYearM
 };
 
 /**
- * Load and register CJK font for PDF export
- * Uses Google Noto Sans JP loaded dynamically
- */
-const loadCJKFont = async (doc: jsPDF): Promise<void> => {
-  try {
-    // Load Noto Sans JP from Google Fonts CDN (smaller subset)
-    const fontUrl = "https://fonts.gstatic.com/s/notosansjp/v52/-F6jfjtqLzI2JPCgQBnw7HFyzSD-AsregP8VFBEj75s.ttf";
-
-    const response = await fetch(fontUrl);
-    if (!response.ok) {
-      console.warn("Failed to load CJK font, falling back to default");
-      return;
-    }
-
-    const arrayBuffer = await response.arrayBuffer();
-    const base64Font = btoa(new Uint8Array(arrayBuffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
-
-    // Add font to jsPDF
-    doc.addFileToVFS("NotoSansJP-Regular.ttf", base64Font);
-    doc.addFont("NotoSansJP-Regular.ttf", "NotoSansJP", "normal");
-
-    console.log("✅ CJK font loaded successfully");
-  } catch (error) {
-    console.warn("Failed to load CJK font:", error);
-  }
-};
-
-/**
  * Draw elegant header on PDF page
  */
-const drawPageHeader = (doc: jsPDF, journalName: string, pageWidth: number, useCJK: boolean) => {
+const drawPageHeader = (
+  doc: jsPDF,
+  journalName: string,
+  pageWidth: number,
+  family: string | null
+) => {
   // Thin elegant line
   doc.setDrawColor(COLORS.primary.r, COLORS.primary.g, COLORS.primary.b);
   doc.setLineWidth(0.5);
@@ -158,11 +353,7 @@ const drawPageHeader = (doc: jsPDF, journalName: string, pageWidth: number, useC
 
   // Journal name centered in header
   doc.setFontSize(9);
-  if (useCJK) {
-    doc.setFont("NotoSansJP", "normal");
-  } else {
-    doc.setFont("times", "italic");
-  }
+  applyFont(doc, family, "italic");
   doc.setTextColor(COLORS.medium.r, COLORS.medium.g, COLORS.medium.b);
   doc.text(journalName, pageWidth / 2, 8, { align: "center" });
 };
@@ -233,21 +424,12 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
   const locale = getLocale();
   let yPosition = margin;
 
-  const defaultJournalName = journalName || t("export.myJournal");
+  const defaultJournalName = stripEmojiForPDF(journalName || t("export.myJournal"));
 
-  // Load CJK font if needed
-  const useCJK = needsCJKFont();
-  if (useCJK) {
-    await loadCJKFont(doc);
-  }
-
-  const setFont = (style: "normal" | "bold" = "normal") => {
-    if (useCJK) {
-      doc.setFont("NotoSansJP", "normal"); // CJK font doesn't have bold variant
-    } else {
-      doc.setFont("helvetica", style);
-    }
-  };
+  // Pick and embed a face only if the built-in WinAnsi fonts cannot render
+  // everything this document is about to draw.
+  const script = selectScript(pdfCorpus(entries, defaultJournalName, locale));
+  const embeddedFont = script ? await loadFont(doc, script) : null;
 
   // ============ ELEGANT COVER PAGE ============
 
@@ -286,11 +468,7 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
   // Journal title - elegant serif style
   yPosition = 110;
   doc.setFontSize(28);
-  if (useCJK) {
-    doc.setFont("NotoSansJP", "normal");
-  } else {
-    doc.setFont("times", "bold");
-  }
+  applyFont(doc, embeddedFont, "bold");
   doc.setTextColor(COLORS.primary.r, COLORS.primary.g, COLORS.primary.b);
   doc.text(defaultJournalName, pageWidth / 2, yPosition, { align: "center" });
 
@@ -303,11 +481,7 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
   // Entry count - elegant styling
   yPosition = 150;
   doc.setFontSize(14);
-  if (useCJK) {
-    doc.setFont("NotoSansJP", "normal");
-  } else {
-    doc.setFont("times", "italic");
-  }
+  applyFont(doc, embeddedFont, "italic");
   doc.setTextColor(COLORS.medium.r, COLORS.medium.g, COLORS.medium.b);
   doc.text(`${entries.length} ${t("export.entries")}`, pageWidth / 2, yPosition, { align: "center" });
 
@@ -330,13 +504,9 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
   // Export date at bottom
   yPosition = pageHeight - 50;
   doc.setFontSize(10);
-  if (useCJK) {
-    doc.setFont("NotoSansJP", "normal");
-  } else {
-    doc.setFont("times", "italic");
-  }
+  applyFont(doc, embeddedFont, "italic");
   doc.setTextColor(COLORS.light.r, COLORS.light.g, COLORS.light.b);
-  doc.text(`${t("export.exportedOn")} ${format(new Date(), "MMMM d, yyyy", { locale })}`, pageWidth / 2, yPosition, {
+  doc.text(`${t("export.exportedOn")} ${format(new Date(), "PPP", { locale })}`, pageWidth / 2, yPosition, {
     align: "center",
   });
 
@@ -356,16 +526,12 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
     yPosition = 25;
 
     // Draw page header
-    drawPageHeader(doc, defaultJournalName, pageWidth, useCJK);
+    drawPageHeader(doc, defaultJournalName, pageWidth, embeddedFont);
 
     // Year header - elegant serif style
     yPosition = 35;
     doc.setFontSize(22);
-    if (useCJK) {
-      doc.setFont("NotoSansJP", "normal");
-    } else {
-      doc.setFont("times", "bold");
-    }
+    applyFont(doc, embeddedFont, "bold");
     doc.setTextColor(COLORS.secondary.r, COLORS.secondary.g, COLORS.secondary.b);
     doc.text(year, margin, yPosition + 5);
 
@@ -382,17 +548,13 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
       if (yPosition > pageHeight - 60) {
         doc.addPage();
         yPosition = 25;
-        drawPageHeader(doc, defaultJournalName, pageWidth, useCJK);
+        drawPageHeader(doc, defaultJournalName, pageWidth, embeddedFont);
         yPosition = 35;
       }
 
       // Month header - elegant italic style
       doc.setFontSize(14);
-      if (useCJK) {
-        doc.setFont("NotoSansJP", "normal");
-      } else {
-        doc.setFont("times", "bolditalic");
-      }
+      applyFont(doc, embeddedFont, "bolditalic");
       doc.setTextColor(COLORS.primary.r, COLORS.primary.g, COLORS.primary.b);
       doc.text(month, margin, yPosition + 9);
       yPosition += 15;
@@ -407,14 +569,17 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
 
       for (const entry of monthEntries) {
         // Estimate entry height
-        const bodyLines = doc.splitTextToSize(entry.body.replace(/[#*_`]/g, "").trim(), contentWidth - 10);
+        const bodyLines = doc.splitTextToSize(
+          stripEmojiForPDF(entry.body.replace(/[#*_`]/g, "")),
+          contentWidth - 10
+        );
         const estimatedHeight = 40 + bodyLines.length * 5 + (entry.images?.length ? 70 : 0);
 
         // Check if we need a new page
         if (yPosition + estimatedHeight > pageHeight - 30) {
           doc.addPage();
           yPosition = 25;
-          drawPageHeader(doc, defaultJournalName, pageWidth, useCJK);
+          drawPageHeader(doc, defaultJournalName, pageWidth, embeddedFont);
           yPosition = 35;
         }
 
@@ -425,24 +590,16 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
 
         // Entry date - elegant italic
         doc.setFontSize(9);
-        if (useCJK) {
-          doc.setFont("NotoSansJP", "normal");
-        } else {
-          doc.setFont("times", "italic");
-        }
+        applyFont(doc, embeddedFont, "italic");
         doc.setTextColor(COLORS.light.r, COLORS.light.g, COLORS.light.b);
-        doc.text(format(new Date(entry.date), "EEEE, MMMM d, yyyy", { locale }), margin + 2, yPosition + 3);
+        doc.text(format(new Date(entry.date), "PPPP", { locale }), margin + 2, yPosition + 3);
         yPosition += 8;
 
         // Entry title - serif bold
         doc.setFontSize(12);
-        if (useCJK) {
-          doc.setFont("NotoSansJP", "normal");
-        } else {
-          doc.setFont("times", "bold");
-        }
+        applyFont(doc, embeddedFont, "bold");
         doc.setTextColor(COLORS.dark.r, COLORS.dark.g, COLORS.dark.b);
-        const titleLines = doc.splitTextToSize(entry.title, contentWidth - 5);
+        const titleLines = doc.splitTextToSize(stripEmojiForPDF(entry.title), contentWidth - 5);
         doc.text(titleLines, margin + 2, yPosition + 2);
         yPosition += titleLines.length * 6 + 2;
 
@@ -450,11 +607,7 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
         if (entry.mood || (entry.activities && entry.activities.length > 0) || (entry.tags && entry.tags.length > 0)) {
           yPosition += 2;
           doc.setFontSize(9);
-          if (useCJK) {
-            doc.setFont("NotoSansJP", "normal");
-          } else {
-            doc.setFont("times", "italic");
-          }
+          applyFont(doc, embeddedFont, "italic");
           doc.setTextColor(COLORS.medium.r, COLORS.medium.g, COLORS.medium.b);
 
           let metaText = "";
@@ -477,18 +630,14 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
             metaText += metaText ? `  ·  ${tagsText}` : tagsText;
           }
 
-          doc.text(metaText, margin + 2, yPosition + 2);
+          doc.text(stripEmojiForPDF(metaText), margin + 2, yPosition + 2);
           yPosition += 8;
         }
 
         // Entry body - elegant serif typography
         yPosition += 3;
         doc.setFontSize(10);
-        if (useCJK) {
-          doc.setFont("NotoSansJP", "normal");
-        } else {
-          doc.setFont("times", "normal");
-        }
+        applyFont(doc, embeddedFont, "normal");
         doc.setTextColor(COLORS.dark.r, COLORS.dark.g, COLORS.dark.b);
 
         // Add body with page breaks
@@ -496,7 +645,7 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
           if (yPosition > pageHeight - 30) {
             doc.addPage();
             yPosition = 25;
-            drawPageHeader(doc, defaultJournalName, pageWidth, useCJK);
+            drawPageHeader(doc, defaultJournalName, pageWidth, embeddedFont);
             yPosition = 35;
           }
           doc.text(bodyLines[i], margin + 2, yPosition);
@@ -513,7 +662,7 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
               if (yPosition > pageHeight - 80) {
                 doc.addPage();
                 yPosition = 25;
-                drawPageHeader(doc, defaultJournalName, pageWidth, useCJK);
+                drawPageHeader(doc, defaultJournalName, pageWidth, embeddedFont);
                 yPosition = 35;
               }
 
@@ -653,7 +802,7 @@ export const exportToWord = async (entries: JournalEntry[], journalName?: string
     new Paragraph({
       children: [
         new TextRun({
-          text: `${t("export.exportedOn")} ${format(new Date(), "MMMM d, yyyy", { locale })}`,
+          text: `${t("export.exportedOn")} ${format(new Date(), "PPP", { locale })}`,
           size: 22,
           color: "94A3B8",
           italics: true,
@@ -732,7 +881,7 @@ export const exportToWord = async (entries: JournalEntry[], journalName?: string
           new Paragraph({
             children: [
               new TextRun({
-                text: format(new Date(entry.date), "EEEE, MMMM d, yyyy", { locale }),
+                text: format(new Date(entry.date), "PPPP", { locale }),
                 size: 20,
                 color: "94A3B8",
                 italics: true,

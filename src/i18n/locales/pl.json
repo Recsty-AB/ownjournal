@@ -2469,6 +2469,7 @@
     "light": "Jasny",
     "dark": "Ciemny",
     "paper": "Papier",
+    "system": "Systemowy",
     "paperHint": "Papier to jednolita biel bez gradientów — najczytelniejszy na ekranach e-ink.",
     "switchTo": "Przełącz na motyw {{theme}}"
   }

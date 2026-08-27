@@ -2472,6 +2472,7 @@
     "light": "Sáng",
     "dark": "Tối",
     "paper": "Giấy",
+    "system": "Hệ thống",
     "paperHint": "Giấy là nền trắng phẳng, không chuyển màu — dễ đọc nhất trên màn hình e-ink.",
     "switchTo": "Chuyển sang chủ đề {{theme}}"
   }

@@ -2474,6 +2474,7 @@
     "light": "Light",
     "dark": "Dark",
     "paper": "Paper",
+    "system": "System",
     "paperHint": "Paper is flat white with no gradients — easiest to read on e-ink screens.",
     "switchTo": "Switch to {{theme}} theme"
   }

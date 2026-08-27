@@ -2469,6 +2469,7 @@
     "light": "Claro",
     "dark": "Oscuro",
     "paper": "Papel",
+    "system": "Sistema",
     "paperHint": "Papel es blanco liso sin degradados: lo más legible en pantallas de tinta electrónica.",
     "switchTo": "Cambiar al tema {{theme}}"
   }

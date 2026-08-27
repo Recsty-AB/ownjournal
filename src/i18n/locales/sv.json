@@ -2469,6 +2469,7 @@
     "light": "Ljust",
     "dark": "Mörkt",
     "paper": "Papper",
+    "system": "System",
     "paperHint": "Papper är helvitt utan toningar – lättast att läsa på e-bläckskärmar.",
     "switchTo": "Byt till temat {{theme}}"
   }

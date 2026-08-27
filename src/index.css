@@ -6,6 +6,11 @@
 
 @layer base {
   :root {
+    /* Keep native form controls, scrollbars and select popups in the same
+       light/dark family as the palette below. next-themes sets this inline for
+       light/dark, but only after it mounts. */
+    color-scheme: light;
+
     /* Core backgrounds - warm paper tones */
     --background: 42 15% 97%;
     --foreground: 25 25% 15%;
@@ -88,6 +93,7 @@
   }
 
   .dark {
+    color-scheme: dark;
     /* Dark mode - warm, cozy night journaling */
     --background: 25 25% 8%;
     --foreground: 42 15% 92%;
@@ -256,6 +262,18 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Native <select> menus are drawn outside the page, so they inherit nothing:
+     on a dark theme the options came out as the theme's near-white text on the
+     platform's white popup. Pin both ends to the popover tokens. */
+  select {
+    color: hsl(var(--foreground));
+  }
+
+  select option {
+    background-color: hsl(var(--popover));
+    color: hsl(var(--popover-foreground));
   }
 }
 

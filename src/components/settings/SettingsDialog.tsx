@@ -1,4 +1,5 @@
 import { buildAppLink } from "@/config/app";
+import { cn } from "@/lib/utils";
 import { canShowAnyPurchaseCTA, canShowNativeCheckout, canShowStripeCheckout } from "@/utils/platformDetection";
 import { NativePaywall } from "@/components/subscription/NativePaywall";
 import { iapService, IAPError, getStoreSubscriptionUrl } from "@/services/iapService";
@@ -123,6 +124,15 @@ interface SettingsDialogProps {
   subscriptionProvider?: 'stripe' | 'apple' | 'google' | null;
   hasUsedTrial?: boolean;
 }
+
+/**
+ * Full-width Settings buttons carry translated labels — Japanese
+ * "バックアップをエクスポート" is nearly three times the English width — and the
+ * Button base is `whitespace-nowrap` with a fixed height, so the text escaped
+ * the border. Wrap instead, and grow the button to fit.
+ */
+const wrappingButton =
+  "w-full h-auto min-h-10 whitespace-normal break-words py-2 text-center leading-snug";
 
 export const SettingsDialog = ({
   open,
@@ -463,11 +473,21 @@ export const SettingsDialog = ({
   // Shared content between Dialog and Drawer
   const settingsContent = (
     <Tabs key={open ? 'tabs-open' : 'tabs-closed'} defaultValue={defaultTab} className="w-full">
-      <TabsList className="flex flex-wrap gap-1 justify-start w-full">
-        <TabsTrigger value="storage" className="flex-1 min-w-0 px-1.5 sm:px-4 text-xs sm:text-sm truncate">{t('settings.tabs.storage')}</TabsTrigger>
-        <TabsTrigger value="preferences" className="flex-1 min-w-0 px-1.5 sm:px-4 text-xs sm:text-sm truncate">{t('settings.tabs.preferences')}</TabsTrigger>
-        <TabsTrigger value="account" className="flex-1 min-w-0 px-1.5 sm:px-4 text-xs sm:text-sm truncate">{t('settings.tabs.account')}</TabsTrigger>
-        <TabsTrigger value="diagnostics" className="flex-1 min-w-0 px-1.5 sm:px-4 text-xs sm:text-sm truncate">{t('settings.tabs.diagnostics')}</TabsTrigger>
+      <TabsList className="grid grid-cols-4 gap-1 w-full">
+        {([
+          { value: 'storage', label: t('settings.tabs.storage') },
+          { value: 'preferences', label: t('settings.tabs.preferences') },
+          { value: 'account', label: t('settings.tabs.account') },
+          { value: 'diagnostics', label: t('settings.tabs.diagnostics') },
+        ] as const).map((tab) => (
+          <TabsTrigger
+            key={tab.value}
+            value={tab.value}
+            className="min-w-0 whitespace-normal break-words px-1 py-2 text-center text-xs leading-tight sm:px-4 sm:text-sm"
+          >
+            {tab.label}
+          </TabsTrigger>
+        ))}
       </TabsList>
       
       <TabsContent value="storage" className="space-y-4 mt-4">
@@ -543,13 +563,13 @@ export const SettingsDialog = ({
           </div>
         </div>
         
-        <div className="grid grid-cols-2 gap-4">
-          <Button onClick={onExportData} variant="outline" className="w-full">
-            <Download className="w-4 h-4 mr-2" />
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <Button onClick={onExportData} variant="outline" className={wrappingButton}>
+            <Download className="w-4 h-4 mr-2 shrink-0" />
             {t('settings.dataManagement.exportBackup')}
           </Button>
-          <Button onClick={handleImportClick} variant="outline" className="w-full">
-            <Upload className="w-4 h-4 mr-2" />
+          <Button onClick={handleImportClick} variant="outline" className={wrappingButton}>
+            <Upload className="w-4 h-4 mr-2 shrink-0" />
             {t('settings.dataManagement.importBackup')}
           </Button>
         </div>
@@ -557,8 +577,8 @@ export const SettingsDialog = ({
             reasoning as the Header dropdown item. Pro users on native keep
             access. */}
         {onExportToFile && (isPro || canShowAnyPurchaseCTA()) && (
-          <Button onClick={onExportToFile} variant="outline" className="w-full">
-            <FileText className="w-4 h-4 mr-2" />
+          <Button onClick={onExportToFile} variant="outline" className={wrappingButton}>
+            <FileText className="w-4 h-4 mr-2 shrink-0" />
             {t('settings.dataManagement.exportFile')}
           </Button>
         )}
@@ -683,7 +703,7 @@ export const SettingsDialog = ({
                 {t('settings.email.verificationSentDesc')}
               </p>
             )}
-            <div className="flex gap-2">
+            <div className="flex flex-col gap-2 sm:flex-row">
               <Input
                 type="email"
                 value={newEmail}
@@ -696,6 +716,7 @@ export const SettingsDialog = ({
                 onClick={handleEmailChange}
                 disabled={!newEmail || isChangingEmail}
                 variant="outline"
+                className="whitespace-normal break-words sm:shrink-0"
               >
                 {isChangingEmail ? t('common.loading') : t('settings.email.change')}
               </Button>
@@ -712,10 +733,10 @@ export const SettingsDialog = ({
           <Button 
             onClick={onSignOut} 
             variant="outline" 
-            className="w-full"
+            className={wrappingButton}
             disabled={!onSignOut}
           >
-            <LogOut className="w-4 h-4 mr-2" />
+            <LogOut className="w-4 h-4 mr-2 shrink-0" />
             {t('header.signOut')}
           </Button>
         </div>
@@ -761,10 +782,10 @@ export const SettingsDialog = ({
                 <Button
                   variant="outline"
                   size="sm"
-                  className="w-full border-destructive/40 hover:bg-destructive/20"
+                  className={cn(wrappingButton, 'border-destructive/40 hover:bg-destructive/20')}
                   onClick={handleOpenStore}
                 >
-                  <ExternalLink className="w-4 h-4 mr-2" />
+                  <ExternalLink className="w-4 h-4 mr-2 shrink-0" />
                   {t('subscription.nativeSubManageCta', { store: storeName })}
                 </Button>
               </div>
@@ -806,7 +827,7 @@ export const SettingsDialog = ({
           <Button
             onClick={handleDeleteAccount}
             variant="destructive"
-            className="w-full"
+            className={wrappingButton}
             disabled={
               deleteConfirmText !== SAFETY_CONSTANTS.DELETE_ACCOUNT_CONFIRMATION ||
               isDeleting ||

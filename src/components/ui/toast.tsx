@@ -11,11 +11,14 @@ const ToastViewport = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Viewport>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>
 >(({ className, ...props }, ref) => (
+  // Top of the stack (see dialog.tsx): at z-[100] every toast raised while the
+  // Settings or Help drawer was open was hidden behind it, so failures on
+  // mobile were completely silent.
   <ToastPrimitives.Viewport
     ref={ref}
     style={{ top: 'calc(4rem + env(safe-area-inset-top, 0px) + 0.5rem)' }}
     className={cn(
-      "fixed z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:!top-auto sm:flex-col md:max-w-[420px]",
+      "fixed z-[300] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:!top-auto sm:flex-col md:max-w-[420px]",
       className
     )}
     {...props}
