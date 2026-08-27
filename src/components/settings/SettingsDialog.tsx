@@ -8,11 +8,14 @@ import { X, AlertTriangle, LogOut, Mail } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import { Progress } from "@/components/ui/progress";
-import { Upload, Download, Moon, Sun, Cloud, FileText, FileText as LegalIcon, Shield, Globe } from "lucide-react";
+import { Upload, Download, Cloud, FileText, FileText as LegalIcon, Shield, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { StorageSecuritySettings } from "./StorageSecuritySettings";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { ThemeSelector } from "@/components/theme/ThemeSelector";
 import { SyncDiagnostics } from "./SyncDiagnostics";
 import { SubscriptionBanner } from "@/components/subscription/SubscriptionBanner";
 import { JournalNameSettings } from "./JournalNameSettings";
@@ -108,8 +111,8 @@ interface SettingsDialogProps {
   onExportData: () => void;
   onExportToFile?: () => void;
   onImportData: (data: unknown) => void;
-  isDarkMode?: boolean;
-  onToggleTheme?: () => void;
+  showInsights?: boolean;
+  onToggleInsights?: (visible: boolean) => void;
   defaultTab?: string;
   onReopenSetup?: (fullReset?: boolean) => void;
   onUpgrade?: (currency: CurrencyCode) => void;
@@ -127,8 +130,8 @@ export const SettingsDialog = ({
   onExportData,
   onExportToFile,
   onImportData,
-  isDarkMode,
-  onToggleTheme,
+  showInsights = true,
+  onToggleInsights,
   defaultTab = "storage",
   onReopenSetup,
   onUpgrade,
@@ -574,19 +577,23 @@ export const SettingsDialog = ({
       {/* Appearance */}
       <div className="space-y-4">
         <h3 className="text-lg font-semibold">{t('settings.sections.appearance')}</h3>
-        <Button onClick={onToggleTheme} variant="outline" className="w-full">
-          {isDarkMode ? (
-            <>
-              <Sun className="w-4 h-4 mr-2" />
-              {t('header.lightMode')}
-            </>
-          ) : (
-            <>
-              <Moon className="w-4 h-4 mr-2" />
-              {t('header.darkMode')}
-            </>
-          )}
-        </Button>
+        <ThemeSelector />
+
+        <div className="flex items-start justify-between gap-4">
+          <div className="space-y-1">
+            <Label htmlFor="show-insights" className="text-sm font-medium">
+              {t('settings.appearance.showInsights')}
+            </Label>
+            <p className="text-xs text-muted-foreground">
+              {t('settings.appearance.showInsightsHint')}
+            </p>
+          </div>
+          <Switch
+            id="show-insights"
+            checked={showInsights}
+            onCheckedChange={(checked) => onToggleInsights?.(checked)}
+          />
+        </div>
       </div>
 
       {/* Legal */}

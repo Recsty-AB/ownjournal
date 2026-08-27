@@ -54,9 +54,7 @@ describe('SettingsDialog', () => {
     expect(container).toBeInTheDocument();
   });
 
-  it('should render with theme toggle', () => {
-    const mockOnToggleTheme = vi.fn();
-
+  it('should render the appearance controls', () => {
     const { container } = render(
       wrap(
         <SettingsDialog
@@ -64,8 +62,6 @@ describe('SettingsDialog', () => {
           onOpenChange={mockOnOpenChange}
           onExportData={mockOnExportData}
           onImportData={mockOnImportData}
-          onToggleTheme={mockOnToggleTheme}
-          isDarkMode={false}
         />
       )
     );

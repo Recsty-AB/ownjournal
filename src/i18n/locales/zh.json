@@ -122,8 +122,6 @@
     "exportBackup": "导出备份数据",
     "importBackup": "导入备份数据",
     "exportToFile": "导出到文件",
-    "lightMode": "浅色模式",
-    "darkMode": "深色模式",
     "signOut": "退出登录",
     "proMember": "Plus 会员",
     "help": "帮助"
@@ -668,6 +666,10 @@
       "manageSubscription": "管理",
       "portalError": "无法打开订阅管理",
       "portalErrorDesc": "请稍后再试。"
+    },
+    "appearance": {
+      "showInsights": "在主屏幕显示分析",
+      "showInsightsHint": "心情日历、心情统计、关联分析和趋势分析"
     }
   },
   "password": {
@@ -2461,5 +2463,13 @@
     "deletedOfflineDesc": "已在本机删除。恢复网络后将同步。",
     "deleteFailed": "删除笔记失败",
     "deleteFailedDesc": "无法从存储中删除笔记。更改可能会被还原。"
+  },
+  "theme": {
+    "label": "主题",
+    "light": "浅色",
+    "dark": "深色",
+    "paper": "纸质",
+    "paperHint": "纸质为纯白无渐变，在墨水屏上阅读最清晰。",
+    "switchTo": "切换到{{theme}}主题"
   }
 }

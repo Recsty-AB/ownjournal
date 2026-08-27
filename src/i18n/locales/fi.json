@@ -122,8 +122,6 @@
     "exportBackup": "Vie varmuuskopio",
     "importBackup": "Tuo varmuuskopio",
     "exportToFile": "Vie tiedostoon",
-    "lightMode": "Vaalea tila",
-    "darkMode": "Tumma tila",
     "signOut": "Kirjaudu ulos",
     "proMember": "Plus-jäsen",
     "help": "Ohje"
@@ -668,6 +666,10 @@
       "manageSubscription": "Hallinnoi",
       "portalError": "Tilaushallintaa ei voitu avata",
       "portalErrorDesc": "Yritä myöhemmin uudelleen."
+    },
+    "appearance": {
+      "showInsights": "Näytä analyysit aloitusnäytöllä",
+      "showInsightsHint": "Mielialakalenteri, mielialan tilastot, yhteydet ja trendianalyysi"
     }
   },
   "password": {
@@ -2461,5 +2463,13 @@
     "deletedOfflineDesc": "Poistettu paikallisesti. Synkronoidaan, kun olet takaisin verkossa.",
     "deleteFailed": "Muistiinpanon poisto epäonnistui",
     "deleteFailedDesc": "Muistiinpanoa ei voitu poistaa tallennustilasta. Muutokset voidaan palauttaa."
+  },
+  "theme": {
+    "label": "Teema",
+    "light": "Vaalea",
+    "dark": "Tumma",
+    "paper": "Paperi",
+    "paperHint": "Paperi on tasainen valkoinen ilman liukuvärejä – helpoin lukea e-ink-näytöillä.",
+    "switchTo": "Vaihda {{theme}}-teemaan"
   }
 }

@@ -13,8 +13,10 @@
 
     <!-- PWA Configuration -->
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#f9f7f4" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1e3a5f" media="(prefers-color-scheme: dark)" />
+    <!-- Single, media-free tag: the app has three themes (light/dark/paper) and a
+         media query cannot express "paper". useSystemChrome() rewrites `content`
+         to match the active theme once React mounts. -->
+    <meta name="theme-color" content="#f8f6f3" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />

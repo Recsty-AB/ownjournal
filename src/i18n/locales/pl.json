@@ -122,8 +122,6 @@
     "exportBackup": "Eksportuj kopię zapasową",
     "importBackup": "Importuj kopię zapasową",
     "exportToFile": "Eksportuj do pliku",
-    "lightMode": "Tryb jasny",
-    "darkMode": "Tryb ciemny",
     "signOut": "Wyloguj się",
     "proMember": "Członek Plus",
     "help": "Pomoc"
@@ -668,6 +666,10 @@
       "manageSubscription": "Zarządzaj",
       "portalError": "Nie udało się otworzyć menedżera subskrypcji",
       "portalErrorDesc": "Spróbuj ponownie później."
+    },
+    "appearance": {
+      "showInsights": "Pokaż analizy na ekranie głównym",
+      "showInsightsHint": "Kalendarz nastroju, statystyki nastroju, korelacje i analiza trendów"
     }
   },
   "password": {
@@ -2461,5 +2463,13 @@
     "deletedOfflineDesc": "Usunięto lokalnie. Zsynchronizuje się, gdy wrócisz online.",
     "deleteFailed": "Nie udało się usunąć notatki",
     "deleteFailedDesc": "Nie udało się usunąć notatki z magazynu. Zmiany mogą zostać cofnięte."
+  },
+  "theme": {
+    "label": "Motyw",
+    "light": "Jasny",
+    "dark": "Ciemny",
+    "paper": "Papier",
+    "paperHint": "Papier to jednolita biel bez gradientów — najczytelniejszy na ekranach e-ink.",
+    "switchTo": "Przełącz na motyw {{theme}}"
   }
 }

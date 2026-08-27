@@ -122,8 +122,6 @@
     "exportBackup": "Ekspor Data Cadangan",
     "importBackup": "Impor Data Cadangan",
     "exportToFile": "Ekspor ke File",
-    "lightMode": "Mode Terang",
-    "darkMode": "Mode Gelap",
     "signOut": "Keluar",
     "proMember": "Anggota Plus",
     "help": "Bantuan"
@@ -668,6 +666,10 @@
       "manageSubscription": "Kelola",
       "portalError": "Tidak bisa membuka pengelola langganan",
       "portalErrorDesc": "Silakan coba lagi nanti."
+    },
+    "appearance": {
+      "showInsights": "Tampilkan wawasan di layar beranda",
+      "showInsightsHint": "Kalender Suasana Hati, Statistik Suasana Hati, korelasi, dan Analisis Tren"
     }
   },
   "password": {
@@ -2464,5 +2466,13 @@
     "deletedOfflineDesc": "Dihapus secara lokal. Akan disinkronkan saat kembali online.",
     "deleteFailed": "Gagal menghapus memo",
     "deleteFailedDesc": "Gagal menghapus memo dari penyimpanan. Perubahan mungkin dikembalikan."
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Terang",
+    "dark": "Gelap",
+    "paper": "Kertas",
+    "paperHint": "Kertas berwarna putih polos tanpa gradien — paling mudah dibaca di layar e-ink.",
+    "switchTo": "Beralih ke tema {{theme}}"
   }
 }

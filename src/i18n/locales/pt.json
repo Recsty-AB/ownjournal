@@ -122,8 +122,6 @@
     "exportBackup": "Exportar Backup",
     "importBackup": "Importar Backup",
     "exportToFile": "Exportar para Ficheiro",
-    "lightMode": "Modo Claro",
-    "darkMode": "Modo Escuro",
     "signOut": "Sair",
     "proMember": "Membro Plus",
     "help": "Ajuda"
@@ -668,6 +666,10 @@
       "manageSubscription": "Gerir",
       "portalError": "Não foi possível abrir o gestor de assinatura",
       "portalErrorDesc": "Por favor, tente novamente mais tarde."
+    },
+    "appearance": {
+      "showInsights": "Mostrar análises no ecrã inicial",
+      "showInsightsHint": "Calendário de humor, estatísticas de humor, correlações e Análise de Tendências"
     }
   },
   "password": {
@@ -2461,5 +2463,13 @@
     "deletedOfflineDesc": "Excluído localmente. Sincronizará quando você estiver online novamente.",
     "deleteFailed": "Falha ao eliminar a nota",
     "deleteFailedDesc": "Não foi possível eliminar a nota do armazenamento. As alterações podem ser revertidas."
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "paper": "Papel",
+    "paperHint": "Papel é branco liso, sem gradientes — o mais legível em ecrãs de tinta eletrónica.",
+    "switchTo": "Mudar para o tema {{theme}}"
   }
 }

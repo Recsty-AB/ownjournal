@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="com.android.vending.BILLING" />
     <application
         android:allowBackup="true"
@@ -67,6 +68,15 @@
                 <data android:scheme="ownjournal" />
             </intent-filter>
         </activity>
+
+        <!-- play-services-code-scanner (pulled in by @capacitor-mlkit/barcode-scanning)
+             pins this activity to portrait. Android 16 ignores orientation locks on
+             large-screen devices, and Play flags the restriction, so we relax it here
+             via the manifest merger instead of forking the dependency. -->
+        <activity
+            android:name="com.google.mlkit.vision.codescanner.internal.GmsBarcodeScanningDelegateActivity"
+            android:screenOrientation="unspecified"
+            tools:replace="android:screenOrientation" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

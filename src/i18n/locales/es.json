@@ -122,8 +122,6 @@
     "exportBackup": "Exportar datos de respaldo",
     "importBackup": "Importar datos de respaldo",
     "exportToFile": "Exportar a archivo",
-    "lightMode": "Modo claro",
-    "darkMode": "Modo oscuro",
     "signOut": "Cerrar sesión",
     "proMember": "Miembro Plus",
     "help": "Ayuda"
@@ -668,6 +666,10 @@
       "manageSubscription": "Administrar",
       "portalError": "No se pudo abrir el administrador de suscripción",
       "portalErrorDesc": "Por favor, inténtalo de nuevo más tarde."
+    },
+    "appearance": {
+      "showInsights": "Mostrar análisis en la pantalla de inicio",
+      "showInsightsHint": "Calendario de ánimo, estadísticas de ánimo, correlaciones y análisis de tendencias"
     }
   },
   "password": {
@@ -2461,5 +2463,13 @@
     "deletedOfflineDesc": "Eliminado localmente. Se sincronizará cuando vuelvas a estar en línea.",
     "deleteFailed": "No se pudo eliminar la nota",
     "deleteFailedDesc": "No se pudo eliminar la nota del almacenamiento. Los cambios pueden revertirse."
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "paper": "Papel",
+    "paperHint": "Papel es blanco liso sin degradados: lo más legible en pantallas de tinta electrónica.",
+    "switchTo": "Cambiar al tema {{theme}}"
   }
 }

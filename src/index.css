@@ -148,6 +148,77 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  /* Paper - flat monochrome for e-ink readers and anyone who wants a plain
+     white page. Deliberately hue-free: e-ink renders colour as grey levels,
+     so contrast has to carry the meaning instead. Light-family, so Tailwind
+     `dark:` variants correctly stay inactive. */
+  .paper {
+    /* next-themes only sets the inline `color-scheme` for light/dark, so declare
+       it here or native scrollbars and form controls stay dark on a white page
+       when the OS is in dark mode. */
+    color-scheme: light;
+
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+
+    --primary: 0 0% 12%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 0% 12%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 12%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 32%;
+
+    --accent: 0 0% 92%;
+    --accent-foreground: 0 0% 12%;
+
+    --destructive: 0 0% 25%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 78%;
+    --input: 0 0% 78%;
+    --ring: 0 0% 20%;
+
+    /* Gradients collapse to flat fills - a gradient on e-ink is just dither noise. */
+    --gradient-primary: linear-gradient(hsl(var(--primary)), hsl(var(--primary)));
+    --gradient-paper: linear-gradient(hsl(var(--background)), hsl(var(--background)));
+    --gradient-subtle: linear-gradient(hsl(var(--muted)), hsl(var(--muted)));
+
+    /* Hairline rules instead of blurred shadows - e-ink cannot render blur. */
+    --shadow-soft: 0 0 0 1px hsl(0 0% 82%);
+    --shadow-medium: 0 0 0 1px hsl(0 0% 74%);
+    --shadow-large: 0 0 0 1px hsl(0 0% 66%);
+    --shadow-glow: 0 0 0 1px hsl(0 0% 40%);
+
+    /* Diagnostics separate by lightness rather than hue so they stay
+       distinguishable once the panel flattens them to greyscale. */
+    --diagnostic-success: 0 0% 30%;
+    --diagnostic-success-foreground: 0 0% 100%;
+    --diagnostic-error: 0 0% 10%;
+    --diagnostic-error-foreground: 0 0% 100%;
+    --diagnostic-warning: 0 0% 55%;
+    --diagnostic-warning-foreground: 0 0% 100%;
+    --diagnostic-info: 0 0% 42%;
+    --diagnostic-info-foreground: 0 0% 100%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 20%;
+    --sidebar-primary: 0 0% 12%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 12%;
+    --sidebar-border: 0 0% 82%;
+    --sidebar-ring: 0 0% 20%;
+  }
 }
 
 @layer base {
@@ -166,6 +237,10 @@
 
   html.dark {
     background-color: hsl(25 25% 8%);
+  }
+
+  html.paper {
+    background-color: hsl(0 0% 100%);
   }
 
   /* Proper word breaking for CJK languages (Japanese, Korean, Chinese) */

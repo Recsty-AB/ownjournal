@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "next-themes";
 import { toast } from "sonner";
 
 import { useDocumentTitle } from "@/hooks/useDocumentMeta";
@@ -18,12 +17,13 @@ function DemoContent() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const { theme, setTheme } = useTheme();
   const { entries, saveEntry, deleteEntry } = useDemo();
   useDocumentTitle(t('demo.mode'));
   
   const cleanMode = searchParams.get('clean') === 'true';
   const [showSettings, setShowSettings] = useState(false);
+  // Demo state only - the real preference is user-scoped and lives in Index.
+  const [showInsights, setShowInsights] = useState(true);
   const [showHelp, setShowHelp] = useState(false);
 
   const handleSave = (entry: Omit<JournalEntryData, 'id' | 'createdAt' | 'updatedAt'>) => {
@@ -41,10 +41,6 @@ function DemoContent() {
   const handleDelete = (id: string) => {
     deleteEntry(id);
     toast.success(t('journal.entryDeleted'));
-  };
-
-  const toggleDarkMode = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
   const handleStartJournal = () => {
@@ -75,8 +71,6 @@ function DemoContent() {
       
       <Header
         user={undefined}
-        isDarkMode={theme === 'dark'}
-        onToggleTheme={toggleDarkMode}
         onOpenSettings={() => setShowSettings(true)}
         onOpenHelp={() => setShowHelp(true)}
         onExportData={handleExport}
@@ -89,15 +83,17 @@ function DemoContent() {
       <main className="container mx-auto px-4 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* TrendAnalysis - show first on mobile, sidebar on desktop */}
-          <div className="lg:col-span-1 order-first lg:order-last">
-            <TrendAnalysis
-              entries={entries}
-              isPro={true}
-              isDemo={true}
-            />
-          </div>
+          {showInsights && (
+            <div className="lg:col-span-1 order-first lg:order-last">
+              <TrendAnalysis
+                entries={entries}
+                isPro={true}
+                isDemo={true}
+              />
+            </div>
+          )}
           {/* Timeline - main content */}
-          <div className="lg:col-span-3 order-last lg:order-first">
+          <div className={`order-last lg:order-first ${showInsights ? 'lg:col-span-3' : 'lg:col-span-4'}`}>
             <Timeline
               entries={entries}
               onSaveEntry={handleSave}
@@ -136,8 +132,8 @@ function DemoContent() {
         onExportData={handleExport}
         onExportToFile={handleExport}
         onImportData={handleImportData}
-        isDarkMode={theme === 'dark'}
-        onToggleTheme={toggleDarkMode}
+        showInsights={showInsights}
+        onToggleInsights={setShowInsights}
       />
     </div>
   );

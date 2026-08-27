@@ -122,8 +122,6 @@
     "exportBackup": "Backup-Daten exportieren",
     "importBackup": "Backup-Daten importieren",
     "exportToFile": "In Datei exportieren",
-    "lightMode": "Heller Modus",
-    "darkMode": "Dunkler Modus",
     "signOut": "Abmelden",
     "proMember": "Plus-Mitglied",
     "help": "Hilfe"
@@ -668,6 +666,10 @@
       "manageSubscription": "Verwalten",
       "portalError": "Abonnementverwaltung konnte nicht geöffnet werden",
       "portalErrorDesc": "Bitte versuchen Sie es später erneut."
+    },
+    "appearance": {
+      "showInsights": "Auswertungen auf dem Startbildschirm anzeigen",
+      "showInsightsHint": "Stimmungskalender, Stimmungsstatistik, Zusammenhänge und Trendanalyse"
     }
   },
   "password": {
@@ -2461,5 +2463,13 @@
     "deletedOfflineDesc": "Lokal gelöscht. Wird synchronisiert, wenn Sie wieder online sind.",
     "deleteFailed": "Notiz konnte nicht gelöscht werden",
     "deleteFailedDesc": "Die Notiz konnte nicht aus dem Speicher gelöscht werden. Änderungen werden möglicherweise rückgängig gemacht."
+  },
+  "theme": {
+    "label": "Design",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "paper": "Papier",
+    "paperHint": "Papier ist reinweiß ohne Farbverläufe – am besten lesbar auf E-Ink-Displays.",
+    "switchTo": "Zum Design „{{theme}}“ wechseln"
   }
 }
