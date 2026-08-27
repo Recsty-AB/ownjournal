@@ -2469,6 +2469,7 @@
     "light": "Lys",
     "dark": "Mørk",
     "paper": "Papir",
+    "system": "System",
     "paperHint": "Papir er helt hvitt uten fargeoverganger – enklest å lese på e-ink-skjermer.",
     "switchTo": "Bytt til {{theme}}-tema"
   }

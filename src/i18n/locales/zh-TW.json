@@ -2469,6 +2469,7 @@
     "light": "淺色",
     "dark": "深色",
     "paper": "紙質",
+    "system": "跟隨系統",
     "paperHint": "紙質為純白無漸層，在電子紙螢幕上閱讀最清晰。",
     "switchTo": "切換至{{theme}}主題"
   }

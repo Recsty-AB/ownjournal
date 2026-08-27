@@ -1,14 +1,15 @@
-import { Sun, Moon, FileText, type LucideProps } from 'lucide-react';
-import type { AppTheme } from '@/hooks/useAppTheme';
+import { Sun, Moon, FileText, Monitor, type LucideProps } from 'lucide-react';
+import type { ThemePreference } from '@/hooks/useAppTheme';
 
-const THEME_ICONS: Record<AppTheme, React.ComponentType<LucideProps>> = {
+const THEME_ICONS: Record<ThemePreference, React.ComponentType<LucideProps>> = {
   light: Sun,
   dark: Moon,
   paper: FileText,
+  system: Monitor,
 };
 
 interface ThemeIconProps extends LucideProps {
-  theme: AppTheme;
+  theme: ThemePreference;
 }
 
 /** The icon that stands for a given theme, shared by the header and settings. */

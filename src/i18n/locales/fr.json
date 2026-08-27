@@ -2469,6 +2469,7 @@
     "light": "Clair",
     "dark": "Sombre",
     "paper": "Papier",
+    "system": "Système",
     "paperHint": "Papier est d'un blanc uni sans dégradés : le plus lisible sur les écrans e-ink.",
     "switchTo": "Passer au thème {{theme}}"
   }

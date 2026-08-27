@@ -1034,7 +1034,7 @@ export const NextcloudSync = ({ onConfigChange, masterKey, onRequirePassword, is
           {t('nextcloudHelp.setupHelp')}
         </Button>
         <Dialog open={showCorsHelp} onOpenChange={setShowCorsHelp}>
-          <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto z-[120]" aria-describedby="nextcloud-help-dialog-description">
+          <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto" aria-describedby="nextcloud-help-dialog-description">
             <DialogHeader>
               <DialogTitle>{t('nextcloudHelp.dialogTitle')}</DialogTitle>
               <DialogDescription id="nextcloud-help-dialog-description">

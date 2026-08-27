@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--
+      From Android 13 WebView derives the `prefers-color-scheme` media query
+      from the app theme's `android:isLightTheme` — not from the system
+      dark-mode setting: "If isLightTheme is true or not specified, then
+      prefers-color-scheme is light; otherwise, it is dark."
+
+      So these themes are what the web layer sees when it asks the OS whether
+      dark mode is on, and they must be DayNight for the answer to be true.
+      Overriding `AppTheme.NoActionBar` is the load-bearing part: Capacitor's
+      BridgeActivity.onCreate() calls setTheme(R.style.AppTheme_NoActionBar)
+      unconditionally, and the copy shipped in capacitor-android inherits from
+      Theme.AppCompat.NoActionBar — a *dark* theme. That pinned
+      prefers-color-scheme to dark for every device, so the app's "System"
+      theme resolved to dark on a phone in light mode. App resources win over
+      library ones of the same name, so this replaces it.
+    -->
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:isLightTheme">true</item>
+    </style>
+
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:isLightTheme">true</item>
     </style>
 
     <style name="AppTheme.NoActionBarLaunch" parent="Theme.SplashScreen">
+        <!-- Hand the activity to AppTheme once the splash is done rather than
+             leaving it on the splash theme. -->
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
         <item name="android:windowBackground">@drawable/splash</item>
-        <item name="android:background">#f8f6f3</item>
-        <item name="android:statusBarColor">#f8f6f3</item>
-        <item name="android:navigationBarColor">#f8f6f3</item>
+        <item name="android:background">@color/colorBackground</item>
+        <item name="android:statusBarColor">@color/colorBackground</item>
+        <item name="android:navigationBarColor">@color/colorBackground</item>
+        <item name="android:isLightTheme">true</item>
     </style>
 </resources>

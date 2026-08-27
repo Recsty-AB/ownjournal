@@ -11,6 +11,29 @@
     <link rel="canonical" href="https://app.ownjournal.app/" />
     <meta name="robots" content="index,follow" />
 
+    <!--
+      Apply the stored theme before the first paint. next-themes only gets to
+      run once React has mounted, which on a phone is a second or more into the
+      launch — long enough for a dark-mode device to flash a full light screen
+      first. Mirrors next-themes: same "theme" storage key, same class
+      attribute, same resolution of "system" through prefers-color-scheme.
+    -->
+    <script>
+      (function () {
+        try {
+          var themes = ["light", "dark", "paper"];
+          var stored = localStorage.getItem("theme") || "system";
+          var theme = stored === "system" || themes.indexOf(stored) === -1
+            ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+            : stored;
+          document.documentElement.classList.add(theme);
+          if (theme !== "paper") document.documentElement.style.colorScheme = theme;
+        } catch (e) {
+          /* Private mode can throw on localStorage; the default palette stands. */
+        }
+      })();
+    </script>
+
     <!-- PWA Configuration -->
     <link rel="manifest" href="/manifest.json" />
     <!-- Single, media-free tag: the app has three themes (light/dark/paper) and a

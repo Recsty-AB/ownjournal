@@ -2469,6 +2469,7 @@
     "light": "Vaalea",
     "dark": "Tumma",
     "paper": "Paperi",
+    "system": "Järjestelmä",
     "paperHint": "Paperi on tasainen valkoinen ilman liukuvärejä – helpoin lukea e-ink-näytöillä.",
     "switchTo": "Vaihda {{theme}}-teemaan"
   }

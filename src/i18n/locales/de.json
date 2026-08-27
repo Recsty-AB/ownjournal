@@ -2469,6 +2469,7 @@
     "light": "Hell",
     "dark": "Dunkel",
     "paper": "Papier",
+    "system": "System",
     "paperHint": "Papier ist reinweiß ohne Farbverläufe – am besten lesbar auf E-Ink-Displays.",
     "switchTo": "Zum Design „{{theme}}“ wechseln"
   }

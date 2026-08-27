@@ -2469,6 +2469,7 @@
     "light": "Claro",
     "dark": "Escuro",
     "paper": "Papel",
+    "system": "Sistema",
     "paperHint": "Papel é branco liso, sem gradientes — o mais legível em telas de tinta eletrônica.",
     "switchTo": "Mudar para o tema {{theme}}"
   }

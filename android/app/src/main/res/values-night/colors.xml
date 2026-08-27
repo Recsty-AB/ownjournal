@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Mirrors the dark theme's background token in src/index.css, so the
+         splash and the first painted frame agree. -->
+    <color name="colorPrimaryDark">#1a140f</color>
+    <color name="colorBackground">#1a140f</color>
+</resources>

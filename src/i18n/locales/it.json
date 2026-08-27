@@ -2469,6 +2469,7 @@
     "light": "Chiaro",
     "dark": "Scuro",
     "paper": "Carta",
+    "system": "Sistema",
     "paperHint": "Carta è bianco pieno senza sfumature: il più leggibile sugli schermi e-ink.",
     "switchTo": "Passa al tema {{theme}}"
   }
