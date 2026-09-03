@@ -249,8 +249,22 @@
     background-color: hsl(0 0% 100%);
   }
 
-  /* Proper word breaking for CJK languages (Japanese, Korean, Chinese) */
-  html:lang(ja), html:lang(ko), html:lang(zh), html:lang(zh-TW) {
+  /* Japanese and Chinese write without word spaces, so the browser's default
+     word-break already breaks between any two CJK characters and applies
+     kinsoku (no 。、」 at the start of a line). keep-all must NOT be set here:
+     it suppresses those breaks, leaving overflow-wrap to snap lines wherever
+     they run out of room, which put lone punctuation at line starts in the
+     editor. `strict` extends kinsoku to small kana (ちょ never splits) and
+     `anywhere` stays so an unbroken URL or Latin run still wraps. */
+  html:lang(ja), html:lang(zh) {
+    word-break: normal;
+    line-break: strict;
+    overflow-wrap: anywhere;
+  }
+
+  /* Korean uses spaces between words: keep-all breaks at those spaces instead
+     of between syllables, and `anywhere` rescues over-long unspaced runs. */
+  html:lang(ko) {
     word-break: keep-all;
     overflow-wrap: anywhere;
   }
