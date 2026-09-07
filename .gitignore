@@ -45,3 +45,6 @@ ios/App/Pods/
 ios/DerivedData/
 *.xcworkspace/xcuserdata/
 *.xcodeproj/xcuserdata/
+
+# Apple Sign in with Apple private keys
+*.p8
