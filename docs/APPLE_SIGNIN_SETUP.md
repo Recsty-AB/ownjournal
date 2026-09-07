@@ -58,21 +58,41 @@ You will need the `.p8` contents, Key ID, Team ID, and Services ID in Part 2.
 
 ## Part 2: Generate Apple client secret (for Supabase)
 
-Supabase needs a **client secret** that you generate from your Key (.p8), Key ID, Team ID, and Client ID (Services ID).
+Supabase needs a **client secret**: an ES256 JWT signed with your `.p8` key, carrying
+`iss` = Team ID, `sub` = Services ID, `aud` = `https://appleid.apple.com`, and an
+`exp` at most 6 months after `iat`. Apple rejects longer lifetimes, so the secret
+must be regenerated periodically (see "Secret key rotation" below).
 
-1. Open Supabase’s Apple secret generator:  
-   [Generate Apple client secret](https://supabase.com/docs/guides/auth/social-login/auth-apple#configuration) (or search “Supabase Apple secret generator”).
-2. Or use a JWT generator that can sign with ES256 and the following claims:
-   - **iss**: Your Team ID  
-   - **iat**: Current time (seconds)  
-   - **exp**: e.g. iat + 15777000 (about 6 months; Apple allows max 6 months)  
-   - **aud**: `https://appleid.apple.com`  
-   - **sub**: Your **Services ID** (e.g. `app.ownjournal.service`)
-3. Sign the JWT with your **.p8** private key (ES256). The resulting JWT is the **client secret** you paste into Supabase.
+### Where to find each value
 
-Supabase’s docs link to a generator that does this in the browser (no keys leave your machine if you use their tool).
+| Value | Where |
+|-------|-------|
+| **Team ID** | [developer.apple.com/account](https://developer.apple.com/account) → **Membership details** (also shown top-right). 10 characters, e.g. `2ZV26999P6`. |
+| **Key ID** | [Certificates, Identifiers & Profiles → Keys](https://developer.apple.com/account/resources/authkeys/list) → click the Sign in with Apple key. 10 characters. It is also in the downloaded filename: `AuthKey_<KEY_ID>.p8`. |
+| **Services ID** | [Identifiers](https://developer.apple.com/account/resources/identifiers/list) → filter dropdown (top-right) → **Services IDs** → the **Identifier** column, e.g. `app.ownjournal.service`. This is the Supabase "Client ID", *not* the App ID / bundle ID. |
+| **.p8 key** | Downloaded once when the key was created. If it is lost, create a new key (Keys → +), download the new `.p8`, and use its new Key ID. Apple allows two Sign in with Apple keys at a time, so you can rotate without downtime. |
 
----
+### Generate with the repo script (no dependencies)
+
+Put the values in `.env` (gitignored) or export them in your shell:
+
+```env
+APPLE_TEAM_ID=2ZV26999P6
+APPLE_KEY_ID=ABC123DEF4
+APPLE_SERVICES_ID=app.ownjournal.service
+APPLE_SIGNIN_P8_PATH=/secure/path/AuthKey_ABC123DEF4.p8
+```
+
+Then:
+
+```bash
+npm run apple:secret          # prints the JWT; paste it into Supabase → Auth → Providers → Apple → Secret Key
+npm run apple:secret:push     # generates AND writes it to Supabase via the Management API
+```
+
+`--push` additionally needs `SUPABASE_ACCESS_TOKEN` (create one at
+[supabase.com/dashboard/account/tokens](https://supabase.com/dashboard/account/tokens))
+and `VITE_SUPABASE_PROJECT_ID` (already in `.env`). Never commit the `.p8` file; `*.p8` is gitignored.
 
 ## Part 3: Supabase Dashboard – Apple provider and URLs
 
@@ -145,4 +165,31 @@ If it still fails:
 
 ## Secret key rotation (maintenance)
 
-Apple requires generating a **new client secret** (new JWT) at least every 6 months when using the OAuth flow. Use the same process as Part 2 and update the **Secret Key** in Supabase → Authentication → Providers → Apple.
+Apple caps the client secret at **6 months**. If it expires, "Continue with Apple" breaks for every
+user with an `invalid_client` error, so rotation is automated.
+
+### Automatic (GitHub Actions)
+
+`.github/workflows/rotate-apple-secret.yml` runs `npm run apple:secret:push` on the 1st of
+**January, June and November** (gaps of 5, 5 and 2 months, always inside Apple's 6-month limit) and
+can also be triggered manually from the **Actions** tab. Each run signs a fresh 180-day JWT and
+writes it to Supabase's Apple provider config; nothing is printed to the log.
+
+One-time setup, in GitHub → Settings → Secrets and variables → Actions:
+
+| Secret | Value |
+|--------|-------|
+| `APPLE_TEAM_ID` | Team ID |
+| `APPLE_KEY_ID` | Key ID of the Sign in with Apple key |
+| `APPLE_SERVICES_ID` | Services ID (`app.ownjournal.service`) |
+| `APPLE_SIGNIN_P8` | Full contents of the `.p8` file, including the `BEGIN/END PRIVATE KEY` lines |
+| `SUPABASE_ACCESS_TOKEN` | Personal access token from the Supabase dashboard (account → Access Tokens) |
+| `VITE_SUPABASE_PROJECT_ID` | Already present for CI |
+
+After adding the secrets, run the workflow once by hand (**Actions → Rotate Apple client secret → Run workflow**)
+and confirm the summary shows the new expiry date, then test "Continue with Apple".
+
+### Manual fallback
+
+Run `npm run apple:secret` locally (see Part 2) and paste the output into
+Supabase → Authentication → Providers → Apple → **Secret Key**.

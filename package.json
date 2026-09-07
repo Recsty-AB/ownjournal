@@ -15,7 +15,9 @@
     "verify-assetlinks": "node scripts/verify-assetlinks.js",
     "ios:sync": "npm run build && npx cap sync ios && node scripts/patch-ios-plugins.cjs",
     "ios:open": "npx cap open ios",
-    "ios:run": "npx cap run ios"
+    "ios:run": "npx cap run ios",
+    "apple:secret": "node scripts/apple-client-secret.mjs",
+    "apple:secret:push": "node scripts/apple-client-secret.mjs --push"
   },
   "dependencies": {
     "@capacitor-community/file-opener": "^8.0.0",
