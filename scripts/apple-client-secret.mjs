@@ -10,6 +10,9 @@
  *   APPLE_TEAM_ID        10-char Team ID (top-right of developer.apple.com/account)
  *   APPLE_KEY_ID         10-char Key ID of the Sign in with Apple key (Keys list)
  *   APPLE_SERVICES_ID    Services ID used as the OAuth client_id (e.g. app.ownjournal.service)
+ *   APPLE_BUNDLE_ID      Optional. Native app bundle ID (e.g. app.ownjournal). The iOS/macOS
+ *                        apps sign in with an id_token whose audience is this bundle ID, so it
+ *                        must stay in Supabase's Apple "Client IDs" list next to the Services ID.
  *   APPLE_SIGNIN_P8      Contents of the AuthKey_<KEY_ID>.p8 file (multi-line PEM), OR
  *   APPLE_SIGNIN_P8_PATH Path to that .p8 file
  *
@@ -51,6 +54,7 @@ const env = (name, { required = true } = {}) => {
 const teamId = env('APPLE_TEAM_ID');
 const keyId = env('APPLE_KEY_ID');
 const servicesId = env('APPLE_SERVICES_ID');
+const bundleId = env('APPLE_BUNDLE_ID', { required: false });
 const p8 = loadP8();
 
 if (!/^[A-Z0-9]{10}$/.test(teamId)) fail('APPLE_TEAM_ID should be 10 uppercase alphanumerics');
@@ -89,15 +93,39 @@ if (!push) {
 const accessToken = env('SUPABASE_ACCESS_TOKEN');
 const projectRef = env('VITE_SUPABASE_PROJECT_ID');
 
-const res = await fetch(`https://api.supabase.com/v1/projects/${projectRef}/config/auth`, {
+const configUrl = `https://api.supabase.com/v1/projects/${projectRef}/config/auth`;
+const authHeaders = { Authorization: `Bearer ${accessToken}` };
+
+// Supabase stores the Apple "Client IDs" field as one comma-separated string. It must keep
+// every audience Supabase should accept: the Services ID (web OAuth flow, must be first,
+// since GoTrue uses the first entry as the OAuth client_id) AND the native bundle ID
+// (iOS/macOS apps send an id_token with aud = bundle ID). Writing only the Services ID
+// breaks native sign-in with "Unacceptable audience in id_token: [app.ownjournal]".
+const current = await fetch(configUrl, { headers: authHeaders });
+if (!current.ok) {
+  const body = await current.text().catch(() => '');
+  fail(`Supabase Management API returned ${current.status} while reading auth config: ${body}`);
+}
+const existingIds = String((await current.json()).external_apple_client_id ?? '')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
+const clientIds = [servicesId, ...(bundleId ? [bundleId] : []), ...existingIds].filter(
+  (id, i, all) => all.indexOf(id) === i,
+);
+if (clientIds.length === 1) {
+  log(
+    'Warning: only the Services ID is configured. Native (iOS/macOS) sign-in also needs the app ' +
+      'bundle ID in the list; set APPLE_BUNDLE_ID or add it in Supabase -> Auth -> Providers -> Apple.',
+  );
+}
+
+const res = await fetch(configUrl, {
   method: 'PATCH',
-  headers: {
-    Authorization: `Bearer ${accessToken}`,
-    'Content-Type': 'application/json',
-  },
+  headers: { ...authHeaders, 'Content-Type': 'application/json' },
   body: JSON.stringify({
     external_apple_enabled: true,
-    external_apple_client_id: servicesId,
+    external_apple_client_id: clientIds.join(','),
     external_apple_secret: jwt,
   }),
 });
@@ -107,7 +135,10 @@ if (!res.ok) {
   fail(`Supabase Management API returned ${res.status}: ${body}`);
 }
 
-log(`Updated Supabase project ${projectRef}: Apple secret rotated, expires ${expiresAt}.`);
+log(
+  `Updated Supabase project ${projectRef}: Apple secret rotated, expires ${expiresAt}. ` +
+    `Client IDs: ${clientIds.join(', ')}.`,
+);
 // Expose for GitHub Actions summaries; never print the JWT itself in --push mode.
 if (process.env.GITHUB_OUTPUT) {
   const { appendFileSync } = await import('node:fs');
