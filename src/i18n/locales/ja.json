@@ -1208,7 +1208,10 @@
       "signInRequiredDesc": "Appleサインインを完了してから続行をクリックしてください。",
       "popupBlocked": "サインインウィンドウがブロックされた可能性があります。このサイトのポップアップを許可して再度お試しください。",
       "signInLinkNotReady": "Appleサインインの読み込み中です。しばらく待ってから再度お試しください。",
-      "originNotAllowed": "このアプリのオリジン ({{origin}}) は iCloud に登録されていません。"
+      "originNotAllowed": "このアプリのオリジン ({{origin}}) は iCloud に登録されていません。",
+      "adpNotice": "Apple IDで「高度なデータ保護」がオンになっている場合、Appleがアプリデータへのウェブアクセスをブロックするため、ブラウザからiCloudを使用できません。iCloudはiPhoneまたはiPadアプリでご利用いただくか、このブラウザで同期するにはGoogle Drive、Dropbox、またはNextcloudをお選びください。",
+      "signInWebAccessOff": "このApple IDではiCloudデータへのウェブアクセスがオフになっているとAppleから報告されました。iPhoneの「設定」>「自分の名前」>「iCloud」>「iCloud.com」でオンにしてから、もう一度お試しください。",
+      "signInFailedAdp": "AppleがiCloudへのサインインを完了できませんでした。通常はApple IDで「高度なデータ保護」がオンになっていることが原因で、AppleはそのようなアカウントによるブラウザからのiCloud利用を許可していません。iCloudはiPhoneまたはiPadアプリでご利用いただくか、代わりにGoogle Drive、Dropbox、またはNextcloudを接続してください。"
     },
     "oauth": {
       "accessDenied": "認証がキャンセルまたは拒否されました。",

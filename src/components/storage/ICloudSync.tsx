@@ -11,7 +11,7 @@ import { AlertCircle, CheckCircle, Loader2, Info, ChevronDown, Star, ExternalLin
 import { ICloudIcon } from "./ProviderIcons";
 import { useToast } from "@/hooks/use-toast";
 import type { CloudProvider } from "@/types/cloudProvider";
-import { ICloudService, NeedsAppleSignInError, CloudKitOriginError, iCloudDidSignIn, isCloudKitOriginRejected, getCloudKitRejectedOrigin } from "@/services/iCloudService";
+import { ICloudService, NeedsAppleSignInError, CloudKitOriginError, iCloudDidSignIn, isCloudKitOriginRejected, getCloudKitRejectedOrigin, classifyAppleSignInError } from "@/services/iCloudService";
 import { CloudCredentialStorage, type ICloudCredentials } from "@/utils/cloudCredentialStorage";
 import { SimpleModeCredentialStorage } from "@/utils/simpleModeCredentialStorage";
 import { getEncryptionMode } from "@/utils/encryptionModeStorage";
@@ -611,6 +611,16 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
           setNeedsAppleSignIn(false);
           setHasAttemptedSignIn(false);
           setIsConnecting(false);
+          // Apple's popup reported a failure. Closing the window is not an error; the
+          // other two outcomes are Advanced Data Protection accounts, which Apple does
+          // not let use iCloud from a browser — tell the user instead of resetting silently.
+          const kind = classifyAppleSignInError(err);
+          if (kind === 'cancelled') return;
+          const msg = t(kind === 'web-access-off'
+            ? 'providers.icloud.signInWebAccessOff'
+            : 'providers.icloud.signInFailedAdp');
+          setConnectionError(msg);
+          toast({ title: t('storage.connectionFailed'), description: msg, variant: 'destructive' });
         });
 
         // Show sign-in UI (activates the visibilitychange/focus auto-complete listener)
@@ -948,6 +958,16 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
               <p className="text-sm text-muted-foreground">
                 {t('providers.icloud.syncDesc')}
               </p>
+
+              {/* Apple blocks CloudKit web access for Apple Accounts with Advanced Data
+                  Protection (the native iOS app is unaffected). Say so before the user
+                  goes through the Apple popup and gets Apple's generic error page. */}
+              <Alert className="border-blue-200 bg-blue-50 dark:bg-blue-950/20">
+                <Info className="h-4 w-4 text-blue-600" />
+                <AlertDescription className="text-blue-800 dark:text-blue-400 text-xs">
+                  {t('providers.icloud.adpNotice')}
+                </AlertDescription>
+              </Alert>
 
               {getEncryptionMode() === 'simple' && (
                 <Alert className="border-amber-200 bg-amber-50 dark:bg-amber-950/20">

@@ -1210,7 +1210,10 @@
       "signInRequiredDesc": "Please complete Apple sign-in first, then click Continue.",
       "popupBlocked": "The sign-in window may have been blocked. Please allow popups for this site and try again.",
       "signInLinkNotReady": "Apple sign-in is still loading. Please wait a moment and try again.",
-      "originNotAllowed": "This app's origin ({{origin}}) is not registered with iCloud."
+      "originNotAllowed": "This app's origin ({{origin}}) is not registered with iCloud.",
+      "adpNotice": "iCloud can't be used from a browser when Advanced Data Protection is turned on for your Apple ID, because Apple blocks web access to app data. Use the iPhone or iPad app for iCloud, or choose Google Drive, Dropbox or Nextcloud to sync in this browser.",
+      "signInWebAccessOff": "Apple reports that web access to iCloud data is turned off for this Apple ID. Turn it on on your iPhone under Settings > your name > iCloud > iCloud.com, then try again.",
+      "signInFailedAdp": "Apple couldn't complete the iCloud sign-in. This usually means Advanced Data Protection is turned on for your Apple ID, and Apple doesn't allow those accounts to use iCloud from a browser. Use the iPhone or iPad app for iCloud, or connect Google Drive, Dropbox or Nextcloud instead."
     },
     "oauth": {
       "accessDenied": "Authorization was cancelled or denied.",

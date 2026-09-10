@@ -1205,7 +1205,10 @@
       "signInRequiredDesc": "Por favor, completa el inicio de sesión con Apple primero y luego haz clic en Continuar.",
       "popupBlocked": "Es posible que la ventana de inicio de sesión haya sido bloqueada. Permite las ventanas emergentes para este sitio e inténtalo de nuevo.",
       "signInLinkNotReady": "El inicio de sesión con Apple sigue cargando. Espera un momento e inténtalo de nuevo.",
-      "originNotAllowed": "El origen de esta aplicación ({{origin}}) no está registrado en iCloud."
+      "originNotAllowed": "El origen de esta aplicación ({{origin}}) no está registrado en iCloud.",
+      "adpNotice": "iCloud no se puede usar desde un navegador cuando la Protección de datos avanzada está activada en tu Apple ID, porque Apple bloquea el acceso web a los datos de las apps. Usa la app de iPhone o iPad para iCloud, o elige Google Drive, Dropbox o Nextcloud para sincronizar en este navegador.",
+      "signInWebAccessOff": "Apple indica que el acceso web a los datos de iCloud está desactivado para este Apple ID. Actívalo en tu iPhone en Ajustes > tu nombre > iCloud > iCloud.com y vuelve a intentarlo.",
+      "signInFailedAdp": "Apple no pudo completar el inicio de sesión en iCloud. Esto suele significar que la Protección de datos avanzada está activada en tu Apple ID, y Apple no permite que esas cuentas usen iCloud desde un navegador. Usa la app de iPhone o iPad para iCloud, o conecta Google Drive, Dropbox o Nextcloud en su lugar."
     },
     "oauth": {
       "accessDenied": "La autorización fue cancelada o denegada.",

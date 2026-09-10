@@ -1205,7 +1205,10 @@
       "signInRequiredDesc": "Fullfør Apple-innloggingen først, og klikk deretter på Fortsett.",
       "popupBlocked": "Innloggingsvinduet kan ha blitt blokkert. Tillat popups for dette nettstedet og prøv igjen.",
       "signInLinkNotReady": "Apple-innlogging lastes fortsatt. Vent et øyeblikk og prøv igjen.",
-      "originNotAllowed": "Denne appens opprinnelse ({{origin}}) er ikke registrert med iCloud."
+      "originNotAllowed": "Denne appens opprinnelse ({{origin}}) er ikke registrert med iCloud.",
+      "adpNotice": "iCloud kan ikke brukes i en nettleser når Avansert databeskyttelse er slått på for Apple ID-en din, fordi Apple da blokkerer nettilgang til appdata. Bruk iPhone- eller iPad-appen for iCloud, eller velg Google Drive, Dropbox eller Nextcloud for å synkronisere i denne nettleseren.",
+      "signInWebAccessOff": "Apple melder at nettilgang til iCloud-data er slått av for denne Apple ID-en. Slå den på på iPhonen din under Innstillinger > navnet ditt > iCloud > iCloud.com, og prøv igjen.",
+      "signInFailedAdp": "Apple kunne ikke fullføre iCloud-innloggingen. Det betyr som regel at Avansert databeskyttelse er slått på for Apple ID-en din, og Apple lar ikke slike kontoer bruke iCloud i en nettleser. Bruk iPhone- eller iPad-appen for iCloud, eller koble til Google Drive, Dropbox eller Nextcloud i stedet."
     },
     "oauth": {
       "accessDenied": "Autorisasjon ble avbrutt eller nektet.",
