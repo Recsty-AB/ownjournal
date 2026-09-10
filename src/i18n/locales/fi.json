@@ -1205,7 +1205,10 @@
       "signInRequiredDesc": "Suorita ensin Apple-kirjautuminen, sitten napsauta Jatka.",
       "popupBlocked": "Kirjautumisikkuna on ehkä estetty. Salli ponnahdusikkunat tälle sivustolle ja yritä uudelleen.",
       "signInLinkNotReady": "Apple-kirjautuminen latautuu vielä. Odota hetki ja yritä uudelleen.",
-      "originNotAllowed": "Tämän sovelluksen alkuperä ({{origin}}) ei ole rekisteröity iCloudiin."
+      "originNotAllowed": "Tämän sovelluksen alkuperä ({{origin}}) ei ole rekisteröity iCloudiin.",
+      "adpNotice": "iCloudia ei voi käyttää selaimessa, kun Apple ID:lläsi on käytössä edistyksellinen tietosuojaus, koska Apple estää silloin sovellustietojen käytön verkossa. Käytä iCloudia iPhone- tai iPad-sovelluksessa tai valitse Google Drive, Dropbox tai Nextcloud synkronointiin tässä selaimessa.",
+      "signInWebAccessOff": "Applen mukaan iCloud-tietojen käyttö verkossa on pois päältä tällä Apple ID:llä. Ota se käyttöön iPhonessasi kohdassa Asetukset > oma nimesi > iCloud > iCloud.com ja yritä sitten uudelleen.",
+      "signInFailedAdp": "Apple ei voinut viimeistellä iCloud-kirjautumista. Yleensä tämä tarkoittaa, että Apple ID:lläsi on käytössä edistyksellinen tietosuojaus, eikä Apple salli tällaisten tilien käyttää iCloudia selaimessa. Käytä iCloudia iPhone- tai iPad-sovelluksessa tai yhdistä sen sijaan Google Drive, Dropbox tai Nextcloud."
     },
     "oauth": {
       "accessDenied": "Valtuutus peruutettiin tai evättiin.",

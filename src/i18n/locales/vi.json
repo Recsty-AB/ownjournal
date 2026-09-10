@@ -1208,7 +1208,10 @@
       "signInRequiredDesc": "Vui lòng hoàn tất đăng nhập Apple trước, sau đó nhấn Tiếp tục.",
       "popupBlocked": "Cửa sổ đăng nhập có thể bị chặn. Vui lòng cho phép popup cho trang này và thử lại.",
       "signInLinkNotReady": "Đăng nhập Apple vẫn đang tải. Vui lòng đợi một chút và thử lại.",
-      "originNotAllowed": "Origin của ứng dụng ({{origin}}) chưa được đăng ký với iCloud."
+      "originNotAllowed": "Origin của ứng dụng ({{origin}}) chưa được đăng ký với iCloud.",
+      "adpNotice": "Không thể dùng iCloud từ trình duyệt khi Bảo vệ dữ liệu nâng cao đang bật cho Apple ID của bạn, vì Apple chặn truy cập web vào dữ liệu ứng dụng. Hãy dùng iCloud trong ứng dụng iPhone hoặc iPad, hoặc chọn Google Drive, Dropbox hay Nextcloud để đồng bộ trên trình duyệt này.",
+      "signInWebAccessOff": "Apple báo rằng truy cập web vào dữ liệu iCloud đang tắt cho Apple ID này. Hãy bật lại trên iPhone tại Cài đặt > tên của bạn > iCloud > iCloud.com, rồi thử lại.",
+      "signInFailedAdp": "Apple không thể hoàn tất đăng nhập iCloud. Điều này thường có nghĩa là Bảo vệ dữ liệu nâng cao đang bật cho Apple ID của bạn, và Apple không cho phép các tài khoản này dùng iCloud từ trình duyệt. Hãy dùng iCloud trong ứng dụng iPhone hoặc iPad, hoặc kết nối Google Drive, Dropbox hay Nextcloud thay thế."
     },
     "oauth": {
       "accessDenied": "Ủy quyền đã bị hủy hoặc từ chối.",

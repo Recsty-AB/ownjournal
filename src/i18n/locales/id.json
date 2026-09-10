@@ -1208,7 +1208,10 @@
       "signInRequiredDesc": "Selesaikan proses masuk Apple terlebih dahulu, lalu klik Lanjutkan.",
       "popupBlocked": "Jendela masuk mungkin diblokir. Izinkan popup untuk situs ini dan coba lagi.",
       "signInLinkNotReady": "Proses masuk Apple masih dimuat. Tunggu sebentar dan coba lagi.",
-      "originNotAllowed": "Origin aplikasi ini ({{origin}}) tidak terdaftar di iCloud."
+      "originNotAllowed": "Origin aplikasi ini ({{origin}}) tidak terdaftar di iCloud.",
+      "adpNotice": "iCloud tidak dapat digunakan dari browser saat Perlindungan Data Lanjutan aktif untuk Apple ID Anda, karena Apple memblokir akses web ke data aplikasi. Gunakan iCloud di aplikasi iPhone atau iPad, atau pilih Google Drive, Dropbox, atau Nextcloud untuk menyinkronkan di browser ini.",
+      "signInWebAccessOff": "Apple melaporkan bahwa akses web ke data iCloud dimatikan untuk Apple ID ini. Aktifkan di iPhone Anda melalui Pengaturan > nama Anda > iCloud > iCloud.com, lalu coba lagi.",
+      "signInFailedAdp": "Apple tidak dapat menyelesaikan proses masuk iCloud. Biasanya ini berarti Perlindungan Data Lanjutan aktif untuk Apple ID Anda, dan Apple tidak mengizinkan akun tersebut menggunakan iCloud dari browser. Gunakan iCloud di aplikasi iPhone atau iPad, atau hubungkan Google Drive, Dropbox, atau Nextcloud sebagai gantinya."
     },
     "oauth": {
       "accessDenied": "Otorisasi dibatalkan atau ditolak.",

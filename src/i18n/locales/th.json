@@ -1208,7 +1208,10 @@
       "signInRequiredDesc": "กรุณาเข้าสู่ระบบ Apple ก่อน จากนั้นคลิกดำเนินการต่อ",
       "popupBlocked": "หน้าต่างเข้าสู่ระบบอาจถูกบล็อก กรุณาอนุญาตป๊อปอัปสำหรับเว็บไซต์นี้แล้วลองอีกครั้ง",
       "signInLinkNotReady": "การเข้าสู่ระบบ Apple ยังกำลังโหลด กรุณารอสักครู่แล้วลองอีกครั้ง",
-      "originNotAllowed": "origin ของ app นี้ ({{origin}}) ยังไม่ได้ลงทะเบียนกับ iCloud"
+      "originNotAllowed": "origin ของ app นี้ ({{origin}}) ยังไม่ได้ลงทะเบียนกับ iCloud",
+      "adpNotice": "ไม่สามารถใช้ iCloud จากเบราว์เซอร์ได้เมื่อ Apple ID ของคุณเปิดการปกป้องข้อมูลขั้นสูงไว้ เนื่องจาก Apple จะบล็อกการเข้าถึงข้อมูลแอปผ่านเว็บ โปรดใช้ iCloud ในแอป iPhone หรือ iPad หรือเลือก Google Drive, Dropbox หรือ Nextcloud เพื่อซิงค์ในเบราว์เซอร์นี้",
+      "signInWebAccessOff": "Apple แจ้งว่าการเข้าถึงข้อมูล iCloud ผ่านเว็บถูกปิดไว้สำหรับ Apple ID นี้ โปรดเปิดใช้งานบน iPhone ของคุณที่ การตั้งค่า > ชื่อของคุณ > iCloud > iCloud.com แล้วลองอีกครั้ง",
+      "signInFailedAdp": "Apple ไม่สามารถดำเนินการเข้าสู่ระบบ iCloud ให้เสร็จสิ้นได้ โดยปกติหมายความว่า Apple ID ของคุณเปิดการปกป้องข้อมูลขั้นสูงไว้ และ Apple ไม่อนุญาตให้บัญชีดังกล่าวใช้ iCloud จากเบราว์เซอร์ โปรดใช้ iCloud ในแอป iPhone หรือ iPad หรือเชื่อมต่อ Google Drive, Dropbox หรือ Nextcloud แทน"
     },
     "oauth": {
       "accessDenied": "การอนุญาตถูกยกเลิกหรือปฏิเสธ",

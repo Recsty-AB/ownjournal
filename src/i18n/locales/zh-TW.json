@@ -1205,7 +1205,10 @@
       "signInRequiredDesc": "請先完成 Apple 登入，然後點擊繼續。",
       "popupBlocked": "登入視窗可能已被封鎖。請允許此網站顯示彈出視窗後重試。",
       "signInLinkNotReady": "Apple 登入仍在載入中，請稍候再試。",
-      "originNotAllowed": "此應用程式的來源 ({{origin}}) 未在 iCloud 中註冊。"
+      "originNotAllowed": "此應用程式的來源 ({{origin}}) 未在 iCloud 中註冊。",
+      "adpNotice": "若你的 Apple ID 已開啟「進階資料保護」，Apple 會封鎖透過網頁存取 App 資料，因此無法在瀏覽器中使用 iCloud。請在 iPhone 或 iPad App 中使用 iCloud，或選擇 Google 雲端硬碟、Dropbox 或 Nextcloud 在此瀏覽器中同步。",
+      "signInWebAccessOff": "Apple 回報此 Apple ID 已關閉 iCloud 資料的網頁存取。請在 iPhone 上前往「設定」>「你的名稱」>「iCloud」>「iCloud.com」開啟後再試一次。",
+      "signInFailedAdp": "Apple 無法完成 iCloud 登入。這通常是因為你的 Apple ID 已開啟「進階資料保護」，Apple 不允許這類帳號在瀏覽器中使用 iCloud。請在 iPhone 或 iPad App 中使用 iCloud，或改為連接 Google 雲端硬碟、Dropbox 或 Nextcloud。"
     },
     "oauth": {
       "accessDenied": "授權已取消或被拒絕。",

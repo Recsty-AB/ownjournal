@@ -1205,7 +1205,10 @@
       "signInRequiredDesc": "Bitte erst mit Apple anmelden, dann auf Weiter klicken.",
       "popupBlocked": "Das Anmeldefenster wurde möglicherweise blockiert. Bitte erlauben Sie Popups für diese Seite und versuchen Sie es erneut.",
       "signInLinkNotReady": "Die Apple-Anmeldung wird noch geladen. Bitte warten Sie einen Moment und versuchen Sie es erneut.",
-      "originNotAllowed": "Der Ursprung dieser App ({{origin}}) ist bei iCloud nicht registriert."
+      "originNotAllowed": "Der Ursprung dieser App ({{origin}}) ist bei iCloud nicht registriert.",
+      "adpNotice": "iCloud kann nicht im Browser verwendet werden, wenn für Ihre Apple ID der Erweiterte Datenschutz aktiviert ist, da Apple den Webzugriff auf App-Daten dann sperrt. Nutzen Sie für iCloud die iPhone- oder iPad-App, oder wählen Sie Google Drive, Dropbox oder Nextcloud, um in diesem Browser zu synchronisieren.",
+      "signInWebAccessOff": "Laut Apple ist der Webzugriff auf iCloud-Daten für diese Apple ID deaktiviert. Aktivieren Sie ihn auf Ihrem iPhone unter Einstellungen > Ihr Name > iCloud > iCloud.com und versuchen Sie es dann erneut.",
+      "signInFailedAdp": "Apple konnte die iCloud-Anmeldung nicht abschließen. Das liegt in der Regel daran, dass für Ihre Apple ID der Erweiterte Datenschutz aktiviert ist; Apple erlaubt solchen Accounts keine iCloud-Nutzung im Browser. Nutzen Sie für iCloud die iPhone- oder iPad-App, oder verbinden Sie stattdessen Google Drive, Dropbox oder Nextcloud."
     },
     "oauth": {
       "accessDenied": "Autorisierung wurde abgebrochen oder verweigert.",

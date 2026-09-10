@@ -1205,7 +1205,10 @@
       "signInRequiredDesc": "Voltooi eerst het Apple-inloggen en klik dan op Doorgaan.",
       "popupBlocked": "Het aanmeldvenster is mogelijk geblokkeerd. Sta pop-ups voor deze site toe en probeer het opnieuw.",
       "signInLinkNotReady": "Apple-aanmelding wordt nog geladen. Wacht even en probeer het opnieuw.",
-      "originNotAllowed": "De oorsprong van deze app ({{origin}}) is niet geregistreerd bij iCloud."
+      "originNotAllowed": "De oorsprong van deze app ({{origin}}) is niet geregistreerd bij iCloud.",
+      "adpNotice": "iCloud kan niet in een browser worden gebruikt als Geavanceerde gegevensbescherming is ingeschakeld voor je Apple ID, omdat Apple dan de webtoegang tot app-gegevens blokkeert. Gebruik de iPhone- of iPad-app voor iCloud, of kies Google Drive, Dropbox of Nextcloud om in deze browser te synchroniseren.",
+      "signInWebAccessOff": "Volgens Apple is webtoegang tot iCloud-gegevens uitgeschakeld voor deze Apple ID. Schakel die in op je iPhone via Instellingen > je naam > iCloud > iCloud.com en probeer het opnieuw.",
+      "signInFailedAdp": "Apple kon de iCloud-aanmelding niet voltooien. Meestal betekent dit dat Geavanceerde gegevensbescherming is ingeschakeld voor je Apple ID, en Apple staat zulke accounts niet toe iCloud in een browser te gebruiken. Gebruik de iPhone- of iPad-app voor iCloud, of koppel in plaats daarvan Google Drive, Dropbox of Nextcloud."
     },
     "oauth": {
       "accessDenied": "Autorisatie is geannuleerd of geweigerd.",

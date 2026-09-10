@@ -1205,7 +1205,10 @@
       "signInRequiredDesc": "पहले Apple साइन इन पूरा करें, फिर जारी रखें पर क्लिक करें।",
       "popupBlocked": "साइन इन विंडो ब्लॉक हो सकती है। कृपया इस साइट के लिए पॉपअप की अनुमति दें और पुनः प्रयास करें।",
       "signInLinkNotReady": "Apple साइन इन अभी लोड हो रहा है। कृपया क्षण भर प्रतीक्षा करें और पुनः प्रयास करें।",
-      "originNotAllowed": "इस ऐप का ऑरिजिन ({{origin}}) iCloud में पंजीकृत नहीं है।"
+      "originNotAllowed": "इस ऐप का ऑरिजिन ({{origin}}) iCloud में पंजीकृत नहीं है।",
+      "adpNotice": "अगर आपकी Apple ID पर एडवांस्ड डेटा प्रोटेक्शन (Advanced Data Protection) चालू है, तो ब्राउज़र से iCloud का उपयोग नहीं किया जा सकता, क्योंकि Apple ऐप डेटा तक वेब एक्सेस को ब्लॉक कर देता है। iCloud के लिए iPhone या iPad ऐप का उपयोग करें, या इस ब्राउज़र में सिंक करने के लिए Google Drive, Dropbox या Nextcloud चुनें।",
+      "signInWebAccessOff": "Apple के अनुसार इस Apple ID के लिए iCloud डेटा का वेब एक्सेस बंद है। इसे अपने iPhone पर सेटिंग्स > आपका नाम > iCloud > iCloud.com में चालू करें, फिर दोबारा कोशिश करें।",
+      "signInFailedAdp": "Apple iCloud साइन-इन पूरा नहीं कर सका। आमतौर पर इसका मतलब है कि आपकी Apple ID पर एडवांस्ड डेटा प्रोटेक्शन चालू है, और Apple ऐसे खातों को ब्राउज़र से iCloud उपयोग करने की अनुमति नहीं देता। iCloud के लिए iPhone या iPad ऐप का उपयोग करें, या इसके बजाय Google Drive, Dropbox या Nextcloud कनेक्ट करें।"
     },
     "oauth": {
       "accessDenied": "प्राधिकरण रद्द या अस्वीकृत किया गया।",

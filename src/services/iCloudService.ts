@@ -84,6 +84,32 @@ export function clearCloudKitOriginRejected(): void {
   _originRejected = null;
 }
 
+export type AppleSignInFailureKind = 'web-access-off' | 'cancelled' | 'failed';
+
+/**
+ * Classify why CloudKit JS rejected `container.whenUserSignsIn()`.
+ *
+ * Apple's ck-auth popup posts `{ errorMessage }` back to the opener and CloudKit JS
+ * wraps it as a CKError with ckErrorCode SIGN_IN_FAILED and reason
+ * "Error in sign in popup: <errorMessage>". Observed values:
+ *  - `accessError`   → Apple's "iCloud Data Web Access is Off" page (Advanced Data
+ *                      Protection with web access disabled on the Apple Account)
+ *  - `window closed` → the user closed the popup
+ *  - `unknownError`  → Apple's generic "Authentication Error" page. In practice this is
+ *                      an Apple Account with Advanced Data Protection: Apple's
+ *                      validateToken/requestPCS exchange fails for third-party
+ *                      containers before any device approval is sent.
+ */
+export function classifyAppleSignInError(error: unknown): AppleSignInFailureKind {
+  const e = error as { ckErrorCode?: unknown; reason?: unknown; message?: unknown } | null | undefined;
+  const reason = String(e?.reason ?? e?.message ?? '');
+  if (e?.ckErrorCode === 'SIGN_IN_FAILED') {
+    if (/accessError/.test(reason)) return 'web-access-off';
+    if (/window closed/i.test(reason)) return 'cancelled';
+  }
+  return 'failed';
+}
+
 /**
  * iCloud Storage Service using CloudKit JS
  *

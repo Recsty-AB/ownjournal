@@ -1205,7 +1205,10 @@
       "signInRequiredDesc": "请先完成 Apple 登录，然后点击继续。",
       "popupBlocked": "登录窗口可能已被阻止。请允许此网站显示弹出窗口后重试。",
       "signInLinkNotReady": "Apple 登录仍在加载中，请稍候再试。",
-      "originNotAllowed": "此应用的来源 ({{origin}}) 未在 iCloud 中注册。"
+      "originNotAllowed": "此应用的来源 ({{origin}}) 未在 iCloud 中注册。",
+      "adpNotice": "如果你的 Apple ID 开启了“高级数据保护”，Apple 会阻止通过网页访问 App 数据，因此无法在浏览器中使用 iCloud。请在 iPhone 或 iPad App 中使用 iCloud，或选择 Google Drive、Dropbox 或 Nextcloud 在此浏览器中同步。",
+      "signInWebAccessOff": "Apple 报告此 Apple ID 已关闭 iCloud 数据的网页访问。请在 iPhone 上前往“设置”>“你的姓名”>“iCloud”>“iCloud.com”开启后再试一次。",
+      "signInFailedAdp": "Apple 无法完成 iCloud 登录。这通常是因为你的 Apple ID 开启了“高级数据保护”，Apple 不允许此类账户在浏览器中使用 iCloud。请在 iPhone 或 iPad App 中使用 iCloud，或改为连接 Google Drive、Dropbox 或 Nextcloud。"
     },
     "oauth": {
       "accessDenied": "授权已取消或被拒绝。",

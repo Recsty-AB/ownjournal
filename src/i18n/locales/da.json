@@ -1205,7 +1205,10 @@
       "signInRequiredDesc": "Gennemfør Apple-login først, og klik derefter på Fortsæt.",
       "popupBlocked": "Login-vinduet er muligvis blevet blokeret. Tillad popups for dette websted og prøv igen.",
       "signInLinkNotReady": "Apple-login indlæses stadig. Vent et øjeblik og prøv igen.",
-      "originNotAllowed": "Denne apps oprindelse ({{origin}}) er ikke registreret hos iCloud."
+      "originNotAllowed": "Denne apps oprindelse ({{origin}}) er ikke registreret hos iCloud.",
+      "adpNotice": "iCloud kan ikke bruges i en browser, når Avanceret databeskyttelse er slået til for dit Apple ID, fordi Apple så blokerer webadgang til appdata. Brug iPhone- eller iPad-appen til iCloud, eller vælg Google Drive, Dropbox eller Nextcloud for at synkronisere i denne browser.",
+      "signInWebAccessOff": "Apple oplyser, at webadgang til iCloud-data er slået fra for dette Apple ID. Slå den til på din iPhone under Indstillinger > dit navn > iCloud > iCloud.com, og prøv igen.",
+      "signInFailedAdp": "Apple kunne ikke fuldføre iCloud-login. Det betyder som regel, at Avanceret databeskyttelse er slået til for dit Apple ID, og Apple tillader ikke, at sådanne konti bruger iCloud i en browser. Brug iPhone- eller iPad-appen til iCloud, eller forbind Google Drive, Dropbox eller Nextcloud i stedet."
     },
     "oauth": {
       "accessDenied": "Godkendelse blev annulleret eller afvist.",
