@@ -237,10 +237,10 @@
     "mode": "Demo-Modus",
     "description": "Erkunden Sie die App mit Beispieleinträgen. Ihre eigenen Daten werden privat und verschlüsselt sein.",
     "startJournal": "Tagebuch starten",
-    "exportUnavailableTitle": "Export ist in deinem eigenen Journal verfügbar",
-    "exportUnavailableDesc": "Starte dein Journal, um den Datenexport zu aktivieren",
-    "importUnavailableTitle": "Import ist in deinem eigenen Journal verfügbar",
-    "importUnavailableDesc": "Starte dein Journal, um den Datenimport zu aktivieren"
+    "exportUnavailableTitle": "Export ist in Ihrem eigenen Journal verfügbar",
+    "exportUnavailableDesc": "Starten Sie Ihr Journal, um den Datenexport zu aktivieren",
+    "importUnavailableTitle": "Import ist in Ihrem eigenen Journal verfügbar",
+    "importUnavailableDesc": "Starten Sie Ihr Journal, um den Datenimport zu aktivieren"
   },
   "index": {
     "loadingAuth": "Authentifizierung wird überprüft...",
@@ -602,7 +602,7 @@
       "sameEmail": "Neue E-Mail ist dieselbe wie die aktuelle",
       "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
       "notConfirmed": "E-Mail-Änderung noch nicht bestätigt",
-      "notConfirmedDesc": "Bitte bestätige deine neue E-Mail-Adresse, indem du auf den Link in der gesendeten E-Mail klickst, bevor diese Änderung abgeschlossen werden kann."
+      "notConfirmedDesc": "Bitte bestätigen Sie Ihre neue E-Mail-Adresse, indem Sie auf den Link in der gesendeten E-Mail klicken, bevor diese Änderung abgeschlossen werden kann."
     },
     "deleteAccount": {
       "title": "Konto löschen",
@@ -1573,9 +1573,9 @@
     "trialCta": "Kostenlos testen",
     "trialPricing": "14 Tage kostenlos, danach {{yearlyPrice}}/Jahr",
     "trialMember": "Plus-Testversion",
-    "trialDaysRemaining": "Noch {{days}} Tage in deiner kostenlosen Testversion",
-    "trialLastDay": "Letzter Tag deiner kostenlosen Testversion",
-    "trialStarted": "Deine kostenlose Testversion hat begonnen!",
+    "trialDaysRemaining": "Noch {{days}} Tage in Ihrer kostenlosen Testversion",
+    "trialLastDay": "Letzter Tag Ihrer kostenlosen Testversion",
+    "trialStarted": "Ihre kostenlose Testversion hat begonnen!",
     "trialStartedDesc": "Genieße 14 Tage lang alle Plus-Funktionen kostenlos.",
     "upgradeSuccess": "Willkommen bei OwnJournal Plus!",
     "upgradeSuccessDesc": "Ihr Abonnement ist jetzt aktiv. Genießen Sie alle Plus-Funktionen!",
@@ -1585,8 +1585,8 @@
     "portalReturnDesc": "Ihre Abonnementeinstellungen wurden aktualisiert.",
     "purchasePending": "Kauf ausstehend",
     "purchaseFailed": "Kauf fehlgeschlagen",
-    "purchasePendingDesc": "Dein Kauf wartet auf Bestätigung. Wir schalten Plus frei, sobald er bestätigt ist.",
-    "purchaseFailedDesc": "Etwas ist schiefgelaufen und dir wurde nichts berechnet. Bitte versuche es erneut.",
+    "purchasePendingDesc": "Ihr Kauf wartet auf Bestätigung. Wir schalten Plus frei, sobald er bestätigt ist.",
+    "purchaseFailedDesc": "Etwas ist schiefgelaufen und Ihnen wurde nichts berechnet. Bitte versuchen Sie es erneut.",
     "restoreSuccess": "Käufe wiederhergestellt",
     "restoreNothing": "Keine wiederherzustellenden Käufe",
     "restoreFailed": "Wiederherstellung fehlgeschlagen",
@@ -1597,16 +1597,16 @@
     "appStore": "App Store",
     "googlePlay": "Google Play",
     "iapUnavailable": "In-App-Käufe sind derzeit nicht verfügbar",
-    "iapUnavailableDesc": "Wir konnten den Store nicht erreichen. Bitte überprüfe deine Verbindung und versuche es erneut.",
+    "iapUnavailableDesc": "Wir konnten den Store nicht erreichen. Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
     "tryAgain": "Erneut versuchen",
     "disclosureTitle": "OwnJournal Plus — Jahresabonnement",
     "disclosureLength": "1-jähriges automatisch verlängertes Abonnement.",
     "priceWithMonthly": "{{yearlyPrice}}/Jahr (ca. {{monthlyEquivalent}}/Monat)",
-    "renewalApple": "Die Zahlung wird bei Kaufbestätigung von deiner Apple-ID abgebucht. Dein Abonnement verlängert sich automatisch zum gleichen Preis, sofern die automatische Verlängerung nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums deaktiviert wird. Du kannst dein Abonnement nach dem Kauf in deinen App Store-Kontoeinstellungen verwalten und kündigen.",
-    "renewalGoogle": "Die Zahlung wird bei Kaufbestätigung von deinem Google Play-Konto abgebucht. Dein Abonnement verlängert sich automatisch zum gleichen Preis, sofern es nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums in deinen Google Play-Abonnements gekündigt wird.",
+    "renewalApple": "Die Zahlung wird bei Kaufbestätigung von Ihrer Apple-ID abgebucht. Ihr Abonnement verlängert sich automatisch zum gleichen Preis, sofern die automatische Verlängerung nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums deaktiviert wird. Sie können Ihr Abonnement nach dem Kauf in Ihren App Store-Kontoeinstellungen verwalten und kündigen.",
+    "renewalGoogle": "Die Zahlung wird bei Kaufbestätigung von Ihrem Google Play-Konto abgebucht. Ihr Abonnement verlängert sich automatisch zum gleichen Preis, sofern es nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums in Ihren Google Play-Abonnements gekündigt wird.",
     "iapOnly": {
       "title": "In der App verfügbar",
-      "description": "In deiner Region ist OwnJournal Plus über die mobile App verfügbar. Lade sie im Store herunter, um zu abonnieren.",
+      "description": "In Ihrer Region ist OwnJournal Plus über die mobile App verfügbar. Laden Sie sie im Store herunter, um zu abonnieren.",
       "getOnPlay": "Bei Google Play herunterladen"
     }
   },
@@ -2029,28 +2029,28 @@
       },
       "moodTracking": {
         "title": "Stimmung festhalten",
-        "desc": "Halte bei jedem Eintrag fest, wie es dir gerade geht, und lerne so deine emotionalen Muster kennen. Wähle eine von fünf Emoji-Stufen aus — deine Stimmung erscheint dann direkt neben deinem Eintrag."
+        "desc": "Halten Sie bei jedem Eintrag fest, wie es Ihnen gerade geht, und lernen Sie so Ihre emotionalen Muster kennen. Wählen Sie eine von fünf Emoji-Stufen aus — Ihre Stimmung erscheint dann direkt neben Ihrem Eintrag."
       },
       "activityTagging": {
         "title": "Aktivitäten verknüpfen",
-        "desc": "Notiere, was du gerade gemacht hast, als du geschrieben hast. Such dir aus fertigen Aktivitäten wie Sport, Soziales, Arbeit oder Meditation eine aus — oder erstelle eigene. Über den Filter in deiner Zeitleiste findest du heraus, wie sich verschiedene Bereiche deines Alltags auf dein Befinden auswirken.",
-        "plusHint": "Mit Plus bekommst du Einblicke in deine Aktivitäten — finde heraus, was dir guttut."
+        "desc": "Notieren Sie, was Sie gerade gemacht haben, als Sie geschrieben haben. Wählen Sie aus fertigen Aktivitäten wie Sport, Soziales, Arbeit oder Meditation eine aus — oder erstellen Sie eigene. Über den Filter in Ihrer Zeitleiste finden Sie heraus, wie sich verschiedene Bereiche Ihres Alltags auf Ihr Befinden auswirken.",
+        "plusHint": "Mit Plus erhalten Sie Einblicke in Ihre Aktivitäten — finden Sie heraus, was Ihnen guttut."
       },
       "moodCalendar": {
         "title": "Kalender mit Stimmungen",
-        "desc": "Sieh auf einen Blick, wie dein Monat war: Jeder Tag ist je nach Stimmung eingefärbt. Blättere durch die Monate und entdecke Muster. An Tagen mit mehreren Einträgen wird der Durchschnitt angezeigt."
+        "desc": "Sehen Sie auf einen Blick, wie Ihr Monat war: Jeder Tag ist je nach Stimmung eingefärbt. Blättern Sie durch die Monate und entdecken Sie Muster. An Tagen mit mehreren Einträgen wird der Durchschnitt angezeigt."
       },
       "moodStats": {
-        "title": "Auswertung deiner Stimmung",
-        "desc": "Schau dir deine Stimmungsdaten in interaktiven Diagrammen an:",
-        "distribution": "Ringdiagramm mit der Verteilung deiner Stimmungen in Prozent",
+        "title": "Auswertung Ihrer Stimmung",
+        "desc": "Sehen Sie sich Ihre Stimmungsdaten in interaktiven Diagrammen an:",
+        "distribution": "Ringdiagramm mit der Verteilung Ihrer Stimmungen in Prozent",
         "overTime": "Verlaufskurve mit einem gleitenden Durchschnitt über 7 Tage",
-        "dayOfWeek": "Balkendiagramm nach Wochentag — finde heraus, an welchen Tagen es dir am besten geht",
-        "streaks": "Serien: Wie viele Tage am Stück war deine Stimmung positiv?"
+        "dayOfWeek": "Balkendiagramm nach Wochentag — finden Sie heraus, an welchen Tagen es Ihnen am besten geht",
+        "streaks": "Serien: Wie viele Tage am Stück war Ihre Stimmung positiv?"
       },
       "activityInsights": {
-        "title": "Einblicke in deine Aktivitäten",
-        "desc": "Finde heraus, welche Aktivitäten mit guter oder weniger guter Stimmung zusammenhängen. Ein Diagramm zeigt dir den Einfluss jeder einzelnen Aktivität — zusammen mit einer Übersicht, was deine Stimmung am meisten hebt und was sie drückt.",
+        "title": "Einblicke in Ihre Aktivitäten",
+        "desc": "Finden Sie heraus, welche Aktivitäten mit guter oder weniger guter Stimmung zusammenhängen. Ein Diagramm zeigt Ihnen den Einfluss jeder einzelnen Aktivität — zusammen mit einer Übersicht, was Ihre Stimmung am meisten hebt und was sie drückt.",
         "proNote": "(Plus-Funktion)"
       }
     },
@@ -2338,14 +2338,14 @@
     "deletedTitle": "Einträge entfernt",
     "deletedDesc": "{{count}} nicht wiederherstellbare Einträge entfernt",
     "deleteFailed": "Einträge konnten nicht entfernt werden. Bitte versuchen Sie es erneut.",
-    "keyMismatchExplanation": "Der Verschlüsselungsschlüssel, der diese Einträge entschlüsseln kann, stimmt nicht mit dem derzeit verwendeten überein. Du kannst den Schlüssel aus dem Cloud-Speicher neu laden.",
-    "keyMismatchRecoveryHint": "Du kannst den ursprünglichen Schlüssel möglicherweise aus dem Versionsverlauf deines Cloud-Speichers wiederherstellen (z.B. Google Drive oder Nextcloud-Dateiversionen für encryption-key.json im OwnJournal-Ordner).",
+    "keyMismatchExplanation": "Der Verschlüsselungsschlüssel, der diese Einträge entschlüsseln kann, stimmt nicht mit dem derzeit verwendeten überein. Sie können den Schlüssel aus dem Cloud-Speicher neu laden.",
+    "keyMismatchRecoveryHint": "Sie können den ursprünglichen Schlüssel möglicherweise aus dem Versionsverlauf Ihres Cloud-Speichers wiederherstellen (z.B. Google Drive oder Nextcloud-Dateiversionen für encryption-key.json im OwnJournal-Ordner).",
     "keyMismatchHint1": "• Der Verschlüsselungsschlüssel im Cloud-Speicher stimmt nicht mit dem Schlüssel überein, der zum Verschlüsseln dieser Einträge verwendet wurde",
     "keyMismatchHint2": "• Überprüfe den Versionsverlauf in Google Drive oder Nextcloud auf eine ältere encryption-key.json",
-    "keyMismatchHint3": "• Wenn ein anderes Gerät noch den richtigen Schlüssel im Cache hat, verbinde dich zuerst von diesem Gerät",
+    "keyMismatchHint3": "• Wenn ein anderes Gerät noch den richtigen Schlüssel im Cache hat, verbinden Sie sich zuerst von diesem Gerät",
     "reloadKeyFromCloud": "Schlüssel aus Cloud neu laden",
     "reloadingKey": "Wird geladen…",
-    "reloadKeySuccessDesc": "Verschlüsselungsschlüssel aus der Cloud geladen. Deine Einträge sollten jetzt sichtbar sein.",
+    "reloadKeySuccessDesc": "Verschlüsselungsschlüssel aus der Cloud geladen. Ihre Einträge sollten jetzt sichtbar sein.",
     "reloadKeyFailed": "Kein verbundener Cloud-Speicher hat einen Schlüssel, der diese Einträge entschlüsseln kann. Prüfe den Versionsverlauf von encryption-key.json."
   },
   "validation": {
@@ -2427,13 +2427,13 @@
   },
   "moodCorrelations": {
     "title": "Aktivitäts-Einblicke",
-    "description": "So hängen deine Aktivitäten mit deiner Stimmung zusammen",
+    "description": "So hängen Ihre Aktivitäten mit Ihrer Stimmung zusammen",
     "improvement": "+{{value}} Stimmungsheber",
     "decline": "{{value}} Stimmungssenker",
     "notEnoughData": "Noch zu wenig Daten. Markiere mindestens 3 Einträge mit derselben Aktivität.",
     "minEntries": "Aktivitäten mit weniger als 3 Einträgen werden nicht angezeigt",
-    "topPositive": "{{activity}} hebt deine Stimmung",
-    "topNegative": "{{activity}} senkt deine Stimmung",
+    "topPositive": "{{activity}} hebt Ihre Stimmung",
+    "topNegative": "{{activity}} senkt Ihre Stimmung",
     "proFeature": "Plus-Funktion",
     "proFeatureDesc": "Aktivitäts-Einblicke sind mit einem Plus-Abo verfügbar",
     "tooltipAvg": "Ø",
