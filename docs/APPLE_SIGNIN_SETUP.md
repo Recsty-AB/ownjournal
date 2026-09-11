@@ -80,8 +80,13 @@ Put the values in `.env` (gitignored) or export them in your shell:
 APPLE_TEAM_ID=2ZV26999P6
 APPLE_KEY_ID=ABC123DEF4
 APPLE_SERVICES_ID=app.ownjournal.service
+APPLE_BUNDLE_ID=app.ownjournal
 APPLE_SIGNIN_P8_PATH=/secure/path/AuthKey_ABC123DEF4.p8
 ```
+
+`--push` reads the current Apple **Client IDs** list from Supabase and merges it (Services ID
+first, then `APPLE_BUNDLE_ID`, then whatever was already there) before writing the new secret.
+It never removes an ID. See 3.1 for why both IDs must be present.
 
 Then:
 
@@ -102,7 +107,11 @@ and `VITE_SUPABASE_PROJECT_ID` (already in `.env`). Never commit the `.p8` file;
 2. Go to **Authentication** → **Providers**.
 3. Find **Apple** and enable it.
 4. Fill in:
-   - **Client ID (Services ID)**: Your Services ID from 1.2 (e.g. `app.ownjournal.service`).
+   - **Client IDs**: Both IDs, comma-separated, Services ID first:
+     `app.ownjournal.service,app.ownjournal`. The web app signs in through OAuth with the
+     Services ID; the iOS/macOS apps sign in natively with an `id_token` whose audience is the
+     bundle ID. If the bundle ID is missing, native sign-in fails with
+     `Unacceptable audience in id_token: [app.ownjournal]` while the web app keeps working.
    - **Secret Key**: The client secret you generated in Part 2 (the long JWT string).
 5. Save.
 
