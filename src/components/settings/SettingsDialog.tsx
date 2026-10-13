@@ -1,6 +1,6 @@
-import { buildAppLink } from "@/config/app";
+import { buildAppLink, PLAY_STORE_URL } from "@/config/app";
 import { cn } from "@/lib/utils";
-import { canShowAnyPurchaseCTA, canShowNativeCheckout, canShowStripeCheckout } from "@/utils/platformDetection";
+import { canShowAnyPurchaseCTA, canShowNativeCheckout, canShowStripeCheckout, getPlatformInfo } from "@/utils/platformDetection";
 import { NativePaywall } from "@/components/subscription/NativePaywall";
 import { iapService, IAPError, getStoreSubscriptionUrl } from "@/services/iapService";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Progress } from "@/components/ui/progress";
-import { Upload, Download, Cloud, FileText, FileText as LegalIcon, Shield, Globe } from "lucide-react";
+import { Upload, Download, Cloud, FileText, FileText as LegalIcon, Shield, Globe, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { StorageSecuritySettings } from "./StorageSecuritySettings";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -615,6 +615,22 @@ export const SettingsDialog = ({
           />
         </div>
       </div>
+
+      {/* Feedback: store rating link (Android only until an App Store URL exists) */}
+      {getPlatformInfo().platform === 'capacitor-android' && (
+        <div className="space-y-4">
+          <h3 className="text-lg font-semibold">{t('settings.sections.feedback')}</h3>
+          <a
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Star className="w-4 h-4" />
+            {t('settings.feedback.rateOnGooglePlay')}
+          </a>
+        </div>
+      )}
 
       {/* Legal */}
       <div className="space-y-4">

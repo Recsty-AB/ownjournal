@@ -50,6 +50,7 @@ import { isNextcloudEncryptionError } from "@/utils/cloudErrorCodes";
 import { isInAppBrowser, getInAppBrowserName } from "@/utils/inAppBrowserDetection";
 import { getCachedSubscription, setCachedSubscription, isEntitlementActive } from "@/utils/subscriptionCache";
 import { setSigningOut } from "@/utils/signOutState";
+import { maybeRequestAppReview } from "@/services/appReviewService";
 
 /** Sort entries by entry date (newest first), then createdAt, then id. Used for consistent list order. */
 function sortEntriesByDateNewestFirst(entries: JournalEntryData[]): JournalEntryData[] {
@@ -227,6 +228,16 @@ const Index = () => {
       setIsProgressBarExpanded(false);
     }
   }, [syncStatus]);
+
+  // Store review prompt: never right after a sync error, never while writing
+  const hadSyncErrorRef = useRef(false);
+  const isEditingRef = useRef(false);
+  useEffect(() => {
+    if (syncStatus === 'error') hadSyncErrorRef.current = true;
+  }, [syncStatus]);
+  useEffect(() => {
+    isEditingRef.current = isEditing;
+  }, [isEditing]);
 
   // Handle Stripe portal return on native apps via App Links
   useEffect(() => {
@@ -1757,6 +1768,15 @@ const Index = () => {
           : (isNote ? t('notes.savedOfflineDesc') : t('index.entrySavedOfflineDesc')),
         duration: 3000,
       });
+
+      if (existingIndex < 0 && !isNote) {
+        const entryCount = journalEntries.length + 1;
+        // Let the editor close and the toast settle before the OS review sheet
+        setTimeout(() => {
+          if (isEditingRef.current) return;
+          void maybeRequestAppReview({ entryCount, hadSyncError: hadSyncErrorRef.current });
+        }, 2000);
+      }
     } catch (error) {
       if (import.meta.env.DEV) console.error("Failed to save entry:", error);
 

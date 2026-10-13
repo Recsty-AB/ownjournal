@@ -585,7 +585,8 @@
       "legal": "Lakiasiat",
       "subscription": "Tilaus",
       "signOut": "Kirjaudu ulos",
-      "email": "Sähköpostiosoite"
+      "email": "Sähköpostiosoite",
+      "feedback": "Palaute"
     },
     "email": {
       "current": "Nykyinen sähköposti",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "Näytä analyysit aloitusnäytöllä",
       "showInsightsHint": "Mielialakalenteri, mielialan tilastot, yhteydet ja trendianalyysi"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "Arvioi OwnJournal Google Playssa"
     }
   },
   "password": {

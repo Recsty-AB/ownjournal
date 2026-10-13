@@ -585,7 +585,8 @@
       "legal": "कानूनी",
       "subscription": "सदस्यता",
       "signOut": "साइन आउट",
-      "email": "ईमेल पता"
+      "email": "ईमेल पता",
+      "feedback": "प्रतिक्रिया"
     },
     "email": {
       "current": "वर्तमान ईमेल",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "होम स्क्रीन पर विश्लेषण दिखाएँ",
       "showInsightsHint": "मूड कैलेंडर, मन की स्थिति के आँकड़े, सहसंबंध और ट्रेंड विश्लेषण"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "Google Play पर OwnJournal को रेटिंग दें"
     }
   },
   "password": {

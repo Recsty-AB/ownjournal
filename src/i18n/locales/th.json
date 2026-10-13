@@ -585,7 +585,8 @@
       "legal": "ข้อกฎหมาย",
       "subscription": "การสมัครสมาชิก",
       "signOut": "ออกจากระบบ",
-      "email": "ที่อยู่อีเมล"
+      "email": "ที่อยู่อีเมล",
+      "feedback": "ความคิดเห็น"
     },
     "email": {
       "current": "อีเมลปัจจุบัน",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "แสดงข้อมูลเชิงลึกบนหน้าจอหลัก",
       "showInsightsHint": "ปฏิทินอารมณ์ สถิติอารมณ์ ความสัมพันธ์ และการวิเคราะห์แนวโน้ม"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "ให้คะแนน OwnJournal บน Google Play"
     }
   },
   "password": {

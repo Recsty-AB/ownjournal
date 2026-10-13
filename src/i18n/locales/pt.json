@@ -585,7 +585,8 @@
       "legal": "Jurídico",
       "subscription": "Assinatura",
       "signOut": "Sair",
-      "email": "Endereço de e-mail"
+      "email": "Endereço de e-mail",
+      "feedback": "Feedback"
     },
     "email": {
       "current": "E-mail atual",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "Mostrar análises no ecrã inicial",
       "showInsightsHint": "Calendário de humor, estatísticas de humor, correlações e Análise de Tendências"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "Avaliar o OwnJournal no Google Play"
     }
   },
   "password": {

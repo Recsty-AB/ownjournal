@@ -585,7 +585,8 @@
       "legal": "Juridisch",
       "subscription": "Abonnement",
       "signOut": "Uitloggen",
-      "email": "E-mailadres"
+      "email": "E-mailadres",
+      "feedback": "Feedback"
     },
     "email": {
       "current": "Huidige e-mail",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "Inzichten op het startscherm tonen",
       "showInsightsHint": "Stemmingskalender, stemmingsoverzicht, verbanden en trendanalyse"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "Beoordeel OwnJournal op Google Play"
     }
   },
   "password": {

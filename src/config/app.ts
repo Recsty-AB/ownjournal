@@ -14,7 +14,9 @@ export const APP_DOMAIN = 'app.ownjournal.app';
  * see `@/config/iapOnlyCountries`.
  *
  * TODO: add APP_STORE_URL (`https://apps.apple.com/app/id<numeric App ID>`)
- * and surface an App Store button once the iOS listing / App ID is live.
+ * and surface an App Store button once the iOS listing / App ID is live. The
+ * Settings "Rate" link (SettingsDialog) is Android-only until then; on iOS it
+ * should open `${APP_STORE_URL}?action=write-review`.
  */
 export const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=app.ownjournal';
 

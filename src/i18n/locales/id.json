@@ -585,7 +585,8 @@
       "legal": "Hukum",
       "subscription": "Langganan",
       "signOut": "Keluar",
-      "email": "Alamat Email"
+      "email": "Alamat Email",
+      "feedback": "Masukan"
     },
     "email": {
       "current": "Email saat ini",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "Tampilkan wawasan di layar beranda",
       "showInsightsHint": "Kalender Suasana Hati, Statistik Suasana Hati, korelasi, dan Analisis Tren"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "Beri nilai OwnJournal di Google Play"
     }
   },
   "password": {

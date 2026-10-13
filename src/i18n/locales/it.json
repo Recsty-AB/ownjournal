@@ -585,7 +585,8 @@
       "legal": "Legale",
       "subscription": "Abbonamento",
       "signOut": "Esci",
-      "email": "Indirizzo email"
+      "email": "Indirizzo email",
+      "feedback": "Feedback"
     },
     "email": {
       "current": "Email attuale",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "Mostra le analisi nella schermata iniziale",
       "showInsightsHint": "Calendario dell'umore, statistiche dell'umore, correlazioni e analisi tendenze"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "Valuta OwnJournal su Google Play"
     }
   },
   "password": {
