@@ -1,15 +1,12 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
-import { callGoogleAI } from "./googleAIProvider.ts";
-import { callOpenAI } from "./openaiProvider.ts";
+import { callGoogleAI, isGoogleAIConfigured } from "./googleAIProvider.ts";
+import { AI_MODELS, getModelForType } from "./modelConfig.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
-
-// AI Provider selection: "google" (default) or "openai"
-const AI_PROVIDER = Deno.env.get("AI_PROVIDER") || "google";
 
 // Retry switch: when false (default), skip server-side retry blocks and return 503 retryable immediately
 const ENABLE_AI_RETRY = Deno.env.get("ENABLE_AI_RETRY") === "true";
@@ -133,97 +130,6 @@ const extractTitlesFromParsed = (parsed: any): string[] | null => {
 
   return null;
 };
-
-// Options for AI requests (e.g. OpenAI reasoning.effort for faster title/tag generation)
-type AIRequestOptions = { reasoningEffort?: "none" | "low" | "medium" | "high" | "xhigh" };
-
-// Unified AI caller with automatic fallback between providers
-async function callAIWithFallback(
-  model: string,
-  messages: any[],
-  tools?: any[],
-  toolChoice?: any,
-  maxTokens?: number,
-  options?: AIRequestOptions
-): Promise<{ data: any; provider: string }> {
-  const primaryProvider = AI_PROVIDER;
-  const GOOGLE_API_KEY = Deno.env.get("GOOGLE_API_KEY");
-  const OPENAI_API_KEY = Deno.env.get("OPENAI_API_KEY");
-  
-  // Try primary provider first
-  try {
-    
-    if (primaryProvider === "google") {
-      const data = await callGoogleAI(model, messages, tools, toolChoice, maxTokens);
-      return { data, provider: "google" };
-    } else {
-      const data = await callOpenAI(model, messages, tools, toolChoice, maxTokens, options);
-      return { data, provider: "openai" };
-    }
-  } catch (primaryError) {
-    const errorMessage = primaryError instanceof Error ? primaryError.message : String(primaryError);
-    console.warn(`[AI_FALLBACK] Primary provider (${primaryProvider}) failed:`, errorMessage);
-    
-    // Determine if we should fallback
-    const shouldFallback =
-      errorMessage.includes("RATE_LIMIT") ||
-      errorMessage.includes("429") ||
-      errorMessage.includes("AUTH_ERROR") ||
-      errorMessage.includes("402") ||
-      errorMessage.includes("API_KEY_INVALID") ||
-      errorMessage.includes("403") ||
-      errorMessage.includes("500") ||
-      errorMessage.includes("503") ||
-      errorMessage.includes("SERVER_ERROR") ||
-      errorMessage.includes("MALFORMED") ||
-      errorMessage.includes("INVALID_REQUEST") ||
-      errorMessage.includes("INVALID_ARGUMENT") ||
-      errorMessage.includes("timeout") ||
-      errorMessage.includes("TIMEOUT") ||
-      errorMessage.includes("RECITATION") ||
-      errorMessage.includes("Failed to fetch") ||
-      errorMessage.includes("NetworkError") ||
-      errorMessage.includes("network") ||
-      errorMessage.includes("ECONNREFUSED") ||
-      errorMessage.includes("ENOTFOUND") ||
-      errorMessage.includes("fetch failed");
-    
-    if (!shouldFallback) {
-      throw primaryError; // Don't fallback for validation errors, etc.
-    }
-    
-    // Fallback to the other provider
-    const fallbackProvider = primaryProvider === "google" ? "openai" : "google";
-    
-    // Check if fallback provider is configured before attempting
-    if (fallbackProvider === "google" && !GOOGLE_API_KEY) {
-      console.error(`[AI_FALLBACK] Cannot fallback to Google: GOOGLE_API_KEY not configured`);
-      throw primaryError;
-    }
-    if (fallbackProvider === "openai" && !OPENAI_API_KEY) {
-      console.error(`[AI_FALLBACK] Cannot fallback to OpenAI: OPENAI_API_KEY not configured`);
-      throw primaryError;
-    }
-    
-    console.log(`[AI_FALLBACK] Falling back to: ${fallbackProvider} (triggered by: ${errorMessage.substring(0, 80)})`);
-    
-    try {
-      if (fallbackProvider === "openai") {
-        const data = await callOpenAI(model, messages, tools, toolChoice, maxTokens, options);
-        return { data, provider: "openai" };
-      } else {
-        const data = await callGoogleAI(model, messages, tools, toolChoice, maxTokens);
-        return { data, provider: "google" };
-      }
-    } catch (fallbackError) {
-      const fallbackErrorMsg = fallbackError instanceof Error ? fallbackError.message : String(fallbackError);
-      console.error(`[AI_FALLBACK] Fallback provider (${fallbackProvider}) also failed:`, fallbackErrorMsg);
-      
-      // Throw a combined error
-      throw new Error(`AI unavailable: Primary (${primaryProvider}): ${errorMessage}, Fallback (${fallbackProvider}): ${fallbackErrorMsg}`);
-    }
-  }
-}
 
 serve(async (req) => {
   const functionStartTime = Date.now();
@@ -475,17 +381,8 @@ serve(async (req) => {
 
     const limitCheckTime = Date.now() - functionStartTime;
 
-    // Validate AI provider configuration
-    if (AI_PROVIDER === "google") {
-      const GOOGLE_API_KEY = Deno.env.get("GOOGLE_API_KEY");
-      if (!GOOGLE_API_KEY) {
-        throw new Error("GOOGLE_API_KEY not configured. Set AI_PROVIDER=openai to use OpenAI instead.");
-      }
-    } else {
-      const OPENAI_API_KEY = Deno.env.get("OPENAI_API_KEY");
-      if (!OPENAI_API_KEY) {
-        throw new Error("OPENAI_API_KEY not configured. Set AI_PROVIDER=google to use Google AI instead.");
-      }
+    if (!isGoogleAIConfigured()) {
+      throw new Error("GOOGLE_API_KEY not configured");
     }
 
     // Handle different analysis types
@@ -929,36 +826,11 @@ Respond in JSON format:
 }`;
     }
 
-    // Model selection based on type, word count, and batch context
-    const getModelForType = (
-      type: string,
-      content?: string,
-      batchContext?: { isTrendBatch: boolean; entryCount: number },
-      forceModel?: string,
-    ): string => {
-      // Allow forcing a specific model for comparison
-      if (forceModel) return forceModel;
-      
-      switch (type) {
-        case "title":
-          return "google/gemini-2.5-flash";
-        case "tags":
-          return "google/gemini-2.5-flash";
-        case "analyzeTrends":
-          return "google/gemini-3.1-pro-preview";
-        case "analyzeEntry":
-          // Use Gemini 3 Flash for all entry analysis (cost-effective, good quality)
-          return "google/gemini-3-flash-preview";
-        default:
-          return "google/gemini-3-flash-preview";
-      }
-    };
-
-    const modelToUse = getModelForType(type, content, batchContext);
+    const modelToUse = getModelForType(type);
     const wordCount = content ? content.trim().split(/\s+/).length : 0;
     const promptBuildTime = Date.now() - functionStartTime;
 
-    // Build request body - note: GPT-5 family doesn't support temperature parameter
+    // Leave sampling parameters at the provider's defaults.
     const aiRequestStart = Date.now();
     let aiRequestTime = 0;
     const aiRequestBody: any = {
@@ -1099,21 +971,17 @@ Respond in JSON format:
       aiRequestBody.tool_choice = { type: "function", function: { name: "extract_metadata" } };
     }
 
-    // Call AI provider with automatic fallback between Google and OpenAI
+    // Call Gemini directly; model retries below also stay with Google.
     let aiData;
-    let usedProvider: string;
     
     try {
-      const result = await callAIWithFallback(
+      aiData = await callGoogleAI(
         modelToUse,
         aiRequestBody.messages,
         aiRequestBody.tools,
         aiRequestBody.tool_choice,
-        aiRequestBody.max_completion_tokens,
-        type === "title" ? { reasoningEffort: "low" } : type === "tags" ? { reasoningEffort: "none" } : undefined
+        aiRequestBody.max_completion_tokens
       );
-      aiData = result.data;
-      usedProvider = result.provider;
       
       aiRequestTime = Date.now() - aiRequestStart;
       
@@ -1121,12 +989,12 @@ Respond in JSON format:
       const firstChoice = aiData.choices?.[0];
       const finishReason = firstChoice?.finish_reason;
       if (finishReason === "length") {
-        console.warn(`[TRUNCATION] Response was truncated (finish_reason=length) for type=${type}, model=${modelToUse}, provider=${usedProvider}. Consider increasing max_completion_tokens.`);
+        console.warn(`[TRUNCATION] Response was truncated (finish_reason=length) for type=${type}, model=${modelToUse}, provider=google. Consider increasing max_completion_tokens.`);
       }
     } catch (error) {
       aiRequestTime = Date.now() - aiRequestStart;
       const errorMessage = error instanceof Error ? error.message : String(error);
-      console.error("[ERROR] All AI providers failed:", errorMessage, "- Request time:", aiRequestTime, "ms");
+      console.error("[ERROR] Gemini request failed:", errorMessage, "- Request time:", aiRequestTime, "ms");
       
       if (errorMessage.includes("RATE_LIMIT") || errorMessage.includes("429")) {
         return new Response(JSON.stringify({ error: "Rate limit exceeded. Please try again later." }), {
@@ -1135,7 +1003,7 @@ Respond in JSON format:
         });
       }
       
-      if (errorMessage.includes("AUTH_ERROR") || errorMessage.includes("402") || errorMessage.includes("403")) {
+      if (errorMessage.includes("API_KEY_INVALID")) {
         return new Response(JSON.stringify({ error: "AI authentication error. Please check API key configuration." }), {
           status: 403,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -1179,14 +1047,14 @@ Respond in JSON format:
       if (!extracted) {
         console.log("[RETRY] Same-model retry for analyzeEntry");
         try {
-          const sameModelResult = await callAIWithFallback(
+          const sameModelResult = await callGoogleAI(
             modelToUse,
             aiRequestBody.messages,
             aiRequestBody.tools,
             aiRequestBody.tool_choice,
             aiRequestBody.max_completion_tokens
           );
-          const retryData = sameModelResult.data;
+          const retryData = sameModelResult;
           const retryToolCall = retryData.choices[0]?.message?.tool_calls?.[0];
           if (retryToolCall && retryToolCall.function?.name === "extract_metadata") {
             try {
@@ -1214,14 +1082,14 @@ Respond in JSON format:
       // If parsing still failed, retry with fallback model (when ENABLE_AI_RETRY)
       if (!extracted && ENABLE_AI_RETRY) {
         try {
-          const retryResult = await callAIWithFallback(
-            "google/gemini-2.5-pro",
+          const retryResult = await callGoogleAI(
+            `google/${AI_MODELS.deepAnalysis}`,
             aiRequestBody.messages,
             aiRequestBody.tools,
             aiRequestBody.tool_choice,
             aiRequestBody.max_completion_tokens
           );
-          const retryData = retryResult.data;
+          const retryData = retryResult;
           const retryToolCall = retryData.choices[0]?.message?.tool_calls?.[0];
           if (retryToolCall && retryToolCall.function?.name === "extract_metadata") {
             try {
@@ -1242,7 +1110,7 @@ Respond in JSON format:
             }
           }
         } catch (retryError) {
-          console.error("[RETRY] All providers failed on retry:", retryError);
+          console.error("[RETRY] Gemini retry failed:", retryError);
         }
       } else if (!extracted) {
         console.log("[RETRY] Retry disabled (ENABLE_AI_RETRY not set), skipping fallback-model retry");
@@ -1294,33 +1162,33 @@ Respond in JSON format:
         console.error("[ERROR] AI returned empty response for trend analysis");
         console.log("[RETRY] Same-model retry for analyzeTrends");
         try {
-          const sameModelResult = await callAIWithFallback(
+          const sameModelResult = await callGoogleAI(
             modelToUse,
             aiRequestBody.messages,
             aiRequestBody.tools,
             aiRequestBody.tool_choice,
             aiRequestBody.max_completion_tokens
           );
-          aiContent = sameModelResult.data.choices[0]?.message?.content;
+          aiContent = sameModelResult.choices[0]?.message?.content;
         } catch (sameModelError) {
           console.error("[RETRY] Same-model retry failed:", sameModelError);
         }
       }
       
-      // If still empty, retry with fallback model (when ENABLE_AI_RETRY)
+      // If still empty, try stable Flash as an alternative to Pro (when ENABLE_AI_RETRY).
       if ((!aiContent || aiContent.trim() === '') && ENABLE_AI_RETRY) {
         try {
-          const retryResult = await callAIWithFallback(
-            "google/gemini-2.5-pro",
+          const retryResult = await callGoogleAI(
+            `google/${AI_MODELS.entryAnalysis}`,
             aiRequestBody.messages,
             aiRequestBody.tools,
             aiRequestBody.tool_choice,
             aiRequestBody.max_completion_tokens
           );
-          const retryData = retryResult.data;
+          const retryData = retryResult;
           aiContent = retryData.choices[0]?.message?.content;
         } catch (retryError) {
-          console.error("[RETRY] All providers failed on retry:", retryError);
+          console.error("[RETRY] Gemini retry failed:", retryError);
         }
       }
       
@@ -1452,15 +1320,14 @@ Respond in JSON format:
       if (!titles) {
         console.log("[RETRY] Same-model retry for title");
         try {
-          const sameModelResult = await callAIWithFallback(
+          const sameModelResult = await callGoogleAI(
             modelToUse,
             aiRequestBody.messages,
             aiRequestBody.tools,
             aiRequestBody.tool_choice,
-            aiRequestBody.max_completion_tokens,
-            { reasoningEffort: "low" }
+            aiRequestBody.max_completion_tokens
           );
-          const retryData = sameModelResult.data;
+          const retryData = sameModelResult;
           const retryToolCalls = retryData.choices[0]?.message?.tool_calls;
           if (retryToolCalls && retryToolCalls.length > 0) {
             const retryRawArgs = retryToolCalls[0].function?.arguments;
@@ -1489,15 +1356,14 @@ Respond in JSON format:
       // Attempt 3: Retry with fallback model (when ENABLE_AI_RETRY)
       if (!titles && ENABLE_AI_RETRY) {
         try {
-          const retryResult = await callAIWithFallback(
-            "google/gemini-2.5-pro",
+          const retryResult = await callGoogleAI(
+            `google/${AI_MODELS.deepAnalysis}`,
             aiRequestBody.messages,
             aiRequestBody.tools,
             aiRequestBody.tool_choice,
-            aiRequestBody.max_completion_tokens,
-            { reasoningEffort: "low" }
+            aiRequestBody.max_completion_tokens
           );
-          const retryData = retryResult.data;
+          const retryData = retryResult;
           const retryToolCalls = retryData.choices[0]?.message?.tool_calls;
           if (retryToolCalls && retryToolCalls.length > 0) {
             const retryRawArgs = retryToolCalls[0].function?.arguments;
@@ -1519,7 +1385,7 @@ Respond in JSON format:
             }
           }
         } catch (retryError) {
-          console.error("[TITLES][RETRY] All providers failed on retry:", retryError);
+          console.error("[TITLES][RETRY] Gemini retry failed:", retryError);
         }
       } else if (!titles) {
         console.log("[TITLES][RETRY] Retry disabled (ENABLE_AI_RETRY not set), skipping fallback-model retry");
@@ -1740,17 +1606,16 @@ Respond in JSON format:
       if (!extractedSets || extractedSets.length === 0) {
         console.log("[RETRY] Same-model retry for tags");
         try {
-          const sameModelResult = await callAIWithFallback(
+          const sameModelResult = await callGoogleAI(
             modelToUse,
             aiRequestBody.messages,
             aiRequestBody.tools,
             aiRequestBody.tool_choice,
-            aiRequestBody.max_completion_tokens,
-            { reasoningEffort: "none" }
+            aiRequestBody.max_completion_tokens
           );
-          extractedSets = extractTagSetsFromResponse(sameModelResult.data);
+          extractedSets = extractTagSetsFromResponse(sameModelResult);
           if (!extractedActivities || extractedActivities.length === 0) {
-            extractedActivities = extractActivitiesFromResponse(sameModelResult.data);
+            extractedActivities = extractActivitiesFromResponse(sameModelResult);
           }
         } catch (sameModelError) {
           console.error("[TAGS][RETRY] Same-model retry failed:", sameModelError);
@@ -1759,7 +1624,7 @@ Respond in JSON format:
 
       // Activities-only retry: if tags came back fine but activities are
       // empty/missing while predefined activities were requested, give the
-      // model one more chance. Observed failure: Gemini/GPT handling Japanese
+      // model one more chance. Observed failure: Gemini handling Japanese
       // or mixed-language entries sometimes emits the tagSets tool call
       // without populating the activities field, or returns an empty array
       // even when the entry clearly implies predefined activities.
@@ -1770,15 +1635,14 @@ Respond in JSON format:
       ) {
         console.log("[RETRY] Same-model retry for activities");
         try {
-          const activitiesRetryResult = await callAIWithFallback(
+          const activitiesRetryResult = await callGoogleAI(
             modelToUse,
             aiRequestBody.messages,
             aiRequestBody.tools,
             aiRequestBody.tool_choice,
-            aiRequestBody.max_completion_tokens,
-            { reasoningEffort: "none" }
+            aiRequestBody.max_completion_tokens
           );
-          const retriedActivities = extractActivitiesFromResponse(activitiesRetryResult.data);
+          const retriedActivities = extractActivitiesFromResponse(activitiesRetryResult);
           if (retriedActivities && retriedActivities.length > 0) {
             extractedActivities = retriedActivities;
           }
@@ -1791,17 +1655,16 @@ Respond in JSON format:
         analysisData = normalizeAndPadTagSets(extractedSets);
         analysisData.activities = (extractedActivities && extractedActivities.length > 0) ? extractedActivities : [];
       } else if (ENABLE_AI_RETRY) {
-        // Retry with gemini-2.5-pro (only when retry is enabled)
+        // Retry with the deep-analysis model (only when retry is enabled)
         try {
-          const retryResult = await callAIWithFallback(
-            "google/gemini-2.5-pro",
+          const retryResult = await callGoogleAI(
+            `google/${AI_MODELS.deepAnalysis}`,
             aiRequestBody.messages,
             aiRequestBody.tools,
             aiRequestBody.tool_choice,
-            aiRequestBody.max_completion_tokens,
-            { reasoningEffort: "none" }
+            aiRequestBody.max_completion_tokens
           );
-          const retryData = retryResult.data;
+          const retryData = retryResult;
           const retryExtracted = extractTagSetsFromResponse(retryData);
           const retryActivities = extractActivitiesFromResponse(retryData);
 
@@ -1819,7 +1682,7 @@ Respond in JSON format:
             });
           }
         } catch (retryError) {
-          console.error("[TAGS][RETRY] All providers failed on retry:", retryError);
+          console.error("[TAGS][RETRY] Gemini retry failed:", retryError);
           return new Response(JSON.stringify({ 
             error: "Could not generate tags. The AI service is temporarily unavailable. Please try again.",
             retryable: true
@@ -1900,7 +1763,7 @@ Respond in JSON format:
     // This ensures zero backend persistence of journal content derivatives
 
     const totalExecutionTime = Date.now() - functionStartTime;
-    console.log(`[PERF_SUMMARY] type=${type} provider=${usedProvider} model=${modelToUse} total=${totalExecutionTime}ms | auth=${authTime}ms | usageQuery=${usageQueryTime}ms | limitCheck=${limitCheckTime}ms | promptBuild=${promptBuildTime}ms | aiCall=${aiRequestTime}ms | parsing=${parseTime}ms | usageInsert=${usageInsertTime}ms`);
+    console.log(`[PERF_SUMMARY] type=${type} provider=google model=${modelToUse} total=${totalExecutionTime}ms | auth=${authTime}ms | usageQuery=${usageQueryTime}ms | limitCheck=${limitCheckTime}ms | promptBuild=${promptBuildTime}ms | aiCall=${aiRequestTime}ms | parsing=${parseTime}ms | usageInsert=${usageInsertTime}ms`);
 
     return new Response(JSON.stringify(analysisData), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },

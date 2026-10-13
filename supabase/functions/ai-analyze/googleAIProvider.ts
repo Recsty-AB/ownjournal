@@ -4,8 +4,10 @@
  * This module converts OpenAI-compatible requests to Google's native
  * Generative Language API format and converts responses back.
  * 
- * Usage: Set AI_PROVIDER=google environment variable to enable (default)
+ * Requires the GOOGLE_API_KEY environment variable.
  */
+
+import { AI_MODEL_SETTINGS, type GoogleThinkingLevel } from "./modelConfig.ts";
 
 // Types for OpenAI-compatible format (used by existing code)
 interface OpenAIMessage {
@@ -69,7 +71,7 @@ interface GoogleRequest {
   systemInstruction?: { parts: GooglePart[] };
   generationConfig?: {
     maxOutputTokens?: number;
-    temperature?: number;
+    thinkingConfig?: { thinkingLevel: GoogleThinkingLevel };
   };
   tools?: GoogleTool[];
   toolConfig?: GoogleToolConfig;
@@ -125,21 +127,9 @@ interface OpenAIResponse {
  */
 function mapModelName(model: string): string {
   // Strip the "google/" prefix if present
-  const modelName = model.startsWith("google/")
+  return model.startsWith("google/")
     ? model.substring(7)
     : model;
-  
-  // Direct mapping - Google API uses the same names without prefix
-  const modelMap: Record<string, string> = {
-    "gemini-3-flash-preview": "gemini-3-flash-preview",
-    "gemini-3.1-pro-preview": "gemini-3.1-pro-preview",
-    "gemini-2.5-flash": "gemini-2.5-flash",
-    "gemini-2.5-pro": "gemini-2.5-pro",
-    "gemini-2.5-flash-preview": "gemini-2.5-flash-preview",
-    "gemini-2.5-pro-preview": "gemini-2.5-pro-preview",
-  };
-  
-  return modelMap[modelName] || modelName;
 }
 
 /**
@@ -420,18 +410,24 @@ export async function callGoogleAI(
   const GOOGLE_API_KEY = Deno.env.get("GOOGLE_API_KEY");
   
   if (!GOOGLE_API_KEY) {
-    throw new Error("GOOGLE_API_KEY not configured. Set AI_PROVIDER=openai to use OpenAI instead.");
+    throw new Error("GOOGLE_API_KEY not configured");
   }
   
   const googleModel = mapModelName(model);
   const { contents, systemInstruction } = convertMessagesToGoogleFormat(messages);
   const googleTools = convertToolsToGoogleFormat(tools);
   const googleToolConfig = convertToolChoiceToGoogleFormat(toolChoice, tools);
+  const modelSettings = AI_MODEL_SETTINGS[googleModel];
   
   const requestBody: GoogleRequest = {
     contents,
     generationConfig: {
-      maxOutputTokens: maxTokens || 2000
+      maxOutputTokens: maxTokens || 2000,
+      // generateContent uses camelCase fields and uppercase enum values.
+      // Omit deprecated sampling parameters and numeric thinking budgets.
+      ...(modelSettings && {
+        thinkingConfig: { thinkingLevel: modelSettings.thinkingLevel }
+      })
     }
   };
   
