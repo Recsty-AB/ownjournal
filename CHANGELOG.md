@@ -1,5 +1,23 @@
 # Changelog
 
+## v1.0.28 (Oct 13, 2026)
+
+### Improvements
+- iOS and Android ask for a store review at most once per user, via the OS review sheet (StoreKit / Play In-App Review): only after saving a new entry, with at least 15 entries, 14+ days since the first save, while online and with no sync error in the session
+- Android: "Rate OwnJournal on Google Play" link in Settings → Preferences. iOS gets the same link once an App Store URL is configured
+- Web: the iCloud card explains up front that Apple blocks browser access for Apple IDs with Advanced Data Protection, and a failed Apple sign-in popup now says why instead of silently resetting
+- AI analysis moved to current Gemini models; the OpenAI fallback is removed
+
+### Bug Fixes
+- Native Sign in with Apple no longer breaks with "Unacceptable audience in id_token" after the client secret is rotated: the rotation script now keeps the app bundle ID in Supabase's Apple Client IDs
+
+### Developer Notes
+- New native dependency `@capacitor-community/in-app-review` for the review prompt
+- `npm run apple:secret` / `apple:secret:push` generate the Sign in with Apple client secret (an ES256 JWT that Apple caps at 6 months), and a scheduled workflow rotates it on 1 Jan / 1 Jun / 1 Nov
+- Edge function changes in this release require `supabase functions deploy ai-analyze` to take effect in production
+
+---
+
 ## v1.0.17 (Apr 26, 2026)
 
 ### Improvements
