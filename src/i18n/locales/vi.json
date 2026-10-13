@@ -585,7 +585,8 @@
       "legal": "Pháp lý",
       "subscription": "Gói đăng ký",
       "signOut": "Đăng xuất",
-      "email": "Địa chỉ email"
+      "email": "Địa chỉ email",
+      "feedback": "Phản hồi"
     },
     "email": {
       "current": "Email hiện tại",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "Hiển thị phân tích trên màn hình chính",
       "showInsightsHint": "Lịch tâm trạng, thống kê tâm trạng, tương quan và phân tích xu hướng"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "Đánh giá OwnJournal trên Google Play"
     }
   },
   "password": {

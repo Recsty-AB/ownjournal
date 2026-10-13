@@ -585,7 +585,8 @@
       "legal": "法律",
       "subscription": "订阅",
       "signOut": "退出登录",
-      "email": "电子邮箱地址"
+      "email": "电子邮箱地址",
+      "feedback": "反馈"
     },
     "email": {
       "current": "当前邮箱",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "在主屏幕显示分析",
       "showInsightsHint": "心情日历、心情统计、关联分析和趋势分析"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "在 Google Play 上为 OwnJournal 评分"
     }
   },
   "password": {

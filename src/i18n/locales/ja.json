@@ -585,7 +585,8 @@
       "legal": "法的情報",
       "subscription": "サブスクリプション",
       "signOut": "サインアウト",
-      "email": "メールアドレス"
+      "email": "メールアドレス",
+      "feedback": "フィードバック"
     },
     "email": {
       "current": "現在のメール",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "ホーム画面に分析を表示",
       "showInsightsHint": "気分カレンダー、気分の統計、相関、トレンド分析"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "Google Play で OwnJournal を評価"
     }
   },
   "password": {

@@ -585,7 +585,8 @@
       "legal": "Prawne",
       "subscription": "Subskrypcja",
       "signOut": "Wyloguj się",
-      "email": "Adres e-mail"
+      "email": "Adres e-mail",
+      "feedback": "Opinie"
     },
     "email": {
       "current": "Obecny e-mail",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "Pokaż analizy na ekranie głównym",
       "showInsightsHint": "Kalendarz nastroju, statystyki nastroju, korelacje i analiza trendów"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "Oceń OwnJournal w Google Play"
     }
   },
   "password": {

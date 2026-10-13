@@ -585,7 +585,8 @@
       "legal": "Juridiskt",
       "subscription": "Prenumeration",
       "signOut": "Logga ut",
-      "email": "E-postadress"
+      "email": "E-postadress",
+      "feedback": "Feedback"
     },
     "email": {
       "current": "Nuvarande e-post",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "Visa analyser på startskärmen",
       "showInsightsHint": "Humörkalender, humörstatistik, samband och trendanalys"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "Betygsätt OwnJournal på Google Play"
     }
   },
   "password": {

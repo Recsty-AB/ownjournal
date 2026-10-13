@@ -585,7 +585,8 @@
       "legal": "Rechtliches",
       "subscription": "Abonnement",
       "signOut": "Abmelden",
-      "email": "E-Mail-Adresse"
+      "email": "E-Mail-Adresse",
+      "feedback": "Feedback"
     },
     "email": {
       "current": "Aktuelle E-Mail",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "Auswertungen auf dem Startbildschirm anzeigen",
       "showInsightsHint": "Stimmungskalender, Stimmungsstatistik, Zusammenhänge und Trendanalyse"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "OwnJournal bei Google Play bewerten"
     }
   },
   "password": {

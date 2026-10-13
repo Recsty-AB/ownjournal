@@ -585,7 +585,8 @@
       "legal": "Juridisk",
       "subscription": "Abonnement",
       "signOut": "Logg ut",
-      "email": "E-postadresse"
+      "email": "E-postadresse",
+      "feedback": "Tilbakemelding"
     },
     "email": {
       "current": "Nåværende e-post",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "Vis innsikt på startskjermen",
       "showInsightsHint": "Humørkalender, humørstatistikk, sammenhenger og trendanalyse"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "Vurder OwnJournal på Google Play"
     }
   },
   "password": {

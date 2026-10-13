@@ -23,6 +23,7 @@
 		"CloudKitPlugin",
 		"AppleSignInPlugin",
 		"FileOpenerPlugin",
+		"InAppReviewPlugin",
 		"AppPlugin",
 		"CAPBrowserPlugin",
 		"FilesystemPlugin",

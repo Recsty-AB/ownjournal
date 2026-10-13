@@ -585,7 +585,8 @@
       "legal": "Legal",
       "subscription": "Subscription",
       "signOut": "Sign Out",
-      "email": "Email Address"
+      "email": "Email Address",
+      "feedback": "Feedback"
     },
     "email": {
       "current": "Current email",
@@ -670,6 +671,9 @@
     "appearance": {
       "showInsights": "Show insights on home screen",
       "showInsightsHint": "Mood Calendar, Mood Statistics, correlations and Trend Analysis"
+    },
+    "feedback": {
+      "rateOnGooglePlay": "Rate OwnJournal on Google Play"
     }
   },
   "password": {
