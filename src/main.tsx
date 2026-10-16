@@ -1,27 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { Capacitor } from '@capacitor/core'
 import App from './App.tsx'
 import './index.css'
 import { registerServiceWorker, requestPersistentStorage } from './utils/pwa.ts'
 import { aiCacheService } from './services/aiCacheService'
-
-// Android 15+ enforces edge-to-edge. Without this plugin, the WebView extends
-// behind the status bar and gesture nav, and env(safe-area-inset-*) returns 0,
-// so component-level safe-area padding (Header, FAB, Drawer, Toast, etc.) does
-// nothing on Android. The plugin populates the env() values natively.
-// Bar colours and icon contrast are theme-dependent and handled by
-// useAndroidSystemBars(); the initial values come from capacitor.config.ts.
-if (Capacitor.getPlatform() === 'android') {
-  void (async () => {
-    try {
-      const { EdgeToEdge } = await import('@capawesome/capacitor-android-edge-to-edge-support');
-      await EdgeToEdge.enable();
-    } catch (err) {
-      if (import.meta.env.DEV) console.error('Edge-to-edge init failed:', err);
-    }
-  })();
-}
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

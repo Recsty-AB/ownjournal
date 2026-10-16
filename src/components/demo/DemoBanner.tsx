@@ -17,7 +17,14 @@ export function DemoBanner({ onStartJournal, cleanMode = false }: DemoBannerProp
   }
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-4 py-2.5 shadow-lg">
+    <div
+      className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-4 py-2.5 shadow-lg"
+      style={{
+        paddingTop: 'calc(0.625rem + var(--safe-area-inset-top))',
+        paddingLeft: 'calc(1rem + var(--safe-area-inset-left))',
+        paddingRight: 'calc(1rem + var(--safe-area-inset-right))',
+      }}
+    >
       <div className="container mx-auto flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2 bg-primary-foreground/20 rounded-full px-3 py-1">

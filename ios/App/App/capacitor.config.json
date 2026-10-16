@@ -7,6 +7,10 @@
 			"appUrlOpen": {
 				"enabled": true
 			}
+		},
+		"SystemBars": {
+			"insetsHandling": "css",
+			"initialViewportFitValueHint": "cover"
 		}
 	},
 	"android": {
@@ -28,7 +32,6 @@
 		"CAPBrowserPlugin",
 		"FilesystemPlugin",
 		"SharePlugin",
-		"StatusBarPlugin",
 		"PurchasesPlugin"
 	]
 }

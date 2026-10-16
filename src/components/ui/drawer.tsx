@@ -43,7 +43,7 @@ const DrawerContent = React.forwardRef<
     excludeHeader?: boolean;
     fullHeight?: boolean;
   }
->(({ className, children, hideHandle, excludeHeader, fullHeight, ...props }, ref) => (
+>(({ className, children, hideHandle, excludeHeader, fullHeight, style, ...props }, ref) => (
   <DrawerPortal>
     <DrawerOverlay excludeHeader={excludeHeader || fullHeight} />
     <DrawerPrimitive.Content
@@ -54,7 +54,13 @@ const DrawerContent = React.forwardRef<
         fullHeight ? "top-0 z-[110]" : "mt-24 h-auto z-50",
         className
       )}
-      style={fullHeight ? { paddingTop: 'env(safe-area-inset-top)' } : undefined}
+      style={{
+        paddingTop: fullHeight ? 'var(--safe-area-inset-top)' : undefined,
+        paddingBottom: 'var(--safe-area-inset-bottom)',
+        paddingLeft: 'var(--safe-area-inset-left)',
+        paddingRight: 'var(--safe-area-inset-right)',
+        ...style,
+      }}
       {...props}
     >
       {!hideHandle && !fullHeight && <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />}

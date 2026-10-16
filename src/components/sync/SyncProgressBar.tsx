@@ -93,7 +93,7 @@ export const SyncProgressBar = ({ className, isExpanded }: SyncProgressBarProps)
         isExpanded && isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full",
         className
       )}
-      style={{ top: 'calc(4rem + env(safe-area-inset-top, 0px))' }}
+      style={{ top: 'calc(4rem + var(--safe-area-inset-top))' }}
     >
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center gap-3 mb-1">

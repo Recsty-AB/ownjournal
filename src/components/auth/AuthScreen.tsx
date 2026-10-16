@@ -253,7 +253,7 @@ export const AuthScreen = ({ onGoogleSignIn, onAppleSignIn }: AuthScreenProps) =
   const isForgotPassword = viewMode === 'forgot-password';
 
   return (
-    <div className="min-h-screen bg-gradient-paper flex items-center justify-center p-4" style={{ paddingTop: 'calc(env(safe-area-inset-top) + 1rem)' }}>
+    <div className="min-h-screen bg-gradient-paper flex items-center justify-center p-4" style={{ paddingTop: 'calc(var(--safe-area-inset-top) + 1rem)' }}>
       <div className="w-full max-w-md space-y-5">
         {/* Hero Section */}
         <div className="text-center space-y-2">
