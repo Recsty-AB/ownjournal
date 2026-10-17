@@ -10,13 +10,11 @@ const config: CapacitorConfig = {
         enabled: true
       }
     },
-    // Initial colours for the native overlays drawn behind the Android system bars,
-    // applied at plugin load so the first frame is not transparent. The deprecated
-    // `backgroundColor` option is avoided; useAndroidSystemBars() re-applies these
-    // per theme once React mounts.
-    EdgeToEdge: {
-      statusBarColor: '#f8f6f3',
-      navigationBarColor: '#f8f6f3'
+    // SystemBars supplies CSS insets, including the keyboard/older-WebView
+    // workarounds. Page backgrounds paint behind the transparent system bars.
+    SystemBars: {
+      insetsHandling: 'css',
+      initialViewportFitValueHint: 'cover'
     }
   },
   android: {

@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
-import { Capacitor } from '@capacitor/core';
+import { Capacitor, registerPlugin, SystemBars, SystemBarsStyle } from '@capacitor/core';
 import { useAppTheme, type AppTheme } from './useAppTheme';
+
+const SystemChrome = registerPlugin<{
+  setBackgroundColor(options: { color: string }): Promise<void>;
+}>('SystemChrome');
 
 /**
  * Colour of the OS chrome around the page, per theme. These mirror the
@@ -17,11 +21,9 @@ const CHROME_COLORS: Record<AppTheme, string> = {
  * Keeps the browser's `theme-color` and the Android system bars in sync with
  * the active theme.
  *
- * On Android, EdgeToEdge.setStatusBarColor()/setNavigationBarColor() paint plain
- * overlay views sized to the window insets. They do not call
- * Window.setStatusBarColor(), which Android 15 deprecated and ignores — as do
- * the deprecated EdgeToEdge.setBackgroundColor() and `backgroundColor` config
- * option, which is why neither is used here.
+ * Android's system bars are transparent: the page supplies their background,
+ * and Capacitor's built-in SystemBars API sets icon contrast for both bars.
+ * Older WebViews use native padding; SystemChrome paints that view to match.
  */
 export function useSystemChrome() {
   const { activeTheme, isDarkMode } = useAppTheme();
@@ -34,27 +36,19 @@ export function useSystemChrome() {
   useEffect(() => {
     if (Capacitor.getPlatform() !== 'android') return;
 
-    let cancelled = false;
-
     void (async () => {
       try {
-        const { EdgeToEdge } = await import('@capawesome/capacitor-android-edge-to-edge-support');
-        const { StatusBar, Style } = await import('@capacitor/status-bar');
-        if (cancelled) return;
-
-        await EdgeToEdge.setStatusBarColor({ color });
-        await EdgeToEdge.setNavigationBarColor({ color });
-        // Style.Dark means "light icons for a dark background" and Style.Light
-        // means "dark icons for a light background" — the name describes the
-        // background, not the icons.
-        await StatusBar.setStyle({ style: isDarkMode ? Style.Dark : Style.Light });
+        // Dark/Light describe the background, so Dark requests light icons.
+        await SystemBars.setStyle({
+          style: isDarkMode ? SystemBarsStyle.Dark : SystemBarsStyle.Light,
+        });
+        // SystemBars resets the decor background to the OS theme in setStyle().
+        // Apply the app palette afterwards for the native-padding fallback.
+        await SystemChrome.setBackgroundColor({ color });
       } catch (err) {
         if (import.meta.env.DEV) console.error('System chrome theming failed:', err);
       }
     })();
 
-    return () => {
-      cancelled = true;
-    };
   }, [color, isDarkMode]);
 }

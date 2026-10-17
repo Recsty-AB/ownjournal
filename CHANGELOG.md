@@ -1,5 +1,23 @@
 # Changelog
 
+## v1.0.29 (Oct 16, 2026)
+
+### Improvements
+- Android release builds now use R8 code optimization, obfuscation, and resource shrinking
+- Updated Capacitor to 8.5.3 for improved safe-area and keyboard handling
+
+### Bug Fixes
+- Android: headers, dialogs, drawers, notifications, and floating controls respect system bars and display cutouts with edge-to-edge enabled
+- Android: system bar backgrounds follow light, dark, and paper themes, including on older WebViews and after rotation
+- Removed the legacy Status Bar and Android Edge-to-Edge Support plugins identified by Google Play's deprecated-API report
+
+### Developer Notes
+- Android versionCode: `10029`; iOS build: `32`
+- System bars now use AndroidX edge-to-edge and Capacitor's built-in `SystemBars`; the local `SystemChrome` plugin paints native padding without deprecated window-color APIs
+- Google Play must process the new Android bundle to reassess its DEX optimization scores and diagnostics
+
+---
+
 ## v1.0.28 (Oct 13, 2026)
 
 ### Improvements

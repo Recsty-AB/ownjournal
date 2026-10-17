@@ -146,6 +146,32 @@ npm run build && npx cap sync android
 npx cap open android                    # Requires Android Studio
 ```
 
+Android builds require JDK 21. Release builds enable R8 code optimization,
+obfuscation, and resource shrinking; debug builds remain unminified. To check a
+release locally after syncing:
+
+```bash
+cd android
+./gradlew :app:assembleRelease :app:bundleRelease :app:lintRelease
+```
+
+The bundle is written to `android/app/build/outputs/bundle/release/app-release.aab`.
+Keep the matching `android/app/build/outputs/mapping/release/mapping.txt` for crash
+deobfuscation (AGP also embeds it in the bundle). Use the existing upload key to
+generate the signed release in Android Studio, and increment `versionCode` above
+the last uploaded version before submitting to Play.
+
+System bars use AndroidX edge-to-edge and Capacitor's built-in `SystemBars`.
+Shared `--safe-area-inset-*` CSS variables fall back to browser/iOS `env()` values;
+Android supplies corrected values for cutouts, keyboards, and older WebViews.
+The local `SystemChrome` plugin colors the native padding used by older WebViews
+so app-selected themes still match; it only paints a view background.
+Before release, smoke-test the **minified release** on Android 14, 15, and 16:
+light/dark/paper themes, gesture and three-button navigation, rotation, keyboard
+open/close, settings drawers, and native plugins (file sharing/opening, barcode
+permissions, OAuth return, and purchases/restore). Play's optimization scores and
+warnings must be checked again after it processes the new bundle.
+
 On native builds, purchase CTAs are gated by `canShowPurchaseCTA()` in `src/utils/platformDetection.ts` to comply with App Store anti-steering rules and Google Play billing policy.
 
 See [ANDROID_SETUP.md](ANDROID_SETUP.md), [IOS_SETUP.md](IOS_SETUP.md), [CAPACITOR_SETUP.md](CAPACITOR_SETUP.md), and [docs/CLOUDKIT_ICLOUD.md](docs/CLOUDKIT_ICLOUD.md) for the native iCloud plugin.

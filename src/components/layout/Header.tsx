@@ -122,7 +122,7 @@ export const Header = ({
   };
 
   return (
-    <header className="sticky top-0 z-[100] w-full border-b border-border bg-background/80 backdrop-blur-md" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
+    <header className="sticky top-0 z-[100] w-full border-b border-border bg-background/80 backdrop-blur-md" style={{ paddingTop: 'var(--safe-area-inset-top)' }}>
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo / Back Button */}
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">

@@ -6,6 +6,13 @@
 
 @layer base {
   :root {
+    /* Capacitor SystemBars overrides these on Android, including zero insets
+       when an older WebView is padded natively. iOS/PWA use the env() values. */
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
+    --safe-area-inset-right: env(safe-area-inset-right, 0px);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-inset-left: env(safe-area-inset-left, 0px);
+
     /* Keep native form controls, scrollbars and select popups in the same
        light/dark family as the palette below. next-themes sets this inline for
        light/dark, but only after it mounts. */
@@ -233,7 +240,7 @@
   }
 
   html {
-    /* iOS safe area insets are handled at the component level:
+    /* Vertical safe area insets are handled at the component level:
        - Header: padding-top for notch
        - Drawer: padding-top for notch (via inline style)
        - Bottom elements: padding-bottom for home indicator
@@ -262,6 +269,14 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  #root {
+    /* Keep page content clear of landscape cutouts and the navigation area.
+       Fixed/portaled controls handle their own insets. */
+    padding-left: var(--safe-area-inset-left);
+    padding-right: var(--safe-area-inset-right);
+    padding-bottom: var(--safe-area-inset-bottom);
   }
 
   /* Native <select> menus are drawn outside the page, so they inherit nothing:
