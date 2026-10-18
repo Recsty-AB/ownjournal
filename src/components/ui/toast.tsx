@@ -16,7 +16,12 @@ const ToastViewport = React.forwardRef<
   // mobile were completely silent.
   <ToastPrimitives.Viewport
     ref={ref}
-    style={{ top: 'calc(4rem + env(safe-area-inset-top, 0px) + 0.5rem)' }}
+    style={{
+      top: 'calc(4rem + var(--safe-area-inset-top) + 0.5rem)',
+      paddingBottom: 'calc(1rem + var(--safe-area-inset-bottom))',
+      paddingLeft: 'calc(1rem + var(--safe-area-inset-left))',
+      paddingRight: 'calc(1rem + var(--safe-area-inset-right))',
+    }}
     className={cn(
       "fixed z-[300] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:!top-auto sm:flex-col md:max-w-[420px]",
       className

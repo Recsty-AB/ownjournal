@@ -46,7 +46,7 @@ const CustomTooltip = ({
       {/* Footer */}
       <div
         className="px-5 pt-4 bg-muted/30 border-t border-border flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
-        style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom, 0px))' }}
+        style={{ paddingBottom: 'calc(1rem + var(--safe-area-inset-bottom))' }}
       >
         <div className="flex items-center justify-center sm:justify-start gap-2">
           {/* Progress dots */}

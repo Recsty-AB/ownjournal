@@ -16,7 +16,7 @@ const TermsOfService = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-3xl mx-auto px-4 py-8">
+      <div className="max-w-3xl mx-auto px-4 py-8" style={{ paddingTop: 'calc(2rem + var(--safe-area-inset-top))' }}>
         <div className="mb-8">
           <div className="flex flex-wrap items-center gap-2 mb-4">
             {isNativeApp ? (

@@ -640,13 +640,13 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
               }}
               size="icon"
               style={{
-                bottom: 'calc(1.5rem + env(safe-area-inset-bottom))',
+                bottom: 'calc(1.5rem + var(--safe-area-inset-bottom))',
               }}
               // Hug the content column's right edge (where the ScrollArea scrollbar sits) so the
               // FAB stays visually connected to the entries instead of drifting to the viewport corner
               // on wide monitors. Breakpoints mirror the main container's max-w-4xl / xl:5xl / 2xl:6xl.
               className="fixed z-50 size-14 rounded-full shadow-lg bg-primary text-primary-foreground hover:bg-primary/90
-                right-[max(1.5rem,calc(50vw_-_28rem_+_1.5rem))]"
+                right-[max(calc(1.5rem_+_var(--safe-area-inset-right)),calc(50vw_-_28rem_+_1.5rem))]"
               aria-label={t('timeline.newEntry')}
             >
               <Plus aria-hidden="true" className="h-6 w-6" />
@@ -666,11 +666,11 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
               onClick={scrollToTop}
               size="icon"
               style={{
-                bottom: 'calc(5.75rem + env(safe-area-inset-bottom))',
+                bottom: 'calc(5.75rem + var(--safe-area-inset-bottom))',
               }}
               // Stacks above the size-14 New Entry FAB; +0.375rem centers this size-11 button over it.
               className="fixed z-50 size-11 rounded-full shadow-lg bg-primary hover:bg-primary/90 animate-in fade-in duration-200
-                right-[calc(max(1.5rem,calc(50vw_-_28rem_+_1.5rem))_+_0.375rem)]"
+                right-[calc(max(calc(1.5rem_+_var(--safe-area-inset-right)),calc(50vw_-_28rem_+_1.5rem))_+_0.375rem)]"
               aria-label={t('timeline.backToTop', 'Back to top')}
             >
               <ArrowUp aria-hidden="true" className="h-5 w-5" />
