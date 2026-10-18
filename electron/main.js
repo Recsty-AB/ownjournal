@@ -6,10 +6,39 @@ const fs = require('fs');
 function validatePath(filePath) {
   const userDataPath = app.getPath('userData');
   const resolvedPath = path.resolve(filePath);
-  if (!resolvedPath.startsWith(userDataPath)) {
+  // Require the resolved path to be the user-data dir itself or strictly inside
+  // it. A bare startsWith() check would also accept sibling directories that
+  // merely share the prefix (e.g. "<userData>-export"), so anchor on the path
+  // separator.
+  if (resolvedPath !== userDataPath && !resolvedPath.startsWith(userDataPath + path.sep)) {
     throw new Error('Access denied: Path outside allowed directory');
   }
   return resolvedPath;
+}
+
+// Open only http(s) links in the OS browser; silently drop anything else.
+function openExternalSafe(url) {
+  if (/^https?:\/\//i.test(url)) {
+    shell.openExternal(url);
+  }
+}
+
+// Prevent the main window from navigating away from the app origin. The app is
+// an SPA (client-side routing uses the history API and does not trigger
+// will-navigate), so any top-level navigation here is off-origin — send it to
+// the OS browser instead of loading it in the privileged window (which would
+// otherwise expose window.electronAPI to a foreign origin).
+function hardenWindowNavigation(window, appOrigin) {
+  window.webContents.on('will-navigate', (event, url) => {
+    if (!url.startsWith(appOrigin)) {
+      event.preventDefault();
+      openExternalSafe(url);
+    }
+  });
+  window.webContents.setWindowOpenHandler(({ url }) => {
+    openExternalSafe(url);
+    return { action: 'deny' };
+  });
 }
 
 // Keep a global reference of the window object
@@ -37,8 +66,10 @@ function createWindow() {
   if (isDev) {
     mainWindow.loadURL('http://localhost:8080');
     mainWindow.webContents.openDevTools();
+    hardenWindowNavigation(mainWindow, 'http://localhost:8080');
   } else {
     mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
+    hardenWindowNavigation(mainWindow, 'file://');
   }
 
   mainWindow.on('closed', () => {
