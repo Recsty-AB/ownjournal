@@ -8,6 +8,8 @@ import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
 import { getActiveTagToken } from "@/utils/inlineTags";
 import { getTextareaCaretRect } from "@/utils/textareaCaret";
+import { insertTranscript } from "@/services/transcriptionService";
+import { VoiceInputButton } from "./VoiceInputButton";
 
 interface MarkdownEditorProps {
   value: string;
@@ -15,6 +17,8 @@ interface MarkdownEditorProps {
   placeholder?: string;
   /** Existing tags offered as inline `#tag` autocomplete. Omit to disable. */
   availableTags?: string[];
+  /** Shows the voice entry (dictation) control. Omit to hide it. */
+  voiceInput?: { isPro: boolean };
 }
 
 interface TagSuggestState {
@@ -28,12 +32,17 @@ interface TagSuggestState {
 const MAX_SUGGESTIONS = 8;
 const DROPDOWN_WIDTH = 176; // w-44
 
-export const MarkdownEditor = ({ value, onChange, placeholder, availableTags }: MarkdownEditorProps) => {
+export const MarkdownEditor = ({ value, onChange, placeholder, availableTags, voiceInput }: MarkdownEditorProps) => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<"edit" | "preview">("edit");
   const [suggest, setSuggest] = useState<TagSuggestState | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  // Transcripts arrive asynchronously, possibly after further typing, so read
+  // the latest value and caret rather than the ones from when recording began.
+  const valueRef = useRef(value);
+  valueRef.current = value;
+  const hasCaretRef = useRef(false);
 
   const inlineTagsEnabled = availableTags !== undefined;
 
@@ -90,6 +99,21 @@ export const MarkdownEditor = ({ value, onChange, placeholder, availableTags }: 
     });
   };
 
+  const insertDictation = (transcript: string) => {
+    const textarea = textareaRef.current;
+    const current = valueRef.current;
+    // Before the user has placed a caret, dictation appends to the end.
+    const start = textarea && hasCaretRef.current ? textarea.selectionStart : current.length;
+    const end = textarea && hasCaretRef.current ? textarea.selectionEnd : current.length;
+    const { value: next, caret } = insertTranscript(current, transcript, start, end);
+    onChange(next);
+    hasCaretRef.current = true;
+    requestAnimationFrame(() => {
+      textarea?.focus();
+      textarea?.setSelectionRange(caret, caret);
+    });
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (!suggest || suggestions.length === 0) return;
     if (e.key === "ArrowDown") {
@@ -126,10 +150,14 @@ export const MarkdownEditor = ({ value, onChange, placeholder, availableTags }: 
             ref={textareaRef}
             value={value}
             onChange={(e) => {
+              hasCaretRef.current = true;
               onChange(e.target.value);
               updateSuggestions(e.currentTarget);
             }}
-            onSelect={(e) => updateSuggestions(e.currentTarget)}
+            onSelect={(e) => {
+              hasCaretRef.current = true;
+              updateSuggestions(e.currentTarget);
+            }}
             onKeyDown={handleKeyDown}
             onBlur={() => setTimeout(() => setSuggest(null), 150)}
             placeholder={placeholder || t('editor.placeholder')}
@@ -161,9 +189,16 @@ export const MarkdownEditor = ({ value, onChange, placeholder, availableTags }: 
             </div>
           )}
         </div>
-        <div className="mt-2 text-xs text-muted-foreground">
-          {t('editor.markdownSupport')}
-          {inlineTagsEnabled && <> · {t('editor.inlineTagHint')}</>}
+        <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+          <div className="text-xs text-muted-foreground">
+            {t('editor.markdownSupport')}
+            {inlineTagsEnabled && <> · {t('editor.inlineTagHint')}</>}
+          </div>
+          {voiceInput && (
+            <div className="ml-auto">
+              <VoiceInputButton isPro={voiceInput.isPro} onTranscript={insertDictation} />
+            </div>
+          )}
         </div>
       </TabsContent>
 

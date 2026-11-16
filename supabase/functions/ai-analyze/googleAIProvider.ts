@@ -7,7 +7,7 @@
  * Requires the GOOGLE_API_KEY environment variable.
  */
 
-import { AI_MODEL_SETTINGS, type GoogleThinkingLevel } from "./modelConfig.ts";
+import { AI_MODEL_SETTINGS, type GoogleThinkingLevel } from "../_shared/modelConfig.ts";
 
 // Types for OpenAI-compatible format (used by existing code)
 interface OpenAIMessage {

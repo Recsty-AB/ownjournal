@@ -1570,8 +1570,8 @@
       "titleSuggestions": "Sugestões de Título com IA",
       "tagSuggestions": "Sugestões de Tags Inteligentes",
       "trendAnalysis": "Insights de Humor e Tendências",
-      "pdfExport": "Exportação PDF",
-      "wordExport": "Exportação de Documento Word",
+      "voiceEntry": "Ditado por Voz",
+      "exports": "Exportação para PDF e Word",
       "imageUpload": "Memórias em Fotos"
     },
     "trialCta": "Iniciar teste gratuito",
@@ -1980,6 +1980,11 @@
         "desc": "Obtenha sugestões inteligentes de título baseadas no conteúdo da sua entrada. Múltiplas opções para escolher.",
         "proNote": "(Recurso Plus)"
       },
+      "voiceEntry": {
+        "title": "Ditado por voz",
+        "desc": "Toque no microfone por baixo do editor e fale em vez de escrever. Quando terminar, as suas palavras são convertidas em texto limpo e pontuado, inserido na posição do cursor. Funciona no idioma em que fala, mesmo que mude de idioma a meio de uma frase. Cada gravação pode ter até 5 minutos e o Plus inclui 200 minutos por mês.",
+        "proNote": "(Recurso Plus)"
+      },
       "aiAnalysis": {
         "title": "Análise de IA",
         "desc": "Obtenha insights sobre suas entradas de diário incluindo análise de humor, detecção de tópicos e sugestões personalizadas.",
@@ -2122,7 +2127,7 @@
       },
       "pro": {
         "question": "O que o Plus inclui?",
-        "answer": "Plus inclui análise com IA, insights de humor, sugestões de tags, Análise de atividades e visualização avançada de tendências."
+        "answer": "O Plus inclui análise com IA, sugestões de título, sugestões de tags, ditado por voz, análise de tendências, Análise de atividades e exportação para PDF/Word."
       },
       "manageSubscription": {
         "question": "Como gerencio minha assinatura?",
@@ -2218,7 +2223,7 @@
     },
     "privacy": {
       "title": "Política de Privacidade",
-      "lastUpdatedDate": "Abril 2026",
+      "lastUpdatedDate": "novembro de 2026",
       "intro": {
         "title": "Introdução",
         "content": "A sua privacidade é importante para nós. O OwnJournal é operado por {{companyName}}, uma empresa registada em {{companyCountry}}. Esta Política de Privacidade explica como o OwnJournal recolhe, utiliza e protege as suas informações. Concebemos o OwnJournal com a privacidade como princípio fundamental."
@@ -2228,8 +2233,8 @@
         "content": "O responsável pelo tratamento de dados do OwnJournal é {{companyName}}. Para questões relativas à proteção de dados, pode contactar-nos através de {{companyEmail}}."
       },
       "collection": {
-        "title": "Informações que Coletamos",
-        "content": "As informações pessoais que recolhemos são mínimas. Em relação à sua conta, recolhemos: o seu endereço de e-mail, o seu nome de exibição (caso seja fornecido por um fornecedor de autenticação externo como o Google ou a Apple) e — assim que ligar um armazenamento na cloud — um registo do fornecedor que escolheu. Para operar o serviço de diário, mantemos uma pequena quantidade de estado nos nossos servidores — se a configuração da encriptação está concluída, o estado da sua subscrição e os identificadores de que o nosso processador de pagamentos (Stripe) precisa para gerir a sua subscrição. Para monitorizar o uso justo das funcionalidades de IA opcionais, registamos contadores de utilização por utilizador (o tipo de análise efetuada e um carimbo de data/hora; nunca o conteúdo das suas entradas). O nosso backend de autenticação também mantém metadados de sessão padrão, como carimbos de data/hora de início de sessão. Os nomes de exibição são utilizados apenas para personalizar a sua experiência na aplicação e nunca são tornados públicos. Para mostrar os preços de subscrição na sua moeda local, podemos consultar brevemente o país associado ao seu endereço IP; apenas o código do país resultante é utilizado, não é associado à sua conta e não armazenamos o seu endereço IP. Não utilizamos serviços de análise de terceiros, SDKs de publicidade nem rastreadores entre aplicações. Quando utiliza a encriptação de ponta a ponta (E2E), o conteúdo do seu diário é encriptado no seu dispositivo e não podemos lê-lo. No modo Simple, os dados do seu diário são sincronizados com o fornecedor de cloud escolhido sem encriptação de ponta a ponta. O modo Simple destina-se à conveniência e pode reduzir a privacidade em comparação com o modo E2E; os seus dados continuam protegidos pelas medidas de segurança padrão do seu fornecedor de cloud."
+        "title": "Informações que Recolhemos",
+        "content": "As informações pessoais que recolhemos são mínimas. Em relação à sua conta, recolhemos: o seu endereço de e-mail, o seu nome de exibição (caso seja fornecido por um fornecedor de autenticação externo como o Google ou a Apple) e — assim que ligar um armazenamento na cloud — um registo do fornecedor que escolheu. Para operar o serviço de diário, guardamos nos nossos servidores um pequeno conjunto de informações de estado — se a configuração da encriptação está concluída, o estado da sua subscrição e os identificadores de que o nosso prestador de serviços de pagamento (Stripe) precisa para gerir a sua subscrição. Para monitorizar a utilização razoável das funcionalidades opcionais de IA, registamos contadores de utilização por utilizador (o tipo de análise efetuada e um carimbo de data/hora; nunca o conteúdo das suas entradas). No ditado por voz, o contador regista também a duração, em segundos, de cada gravação transcrita; a gravação em si nunca é guardada. O nosso backend de autenticação também mantém metadados de sessão padrão, como carimbos de data/hora de início de sessão. Os nomes de exibição são utilizados apenas para personalizar a sua experiência na aplicação e nunca são tornados públicos. Para mostrar os preços de subscrição na sua moeda local, podemos consultar brevemente o país associado ao seu endereço IP; apenas o código do país resultante é utilizado, não é associado à sua conta e não armazenamos o seu endereço IP. Não utilizamos serviços de análise de terceiros, SDKs de publicidade nem rastreadores entre aplicações. Quando utiliza a encriptação de ponta a ponta (E2E), o conteúdo do seu diário é encriptado no seu dispositivo e não podemos lê-lo. No modo Simple, os dados do seu diário são sincronizados com o fornecedor de cloud escolhido sem encriptação de ponta a ponta. O modo Simple privilegia a comodidade e pode reduzir a privacidade em comparação com o modo E2E; os seus dados continuam protegidos pelas medidas de segurança padrão do seu fornecedor de cloud."
       },
       "usage": {
         "title": "Como Usamos as Informações",
@@ -2249,15 +2254,15 @@
       },
       "thirdParty": {
         "title": "Serviços de Terceiros",
-        "content": "Integramos os seguintes serviços de terceiros, cada um a operar sob os seus próprios termos e práticas de privacidade: fornecedores de armazenamento em cloud (Google Drive, Dropbox, Nextcloud, iCloud Drive) para sincronização com a sua própria conta; serviços de autenticação (Google, Apple) e o nosso backend de autenticação para um início de sessão seguro; fornecedores de pagamento (Stripe para a web, Apple In-App Purchase no iOS, Google Play Billing no Android) para o tratamento de subscrições; e fornecedores de serviços de IA (Google Gemini, OpenAI) quando opta por utilizar as funcionalidades de IA opcionais."
+        "content": "Integramos os seguintes serviços de terceiros, cada um a operar sob os seus próprios termos e práticas de privacidade: fornecedores de armazenamento em cloud (Google Drive, Dropbox, Nextcloud, iCloud Drive) para sincronização com a sua própria conta; serviços de autenticação (Google, Apple) e o nosso backend de autenticação para um início de sessão seguro; fornecedores de pagamento (Stripe para pagamentos na web, Apple In-App Purchase no iOS, Google Play Billing no Android) para a gestão de subscrições; e um fornecedor de serviços de IA (Google Gemini), quando opta por utilizar as funcionalidades de IA opcionais."
       },
       "syncIdentifier": {
         "title": "Identificador de sincronização e dispositivo",
         "content": "Para sincronizar seu diário entre dispositivos e resolver conflitos de edição, a aplicação cria e usa um identificador de sincronização. Esse identificador é armazenado no seu dispositivo e no seu armazenamento em nuvem; não é usado para identificá-lo em outros aplicações nem para publicidade."
       },
       "aiProcessing": {
-        "title": "Recursos de IA e Processamento",
-        "content": "O OwnJournal oferece funcionalidades opcionais com IA, como análise de humor e sugestões, disponíveis exclusivamente para subscritores Plus. O processamento por IA ocorre apenas quando você, como subscritor Plus, utiliza explicitamente estas funcionalidades. Quando utiliza as funcionalidades de IA, o texto relevante é primeiro desencriptado no seu dispositivo e depois enviado para o serviço de IA através da sua ação explícita; o conteúdo do seu diário é enviado para o nosso fornecedor de IA — atualmente Google (Gemini), com a OpenAI como alternativa — através das respetivas APIs pagas. Não armazenamos entradas ou saídas de IA nos nossos servidores; apenas registamos contadores por utilizador da utilização das funcionalidades de IA (o tipo de análise efetuada e um carimbo de data/hora, nunca o conteúdo) para aplicar limites de uso justo. Estes fornecedores podem reter pedidos e respostas durante um período limitado para monitorização de abusos e aplicação de políticas, de acordo com as suas políticas atuais. O processamento de IA pode ocorrer fora do EEE; tanto a Google como a OpenAI mantêm salvaguardas adequadas para a transferência de dados, como Cláusulas Contratuais-Tipo. Utilizamos os planos pagos destes fornecedores de IA, ao abrigo dos quais os pedidos e as respostas não são utilizados para treinar ou melhorar os modelos do fornecedor. Pode optar por não utilizar as funcionalidades de IA, e fazê-lo não afeta a funcionalidade principal do diário."
+        "title": "Funcionalidades de IA e Tratamento",
+        "content": "O OwnJournal oferece funcionalidades opcionais baseadas em IA, como a análise do estado de espírito, sugestões e o ditado por voz, disponíveis exclusivamente para subscritores Plus. O tratamento por IA só ocorre quando o utilizador, enquanto subscritor Plus, utiliza expressamente estas funcionalidades. Quando utiliza funcionalidades de IA baseadas em texto, o texto relevante é primeiro desencriptado no seu dispositivo e depois enviado, por sua ação expressa, para o nosso fornecedor de IA, atualmente a Google (Gemini), através da respetiva API paga. Quando utiliza o ditado por voz, o microfone do seu dispositivo só é utilizado enquanto grava; a gravação é enviada para a Google (Gemini) para ser convertida em texto, e o texto resultante é adicionado à sua entrada no seu dispositivo. Não guardamos nos nossos servidores os dados enviados à IA nem as respostas geradas, incluindo gravações de voz e transcrições; registamos apenas contadores de utilização das funcionalidades de IA por utilizador (o tipo de análise efetuada, um carimbo de data/hora e, no ditado por voz, a duração da gravação em segundos; nunca o conteúdo) para aplicar os limites de utilização razoável. A Google pode conservar os pedidos e as respostas durante um período limitado para monitorização de abusos e aplicação das suas políticas, de acordo com as políticas em vigor. O tratamento por IA pode ocorrer fora do EEE; a Google mantém garantias adequadas para a transferência de dados, como as Cláusulas Contratuais-Tipo. Utilizamos o nível pago do serviço de IA da Google, no qual os pedidos e respostas não são utilizados para treinar nem melhorar os seus modelos. Pode optar por não utilizar as funcionalidades de IA, sem que isso afete as funcionalidades principais do diário."
       },
       "diagnostics": {
         "title": "Diagnósticos e Logs de Falhas",
@@ -2301,7 +2306,7 @@
       },
       "internationalTransfers": {
         "title": "Transferências internacionais de dados",
-        "content": "Alguns dos nossos prestadores de serviços tratam dados fora do Espaço Económico Europeu (EEE). O nosso backend de autenticação e base de dados, os fornecedores de pagamento (Stripe, Apple, Google), os fornecedores de IA (Google, OpenAI) e o seu fornecedor de armazenamento em cloud podem transferir ou tratar dados em países que não receberam uma decisão de adequação da Comissão Europeia. Nesses casos, nós e os fornecedores baseamo-nos em garantias adequadas ao abrigo do artigo 46.º do RGPD, como as Cláusulas Contratuais-Tipo (CCT) da Comissão Europeia, em conjunto com medidas técnicas e organizacionais complementares. Pode solicitar mais informações sobre as garantias em vigor contactando-nos."
+        "content": "Alguns dos nossos prestadores de serviços tratam dados fora do Espaço Económico Europeu (EEE). O nosso backend de autenticação e base de dados, os fornecedores de pagamento (Stripe, Apple, Google), o fornecedor de IA (Google) e o seu fornecedor de armazenamento em cloud podem transferir ou tratar dados em países que não receberam uma decisão de adequação da Comissão Europeia. Nesses casos, nós e os fornecedores baseamo-nos em garantias adequadas ao abrigo do artigo 46.º do RGPD, como as Cláusulas Contratuais-Tipo (CCT) da Comissão Europeia, em conjunto com medidas técnicas e organizativas complementares. Pode solicitar mais informações sobre as garantias em vigor contactando-nos."
       },
       "californiaRights": {
         "title": "Direitos de privacidade dos estados dos EUA",
@@ -2479,5 +2484,35 @@
     "system": "Sistema",
     "paperHint": "Papel é branco liso, sem gradientes — o mais legível em ecrãs de tinta eletrónica.",
     "switchTo": "Mudar para o tema {{theme}}"
+  },
+  "voice": {
+    "title": "Ditado por voz",
+    "dictate": "Ditar",
+    "stop": "Parar",
+    "cancel": "Cancelar gravação",
+    "transcribing": "A transcrever…",
+    "retry": "Repetir transcrição",
+    "discard": "Descartar gravação",
+    "stopsIn": "Termina em {{seconds}} s",
+    "minutesLeft": "Tempo restante este mês: {{minutes}} min",
+    "plusFeature": "O ditado por voz está disponível no Plus",
+    "consentTitle": "Transcrever a sua voz com a Google?",
+    "consentBody": "A sua gravação é enviada para o serviço Gemini da Google para ser convertida em texto. O OwnJournal nunca guarda o áudio e a Google não o utiliza para treinar os seus modelos. O texto é guardado como o resto da sua entrada.",
+    "consentAccept": "Continuar",
+    "consentDecline": "Agora não",
+    "teaserBody": "Fale em vez de escrever. As suas palavras transformam-se em texto limpo e pontuado, no idioma em que fala — até 200 minutos por mês.",
+    "errors": {
+      "notSupported": "A gravação de voz não é suportada neste dispositivo.",
+      "permissionDenied": "O acesso ao microfone está bloqueado. Permita-o nas definições do dispositivo ou do navegador para ditar.",
+      "noMicrophone": "Não foi encontrado nenhum microfone.",
+      "offline": "Está offline. O ditado por voz precisa de ligação à Internet.",
+      "authRequired": "Inicie sessão para usar o ditado por voz.",
+      "plusRequired": "O ditado por voz requer uma subscrição Plus.",
+      "limitReached": "Já utilizou os {{minutes}} minutos de ditado por voz deste mês. O limite é reposto no próximo mês.",
+      "tooLarge": "Esta gravação é demasiado grande. Experimente uma mais curta.",
+      "unsupportedFormat": "Este formato de gravação não é suportado.",
+      "noSpeech": "Não foi detetada fala na gravação.",
+      "failed": "A transcrição falhou. Tente novamente."
+    }
   }
 }

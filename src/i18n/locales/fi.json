@@ -1570,8 +1570,8 @@
       "titleSuggestions": "AI-otsikkoehdotukset",
       "tagSuggestions": "Älykkäät tunniste-ehdotukset",
       "trendAnalysis": "Mieliala- ja trendioivallukset",
-      "pdfExport": "PDF-vienti",
-      "wordExport": "Word-asiakirjavienti",
+      "voiceEntry": "Puhesyöte",
+      "exports": "PDF- ja Word-vienti",
       "imageUpload": "Kuvien lataus"
     },
     "trialCta": "Aloita ilmainen kokeilu",
@@ -1980,6 +1980,11 @@
         "desc": "Saat älykkäitä otsikkoehdotuksia merkintäsi sisällön perusteella. Useita vaihtoehtoja valittavaksi.",
         "proNote": "(Plus-ominaisuus)"
       },
+      "voiceEntry": {
+        "title": "Puhesyöte",
+        "desc": "Napauta editorin alla olevaa mikrofonipainiketta ja puhu kirjoittamisen sijaan. Kun lopetat, puheesi muunnetaan siistiksi tekstiksi välimerkkeineen ja lisätään kohdistimen kohdalle. Puhesyöte toimii sillä kielellä, jota puhut, vaikka vaihtaisit kieltä kesken lauseen. Yksi tallenne voi kestää enintään 5 minuuttia, ja Plus sisältää 200 minuuttia kuukaudessa.",
+        "proNote": "(Plus-ominaisuus)"
+      },
       "aiAnalysis": {
         "title": "AI-analyysi",
         "desc": "Saat oivalluksia päiväkirjamerkinnöistäsi, mukaan lukien mieliala-analyysi, teemojen tunnistus ja henkilökohtaiset ehdotukset.",
@@ -2122,7 +2127,7 @@
       },
       "pro": {
         "question": "Mitä Plus sisältää?",
-        "answer": "Plus sisältää AI-pohjaisen analyysin, mielialaoivallukset, tunniste-ehdotukset, Aktiviteettinäkymät ja edistyneen trendivisualisoinnin."
+        "answer": "Plus sisältää AI-analyysin, otsikkoehdotukset, tunniste-ehdotukset, puhesyötteen, trendianalyysin, Aktiviteettinäkymät sekä PDF- ja Word-viennin."
       },
       "manageSubscription": {
         "question": "Miten hallinnoin tilaustani?",
@@ -2218,7 +2223,7 @@
     },
     "privacy": {
       "title": "Tietosuojakäytäntö",
-      "lastUpdatedDate": "Huhtikuu 2026",
+      "lastUpdatedDate": "Marraskuu 2026",
       "intro": {
         "title": "Johdanto",
         "content": "Yksityisyytesi on meille tärkeää. OwnJournalia operoi {{companyName}}, joka on rekisteröity yritys maassa {{companyCountry}}. Tämä tietosuojakäytäntö selittää, miten OwnJournal kerää, käyttää ja suojaa tietojasi. Suunnittelimme OwnJournalin yksityisyys keskeisenä periaatteena."
@@ -2229,7 +2234,7 @@
       },
       "collection": {
         "title": "Keräämämme tiedot",
-        "content": "Keräämämme henkilötiedot ovat vähäisiä. Tilisi yhteydessä keräämme: sähköpostiosoitteesi, näyttönimesi (jos sen toimittaa ulkoinen todennuspalvelu, kuten Google tai Apple) ja — kun yhdistät pilvitallennustilan — merkinnän siitä, minkä palveluntarjoajan olet valinnut. Päiväkirjapalvelun ylläpitämiseksi pidämme palvelimillamme pienen määrän tilatietoa — onko salausasetuksesi valmis, tilauksesi tila ja tunnisteet, joita maksupalveluntarjoajamme (Stripe) tarvitsee tilauksesi hallintaan. Valinnaisten tekoälytoimintojen reilun käytön valvomiseksi tallennamme käyttäjäkohtaisia käyttölaskureita (suoritetun analyysin tyypin ja aikaleiman; ei koskaan merkintöjesi sisältöä). Todennustaustajärjestelmämme säilyttää myös vakiomuotoisia istuntotietoja, kuten kirjautumisaikaleimoja. Näyttönimiä käytetään vain sovelluskokemuksesi personointiin, eikä niitä koskaan julkisteta. Tilauksen hintojen näyttämiseksi paikallisessa valuutassasi voimme tilapäisesti tarkistaa IP-osoitteeseesi liittyvän maan; vain saatua maakoodia käytetään, sitä ei yhdistetä tiliisi, eikä IP-osoitettasi tallenneta. Emme käytä kolmannen osapuolen analytiikkaa, mainos-SDK:ita tai sovellusten välisiä seurantaohjelmia. Kun käytät päästä päähän -salausta (E2E), päiväkirjasi sisältö salataan laitteellasi, emmekä voi lukea sitä. Simple-tilassa päiväkirjasi tiedot synkronoidaan valitsemasi pilvipalveluntarjoajan kanssa ilman päästä päähän -salausta. Simple-tila on tarkoitettu mukavuuteen ja voi heikentää yksityisyyttä E2E-tilaan verrattuna; tietosi pysyvät kuitenkin pilvipalveluntarjoajasi vakiosuojausten suojaamina."
+        "content": "Keräämämme henkilötiedot ovat vähäisiä. Tilisi yhteydessä keräämme: sähköpostiosoitteesi, näyttönimesi (jos sen toimittaa ulkoinen todennuspalvelu, kuten Google tai Apple) ja – kun yhdistät pilvitallennustilan – merkinnän siitä, minkä palveluntarjoajan olet valinnut. Päiväkirjapalvelun ylläpitämiseksi pidämme palvelimillamme pienen määrän tilatietoa – onko salausasetuksesi valmis, tilauksesi tila ja tunnisteet, joita maksupalveluntarjoajamme (Stripe) tarvitsee tilauksesi hallintaan. Valinnaisten tekoälytoimintojen reilun käytön valvomiseksi tallennamme käyttäjäkohtaisia käyttölaskureita (suoritetun analyysin tyypin ja aikaleiman; ei koskaan merkintöjesi sisältöä). Puhesyötteen osalta laskuriin kirjataan lisäksi kunkin litteroidun äänitallenteen kesto sekunteina; itse äänitallennetta ei koskaan säilytetä. Todennustaustajärjestelmämme säilyttää myös vakiomuotoisia istuntotietoja, kuten kirjautumisaikaleimoja. Näyttönimiä käytetään vain sovelluskokemuksesi personointiin, eikä niitä koskaan julkisteta. Tilauksen hintojen näyttämiseksi paikallisessa valuutassasi voimme tilapäisesti tarkistaa IP-osoitteeseesi liittyvän maan; vain saatua maakoodia käytetään, sitä ei yhdistetä tiliisi, eikä IP-osoitettasi tallenneta. Emme käytä kolmannen osapuolen analytiikkaa, mainos-SDK:ita tai sovellusten välisiä seurantaohjelmia. Kun käytät päästä päähän -salausta (E2E), päiväkirjasi sisältö salataan laitteellasi, emmekä voi lukea sitä. Simple-tilassa päiväkirjasi tiedot synkronoidaan valitsemasi pilvipalveluntarjoajan kanssa ilman päästä päähän -salausta. Simple-tila on tarkoitettu mukavuuteen ja voi heikentää yksityisyyttä E2E-tilaan verrattuna; tietosi pysyvät kuitenkin pilvipalveluntarjoajasi vakiosuojausten suojaamina."
       },
       "usage": {
         "title": "Miten käytämme tietoja",
@@ -2249,7 +2254,7 @@
       },
       "thirdParty": {
         "title": "Kolmannen osapuolen palvelut",
-        "content": "Integroimme seuraavien kolmansien osapuolten palveluiden kanssa, jotka kukin toimivat omien ehtojensa ja tietosuojakäytäntöjensä mukaan: pilvitallennuspalvelut (Google Drive, Dropbox, Nextcloud, iCloud Drive) synkronoimaan oman tilisi kanssa; todennuspalvelut (Google, Apple) ja todennuksen taustajärjestelmämme turvalliseen kirjautumiseen; maksupalveluntarjoajat (Stripe verkossa, Apple In-App Purchase iOS:ssä, Google Play Billing Androidilla) tilausten käsittelyyn; sekä tekoälypalveluntarjoajat (Google Gemini, OpenAI), kun valitset valinnaisten tekoälytoimintojen käytön."
+        "content": "Integroimme seuraavien kolmansien osapuolten palveluiden kanssa, jotka kukin toimivat omien ehtojensa ja tietosuojakäytäntöjensä mukaan: pilvitallennuspalvelut (Google Drive, Dropbox, Nextcloud, iCloud Drive) synkronoimaan oman tilisi kanssa; todennuspalvelut (Google, Apple) ja todennuksen taustajärjestelmämme turvalliseen kirjautumiseen; maksupalveluntarjoajat (Stripe verkossa, Apple In-App Purchase iOS:ssä, Google Play Billing Androidilla) tilausten käsittelyyn; sekä tekoälypalveluntarjoajat (Google Gemini), kun valitset valinnaisten tekoälytoimintojen käytön."
       },
       "syncIdentifier": {
         "title": "Synkronointi- ja laitetunniste",
@@ -2257,7 +2262,7 @@
       },
       "aiProcessing": {
         "title": "AI-ominaisuudet ja käsittely",
-        "content": "OwnJournal tarjoaa valinnaisia tekoälypohjaisia toimintoja, kuten mielialan analyysiä ja ehdotuksia, jotka ovat käytettävissä ainoastaan Plus-tilaajille. Tekoälykäsittelyä tapahtuu vain, kun sinä Plus-tilaajana käytät näitä toimintoja erikseen. Kun käytät tekoälytoimintoja, asianomainen teksti puretaan ensin laitteellasi ja lähetetään sitten tekoälypalveluun nimenomaisella toimellasi; päiväkirjasisältösi lähetetään tekoälypalveluntarjoajallemme — tällä hetkellä Google (Gemini), vaihtoehtona OpenAI — heidän maksullisten API:idensa kautta. Emme tallenna tekoälyn syötteitä tai tulosteita palvelimillemme; tallennamme vain käyttäjäkohtaisia tekoälyominaisuuksien käyttölaskureita (suoritetun analyysin tyypin ja aikaleiman, ei koskaan sisältöä) reilun käytön rajojen valvomiseksi. Nämä palveluntarjoajat voivat säilyttää kehotteet ja tulosteet rajoitetun ajan väärinkäytön valvontaa ja käytäntöjen täytäntöönpanoa varten heidän nykyisten käytäntöjensä mukaisesti. Tekoälykäsittely voi tapahtua ETA-alueen ulkopuolella; sekä Google että OpenAI ylläpitävät asianmukaisia tiedonsiirron suojatoimia, kuten vakiosopimuslausekkeita. Käytämme näiden tekoälypalveluntarjoajien maksullisia tasoja, joiden mukaan kehotteita ja tulosteita ei käytetä palveluntarjoajan mallien kouluttamiseen tai parantamiseen. Voit valita olla käyttämättä tekoälytoimintoja, eikä tämä vaikuta päiväkirjan ydintoimintoihin."
+        "content": "OwnJournal tarjoaa valinnaisia tekoälyominaisuuksia, kuten mielialan analyysin, ehdotukset ja puhesyötteen, jotka ovat vain Plus-tilaajien käytettävissä. Tekoälykäsittelyä tapahtuu vain, kun käytät Plus-tilaajana näitä ominaisuuksia nimenomaisesti. Kun käytät tekstipohjaisia tekoälyominaisuuksia, kyseisen tekstin salaus puretaan ensin laitteellasi, minkä jälkeen teksti lähetetään nimenomaisesta toimestasi tekoälypalveluntarjoajallemme, tällä hetkellä Googlelle (Gemini), sen maksullisen rajapinnan kautta. Kun käytät puhesyötettä, laitteesi mikrofonia käytetään vain äänityksen ajan; äänitallenne lähetetään Googlelle (Gemini) tekstiksi muunnettavaksi, ja syntynyt teksti lisätään merkintääsi laitteellasi. Emme tallenna tekoälyn syötteitä tai tuloksia, mukaan lukien äänitallenteet ja litteraatit, palvelimillemme; tallennamme vain käyttäjäkohtaisia tekoälyominaisuuksien käyttölaskureita (suoritetun analyysin tyyppi, aikaleima ja puhesyötteen osalta äänitallenteen kesto sekunteina; ei koskaan sisältöä) kohtuullisen käytön rajojen valvomiseksi. Google voi säilyttää kehotteita ja tuloksia rajoitetun ajan väärinkäytösten valvontaa ja käytäntöjen noudattamisen varmistamista varten voimassa olevien käytäntöjensä mukaisesti. Tekoälykäsittelyä voi tapahtua ETA-alueen ulkopuolella; Googlella on asianmukaiset tiedonsiirtoa koskevat suojatoimet, kuten vakiosopimuslausekkeet. Käytämme Googlen tekoälypalvelun maksullista tasoa, jossa kehotteita ja tuloksia ei käytetä Googlen mallien kouluttamiseen tai parantamiseen. Voit jättää tekoälyominaisuudet käyttämättä, eikä se vaikuta päiväkirjan perustoimintoihin."
       },
       "diagnostics": {
         "title": "Diagnostiikka ja kaatumislokit",
@@ -2301,7 +2306,7 @@
       },
       "internationalTransfers": {
         "title": "Kansainväliset tiedonsiirrot",
-        "content": "Jotkin palveluntarjoajistamme käsittelevät tietoja Euroopan talousalueen (ETA) ulkopuolella. Todennus- ja tietokantataustajärjestelmämme, maksupalveluntarjoajat (Stripe, Apple, Google), tekoälypalveluntarjoajat (Google, OpenAI) ja valitsemasi pilvitallennuspalveluntarjoaja voivat siirtää tai käsitellä tietoja maissa, jotka eivät ole saaneet Euroopan komission tietosuojan riittävyyttä koskevaa päätöstä. Tällaisissa tapauksissa me ja palveluntarjoajat luotamme GDPR:n 46 artiklan mukaisiin asianmukaisiin suojatoimiin, kuten Euroopan komission vakiosopimuslausekkeisiin (SCC) sekä täydentäviin teknisiin ja organisatorisiin toimenpiteisiin. Voit pyytää lisätietoja käytössä olevista suojatoimista ottamalla meihin yhteyttä."
+        "content": "Jotkin palveluntarjoajistamme käsittelevät tietoja Euroopan talousalueen (ETA) ulkopuolella. Todennus- ja tietokantataustajärjestelmämme, maksupalveluntarjoajat (Stripe, Apple, Google), tekoälypalveluntarjoajat (Google) ja valitsemasi pilvitallennuspalveluntarjoaja voivat siirtää tai käsitellä tietoja maissa, jotka eivät ole saaneet Euroopan komission tietosuojan riittävyyttä koskevaa päätöstä. Tällaisissa tapauksissa me ja palveluntarjoajat luotamme GDPR:n 46 artiklan mukaisiin asianmukaisiin suojatoimiin, kuten Euroopan komission vakiosopimuslausekkeisiin (SCC) sekä täydentäviin teknisiin ja organisatorisiin toimenpiteisiin. Voit pyytää lisätietoja käytössä olevista suojatoimista ottamalla meihin yhteyttä."
       },
       "californiaRights": {
         "title": "Yhdysvaltain osavaltioiden yksityisyydensuojaoikeudet",
@@ -2479,5 +2484,35 @@
     "system": "Järjestelmä",
     "paperHint": "Paperi on tasainen valkoinen ilman liukuvärejä – helpoin lukea e-ink-näytöillä.",
     "switchTo": "Vaihda {{theme}}-teemaan"
+  },
+  "voice": {
+    "title": "Puhesyöte",
+    "dictate": "Sanele",
+    "stop": "Lopeta",
+    "cancel": "Peruuta äänitys",
+    "transcribing": "Litteroidaan…",
+    "retry": "Yritä litterointia uudelleen",
+    "discard": "Hylkää tallenne",
+    "stopsIn": "Päättyy {{seconds}} s:n kuluttua",
+    "minutesLeft": "{{minutes}} min jäljellä tässä kuussa",
+    "plusFeature": "Puhesyöte sisältyy Plus-tilaukseen",
+    "consentTitle": "Litteroidaanko puheesi Googlen avulla?",
+    "consentBody": "Tallenteesi lähetetään Googlen Gemini-palveluun tekstiksi muunnettavaksi. OwnJournal ei koskaan tallenna ääntä, eikä Google käytä sitä omien malliensa kouluttamiseen. Teksti tallennetaan samalla tavalla kuin muu merkintäsi.",
+    "consentAccept": "Jatka",
+    "consentDecline": "Ei nyt",
+    "teaserBody": "Puhu kirjoittamisen sijaan. Puheestasi tulee siistiä tekstiä välimerkkeineen sillä kielellä, jota puhut – jopa 200 minuuttia kuukaudessa.",
+    "errors": {
+      "notSupported": "Äänen tallennusta ei tueta tällä laitteella.",
+      "permissionDenied": "Mikrofonin käyttö on estetty. Jos haluat sanella, salli mikrofonin käyttö laitteen tai selaimen asetuksissa.",
+      "noMicrophone": "Mikrofonia ei löytynyt.",
+      "offline": "Olet offline-tilassa. Puhesyöte vaatii internetyhteyden.",
+      "authRequired": "Kirjaudu sisään käyttääksesi puhesyötettä.",
+      "plusRequired": "Puhesyöte vaatii Plus-tilauksen.",
+      "limitReached": "Olet käyttänyt kaikki tämän kuun {{minutes}} minuuttia puhesyötettä. Kiintiö uusiutuu ensi kuussa.",
+      "tooLarge": "Tallenne on liian suuri. Kokeile lyhyempää.",
+      "unsupportedFormat": "Tallennemuotoa ei tueta.",
+      "noSpeech": "Tallenteesta ei tunnistettu puhetta.",
+      "failed": "Litterointi epäonnistui. Yritä uudelleen."
+    }
   }
 }

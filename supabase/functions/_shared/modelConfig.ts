@@ -1,9 +1,13 @@
 // Keep Gemini models and their supported thinking levels together.
 // Model availability reviewed against provider documentation on 2026-10-13.
+// The transcription model was added on 2026-11-16. It is a dedicated
+// speech-to-text model served by the Interactions API (not generateContent)
+// and takes no thinking level.
 export const AI_MODELS = {
   suggestions: "gemini-3.5-flash-lite",
   entryAnalysis: "gemini-3.8-flash",
   deepAnalysis: "gemini-3.1-pro-preview",
+  transcription: "gemini-3.5-transcribe",
 } as const;
 
 export type GoogleThinkingLevel = "MINIMAL" | "LOW" | "MEDIUM" | "HIGH";

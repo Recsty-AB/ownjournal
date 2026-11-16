@@ -29,6 +29,7 @@ import {
   ChevronLeft,
   Heart,
   Lightbulb,
+  Mic,
   Calendar as CalendarIcon,
   Server,
   Smartphone,
@@ -448,6 +449,24 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
                     <p>{t("help.features.titleSuggestions.desc")}</p>
                     <p className="text-xs text-amber-600 dark:text-amber-400">
                       {t("help.features.titleSuggestions.proNote")}
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="voice-entry">
+                  <AccordionTrigger className="text-sm">
+                    <span className="flex items-center gap-2">
+                      <Mic className="w-4 h-4 text-primary" />
+                      {t("help.features.voiceEntry.title")}
+                      <span className="ml-1 text-[10px] bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 px-1.5 py-0.5 rounded font-medium">
+                        {t('help.sections.proBadge')}
+                      </span>
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                    <p>{t("help.features.voiceEntry.desc")}</p>
+                    <p className="text-xs text-amber-600 dark:text-amber-400">
+                      {t("help.features.voiceEntry.proNote")}
                     </p>
                   </AccordionContent>
                 </AccordionItem>

@@ -1573,8 +1573,8 @@
       "titleSuggestions": "Saran Judul AI",
       "tagSuggestions": "Saran Tag Cerdas",
       "trendAnalysis": "Wawasan Suasana Hati & Tren",
-      "pdfExport": "Ekspor PDF",
-      "wordExport": "Ekspor Dokumen Word",
+      "voiceEntry": "Input Suara",
+      "exports": "Ekspor PDF & Word",
       "imageUpload": "Kenangan Foto"
     },
     "trialCta": "Mulai Uji Coba Gratis",
@@ -1983,6 +1983,11 @@
         "desc": "AI menyarankan opsi judul berdasarkan konten catatanmu. Pilih dari beberapa saran untuk menemukan yang paling cocok.",
         "proNote": "(Fitur Plus)"
       },
+      "voiceEntry": {
+        "title": "Input Suara",
+        "desc": "Ketuk mikrofon di bawah editor, lalu bicaralah alih-alih mengetik. Begitu kamu berhenti, ucapanmu diubah menjadi teks rapi lengkap dengan tanda baca dan disisipkan di posisi kursor. Fitur ini mengikuti bahasa yang kamu ucapkan, bahkan jika kamu berganti bahasa di tengah kalimat. Setiap rekaman bisa berdurasi hingga 5 menit, dan Plus mencakup 200 menit per bulan.",
+        "proNote": "(Fitur Plus)"
+      },
       "aiAnalysis": {
         "title": "Analisis AI",
         "desc": "Dapatkan wawasan berbasis AI tentang catatan jurnalmu, termasuk analisis suasana hati, deteksi topik, dan saran personal untuk memperdalam refleksi diri.",
@@ -2125,7 +2130,7 @@
       },
       "pro": {
         "question": "Apa saja yang termasuk Plus?",
-        "answer": "Plus mencakup analisis AI, saran judul, saran tag, analisis tren, Wawasan Aktivitas, dan ekspor PDF/Word."
+        "answer": "Plus mencakup analisis AI, saran judul, saran tag, input suara, analisis tren, Wawasan Aktivitas, dan ekspor PDF/Word."
       },
       "manageSubscription": {
         "question": "Bagaimana cara mengelola langganan?",
@@ -2221,7 +2226,7 @@
     },
     "privacy": {
       "title": "Kebijakan Privasi",
-      "lastUpdatedDate": "April 2026",
+      "lastUpdatedDate": "November 2026",
       "intro": {
         "title": "Pendahuluan",
         "content": "Privasi Anda penting bagi kami. OwnJournal dioperasikan oleh {{companyName}}, perusahaan yang terdaftar di {{companyCountry}}. Kebijakan Privasi ini menjelaskan bagaimana OwnJournal mengumpulkan, menggunakan, dan melindungi informasi Anda. Kami merancang OwnJournal dengan privasi sebagai prinsip inti."
@@ -2232,7 +2237,7 @@
       },
       "collection": {
         "title": "Informasi yang Kami Kumpulkan",
-        "content": "Informasi pribadi yang kami kumpulkan minimal. Sehubungan dengan akun Anda, kami mengumpulkan: alamat email Anda, nama tampilan Anda (jika disediakan oleh penyedia autentikasi eksternal seperti Google atau Apple), dan — setelah Anda menghubungkan penyimpanan cloud — catatan tentang penyedia mana yang Anda pilih. Untuk menjalankan layanan jurnal, kami menyimpan sedikit data status di server kami — apakah pengaturan enkripsi Anda telah selesai, status langganan Anda, dan pengenal yang dibutuhkan oleh pemroses pembayaran kami (Stripe) untuk mengelola langganan Anda. Untuk memantau penggunaan yang adil dari fitur AI opsional, kami mencatat penghitung penggunaan per pengguna (jenis analisis yang dilakukan dan stempel waktu; tidak pernah konten entri Anda). Backend autentikasi kami juga menyimpan metadata sesi standar seperti stempel waktu masuk. Nama tampilan hanya digunakan untuk mempersonalisasi pengalaman Anda dalam aplikasi dan tidak pernah dipublikasikan. Untuk menampilkan harga langganan dalam mata uang lokal Anda, kami dapat sebentar mencari negara yang terkait dengan alamat IP Anda; hanya kode negara yang dihasilkan yang digunakan, tidak ditautkan ke akun Anda, dan kami tidak menyimpan alamat IP Anda. Kami tidak menggunakan analitik pihak ketiga, SDK iklan, atau pelacak antar aplikasi. Saat Anda menggunakan enkripsi ujung ke ujung (E2E), konten jurnal Anda dienkripsi di perangkat Anda dan kami tidak dapat membacanya. Dalam mode Simple, data jurnal Anda disinkronkan dengan penyedia cloud pilihan Anda tanpa enkripsi ujung ke ujung. Mode Simple ditujukan untuk kenyamanan dan dapat mengurangi privasi dibandingkan dengan mode E2E; data Anda tetap dilindungi oleh langkah-langkah keamanan standar penyedia cloud Anda."
+        "content": "Informasi pribadi yang kami kumpulkan minimal. Sehubungan dengan akun Anda, kami mengumpulkan: alamat email Anda, nama tampilan Anda (jika disediakan oleh penyedia autentikasi eksternal seperti Google atau Apple), dan — setelah Anda menghubungkan penyimpanan cloud — catatan tentang penyedia mana yang Anda pilih. Untuk menjalankan layanan jurnal, kami menyimpan sedikit data status di server kami — apakah pengaturan enkripsi Anda telah selesai, status langganan Anda, dan pengenal yang dibutuhkan oleh pemroses pembayaran kami (Stripe) untuk mengelola langganan Anda. Untuk memantau penggunaan yang adil dari fitur AI opsional, kami mencatat penghitung penggunaan per pengguna (jenis analisis yang dilakukan dan stempel waktu; tidak pernah konten entri Anda). Untuk input suara, penghitung juga mencatat durasi (dalam detik) setiap rekaman yang ditranskripsikan; rekamannya sendiri tidak pernah disimpan. Backend autentikasi kami juga menyimpan metadata sesi standar seperti stempel waktu masuk. Nama tampilan hanya digunakan untuk mempersonalisasi pengalaman Anda dalam aplikasi dan tidak pernah dipublikasikan. Untuk menampilkan harga langganan dalam mata uang lokal Anda, kami dapat sebentar mencari negara yang terkait dengan alamat IP Anda; hanya kode negara yang dihasilkan yang digunakan, tidak ditautkan ke akun Anda, dan kami tidak menyimpan alamat IP Anda. Kami tidak menggunakan analitik pihak ketiga, SDK iklan, atau pelacak antar aplikasi. Saat Anda menggunakan enkripsi ujung ke ujung (E2E), konten jurnal Anda dienkripsi di perangkat Anda dan kami tidak dapat membacanya. Dalam mode Simple, data jurnal Anda disinkronkan dengan penyedia cloud pilihan Anda tanpa enkripsi ujung ke ujung. Mode Simple ditujukan untuk kenyamanan dan dapat mengurangi privasi dibandingkan dengan mode E2E; data Anda tetap dilindungi oleh langkah-langkah keamanan standar penyedia cloud Anda."
       },
       "usage": {
         "title": "Bagaimana Kami Menggunakan Informasi",
@@ -2252,7 +2257,7 @@
       },
       "thirdParty": {
         "title": "Layanan Pihak Ketiga",
-        "content": "Kami berintegrasi dengan layanan pihak ketiga berikut, masing-masing beroperasi berdasarkan ketentuan dan praktik privasinya sendiri: penyedia penyimpanan cloud (Google Drive, Dropbox, Nextcloud, iCloud Drive) untuk sinkronisasi dengan akun Anda sendiri; layanan autentikasi (Google, Apple) dan backend autentikasi kami untuk login yang aman; penyedia pembayaran (Stripe untuk web, Apple In-App Purchase di iOS, Google Play Billing di Android) untuk menangani langganan; dan penyedia layanan AI (Google Gemini, OpenAI) ketika Anda memilih untuk menggunakan fitur AI opsional."
+        "content": "Kami berintegrasi dengan layanan pihak ketiga berikut, masing-masing beroperasi berdasarkan ketentuan dan praktik privasinya sendiri: penyedia penyimpanan cloud (Google Drive, Dropbox, Nextcloud, iCloud Drive) untuk sinkronisasi dengan akun Anda sendiri; layanan autentikasi (Google, Apple) dan backend autentikasi kami untuk login yang aman; penyedia pembayaran (Stripe untuk web, Apple In-App Purchase di iOS, Google Play Billing di Android) untuk menangani langganan; dan penyedia layanan AI (Google Gemini) ketika Anda memilih untuk menggunakan fitur AI opsional."
       },
       "syncIdentifier": {
         "title": "Identifikasi sinkronisasi dan perangkat",
@@ -2260,7 +2265,7 @@
       },
       "aiProcessing": {
         "title": "Fitur AI dan Pemrosesan",
-        "content": "OwnJournal menawarkan fitur AI opsional seperti analisis suasana hati dan saran, yang tersedia secara eksklusif untuk pelanggan Plus. Pemrosesan AI hanya terjadi ketika Anda, sebagai pelanggan Plus, secara eksplisit menggunakan fitur ini. Saat Anda menggunakan fitur AI, teks yang relevan didekripsi terlebih dahulu di perangkat Anda, lalu dikirim ke layanan AI melalui tindakan eksplisit Anda; konten jurnal Anda dikirim ke penyedia AI kami — saat ini Google (Gemini), dengan OpenAI sebagai alternatif — melalui API berbayar mereka. Kami tidak menyimpan input atau output AI di server kami; kami hanya mencatat penghitung per pengguna dari penggunaan fitur AI (jenis analisis yang dilakukan dan stempel waktu, tidak pernah kontennya) untuk memberlakukan batas penggunaan yang adil. Penyedia ini dapat menyimpan prompt dan output untuk jangka waktu terbatas untuk pemantauan penyalahgunaan dan penegakan kebijakan, sesuai kebijakan mereka saat ini. Pemrosesan AI dapat terjadi di luar EEA; baik Google maupun OpenAI mempertahankan perlindungan transfer data yang sesuai seperti Klausul Kontrak Standar. Kami menggunakan tingkat berbayar dari penyedia AI ini, di mana prompt dan output tidak digunakan untuk melatih atau meningkatkan model penyedia. Anda dapat memilih untuk tidak menggunakan fitur AI, dan melakukannya tidak memengaruhi fungsi inti jurnal."
+        "content": "OwnJournal menawarkan fitur opsional berbasis AI seperti analisis suasana hati, saran, dan input suara, yang tersedia khusus untuk pelanggan Plus. Pemrosesan AI hanya terjadi saat Anda, sebagai pelanggan Plus, secara eksplisit menggunakan fitur-fitur ini. Saat Anda menggunakan fitur AI berbasis teks, teks yang relevan didekripsi terlebih dahulu di perangkat Anda, lalu dikirim atas tindakan eksplisit Anda ke penyedia AI kami, saat ini Google (Gemini), melalui API berbayarnya. Saat Anda menggunakan input suara, mikrofon perangkat Anda hanya digunakan selama Anda merekam; rekaman dikirim ke Google (Gemini) untuk diubah menjadi teks, dan teks yang dihasilkan ditambahkan ke catatan Anda di perangkat Anda. Kami tidak menyimpan input atau output AI, termasuk rekaman suara dan transkrip, di server kami; kami hanya mencatat penghitung penggunaan fitur AI per pengguna (jenis analisis yang dilakukan, stempel waktu, dan untuk input suara, durasi rekaman dalam detik; tidak pernah kontennya) untuk pembatasan penggunaan wajar. Google dapat menyimpan prompt dan output untuk jangka waktu terbatas guna pemantauan penyalahgunaan dan penegakan kebijakan, sesuai kebijakannya yang berlaku. Pemrosesan AI dapat terjadi di luar EEA; Google menerapkan perlindungan transfer data yang sesuai seperti Klausul Kontrak Standar. Kami menggunakan paket berbayar layanan AI Google; dalam paket ini, prompt dan output tidak digunakan untuk melatih atau meningkatkan model Google. Anda dapat memilih untuk tidak menggunakan fitur AI, dan hal itu tidak memengaruhi fungsi inti jurnal."
       },
       "diagnostics": {
         "title": "Diagnostik dan Log Crash",
@@ -2304,7 +2309,7 @@
       },
       "internationalTransfers": {
         "title": "Transfer Data Internasional",
-        "content": "Beberapa penyedia layanan kami memproses data di luar Wilayah Ekonomi Eropa (EEA). Backend autentikasi dan basis data kami, penyedia pembayaran (Stripe, Apple, Google), penyedia AI (Google, OpenAI), dan penyedia penyimpanan cloud pilihan Anda dapat mentransfer atau memproses data di negara-negara yang belum menerima keputusan kecukupan dari Komisi Eropa. Dalam kasus tersebut, kami dan penyedia mengandalkan perlindungan yang sesuai berdasarkan Pasal 46 GDPR, seperti Klausul Kontrak Standar (SCC) Komisi Eropa bersama dengan langkah-langkah teknis dan organisasi tambahan. Anda dapat meminta informasi lebih lanjut tentang perlindungan yang berlaku dengan menghubungi kami."
+        "content": "Beberapa penyedia layanan kami memproses data di luar Wilayah Ekonomi Eropa (EEA). Backend autentikasi dan basis data kami, penyedia pembayaran (Stripe, Apple, Google), penyedia AI (Google), dan penyedia penyimpanan cloud pilihan Anda dapat mentransfer atau memproses data di negara-negara yang belum menerima keputusan kecukupan dari Komisi Eropa. Dalam kasus tersebut, kami dan penyedia mengandalkan perlindungan yang sesuai berdasarkan Pasal 46 GDPR, seperti Klausul Kontrak Standar (SCC) Komisi Eropa bersama dengan langkah-langkah teknis dan organisasi tambahan. Anda dapat meminta informasi lebih lanjut tentang perlindungan yang berlaku dengan menghubungi kami."
       },
       "californiaRights": {
         "title": "Hak Privasi Negara Bagian AS",
@@ -2482,5 +2487,35 @@
     "system": "Sistem",
     "paperHint": "Kertas berwarna putih polos tanpa gradien — paling mudah dibaca di layar e-ink.",
     "switchTo": "Beralih ke tema {{theme}}"
+  },
+  "voice": {
+    "title": "Input suara",
+    "dictate": "Dikte",
+    "stop": "Berhenti",
+    "cancel": "Batalkan rekaman",
+    "transcribing": "Mentranskripsikan…",
+    "retry": "Coba transkripsi lagi",
+    "discard": "Buang rekaman",
+    "stopsIn": "Berhenti {{seconds}} dtk lagi",
+    "minutesLeft": "Sisa {{minutes}} mnt bulan ini",
+    "plusFeature": "Input suara tersedia di Plus",
+    "consentTitle": "Transkripsikan suaramu dengan Google?",
+    "consentBody": "Rekamanmu dikirim ke layanan Gemini milik Google untuk diubah menjadi teks. OwnJournal tidak pernah menyimpan audionya, dan Google tidak menggunakannya untuk melatih modelnya. Teksnya disimpan seperti bagian lain catatanmu.",
+    "consentAccept": "Lanjutkan",
+    "consentDecline": "Nanti saja",
+    "teaserBody": "Cukup bicara, tak perlu mengetik. Ucapanmu menjadi teks rapi lengkap dengan tanda baca, dalam bahasa apa pun yang kamu gunakan — hingga 200 menit per bulan.",
+    "errors": {
+      "notSupported": "Perekaman suara tidak didukung di perangkat ini.",
+      "permissionDenied": "Akses mikrofon diblokir. Izinkan di pengaturan perangkat atau browser untuk mendikte.",
+      "noMicrophone": "Mikrofon tidak ditemukan.",
+      "offline": "Kamu sedang offline. Input suara memerlukan koneksi internet.",
+      "authRequired": "Silakan masuk untuk menggunakan input suara.",
+      "plusRequired": "Input suara memerlukan langganan Plus.",
+      "limitReached": "Kamu sudah memakai seluruh {{minutes}} menit input suara bulan ini. Batas akan direset bulan depan.",
+      "tooLarge": "Rekaman ini terlalu besar. Coba yang lebih pendek.",
+      "unsupportedFormat": "Format rekaman ini tidak didukung.",
+      "noSpeech": "Tidak ada ucapan yang terdeteksi dalam rekaman.",
+      "failed": "Transkripsi gagal. Silakan coba lagi."
+    }
   }
 }

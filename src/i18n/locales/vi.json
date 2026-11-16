@@ -1573,8 +1573,8 @@
       "titleSuggestions": "Gợi ý tiêu đề AI",
       "tagSuggestions": "Gợi ý thẻ thông minh",
       "trendAnalysis": "Phân tích tâm trạng và xu hướng",
-      "pdfExport": "Xuất PDF",
-      "wordExport": "Xuất tài liệu Word",
+      "voiceEntry": "Nhập bằng giọng nói",
+      "exports": "Xuất PDF/Word",
       "imageUpload": "Ảnh kỷ niệm"
     },
     "trialCta": "Bắt đầu dùng thử miễn phí",
@@ -1983,6 +1983,11 @@
         "desc": "AI gợi ý các tiêu đề dựa trên nội dung bài viết. Chọn từ nhiều gợi ý để tìm tiêu đề phù hợp nhất.",
         "proNote": "(Tính năng Plus)"
       },
+      "voiceEntry": {
+        "title": "Nhập bằng giọng nói",
+        "desc": "Nhấn vào biểu tượng micrô bên dưới trình soạn thảo và nói thay vì gõ. Khi bạn dừng, lời bạn nói được chuyển thành văn bản gọn gàng, có dấu câu và chèn vào vị trí con trỏ. Tính năng này nhận biết ngôn ngữ bạn đang nói, kể cả khi bạn chuyển sang ngôn ngữ khác giữa câu. Mỗi bản ghi âm dài tối đa 5 phút; gói Plus có 200 phút mỗi tháng.",
+        "proNote": "(Tính năng Plus)"
+      },
       "aiAnalysis": {
         "title": "Phân tích AI",
         "desc": "Nhận phân tích thông minh về bài viết nhật ký, bao gồm phân tích tâm trạng, nhận diện chủ đề và gợi ý cá nhân để giúp bạn tự suy ngẫm sâu hơn.",
@@ -2125,7 +2130,7 @@
       },
       "pro": {
         "question": "Gói Plus bao gồm những gì?",
-        "answer": "Plus bao gồm phân tích AI, gợi ý tiêu đề, gợi ý thẻ, phân tích xu hướng, Phân tích hoạt động và xuất PDF/Word."
+        "answer": "Plus bao gồm phân tích AI, gợi ý tiêu đề, gợi ý thẻ, nhập bằng giọng nói, phân tích xu hướng, Phân tích hoạt động và xuất PDF/Word."
       },
       "manageSubscription": {
         "question": "Làm sao để quản lý đăng ký?",
@@ -2221,7 +2226,7 @@
     },
     "privacy": {
       "title": "Chính sách bảo mật",
-      "lastUpdatedDate": "Tháng 4 năm 2026",
+      "lastUpdatedDate": "Tháng 11 năm 2026",
       "intro": {
         "title": "Giới thiệu",
         "content": "Quyền riêng tư của bạn rất quan trọng đối với chúng tôi. OwnJournal được điều hành bởi {{companyName}}, một công ty đăng ký tại {{companyCountry}}. Chính sách bảo mật này giải thích cách OwnJournal thu thập, sử dụng và bảo vệ thông tin của bạn. Chúng tôi đã thiết kế OwnJournal với quyền riêng tư là nguyên tắc cốt lõi."
@@ -2232,7 +2237,7 @@
       },
       "collection": {
         "title": "Thông tin chúng tôi thu thập",
-        "content": "Thông tin cá nhân chúng tôi thu thập là tối thiểu. Liên quan đến tài khoản của bạn, chúng tôi thu thập: địa chỉ email của bạn, tên hiển thị của bạn (nếu được cung cấp bởi nhà cung cấp xác thực bên ngoài như Google hoặc Apple) và — sau khi bạn kết nối lưu trữ đám mây — bản ghi về nhà cung cấp bạn đã chọn. Để vận hành dịch vụ nhật ký, chúng tôi lưu giữ một lượng nhỏ trạng thái trên máy chủ của chúng tôi — liệu thiết lập mã hóa của bạn đã hoàn tất hay chưa, trạng thái đăng ký của bạn và các định danh mà nhà xử lý thanh toán của chúng tôi (Stripe) cần để quản lý đăng ký của bạn. Để giám sát việc sử dụng công bằng các tính năng AI tùy chọn, chúng tôi ghi lại các bộ đếm sử dụng theo người dùng (loại phân tích được thực hiện và dấu thời gian; không bao giờ là nội dung của các mục nhập của bạn). Hệ thống xác thực phía sau của chúng tôi cũng lưu giữ siêu dữ liệu phiên tiêu chuẩn như dấu thời gian đăng nhập. Tên hiển thị chỉ được sử dụng để cá nhân hóa trải nghiệm của bạn trong ứng dụng và không bao giờ được công khai. Để hiển thị giá đăng ký bằng đồng tiền địa phương của bạn, chúng tôi có thể tra cứu nhanh quốc gia liên kết với địa chỉ IP của bạn; chỉ mã quốc gia kết quả được sử dụng, không được liên kết với tài khoản của bạn, và chúng tôi không lưu trữ địa chỉ IP của bạn. Chúng tôi không sử dụng dịch vụ phân tích bên thứ ba, SDK quảng cáo hoặc trình theo dõi giữa các ứng dụng. Khi bạn sử dụng mã hóa đầu cuối (E2E), nội dung nhật ký của bạn được mã hóa trên thiết bị của bạn và chúng tôi không thể đọc được. Trong chế độ Simple, dữ liệu nhật ký của bạn được đồng bộ hóa với nhà cung cấp đám mây bạn chọn mà không có mã hóa đầu cuối. Chế độ Simple được thiết kế để thuận tiện và có thể giảm quyền riêng tư so với chế độ E2E; dữ liệu của bạn vẫn được bảo vệ bởi các biện pháp bảo mật tiêu chuẩn của nhà cung cấp đám mây của bạn."
+        "content": "Thông tin cá nhân chúng tôi thu thập là tối thiểu. Liên quan đến tài khoản của bạn, chúng tôi thu thập: địa chỉ email của bạn, tên hiển thị của bạn (nếu được cung cấp bởi nhà cung cấp xác thực bên ngoài như Google hoặc Apple) và — sau khi bạn kết nối lưu trữ đám mây — bản ghi về nhà cung cấp bạn đã chọn. Để vận hành dịch vụ nhật ký, chúng tôi lưu giữ một lượng nhỏ trạng thái trên máy chủ của chúng tôi — liệu thiết lập mã hóa của bạn đã hoàn tất hay chưa, trạng thái đăng ký của bạn và các định danh mà nhà xử lý thanh toán của chúng tôi (Stripe) cần để quản lý đăng ký của bạn. Để giám sát việc sử dụng công bằng các tính năng AI tùy chọn, chúng tôi ghi lại các bộ đếm sử dụng theo người dùng (loại phân tích được thực hiện và dấu thời gian; không bao giờ là nội dung của các mục nhập của bạn). Với tính năng nhập bằng giọng nói, bộ đếm cũng ghi lại độ dài tính bằng giây của từng bản ghi âm đã chuyển thành văn bản; bản thân bản ghi âm không bao giờ được lưu. Hệ thống xác thực phía sau của chúng tôi cũng lưu giữ siêu dữ liệu phiên tiêu chuẩn như dấu thời gian đăng nhập. Tên hiển thị chỉ được sử dụng để cá nhân hóa trải nghiệm của bạn trong ứng dụng và không bao giờ được công khai. Để hiển thị giá đăng ký bằng đồng tiền địa phương của bạn, chúng tôi có thể tra cứu nhanh quốc gia liên kết với địa chỉ IP của bạn; chỉ mã quốc gia kết quả được sử dụng, không được liên kết với tài khoản của bạn, và chúng tôi không lưu trữ địa chỉ IP của bạn. Chúng tôi không sử dụng dịch vụ phân tích bên thứ ba, SDK quảng cáo hoặc trình theo dõi giữa các ứng dụng. Khi bạn sử dụng mã hóa đầu cuối (E2E), nội dung nhật ký của bạn được mã hóa trên thiết bị của bạn và chúng tôi không thể đọc được. Trong chế độ Simple, dữ liệu nhật ký của bạn được đồng bộ hóa với nhà cung cấp đám mây bạn chọn mà không có mã hóa đầu cuối. Chế độ Simple được thiết kế để thuận tiện và có thể giảm quyền riêng tư so với chế độ E2E; dữ liệu của bạn vẫn được bảo vệ bởi các biện pháp bảo mật tiêu chuẩn của nhà cung cấp đám mây của bạn."
       },
       "usage": {
         "title": "Cách chúng tôi sử dụng thông tin",
@@ -2252,7 +2257,7 @@
       },
       "thirdParty": {
         "title": "Dịch vụ bên thứ ba",
-        "content": "Chúng tôi tích hợp với các dịch vụ bên thứ ba sau đây, mỗi dịch vụ hoạt động theo các điều khoản và thực tiễn quyền riêng tư riêng: các nhà cung cấp lưu trữ đám mây (Google Drive, Dropbox, Nextcloud, iCloud Drive) để đồng bộ hóa với tài khoản của riêng bạn; các dịch vụ xác thực (Google, Apple) và hệ thống xác thực phía sau của chúng tôi để đăng nhập an toàn; các nhà cung cấp thanh toán (Stripe cho web, Apple In-App Purchase trên iOS, Google Play Billing trên Android) để xử lý đăng ký; và các nhà cung cấp dịch vụ AI (Google Gemini, OpenAI) khi bạn chọn sử dụng các tính năng AI tùy chọn."
+        "content": "Chúng tôi tích hợp với các dịch vụ bên thứ ba sau đây, mỗi dịch vụ hoạt động theo các điều khoản và thực tiễn quyền riêng tư riêng: các nhà cung cấp lưu trữ đám mây (Google Drive, Dropbox, Nextcloud, iCloud Drive) để đồng bộ hóa với tài khoản của riêng bạn; các dịch vụ xác thực (Google, Apple) và hệ thống xác thực phía sau của chúng tôi để đăng nhập an toàn; các nhà cung cấp thanh toán (Stripe cho web, Apple In-App Purchase trên iOS, Google Play Billing trên Android) để xử lý đăng ký; và nhà cung cấp dịch vụ AI (Google Gemini) khi bạn chọn sử dụng các tính năng AI tùy chọn."
       },
       "syncIdentifier": {
         "title": "Đồng bộ và mã nhận dạng thiết bị",
@@ -2260,7 +2265,7 @@
       },
       "aiProcessing": {
         "title": "Tính năng AI và xử lý",
-        "content": "OwnJournal cung cấp các tính năng AI tùy chọn như phân tích tâm trạng và gợi ý, chỉ dành riêng cho người đăng ký Plus. Quá trình xử lý AI chỉ xảy ra khi bạn, với tư cách là người đăng ký Plus, sử dụng rõ ràng các tính năng này. Khi bạn sử dụng các tính năng AI, văn bản liên quan được giải mã trước trên thiết bị của bạn, sau đó được gửi đến dịch vụ AI thông qua hành động rõ ràng của bạn; nội dung nhật ký của bạn được gửi đến nhà cung cấp AI của chúng tôi — hiện tại là Google (Gemini), với OpenAI là phương án thay thế — thông qua các API trả phí của họ. Chúng tôi không lưu trữ đầu vào hoặc đầu ra AI trên máy chủ của chúng tôi; chúng tôi chỉ ghi lại các bộ đếm theo người dùng về việc sử dụng tính năng AI (loại phân tích được thực hiện và dấu thời gian, không bao giờ là nội dung) để thực thi giới hạn sử dụng công bằng. Các nhà cung cấp này có thể giữ lại lời nhắc và đầu ra trong một khoảng thời gian giới hạn để giám sát lạm dụng và thực thi chính sách, theo các chính sách hiện hành của họ. Việc xử lý AI có thể diễn ra bên ngoài EEA; cả Google và OpenAI đều duy trì các biện pháp bảo vệ chuyển dữ liệu phù hợp như Điều khoản Hợp đồng Tiêu chuẩn. Chúng tôi sử dụng các bậc trả phí của các nhà cung cấp AI này, theo đó lời nhắc và đầu ra không được sử dụng để đào tạo hoặc cải thiện các mô hình của nhà cung cấp. Bạn có thể chọn không sử dụng các tính năng AI, và việc làm vậy không ảnh hưởng đến chức năng nhật ký cốt lõi."
+        "content": "OwnJournal cung cấp các tính năng tùy chọn dựa trên AI như phân tích tâm trạng, gợi ý và nhập bằng giọng nói, chỉ dành riêng cho người đăng ký Plus. Việc xử lý bằng AI chỉ diễn ra khi bạn, với tư cách là người đăng ký Plus, chủ động sử dụng các tính năng này. Khi bạn dùng các tính năng AI dựa trên văn bản, văn bản liên quan được giải mã trên thiết bị của bạn trước, sau đó được gửi theo thao tác chủ động của bạn tới nhà cung cấp AI của chúng tôi, hiện là Google (Gemini), qua API trả phí của họ. Khi bạn dùng tính năng nhập bằng giọng nói, micrô của thiết bị chỉ được dùng trong lúc bạn ghi âm; bản ghi âm được gửi tới Google (Gemini) để chuyển thành văn bản, và văn bản thu được được thêm vào bài viết của bạn trên thiết bị của bạn. Chúng tôi không lưu dữ liệu đầu vào hoặc đầu ra của AI, bao gồm bản ghi âm giọng nói và bản chép lời, trên máy chủ của mình; chúng tôi chỉ ghi lại bộ đếm sử dụng tính năng AI theo từng người dùng (loại phân tích đã thực hiện, dấu thời gian và, với tính năng nhập bằng giọng nói, độ dài bản ghi âm tính bằng giây; không bao giờ ghi nội dung) để áp dụng giới hạn sử dụng hợp lý. Google có thể lưu giữ lời nhắc và kết quả trong một khoảng thời gian giới hạn để giám sát lạm dụng và thực thi chính sách, theo chính sách hiện hành của họ. Việc xử lý bằng AI có thể diễn ra bên ngoài EEA; Google duy trì các biện pháp bảo vệ phù hợp khi chuyển dữ liệu, chẳng hạn như Điều khoản Hợp đồng Tiêu chuẩn. Chúng tôi sử dụng gói trả phí của dịch vụ AI của Google, theo đó lời nhắc và kết quả không được dùng để huấn luyện hay cải thiện mô hình của họ. Bạn có thể chọn không dùng các tính năng AI, và điều đó không ảnh hưởng đến các chức năng nhật ký cốt lõi."
       },
       "diagnostics": {
         "title": "Chẩn đoán và nhật ký lỗi",
@@ -2304,7 +2309,7 @@
       },
       "internationalTransfers": {
         "title": "Chuyển Dữ liệu Quốc tế",
-        "content": "Một số nhà cung cấp dịch vụ của chúng tôi xử lý dữ liệu bên ngoài Khu vực Kinh tế Châu Âu (EEA). Hệ thống xác thực và cơ sở dữ liệu phía sau của chúng tôi, các nhà cung cấp thanh toán (Stripe, Apple, Google), các nhà cung cấp AI (Google, OpenAI) và nhà cung cấp lưu trữ đám mây bạn đã chọn có thể chuyển hoặc xử lý dữ liệu ở các quốc gia chưa nhận được quyết định đầy đủ từ Ủy ban Châu Âu. Trong những trường hợp đó, chúng tôi và các nhà cung cấp dựa vào các biện pháp bảo vệ phù hợp theo Điều 46 GDPR, chẳng hạn như Điều khoản Hợp đồng Tiêu chuẩn (SCC) của Ủy ban Châu Âu cùng với các biện pháp kỹ thuật và tổ chức bổ sung. Bạn có thể yêu cầu thêm thông tin về các biện pháp bảo vệ đang được áp dụng bằng cách liên hệ với chúng tôi."
+        "content": "Một số nhà cung cấp dịch vụ của chúng tôi xử lý dữ liệu bên ngoài Khu vực Kinh tế Châu Âu (EEA). Hệ thống xác thực và cơ sở dữ liệu phía sau của chúng tôi, các nhà cung cấp thanh toán (Stripe, Apple, Google), nhà cung cấp AI (Google) và nhà cung cấp lưu trữ đám mây bạn đã chọn có thể chuyển hoặc xử lý dữ liệu ở các quốc gia chưa được Ủy ban Châu Âu ra quyết định công nhận mức độ bảo vệ đầy đủ. Trong những trường hợp đó, chúng tôi và các nhà cung cấp dựa vào các biện pháp bảo vệ phù hợp theo Điều 46 GDPR, chẳng hạn như Điều khoản Hợp đồng Tiêu chuẩn (SCC) của Ủy ban Châu Âu cùng với các biện pháp kỹ thuật và tổ chức bổ sung. Bạn có thể yêu cầu thêm thông tin về các biện pháp bảo vệ đang được áp dụng bằng cách liên hệ với chúng tôi."
       },
       "californiaRights": {
         "title": "Quyền Riêng tư của Tiểu bang Hoa Kỳ",
@@ -2482,5 +2487,35 @@
     "system": "Hệ thống",
     "paperHint": "Giấy là nền trắng phẳng, không chuyển màu — dễ đọc nhất trên màn hình e-ink.",
     "switchTo": "Chuyển sang chủ đề {{theme}}"
+  },
+  "voice": {
+    "title": "Nhập bằng giọng nói",
+    "dictate": "Đọc chính tả",
+    "stop": "Dừng",
+    "cancel": "Hủy ghi âm",
+    "transcribing": "Đang chuyển thành văn bản…",
+    "retry": "Thử lại",
+    "discard": "Bỏ bản ghi âm",
+    "stopsIn": "Dừng sau {{seconds}} giây",
+    "minutesLeft": "Còn {{minutes}} phút trong tháng này",
+    "plusFeature": "Nhập bằng giọng nói có trong gói Plus",
+    "consentTitle": "Chuyển giọng nói của bạn thành văn bản bằng Google?",
+    "consentBody": "Bản ghi âm của bạn được gửi tới dịch vụ Gemini của Google để chuyển thành văn bản. OwnJournal không bao giờ lưu âm thanh, Google cũng không dùng âm thanh này để huấn luyện mô hình của họ. Văn bản được lưu như các nội dung khác trong bài viết của bạn.",
+    "consentAccept": "Tiếp tục",
+    "consentDecline": "Để sau",
+    "teaserBody": "Nói thay vì gõ. Lời bạn nói trở thành văn bản gọn gàng, có dấu câu, bằng chính ngôn ngữ bạn nói — tối đa 200 phút mỗi tháng.",
+    "errors": {
+      "notSupported": "Thiết bị này không hỗ trợ ghi âm.",
+      "permissionDenied": "Quyền truy cập micrô đang bị chặn. Hãy cho phép trong cài đặt thiết bị hoặc trình duyệt để đọc chính tả.",
+      "noMicrophone": "Không tìm thấy micrô.",
+      "offline": "Bạn đang ngoại tuyến. Nhập bằng giọng nói cần kết nối internet.",
+      "authRequired": "Vui lòng đăng nhập để dùng tính năng nhập bằng giọng nói.",
+      "plusRequired": "Nhập bằng giọng nói yêu cầu gói đăng ký Plus.",
+      "limitReached": "Bạn đã dùng hết {{minutes}} phút nhập bằng giọng nói của tháng này. Giới hạn sẽ được đặt lại vào tháng sau.",
+      "tooLarge": "Bản ghi âm quá lớn. Hãy thử bản ngắn hơn.",
+      "unsupportedFormat": "Định dạng ghi âm này không được hỗ trợ.",
+      "noSpeech": "Không phát hiện giọng nói trong bản ghi âm.",
+      "failed": "Không thể chuyển giọng nói thành văn bản. Vui lòng thử lại."
+    }
   }
 }

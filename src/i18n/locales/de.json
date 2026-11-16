@@ -1570,8 +1570,8 @@
       "titleSuggestions": "KI-Titelvorschläge",
       "tagSuggestions": "Intelligente Tag-Vorschläge",
       "trendAnalysis": "Stimmungs- und Trend-Einblicke",
-      "pdfExport": "PDF-Export",
-      "wordExport": "Word-Dokument-Export",
+      "voiceEntry": "Spracheingabe",
+      "exports": "PDF- & Word-Export",
       "imageUpload": "Foto-Erinnerungen"
     },
     "trialCta": "Kostenlos testen",
@@ -1980,6 +1980,11 @@
         "desc": "Erhalten Sie intelligente Titelvorschläge basierend auf Ihrem Eintragsinhalt. Mehrere Optionen zur Auswahl.",
         "proNote": "(Plus-Funktion)"
       },
+      "voiceEntry": {
+        "title": "Spracheingabe",
+        "desc": "Tippen Sie auf das Mikrofon unter dem Editor und sprechen Sie, statt zu schreiben. Sobald Sie die Aufnahme beenden, werden Ihre Worte in sauberen Text mit Satzzeichen umgewandelt und an der Cursorposition eingefügt. Das funktioniert in der Sprache, die Sie sprechen – auch wenn Sie mitten im Satz die Sprache wechseln. Jede Aufnahme kann bis zu 5 Minuten lang sein, und Plus enthält 200 Minuten pro Monat.",
+        "proNote": "(Plus-Funktion)"
+      },
       "aiAnalysis": {
         "title": "KI-Analyse",
         "desc": "Erhalten Sie Einblicke in Ihre Tagebucheinträge, einschließlich Stimmungsanalyse, Themenerkennung und personalisierter Vorschläge.",
@@ -2122,7 +2127,7 @@
       },
       "pro": {
         "question": "Was beinhaltet Plus?",
-        "answer": "Plus beinhaltet KI-gestützte Analyse, Stimmungseinblicke, Tag-Vorschläge, Aktivitäts-Einblicke und erweiterte Trendvisualisierung."
+        "answer": "Plus beinhaltet KI-Analyse, Titelvorschläge, Tag-Vorschläge, Spracheingabe, Trendanalyse, Aktivitäts-Einblicke sowie PDF- und Word-Export."
       },
       "manageSubscription": {
         "question": "Wie verwalte ich mein Abonnement?",
@@ -2218,7 +2223,7 @@
     },
     "privacy": {
       "title": "Datenschutzrichtlinie",
-      "lastUpdatedDate": "April 2026",
+      "lastUpdatedDate": "November 2026",
       "intro": {
         "title": "Einführung",
         "content": "Ihre Privatsphäre ist uns wichtig. OwnJournal wird von {{companyName}} betrieben, einem in {{companyCountry}} eingetragenen Unternehmen. Diese Datenschutzerklärung erläutert, wie OwnJournal Ihre Informationen erhebt, verwendet und schützt. Wir haben OwnJournal mit Datenschutz als Kernprinzip entwickelt."
@@ -2229,7 +2234,7 @@
       },
       "collection": {
         "title": "Informationen, die wir sammeln",
-        "content": "Die personenbezogenen Daten, die wir erheben, sind minimal. Im Zusammenhang mit Ihrem Konto erheben wir: Ihre E-Mail-Adresse, Ihren Anzeigenamen (sofern dieser von einem externen Anmeldedienst wie Google oder Apple bereitgestellt wird) und – sobald Sie einen Cloud-Speicher verbinden – einen Eintrag, welchen Anbieter Sie gewählt haben. Zum Betrieb des Tagebuchdienstes speichern wir auf unseren Servern eine geringe Menge an Zustandsinformationen – ob Ihre Verschlüsselungseinrichtung abgeschlossen ist, Ihren Abonnementstatus sowie die Kennungen, die unser Zahlungsdienstleister (Stripe) zur Verwaltung Ihres Abonnements benötigt. Zur Überwachung der fairen Nutzung optionaler KI-Funktionen erfassen wir nutzerbezogene Nutzungszähler (die Art der durchgeführten Analyse und einen Zeitstempel; niemals den Inhalt Ihrer Einträge). Unser Authentifizierungs-Backend speichert außerdem standardmäßige Sitzungsmetadaten wie Anmelde-Zeitstempel. Anzeigenamen werden ausschließlich zur Personalisierung Ihrer Erfahrung in der App verwendet und niemals öffentlich gemacht. Um Abonnementpreise in Ihrer lokalen Währung anzuzeigen, kann das mit Ihrer IP-Adresse verknüpfte Land kurzzeitig ermittelt werden; nur der ermittelte Ländercode wird verwendet, er wird nicht mit Ihrem Konto verknüpft, und Ihre IP-Adresse wird nicht gespeichert. Wir verwenden keine Analyse-Dienste Dritter, Werbe-SDKs oder app-übergreifende Tracker. Wenn Sie die Ende-zu-Ende-Verschlüsselung (E2E) verwenden, werden Ihre Tagebuchinhalte auf Ihrem Gerät verschlüsselt und sind für uns unlesbar. Im Simple-Modus werden Ihre Tagebuchdaten ohne Ende-zu-Ende-Verschlüsselung mit Ihrem gewählten Cloud-Anbieter synchronisiert. Der Simple-Modus dient der Bequemlichkeit und kann den Datenschutz im Vergleich zum E2E-Modus verringern; Ihre Daten bleiben durch die Standard-Sicherheitsmaßnahmen Ihres Cloud-Anbieters geschützt."
+        "content": "Die personenbezogenen Daten, die wir erheben, sind minimal. Im Zusammenhang mit Ihrem Konto erheben wir: Ihre E-Mail-Adresse, Ihren Anzeigenamen (sofern dieser von einem externen Anmeldedienst wie Google oder Apple bereitgestellt wird) und – sobald Sie einen Cloud-Speicher verbinden – einen Eintrag, welchen Anbieter Sie gewählt haben. Zum Betrieb des Tagebuchdienstes speichern wir auf unseren Servern eine geringe Menge an Zustandsinformationen – ob Ihre Verschlüsselungseinrichtung abgeschlossen ist, Ihren Abonnementstatus sowie die Kennungen, die unser Zahlungsdienstleister (Stripe) zur Verwaltung Ihres Abonnements benötigt. Zur Überwachung der fairen Nutzung optionaler KI-Funktionen erfassen wir nutzerbezogene Nutzungszähler (die Art der durchgeführten Analyse und einen Zeitstempel; niemals den Inhalt Ihrer Einträge). Bei der Spracheingabe erfasst der Zähler zusätzlich die Länge jeder transkribierten Aufnahme in Sekunden; die Aufnahme selbst wird nie gespeichert. Unser Authentifizierungs-Backend speichert außerdem standardmäßige Sitzungsmetadaten wie Anmelde-Zeitstempel. Anzeigenamen werden ausschließlich zur Personalisierung Ihrer Erfahrung in der App verwendet und niemals öffentlich gemacht. Um Abonnementpreise in Ihrer lokalen Währung anzuzeigen, kann das mit Ihrer IP-Adresse verknüpfte Land kurzzeitig ermittelt werden; nur der ermittelte Ländercode wird verwendet, er wird nicht mit Ihrem Konto verknüpft, und Ihre IP-Adresse wird nicht gespeichert. Wir verwenden keine Analyse-Dienste Dritter, Werbe-SDKs oder app-übergreifende Tracker. Wenn Sie die Ende-zu-Ende-Verschlüsselung (E2E) verwenden, werden Ihre Tagebuchinhalte auf Ihrem Gerät verschlüsselt und sind für uns unlesbar. Im Simple-Modus werden Ihre Tagebuchdaten ohne Ende-zu-Ende-Verschlüsselung mit Ihrem gewählten Cloud-Anbieter synchronisiert. Der Simple-Modus dient der Bequemlichkeit und kann den Datenschutz im Vergleich zum E2E-Modus verringern; Ihre Daten bleiben durch die Standard-Sicherheitsmaßnahmen Ihres Cloud-Anbieters geschützt."
       },
       "usage": {
         "title": "Wie wir Informationen verwenden",
@@ -2249,7 +2254,7 @@
       },
       "thirdParty": {
         "title": "Drittanbieter-Dienste",
-        "content": "Wir integrieren die folgenden Drittanbieter-Dienste, die jeweils unter ihren eigenen Bedingungen und Datenschutzpraktiken arbeiten: Cloud-Speicheranbieter (Google Drive, Dropbox, Nextcloud, iCloud Drive) für die Synchronisierung mit Ihrem eigenen Konto; Authentifizierungsdienste (Google, Apple) und unser Authentifizierungs-Backend für die sichere Anmeldung; Zahlungsanbieter (Stripe im Web, Apple In-App Purchase unter iOS, Google Play Billing unter Android) für die Abwicklung von Abonnements; sowie KI-Dienstanbieter (Google Gemini, OpenAI), wenn Sie optionale KI-Funktionen nutzen."
+        "content": "Wir integrieren die folgenden Drittanbieter-Dienste, die jeweils unter ihren eigenen Bedingungen und Datenschutzpraktiken arbeiten: Cloud-Speicheranbieter (Google Drive, Dropbox, Nextcloud, iCloud Drive) für die Synchronisierung mit Ihrem eigenen Konto; Authentifizierungsdienste (Google, Apple) und unser Authentifizierungs-Backend für die sichere Anmeldung; Zahlungsanbieter (Stripe im Web, Apple In-App Purchase unter iOS, Google Play Billing unter Android) für die Abwicklung von Abonnements; sowie KI-Dienstanbieter (Google Gemini), wenn Sie optionale KI-Funktionen nutzen."
       },
       "syncIdentifier": {
         "title": "Sync- und Gerätekennung",
@@ -2257,7 +2262,7 @@
       },
       "aiProcessing": {
         "title": "KI-Funktionen und Verarbeitung",
-        "content": "OwnJournal bietet optionale KI-gestützte Funktionen wie Stimmungsanalysen und Vorschläge an, die ausschließlich Plus-Abonnenten zur Verfügung stehen. Eine KI-Verarbeitung erfolgt nur, wenn Sie als Plus-Abonnent diese Funktionen ausdrücklich nutzen. Wenn Sie KI-Funktionen verwenden, wird der relevante Text zunächst auf Ihrem Gerät entschlüsselt und dann durch Ihre ausdrückliche Aktion an den KI-Dienst gesendet; Ihre Tagebuchinhalte werden über die kostenpflichtigen APIs unseres KI-Anbieters gesendet – derzeit Google (Gemini), mit OpenAI als Alternative. Wir speichern KI-Eingaben oder -Ausgaben nicht auf unseren Servern; wir erfassen lediglich nutzerbezogene Zähler der KI-Funktionsnutzung (die Art der durchgeführten Analyse und einen Zeitstempel, niemals den Inhalt) zur Durchsetzung von Fair-Use-Limits. Diese Anbieter können Eingabeaufforderungen und Ausgaben gemäß ihren aktuellen Richtlinien für einen begrenzten Zeitraum zur Missbrauchsüberwachung und Durchsetzung von Richtlinien aufbewahren. Die KI-Verarbeitung kann außerhalb des EWR erfolgen; sowohl Google als auch OpenAI verfügen über angemessene Schutzmaßnahmen für die Datenübermittlung wie die Standardvertragsklauseln. Wir verwenden die kostenpflichtigen Stufen dieser KI-Anbieter, bei denen Eingabeaufforderungen und Ausgaben nicht zum Trainieren oder Verbessern der Anbietermodelle verwendet werden. Sie können sich gegen die Nutzung der KI-Funktionen entscheiden, ohne dass dies die zentrale Tagebuchfunktionalität beeinträchtigt."
+        "content": "OwnJournal bietet optionale KI-gestützte Funktionen wie Stimmungsanalyse, Vorschläge und Spracheingabe, die ausschließlich Plus-Abonnenten zur Verfügung stehen. Eine KI-Verarbeitung findet nur statt, wenn Sie als Plus-Abonnent diese Funktionen ausdrücklich nutzen. Wenn Sie textbasierte KI-Funktionen nutzen, wird der betreffende Text zunächst auf Ihrem Gerät entschlüsselt und dann durch Ihre ausdrückliche Aktion an unseren KI-Anbieter, derzeit Google (Gemini), über dessen kostenpflichtige API gesendet. Wenn Sie die Spracheingabe nutzen, wird das Mikrofon Ihres Geräts nur während der Aufnahme verwendet; die Aufnahme wird zur Umwandlung in Text an Google (Gemini) gesendet, und der daraus entstandene Text wird auf Ihrem Gerät in Ihren Eintrag eingefügt. Wir speichern keine KI-Eingaben oder -Ausgaben, einschließlich Sprachaufnahmen und Transkripte, auf unseren Servern; wir erfassen lediglich nutzerbezogene Zähler der KI-Nutzung (die Art der durchgeführten Analyse, einen Zeitstempel und bei der Spracheingabe die Länge der Aufnahme in Sekunden; niemals den Inhalt) zur Durchsetzung von Fair-Use-Limits. Google kann Prompts und Ausgaben gemäß seinen aktuellen Richtlinien für einen begrenzten Zeitraum zur Missbrauchsüberwachung und Durchsetzung von Richtlinien aufbewahren. Die KI-Verarbeitung kann außerhalb des EWR erfolgen; Google sichert Datenübermittlungen durch geeignete Garantien wie Standardvertragsklauseln ab. Wir nutzen den kostenpflichtigen Tarif des KI-Dienstes von Google, in dem Prompts und Ausgaben nicht zum Trainieren oder Verbessern seiner Modelle verwendet werden. Sie können sich gegen die Nutzung von KI-Funktionen entscheiden; dies beeinträchtigt die grundlegenden Tagebuchfunktionen nicht."
       },
       "diagnostics": {
         "title": "Diagnose und Absturzprotokolle",
@@ -2301,7 +2306,7 @@
       },
       "internationalTransfers": {
         "title": "Internationale Datenübermittlungen",
-        "content": "Einige unserer Dienstanbieter verarbeiten Daten außerhalb des Europäischen Wirtschaftsraums (EWR). Unser Authentifizierungs- und Datenbank-Backend, Zahlungsanbieter (Stripe, Apple, Google), KI-Anbieter (Google, OpenAI) und Ihr gewählter Cloud-Speicheranbieter können Daten in Länder übermitteln oder dort verarbeiten, für die kein Angemessenheitsbeschluss der Europäischen Kommission vorliegt. In solchen Fällen stützen wir uns gemeinsam mit den Anbietern auf geeignete Garantien gemäß Artikel 46 DSGVO, wie die Standardvertragsklauseln (SCC) der Europäischen Kommission in Verbindung mit ergänzenden technischen und organisatorischen Maßnahmen. Sie können weitere Informationen zu den getroffenen Schutzmaßnahmen anfordern, indem Sie uns kontaktieren."
+        "content": "Einige unserer Dienstanbieter verarbeiten Daten außerhalb des Europäischen Wirtschaftsraums (EWR). Unser Authentifizierungs- und Datenbank-Backend, Zahlungsanbieter (Stripe, Apple, Google), KI-Anbieter (Google) und Ihr gewählter Cloud-Speicheranbieter können Daten in Länder übermitteln oder dort verarbeiten, für die kein Angemessenheitsbeschluss der Europäischen Kommission vorliegt. In solchen Fällen stützen wir uns gemeinsam mit den Anbietern auf geeignete Garantien gemäß Artikel 46 DSGVO, wie die Standardvertragsklauseln (SCC) der Europäischen Kommission in Verbindung mit ergänzenden technischen und organisatorischen Maßnahmen. Sie können weitere Informationen zu den getroffenen Schutzmaßnahmen anfordern, indem Sie uns kontaktieren."
       },
       "californiaRights": {
         "title": "Datenschutzrechte für US-Bundesstaaten",
@@ -2479,5 +2484,35 @@
     "system": "System",
     "paperHint": "Papier ist reinweiß ohne Farbverläufe – am besten lesbar auf E-Ink-Displays.",
     "switchTo": "Zum Design „{{theme}}“ wechseln"
+  },
+  "voice": {
+    "title": "Spracheingabe",
+    "dictate": "Diktieren",
+    "stop": "Stopp",
+    "cancel": "Aufnahme abbrechen",
+    "transcribing": "Wird transkribiert…",
+    "retry": "Transkription wiederholen",
+    "discard": "Aufnahme verwerfen",
+    "stopsIn": "Stoppt in {{seconds}} s",
+    "minutesLeft": "Noch {{minutes}} Min. diesen Monat",
+    "plusFeature": "Spracheingabe ist in Plus enthalten",
+    "consentTitle": "Ihre Sprachaufnahme mit Google transkribieren?",
+    "consentBody": "Ihre Aufnahme wird an den Gemini-Dienst von Google gesendet und in Text umgewandelt. OwnJournal speichert die Audiodaten nie, und Google verwendet sie nicht zum Trainieren seiner Modelle. Der Text wird wie der Rest Ihres Eintrags gespeichert.",
+    "consentAccept": "Weiter",
+    "consentDecline": "Nicht jetzt",
+    "teaserBody": "Sprechen statt tippen: Ihre Worte werden zu sauberem Text mit Satzzeichen – in der Sprache, die Sie sprechen. Bis zu 200 Minuten pro Monat.",
+    "errors": {
+      "notSupported": "Sprachaufnahmen werden auf diesem Gerät nicht unterstützt.",
+      "permissionDenied": "Der Mikrofonzugriff ist blockiert. Erlauben Sie ihn in den Geräte- oder Browsereinstellungen, um zu diktieren.",
+      "noMicrophone": "Kein Mikrofon gefunden.",
+      "offline": "Sie sind offline. Die Spracheingabe benötigt eine Internetverbindung.",
+      "authRequired": "Bitte melden Sie sich an, um die Spracheingabe zu nutzen.",
+      "plusRequired": "Die Spracheingabe erfordert ein Plus-Abonnement.",
+      "limitReached": "Sie haben alle {{minutes}} Minuten Spracheingabe für diesen Monat verbraucht. Das Limit wird nächsten Monat zurückgesetzt.",
+      "tooLarge": "Diese Aufnahme ist zu groß. Versuchen Sie es mit einer kürzeren.",
+      "unsupportedFormat": "Dieses Aufnahmeformat wird nicht unterstützt.",
+      "noSpeech": "In der Aufnahme wurde nichts Gesprochenes erkannt.",
+      "failed": "Die Transkription ist fehlgeschlagen. Bitte versuchen Sie es erneut."
+    }
   }
 }

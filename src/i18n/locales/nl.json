@@ -1570,8 +1570,8 @@
       "titleSuggestions": "AI-titelsuggesties",
       "tagSuggestions": "Slimme tagsuggesties",
       "trendAnalysis": "Stemmings- en trendinzichten",
-      "pdfExport": "PDF-export",
-      "wordExport": "Word-documentexport",
+      "voiceEntry": "Spraakinvoer",
+      "exports": "PDF- en Word-export",
       "imageUpload": "Foto-herinneringen"
     },
     "trialCta": "Gratis proefperiode starten",
@@ -1980,6 +1980,11 @@
         "desc": "Krijg intelligente titelsuggesties gebaseerd op uw iteminhoud. Meerdere opties om uit te kiezen.",
         "proNote": "(Plus-functie)"
       },
+      "voiceEntry": {
+        "title": "Spraakinvoer",
+        "desc": "Tik op de microfoon onder de editor en spreek in plaats van te typen. Zodra u stopt, worden uw woorden omgezet in nette tekst met leestekens en ingevoegd op de plek van de cursor. Het werkt in de taal die u spreekt, ook als u midden in een zin van taal wisselt. Elke opname mag maximaal 5 minuten duren en met Plus heeft u 200 minuten per maand.",
+        "proNote": "(Plus-functie)"
+      },
       "aiAnalysis": {
         "title": "AI-analyse",
         "desc": "Krijg inzichten over uw dagboekitems, inclusief stemmingsanalyse, onderwerpdetectie en gepersonaliseerde suggesties.",
@@ -2122,7 +2127,7 @@
       },
       "pro": {
         "question": "Wat bevat Plus?",
-        "answer": "Plus bevat AI-gestuurde analyse, stemmingsinzichten, tagsuggesties, Activiteitsinzichten en geavanceerde trendvisualisatie."
+        "answer": "Plus bevat AI-analyse, titelsuggesties, tagsuggesties, spraakinvoer, trendanalyse, Activiteitsinzichten en export naar PDF en Word."
       },
       "manageSubscription": {
         "question": "Hoe beheer ik mijn abonnement?",
@@ -2218,7 +2223,7 @@
     },
     "privacy": {
       "title": "Privacybeleid",
-      "lastUpdatedDate": "April 2026",
+      "lastUpdatedDate": "November 2026",
       "intro": {
         "title": "Inleiding",
         "content": "Je privacy is belangrijk voor ons. OwnJournal wordt beheerd door {{companyName}}, een onderneming geregistreerd in {{companyCountry}}. Dit privacybeleid legt uit hoe OwnJournal je informatie verzamelt, gebruikt en beschermt. We hebben OwnJournal ontworpen met privacy als kernprincipe."
@@ -2229,7 +2234,7 @@
       },
       "collection": {
         "title": "Informatie die we verzamelen",
-        "content": "De persoonlijke informatie die we verzamelen is minimaal. In verband met je account verzamelen we: je e-mailadres, je weergavenaam (indien deze door een externe authenticatieprovider zoals Google of Apple wordt verstrekt) en — zodra je cloudopslag verbindt — een vermelding van welke provider je hebt gekozen. Om de dagboekdienst te laten draaien, bewaren we een kleine hoeveelheid statusinformatie op onze servers: of je versleutelingsinstelling voltooid is, je abonnementsstatus en de identificatoren die onze betalingsverwerker (Stripe) nodig heeft om je abonnement te beheren. Om eerlijk gebruik van optionele AI-functies te bewaken, registreren we gebruikstellers per gebruiker (het type uitgevoerde analyse en een tijdstempel; nooit de inhoud van je vermeldingen). Onze authenticatiebackend bewaart ook standaard sessie-metagegevens zoals aanmeldtijdstempels. Weergavenamen worden uitsluitend gebruikt om je ervaring in de app te personaliseren en worden nooit openbaar gemaakt. Om abonnementsprijzen in je lokale valuta te tonen, kunnen we kort het land opzoeken dat aan je IP-adres is gekoppeld; alleen de resulterende landcode wordt gebruikt, deze wordt niet aan je account gekoppeld en we slaan je IP-adres niet op. We gebruiken geen analysediensten van derden, advertentie-SDK's of trackers tussen apps. Wanneer je end-to-end-versleuteling (E2E) gebruikt, wordt de inhoud van je dagboek op je apparaat versleuteld en kunnen wij die niet lezen. In de Simple-modus worden je dagboekgegevens zonder end-to-end-versleuteling gesynchroniseerd met je gekozen cloudprovider. De Simple-modus is bedoeld voor gemak en kan de privacy verminderen ten opzichte van de E2E-modus; je gegevens blijven beschermd door de standaardbeveiligingsmaatregelen van je cloudprovider."
+        "content": "De persoonlijke informatie die we verzamelen is minimaal. In verband met je account verzamelen we: je e-mailadres, je weergavenaam (indien deze door een externe authenticatieprovider zoals Google of Apple wordt verstrekt) en — zodra je cloudopslag verbindt — een vermelding van welke provider je hebt gekozen. Om de dagboekdienst te laten draaien, bewaren we een kleine hoeveelheid statusinformatie op onze servers: of je versleutelingsinstelling voltooid is, je abonnementsstatus en de identificatoren die onze betalingsverwerker (Stripe) nodig heeft om je abonnement te beheren. Om eerlijk gebruik van optionele AI-functies te bewaken, registreren we gebruikstellers per gebruiker (het type uitgevoerde analyse en een tijdstempel; nooit de inhoud van je vermeldingen). Bij spraakinvoer registreert de teller ook de lengte van elke getranscribeerde opname in seconden; de opname zelf wordt nooit opgeslagen. Onze authenticatiebackend bewaart ook standaard sessie-metagegevens zoals aanmeldtijdstempels. Weergavenamen worden uitsluitend gebruikt om je ervaring in de app te personaliseren en worden nooit openbaar gemaakt. Om abonnementsprijzen in je lokale valuta te tonen, kunnen we kort het land opzoeken dat aan je IP-adres is gekoppeld; alleen de resulterende landcode wordt gebruikt, deze wordt niet aan je account gekoppeld en we slaan je IP-adres niet op. We gebruiken geen analysediensten van derden, advertentie-SDK's of trackers tussen apps. Wanneer je end-to-end-versleuteling (E2E) gebruikt, wordt de inhoud van je dagboek op je apparaat versleuteld en kunnen wij die niet lezen. In de Simple-modus worden je dagboekgegevens zonder end-to-end-versleuteling gesynchroniseerd met je gekozen cloudprovider. De Simple-modus is bedoeld voor gemak en kan de privacy verminderen ten opzichte van de E2E-modus; je gegevens blijven beschermd door de standaardbeveiligingsmaatregelen van je cloudprovider."
       },
       "usage": {
         "title": "Hoe we informatie gebruiken",
@@ -2249,7 +2254,7 @@
       },
       "thirdParty": {
         "title": "Diensten van derden",
-        "content": "We integreren met de volgende diensten van derden, die elk onder hun eigen voorwaarden en privacypraktijken werken: cloudopslagproviders (Google Drive, Dropbox, Nextcloud, iCloud Drive) voor synchronisatie met je eigen account; authenticatiediensten (Google, Apple) en onze authenticatiebackend voor veilig inloggen; betalingsproviders (Stripe voor het web, Apple In-App Purchase op iOS, Google Play Billing op Android) voor het afhandelen van abonnementen; en AI-dienstverleners (Google Gemini, OpenAI) wanneer je ervoor kiest om optionele AI-functies te gebruiken."
+        "content": "We integreren met de volgende diensten van derden, die elk onder hun eigen voorwaarden en privacypraktijken werken: cloudopslagproviders (Google Drive, Dropbox, Nextcloud, iCloud Drive) voor synchronisatie met je eigen account; authenticatiediensten (Google, Apple) en onze authenticatiebackend voor veilig inloggen; betalingsproviders (Stripe voor het web, Apple In-App Purchase op iOS, Google Play Billing op Android) voor het afhandelen van abonnementen; en een AI-dienstverlener (Google Gemini) wanneer je ervoor kiest om optionele AI-functies te gebruiken."
       },
       "syncIdentifier": {
         "title": "Sync- en apparaat-ID",
@@ -2257,7 +2262,7 @@
       },
       "aiProcessing": {
         "title": "AI-functies en verwerking",
-        "content": "OwnJournal biedt optionele AI-functies zoals stemmingsanalyse en suggesties, die uitsluitend beschikbaar zijn voor Plus-abonnees. AI-verwerking vindt alleen plaats wanneer jij als Plus-abonnee deze functies expliciet gebruikt. Wanneer je AI-functies gebruikt, wordt de relevante tekst eerst op je apparaat ontsleuteld en vervolgens via jouw expliciete actie naar de AI-dienst verzonden; de inhoud van je dagboek wordt naar onze AI-provider gestuurd — momenteel Google (Gemini), met OpenAI als alternatief — via hun betaalde API's. We slaan AI-invoer of -uitvoer niet op onze servers; we registreren alleen gebruikstellers per gebruiker van AI-functies (het type uitgevoerde analyse en een tijdstempel, nooit de inhoud) om eerlijk-gebruik-limieten te handhaven. Deze providers kunnen prompts en uitvoer gedurende een beperkte periode bewaren voor misbruikbewaking en handhaving van het beleid, volgens hun huidige beleid. AI-verwerking kan buiten de EER plaatsvinden; zowel Google als OpenAI hanteren passende waarborgen voor gegevensoverdracht, zoals Modelcontractbepalingen. We gebruiken de betaalde niveaus van deze AI-providers, waaronder prompts en uitvoer niet worden gebruikt om de modellen van de provider te trainen of te verbeteren. Je kunt ervoor kiezen om geen AI-functies te gebruiken, en dat heeft geen invloed op de kernfunctionaliteit van het dagboek."
+        "content": "OwnJournal biedt optionele AI-functies zoals stemmingsanalyse, suggesties en spraakinvoer, die uitsluitend beschikbaar zijn voor Plus-abonnees. AI-verwerking vindt alleen plaats wanneer jij als Plus-abonnee deze functies uitdrukkelijk gebruikt. Wanneer je tekstgebaseerde AI-functies gebruikt, wordt de betreffende tekst eerst op je apparaat ontsleuteld en pas na een uitdrukkelijke handeling van jou via de betaalde API naar onze AI-provider gestuurd, momenteel Google (Gemini). Wanneer je spraakinvoer gebruikt, wordt de microfoon van je apparaat alleen gebruikt tijdens het opnemen; de opname wordt naar Google (Gemini) gestuurd om in tekst te worden omgezet, en de resulterende tekst wordt op je apparaat aan je item toegevoegd. Wij slaan AI-invoer en -uitvoer, waaronder spraakopnamen en transcripties, niet op onze servers op; wij registreren alleen gebruikstellers per gebruiker voor AI-functies (het type uitgevoerde analyse, een tijdstempel en bij spraakinvoer de lengte van de opname in seconden; nooit de inhoud) om limieten voor redelijk gebruik te handhaven. Google kan prompts en uitvoer gedurende een beperkte periode bewaren voor misbruikbewaking en handhaving van beleid, volgens het geldende beleid van Google. AI-verwerking kan buiten de EER plaatsvinden; Google hanteert passende waarborgen voor de doorgifte van gegevens, zoals standaardcontractbepalingen. Wij gebruiken de betaalde versie van de AI-dienst van Google, waarbij prompts en uitvoer niet worden gebruikt om de modellen van Google te trainen of te verbeteren. Je kunt ervoor kiezen geen AI-functies te gebruiken; dit heeft geen invloed op de basisfunctionaliteit van het dagboek."
       },
       "diagnostics": {
         "title": "Diagnostiek en crashlogs",
@@ -2301,7 +2306,7 @@
       },
       "internationalTransfers": {
         "title": "Internationale gegevensoverdrachten",
-        "content": "Sommige van onze dienstverleners verwerken gegevens buiten de Europese Economische Ruimte (EER). Onze authenticatie- en databasebackend, betalingsproviders (Stripe, Apple, Google), AI-providers (Google, OpenAI) en je gekozen cloudopslagprovider kunnen gegevens overdragen of verwerken in landen die geen adequaatheidsbesluit van de Europese Commissie hebben ontvangen. In die gevallen baseren wij en de providers ons op passende waarborgen op grond van artikel 46 AVG, zoals de Modelcontractbepalingen (SCC's) van de Europese Commissie samen met aanvullende technische en organisatorische maatregelen. Je kunt meer informatie over de getroffen waarborgen aanvragen door contact met ons op te nemen."
+        "content": "Sommige van onze dienstverleners verwerken gegevens buiten de Europese Economische Ruimte (EER). Onze authenticatie- en databasebackend, betalingsproviders (Stripe, Apple, Google), AI-provider (Google) en je gekozen cloudopslagprovider kunnen gegevens overdragen of verwerken in landen die geen adequaatheidsbesluit van de Europese Commissie hebben ontvangen. In die gevallen baseren wij en de providers ons op passende waarborgen op grond van artikel 46 AVG, zoals de standaardcontractbepalingen (SCC's) van de Europese Commissie samen met aanvullende technische en organisatorische maatregelen. Je kunt meer informatie over de getroffen waarborgen aanvragen door contact met ons op te nemen."
       },
       "californiaRights": {
         "title": "Privacyrechten van Amerikaanse staten",
@@ -2479,5 +2484,35 @@
     "system": "Systeem",
     "paperHint": "Papier is egaal wit zonder verlopen — het best leesbaar op e-inkschermen.",
     "switchTo": "Overschakelen naar thema {{theme}}"
+  },
+  "voice": {
+    "title": "Spraakinvoer",
+    "dictate": "Dicteren",
+    "stop": "Stoppen",
+    "cancel": "Opname annuleren",
+    "transcribing": "Bezig met transcriberen…",
+    "retry": "Opnieuw transcriberen",
+    "discard": "Opname verwijderen",
+    "stopsIn": "Stopt over {{seconds}} s",
+    "minutesLeft": "Nog {{minutes}} min deze maand",
+    "plusFeature": "Spraakinvoer is beschikbaar met Plus",
+    "consentTitle": "Uw stem laten transcriberen door Google?",
+    "consentBody": "Uw opname wordt naar de Gemini-dienst van Google gestuurd om in tekst te worden omgezet. OwnJournal slaat de audio nooit op en Google gebruikt deze niet om zijn modellen te trainen. De tekst wordt opgeslagen zoals de rest van uw item.",
+    "consentAccept": "Doorgaan",
+    "consentDecline": "Niet nu",
+    "teaserBody": "Spreek in plaats van te typen. Uw woorden worden omgezet in nette tekst met leestekens, in de taal die u spreekt — tot 200 minuten per maand.",
+    "errors": {
+      "notSupported": "Spraakopname wordt niet ondersteund op dit apparaat.",
+      "permissionDenied": "Toegang tot de microfoon is geblokkeerd. Sta deze toe in de instellingen van uw apparaat of browser om te dicteren.",
+      "noMicrophone": "Geen microfoon gevonden.",
+      "offline": "U bent offline. Spraakinvoer heeft een internetverbinding nodig.",
+      "authRequired": "Meld u aan om spraakinvoer te gebruiken.",
+      "plusRequired": "Spraakinvoer vereist een Plus-abonnement.",
+      "limitReached": "U heeft alle {{minutes}} minuten spraakinvoer van deze maand gebruikt. De limiet wordt volgende maand gereset.",
+      "tooLarge": "Deze opname is te groot. Probeer een kortere opname.",
+      "unsupportedFormat": "Dit opnameformaat wordt niet ondersteund.",
+      "noSpeech": "Er is geen spraak gedetecteerd in de opname.",
+      "failed": "Transcriptie mislukt. Probeer het opnieuw."
+    }
   }
 }

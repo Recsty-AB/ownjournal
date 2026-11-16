@@ -28,6 +28,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>OwnJournal uses the camera to scan Nextcloud login QR codes so you can connect your storage without typing long credentials.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>OwnJournal uses the microphone only while you dictate, to turn your speech into text. It never stores your recordings.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>OwnJournal accesses your photo library so you can attach images to journal entries. Photos stay on your device or sync only to your own cloud storage.</string>
 	<key>UILaunchStoryboardName</key>

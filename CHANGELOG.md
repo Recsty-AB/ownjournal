@@ -1,5 +1,23 @@
 # Changelog
 
+## Unreleased
+
+### New Features
+- Voice entry (Plus): tap the microphone under the editor and speak; Gemini turns the recording into clean, punctuated text in the spoken language and inserts it at the cursor. Up to 5 minutes per recording, 200 minutes per month
+- Free users can tap the microphone to see what voice entry unlocks with Plus
+
+### Improvements
+- Plus feature lists (paywall, upgrade banner, Help, FAQ) include voice entry; PDF and Word export are shown as one item
+- Privacy policy describes voice recordings and no longer lists OpenAI as an AI provider
+
+### Developer Notes
+- New `ai-transcribe` edge function (`gemini-3.5-transcribe` via the Interactions API with `store: false`); deploy it with `supabase functions deploy ai-transcribe`
+- Migration `20261116120000_add_transcription_usage.sql` adds `ai_usage_stats.audio_seconds` and a monthly transcription total to `get_ai_usage_summary`
+- `modelConfig.ts` moved to `supabase/functions/_shared/`
+- New native permissions: Android `RECORD_AUDIO`, iOS/macOS `NSMicrophoneUsageDescription`
+
+---
+
 ## v1.0.29 (Oct 16, 2026)
 
 ### Improvements

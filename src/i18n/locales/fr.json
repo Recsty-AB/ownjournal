@@ -1570,8 +1570,8 @@
       "titleSuggestions": "Suggestions de titres IA",
       "tagSuggestions": "Suggestions de tags intelligents",
       "trendAnalysis": "Insights d'humeur et tendances",
-      "pdfExport": "Exportation PDF",
-      "wordExport": "Exportation document Word",
+      "voiceEntry": "Saisie vocale",
+      "exports": "Exportation PDF et Word",
       "imageUpload": "Souvenirs photo"
     },
     "trialCta": "Commencer l'essai gratuit",
@@ -1980,6 +1980,11 @@
         "desc": "Obtenez des suggestions de titres intelligentes basées sur le contenu de votre entrée. Plusieurs options parmi lesquelles choisir.",
         "proNote": "(Fonctionnalité Plus)"
       },
+      "voiceEntry": {
+        "title": "Saisie vocale",
+        "desc": "Appuyez sur le micro sous l'éditeur et parlez au lieu de taper. Quand vous arrêtez l'enregistrement, ce que vous avez dit est transformé en un texte propre et ponctué, inséré à l'emplacement du curseur. Cela fonctionne dans la langue que vous parlez, même si vous changez de langue en cours de phrase. Chaque enregistrement peut durer jusqu'à 5 minutes, et Plus inclut 200 minutes par mois.",
+        "proNote": "(Fonctionnalité Plus)"
+      },
       "aiAnalysis": {
         "title": "Analyse IA",
         "desc": "Obtenez des insights sur vos entrées de journal, y compris l'analyse d'humeur, la détection de sujets et des suggestions personnalisées.",
@@ -2122,7 +2127,7 @@
       },
       "pro": {
         "question": "Que comprend Plus ?",
-        "answer": "Plus comprend l'analyse alimentée par l'IA, les insights d'humeur, les suggestions de tags, les Analyses d'activités et la visualisation avancée des tendances."
+        "answer": "Plus comprend l'analyse par IA, les suggestions de titres et de tags, la saisie vocale, l'analyse des tendances, les Analyses d'activités et l'exportation PDF et Word."
       },
       "manageSubscription": {
         "question": "Comment gérer mon abonnement ?",
@@ -2218,7 +2223,7 @@
     },
     "privacy": {
       "title": "Politique de confidentialité",
-      "lastUpdatedDate": "Avril 2026",
+      "lastUpdatedDate": "novembre 2026",
       "intro": {
         "title": "Introduction",
         "content": "Votre vie privée est importante pour nous. OwnJournal est exploité par {{companyName}}, une société enregistrée en {{companyCountry}}. Cette Politique de confidentialité explique comment OwnJournal collecte, utilise et protège vos informations. Nous avons conçu OwnJournal avec la confidentialité comme principe fondamental."
@@ -2229,7 +2234,7 @@
       },
       "collection": {
         "title": "Informations que nous collectons",
-        "content": "Les informations personnelles que nous collectons sont minimales. Dans le cadre de votre compte, nous collectons : votre adresse e-mail, votre nom d'affichage (s'il est fourni par un service d'authentification externe tel que Google ou Apple) et, une fois que vous connectez un stockage cloud, un enregistrement du fournisseur que vous avez choisi. Pour exploiter le service de journal, nous conservons une petite quantité d'état sur nos serveurs : si votre configuration de chiffrement est terminée, votre statut d'abonnement et les identifiants dont notre prestataire de paiement (Stripe) a besoin pour gérer votre abonnement. Pour surveiller l'utilisation équitable des fonctionnalités d'IA optionnelles, nous enregistrons des compteurs d'utilisation par utilisateur (le type d'analyse effectuée et un horodatage ; jamais le contenu de vos entrées). Notre service d'authentification conserve également des métadonnées de session standard telles que les horodatages de connexion. Les noms d'affichage sont utilisés uniquement pour personnaliser votre expérience dans l'application et ne sont jamais rendus publics. Pour afficher les prix d'abonnement dans votre devise locale, nous pouvons consulter brièvement le pays associé à votre adresse IP ; seul le code pays résultant est utilisé, il n'est pas lié à votre compte et nous ne conservons pas votre adresse IP. Nous n'utilisons pas de services d'analyse tiers, de SDK publicitaires ni de traceurs inter-applications. Lorsque vous utilisez le chiffrement de bout en bout (E2E), le contenu de votre journal est chiffré sur votre appareil et nous ne pouvons pas le lire. En mode Simple, les données de votre journal sont synchronisées avec votre fournisseur cloud choisi sans chiffrement de bout en bout. Le mode Simple est conçu pour le confort et peut réduire la confidentialité par rapport au mode E2E ; vos données restent protégées par les mesures de sécurité standard de votre fournisseur cloud."
+        "content": "Les informations personnelles que nous collectons sont minimales. Dans le cadre de votre compte, nous collectons : votre adresse e-mail, votre nom d'affichage (s'il est fourni par un service d'authentification externe tel que Google ou Apple) et, une fois que vous connectez un stockage cloud, un enregistrement du fournisseur que vous avez choisi. Pour exploiter le service de journal, nous conservons une petite quantité d'état sur nos serveurs : si votre configuration de chiffrement est terminée, votre statut d'abonnement et les identifiants dont notre prestataire de paiement (Stripe) a besoin pour gérer votre abonnement. Pour surveiller l'utilisation équitable des fonctionnalités d'IA optionnelles, nous enregistrons des compteurs d'utilisation par utilisateur (le type d'analyse effectuée et un horodatage ; jamais le contenu de vos entrées). Pour la saisie vocale, le compteur consigne également la durée, en secondes, de chaque enregistrement transcrit ; l'enregistrement lui-même n'est jamais conservé. Notre service d'authentification conserve également des métadonnées de session standard telles que les horodatages de connexion. Les noms d'affichage sont utilisés uniquement pour personnaliser votre expérience dans l'application et ne sont jamais rendus publics. Pour afficher les prix d'abonnement dans votre devise locale, nous pouvons consulter brièvement le pays associé à votre adresse IP ; seul le code pays résultant est utilisé, il n'est pas lié à votre compte et nous ne conservons pas votre adresse IP. Nous n'utilisons pas de services d'analyse tiers, de SDK publicitaires ni de traceurs inter-applications. Lorsque vous utilisez le chiffrement de bout en bout (E2E), le contenu de votre journal est chiffré sur votre appareil et nous ne pouvons pas le lire. En mode Simple, les données de votre journal sont synchronisées avec votre fournisseur cloud choisi sans chiffrement de bout en bout. Le mode Simple est conçu pour le confort et peut réduire la confidentialité par rapport au mode E2E ; vos données restent protégées par les mesures de sécurité standard de votre fournisseur cloud."
       },
       "usage": {
         "title": "Comment nous utilisons les informations",
@@ -2249,7 +2254,7 @@
       },
       "thirdParty": {
         "title": "Services tiers",
-        "content": "Nous intégrons les services tiers suivants, chacun opérant sous ses propres conditions et pratiques de confidentialité : fournisseurs de stockage cloud (Google Drive, Dropbox, Nextcloud, iCloud Drive) pour la synchronisation avec votre propre compte ; services d'authentification (Google, Apple) et notre service d'authentification pour une connexion sécurisée ; prestataires de paiement (Stripe pour le web, Apple In-App Purchase sur iOS, Google Play Billing sur Android) pour la gestion des abonnements ; et fournisseurs de services d'IA (Google Gemini, OpenAI) lorsque vous choisissez d'utiliser les fonctionnalités d'IA optionnelles."
+        "content": "Nous intégrons les services tiers suivants, chacun opérant sous ses propres conditions et pratiques de confidentialité : fournisseurs de stockage cloud (Google Drive, Dropbox, Nextcloud, iCloud Drive) pour la synchronisation avec votre propre compte ; services d'authentification (Google, Apple) et notre service d'authentification pour une connexion sécurisée ; prestataires de paiement (Stripe pour le web, Apple In-App Purchase sur iOS, Google Play Billing sur Android) pour la gestion des abonnements ; et fournisseurs de services d'IA (Google Gemini) lorsque vous choisissez d'utiliser les fonctionnalités d'IA optionnelles."
       },
       "syncIdentifier": {
         "title": "Identifiant de synchronisation et d'appareil",
@@ -2257,7 +2262,7 @@
       },
       "aiProcessing": {
         "title": "Fonctionnalités IA et traitement",
-        "content": "OwnJournal propose des fonctionnalités d'IA optionnelles telles que l'analyse de l'humeur et des suggestions, disponibles exclusivement pour les abonnés Plus. Le traitement par l'IA n'a lieu que lorsque vous, en tant qu'abonné Plus, utilisez explicitement ces fonctionnalités. Lorsque vous utilisez les fonctionnalités d'IA, le texte concerné est d'abord déchiffré sur votre appareil puis envoyé au service d'IA par votre action explicite ; le contenu de votre journal est envoyé à notre fournisseur d'IA — actuellement Google (Gemini), avec OpenAI en alternative — via leurs API payantes. Nous ne stockons pas les entrées ni les sorties d'IA sur nos serveurs ; nous enregistrons uniquement des compteurs par utilisateur de l'utilisation des fonctionnalités d'IA (le type d'analyse effectuée et un horodatage, jamais le contenu) pour faire respecter les limites d'utilisation équitable. Ces fournisseurs peuvent conserver les invites et les sorties pendant une période limitée pour la surveillance des abus et l'application des politiques, conformément à leurs politiques actuelles. Le traitement par l'IA peut avoir lieu en dehors de l'EEE ; Google et OpenAI maintiennent des garanties appropriées pour le transfert de données, telles que les Clauses contractuelles types. Nous utilisons les offres payantes de ces fournisseurs d'IA, en vertu desquelles les invites et les sorties ne sont pas utilisées pour entraîner ou améliorer les modèles des fournisseurs. Vous pouvez choisir de ne pas utiliser les fonctionnalités d'IA, et ce choix n'affecte pas la fonctionnalité principale du journal."
+        "content": "OwnJournal propose des fonctionnalités optionnelles basées sur l'IA, comme l'analyse de l'humeur, les suggestions et la saisie vocale, réservées aux abonnés Plus. Le traitement par l'IA n'a lieu que lorsque vous, en tant qu'abonné Plus, utilisez expressément ces fonctionnalités. Lorsque vous utilisez les fonctionnalités d'IA basées sur le texte, le texte concerné est d'abord déchiffré sur votre appareil, puis envoyé, par votre action explicite, à notre fournisseur d'IA, actuellement Google (Gemini), via son API payante. Lorsque vous utilisez la saisie vocale, le micro de votre appareil n'est utilisé que pendant l'enregistrement ; l'enregistrement est envoyé à Google (Gemini) pour être converti en texte, et le texte obtenu est ajouté à votre entrée sur votre appareil. Nous ne conservons sur nos serveurs ni les données transmises à l'IA ni les résultats qu'elle produit, y compris les enregistrements vocaux et les transcriptions ; nous enregistrons uniquement des compteurs d'utilisation des fonctionnalités d'IA par utilisateur (le type d'analyse effectuée, un horodatage et, pour la saisie vocale, la durée de l'enregistrement en secondes ; jamais le contenu) afin d'appliquer les limites d'utilisation équitable. Google peut conserver les requêtes et les réponses pendant une durée limitée à des fins de détection des abus et d'application de ses règles, conformément à ses politiques en vigueur. Le traitement par l'IA peut avoir lieu en dehors de l'EEE ; Google met en œuvre des garanties appropriées pour les transferts de données, telles que les clauses contractuelles types. Nous utilisons l'offre payante du service d'IA de Google, dans le cadre de laquelle les requêtes et les réponses ne sont pas utilisées pour entraîner ou améliorer ses modèles. Vous pouvez choisir de ne pas utiliser les fonctionnalités d'IA, sans incidence sur les fonctionnalités de base du journal."
       },
       "diagnostics": {
         "title": "Diagnostics et journaux de plantage",
@@ -2301,7 +2306,7 @@
       },
       "internationalTransfers": {
         "title": "Transferts internationaux de données",
-        "content": "Certains de nos prestataires de services traitent des données en dehors de l'Espace économique européen (EEE). Notre service d'authentification et de base de données, nos prestataires de paiement (Stripe, Apple, Google), nos fournisseurs d'IA (Google, OpenAI) et votre fournisseur de stockage cloud choisi peuvent transférer ou traiter des données dans des pays n'ayant pas reçu de décision d'adéquation de la Commission européenne. Dans ces cas, nous et les prestataires nous appuyons sur des garanties appropriées au titre de l'article 46 du RGPD, telles que les Clauses contractuelles types (CCT) de la Commission européenne, accompagnées de mesures techniques et organisationnelles supplémentaires. Vous pouvez demander davantage d'informations sur les garanties en place en nous contactant."
+        "content": "Certains de nos prestataires de services traitent des données en dehors de l'Espace économique européen (EEE). Notre service d'authentification et de base de données, nos prestataires de paiement (Stripe, Apple, Google), nos fournisseurs d'IA (Google) et votre fournisseur de stockage cloud choisi peuvent transférer ou traiter des données dans des pays n'ayant pas reçu de décision d'adéquation de la Commission européenne. Dans ces cas, nous et les prestataires nous appuyons sur des garanties appropriées au titre de l'article 46 du RGPD, telles que les Clauses contractuelles types (CCT) de la Commission européenne, accompagnées de mesures techniques et organisationnelles supplémentaires. Vous pouvez demander davantage d'informations sur les garanties en place en nous contactant."
       },
       "californiaRights": {
         "title": "Droits à la vie privée des États américains",
@@ -2479,5 +2484,35 @@
     "system": "Système",
     "paperHint": "Papier est d'un blanc uni sans dégradés : le plus lisible sur les écrans e-ink.",
     "switchTo": "Passer au thème {{theme}}"
+  },
+  "voice": {
+    "title": "Saisie vocale",
+    "dictate": "Dicter",
+    "stop": "Arrêter",
+    "cancel": "Annuler l'enregistrement",
+    "transcribing": "Transcription…",
+    "retry": "Relancer la transcription",
+    "discard": "Supprimer l'enregistrement",
+    "stopsIn": "Arrêt dans {{seconds}} s",
+    "minutesLeft": "Il reste {{minutes}} min ce mois-ci",
+    "plusFeature": "La saisie vocale est disponible avec Plus",
+    "consentTitle": "Transcrire votre voix avec Google ?",
+    "consentBody": "Votre enregistrement est envoyé au service Gemini de Google pour être converti en texte. OwnJournal ne conserve jamais l'audio, et Google ne l'utilise pas pour entraîner ses modèles. Le texte est enregistré comme le reste de votre entrée.",
+    "consentAccept": "Continuer",
+    "consentDecline": "Pas maintenant",
+    "teaserBody": "Parlez au lieu de taper. Ce que vous dites devient un texte propre et ponctué, dans la langue que vous parlez — jusqu'à 200 minutes par mois.",
+    "errors": {
+      "notSupported": "L'enregistrement vocal n'est pas pris en charge sur cet appareil.",
+      "permissionDenied": "L'accès au micro est bloqué. Autorisez-le dans les paramètres de l'appareil ou du navigateur pour dicter.",
+      "noMicrophone": "Aucun micro n'a été trouvé.",
+      "offline": "Vous êtes hors ligne. La saisie vocale nécessite une connexion Internet.",
+      "authRequired": "Veuillez vous connecter pour utiliser la saisie vocale.",
+      "plusRequired": "La saisie vocale nécessite un abonnement Plus.",
+      "limitReached": "Vous avez épuisé vos {{minutes}} minutes de saisie vocale ce mois-ci. Votre quota sera renouvelé le mois prochain.",
+      "tooLarge": "Cet enregistrement est trop volumineux. Essayez-en un plus court.",
+      "unsupportedFormat": "Ce format d'enregistrement n'est pas pris en charge.",
+      "noSpeech": "Aucune parole n'a été détectée dans l'enregistrement.",
+      "failed": "La transcription a échoué. Veuillez réessayer."
+    }
   }
 }

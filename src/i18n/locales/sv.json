@@ -1570,8 +1570,8 @@
       "titleSuggestions": "AI-titelförslag",
       "tagSuggestions": "Smarta taggförslag",
       "trendAnalysis": "Humör- och trendinsikter",
-      "pdfExport": "PDF-export",
-      "wordExport": "Word-dokumentexport",
+      "voiceEntry": "Röstinmatning",
+      "exports": "PDF- och Word-export",
       "imageUpload": "Fotominnen"
     },
     "trialCta": "Starta gratis provperiod",
@@ -1980,6 +1980,11 @@
         "desc": "Få intelligenta titelförslag baserade på ditt inläggsinnehåll. Flera alternativ att välja mellan.",
         "proNote": "(Plus-funktion)"
       },
+      "voiceEntry": {
+        "title": "Röstinmatning",
+        "desc": "Tryck på mikrofonen under redigeraren och prata i stället för att skriva. När du stoppar omvandlas dina ord till ren text med skiljetecken och infogas där markören står. Det fungerar på det språk du talar, även om du byter språk mitt i en mening. Varje inspelning kan vara upp till 5 minuter lång, och i Plus ingår 200 minuter i månaden.",
+        "proNote": "(Plus-funktion)"
+      },
       "aiAnalysis": {
         "title": "AI-analys",
         "desc": "Få insikter om dina dagboksinlägg inklusive humöranalys, ämnesdetektering och personliga förslag.",
@@ -2122,7 +2127,7 @@
       },
       "pro": {
         "question": "Vad ingår i Plus?",
-        "answer": "Plus inkluderar AI-driven analys, humörinsikter, taggförslag, Aktivitetsinsikter och avancerad trendvisualisering."
+        "answer": "I Plus ingår AI-analys, titelförslag, taggförslag, röstinmatning, trendanalys, Aktivitetsinsikter samt PDF- och Word-export."
       },
       "manageSubscription": {
         "question": "Hur hanterar jag mitt abonnemang?",
@@ -2218,7 +2223,7 @@
     },
     "privacy": {
       "title": "Integritetspolicy",
-      "lastUpdatedDate": "April 2026",
+      "lastUpdatedDate": "november 2026",
       "intro": {
         "title": "Introduktion",
         "content": "Din integritet är viktig för oss. OwnJournal drivs av {{companyName}}, ett företag registrerat i {{companyCountry}}. Denna integritetspolicy förklarar hur OwnJournal samlar in, använder och skyddar din information. Vi designade OwnJournal med integritet som en kärnprincip."
@@ -2229,7 +2234,7 @@
       },
       "collection": {
         "title": "Information vi samlar in",
-        "content": "Den personliga information vi samlar in är minimal. I samband med ditt konto samlar vi in: din e-postadress, ditt visningsnamn (om det tillhandahålls av en extern autentiseringsleverantör såsom Google eller Apple) och — när du ansluter molnlagring — en notering om vilken leverantör du valt. För att driva dagbokstjänsten lagrar vi en liten mängd tillståndsdata på våra servrar — om din krypteringskonfiguration är slutförd, ditt prenumerationsstatus och de identifierare som vår betalningsleverantör (Stripe) behöver för att hantera din prenumeration. För att övervaka rättvis användning av valfria AI-funktioner registrerar vi användningsräknare per användare (typen av utförd analys och en tidsstämpel; aldrig innehållet i dina anteckningar). Vår autentiseringsbackend lagrar också standardmetadata för sessioner såsom tidsstämplar för inloggning. Visningsnamn används endast för att personalisera din upplevelse i appen och görs aldrig offentliga. För att visa prenumerationspriser i din lokala valuta kan vi kort slå upp landet som är kopplat till din IP-adress; endast den resulterande landskoden används, den kopplas inte till ditt konto och vi lagrar inte din IP-adress. Vi använder inte tredjepartsanalys, reklam-SDK:er eller spårare mellan appar. När du använder änd-till-änd-kryptering (E2E) krypteras ditt dagboksinnehåll på din enhet och vi kan inte läsa det. I Simple-läge synkroniseras dina dagboksdata med din valda molnleverantör utan änd-till-änd-kryptering. Simple-läge är avsett för bekvämlighet och kan minska integriteten jämfört med E2E-läge; dina data förblir skyddade av din molnleverantörs standardsäkerhetsåtgärder."
+        "content": "Den personliga information vi samlar in är minimal. I samband med ditt konto samlar vi in: din e-postadress, ditt visningsnamn (om det tillhandahålls av en extern autentiseringsleverantör såsom Google eller Apple) och — när du ansluter molnlagring — en notering om vilken leverantör du valt. För att driva dagbokstjänsten lagrar vi en liten mängd tillståndsdata på våra servrar — om din krypteringskonfiguration är slutförd, din prenumerationsstatus och de identifierare som vår betalningsleverantör (Stripe) behöver för att hantera din prenumeration. För att övervaka rättvis användning av valfria AI-funktioner registrerar vi användningsräknare per användare (typen av utförd analys och en tidsstämpel; aldrig innehållet i dina anteckningar). För röstinmatning registrerar räknaren även längden på varje transkriberad inspelning i sekunder; själva inspelningen sparas aldrig. Vår autentiseringsbackend lagrar också standardmetadata för sessioner såsom tidsstämplar för inloggning. Visningsnamn används endast för att personalisera din upplevelse i appen och görs aldrig offentliga. För att visa prenumerationspriser i din lokala valuta kan vi kort slå upp landet som är kopplat till din IP-adress; endast den resulterande landskoden används, den kopplas inte till ditt konto och vi lagrar inte din IP-adress. Vi använder inte tredjepartsanalys, reklam-SDK:er eller spårare mellan appar. När du använder änd-till-änd-kryptering (E2E) krypteras ditt dagboksinnehåll på din enhet och vi kan inte läsa det. I Enkelt läge synkroniseras dina dagboksdata med din valda molnleverantör utan änd-till-änd-kryptering. Enkelt läge är avsett för bekvämlighet och kan minska integriteten jämfört med E2E-läge; dina data förblir skyddade av din molnleverantörs standardsäkerhetsåtgärder."
       },
       "usage": {
         "title": "Hur vi använder information",
@@ -2249,7 +2254,7 @@
       },
       "thirdParty": {
         "title": "Tredjepartstjänster",
-        "content": "Vi integrerar med följande tredjepartstjänster, som var och en arbetar enligt sina egna villkor och integritetsrutiner: molnlagringsleverantörer (Google Drive, Dropbox, Nextcloud, iCloud Drive) för synkronisering till ditt eget konto; autentiseringstjänster (Google, Apple) och vår autentiseringsbackend för säker inloggning; betalningsleverantörer (Stripe för webb, Apple In-App Purchase på iOS, Google Play Billing på Android) för hantering av prenumerationer; och AI-tjänsteleverantörer (Google Gemini, OpenAI) när du väljer att använda valfria AI-funktioner."
+        "content": "Vi integrerar med följande tredjepartstjänster, som var och en arbetar enligt sina egna villkor och integritetsrutiner: molnlagringsleverantörer (Google Drive, Dropbox, Nextcloud, iCloud Drive) för synkronisering till ditt eget konto; autentiseringstjänster (Google, Apple) och vår autentiseringsbackend för säker inloggning; betalningsleverantörer (Stripe för webb, Apple In-App Purchase på iOS, Google Play Billing på Android) för hantering av prenumerationer; och en AI-tjänsteleverantör (Google Gemini) när du väljer att använda valfria AI-funktioner."
       },
       "syncIdentifier": {
         "title": "Synkronisering och enhets-ID",
@@ -2257,7 +2262,7 @@
       },
       "aiProcessing": {
         "title": "AI-funktioner och bearbetning",
-        "content": "OwnJournal erbjuder valfria AI-drivna funktioner såsom humöranalys och förslag, som är exklusivt tillgängliga för Plus-prenumeranter. AI-behandling sker endast när du som Plus-prenumerant uttryckligen använder dessa funktioner. När du använder AI-funktioner dekrypteras den relevanta texten först på din enhet och skickas sedan till AI-tjänsten genom din uttryckliga åtgärd; ditt dagboksinnehåll skickas till vår AI-leverantör — för närvarande Google (Gemini), med OpenAI som alternativ — via deras betalda API:er. Vi lagrar inte AI-indata eller -utdata på våra servrar; vi registrerar endast användningsräknare per användare av AI-funktionsanvändning (typen av utförd analys och en tidsstämpel, aldrig innehållet) för att tillämpa gränser för rättvis användning. Dessa leverantörer kan behålla prompter och utdata under en begränsad tid för missbruksövervakning och tillämpning av riktlinjer enligt sina aktuella riktlinjer. AI-behandling kan ske utanför EES; både Google och OpenAI upprätthåller lämpliga skyddsåtgärder för dataöverföring såsom standardavtalsklausuler. Vi använder de betalda nivåerna hos dessa AI-leverantörer, under vilka prompter och utdata inte används för att träna eller förbättra leverantörens modeller. Du kan välja att inte använda AI-funktioner, och det påverkar inte kärnfunktionaliteten i dagboken."
+        "content": "OwnJournal erbjuder valfria AI-drivna funktioner, till exempel humöranalys, förslag och röstinmatning, som endast är tillgängliga för Plus-prenumeranter. AI-bearbetning sker bara när du som Plus-prenumerant uttryckligen använder dessa funktioner. När du använder textbaserade AI-funktioner dekrypteras den berörda texten först på din enhet och skickas sedan, på din uttryckliga begäran, till vår AI-leverantör, för närvarande Google (Gemini), via dess betalda API. När du använder röstinmatning används enhetens mikrofon bara medan du spelar in; inspelningen skickas till Google (Gemini) för att omvandlas till text, och den resulterande texten läggs till i ditt inlägg på din enhet. Vi lagrar inte AI-indata eller -utdata, inklusive röstinspelningar och transkriptioner, på våra servrar; vi registrerar endast räknare för användning av AI-funktioner per användare (typen av utförd analys, en tidsstämpel och, för röstinmatning, inspelningens längd i sekunder; aldrig innehållet) för att upprätthålla gränserna för skälig användning. Google kan spara förfrågningar och utdata under en begränsad tid för att övervaka missbruk och upprätthålla sina regler, enligt sina gällande policyer. AI-bearbetning kan ske utanför EES; Google upprätthåller lämpliga skyddsåtgärder för dataöverföring, såsom standardavtalsklausuler. Vi använder den betalda nivån av Googles AI-tjänst, där förfrågningar och utdata inte används för att träna eller förbättra Googles modeller. Du kan välja att inte använda AI-funktioner, och det påverkar inte den grundläggande dagboksfunktionaliteten."
       },
       "diagnostics": {
         "title": "Diagnostik och kraschloggar",
@@ -2301,7 +2306,7 @@
       },
       "internationalTransfers": {
         "title": "Internationella dataöverföringar",
-        "content": "Vissa av våra tjänsteleverantörer behandlar data utanför Europeiska ekonomiska samarbetsområdet (EES). Vår autentiserings- och databasbackend, betalningsleverantörer (Stripe, Apple, Google), AI-leverantörer (Google, OpenAI) och din valda molnlagringsleverantör kan överföra eller behandla data i länder som inte har fått ett beslut om adekvat skyddsnivå från Europeiska kommissionen. I sådana fall förlitar vi oss och leverantörerna på lämpliga skyddsåtgärder enligt artikel 46 i GDPR, såsom Europeiska kommissionens standardavtalsklausuler (SCC) tillsammans med kompletterande tekniska och organisatoriska åtgärder. Du kan begära mer information om de gällande skyddsåtgärderna genom att kontakta oss."
+        "content": "Vissa av våra tjänsteleverantörer behandlar data utanför Europeiska ekonomiska samarbetsområdet (EES). Vår autentiserings- och databasbackend, betalningsleverantörer (Stripe, Apple, Google), AI-leverantör (Google) och din valda molnlagringsleverantör kan överföra eller behandla data i länder som inte har fått ett beslut om adekvat skyddsnivå från Europeiska kommissionen. I sådana fall förlitar vi oss och leverantörerna på lämpliga skyddsåtgärder enligt artikel 46 i GDPR, såsom Europeiska kommissionens standardavtalsklausuler (SCC) tillsammans med kompletterande tekniska och organisatoriska åtgärder. Du kan begära mer information om de gällande skyddsåtgärderna genom att kontakta oss."
       },
       "californiaRights": {
         "title": "Integritetsrättigheter i amerikanska delstater",
@@ -2479,5 +2484,35 @@
     "system": "System",
     "paperHint": "Papper är helvitt utan toningar – lättast att läsa på e-bläckskärmar.",
     "switchTo": "Byt till temat {{theme}}"
+  },
+  "voice": {
+    "title": "Röstinmatning",
+    "dictate": "Diktera",
+    "stop": "Stoppa",
+    "cancel": "Avbryt inspelningen",
+    "transcribing": "Transkriberar…",
+    "retry": "Försök transkribera igen",
+    "discard": "Släng inspelningen",
+    "stopsIn": "Stoppar om {{seconds}} s",
+    "minutesLeft": "{{minutes}} min kvar den här månaden",
+    "plusFeature": "Röstinmatning ingår i Plus",
+    "consentTitle": "Vill du att Google transkriberar din inspelning?",
+    "consentBody": "Din inspelning skickas till Googles Gemini-tjänst för att omvandlas till text. OwnJournal sparar aldrig ljudet, och Google använder det inte för att träna sina modeller. Texten sparas på samma sätt som resten av ditt inlägg.",
+    "consentAccept": "Fortsätt",
+    "consentDecline": "Inte nu",
+    "teaserBody": "Prata i stället för att skriva. Dina ord blir ren text med skiljetecken på det språk du talar – upp till 200 minuter i månaden.",
+    "errors": {
+      "notSupported": "Röstinspelning stöds inte på den här enheten.",
+      "permissionDenied": "Mikrofonåtkomst är blockerad. Tillåt den i enhetens eller webbläsarens inställningar för att kunna diktera.",
+      "noMicrophone": "Ingen mikrofon hittades.",
+      "offline": "Du är offline. Röstinmatning kräver en internetanslutning.",
+      "authRequired": "Logga in för att använda röstinmatning.",
+      "plusRequired": "Röstinmatning kräver en Plus-prenumeration.",
+      "limitReached": "Du har använt alla {{minutes}} minuter röstinmatning den här månaden. Gränsen återställs nästa månad.",
+      "tooLarge": "Inspelningen är för stor. Prova en kortare.",
+      "unsupportedFormat": "Inspelningsformatet stöds inte.",
+      "noSpeech": "Inget tal hittades i inspelningen.",
+      "failed": "Transkriberingen misslyckades. Försök igen."
+    }
   }
 }

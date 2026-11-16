@@ -765,6 +765,7 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
           onChange={setBody}
           placeholder={t('journalEntry.startWriting')}
           availableTags={autocompleteTags}
+          voiceInput={isDemo ? undefined : { isPro }}
         />
 
         <div className="space-y-3">

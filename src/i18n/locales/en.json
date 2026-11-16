@@ -1575,8 +1575,8 @@
       "titleSuggestions": "AI Title Suggestions",
       "tagSuggestions": "Smart Tag Suggestions",
       "trendAnalysis": "Mood & Trend Insights",
-      "pdfExport": "PDF Export",
-      "wordExport": "Word Document Export",
+      "voiceEntry": "Voice Entry",
+      "exports": "PDF & Word Export",
       "imageUpload": "Photo Memories"
     },
     "trialCta": "Start Free Trial",
@@ -1985,6 +1985,11 @@
         "desc": "AI suggests title options based on your entry content. Choose from multiple suggestions to find the one that fits best.",
         "proNote": "(Plus feature)"
       },
+      "voiceEntry": {
+        "title": "Voice Entry",
+        "desc": "Tap the microphone below the editor and speak instead of typing. When you stop, your words are turned into clean, punctuated text and added where your cursor is. It works in the language you speak, even if you switch languages mid-sentence. Each recording can be up to 5 minutes, and Plus includes 200 minutes a month.",
+        "proNote": "(Plus feature)"
+      },
       "aiAnalysis": {
         "title": "AI Analysis",
         "desc": "Get AI-powered insights about your journal entries, including mood analysis, topic detection, and personalized suggestions to deepen your self-reflection.",
@@ -2127,7 +2132,7 @@
       },
       "pro": {
         "question": "What does Plus include?",
-        "answer": "Plus includes AI analysis, title suggestions, tag suggestions, trend analysis, Activity Insights, and PDF/Word export."
+        "answer": "Plus includes AI analysis, title suggestions, tag suggestions, voice entry, trend analysis, Activity Insights, and PDF/Word export."
       },
       "manageSubscription": {
         "question": "How do I manage my subscription?",
@@ -2223,7 +2228,7 @@
     },
     "privacy": {
       "title": "Privacy Policy",
-      "lastUpdatedDate": "April 2026",
+      "lastUpdatedDate": "November 2026",
       "intro": {
         "title": "Introduction",
         "content": "Your privacy is important to us. OwnJournal is operated by {{companyName}}, a company registered in {{companyCountry}}. This Privacy Policy explains how OwnJournal collects, uses, and protects your information. We designed OwnJournal with privacy as a core principle."
@@ -2234,7 +2239,7 @@
       },
       "collection": {
         "title": "Information We Collect",
-        "content": "The personal information we collect is minimal. In connection with your account, we collect: your email address, your display name (if provided by an external authentication provider such as Google or Apple), and — once you connect cloud storage — a record of which provider you have chosen. To operate the journaling service, we keep a small amount of state on our servers — whether your encryption setup is complete, your subscription status, and the identifiers our payment processor (Stripe) needs to manage your subscription. To monitor fair use of optional AI features, we record per-user usage counters (the type of analysis performed and a timestamp; never the content of your entries). Our authentication backend also keeps standard session metadata such as sign-in timestamps. Display names are used only to personalize your in-app experience and are never made public. To show subscription prices in your local currency, we may briefly look up the country associated with your IP address; only the resulting country code is used, it is not linked to your account, and we do not store your IP address. We do not use third-party analytics, advertising SDKs, or cross-app trackers. When you use E2E encryption, your journal content is encrypted on your device and we cannot read it. In Simple mode, your journal data is synced to your chosen cloud provider without end-to-end encryption. Simple mode is intended for convenience and may reduce privacy compared to E2E mode; your data remains protected by your cloud provider's standard security measures."
+        "content": "The personal information we collect is minimal. In connection with your account, we collect: your email address, your display name (if provided by an external authentication provider such as Google or Apple), and — once you connect cloud storage — a record of which provider you have chosen. To operate the journaling service, we keep a small amount of state on our servers — whether your encryption setup is complete, your subscription status, and the identifiers our payment processor (Stripe) needs to manage your subscription. To monitor fair use of optional AI features, we record per-user usage counters (the type of analysis performed and a timestamp; never the content of your entries). For voice entry, the counter also records the length of each transcribed recording in seconds; the recording itself is never stored. Our authentication backend also keeps standard session metadata such as sign-in timestamps. Display names are used only to personalize your in-app experience and are never made public. To show subscription prices in your local currency, we may briefly look up the country associated with your IP address; only the resulting country code is used, it is not linked to your account, and we do not store your IP address. We do not use third-party analytics, advertising SDKs, or cross-app trackers. When you use E2E encryption, your journal content is encrypted on your device and we cannot read it. In Simple mode, your journal data is synced to your chosen cloud provider without end-to-end encryption. Simple mode is intended for convenience and may reduce privacy compared to E2E mode; your data remains protected by your cloud provider's standard security measures."
       },
       "usage": {
         "title": "How We Use Information",
@@ -2254,7 +2259,7 @@
       },
       "thirdParty": {
         "title": "Third-Party Services",
-        "content": "We integrate with the following third-party services, each operating under its own terms and privacy practices: cloud storage providers (Google Drive, Dropbox, Nextcloud, iCloud Drive) for synchronization to your own account; authentication services (Google, Apple) and our authentication backend for secure sign-in; payment providers (Stripe for web checkout, Apple In-App Purchase on iOS, Google Play Billing on Android) for handling subscriptions; and AI service providers (Google Gemini, OpenAI) when you choose to use optional AI features."
+        "content": "We integrate with the following third-party services, each operating under its own terms and privacy practices: cloud storage providers (Google Drive, Dropbox, Nextcloud, iCloud Drive) for synchronization to your own account; authentication services (Google, Apple) and our authentication backend for secure sign-in; payment providers (Stripe for web checkout, Apple In-App Purchase on iOS, Google Play Billing on Android) for handling subscriptions; and an AI service provider (Google Gemini) when you choose to use optional AI features."
       },
       "syncIdentifier": {
         "title": "Sync and device identifier",
@@ -2262,7 +2267,7 @@
       },
       "aiProcessing": {
         "title": "AI Features and Processing",
-        "content": "OwnJournal offers optional AI-powered features such as mood analysis and suggestions, available exclusively to Plus subscribers. AI processing occurs only when you, as a Plus subscriber, explicitly use these features. When you use AI features, the relevant text is decrypted on your device first, then sent to the AI service through your explicit action; your journal content is sent to our AI provider — currently Google (Gemini), with OpenAI as an alternate — via their paid APIs. We do not store AI inputs or outputs on our servers; we only record per-user counters of AI feature usage (the type of analysis performed and a timestamp, never the content) for fair-use rate limiting. These providers may retain prompts and outputs for a limited period for abuse monitoring and policy enforcement, per their current policies. AI processing may occur outside the EEA; both Google and OpenAI maintain appropriate data transfer safeguards such as Standard Contractual Clauses. We use the paid tiers of these AI providers, under which prompts and outputs are not used to train or improve provider models. You can choose not to use AI features, and doing so does not affect the core journaling functionality."
+        "content": "OwnJournal offers optional AI-powered features such as mood analysis, suggestions, and voice entry, available exclusively to Plus subscribers. AI processing occurs only when you, as a Plus subscriber, explicitly use these features. When you use text-based AI features, the relevant text is decrypted on your device first and then sent, through your explicit action, to our AI provider, currently Google (Gemini), via its paid API. When you use voice entry, your device's microphone is used only while you are recording; the recording is sent to Google (Gemini) to be converted into text, and the resulting text is added to your entry on your device. We do not store AI inputs or outputs, including voice recordings and transcripts, on our servers; we only record per-user counters of AI feature usage (the type of analysis performed, a timestamp and, for voice entry, the length of the recording in seconds; never the content) for fair-use rate limiting. Google may retain prompts and outputs for a limited period for abuse monitoring and policy enforcement, per its current policies. AI processing may occur outside the EEA; Google maintains appropriate data transfer safeguards such as Standard Contractual Clauses. We use the paid tier of Google's AI service, under which prompts and outputs are not used to train or improve its models. You can choose not to use AI features, and doing so does not affect the core journaling functionality."
       },
       "diagnostics": {
         "title": "Diagnostics and Crash Logs",
@@ -2302,7 +2307,7 @@
       },
       "internationalTransfers": {
         "title": "International Data Transfers",
-        "content": "Some of our service providers process data outside the European Economic Area (EEA). Our authentication and database backend, payment providers (Stripe, Apple, Google), AI providers (Google, OpenAI), and your chosen cloud storage provider may transfer or process data in countries that have not received an adequacy decision from the European Commission. In those cases, we and the providers rely on appropriate safeguards under GDPR Article 46, such as the European Commission's Standard Contractual Clauses (SCCs) together with supplementary technical and organizational measures. You can request more information about the safeguards in place by contacting us."
+        "content": "Some of our service providers process data outside the European Economic Area (EEA). Our authentication and database backend, payment providers (Stripe, Apple, Google), AI provider (Google), and your chosen cloud storage provider may transfer or process data in countries that have not received an adequacy decision from the European Commission. In those cases, we and the providers rely on appropriate safeguards under GDPR Article 46, such as the European Commission's Standard Contractual Clauses (SCCs) together with supplementary technical and organizational measures. You can request more information about the safeguards in place by contacting us."
       },
       "localStorage": {
         "title": "Cookies and Local Storage",
@@ -2484,5 +2489,35 @@
     "system": "System",
     "paperHint": "Paper is flat white with no gradients — easiest to read on e-ink screens.",
     "switchTo": "Switch to {{theme}} theme"
+  },
+  "voice": {
+    "title": "Voice entry",
+    "dictate": "Dictate",
+    "stop": "Stop",
+    "cancel": "Cancel recording",
+    "transcribing": "Transcribing…",
+    "retry": "Retry transcription",
+    "discard": "Discard recording",
+    "stopsIn": "Stops in {{seconds}} sec",
+    "minutesLeft": "{{minutes}} min left this month",
+    "plusFeature": "Voice entry is available with Plus",
+    "consentTitle": "Transcribe your voice with Google?",
+    "consentBody": "Your recording is sent to Google's Gemini service to be turned into text. OwnJournal never stores the audio, and Google doesn't use it to train its models. The text is saved like the rest of your entry.",
+    "consentAccept": "Continue",
+    "consentDecline": "Not now",
+    "teaserBody": "Speak instead of typing. Your words become clean, punctuated text in whatever language you speak — up to 200 minutes a month.",
+    "errors": {
+      "notSupported": "Voice recording isn't supported on this device.",
+      "permissionDenied": "Microphone access is blocked. Allow it in your device or browser settings to dictate.",
+      "noMicrophone": "No microphone was found.",
+      "offline": "You're offline. Voice entry needs an internet connection.",
+      "authRequired": "Please sign in to use voice entry.",
+      "plusRequired": "Voice entry requires a Plus subscription.",
+      "limitReached": "You've used all {{minutes}} minutes of voice entry this month. The limit resets next month.",
+      "tooLarge": "This recording is too large. Try a shorter one.",
+      "unsupportedFormat": "This recording format isn't supported.",
+      "noSpeech": "No speech was detected in the recording.",
+      "failed": "Transcription failed. Please try again."
+    }
   }
 }
