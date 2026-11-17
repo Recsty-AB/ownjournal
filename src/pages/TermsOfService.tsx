@@ -47,7 +47,7 @@ const TermsOfService = () => {
             {t("legal.terms.title")}
           </h1>
           <p className="text-muted-foreground text-sm">
-            {t("legal.lastUpdated")}: {t("legal.terms.lastUpdatedDate")}
+            {t("legal.lastUpdatedOn", { date: t("legal.terms.lastUpdatedDate") })}
           </p>
         </div>
 

@@ -4,104 +4,128 @@ Scope: app strings (`src/i18n/locales/hi.json`) and the website's UI/FAQ/legal s
 (`ownjournal-website/src/i18n/locales/hi.json`). Blog prose follows the website's long-form
 standard (`ownjournal-website/.claude/locale-standards/hi.md`). Its तुम register is only for
 blog posts. It does NOT apply to the app or to website UI/FAQ/legal pages, which use आप.
+Owner decision (Nov 2026): one register, one term per concept and one typography for both repos.
+The app's term wins unless it is wrong.
 
 ## 1. Register and address (house style)
-- **आप** everywhere: app (no तुम in the UI), website UI/FAQ/legal (≈200 आप, about 10 तुम in
-  marketing copy only). Possessives आपका/आपकी/आपके. Never mix in तुम forms.
-- Imperatives in **-ें** form: करें, चुनें, हटाएं, आज़माएं, अनुमति दें (≈530 "करें" in the
-  app, zero "कीजिए"). This also matches Microsoft's Hindi UI guidance. Do not switch the UI
-  to -इए; -इए is for blog prose only.
-- Spelling of the plural imperative in the app: anusvara (हटाएं, करवाएं), not chandrabindu
-  (हटाएँ). The website mixes both (पाएँ/जाएँगे). Leave either as found.
-- Errors: state the problem, then the fix. Polite "कृपया" is established ("कृपया पुनः प्रयास करें।"
-  appears more than 50 times). Dialog titles that ask a question end with "?" and drop "क्या"
-  when the sentence reads fine without it.
-- Status lines are impersonal: "ट्रांसक्राइब हो रहा है…", "सिंक हो रहा है…".
+- **आप** everywhere in both repos (UI, Help, FAQ, legal). No तुम/तुम्हारा, no -ओ imperatives
+  (चुनो, बनाओ, जोड़ो, लागू करो); they were removed from Help and the website FAQ.
+- Imperatives in **-ें** form: करें, चुनें, हटाएं, आज़माएं, अनुमति दें. Never -इए in UI.
+- Chandrabindu → **anusvara** in both repos (हटाएं, जाएंगे, पाएं, प्रविष्टियां, गतिविधियां,
+  यहां, कहां, पहुंच, जांचें, हां, हूं, आंकड़े). No ँ anywhere in either file.
+- FAQ questions are gender-neutral: use the passive ("क्या OwnJournal को ऑफलाइन इस्तेमाल किया जा
+  सकता है?") instead of "क्या मैं … कर सकता हूं?" or "सकता/सकती".
+- Errors: state the problem, then the fix. Retry is always **"कृपया पुनः प्रयास करें।"**
+  (not फिर से प्रयास/कोशिश करें, दोबारा कोशिश करें).
+- Status lines are impersonal and use "का/की … हो रहा/रही है": "प्रविष्टियों का विश्लेषण हो रहा
+  है…", "प्रमाणीकरण की जांच हो रही है…". Never "प्रविष्टियां विश्लेषण हो रही हैं" / "जांच रहा है".
+- Transitive button labels take the genitive: "प्रविष्टि का विश्लेषण करें", "ट्रेंड का विश्लेषण करें".
+- Limits: "सीमा पूरी हो गई" (not "सीमा पहुंच गई"); "अधिकतम {{limit}} …".
+- "Tap" → **टैप करें**, "Click" → **क्लिक करें**; a quoted button takes पर: "“कनेक्ट करें” पर टैप करें".
 
-## 2. Glossary (term → use → avoid)
-| English | App (hi.json) | Website | Avoid / note |
-|---|---|---|---|
-| Voice entry (feature name) | वॉइस एंट्री | वॉइस एंट्री | Keep it as a fixed feature name even in the app |
-| Entry (journal entry, generic) | प्रविष्टि (≈250×) | एंट्री (≈50×) | Never mix the two within one repo |
-| Dictate (button) | बोलकर लिखें | – | डिक्टेट करें, श्रुतलेख |
-| Microphone | माइक्रोफ़ोन | माइक्रोफ़ोन | माइक |
-| Recording | रिकॉर्डिंग (f.) | रिकॉर्डिंग | – |
-| Transcribe / transcription | ट्रांसक्राइब करना / ट्रांसक्रिप्शन; plain-language gloss "टेक्स्ट में बदलना" | same | "आपकी आवाज़ ट्रांसक्राइब करें" (calque); use रिकॉर्डिंग as the object |
-| Speech → text | बोली गई बात / आपके शब्द → टेक्स्ट | same | पाठ (reads as "lesson") |
-| Punctuated | विराम-चिह्नों के साथ | same | – |
-| Filler words | भराव शब्द ('अं', 'उम्म' जैसे) | same | फिलर वर्ड्स |
-| Plus | Plus (Latin) | प्लस (Devanagari) | Keep each repo's form |
-| Plus feature | (Plus फीचर) | प्लस फीचर | – |
-| Subscription | UI: सदस्यता or सब्सक्रिप्शन ("Plus सब्सक्रिप्शन आवश्यक है"); legal: सदस्यता | सब्सक्रिप्शन (f.) | – |
-| Subscriber (legal) | ग्राहक ("Plus ग्राहकों") | सब्सक्राइबर | सब्सक्राइबर्स in app legal text |
-| AI | AI | AI | कृत्रिम बुद्धिमत्ता in UI |
-| Feature | UI: फीचर; legal: सुविधा | फीचर | – |
-| Retry | पुनः प्रयास करें; a specific action: "फिर से ट्रांसक्राइब करें" | – | "फिर से आज़माएं" with a noun object |
-| Continue / Not now | जारी रखें / अभी नहीं | – | – |
-| Cancel / Discard | रद्द करें / हटाएं | – | – |
-| Offline | ऑफलाइन (app, no nukta, 8×) | ऑफ़लाइन (website) | – |
-| Format | फॉर्मेट (app, 10×) | – | फ़ॉर्मैट |
-| Settings | सेटिंग्स | सेटिंग्स | – |
-| Store / save | UI: सेव / स्टोर; legal: संग्रहीत | स्टोर / सेव | – |
-| Required | आवश्यक (UI), ज़रूरी (informal) | – | – |
+## 2. Glossary (term → use in BOTH repos → avoid)
+| English | Use | Avoid |
+|---|---|---|
+| Entry (journal entry) | प्रविष्टि / प्रविष्टियां (obl. प्रविष्टियों) | एंट्री, एंट्रीज़ (except the feature name) |
+| Voice entry (feature name) | वॉइस एंट्री | – |
+| Journal | जर्नल (f.: "आपकी जर्नल", "अपनी जर्नल"); "जर्नल डेटा/पासवर्ड" is m. by the head noun | डायरी, पत्रिका |
+| Plus | Plus (Latin script) | प्लस |
+| Plus feature / Plus member | Plus फीचर / Plus सदस्य | Plus सुविधा in UI |
+| Subscription | सदस्यता (f.: "आपकी सदस्यता सक्रिय है") | सब्सक्रिप्शन |
+| Subscriber (legal) | ग्राहक ("Plus ग्राहकों") | सब्सक्राइबर्स |
+| Plan / Free plan | प्लान / फ्री प्लान; "Everything in Free" → "फ्री प्लान की हर सुविधा" | योजना |
+| Free (price) / free trial | मुफ्त / निःशुल्क परीक्षण ("14 दिन का मुफ्त परीक्षण") | ट्रायल |
+| Cancel / Delete | रद्द करें / हटाएं | कैंसल, डिलीट |
+| Account | खाता (obl. खाते) | अकाउंट |
+| Privacy / private | गोपनीयता / निजी | प्राइवेसी, प्राइवेट |
+| Analysis / insights | विश्लेषण / अंतर्दृष्टि | एनालिसिस, इनसाइट्स |
+| Activity Insights | गतिविधि अंतर्दृष्टि | गतिविधि विश्लेषण |
+| Mood Statistics / streaks | मूड सांख्यिकी / मूड श्रृंखला | मन की स्थिति के आंकड़े, स्ट्रीक्स |
+| Mood tracking | मूड ट्रैकिंग | मन की स्थिति दर्ज करो |
+| Photo memories | फोटो यादें | फोटो मेमोरीज़ |
+| Title / tags / themes | शीर्षक / टैग / विषय | टाइटल, टैग्स, थीम्स |
+| AI-powered | AI-संचालित | AI-पावर्ड |
+| Encryption key(s) | एन्क्रिप्शन कुंजी / कुंजियां (f.) | "एन्क्रिप्शन की" (reads as a genitive), कीज़, चाबियां |
+| Provider | प्रदाता | प्रोवाइडर |
+| Devices | डिवाइस / डिवाइसों | डिवाइसेस, उपकरण |
+| Credentials | क्रेडेंशियल (no -्स) | क्रेडेंशियल्स |
+| Simple mode | सिंपल मोड (also in legal text) | सरल मोड |
+| Zero knowledge | ज़ीरो नॉलेज / ज़ीरो-नॉलेज आर्किटेक्चर (m.) | शून्य-ज्ञान as a term |
+| Conflict (sync) | विरोध | संघर्ष |
+| Export / import | एक्सपोर्ट / इम्पोर्ट (legal "निर्यात (पोर्टेबिलिटी)" in the GDPR rights list only) | निर्यात/आयात in UI |
+| Format | फॉर्मेट | प्रारूप, फ़ॉर्मैट |
+| Dictate (button) | बोलकर लिखें | डिक्टेट करें |
+| Microphone / recording | माइक्रोफ़ोन / रिकॉर्डिंग (f.) | माइक |
+| Transcribe | ट्रांसक्राइब करना / ट्रांसक्रिप्शन | – |
+| Filler words | भराव शब्द (“अं”, “उम्म” जैसे) | फिलर वर्ड्स |
+| Feature (UI) / feature (legal) | फीचर, फीचर्स / सुविधा, सुविधाएं | – |
+| Store / save | UI: सेव / स्टोर; legal: संग्रहीत | – |
+| Tour (onboarding) | गाइड | – |
 
-## 3. Legal / privacy vocabulary
-India has no Hindi GDPR text. The EU publishes the GDPR only in EU languages. Use the
-vocabulary of the official Hindi DPDP Act 2023 (डिजिटल वैयक्तिक डेटा संरक्षण अधिनियम) and
-standard Rajbhasha terms. App legal pages are written in formal, Sanskritized Hindi. Keep
-that register:
-- processing → **प्रसंस्करण** (m.: "प्रसंस्करण होता है"); verb संसाधित करना. Avoid प्रोसेसिंग in app legal text.
-- data transfer → **डेटा हस्तांतरण** / स्थानांतरण (title: "अंतर्राष्ट्रीय डेटा स्थानांतरण")
-- Standard Contractual Clauses → मानक संविदात्मक खंड (SCC); adequacy decision → पर्याप्तता निर्णय
-- safeguards → सुरक्षा उपाय; consent → सहमति; personal data → व्यक्तिगत (DPDP: वैयक्तिक) डेटा
-- third-party → तृतीय-पक्ष; provider → प्रदाता; paid tier/API → सशुल्क स्तर / सशुल्क API
-  ("भुगतान API" is wrong: it means a payments API)
-- abuse monitoring → दुरुपयोग की निगरानी; policy enforcement → नीति प्रवर्तन
-- fair-use rate limiting → उचित-उपयोग सीमाएं लागू करना
-- The website's legal page is Hinglish (प्रोसेसिंग, ट्रांसफर, पेड टियर). That is house style there.
-  Do not Sanskritize it.
-- Keep the direction of "X such as Y": "मानक संविदात्मक खंड **जैसे** उचित … सुरक्षा उपाय"
-  (safeguards such as SCCs). Reversing it changes the legal meaning.
-- Required facts for voice entry: 5 minutes per recording; 200 minutes per month; Plus only;
-  audio goes to Google (Gemini); OwnJournal never stores audio or transcripts; only seconds
-  are counted; Google's paid tier does not train on the data; Google may keep data for a
-  limited time for abuse monitoring.
+## 3. Legal / privacy vocabulary (both repos, same register)
+The website legal pages use the app's formal legal Hindi. No Hinglish (प्रोसेसिंग, ट्रांसफर,
+पेड टियर, यूज़र, अकाउंट, डिलीट) in either policy. India has no Hindi GDPR text; use the
+vocabulary of the Hindi DPDP Act 2023 and standard Rajbhasha terms:
+- processing → **प्रसंस्करण** (m.); verb संसाधित करना. Title: "प्रसंस्करण का कानूनी आधार".
+- AI section title: "AI सुविधाएं और प्रसंस्करण" (cross-references must quote it exactly).
+- data transfer → डेटा हस्तांतरण / स्थानांतरण; SCCs → मानक संविदात्मक खंड; adequacy → पर्याप्तता निर्णय
+- safeguards → सुरक्षा उपाय; consent → सहमति; DPO → डेटा संरक्षण अधिकारी; erasure → विलोपन
+- paid tier / paid subscription / paid service → **सशुल्क** स्तर / सदस्यता / सेवा
+  ("भुगतान स्तर/सदस्यता" is wrong: it reads as "payment tier")
+- materially breach / material changes → सारभूत रूप से उल्लंघन / सारभूत परिवर्तन ("भौतिक" = physical ✗)
+- contract concluded → अनुबंध संपन्न होना (not समाप्त, which means ended);
+  immediate performance → तत्काल निष्पादन; "as is" / "as available" → “जैसा है” / “जैसा उपलब्ध है”
+- abuse monitoring → दुरुपयोग की निगरानी; fair-use rate limiting → उचित-उपयोग सीमाएं लागू करना
+- `legal.privacy.aiProcessing.content` must be byte-identical in both repos (same English source).
+- Keep the direction of "X such as Y": "मानक संविदात्मक खंड जैसे उचित … सुरक्षा उपाय".
+- Dates: month name + year, "नवंबर 2026", "अप्रैल 2026", same style for privacy and terms in
+  both repos. Label: "अंतिम अपडेट: {{date}}" (app `legal.lastUpdatedOn`), website `legal.lastUpdated`
+  = "अंतिम अपडेट".
+- Required voice-entry facts: 5 minutes per recording; 200 minutes per month; Plus only; audio goes
+  to Google (Gemini); OwnJournal never stores audio or transcripts; only seconds are counted;
+  Google's paid tier does not train on the data; Google may keep data only briefly / for a limited
+  time for abuse monitoring.
 
-## 4. Punctuation and typography
-- Sentence end: **पूर्ण विराम "।"** (house style in both repos). Microsoft's guide prefers an
-  English full stop; the repo's convention wins. Use "?" and "!" as in English.
-- Ellipsis: the single character "…". Em dash "—" is fine in marketing/teaser lines; avoid
-  chains of dashes. Microsoft advises commas where a dash feels foreign.
-- Do not put commas between a noun and its postposition ("हमारे AI प्रदाता, वर्तमान में
-  Google, को" ✗). Restructure with a relative clause ("…प्रदाता को, जो वर्तमान में Google है").
-- Nukta: the app mostly uses it (ब्राउज़र, ज़रूरी, तेज़, आज़माएं). Follow established
-  exceptions (ऑफलाइन, फॉर्मेट, फाइल, साफ). Never respell well-established words file-wide.
-- Numbers stay Western Arabic digits; units are written out: "5 मिनट", "{{seconds}} सेकंड",
-  "200 मिनट/माह" (compact tables only).
+## 4. Punctuation and typography (both files)
+- Sentence end: पूर्ण विराम "।". "?" and "!" as in English.
+- Ellipsis: always the single character "…" (never "...").
+- Dash: spaced em dash " — " for breaks and label–explanation pairs ("नहीं मिला — लक्ष्य स्थान …").
+  Never " - " or "–" as a dash. En dash only in numeric ranges without spaces ("24–48", "30–60").
+  Markdown list syntax ("- सूचियां") is code, leave it.
+- Quotation marks: curly double “ ” for quoted UI labels, typed words and examples
+  (“सेटअप सहायता”, “DELETE ALL”, “अं”). No straight " or ' quotes; the only ' left is the
+  apostrophe in "Let's Encrypt". No full-width （） brackets.
+- Menu paths use "→" (सेटिंग्स → आपका नाम → iCloud), not ">".
+- Do not put commas between a noun and its postposition; restructure with a relative clause.
+- Nukta: per word, the app's dominant spelling wins in both repos. Without nukta: फाइल, फोल्डर,
+  फीचर, फोटो, ऑफलाइन, मुफ्त, साफ, सिर्फ, जिम्मेदार, मजबूत, कमजोर, अंग्रेजी, यूजरनेम, फॉर्मेट.
+  With nukta: प्रोफ़ाइल, ज़ीरो, ज़रूरी, ज़रूरत, ज़्यादा, तेज़, डिफ़ॉल्ट, फ़िल्टर, ब्राउज़र, कॉन्फ़िग,
+  दस्तावेज़, माइक्रोफ़ोन, आज़माएं, हक़दार. Use decomposed nukta (letter + U+093C) as the files do.
+- Numbers: Western digits; units spaced "5 MB", "20 MB", "{{ms}} ms", "5 मिनट"; "/माह", "/वर्ष".
 
 ## 5. Grammar pitfalls (seen in machine output)
-- Verb agreement in perfective transitive sentences goes with the object: "सभी {{minutes}} मिनट
-  इस्तेमाल कर **लिए हैं**" (मिनट, m. pl.), not "कर ली है". Do not let the verb agree with a
-  nearby feminine noun (वॉइस एंट्री).
-- Gender: रिकॉर्डिंग, एंट्री, प्रविष्टि, सदस्यता, सुविधा are f.; फीचर, टेक्स्ट, प्रसंस्करण, डेटा are m.
-- "When you stop (recording)" → "रिकॉर्डिंग रोकते ही", not "जब आप रुकते हैं" (that reads as
-  "when you pause").
-- Correlative clauses read naturally when the relative clause comes first: "आप जिस भी भाषा
-  में बोलें, आपके शब्द उसी भाषा में…".
-- "with Plus" → "Plus में" or "Plus के साथ"; both appear in the app already.
-- "Transcribe your voice with Google?" → "अपनी रिकॉर्डिंग Google से ट्रांसक्राइब करवाएं?"
-  The causative fits because Google does the work.
+- Perfective transitive verbs agree with the object: "सभी {{minutes}} मिनट इस्तेमाल कर लिए हैं".
+- Gender: रिकॉर्डिंग, प्रविष्टि, सदस्यता, सुविधा, जर्नल, कुंजी, स्क्रीन are f.; फीचर, टेक्स्ट,
+  प्रसंस्करण, डेटा, आर्किटेक्चर, प्लान are m. ("Nextcloud की ऐप पासवर्ड स्क्रीन").
+- Placeholders that already carry "पहले" (time-ago strings) must not get another: syncedTimeAgo is
+  "{{time}} सिंक हुआ". `{{activity}}` can be m. or f.: use "{{activity}} का संबंध … से है".
+- Labels followed by code/URL in the UI end with ":" ("सिंक हो रहा है:", "… जिसके नाम के अंत में यह हो:").
+- The sign-up legal line has no suffix key: prefix is "जारी रखकर आप इनसे सहमत होते हैं:".
+- "When you stop (recording)" → "रिकॉर्डिंग रोकते ही". "mid-sentence / along the way" → "बोलते-बोलते".
+- Possibility: "हो सकता है कि … हो" / "शायद …", not "… गया हो सकता है".
+- "Transcribe your voice with Google?" → "अपनी रिकॉर्डिंग Google से ट्रांसक्राइब करवाएं?".
+- "available with Plus" → "Plus में उपलब्ध है".
 
 ## 6. Length / fit
 Button labels: 1–3 words ("बोलकर लिखें", "रोकें", "जारी रखें", "अभी नहीं"). Hindi runs about
-20–30% longer than English. Keep countdown and quota chips short: "{{seconds}} सेकंड में रुकेगा",
-"इस महीने {{minutes}} मिनट बाकी".
+20–30% longer than English. Keep chips short: "{{seconds}} सेकंड में रुकेगा", "चरण {{current}}/{{total}}".
 
 ## Sources
 - Microsoft Hindi Localization Style Guide (PDF, 2024): https://download.microsoft.com/download/2/b/5/2b543b85-0ed4-49a7-8b3a-98ffa7addcfb/hin-ind-StyleGuide.pdf
-  (voice, -ें imperatives, simple words over Sanskritized ones in UI, punctuation and dash guidance)
+  (voice, -ें imperatives, simple words over Sanskritized ones in UI, punctuation and dash guidance;
+  it prefers an English full stop, but the repos' "।" convention wins)
 - Microsoft style guides index: https://learn.microsoft.com/en-us/globalization/reference/microsoft-style-guides
 - DPDP Act 2023 / DPDP Rules 2025 Hindi gazette (डेटा न्यासी, सहमति, प्रसंस्करण): https://egazette.gov.in/WriteReadData/2025/259889.pdf
 - Google India blog on voice typing in Indian languages: https://india.googleblog.com/2017/08/type-less-talk-more-in-eight-indian.html
 - Gboard dictation help (Gemini "Rambler" voice input): https://support.google.com/gboard/answer/17468539
-- House style: counts taken from the repo's hi.json files (Nov 2026).
+- House style: term counts from both hi.json files (Nov 2026); owner decisions of Nov 2026.

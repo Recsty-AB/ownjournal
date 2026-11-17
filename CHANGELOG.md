@@ -9,6 +9,8 @@
 ### Improvements
 - Plus feature lists (paywall, upgrade banner, Help, FAQ) include voice entry; PDF and Word export are shown as one item
 - Privacy policy describes voice recordings and no longer lists OpenAI as an AI provider
+- Native-speaker review of all 21 languages: Danish strings that were in Norwegian, European Portuguese strings that were in Brazilian Portuguese, and Mainland terms in Traditional Chinese are corrected; each language uses one form of address and consistent terminology; missing and mistranslated strings are fixed
+- The "Last updated" line on the privacy and terms pages follows each language's punctuation
 
 ### Developer Notes
 - New `ai-transcribe` edge function (`gemini-3.5-transcribe` via the Interactions API with `store: false`); deploy it with `supabase functions deploy ai-transcribe`

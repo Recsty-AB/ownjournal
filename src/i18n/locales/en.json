@@ -1,7 +1,7 @@
 {
   "activities": {
     "label": "Activities",
-    "addCustom": "Add custom activity...",
+    "addCustom": "Add custom activity…",
     "exercise": "Exercise",
     "social": "Social",
     "work": "Work",
@@ -41,7 +41,7 @@
     "cancel": "Cancel",
     "delete": "Delete",
     "edit": "Edit",
-    "loading": "Loading...",
+    "loading": "Loading…",
     "error": "Error",
     "stop": "Stop",
     "copied": "Copied",
@@ -58,10 +58,10 @@
     "copyEmail": "Copy Email"
   },
   "migration": {
-    "preparing": "Preparing migration...",
-    "encryptingEntries": "Encrypting entries...",
-    "decryptingEntries": "Decrypting entries...",
-    "migratingCredentials": "Migrating credentials...",
+    "preparing": "Preparing migration…",
+    "encryptingEntries": "Encrypting entries…",
+    "decryptingEntries": "Decrypting entries…",
+    "migratingCredentials": "Migrating credentials…",
     "complete": "Migration complete!",
     "error": "Migration failed",
     "toE2ETitle": "Enabling E2E Encryption",
@@ -83,7 +83,7 @@
   "editor": {
     "edit": "Edit",
     "preview": "Preview",
-    "placeholder": "Write your journal entry... Use markdown for formatting:\n\n# Heading\n**bold** *italic*\n- bullet point",
+    "placeholder": "Write your journal entry… Use Markdown for formatting:\n\n# Heading\n**bold** *italic*\n- bullet point",
     "markdownSupport": "Supports: **bold**, *italic*, # headers, - lists",
     "noContentPreview": "*No content to preview*",
     "inlineTagHint": "Type # in your text to add tags"
@@ -91,7 +91,7 @@
   "import": {
     "invalidFormat": "Invalid import file format",
     "complete": "Import complete",
-    "completeDesc": "Imported {{count}} entries. Syncing to storage...",
+    "completeDesc": "Imported {{count}} entries. Syncing to storage…",
     "failed": "Import failed",
     "failedDesc": "Failed to import data. Please check the file format.",
     "storageSyncFailed": "Storage sync failed",
@@ -105,8 +105,8 @@
     "connectionFailed": "Connection failed. Please check your server URL and credentials.",
     "connectionFailedShort": "Connection failed",
     "masterKeyRequired": "Master key is required to save credentials in E2E mode",
-    "clickSetupHelpCors": "Click \"Setup Help\" above for step-by-step instructions.",
-    "clickSetupHelpSsl": "Click \"Setup Help\" above for instructions on fixing SSL certificate issues.",
+    "clickSetupHelpCors": "Tap \"Setup Help\" above for step-by-step instructions.",
+    "clickSetupHelpSsl": "Tap \"Setup Help\" above for instructions on fixing SSL certificate issues.",
     "credentialDecryptFailed": "Your Nextcloud credentials couldn't be decrypted. This usually means your journal password is incorrect. Please check your password or disconnect and reconnect."
   },
   "app": {
@@ -122,7 +122,7 @@
     "exportBackup": "Export Backup Data",
     "importBackup": "Import Backup Data",
     "exportToFile": "Export to File",
-    "signOut": "Sign out",
+    "signOut": "Sign Out",
     "proMember": "Plus Member",
     "help": "Help"
   },
@@ -159,10 +159,10 @@
     "appleNotAvailable": "Apple Sign-In Not Available",
     "appleNotConfigured": "Apple authentication is not configured yet. Please contact the app administrator or use another sign-in method.",
     "userAlreadyExists": "Account already exists",
-    "userAlreadyExistsDesc": "This email is already registered. Try signing in instead, or use 'Continue with Google' if you previously signed up that way.",
+    "userAlreadyExistsDesc": "This email is already registered. Try signing in instead, or use \"Continue with Google\" if you previously signed up that way.",
     "invalidCredentials": "Invalid login credentials",
-    "invalidCredentialsDesc": "The email or password is incorrect. If you signed up with Google, please use 'Continue with Google' instead.",
-    "oauthAccountHint": "Did you sign up with Google? Try 'Continue with Google' below.",
+    "invalidCredentialsDesc": "The email or password is incorrect. If you signed up with Google, please use \"Continue with Google\" instead.",
+    "oauthAccountHint": "Did you sign up with Google? Try \"Continue with Google\" below.",
     "linkExpired": "Link expired or invalid",
     "linkExpiredDesc": "This sign-in link has expired or was already used. Please sign in again or request a new link.",
     "inAppBrowserWarning": "You're viewing this in {{appName}}",
@@ -214,8 +214,8 @@
     "anotherEntryEditingDesc": "Please save or cancel the other entry first.",
     "goToEditingEntry": "Go to editing entry",
     "switchToEditMode": "Switch to edit mode to apply tags",
-    "switchToEditModeDesc": "Click the edit button to apply suggested tags",
-    "entryTitlePlaceholder": "Entry title...",
+    "switchToEditModeDesc": "Tap the edit button to apply suggested tags",
+    "entryTitlePlaceholder": "Entry title…",
     "finishEditingFirst": "Finish editing the other entry first",
     "entrySaved": "Entry saved",
     "entrySavedDesc": "Your encrypted journal entry has been saved and will sync automatically.",
@@ -243,13 +243,13 @@
     "importUnavailableDesc": "Start your journal to enable data import"
   },
   "index": {
-    "loadingAuth": "Checking authentication...",
-    "loadingEntries": "Loading entries...",
-    "loadingEntriesDesc": "Decrypting your encrypted entries...",
-    "initializingStorage": "Initializing storage...",
-    "loadingCachedEntries": "Loading cached entries...",
-    "decryptingEntries": "Decrypting entries...",
-    "syncingWithCloud": "Syncing with cloud...",
+    "loadingAuth": "Checking authentication…",
+    "loadingEntries": "Loading entries…",
+    "loadingEntriesDesc": "Decrypting your encrypted entries…",
+    "initializingStorage": "Initializing storage…",
+    "loadingCachedEntries": "Loading cached entries…",
+    "decryptingEntries": "Decrypting entries…",
+    "syncingWithCloud": "Syncing with cloud…",
     "noCloudConnected": "No cloud storage connected",
     "noCloudConnectedDesc": "Your entries are stored locally and encrypted. Connect storage in Settings to sync across devices.",
     "connectStorage": "Connect Storage",
@@ -261,7 +261,7 @@
     "authFailedDesc": "Stored password is invalid. Please enter your password.",
     "initError": "Initialization error",
     "initErrorDesc": "Please try again",
-    "settingUpSync": "Setting up cloud sync...",
+    "settingUpSync": "Setting up cloud sync…",
     "settingUpSyncDesc": "Uploading encryption key and preparing sync.",
     "initialSyncComplete": "Initial sync complete",
     "initialSyncCompleteDesc": "{{count}} entries synced with {{provider}}.",
@@ -272,14 +272,14 @@
     "conflictDetected": "⚠️ Sync Conflict Detected",
     "conflictDetectedDesc": "Concurrent edits were resolved automatically. {{count}} conflict(s) logged.",
     "viewConflicts": "View Conflicts",
-    "savingEntry": "Saving entry...",
+    "savingEntry": "Saving entry…",
     "savingEntryDesc": "Encrypting and syncing your journal entry.",
     "entrySaved": "Entry saved",
     "entrySavedDesc": "Your encrypted journal entry has been saved and synced.",
     "entrySavedOfflineDesc": "Saved locally. Will sync when you're back online.",
     "failedToSaveEntry": "Failed to save entry",
     "pleaseTryAgain": "Please try again",
-    "deletingEntry": "Deleting entry...",
+    "deletingEntry": "Deleting entry…",
     "deletingEntryDesc": "Removing entry from storage and syncing to cloud.",
     "entryDeleted": "Entry deleted",
     "entryDeletedDesc": "Your journal entry has been deleted and synced.",
@@ -293,7 +293,7 @@
     "signedOutDesc": "You have been successfully signed out",
     "backupExported": "Backup exported",
     "backupExportedDesc": "{{count}} entries exported to JSON file",
-    "importCompleteDesc": "Imported {{count}} entries. Syncing to storage...",
+    "importCompleteDesc": "Imported {{count}} entries. Syncing to storage…",
     "cloudSyncComplete": "Cloud sync complete",
     "cloudSyncCompleteDesc": "Imported entries have been synced to cloud storage.",
     "cloudSyncIncomplete": "Cloud sync incomplete",
@@ -322,7 +322,7 @@
     "passwordSavedDesc": "Encryption password has been set.",
     "encryptionSetupFailed": "Encryption setup failed",
     "encryptionSetupFailedDesc": "Could not initialize encryption.",
-    "startingCloudSync": "Starting cloud sync...",
+    "startingCloudSync": "Starting cloud sync…",
     "startingCloudSyncDesc": "Syncing your journal entries in the background.",
     "syncCompleteDesc": "{{count}} entries synced with cloud storage.",
     "unableToStartSync": "Unable to start sync.",
@@ -380,7 +380,7 @@
     "testNginx": "Test config:",
     "expectedOutput": "Expected output from configtest:",
     "syntaxOkDesc": "Configuration is valid, proceed to restart",
-    "ah00558Desc": "Warning about ServerName - this is harmless, you can ignore it",
+    "ah00558Desc": "Warning about ServerName — this is harmless, you can ignore it",
     "invalidCommandDesc": "Module not enabled, run Step 1 again",
     "syntaxErrorDesc": "Check for typos in the configuration",
     "troubleshooting": "Troubleshooting",
@@ -394,15 +394,15 @@
     "copyConfig": "Copy config",
     "nginxSyntaxOkDesc": "Configuration valid, proceed with reload",
     "nginxTestOkDesc": "All tests passed, safe to reload",
-    "nginxUnknownDirectiveDesc": "Check syntax - possibly a typo or missing semicolon",
+    "nginxUnknownDirectiveDesc": "Check syntax — possibly a typo or missing semicolon",
     "nginxOptions401Fix": "Ensure the OPTIONS block returns 204 before any auth checks",
     "nginxCorsHeaderMissingFix": "Make sure add_header includes 'always' flag",
     "nginxFindFileInstruction": "List your Nginx site configuration files to find the one for your Nextcloud domain:",
     "nginxEditFileInstruction": "Edit the file for your Nextcloud domain:",
     "commonSslIssues": "Common SSL certificate issues:",
-    "expiredCert": "Expired certificate - needs renewal",
-    "selfSignedCert": "Self-signed certificate - not trusted by browsers",
-    "invalidCert": "Invalid certificate - domain mismatch or configuration error",
+    "expiredCert": "Expired certificate — needs renewal",
+    "selfSignedCert": "Self-signed certificate — not trusted by browsers",
+    "invalidCert": "Invalid certificate — domain mismatch or configuration error",
     "missingIntermediateCerts": "Missing intermediate certificates",
     "howToCheckSsl": "How to check your SSL certificate:",
     "openNextcloudUrl": "Open your Nextcloud URL in a browser (e.g., {{url}})",
@@ -447,7 +447,7 @@
     "mobileAppNoteDesc": "Mobile apps may have stricter connection restrictions than desktop browsers. If connection works on your computer but not on your phone:",
     "mobileAppTip1": "Ensure your Nextcloud server allows connections from any origin (Access-Control-Allow-Origin: *)",
     "mobileAppTip2": "Check that your SSL certificate is valid and trusted (not self-signed)",
-    "mobileAppTip3": "Some hosting providers block mobile app connections by default - contact your host if issues persist",
+    "mobileAppTip3": "Some hosting providers block mobile app connections by default — contact your host if issues persist",
     "apacheEditConfig": "Edit your Apache SSL VirtualHost config:",
     "apacheAddInside": "Add the configuration INSIDE the {{tag}} block (before the closing {{closeTag}} tag)",
     "subdirectoryInstalls": "For subdirectory installs, adjust the path (e.g., {{path}})",
@@ -466,12 +466,12 @@
     "replaceFilename": "Replace YOUR_FILE.conf with the filename from above (e.g., nextcloud-le-ssl.conf)",
     "recommended": "Recommended",
     "simpleConfig": "Simple Config (for personal servers)",
-    "simpleConfigDesc": "Uses wildcard origin (*) - works with all web browsers and mobile apps. Best for personal Nextcloud servers.",
-    "simpleConfigDescNginx": "Uses wildcard origin (*) - works with all web browsers and mobile apps. Best for personal Nginx servers.",
+    "simpleConfigDesc": "Uses wildcard origin (*) — works with all web browsers and mobile apps. Best for personal Nextcloud servers.",
+    "simpleConfigDescNginx": "Uses wildcard origin (*) — works with all web browsers and mobile apps. Best for personal Nginx servers.",
     "advanced": "Advanced",
     "secureConfig": "Secure Config (for shared servers)",
-    "secureConfigDesc": "Uses origin reflection - only allows your specific app domains. Use this if your Nextcloud is shared with others.",
-    "secureConfigDescNginx": "Uses origin reflection - only allows your specific app domains. Use this if your Nginx server is shared with others."
+    "secureConfigDesc": "Uses origin reflection — only allows your specific app domains. Use this if your Nextcloud is shared with others.",
+    "secureConfigDescNginx": "Uses origin reflection — only allows your specific app domains. Use this if your Nginx server is shared with others."
   },
   "modelDownload": {
     "title": "Download AI Models?",
@@ -479,7 +479,7 @@
     "modelsReadyDesc": "AI models have been downloaded successfully",
     "downloadFailed": "Download failed",
     "downloadFailedDesc": "Failed to download AI models. Please try again.",
-    "downloading": "Downloading AI models for private, on-device analysis...",
+    "downloading": "Downloading AI models for private, on-device analysis…",
     "mayTakeMinutes": "This may take a few minutes. Please keep the app open.",
     "toUsePrivateAI": "To use Private AI features, we need to download AI models ({{size}}) to your device.",
     "selected": "Selected: {{name}}",
@@ -488,19 +488,19 @@
     "multilingualDesc": "Supports Japanese, Chinese, Spanish, and 100+ languages",
     "lightweightDesc": "Faster performance, smaller download, English only",
     "changeInSettings": "To change the model, open Settings, go to AI Mode, and select your preferred Model Type.",
-    "privateOnDevice": "100% private - runs entirely on your device",
+    "privateOnDevice": "100% private — runs entirely on your device",
     "worksOffline": "Works offline after download",
     "oneTimeDownload": "One-time download ({{size}})",
     "cancel": "Cancel",
     "notNow": "Not Now",
     "downloadModels": "Download Models",
-    "downloadingBtn": "Downloading..."
+    "downloadingBtn": "Downloading…"
   },
   "transfer": {
     "connectionError": "Connection Error",
     "connectionErrorDesc": "Both providers must be connected",
     "transferStarted": "Transfer started",
-    "transferStartedDesc": "Copying entries from {{source}} to {{target}}...",
+    "transferStartedDesc": "Copying entries from {{source}} to {{target}}…",
     "transferProgress": "Transfer in progress",
     "transferProgressDesc": "{{current}} of {{total}} entries copied",
     "complete": "Transfer complete",
@@ -510,12 +510,12 @@
     "failed": "Transfer failed",
     "stopped": "Transfer stopped",
     "stoppedDesc": "Transfer was stopped by user",
-    "cancelled": "Transfer cancelled",
-    "cancelledDesc": "Transfer was cancelled. {{transferred}} files were transferred before cancellation.",
-    "cleaningUp": "Cleaning up...",
+    "cancelled": "Transfer canceled",
+    "cancelledDesc": "Transfer was canceled. {{transferred}} files were transferred before cancellation.",
+    "cleaningUp": "Cleaning up…",
     "mirrorComplete": "Mirror sync complete",
     "mirrorCompleteDesc": "Successfully mirrored {{count}} files from {{source}} to {{target}}. Destination is now identical to source.",
-    "transferCompleteDisconnect": "Transfer Complete - Disconnect Source?",
+    "transferCompleteDisconnect": "Transfer Complete — Disconnect Source?",
     "transferCompleteDisconnectDesc": "All entries have been mirrored to {{target}}. Would you like to disconnect {{source}} to avoid confusion?",
     "passwordRequiredAfterTransfer": "Please enter your password to complete the storage provider switch and reload your encryption key.",
     "keyValidationFailed": "Encryption key mismatch",
@@ -535,12 +535,12 @@
     "initialCompleteDesc": "{{count}} entries synced.",
     "initialFailed": "Initial sync failed",
     "initialFailedDesc": "Could not complete initial sync.",
-    "savingEntry": "Saving entry...",
+    "savingEntry": "Saving entry…",
     "savingEntryDesc": "Encrypting and syncing your journal entry.",
     "entrySaved": "Entry saved",
     "entrySavedDesc": "Your encrypted journal entry has been saved and synced.",
     "failedToSave": "Failed to save entry",
-    "deletingEntry": "Deleting entry...",
+    "deletingEntry": "Deleting entry…",
     "deletingEntryDesc": "Removing entry from storage and syncing to cloud.",
     "entryDeleted": "Entry deleted",
     "entryDeletedDesc": "Your journal entry has been deleted and synced.",
@@ -552,7 +552,7 @@
     "tooManyRequests": "Too Many Requests",
     "tooManyRequestsDesc": "Cloud storage is receiving requests too quickly. Sync will automatically retry.",
     "dropboxRateLimited": "Dropbox is busy",
-    "dropboxRateLimitedDesc": "Too many write operations. Waiting before retry..."
+    "dropboxRateLimitedDesc": "Too many write operations. Waiting before retry…"
   },
   "export": {
     "complete": "Export complete",
@@ -566,7 +566,7 @@
   "settings": {
     "title": "Settings",
     "upgrade": "Upgrade to Plus",
-    "upgradeDesc": "Redirecting to subscription management...",
+    "upgradeDesc": "Redirecting to subscription management…",
     "signedOut": "Signed out",
     "signedOutDesc": "You have been successfully signed out",
     "resetComplete": "Success",
@@ -615,8 +615,8 @@
       "successDesc": "Your account has been permanently deleted.",
       "failed": "Failed to delete account",
       "failedDesc": "Please try again later or contact support.",
-      "deletingLocal": "Deleting local data...",
-      "deletingCloud": "Deleting cloud files ({{current}}/{{total}})...",
+      "deletingLocal": "Deleting local data…",
+      "deletingCloud": "Deleting cloud files ({{current}}/{{total}})…",
       "doNotClose": "Please keep this page open until deletion is complete"
     },
     "journalName": {
@@ -663,7 +663,7 @@
       "noDownloads": "No downloads required",
       "requiresInternet": "Requires internet connection",
       "privacyNote": "Privacy Note",
-      "privacyDesc": "When you use AI features, your journal content is sent securely to third-party AI services for analysis. We do not store this data on our servers. Our AI providers may temporarily retain data for abuse monitoring but do not use it for model training.",
+      "privacyDesc": "When you use AI features, your journal content is sent securely to a third-party AI service for analysis. We do not store this data on our servers. Our AI provider may temporarily retain data for abuse monitoring but does not use it for model training.",
       "manageSubscription": "Manage",
       "portalError": "Could not open subscription manager",
       "portalErrorDesc": "Please try again later."
@@ -695,7 +695,7 @@
     "disconnect": "Disconnect",
     "update": "Update Connection",
     "cancel": "Cancel",
-    "testing": "Testing connection...",
+    "testing": "Testing connection…",
     "setupHelp": "Setup Help",
     "connectionError": "Connection Error",
     "authError": "Authentication Error",
@@ -723,7 +723,7 @@
     "qrCameraPermission": "Camera permission is required to scan QR codes",
     "qrCameraPermissionDenied": "Camera permission was denied. Please enable camera access in your device settings.",
     "openCameraToScan": "Open Camera to Scan",
-    "qrScanning": "Scanning...",
+    "qrScanning": "Scanning…",
     "qrSuccess": "Credentials scanned",
     "qrSuccessDesc": "Connection details have been filled in. Tap Connect to continue."
   },
@@ -734,7 +734,7 @@
     "thisMonth": "This Month",
     "backToTop": "Back to top",
     "newEntry": "New Entry",
-    "searchPlaceholder": "Search entries...",
+    "searchPlaceholder": "Search entries…",
     "startDate": "Start date",
     "endDate": "End date",
     "noEntries": "No matching entries",
@@ -755,9 +755,9 @@
       "terrible": "Terrible"
     },
     "tags": "Tags",
-    "addTag": "Add tag...",
+    "addTag": "Add tag…",
     "addTagsPlaceholder": "Add tags (press Enter)",
-    "startWriting": "Start writing your thoughts...",
+    "startWriting": "Start writing your thoughts…",
     "maxTags": "Maximum tags reached",
     "maxTagsDesc": "You can only add up to 20 tags per entry",
     "maxActivitiesReached": "Activity limit reached",
@@ -768,9 +768,9 @@
     "pdfExportPro": "PDF export is available for Plus users only.",
     "wordExportPro": "Word export is available for Plus users only.",
     "fileTooLarge": "File too large",
-    "fileTooLargeDesc": "Individual images must be under 5MB.",
+    "fileTooLargeDesc": "Individual images must be under 5 MB.",
     "totalSizeLimit": "Total size limit reached",
-    "totalSizeLimitDesc": "Maximum 20MB total for all images per entry.",
+    "totalSizeLimitDesc": "Maximum 20 MB total for all images per entry.",
     "imageAdded": "Image added",
     "imageAddedDesc": "Image compressed and added to entry.",
     "compressionFailed": "Compression failed",
@@ -781,12 +781,12 @@
     "wordExportedDesc": "Your journal entry has been saved as Word document.",
     "validationError": "Validation Error",
     "validationErrorDesc": "Please check your entry",
-    "titlePlaceholder": "Entry title...",
+    "titlePlaceholder": "Entry title…",
     "saveEntry": "Save Entry",
     "inlineTagBadgeHint": "Added from #tags in the text"
   },
   "storage": {
-    "connecting": "Connecting...",
+    "connecting": "Connecting…",
     "connectionFailed": "Connection Failed",
     "connectionError": "Connection Error",
     "reconnectHint": "If the problem continues, try disconnecting and reconnecting your storage in Settings.",
@@ -804,7 +804,7 @@
     "e2eModeDesc": "Entries encrypted locally before cloud sync. Only you can decrypt with your password. Maximum privacy.",
     "cannotSwitch": "Cannot Switch Encryption Mode",
     "cannotSwitchDesc": "You have existing entries. Please delete all data before switching encryption modes.",
-    "cannotSwitchFromE2E": "Cannot switch from E2E mode - reset data first if needed",
+    "cannotSwitchFromE2E": "Cannot switch from E2E mode — reset data first if needed",
     "cannotSwitchToE2E": "To use E2E encryption, disconnect from cloud storage first or reset all data.",
     "disconnectFirst": "Please disconnect from cloud storage or reset all data to change encryption mode.",
     "cannotVerify": "Cannot Verify Entries",
@@ -818,13 +818,13 @@
     "e2eEnabledDesc": "Using your existing password for encryption.",
     "simpleModeEnabled": "Simple Mode Enabled",
     "simpleModeEnabledDesc": "Your entries will sync as readable JSON files.",
-    "e2eModeCancelled": "Encryption setup was cancelled.",
+    "e2eModeCancelled": "Encryption setup was canceled.",
     "passwordManagement": "Password Management",
     "passwordStoredSecurely": "Your password is securely stored on this device for automatic encryption.",
     "clearStoredPassword": "Clear Stored Password",
     "forgotPassword": "Forgot your password?",
-    "forgotPasswordOption1": "Use 'Change Password' below if you know your current password",
-    "forgotPasswordOption2": "Export a backup first, then use 'DELETE All Data' in Danger Zone to start fresh",
+    "forgotPasswordOption1": "Use \"Change Password\" below if you know your current password",
+    "forgotPasswordOption2": "Export a backup first, then use \"Reset All Data\" in the Danger Zone to start fresh",
     "changePassword": "Change Password",
     "changePasswordDesc": "Change your journal password. All entries will be re-encrypted with the new password.",
     "dangerZone": "Danger Zone",
@@ -833,9 +833,9 @@
     "resetAllDataWarning": "This will permanently delete all your journal entries, encryption keys, and cached password. If you use E2E encryption, your entries will become permanently unreadable as the encryption key will be destroyed.",
     "resetAllDataConfirm": "This action cannot be undone. Continue?",
     "backupRecommendation": "We strongly recommend creating a backup before proceeding.",
-    "backupInstructions": "To create a backup: Click on your profile icon (top right) → Export Data",
+    "backupInstructions": "To create a backup: Tap your profile icon (top right) → Export Data",
     "confirmReset": "Type DELETE to confirm",
-    "resetting": "Resetting...",
+    "resetting": "Resetting…",
     "resetButton": "Delete Everything",
     "allDataDeleted": "All Data Deleted",
     "allDataDeletedDesc": "All entries, encryption keys, and cached password have been cleared. Encrypted data is now permanently inaccessible. You can start fresh.",
@@ -856,7 +856,7 @@
     "error": "Error",
     "cloudCredentialsWarning": "Cloud credentials stored in plaintext in device local storage",
     "deviceAccessWarning": "Anyone with device access can read OAuth tokens",
-    "recommendE2E": "Recommended E2E mode for sensitive journals",
+    "recommendE2E": "E2E mode recommended for sensitive journals",
     "cloudSyncFeature": "Cloud Sync Features:",
     "cloudFeature1": "Automatic sync every 5 minutes",
     "cloudFeature2": "Works across all devices",
@@ -886,9 +886,9 @@
     "passwordNotSet": "No password is currently set. Set a password to enable E2E encryption.",
     "passwordWillBeRequested": "Password will be requested when connecting to cloud providers.",
     "clearPasswordConfirm": "This will remove the stored encryption password from this device. You'll need to enter your password again the next time you open the app.\n\nYour encrypted data will not be affected.\n\nContinue?",
-    "changePasswordConfirm": "Are you sure?\n\nThis will decrypt all your entries with the old password and re-encrypt them with the new password.\n\nMake sure you remember your new password - it cannot be recovered if forgotten.\n\nContinue?",
+    "changePasswordConfirm": "Are you sure?\n\nThis will decrypt all your entries with the old password and re-encrypt them with the new password.\n\nMake sure you remember your new password — it cannot be recovered if forgotten.\n\nContinue?",
     "confirmationRequiredDesc": "Please type \"DELETE\" to confirm.",
-    "finalConfirm": "Final Confirmation\n\nThis will permanently delete ALL your journal entries from your device and cloud storage.\n\n⚠️ RECOMMENDED: Create a backup before proceeding!\nTo create a backup: Click on your profile icon (top right) → Export Data\n\nAre you absolutely sure you want to continue?",
+    "finalConfirm": "Final Confirmation\n\nThis will permanently delete ALL your journal entries from your device and cloud storage.\n\n⚠️ RECOMMENDED: Create a backup before proceeding!\nTo create a backup: Tap your profile icon (top right) → Export Data\n\nAre you absolutely sure you want to continue?",
     "passwordPersistenceChanged": "Password storage updated",
     "passwordPersistenceError": "Failed to update password storage setting",
     "passwordPersistence": {
@@ -951,28 +951,28 @@
     "to": "To",
     "selectSource": "Select source",
     "selectTarget": "Select target",
-    "transferring": "Transferring...",
-    "cleaningUp": "Cleaning up...",
+    "transferring": "Transferring…",
+    "cleaningUp": "Cleaning up…",
     "startTransfer": "Start Transfer",
     "connected": "Connected",
     "disconnect": "Disconnect",
     "disconnected": "Disconnected",
     "multipleProvidersWarning": "Multiple Storage Providers Connected",
     "multipleProvidersWarningDesc": "Only the primary provider actively syncs data. Secondary providers are only for migration purposes. Use migration to transfer data, then disconnect inactive providers.",
-    "migrationCompleteDisconnect": "Migration Complete - Disconnect Source?",
+    "migrationCompleteDisconnect": "Migration Complete — Disconnect Source?",
     "migrationCompleteDisconnectDesc": "All entries have been copied to {{target}}. Would you like to disconnect {{source}} to avoid confusion?",
     "disconnectSource": "Disconnect {{source}}",
     "keepBoth": "Keep Both Connected",
     "activeSync": "Active",
     "activeSyncDesc": "This storage is actively syncing your data",
     "inactiveSync": "Inactive",
-    "inactiveSyncDesc": "Not syncing - use migration to transfer data here",
+    "inactiveSyncDesc": "Not syncing — use migration to transfer data here",
     "primary": "Primary",
     "primaryDesc": "This storage is used for reading data",
     "secondary": "Secondary",
     "secondaryDesc": "Data is also synced here",
-    "verifyingProvider": "Verifying provider...",
-    "checkingEncryptionKey": "Checking for encryption key...",
+    "verifyingProvider": "Verifying provider…",
+    "checkingEncryptionKey": "Checking for encryption key…",
     "noKeyOnProvider": "No encryption key found",
     "noKeyOnProviderDesc": "{{provider}} doesn't have your encryption key. Use migration or copy the key first.",
     "cannotVerifyProvider": "Cannot verify provider",
@@ -980,15 +980,15 @@
     "copyEncryptionKey": "Copy Encryption Key",
     "copyKeyTo": "Copy to {{provider}}",
     "copyKeyExplanation": "Copy your encryption key from the active provider to another connected provider so you can switch between them.",
-    "copyingKey": "Copying encryption key...",
-    "copyingKeyDesc": "Copying from {{source}} to {{target}}...",
+    "copyingKey": "Copying encryption key…",
+    "copyingKeyDesc": "Copying from {{source}} to {{target}}…",
     "keyCopied": "Encryption key copied",
     "keyCopiedDesc": "Your encryption key has been copied to {{provider}}. You can now switch to this provider.",
     "copyKeyFailed": "Failed to copy key",
     "noKeyToCopy": "No encryption key available to copy",
     "noPrimaryProvider": "No primary provider connected",
     "noEncryptionKey": "No encryption key found",
-    "copyKeyFirst": "This provider doesn't have your encryption key. Use 'Copy Encryption Key' or transfer data first.",
+    "copyKeyFirst": "This provider doesn't have your encryption key. Use \"Copy Encryption Key\" or transfer data first.",
     "idle": "Ready to sync",
     "connectProvider": "Connect a cloud storage provider in Settings to enable automatic sync",
     "lastSync": "Last sync: {{time}}"
@@ -1021,7 +1021,7 @@
     "newPasswordPlaceholder": "Enter new password (min 12 characters)",
     "confirmNewPassword": "Confirm New Password",
     "confirmNewPasswordPlaceholder": "Re-enter new password",
-    "changing": "Changing...",
+    "changing": "Changing…",
     "changeButton": "Change Password",
     "passwordChanged": "Password changed",
     "passwordChangedDesc": "Your encryption password has been updated. Use this new password on all your devices.",
@@ -1035,7 +1035,7 @@
     "typeDeleteToConfirm": "Type \"DELETE ALL\" to confirm",
     "confirmationRequired": "Confirmation required",
     "confirmationRequiredDesc": "Please type \"DELETE ALL\" to confirm.",
-    "deleting": "Deleting...",
+    "deleting": "Deleting…",
     "deleteAllEntries": "Delete All Entries",
     "deleteAllButton": "Delete All Entries",
     "changePasswordButton": "Change Password",
@@ -1082,18 +1082,18 @@
     "migrated": "Migrated",
     "skipped": "Already encrypted",
     "failed": "Failed",
-    "migrating": "Migrating entries...",
+    "migrating": "Migrating entries…",
     "migrateNow": "Encrypt All Entries",
     "resetEncryption": "Reset Encryption Key",
     "resetToSimpleMode": "Switched to Simple mode. Set a new password to re-enable E2E encryption.",
-    "resetting": "Changing Password..."
+    "resetting": "Changing Password…"
   },
   "providers": {
     "googleDrive": {
       "title": "Google Drive Storage",
       "description": "Sync your encrypted journal entries with Google Drive (app folder only).",
       "connected": "Connected",
-      "connecting": "Connecting...",
+      "connecting": "Connecting…",
       "connect": "Connect to Google Drive",
       "disconnect": "Disconnect",
       "disconnected": "Disconnected",
@@ -1111,14 +1111,14 @@
       "devModeDesc": "Set VITE_GOOGLE_CLIENT_ID in environment variables.",
       "simpleMode": "Simple Mode:",
       "simpleModeDesc": "Your Google OAuth tokens will be stored unencrypted in your device's local storage. For better security, enable E2E Encrypted Mode in Storage Settings.",
-      "syncing": "Your journal entries are syncing with Google Drive app folder. Credentials are encrypted locally.",
-      "refreshingToken": "Refreshing access token..."
+      "syncing": "Your journal entries are syncing with the Google Drive app folder. Credentials are encrypted locally.",
+      "refreshingToken": "Refreshing access token…"
     },
     "dropbox": {
       "title": "Dropbox Storage",
       "description": "Sync your encrypted journal entries with Dropbox cloud storage.",
       "connected": "Connected",
-      "connecting": "Connecting...",
+      "connecting": "Connecting…",
       "connect": "Connect to Dropbox",
       "disconnect": "Disconnect",
       "disconnected": "Disconnected",
@@ -1136,14 +1136,14 @@
       "devModeDesc": "Set VITE_DROPBOX_CLIENT_ID in environment variables.",
       "simpleMode": "Simple Mode:",
       "simpleModeDesc": "Your Dropbox OAuth tokens will be stored unencrypted in your device's local storage. For better security, enable E2E Encrypted Mode in Storage Settings.",
-      "syncing": "Your journal entries are syncing with Dropbox in /OwnJournal folder. Credentials are encrypted locally.",
-      "refreshingToken": "Refreshing access token..."
+      "syncing": "Your journal entries are syncing with Dropbox in the /OwnJournal folder. Credentials are encrypted locally.",
+      "refreshingToken": "Refreshing access token…"
     },
     "nextcloud": {
       "title": "Nextcloud Storage",
       "description": "Self-hosted, private cloud storage with full control over your data.",
       "connected": "Connected",
-      "connecting": "Connecting...",
+      "connecting": "Connecting…",
       "connect": "Connect to Nextcloud",
       "disconnect": "Disconnect",
       "configure": "Configure",
@@ -1162,7 +1162,7 @@
       "connectedSuccess": "Connected to Nextcloud",
       "connectedSuccessDesc": "Your journal will now sync with your Nextcloud server.",
       "connectionFailed": "Connection Failed",
-      "testingConnection": "Testing connection...",
+      "testingConnection": "Testing connection…",
       "simpleMode": "Simple Mode:",
       "simpleModeDesc": "Your Nextcloud credentials will be stored unencrypted in your device's local storage. For better security, enable E2E Encrypted Mode in Storage Settings.",
       "server": "Server:",
@@ -1201,7 +1201,7 @@
       "development": "Development",
       "production": "Production",
       "connectButton": "Connect to iCloud",
-      "containerIdDesc": "Your CloudKit container identifier (e.g. iCloud.com.yourcompany.app)",
+      "containerIdDesc": "Your CloudKit container identifier (e.g., iCloud.com.yourcompany.app)",
       "apiTokenDesc": "API token from Apple Developer Console → CloudKit Dashboard → API Access",
       "environmentDesc": "Use Development while testing, Production for published apps",
       "syncDesc": "Sync your encrypted journal with iCloud. Your data stays private across all your Apple devices.",
@@ -1215,12 +1215,12 @@
       "popupBlocked": "The sign-in window may have been blocked. Please allow popups for this site and try again.",
       "signInLinkNotReady": "Apple sign-in is still loading. Please wait a moment and try again.",
       "originNotAllowed": "This app's origin ({{origin}}) is not registered with iCloud.",
-      "adpNotice": "iCloud can't be used from a browser when Advanced Data Protection is turned on for your Apple ID, because Apple blocks web access to app data. Use the iPhone or iPad app for iCloud, or choose Google Drive, Dropbox or Nextcloud to sync in this browser.",
-      "signInWebAccessOff": "Apple reports that web access to iCloud data is turned off for this Apple ID. Turn it on on your iPhone under Settings > your name > iCloud > iCloud.com, then try again.",
-      "signInFailedAdp": "Apple couldn't complete the iCloud sign-in. This usually means Advanced Data Protection is turned on for your Apple ID, and Apple doesn't allow those accounts to use iCloud from a browser. Use the iPhone or iPad app for iCloud, or connect Google Drive, Dropbox or Nextcloud instead."
+      "adpNotice": "iCloud can't be used from a browser when Advanced Data Protection is turned on for your Apple ID, because Apple blocks web access to app data. Use the iPhone or iPad app for iCloud, or choose Google Drive, Dropbox, or Nextcloud to sync in this browser.",
+      "signInWebAccessOff": "Apple reports that web access to iCloud data is turned off for this Apple ID. Turn it on on your iPhone under Settings → your name → iCloud → iCloud.com, then try again.",
+      "signInFailedAdp": "Apple couldn't complete the iCloud sign-in. This usually means Advanced Data Protection is turned on for your Apple ID, and Apple doesn't allow those accounts to use iCloud from a browser. Use the iPhone or iPad app for iCloud, or connect Google Drive, Dropbox, or Nextcloud instead."
     },
     "oauth": {
-      "accessDenied": "Authorization was cancelled or denied.",
+      "accessDenied": "Authorization was canceled or denied.",
       "authFailed": "Authorization failed. Please try again.",
       "googleDriveAuthFailed": "Failed to complete Google Drive authorization. Please try again.",
       "dropboxAuthFailed": "Failed to complete Dropbox authorization. Please try again.",
@@ -1228,7 +1228,7 @@
     }
   },
   "syncStatus": {
-    "syncing": "Syncing...",
+    "syncing": "Syncing…",
     "syncingProgress": "Syncing {{percent}}%",
     "synced": "Synced",
     "syncedTimeAgo": "Synced {{time}}",
@@ -1245,7 +1245,7 @@
     "lastSync": "Last sync: {{time}}",
     "lastSyncSuccess": "Last sync success: {{time}}",
     "lastSyncFailed": "Last sync failed: {{time}}",
-    "syncInProgress": "Sync in progress...",
+    "syncInProgress": "Sync in progress…",
     "highFailureRate": "High Sync Failure Rate",
     "highFailureRateDesc": "{{rate}}% of sync operations are failing. This may indicate connection issues or storage provider problems.",
     "frequentConflicts": "Frequent Sync Conflicts",
@@ -1267,23 +1267,23 @@
     "waitForCircuitBreakerAction": "Monitor status"
   },
   "syncProgress": {
-    "preparing": "Preparing sync...",
-    "checkingCloud": "Checking cloud files...",
-    "downloading": "Downloading entries...",
-    "uploading": "Uploading entries...",
-    "finalizing": "Finalizing sync...",
-    "syncing": "Syncing...",
-    "preparingSync": "Preparing sync...",
-    "downloadingEntries": "Downloading entries...",
-    "uploadingEntries": "Uploading entries...",
+    "preparing": "Preparing sync…",
+    "checkingCloud": "Checking cloud files…",
+    "downloading": "Downloading entries…",
+    "uploading": "Uploading entries…",
+    "finalizing": "Finalizing sync…",
+    "syncing": "Syncing…",
+    "preparingSync": "Preparing sync…",
+    "downloadingEntries": "Downloading entries…",
+    "uploadingEntries": "Uploading entries…",
     "syncComplete": "Sync complete!",
-    "verifyingEncryption": "Verifying encryption...",
-    "settingUpStructure": "Setting up cloud structure...",
-    "gatheringData": "Gathering sync data...",
+    "verifyingEncryption": "Verifying encryption…",
+    "settingUpStructure": "Setting up cloud structure…",
+    "gatheringData": "Gathering sync data…",
     "foundEntries": "Found entries",
-    "syncingOperations": "Syncing pending operations...",
-    "reconcilingEntries": "Reconciling entries...",
-    "updatingSyncState": "Updating sync state..."
+    "syncingOperations": "Syncing pending operations…",
+    "reconcilingEntries": "Reconciling entries…",
+    "updatingSyncState": "Updating sync state…"
   },
   "syncHealth": {
     "title": "Sync Health Monitor",
@@ -1376,7 +1376,7 @@
     "noOperationsYet": "No operations recorded yet",
     "operationSucceeded": "Operation succeeded",
     "attempt": "Attempt {{number}}",
-    "retryDelay": "Retry delay: {{ms}}ms",
+    "retryDelay": "Retry delay: {{ms}} ms",
     "details": "Details",
     "diagnosticsNote": "Diagnostics are stored in memory and reset on page reload. Max 200 entries kept.",
     "noDiagnosticsYet": "No diagnostics yet. Perform a sync to see logs.",
@@ -1402,7 +1402,7 @@
   },
   "aiAnalysis": {
     "title": "AI Analysis",
-    "analyzing": "Analyzing...",
+    "analyzing": "Analyzing…",
     "analyzeEntry": "Analyze Entry",
     "proFeature": "Plus Feature",
     "proFeatureDesc": "AI analysis requires a Plus subscription",
@@ -1459,9 +1459,9 @@
     "entriesAvailable": "{{count}} entries available for analysis",
     "limitReached": "Limit reached",
     "analyzingEntries": "Analyzing Entries",
-    "analyzingEntriesDesc": "Analyzing {{count}} entries to generate your insights...",
-    "analyzing": "Analyzing...",
-    "analyzingCount": "Analyzing {{count}} entries first...",
+    "analyzingEntriesDesc": "Analyzing {{count}} entries to generate your insights…",
+    "analyzing": "Analyzing…",
+    "analyzingCount": "Analyzing {{count}} entries first…",
     "authRequired": "Authentication required",
     "authRequiredDesc": "Please sign in to use AI features",
     "signInRequired": "Please sign in to use AI-powered trend analysis.",
@@ -1478,7 +1478,7 @@
     "weeklyLimitDesc": "You can perform one trend analysis per week. Try again next week.",
     "nextWeek": "Available next week",
     "availableOnceWeek": "Available once per week",
-    "limitMessage": "Weekly analysis limit reached - available again next week",
+    "limitMessage": "Weekly analysis limit reached — available again next week",
     "yourInsights": "Your Journaling Insights",
     "backToInsights": "Back to Insights",
     "periodSummary": "Period Summary",
@@ -1498,13 +1498,13 @@
     "summary": "Summary",
     "progress": {
       "step": "Step {{current}} of {{total}}",
-      "checkingEntries": "Checking entries...",
-      "analyzingEntry": "Analyzing entry {{current}} of {{total}}...",
-      "aggregatingPatterns": "Aggregating patterns...",
-      "generatingInsights": "Generating insights...",
-      "savingAnalysis": "Saving analysis...",
+      "checkingEntries": "Checking entries…",
+      "analyzingEntry": "Analyzing entry {{current}} of {{total}}…",
+      "aggregatingPatterns": "Aggregating patterns…",
+      "generatingInsights": "Generating insights…",
+      "savingAnalysis": "Saving analysis…",
       "entryProgress": "Entry {{current}} of {{total}}",
-      "retrying": "Retrying failed entries...",
+      "retrying": "Retrying failed entries…",
       "doNotCloseApp": "Please keep this page open until analysis is complete"
     }
   },
@@ -1517,8 +1517,8 @@
     "wordDescription": "Editable format, compatible with Microsoft Word and Google Docs",
     "exportAsPDF": "Export as PDF",
     "exportAsWord": "Export as Word",
-    "generatingPDF": "Generating PDF...",
-    "generatingWord": "Generating Word...",
+    "generatingPDF": "Generating PDF…",
+    "generatingWord": "Generating Word…",
     "proOnly": "Plus Only",
     "proFeature": "Plus Feature",
     "proFeatureDesc": "PDF export is available for Plus users only.",
@@ -1563,10 +1563,10 @@
     "priceYearly": "{{yearlyPrice}}/year",
     "priceMonthly": "That's just {{monthlyPrice}}/month",
     "upgradeToPro": "Upgrade to Plus",
-    "processing": "Processing...",
+    "processing": "Processing…",
     "cancelAnytime": "Cancel anytime.",
     "unlockAI": "Unlock AI features",
-    "upgrading": "Upgrading...",
+    "upgrading": "Upgrading…",
     "upgradeFailed": "Upgrade Failed",
     "upgradeFailedDesc": "An error occurred while upgrading your subscription. Please try again.",
     "features": {
@@ -1605,14 +1605,14 @@
     "nativeSubManageCta": "Open {{store}}",
     "appStore": "App Store",
     "googlePlay": "Google Play",
-    "iapUnavailable": "In-app purchases aren’t available right now",
-    "iapUnavailableDesc": "We couldn’t reach the store. Please check your connection and try again.",
+    "iapUnavailable": "In-app purchases aren't available right now",
+    "iapUnavailableDesc": "We couldn't reach the store. Please check your connection and try again.",
     "tryAgain": "Try again",
     "disclosureTitle": "OwnJournal Plus — Yearly Subscription",
     "disclosureLength": "1-year auto-renewing subscription.",
     "priceWithMonthly": "{{yearlyPrice}}/year (about {{monthlyEquivalent}}/month)",
     "renewalApple": "Payment is charged to your Apple ID at confirmation of purchase. Your subscription renews automatically at the same price unless auto-renew is turned off at least 24 hours before the end of the current period. You can manage and cancel your subscription in your App Store account settings after purchase.",
-    "renewalGoogle": "Payment is charged to your Google Play account at confirmation of purchase. Your subscription renews automatically at the same price unless cancelled in your Google Play subscriptions at least 24 hours before the end of the current period.",
+    "renewalGoogle": "Payment is charged to your Google Play account at confirmation of purchase. Your subscription renews automatically at the same price unless canceled in your Google Play subscriptions at least 24 hours before the end of the current period.",
     "iapOnly": {
       "title": "Available in the app",
       "description": "In your region, OwnJournal Plus is available through the mobile app. Get it from the store to subscribe.",
@@ -1660,8 +1660,8 @@
     "medium": "medium",
     "long": "long",
     "length": "length",
-    "analyzing": "Analyzing...",
-    "loading": "Loading...",
+    "analyzing": "Analyzing…",
+    "loading": "Loading…",
     "analyzeEntry": "Analyze Entry",
     "proFeature": "Plus Feature",
     "show": "Show",
@@ -1678,8 +1678,8 @@
   },
   "suggestions": {
     "contentTooLong": "Content too long",
-    "contentTooLongDescTags": "Your entry is {{wordCount}} words. Please reduce it to {{limit}} words or less to generate tags.",
-    "contentTooLongDescTitle": "Your entry is {{wordCount}} words. Please reduce it to {{limit}} words or less to generate a title.",
+    "contentTooLongDescTags": "Your entry is {{wordCount}} words. Please reduce it to {{limit}} words or fewer to generate tags.",
+    "contentTooLongDescTitle": "Your entry is {{wordCount}} words. Please reduce it to {{limit}} words or fewer to generate a title.",
     "limitReached": "Limit reached",
     "tooFast": "Too fast",
     "tooFastDesc": "Please wait a moment before generating again",
@@ -1720,10 +1720,10 @@
     "titleAppliedDesc": "The AI-generated title has been applied",
     "applyAll": "Apply All",
     "apply": "Apply",
-    "suggesting": "Suggesting...",
+    "suggesting": "Suggesting…",
     "suggestAnother": "Suggest another",
     "dismiss": "Dismiss",
-    "generating": "Generating...",
+    "generating": "Generating…",
     "suggestTagsPrivate": "Suggest Tags (Private)",
     "suggestTagsEnhanced": "Suggest Tags",
     "suggestTagsPro": "Plus: Suggest Tags",
@@ -1761,15 +1761,15 @@
     },
     "sync": {
       "title": "Sync Check",
-      "preparing": "Preparing...",
-      "checking": "Testing connection...",
+      "preparing": "Preparing…",
+      "checking": "Testing connection…",
       "success": "Connection established. Your journal is ready to sync.",
       "localReady": "Your journal is ready. Entries will be saved locally.",
       "usingProvider": "Using {{provider}}",
       "openJournal": "Open Journal",
-      "connectingProvider": "Connecting to cloud storage...",
+      "connectingProvider": "Connecting to cloud storage…",
       "completeSignIn": "Complete sign-in in the popup window",
-      "settingPassword": "Setting up encryption...",
+      "settingPassword": "Setting up encryption…",
       "enterPassword": "Enter your journal password to continue"
     },
     "encryption": {
@@ -1806,7 +1806,7 @@
     },
     "timeline": {
       "title": "Your Journal Timeline",
-      "content": "Your journal entries will appear here, organized by date. Click the + button to create your first entry."
+      "content": "Your journal entries will appear here, organized by date. Tap the + button to create your first entry."
     },
     "syncStatus": {
       "title": "Sync Status",
@@ -1822,7 +1822,7 @@
     },
     "help": {
       "title": "Help & Support",
-      "content": "Need help anytime? Click here to access guides, tips, and restart this tour."
+      "content": "Need help anytime? Tap here to access guides, tips, and restart this tour."
     },
     "complete": {
       "title": "You're All Set!",
@@ -1861,7 +1861,7 @@
       "firstEntry": {
         "title": "Creating Your First Entry",
         "step1": "1. Tap the + button at the top of the timeline",
-        "step2": "2. Write your journal entry in the editor—Markdown formatting is supported",
+        "step2": "2. Write your journal entry in the editor — Markdown formatting is supported",
         "step3": "3. Add tags and mood, then tap Save"
       },
       "markdown": {
@@ -1873,7 +1873,7 @@
       },
       "syncSetup": {
         "title": "Setting Up Cloud Sync",
-        "step1": "1. Open Settings and go to Storage tab",
+        "step1": "1. Open Settings and go to the Storage tab",
         "step2": "2. Choose your preferred cloud provider (Google Drive, Dropbox, or Nextcloud)",
         "step3": "3. Follow the authentication flow to connect"
       },
@@ -1881,9 +1881,9 @@
         "title": "Creating Your Account",
         "desc": "You can sign up using email/password or social login:",
         "emailOption": "Email & Password: Enter your email and choose a password",
-        "googleOption": "Google: Click 'Continue with Google' for quick sign-up",
-        "appleOption": "Apple: Click 'Continue with Apple' for privacy-focused sign-up",
-        "tip": "Tip: You can reset your password anytime using the 'Forgot password?' link"
+        "googleOption": "Google: Tap \"Continue with Google\" for quick sign-up",
+        "appleOption": "Apple: Tap \"Continue with Apple\" for privacy-focused sign-up",
+        "tip": "Tip: You can reset your password anytime using the \"Forgot password?\" link"
       }
     },
     "support": {
@@ -1898,7 +1898,7 @@
         "desc": "For issues not covered in the help guide, please email us. Include your device type and a brief description of the issue to help us assist you faster.",
         "address": "support@ownjournal.app"
       },
-      "responseTime": "We typically respond within 24-48 hours.",
+      "responseTime": "We typically respond within 24–48 hours.",
       "links": {
         "title": "Legal & Policies",
         "terms": "Terms of Service",
@@ -1916,7 +1916,7 @@
         },
         "keyDerivation": {
           "title": "Password Protection",
-          "desc": "Your password is never stored directly. Instead, it's transformed into an encryption key using PBKDF2 with 100,000 iterations—a process designed to make brute-force attacks impractical."
+          "desc": "Your password is never stored directly. Instead, it's transformed into an encryption key using PBKDF2 with 100,000 iterations — a process designed to make brute-force attacks impractical."
         },
         "howItWorks": {
           "title": "How It Works",
@@ -1932,16 +1932,16 @@
         "simpleTitle": "Simple Mode",
         "simpleDesc": "Your data is synced to cloud storage without encryption. Easier to set up, but your cloud provider can see your data.",
         "e2eTitle": "End-to-End Encryption (Recommended)",
-        "e2eDesc": "Your data is encrypted before leaving your device. Only you can read your journal - not even your cloud provider."
+        "e2eDesc": "Your data is encrypted before leaving your device. Only you can read your journal — not even your cloud provider."
       },
       "zeroKnowledge": {
         "title": "Zero Knowledge Architecture",
-        "desc": "With E2E encryption enabled, your encryption key never leaves your device. We cannot access your data even if we wanted to - that's Zero Knowledge."
+        "desc": "With E2E encryption enabled, your encryption key never leaves your device. We cannot access your data even if we wanted to — that's Zero Knowledge."
       },
       "passwordTips": {
         "title": "Password Tips",
         "tip1": "Choose a strong, memorable password you won't forget",
-        "tip2": "Consider using a passphrase—multiple words are easier to remember and more secure",
+        "tip2": "Consider using a passphrase — multiple words are easier to remember and more secure",
         "tip3": "We recommend storing your password in a password manager for safekeeping",
         "warning": "Important: If you forget your E2E password, your encrypted data cannot be recovered. We recommend keeping a backup in a safe place."
       }
@@ -1949,13 +1949,13 @@
     "storage": {
       "googleDrive": {
         "title": "Connecting Google Drive",
-        "step1": "1. Tap 'Connect' next to Google Drive in Settings",
+        "step1": "1. Tap \"Connect\" next to Google Drive in Settings",
         "step2": "2. Sign in with your Google account and grant permissions",
         "note": "Note: OwnJournal stores data in a hidden app folder, not visible in your regular Drive"
       },
       "dropbox": {
         "title": "Connecting Dropbox",
-        "step1": "1. Tap 'Connect' next to Dropbox in Settings",
+        "step1": "1. Tap \"Connect\" next to Dropbox in Settings",
         "step2": "2. Sign in and authorize the app"
       },
       "nextcloud": {
@@ -1987,7 +1987,7 @@
       },
       "voiceEntry": {
         "title": "Voice Entry",
-        "desc": "Tap the microphone below the editor and speak instead of typing. When you stop, your words are turned into clean, punctuated text and added where your cursor is. It works in the language you speak, even if you switch languages mid-sentence. Each recording can be up to 5 minutes, and Plus includes 200 minutes a month.",
+        "desc": "Tap the microphone below the editor and speak instead of typing. When you stop, your words are turned into clean, punctuated text and added where your cursor is. It works in the language you speak, even if you switch languages along the way. Each recording can be up to 5 minutes, and Plus includes 200 minutes a month.",
         "proNote": "(Plus feature)"
       },
       "aiAnalysis": {
@@ -2057,7 +2057,7 @@
       },
       "e2eEncryption": {
         "title": "End-to-End Encryption",
-        "desc": "Your journal entries are encrypted on your device before syncing or storage. Only you hold the encryption keys, so your data stays protected both at rest and in transit—no one else can read it."
+        "desc": "Your journal entries are encrypted on your device before syncing or storage. Only you hold the encryption keys, so your data stays protected both at rest and in transit — no one else can read it."
       },
       "zeroKnowledge": {
         "title": "Zero-Knowledge Architecture",
@@ -2073,7 +2073,7 @@
         "title": "Sync Not Working",
         "intro": "Please try the following steps:",
         "tip1": "Check your internet connection",
-        "tip2": "Try clicking the sync button manually",
+        "tip2": "Try tapping the sync button manually",
         "tip3": "Disconnect and reconnect your cloud storage"
       },
       "nextcloudEncryption": {
@@ -2085,7 +2085,7 @@
         "fixOption1Title": "Option 1: Disable server-side encryption",
         "fixOption1Desc": "If you manage your own Nextcloud server, you need to use the terminal (SSH) because the checkbox in the admin panel cannot be unchecked while files are encrypted:",
         "fixOption1Step1": "1. Open a terminal on your Nextcloud server",
-        "fixOption1Step2": "2. Go to your Nextcloud folder (e.g. cd /var/www/nextcloud)",
+        "fixOption1Step2": "2. Go to your Nextcloud folder (e.g., cd /var/www/nextcloud)",
         "fixOption1Step3": "3. Ensure maintenance mode is off. If it is on, run: sudo -u www-data php occ maintenance:mode --off",
         "fixOption1Step4": "4. Decrypt all files: sudo -u www-data php occ encryption:decrypt-all (Nextcloud will put itself in maintenance mode during decryption and turn encryption off when finished.)",
         "fixOption1Step5": "5. Encryption is disabled automatically when decryption finishes.",
@@ -2093,7 +2093,7 @@
         "fixOption1Note": "This can take a while depending on how many files you have. If you're not the server admin, ask them to run these commands or exclude the OwnJournal folder from encryption.",
         "fixOption2Title": "Option 2: Disable E2E encryption app",
         "fixOption2Desc": "If your Nextcloud has the \"End-to-End Encryption\" app enabled:",
-        "fixOption2Step1": "1. In Nextcloud, go to Apps > Security",
+        "fixOption2Step1": "1. In Nextcloud, go to Apps → Security",
         "fixOption2Step2": "2. Find \"End-to-End Encryption\" and disable it",
         "fixOption2Step3": "3. Or simply make sure the OwnJournal folder is not marked for E2E encryption",
         "importantNote": "OwnJournal has its own E2E encryption that works independently. You don't need Nextcloud's encryption — your data is already encrypted by OwnJournal before it leaves your device."
@@ -2101,10 +2101,10 @@
       "passwordRecovery": {
         "title": "Forgot E2E Password",
         "warning": "Unfortunately, E2E encrypted data cannot be recovered without the password.",
-        "desc": "This is a core security feature of true end-to-end encryption—only you hold the key, which means even we cannot access your data. While this protects your privacy, it also means there's no way to recover encrypted entries without the password.",
+        "desc": "This is a core security feature of true end-to-end encryption — only you hold the key, which means even we cannot access your data. While this protects your privacy, it also means there's no way to recover encrypted entries without the password.",
         "actionTitle": "What you can do:",
         "action1": "If you have an unencrypted JSON backup, you can restore your entries from it.",
-        "action2": "To start fresh, use the 'Delete All' option in the Danger Zone section of Settings to reset and create a new encrypted journal."
+        "action2": "To start fresh, use \"Reset All Data\" in the Danger Zone section of Settings, then create a new encrypted journal."
       }
     },
     "faq": {
@@ -2136,15 +2136,15 @@
       },
       "manageSubscription": {
         "question": "How do I manage my subscription?",
-        "answer": "Open Settings, go to the Account tab, scroll to the Subscription section, and click 'Manage' to access the billing portal. From there you can update your payment method, view your plan details, and manage billing settings."
+        "answer": "Open Settings, go to the Account tab, scroll to the Subscription section, and click \"Manage\" to access the billing portal. From there you can update your payment method, view your plan details, and manage billing settings."
       },
       "invoices": {
         "question": "How do I view my invoices?",
-        "answer": "Open Settings, go to the Account tab, scroll to the Subscription section, and click 'Manage' to open the billing portal. Your complete invoice history is available there, and you can download invoices as PDF for your records."
+        "answer": "Open Settings, go to the Account tab, scroll to the Subscription section, and click \"Manage\" to open the billing portal. Your complete invoice history is available there, and you can download invoices as PDF for your records."
       },
       "cancelSubscription": {
         "question": "How do I cancel my subscription?",
-        "answer": "Open Settings, go to the Account tab, scroll to the Subscription section, and click 'Manage' to access the billing portal. Click 'Cancel plan' to stop your subscription. You'll retain Plus access until the end of your current billing period. Core journaling features remain free forever."
+        "answer": "Open Settings, go to the Account tab, scroll to the Subscription section, and click \"Manage\" to access the billing portal. Click \"Cancel plan\" to stop your subscription. You'll retain Plus access until the end of your current billing period. Core journaling features remain free forever."
       }
     }
   },
@@ -2159,7 +2159,6 @@
     "backToApp": "Back to OwnJournal",
     "backToHomepage": "Back to Homepage",
     "openApp": "Open App",
-    "lastUpdated": "Last Updated",
     "termsOfService": "Terms of Service",
     "privacyPolicy": "Privacy Policy",
     "terms": {
@@ -2171,7 +2170,7 @@
       },
       "description": {
         "title": "2. Description of Service",
-        "content": "OwnJournal is a personal journaling application operated by {{companyName}}, a company registered in {{companyCountry}}. It allows you to create, store, search, and analyse your journal entries on web, iOS, Android, and desktop. You bring your own cloud storage (Google Drive, Dropbox, Nextcloud, or iCloud Drive) for syncing across devices, or you can use the application entirely offline with local storage. We offer end-to-end encryption (E2E) and a Simple mode without end-to-end encryption. Plus subscribers have access to optional AI-powered features such as mood analysis and suggestions."
+        "content": "OwnJournal is a personal journaling application operated by {{companyName}}, a company registered in {{companyCountry}}. It allows you to create, store, search, and analyze your journal entries on web, iOS, Android, and desktop. You bring your own cloud storage (Google Drive, Dropbox, Nextcloud, or iCloud Drive) for syncing across devices, or you can use the application entirely offline with local storage. We offer end-to-end encryption (E2E) and a Simple mode without end-to-end encryption. Plus subscribers have access to optional AI-powered features such as mood analysis and suggestions."
       },
       "accounts": {
         "title": "3. User Accounts",
@@ -2183,7 +2182,7 @@
       },
       "intellectualProperty": {
         "title": "7. Intellectual Property",
-        "content": "You retain all rights to the journal content you create. Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable, revocable licence to install and use OwnJournal for your personal use. The OwnJournal application — including its source code, design, and branding — is owned by {{companyName}} and protected by intellectual property laws. You may not copy, modify, distribute, sell, or create derivative works of the application except as expressly permitted under these Terms or applicable law."
+        "content": "You retain all rights to the journal content you create. Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to install and use OwnJournal for your personal use. The OwnJournal application — including its source code, design, and branding — is owned by {{companyName}} and protected by intellectual property laws. You may not copy, modify, distribute, sell, or create derivative works of the application except as expressly permitted under these Terms or applicable law."
       },
       "limitation": {
         "title": "9. Limitation of Liability",
@@ -2195,7 +2194,7 @@
       },
       "changes": {
         "title": "11. Changes to Terms",
-        "content": "We may update these Terms from time to time. For changes that are clarifying, technical, or required by law, we will update these Terms and the \"Last Updated\" date without prior notice. For changes that materially affect your rights or obligations as a consumer (such as price increases, significant changes to the service, or new restrictions on use), we will provide at least 30 days' advance notice via email and through the application. If you do not accept material changes, you may cancel your subscription and stop using the service before the changes take effect, and you will not be charged for the upcoming subscription period."
+        "content": "We may update these Terms from time to time. For changes that are clarifying, technical, or required by law, we will update these Terms and the \"Last updated\" date without prior notice. For changes that materially affect your rights or obligations as a consumer (such as price increases, significant changes to the service, or new restrictions on use), we will provide at least 30 days' advance notice via email and through the application. If you do not accept material changes, you may cancel your subscription and stop using the service before the changes take effect, and you will not be charged for the upcoming subscription period."
       },
       "contact": {
         "title": "14. Contact",
@@ -2207,7 +2206,7 @@
       },
       "subscriptions": {
         "title": "4. Subscriptions, Billing, and Cancellation",
-        "content": "OwnJournal offers an optional paid tier (\"Plus\") sold as an auto-renewing subscription. On Apple App Store (iOS), subscriptions are billed through your Apple ID and managed in your App Store account settings. Payment is charged to your Apple ID at confirmation of purchase. Your subscription automatically renews unless auto-renew is turned off at least 24 hours before the end of the current period. Your account is charged for renewal within 24 hours prior to the end of the current period. Cancellation takes effect at the end of the current paid period, and any unused portion of a free trial is forfeited when you start a paid subscription. On Google Play (Android), subscriptions are billed through your Google Play account and managed in Google Play subscription settings; the same auto-renewal and cancellation principles apply. On the web, subscriptions are billed through Stripe and managed in your account settings within OwnJournal. Prices are shown in your local currency where supported and are inclusive of any applicable taxes. Free trials, where offered, automatically convert to a paid subscription at the end of the trial unless cancelled before the trial ends."
+        "content": "OwnJournal offers an optional paid tier (\"Plus\") sold as an auto-renewing subscription. On Apple App Store (iOS), subscriptions are billed through your Apple ID and managed in your App Store account settings. Payment is charged to your Apple ID at confirmation of purchase. Your subscription automatically renews unless auto-renew is turned off at least 24 hours before the end of the current period. Your account is charged for renewal within 24 hours prior to the end of the current period. Cancellation takes effect at the end of the current paid period, and any unused portion of a free trial is forfeited when you start a paid subscription. On Google Play (Android), subscriptions are billed through your Google Play account and managed in Google Play subscription settings; the same auto-renewal and cancellation principles apply. On the web, subscriptions are billed through Stripe and managed in your account settings within OwnJournal. Prices are shown in your local currency where supported and are inclusive of any applicable taxes. Free trials, where offered, automatically convert to a paid subscription at the end of the trial unless canceled before the trial ends."
       },
       "withdrawal": {
         "title": "5. Right of Withdrawal (EU/EEA Consumers)",
@@ -2215,11 +2214,11 @@
       },
       "acceptableUse": {
         "title": "6. Acceptable Use",
-        "content": "You agree not to use OwnJournal: (a) to violate any applicable law or regulation; (b) to upload, store, or process content that is illegal, including child sexual abuse material, content depicting non-consensual acts, or content that infringes the intellectual property rights of others; (c) to attempt to gain unauthorised access to our systems, the systems of our service providers, or other users' accounts; (d) to circumvent fair-use limits on AI features or platform-mandated purchase mechanisms; (e) to reverse engineer, decompile, or otherwise attempt to derive the source code of the application beyond rights expressly granted by applicable law; or (f) to operate automated systems that send disproportionate volumes of requests to our servers or to our AI providers."
+        "content": "You agree not to use OwnJournal: (a) to violate any applicable law or regulation; (b) to upload, store, or process content that is illegal, including child sexual abuse material, content depicting non-consensual acts, or content that infringes the intellectual property rights of others; (c) to attempt to gain unauthorized access to our systems, the systems of our service providers, or other users' accounts; (d) to circumvent fair-use limits on AI features or platform-mandated purchase mechanisms; (e) to reverse engineer, decompile, or otherwise attempt to derive the source code of the application beyond rights expressly granted by applicable law; or (f) to operate automated systems that send disproportionate volumes of requests to our servers or to our AI providers."
       },
       "appleTerms": {
         "title": "12. Additional Terms for Apple App Store",
-        "content": "If you obtained OwnJournal from the Apple App Store, the following additional terms apply: (a) These Terms are concluded between you and {{companyName}} only, not with Apple. {{companyName}} (not Apple) is solely responsible for OwnJournal and its content. (b) {{companyName}} is solely responsible for providing any maintenance and support services with respect to OwnJournal as specified in these Terms or as required under applicable law. Apple has no obligation whatsoever to furnish any maintenance and support services with respect to OwnJournal. (c) In the event of any failure of OwnJournal to conform to any applicable warranty, you may notify Apple, and Apple will refund the purchase price (if any) for the application; to the maximum extent permitted by applicable law, Apple has no other warranty obligation whatsoever with respect to OwnJournal. (d) {{companyName}} is solely responsible for addressing any claims by you or any third party relating to OwnJournal or your possession and use of OwnJournal, including product liability claims, claims that OwnJournal fails to conform to any applicable legal or regulatory requirement, and claims arising under consumer protection or similar legislation. (e) In the event of any third-party claim that OwnJournal or your possession and use of OwnJournal infringes that third party's intellectual property rights, {{companyName}} (not Apple) will be solely responsible for the investigation, defence, settlement, and discharge of that claim. (f) You represent and warrant that you are not located in a country subject to a U.S. Government embargo or designated as a \"terrorist supporting\" country, and that you are not on any U.S. Government list of prohibited or restricted parties. (g) Apple and Apple's subsidiaries are third-party beneficiaries of these Terms, and upon your acceptance, Apple has the right (and is deemed to have accepted the right) to enforce these Terms against you as a third-party beneficiary."
+        "content": "If you obtained OwnJournal from the Apple App Store, the following additional terms apply: (a) These Terms are concluded between you and {{companyName}} only, not with Apple. {{companyName}} (not Apple) is solely responsible for OwnJournal and its content. (b) {{companyName}} is solely responsible for providing any maintenance and support services with respect to OwnJournal as specified in these Terms or as required under applicable law. Apple has no obligation whatsoever to furnish any maintenance and support services with respect to OwnJournal. (c) In the event of any failure of OwnJournal to conform to any applicable warranty, you may notify Apple, and Apple will refund the purchase price (if any) for the application; to the maximum extent permitted by applicable law, Apple has no other warranty obligation whatsoever with respect to OwnJournal. (d) {{companyName}} is solely responsible for addressing any claims by you or any third party relating to OwnJournal or your possession and use of OwnJournal, including product liability claims, claims that OwnJournal fails to conform to any applicable legal or regulatory requirement, and claims arising under consumer protection or similar legislation. (e) In the event of any third-party claim that OwnJournal or your possession and use of OwnJournal infringes that third party's intellectual property rights, {{companyName}} (not Apple) will be solely responsible for the investigation, defense, settlement, and discharge of that claim. (f) You represent and warrant that you are not located in a country subject to a U.S. Government embargo or designated as a \"terrorist supporting\" country, and that you are not on any U.S. Government list of prohibited or restricted parties. (g) Apple and Apple's subsidiaries are third-party beneficiaries of these Terms, and upon your acceptance, Apple has the right (and is deemed to have accepted the right) to enforce these Terms against you as a third-party beneficiary."
       },
       "severability": {
         "title": "13. Severability",
@@ -2262,12 +2261,12 @@
         "content": "We integrate with the following third-party services, each operating under its own terms and privacy practices: cloud storage providers (Google Drive, Dropbox, Nextcloud, iCloud Drive) for synchronization to your own account; authentication services (Google, Apple) and our authentication backend for secure sign-in; payment providers (Stripe for web checkout, Apple In-App Purchase on iOS, Google Play Billing on Android) for handling subscriptions; and an AI service provider (Google Gemini) when you choose to use optional AI features."
       },
       "syncIdentifier": {
-        "title": "Sync and device identifier",
+        "title": "Sync and Device Identifier",
         "content": "For syncing your journal across devices and resolving edit conflicts, the app creates and uses a sync identifier. This identifier is stored on your device and in your cloud storage; it is not used to identify you across other apps or for advertising."
       },
       "aiProcessing": {
         "title": "AI Features and Processing",
-        "content": "OwnJournal offers optional AI-powered features such as mood analysis, suggestions, and voice entry, available exclusively to Plus subscribers. AI processing occurs only when you, as a Plus subscriber, explicitly use these features. When you use text-based AI features, the relevant text is decrypted on your device first and then sent, through your explicit action, to our AI provider, currently Google (Gemini), via its paid API. When you use voice entry, your device's microphone is used only while you are recording; the recording is sent to Google (Gemini) to be converted into text, and the resulting text is added to your entry on your device. We do not store AI inputs or outputs, including voice recordings and transcripts, on our servers; we only record per-user counters of AI feature usage (the type of analysis performed, a timestamp and, for voice entry, the length of the recording in seconds; never the content) for fair-use rate limiting. Google may retain prompts and outputs for a limited period for abuse monitoring and policy enforcement, per its current policies. AI processing may occur outside the EEA; Google maintains appropriate data transfer safeguards such as Standard Contractual Clauses. We use the paid tier of Google's AI service, under which prompts and outputs are not used to train or improve its models. You can choose not to use AI features, and doing so does not affect the core journaling functionality."
+        "content": "OwnJournal offers optional AI-powered features such as mood analysis, suggestions, and voice entry, available exclusively to Plus subscribers. AI processing occurs only when you, as a Plus subscriber, explicitly use these features. When you use text-based AI features, the relevant text is decrypted on your device first and then sent, through your explicit action, to our AI provider, currently Google (Gemini), via its paid API. When you use voice entry, your device's microphone is used only while you are recording; the recording is sent to Google (Gemini) to be converted into text, and the resulting text is added to your entry on your device. We do not store AI inputs or outputs, including voice recordings and transcripts, on our servers; we only record per-user counters of AI feature usage (the type of analysis performed, a timestamp, and, for voice entry, the length of the recording in seconds; never the content) for fair-use rate limiting. Google may retain prompts and outputs for a limited period for abuse monitoring and policy enforcement, per its current policies. AI processing may occur outside the EEA; Google maintains appropriate data transfer safeguards such as Standard Contractual Clauses. We use the paid tier of Google's AI service, under which prompts and outputs are not used to train or improve its models. You can choose not to use AI features, and doing so does not affect the core journaling functionality."
       },
       "diagnostics": {
         "title": "Diagnostics and Crash Logs",
@@ -2278,7 +2277,7 @@
         "content": "Your journal data remains in your cloud storage until you delete it. Account information stored on our servers is retained while your account is active. When you delete your account, we delete your profile, subscription record, AI usage counters, and authentication data from our systems immediately. Transaction records held by our payment processors (Stripe, Apple, Google) are retained by them under their own policies and applicable law; you can request access to or deletion of those records directly with the relevant provider."
       },
       "accountDeletion": {
-        "title": "Account deletion",
+        "title": "Account Deletion",
         "content": "You can delete your account at any time via Settings in the app or by contacting us at {{companyEmail}}. Account deletion removes your profile, subscription, AI usage counters, and authentication data from our systems. Journal data in your cloud storage remains under your control and can be deleted there by you."
       },
       "legalBasis": {
@@ -2317,7 +2316,8 @@
         "title": "US State Privacy Rights",
         "content": "If you are a resident of California or another US state with a comprehensive consumer privacy law (such as Virginia, Colorado, Connecticut, Utah, Texas, or others as enacted), you have rights regarding your personal information that may include the right to know what personal information we collect, the right to delete your personal information, the right to correct inaccurate personal information, the right to opt out of certain uses (including the sale or sharing of personal information), and the right to limit the use of sensitive personal information. We do not sell your personal information and do not share it for cross-context behavioral advertising. To exercise your rights, contact us at the address in the \"Contact Us\" section."
       }
-    }
+    },
+    "lastUpdatedOn": "Last updated: {{date}}"
   },
   "recovery": {
     "title": "Recover encrypted entries",
@@ -2327,14 +2327,14 @@
     "failedEntries": "{{count}} of {{total}} entries failed to decrypt",
     "explanation": "This usually happens when the encryption password was changed. Enter your original password to recover the entries.",
     "originalPassword": "Original encryption password",
-    "passwordPlaceholder": "Enter your original password...",
+    "passwordPlaceholder": "Enter your original password…",
     "passwordRequired": "Please enter your original password",
     "hint1": "• This is the password you first used to set up encryption",
-    "hint2": "• Your encrypted entries are NOT lost - they just need the correct password",
+    "hint2": "• Your encrypted entries are NOT lost — they just need the correct password",
     "hint3": "• If you cannot remember the password, entries may be unrecoverable",
     "recover": "Recover",
     "recoverButton": "Recover entries",
-    "recovering": "Recovering...",
+    "recovering": "Recovering…",
     "success": "Recovery successful",
     "successDesc": "Recovered {{count}} entries",
     "failed": "Recovery failed: {{error}}",
@@ -2345,7 +2345,7 @@
     "entriesWithoutKey": "Cloud storage has encrypted entries but the encryption key is missing. Please use the recovery option to restore access.",
     "noCachedKey": "No encryption data found locally. Connect to cloud storage to recover your entries.",
     "networkError": "Network error. Please check your connection and try again.",
-    "rateLimited": "The cloud storage is temporarily limiting requests. Please wait 30-60 seconds and try again.",
+    "rateLimited": "The cloud storage is temporarily limiting requests. Please wait 30–60 seconds and try again.",
     "deleteLink": "Or remove the unrecoverable entries permanently",
     "confirmDelete": "This will permanently delete {{count}} entries that cannot be decrypted. This cannot be undone.",
     "confirmDeleteButton": "Delete permanently",
@@ -2353,12 +2353,12 @@
     "deletedDesc": "Removed {{count}} unrecoverable entries",
     "deleteFailed": "Failed to remove entries. Please try again.",
     "keyMismatchExplanation": "The encryption key that can decrypt these entries does not match the one currently in use. You can try reloading the key from cloud storage.",
-    "keyMismatchRecoveryHint": "You may be able to recover the original key from your cloud storage version history (e.g. Google Drive or Nextcloud file versions for encryption-key.json in the OwnJournal folder).",
+    "keyMismatchRecoveryHint": "You may be able to recover the original key from your cloud storage version history (e.g., Google Drive or Nextcloud file versions for encryption-key.json in the OwnJournal folder).",
     "keyMismatchHint1": "• The encryption key in cloud storage does not match the key used to encrypt these entries",
     "keyMismatchHint2": "• Check Google Drive or Nextcloud version history for an older encryption-key.json",
     "keyMismatchHint3": "• If another device still has the correct key cached, connect from that device first",
     "reloadKeyFromCloud": "Reload key from cloud",
-    "reloadingKey": "Reloading...",
+    "reloadingKey": "Reloading…",
     "reloadKeySuccessDesc": "Encryption key reloaded from cloud. Your entries should now be visible.",
     "reloadKeyFailed": "No connected cloud storage has a key that can decrypt these entries. Check version history for encryption-key.json."
   },
@@ -2374,15 +2374,15 @@
     "appPasswordTooLong": "App password must be less than 500 characters"
   },
   "cloudErrors": {
-    "notFound": "Not found - The target location doesn't exist",
-    "notFoundWithFile": "Not found - The target location doesn't exist. File: {{file}}",
-    "permissionDenied": "Permission denied - You don't have permission to access this location",
-    "authFailed": "Authentication failed - Please check your credentials or reconnect",
-    "serverError": "Server error - The server encountered an internal error",
-    "serverUnavailable": "Server unavailable - Please try again later",
-    "storageFull": "Storage full - Insufficient space on server",
-    "rateLimited": "Rate limited - Too many requests, please wait",
-    "encryptionError": "Encryption error - Server-side encryption is preventing access",
+    "notFound": "Not found — the target location doesn't exist",
+    "notFoundWithFile": "Not found — the target location doesn't exist. File: {{file}}",
+    "permissionDenied": "Permission denied — you don't have permission to access this location",
+    "authFailed": "Authentication failed — please check your credentials or reconnect",
+    "serverError": "Server error — the server encountered an internal error",
+    "serverUnavailable": "Server unavailable — please try again later",
+    "storageFull": "Storage full — insufficient space on server",
+    "rateLimited": "Rate limited — too many requests, please wait",
+    "encryptionError": "Encryption error — server-side encryption is preventing access",
     "syncStateFailed": "Failed to update sync state",
     "uploadFailed": "Upload failed",
     "uploadFailedWithFile": "Upload failed for file: {{file}}",
@@ -2390,8 +2390,8 @@
     "downloadFailedWithFile": "Download failed for file: {{file}}",
     "deleteFailed": "Delete failed",
     "listFailed": "Failed to list files",
-    "connectionFailed": "Connection failed - Please check your internet connection",
-    "tokenRefreshFailed": "Session expired - Please reconnect your cloud storage",
+    "connectionFailed": "Connection failed — please check your internet connection",
+    "tokenRefreshFailed": "Session expired — please reconnect your cloud storage",
     "networkErrorCheckingKey": "Temporary network error — please try again in a moment"
   },
   "incompatibleKey": {
@@ -2457,9 +2457,9 @@
     "journalTab": "Journal",
     "title": "Notes",
     "newNote": "New Note",
-    "searchPlaceholder": "Search notes...",
+    "searchPlaceholder": "Search notes…",
     "titlePlaceholder": "Note title (optional)",
-    "startWriting": "Write your note...",
+    "startWriting": "Write your note…",
     "saveNote": "Save Note",
     "emptyTitle": "No notes yet",
     "emptyDesc": "Keep ideas, lists, and reference material that isn't tied to a specific day.",
@@ -2467,13 +2467,13 @@
     "deleteConfirmTitle": "Delete this note?",
     "deleteConfirmDesc": "This note will be permanently deleted from your storage.",
     "updated": "Updated {{date}}",
-    "saving": "Saving note...",
+    "saving": "Saving note…",
     "savingDesc": "Encrypting and syncing your note.",
     "saved": "Note saved",
     "savedDesc": "Your encrypted note has been saved and synced.",
     "savedOfflineDesc": "Saved locally. Will sync when you're back online.",
     "failedToSave": "Failed to save note",
-    "deleting": "Deleting note...",
+    "deleting": "Deleting note…",
     "deletingDesc": "Removing note from storage and syncing to cloud.",
     "deleted": "Note deleted",
     "deletedDesc": "Your note has been deleted and synced.",
@@ -2502,7 +2502,7 @@
     "minutesLeft": "{{minutes}} min left this month",
     "plusFeature": "Voice entry is available with Plus",
     "consentTitle": "Transcribe your voice with Google?",
-    "consentBody": "Your recording is sent to Google's Gemini service to be turned into text. OwnJournal never stores the audio, and Google doesn't use it to train its models. The text is saved like the rest of your entry.",
+    "consentBody": "Your recording is sent to Google's Gemini service to be turned into text. OwnJournal never stores the audio. Google doesn't use it to train its models and may keep it only briefly to prevent abuse. The text is saved like the rest of your entry.",
     "consentAccept": "Continue",
     "consentDecline": "Not now",
     "teaserBody": "Speak instead of typing. Your words become clean, punctuated text in whatever language you speak — up to 200 minutes a month.",

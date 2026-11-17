@@ -5,27 +5,38 @@ website's product/legal strings (`ownjournal-website/src/i18n/locales/fr.json`).
 see the website's `.claude/locale-standards/fr.md`. Target is France French (fr-FR), not fr-CA.
 
 ## Register and address form (house style)
-- App: **vous** throughout (about 815 vous/votre/vos against a handful of stray *tu*). Never use *tu* in the app.
-- Website product pages: **vous** dominates (about 244 vs 20). A few `features.free.*` descriptions and
-  FAQ answers use *tu* (« Organise tes notes », « Découvre… »). That is legacy drift, so write new website
-  UI strings with **vous**. (The website blog rubric uses *tu*. That rule is for blog posts only.)
+- **vous** everywhere in product UI and legal text, in both repos (owner decision, Nov 2026). The last *tu*
+  strings (app Help mood/activity texts, `moodCorrelations.*`; website `features.free.*`, FAQ answers,
+  `security.encryption.keys`) were converted. Never use *tu* outside the website blog (blog rubric = *tu*).
 - Imperative + vous for instructions (« Appuyez sur… », « Autorisez-le… »). « Veuillez » only in
   short requests/errors where it is already used (« Veuillez réessayer. »).
 
 ## Glossary (house terms win over generic guides)
 | English | Use | Avoid / notes |
 |---|---|---|
-| tap | **appuyer sur** (app house style, 7 uses; Google/Android wording) | « toucher » (Apple iOS wording, but a minority in this file); the website FAQ currently has « touchez » |
+| tap | **appuyer sur** (house style in both repos; Google/Android wording) | « toucher/touchez » |
 | microphone | **micro** (house, Android permission label "Micro") | « microphone » in UI copy; OK in legal text but « micro » is fine there too |
 | Voice Entry (feature) | **Saisie vocale** (= Gboard's own name) | « Entrée vocale » (clashes with *entrée* = journal entry) |
 | Dictate (button) | **Dicter** | « Dictée » is Apple's feature name, not a verb button |
 | transcribe / transcription | **transcrire / transcription** | « retranscrire » |
 | recording | **enregistrement** | « record » |
-| entry | **entrée** (house, app + website) | blog rubric prefers *note/page*; do not change UI strings |
+| entry | **entrée** (app + website product/legal) | « note » means the separate *Notes* feature (`notes.*`); never use it for a journal entry. Blog may say *note/page* |
+| timeline | **chronologie** | « timeline » |
+| journaling (habits/patterns) | « habitudes d'écriture », « écrire » (« Commencer à écrire ») | « journalisation », « journaliser » (= logging) |
+| patterns (trend analysis) | « schémas récurrents », « tendances » | « modèles » |
+| support (contact) | **assistance** (« Contacter l'assistance ») | « le support » |
+| supports X (capability) | « prend en charge », « pris en charge » | « supporte », « supporté » |
+| pop-up | « fenêtre contextuelle » | « popup » |
+| retry (diagnostics) | « nouvelle tentative » | « réessai » |
+| Welcome back | « Content de vous revoir ! » | « Bon retour ! » |
+| Simple mode | **mode Simple** / « Mode Simple » (mode name, capital S) | « mode simple » |
+| Photo memories | « Souvenirs photo » (both repos) | « Souvenirs photos » |
+| moods | Excellent, Bien, Correct, Mauvais, Terrible (app labels; website FAQ uses the same) | Génial, Moyen |
 | settings (device/browser) | **paramètres** (Android, Chrome, rest of file) | « réglages » only for an explicit iOS path (Réglages > …) |
-| AI | **IA** (« l'analyse par IA », « fonctionnalités d'IA ») | « AI »; « alimenté par l'IA » (calque of *AI-powered*), « basé sur l'IA » is fine |
+| AI | **IA**: nouns take « d'IA » (fonctionnalités, service, modèles, fournisseur, outils d'IA); actions take « par IA » (analyse, suggestions de titres/tags, génération par IA); « traitement par l'IA » | « fonctionnalités IA », « analyse IA » (both repos converted); « alimenté par l'IA » (calque of *AI-powered*); « basé sur l'IA » is fine |
 | Plus | **Plus** (invariable, product name), « abonnés Plus », « (Fonctionnalité Plus) » | |
-| Activity Insights | **Analyses d'activités** (app) / « Analyse des activités » (website) | keep each repo's own form |
+| Activity Insights | **Analyses d'activités** (feature name, both repos, capital A when it names the feature) | « Analyse des activités », « Analyses par activité » |
+| insights (generic) | **analyses**; Key Insights → « Points clés »; Focus Areas → « Axes de progression » | « insights » (anglicism, removed from both repos) |
 | fair use | **utilisation équitable** (« limites d'utilisation équitable ») | « utilisation raisonnable » |
 | AI inputs / outputs | « données transmises à l'IA » / « résultats qu'elle produit »; prompts → **requêtes**, outputs → **réponses** | « entrées/sorties » (ambiguous with journal *entrées*) |
 | usage limit resets | « votre quota sera renouvelé » / « le compteur sera remis à zéro » | « la limite sera réinitialisée » (calque) |
@@ -34,8 +45,19 @@ see the website's `.claude/locale-standards/fr.md`. Target is France French (fr-
 | offline | **hors ligne**; internet connection → « connexion Internet » | |
 
 ## GDPR / legal vocabulary (official FR text of Regulation (EU) 2016/679, CNIL)
-- personal data → **données à caractère personnel** (legal) / « données personnelles » (UI).
-- processing → **traitement**; processor → **sous-traitant**; controller → **responsable du traitement**.
+- personal data → **données à caractère personnel** in the privacy policy and terms (both repos), never
+  « informations personnelles ». Exception: the US-state section (`californiaRights`) keeps « informations
+  personnelles », the translation of the CCPA's own defined term *personal information*.
+- data subject rights (art. 15–21, 77): droit d'accès, de **rectification**, d'**effacement**, à la
+  **limitation du traitement**, à la portabilité, d'opposition; « **introduire une réclamation** auprès
+  d'une autorité de contrôle ». Avoid « corriger », « restreindre le traitement », « déposer une plainte ».
+- "materially breach" → « manquer de manière substantielle à »; "material changes" → « modifications
+  substantielles » (« matériellement » is a calque). "analytics" → « mesure d'audience ».
+- processing → **traitement**; processor → **sous-traitant**; controller → **responsable du traitement**
+  (not « responsable du traitement des données »); payment processor → « prestataire de paiement ».
+- Section titles: « Base juridique du traitement », « Fonctionnalités d'IA et traitement », « Droit applicable »,
+  sentence case. Documents are named « Politique de confidentialité » / « Conditions d'utilisation » (capital first word only).
+- Website `legal.privacy.aiProcessing.content` must be byte-identical to the app's.
 - adequacy decision → **décision d'adéquation** (art. 45); EEA → **Espace économique européen (EEE)**.
 - appropriate safeguards → **garanties appropriées** (art. 46); « met en œuvre / prévoit des garanties
   appropriées », not « maintient des garanties ».
@@ -49,16 +71,23 @@ see the website's `.claude/locale-standards/fr.md`. Target is France French (fr-
   period for abuse monitoring.
 
 ## Typography (Imprimerie nationale rules; Microsoft fr-FR style guide)
-- **No-break space before high punctuation**: U+202F (narrow no-break) before `; ? !`, U+00A0 before `:`.
-  Never a plain space (it lets « ? » wrap onto its own line on phones). The existing files still use
-  plain spaces almost everywhere. New and edited strings get the correct spaces; a whole-file pass is an owner decision.
+- **No-break space before high punctuation** (applied to both whole files, Nov 2026): U+202F (narrow
+  no-break) before `; ? !`, U+00A0 before `:`. Never a plain space. Not before a colon in code, URLs, times
+  or HTTP headers (`https:`, `maintenance:mode`, `Access-Control-Allow-Origin: *`).
+- Lowercase after a colon in running text (« Pour créer une sauvegarde : cliquez… »). Keep a capital in
+  numbered headings (« Étape 1 : Activer… », « Option 2 : Désactiver… ») and for button labels/proper nouns.
 - **Number + unit**: U+00A0 between them: `5 minutes`, `200 min`, `{{seconds}} s`, `19,99 $`.
-- Guillemets « » with U+00A0 (or U+202F) inside; no straight double quotes in copy.
-- Ellipsis: the single character `…` for UI states (« Transcription… »). The file has legacy `...`; do not mass-fix.
-- Em dash `—` with spaces for an aside; no en-dash ranges in prose (« de 5 à 10 »).
-- Month names lowercase: « novembre 2026 » (the app renders it after « Dernière mise à jour: »).
-- Sentence case for labels and buttons. The title-case drift on the website (« Voir les Tarifs ») is
-  legacy; do not copy it into new strings.
+- Guillemets « » with **U+202F inside** for quoted UI labels and terms (« Gérer », « DELETE »); no straight
+  `"` or `'…'` quotes in copy. Apostrophe: straight `'` (house style; curly ’ was normalized).
+- Ellipsis: always the single character `…` (all `...` converted in both files).
+- Em dash `—` with spaces for an aside. Error/label separators use a colon, not a hyphen:
+  « Session expirée : veuillez reconnecter… ». Markdown syntax (`- listes`, `# titres`) stays as is.
+- Percent: U+00A0 before `%` (« 100 % », « {{rate}} % »). Abbreviated units: « {{minutes}} min »,
+  « {{hours}} h », « {{days}} j », « 15 s », « {{ms}} ms ».
+- Dates: lowercase month + year, same style for privacy and terms in both repos (« novembre 2026 »,
+  « avril 2026 », « décembre 2024 »). `legal.lastUpdatedOn` = « Dernière mise à jour : {{date}} » (U+00A0).
+- Sentence case for titles, labels and buttons (website title case « Voir les Tarifs » was fixed). Plan
+  names keep their capital in running text (« le plan Gratuit », « Plus »).
 - Decimal comma, space as thousands separator (U+202F/U+00A0): « 1 000 », « 1,67 $ ».
 
 ## UI microcopy conventions
@@ -76,10 +105,11 @@ see the website's `.claude/locale-standards/fr.md`. Target is France French (fr-
 
 ## Known pitfalls
 - *entrée* (journal entry) vs AI *input*: never translate "input" as *entrée* in AI/legal text.
-- « Insights » is an anglicism already entrenched in the app (« Insights d'humeur »). Keep it in
-  existing feature names, but don't spread it into new prose.
+- « Insights » was removed from both repos (see glossary). Don't reintroduce it.
+- « Bon retour », « Supporte », « journaliser », « Seul vous pouvez » (→ « Vous seul pouvez ») are calques.
 - fr-CA differences (no space before `?`/`!`, « courriel ») do not apply. Use « e-mail » (house).
-- « en cours de phrase », « passer d'une langue à l'autre » are natural; « switcher » is not.
+- "even if you switch languages along the way" → « même si vous changez de langue en cours de route »
+  (both repos); « switcher » is not French.
 
 ## Sources
 - GDPR, French text (EUR-Lex): https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679

@@ -1,91 +1,128 @@
-# Dutch (nl) — UI, Help and legal standard for OwnJournal
+# Dutch (nl) — UI, Help, website product copy and legal standard for OwnJournal
 
-Target variety: Netherlands Dutch. For long-form/blog voice see the website repo's
-`.claude/locale-standards/nl.md`; this file covers app UI, Help, paywall and privacy/legal strings.
+Target variety: Netherlands Dutch. Scope: app `src/i18n/locales/nl.json` and the website's
+`src/i18n/locales/nl.json` (product UI, FAQ, pricing, legal). Website blog posts follow the website repo's
+`.claude/locale-standards/nl.md` and are out of scope here.
 
-## 1. Register (house style, measured in `src/i18n/locales/nl.json`)
+## 1. Register (owner decision, Nov 2026)
 
-| Surface | Address form | Notes |
+- **Formal `u` / `uw` everywhere** in both repos: app UI, toasts, errors, Help, onboarding, `voice.*`,
+  `legal.privacy.*`, `legal.terms.*`, and all website product/FAQ/pricing/legal strings.
+  No `je`/`jij`/`jou`/`jouw`/`jullie` anywhere in these files.
+- Verb forms: `u heeft` (not `u hebt`), `u kunt`, `u bent`, `heeft u…?`, `wilt u…?`, `kunt u…?`.
+- Questions addressed to the company use the name, not `jullie`: `Welke betaalmethoden accepteert OwnJournal?`
+- Reflexive: `u … zich` (`als u zich met Google heeft geregistreerd`).
+
+## 2. Glossary (one term per concept, both repos)
+
+| English | Use | Avoid |
 |---|---|---|
-| App UI, toasts, errors, Help, onboarding, `voice.*` | formal `u` / `uw`, verb `u heeft` | Dominant (hundreds of strings). Keep `u heeft`, not `u hebt` (both correct; house uses `heeft`). |
-| `legal.privacy.*`, `legal.terms.*` | informal `je` / `jij` / `jouw` | ~95 `je` vs few `u` in privacy; terms is all `je`. New/rewritten legal paragraphs must use `je`. |
-| Website (`ownjournal-website`) | informal `je` everywhere | Per website standard. |
+| entry / journal entry | `item`, `dagboekitem` (also in legal text and on the website) | `vermelding`, `notitie` (for entries) |
+| note (Notes feature) | `notitie` – only for the separate Notes feature (`notes.*`) | |
+| journaling | `dagboekschrijven`, `een dagboek bijhouden`, `schrijven` | `journalen` |
+| encryption / encrypt / decrypt | `versleuteling`, `versleutelen`, `ontsleutelen`; compounds `versleutelingssleutel`, `versleutelingswachtwoord`, `versleutelingsmodus` | `encryptie`, `ontcijferen`, `Versleutelsleutel` |
+| end-to-end encryption | `end-to-end-versleuteling` (noun); `end-to-end versleuteld` (participle); mode label `End-to-end versleuteld` | `End-to-End encryptie` |
+| zero knowledge | `zero-knowledge`, `zero-knowledge-architectuur` | `Zero Knowledge` |
+| Simple mode | `eenvoudige modus` (UI label `Eenvoudige modus`), also in legal | `Simple-modus` |
+| provider | `provider`, `cloudprovider`, `opslagprovider`, `AI-provider` | `aanbieder`, `AI-dienstverlener` |
+| AI service | `AI-dienst` | `AI-service` |
+| AI-powered | `AI-gestuurd` | `AI-aangedreven` |
+| sync | `synchronisatie`, `synchroniseren` | bare `sync`, `syncs` |
+| sign in / sign out | `inloggen` / `uitloggen` (`Log in om …`, `Inloggen met Apple`) | `aanmelden` for sign-in |
+| sign up | `registreren`, `een account aanmaken` | `aanmelden` (ambiguous) |
+| Plus member / user / subscriber | `Plus-abonnee(s)` | `Plus-lid`, `Plus-gebruiker` |
+| Free plan | `het gratis abonnement` (lower case), `Alles uit het gratis abonnement` | `het Gratis abonnement`, `Alles in Gratis` |
+| cancel subscription | `opzeggen` | `annuleren` (except quoted portal buttons) |
+| refund | `terugbetaling` | `restitutie` |
+| support (team) | `de ondersteuning`, `Ondersteuning` | `support` (except the e-mail address) |
+| self-hosted | `zelfgehost(e)`, `zelf hosten` | `zelf-gehoste`, `self-hosted` |
+| mood tracking | `stemming bijhouden` | `stemmingstracking`, `Stemmingsmonitoring` |
+| activity tagging | `activiteiten koppelen` | `activiteitstags`, `Tag activiteiten` |
+| Activity Insights (feature name) | `Activiteitsinzichten` | `Inzichten per activiteit` |
+| Mood statistics | `Stemmingsstatistieken` (`Stemmingsoverzicht` only = AI mood snapshot) | |
+| Photo memories | `Fotoherinneringen` | `Foto-herinneringen` |
+| over time | `in de loop van de tijd` | `door de tijd` |
+| abuse monitoring | `misbruikbewaking`; "to detect abuse" = `om misbruik op te sporen` | `misbruikmonitoring` |
+| fair use | `redelijk gebruik`, `limieten voor redelijk gebruik` | `eerlijk gebruik`, `eerlijk-gebruik-limieten` |
+| paid tier | `betaalde versie` | `betaald niveau`, `betaalde laag` |
+| voice entry / dictate | `Spraakinvoer` / `Dicteren` | |
+| recording / transcription | `opname` (pl. `opnamen`), `transcriptie`, `omzetten in tekst` | |
+| filler words | `stopwoordjes` | `vulwoorden` |
+| slide (carousel) | `dia` | `slide` |
+| reset (limit) | `wordt gereset` | |
+| password manager | `wachtwoordbeheerder` | `wachtwoordmanager` |
+| tab / button names | `het tabblad Opslag`, `de knop Delen`, `de knop +` | `het Opslag-tabblad`, `Deel-knop`, `+ knop` |
+| scroll | `scrollen`, imperative `scrol` | `scroll` |
 
-Known conflict (owner decision, not to be silently "fixed"): the app mixes `u` (UI) and `je` (legal), and a few
-legacy privacy paragraphs (`encryption`, `syncIdentifier`, `diagnostics`) still use `u`. Microsoft's current
-Dutch style guide prefers `je`; a full migration of the app to `je` would be a separate, whole-file change.
-
-## 2. Glossary
-
-| English | Use | Avoid / notes |
-|---|---|---|
-| entry (app) | `item`, `dagboekitem` | App house term; website uses `notitie`. Legal uses both `item` and `vermelding` (legacy). |
-| journal | `dagboek` | |
-| Plus feature | `Plus-functie`, `Plus-abonnee`, `Plus-abonnement` | hyphenate brand + noun |
-| AI | `AI` (`AI-functies`, `AI-analyse`) | Dutch uses AI, not KI |
-| voice entry (feature name) | `Spraakinvoer` | Gboard/Samsung settings also say "Spraakinvoer"/"Spraaktypen" |
-| dictate (mic button) | `Dicteren` | Apple's Dutch term ("Dicteren", "Schakel dicteren in") |
-| microphone | `microfoon` | |
-| recording | `opname` (pl. `opnamen`/`opnames`, both correct) | |
-| transcribe / transcription | `transcriberen`, `transcriptie`; plain-language `omzetten in tekst` | |
-| punctuation | `leestekens` | |
-| filler words | `stopwoordjes` | not "vulwoorden" |
-| cursor | `cursor` | |
-| reset (limit) | `wordt gereset` | House style; matches existing AI limit messages |
-| retry | `Opnieuw proberen` / `Opnieuw <werkwoord>` | not "X opnieuw proberen" stacks |
-| subscription | `abonnement` | |
-| sign in | `aanmelden` (`Meld u aan`) | |
-| paid tier (API) | `betaalde versie` / `betaald abonnement` | not "betaalde laag" (calque of "tier") |
-| fair use | `redelijk gebruik`, `limieten voor redelijk gebruik` | not "redelijk gebruik begrenzen" |
+Mood labels (app = website): Geweldig, Goed, Oké, Matig, Slecht. Activity "Exercise" = `Bewegen`.
 
 ## 3. Legal / GDPR vocabulary (AVG)
 
-- GDPR = `AVG` (Algemene verordening gegevensbescherming). EEA = `EER`.
-- Transfer to third countries = `doorgifte` (AVG hoofdstuk V); `gegevensoverdracht` exists in legacy
-  titles, acceptable, but prefer `doorgifte van gegevens` in new text.
-- SCCs = `standaardcontractbepalingen (SCC's)` — lower case common noun, one word (Uitvoeringsbesluit (EU)
-  2021/914, NL version). Avoid `Standaard Contractbepalingen`, `Modelcontractbepalingen` (pre-2021 term).
-- Appropriate safeguards = `passende waarborgen`; adequacy decision = `adequaatheidsbesluit`.
-- Controller = `verwerkingsverantwoordelijke`; processor = `verwerker`; data subject = `betrokkene`.
-- Explicit(ly) = `uitdrukkelijk` in legal text (AVG wording), `expliciet` acceptable in UI.
-- Keep facts exact: audio goes to Google (Gemini); OwnJournal never stores audio or transcripts; only seconds
-  are counted; Google's paid tier does not train on the data; Google may retain data for a limited time for
-  abuse monitoring; 5 min per recording; 200 min per month; Plus only. Singular "AI provider" = `AI-provider`
-  / `AI-dienstverlener` (only Google remains).
+- GDPR = `AVG`; EEA = `EER`. Personal data = `persoonsgegevens` (not `persoonlijke informatie`).
+- Controller `verwerkingsverantwoordelijke`; processor `verwerker`; DPO `functionaris voor
+  gegevensbescherming (FG)` (lower case in running text); supervisory authority `toezichthoudende autoriteit`.
+- Rights (art. 15–21): `recht op inzage`, `rectificatie`, `wissing (“recht op vergetelheid”)`,
+  `beperking van de verwerking`, `overdraagbaarheid`, `bezwaar`. Legal bases: `de uitvoering van de
+  overeenkomst`, `gerechtvaardigde belangen`, `toestemming`; title `Rechtsgronden voor de verwerking`.
+- Transfers: `doorgifte` (`Internationale doorgifte van gegevens`), `passende waarborgen`,
+  `adequaatheidsbesluit`, `standaardcontractbepalingen (SCC's)` (one word, lower case).
+- Explicit(ly) = `uitdrukkelijk`. Statutory rights = `wettelijke rechten`; mandatory consumer rights =
+  `dwingende consumentenrechten`; courts = `de Zweedse rechter`; materially = `wezenlijk`.
+- Defined terms: `deze Voorwaarden`, `ons Privacybeleid` / `dit Privacybeleid` (capitalised when they
+  refer to the document); document title `Algemene voorwaarden` (also for "Terms of Service").
+- Dates: month in lower case, no day: `april 2026`, `november 2026`, `december 2024`, same style for
+  privacy and terms in both repos. Label `Laatst bijgewerkt: {{date}}` (no space before the colon).
+- Facts to keep exact: audio goes to Google (Gemini); OwnJournal never stores audio, transcripts or AI
+  content on its servers; only seconds are counted; Google's paid API does not train on the data; Google may
+  retain data for a limited time only for abuse monitoring; 5 min per recording; 200 min per month; Plus only.
+- `legal.privacy.aiProcessing.content` must be byte-identical in the app and the website.
 
-## 4. Typography
+## 4. Typography (both files)
 
-- Ellipsis: single character `…` (`Bezig met transcriberen…`).
-- Dashes: the app file uses spaced em dash ` — ` (24×) more than en dash ` – ` (9×); follow the
-  surrounding list. Website standard prefers spaced en dash; website file itself mostly uses em dash
-  (conflict noted, leave existing).
-- Units: `5 minuten`, `200 min/maand`, seconds `{{seconds}} s` (SI) or `sec.`; space between number and unit.
-- Currency: `€ 19,99` (space, decimal comma).
-- Compounds: closed or hyphenated, never open: `spraakinvoer`, `Plus-functie`, `PDF- en Word-export`
-  (hyphen for suspended compound), `end-to-end-versleuteling`, `e-mail`.
-- Sentence case for headings and buttons; title case is a translation tell.
+- Ellipsis: single character `…`, no space before it (`Laden…`, `Eigen activiteit toevoegen…`).
+- Dash: spaced en dash ` – ` for parenthetical/explanatory breaks and "label – text" patterns. Never the em
+  dash `—`, never a spaced hyphen ` - `. Lower case after the dash unless a proper noun follows
+  (`Niet gevonden – de doellocatie bestaat niet`).
+- Ranges: unspaced en dash `24–48 uur`, `30–60 seconden`.
+- Quotes: curly double quotes `“…”` for UI labels, quoted terms and short quotes (`klik op “Beheren”`).
+  The apostrophe stays the plain `'` (`pagina's`, `thema's`, `Let's Encrypt`). Never straight `"…"`
+  or single-quote pairs `'…'` as quotation marks.
+- Colon: lower case after a colon in running text and list items (`Tip: u kunt …`, `Google: klik op …`).
+  Headings of the form `Stap 1: …`, `Optie 1: …`, `Methode 1: …` keep their capital.
+- Units with a space: `5 MB`, `{{ms}} ms`, `15 s`, `{{seconds}} s`, `{{minutes}} min geleden`,
+  `{{hours}} u geleden`, `{{days}} d geleden`, `200 min/maand`. Percent: `{{percent}}%` (no space).
+- Currency: `€ 19,99`, `€ 0`, `~€ 1,67/maand` (space after €, decimal comma).
+- Compounds closed or hyphenated, never open: `cloudsynchronisatie`, `JSON-back-upexport`, `AES-256-GCM-versleuteling`,
+  `PDF- en Word-export`, `Plus-functie`, `pop-upvenster`, `privédagboek`, `privé-AI-functies`.
+  Avoid `privé` as a separate attributive adjective (`privé cloudopslag` → `cloudopslag in eigen beheer`).
+- Adjective inflection after possessives: `Mijn persoonlijke dagboek`, `uw versleutelde dagboek`.
+- Sentence case for headings, buttons and plan names; no `&` in running UI text (`Back-up en herstel`).
 
 ## 5. UI microcopy
 
-- Buttons: infinitive verb, short (`Dicteren`, `Stoppen`, `Doorgaan`, `Niet nu`, `Opname verwijderen`).
-- Errors: state the problem, then the action (`Toegang tot de microfoon is geblokkeerd. Sta deze toe in …`).
-  Avoid elliptic English-shaped fragments (`Probeer een kortere.` → `Probeer een kortere opname.`).
-- V2 word order in main clauses; verb-final in subordinate clauses.
-- Prefer `met Plus heeft u …` over a calque of "Plus includes …" when the subject is minutes/allowance.
-- Placeholders: `{{minutes}}`/`{{seconds}}` always take plural noun after numbers >1; Dutch `minuut/minuten`
-  is fine with `min` abbreviation for space-constrained labels.
+- Buttons: infinitive, short (`Dicteren`, `Stoppen`, `Doorgaan`, `Niet nu`, `Camera openen om te scannen`).
+- Errors: problem, then action. Full sentences, no elliptic English fragments.
+- "How to X" headings: `Zo lost u het op:`, `Zo maakt u een app-wachtwoord aan:` (not `Hoe … te …`).
+- Fronted adverbials take V2, no comma before the imperative: `Schakel voor betere beveiliging … in`,
+  not `Voor betere beveiliging, schakel …`.
+- Developer-facing strings are still Dutch (`Stel VITE_GOOGLE_CLIENT_ID in het .env-bestand in`).
+  Literal tokens users must type (`DELETE`, `DELETE ALL`) and third-party UI names in English
+  (`“Verify Email Address”`, `“End-to-End Encryption”`, `Allowed Origins`) stay as they are.
+- Do not convert Markdown syntax hints (`- lijsten`, `- opsommingspunt`) into dashes.
 
 ## 6. Pitfalls
 
-- Mixing `u` and `je` inside one paragraph or one surface (see §1).
-- Calques: `laag` (tier), `Uw woorden worden nette tekst` (become) → `worden omgezet in`.
-- Flemish drift (`ge`, `plezant`) — target is NL.
+- Register drift back to `je` when adding new strings (especially Help, subscription disclosures, legal).
+- Calques: `laag` (tier), `Lijst uw …` (list), `Vind uw …` (find → `Zoek … op`), `Plus bevat 200 minuten`
+  (→ `met Plus heeft u 200 minuten`), `woorden worden tekst` (→ `worden omgezet in`).
+- Flemish drift (`ge`, `plezant`) – target is NL.
 
 ## Sources
 
 - Microsoft Dutch localization style guide: https://learn.microsoft.com/en-us/globalization/reference/microsoft-style-guides
+- Taalunie / Woordenlijst (compounds, dashes, quotes): https://woordenlijst.org ; https://taaladvies.net
+- AVG (NL text, EUR-Lex): https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX:32016R0679
 - EDPB, Internationale doorgifte van persoonsgegevens (NL): https://www.edpb.europa.eu/sme/be-compliant/international-data-transfers_nl
 - Uitvoeringsbesluit (EU) 2021/914 (standaardcontractbepalingen, NL): https://eur-lex.europa.eu/eli/dec_impl/2021/914/oj?locale=nl
-- AVG (NL text, EUR-Lex): https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX:32016R0679
-- Gboard spraakinvoer (NL): https://www.yaps.ai/nl/blog/zo-dicteer-je-op-android ; https://androidworld.nl/nieuws/nederlandse-leestekens-spraakgestuurd-typen/
+- Gboard spraakinvoer (NL): https://androidworld.nl/nieuws/nederlandse-leestekens-spraakgestuurd-typen/
 - Apple dicteren (NL): https://transkriptor.com/nl/dicteer-iphone/

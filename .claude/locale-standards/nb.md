@@ -1,6 +1,6 @@
 # Norwegian Bokmål (nb) – UI and legal localization standard for the OwnJournal app
 
-Scope: app UI, Help, paywall, privacy/legal texts in `src/i18n/locales/nb.json` and the website's `no.json` (same language, different code).
+Scope: app UI, Help, paywall, privacy/legal texts in `src/i18n/locales/nb.json` and the website's `no.json` (same language, different code). One term per concept across both repos; the app's term wins unless wrong. Website `legal.privacy.aiProcessing.content` must be byte-identical to the app's.
 For long-form blog/brand voice see the website's `.claude/locale-standards/no.md`; this file covers UI and legal copy.
 
 ## 1. Register and variety
@@ -15,7 +15,7 @@ For long-form blog/brand voice see the website's `.claude/locale-standards/no.md
 |---|---|---|
 | entry | innlegg | oppføring (only for "record" in legal text), indlæg (da) |
 | journal | dagbok, dagboken | dagbog (da) |
-| tag (app) | etikett, etikettforslag | – (website uses `tag`, `tagforslag`; do not mix inside one repo) |
+| tag | etikett, etiketter, etikettforslag, etikettfiltre (both repos, owner decision 2026-11) | tag, tagger, tagforslag |
 | Plus feature | Plus-funksjon | Plus-funktion (da) |
 | requires / needs | krever | kræver (da) |
 | available | tilgjengelig | tilgængelig (da) |
@@ -24,21 +24,31 @@ For long-form blog/brand voice see the website's `.claude/locale-standards/no.md
 | Try again | Prøv igjen / på nytt | Prøv igen (da) |
 | sign in | Logg inn | Log ind (da) |
 | settings | innstillinger | indstillinger (da) |
-| Voice entry (feature) | Taleinndata (house term in both repos; Android's term for voice input) | stemmeinput |
-| Dictate (button/tooltip) | Start diktering (Apple: `Diktering`) | `Dikter` (= noun "poet"), `Diktér` |
+| Voice entry (feature) | Diktering (both repos; Apple's nb term; lowercase `diktering` in running text) | Taleinndata, stemmeinput |
+| Dictate (button/tooltip) | Start diktering | `Dikter` (= noun "poet"), `Diktér` |
 | recording | opptak | optagelse (da) |
 | transcribe / transcription | transkribere / transkripsjon, transkribering (process) | transskribere (da) |
 | microphone access | tilgang til mikrofonen | |
 | punctuation | tegnsetting | tegnsætning (da) |
 | filler words | fyllord | |
-| editor | redigeringsfeltet (app), redigeringsvinduet (website) | |
-| offline | frakoblet (prose), offline (feature labels) | |
+| editor | redigeringsfeltet (both repos) | redigeringsvinduet, editoren |
+| offline | frakoblet / på nett (prose), offline (feature labels) | online (use `på nett`) |
+| self-hosted | egenhostet, egenhosting | selvhostet, selvhosting, `Egenhosting lagring` |
+| zero knowledge | Zero Knowledge, Zero Knowledge-arkitektur (both repos) | null kunnskap |
+| Simple mode | enkel modus (capital only sentence-initially or as a label) | Simple-modus, Enkel-modus |
+| backup (JSON) | sikkerhetskopi; `eksport av JSON-sikkerhetskopi` | backup, JSON-backup-eksport |
+| streaks | serier, humørserier | rekker |
+| mood levels | Strålende, Bra, Greit, Dårlig, Forferdelig (app labels, also website FAQ) | Topp, Okei |
+| payment processor | betalingsleverandør | betalingsprosessor |
+| web / desktop (platforms) | nett / skrivebord (prose and badges) | Web, Desktop mid-sentence |
+| URL inflected | URL-en, URL-er, server-URL-en | URLen, URLer |
+| Step N | Trinn N | Steg N (mixed) |
 | fair use | rimelig bruk | |
 | AI | AI (house style, not KI) | |
 | Activity Insights | Aktivitetsinnsikt | |
 | Photo memories | Fotominner | Fotominder (da) |
 
-Owner note: Google's Norwegian UI calls voice typing `Stemmestyrt skriving` (Gboard) and Apple uses `Diktering`. `Taleinndata` is understandable and consistent; rename everywhere at once if ever changed.
+Owner decision (2026-11): the feature is `Diktering` everywhere (renamed from `Taleinndata` in both repos at once). Entry is always `innlegg`; `oppføring` only for a record/log row (abonnementsoppføring, transaksjonsoppføringer, diagnostic log entries).
 
 ## 3. Grammar pitfalls
 - Strong adjective after `hvert/hver/et/en`: `hvert transkribert opptak`, not `hvert transkriberte opptak`.
@@ -49,15 +59,19 @@ Owner note: Google's Norwegian UI calls voice typing `Stemmestyrt skriving` (Gbo
 
 ## 4. Microcopy conventions
 - Buttons: short verb or verb + object, no period (`Fortsett`, `Ikke nå`, `Forkast opptaket`, `Avbryt opptaket`).
-- Progress labels: present tense + ellipsis with no space (`Transkriberer…`, `Synkroniserer…`). Use the single `…` character in new strings; legacy `...` remains in older strings.
+- Progress labels: present tense + ellipsis with no space (`Transkriberer…`, `Synkroniserer…`). Always the single `…` character; the whole file was converted (no `...` left).
+- Confirmations: `Vil du fortsette?`, `Vil du laste ned …?` – never a bare infinitive question.
+- No `vennligst` anywhere (removed file-wide). Legal: `kan du kontakte oss`, `ber vi deg kontakte oss`, `må du ikke bruke tjenesten`.
+- Error pattern `Tittel – detalj` with lowercase after the dash (`Ikke funnet – målplasseringen finnes ikke`).
 - Error messages are full sentences with a period.
 - Teasers/tooltips: one or two short sentences.
 
 ## 5. Punctuation and typography
-- Dash: spaced en-dash ` – `. Em-dash `—` is not Norwegian; the files still contain legacy em-dashes (e.g. website pricing list), keep consistent within a list, use en-dash in new prose.
-- Quotes: `«…»`.
-- Months and weekdays lowercase, also standalone after a label: `Sist oppdatert: november 2026`.
-- Decimal comma; `50 %` with a space; `kr` without period (Danish uses `kr.`).
+- Dash: spaced en-dash ` – ` in prose, lists and titles; unspaced en-dash for ranges (`24–48 timer`). No em-dash `—` and no spaced hyphen ` - ` as a dash anywhere (both files converted). Exception: the Markdown list hint `- lister` is syntax.
+- Quotes: `«…»` for all quoted UI labels, typed confirmations (`«DELETE ALL»`) and English button names (`«Verify Email Address»`, `«Allowed Origins»`). No straight `"…"` or `'…'` quotes.
+- Months and weekdays lowercase, also standalone after a label. Legal dates: `Sist oppdatert: november 2026` / `april 2026` / `desember 2024` – same style for privacy and terms in both repos. `legal.lastUpdatedOn` = `Sist oppdatert: {{date}}`.
+- Decimal comma; percent and units with a no-break space (U+00A0): `{{percent}} %`, `100 %`, `15 s`, `{{ms}} ms`; `kr` without period (Danish uses `kr.`). Prices on the website: `$19,99/år`, `ca. $1,67/måned` (not `~`).
+- Abbreviation inflection with hyphen: `URL-en`, `SDK-er`, `API-tokenet`.
 - Sentence case in headings and titles.
 
 ## 6. Legal / GDPR vocabulary (Norwegian GDPR text, personopplysningsloven, Lovdata)
@@ -65,7 +79,7 @@ Owner note: Google's Norwegian UI calls voice typing `Stemmestyrt skriving` (Gbo
 |---|---|---|
 | appropriate safeguards (Art. 46) | nødvendige garantier | passende sikkerhetsforanstaltninger (Danish calque: `foranstaltning`) |
 | adequacy decision (Art. 45) | beslutning om tilstrekkelig beskyttelsesnivå | tilstrekkelighetsbeslutning |
-| Standard Contractual Clauses | standard personvernbestemmelser (SCC) vedtatt av Kommisjonen | standard kontraktklausuler, standardkontraktsklausuler |
+| Standard Contractual Clauses | standard personvernbestemmelser (SCC) – two words, as in GDPR art. 46(2)(c) on Lovdata and EDPB's nb page; verified 2026-11 | standard kontraktklausuler, standardkontraktsklausuler, `standardpersonvernbestemmelser` (one word is not the official form) |
 | supplementary measures | supplerende tiltak | |
 | controller / processor | behandlingsansvarlig / databehandler | |
 | personal data | personopplysninger | persondata (da) |
@@ -75,7 +89,14 @@ Owner note: Google's Norwegian UI calls voice typing `Stemmestyrt skriving` (Gbo
 | policy enforcement | håndheving av retningslinjer | |
 | opt in | melde seg på, samtykke til | `velge inn i` (calque) |
 | prompts / outputs | forespørsler / utdata | |
-| fair-use rate limiting | å håndheve grenser for rimelig bruk | `begrensning av rimelig bruk` (wrong meaning) |
+| fair use / fair-use rate limiting | rimelig bruk; å håndheve grenser for rimelig bruk (consistently, both repos) | rettferdig bruk, `begrensning av rimelig bruk` (wrong meaning) |
+| contract performance (Art. 6(1)(b)) | oppfyllelse av avtale | kontraktsoppfyllelse, oppfyllelse av kontrakt |
+| legitimate interests | berettigede interesser | |
+| data subject rights | få innsyn, få rettet, få slettet, begrense behandlingen, protestere mot behandlingen, klage til personvernmyndigheten | korrigere unøyaktige data, `slette (sletting)` |
+| Data Retention (heading) | Lagringstid (distinct from `Datalagring` = Data Storage) | |
+| supervisory authority (company) | Integritetsskyddsmyndigheten (IMY), imy.se – the company is Swedish; never Datatilsynet here | Datatilsynet / datatilsynet.no |
+| governing law | Gjeldende rett | Gjeldende lov |
+| defined terms | lowercase in running text: `disse vilkårene`, `personvernerklæringen vår`; section names in «» | `disse Vilkårene`, `vår Personvernerklæring` |
 
 Legal facts that must survive translation: 5 minutes per recording; 200 minutes per month; Plus only; audio sent to Google (Gemini); OwnJournal never stores audio or transcripts; only seconds counted; Google's paid tier does not train on data; Google may retain data for a limited time for abuse monitoring.
 
@@ -83,6 +104,7 @@ Legal facts that must survive translation: 5 minutes per recording; 200 minutes 
 `funktion`→`funksjon`, `kræver`→`krever`, `annuller`→`avbryt`, `optagelse`→`opptak`, `efter`→`etter`, `nogen`→`noen`, `måske`→`kanskje`, `foranstaltning`→`tiltak`/`garanti`, `persondata`→`personopplysninger`, `kr.`→`kr`, `tegnsætning`→`tegnsetting`.
 
 ## Sources
+- EDPB SME guide (nb), «Standard personvernbestemmelser (SCC-er)»: https://www.edpb.europa.eu/sme/be-compliant/international-data-transfers_nb
 - GDPR in Norwegian (personopplysningsloven, ch. V): https://lovdata.no/dokument/NL/lov/2018-06-15-38/KAPITTEL_gdpr-5
 - SCC under Art. 46(2)(c), Norwegian: https://europalov.no/rettsakt/standard-avtalevilkar-for-overforing-av-personopplysninger-til-utlandet/id-9617
 - Helsedirektoratet, transfers outside EU/EØS: https://www.helsedirektoratet.no/normen/bruk-av-skytjenester-til-behandling-av-helse-og-personopplysninger/anskaffelser-ved-bruk-av-skytjenester/krav-til-overforingsgrunnlag-ved-bruk-av-databehandler-utenfor-eu-eos

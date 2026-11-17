@@ -60,15 +60,15 @@
   "migration": {
     "preparing": "移行を準備中",
     "encryptingEntries": "日記を暗号化中",
-    "decryptingEntries": "日記を復号化中",
+    "decryptingEntries": "日記を復号中",
     "migratingCredentials": "認証情報を移行中",
     "complete": "移行が完了しました！",
     "error": "移行に失敗しました",
     "toE2ETitle": "E2E暗号化を有効化中",
     "toSimpleTitle": "シンプルモードに切り替え中",
     "toE2EDesc": "日記をパスワードで暗号化しています。",
-    "toSimpleDesc": "シンプルストレージ用に日記を復号化しています。",
-    "processingEntry": "処理中: {{title}}",
+    "toSimpleDesc": "シンプルストレージ用に日記を復号しています。",
+    "processingEntry": "処理中：{{title}}",
     "migrated": "{{count}}件の日記を移行",
     "failed": "{{count}}件の処理に失敗しました",
     "retry": "失敗を再試行",
@@ -84,7 +84,7 @@
     "edit": "編集",
     "preview": "プレビュー",
     "placeholder": "日記を書いてください。\nマークダウンで書式設定できます\n\n# 見出し\n**太字** *斜体*\n- 箇条書き",
-    "markdownSupport": "対応: **太字**, *斜体*, # 見出し, - リスト",
+    "markdownSupport": "対応：**太字**、*斜体*、# 見出し、- リスト",
     "noContentPreview": "*プレビューするコンテンツがありません*",
     "inlineTagHint": "テキスト内で # を入力するとタグを追加できます"
   },
@@ -139,7 +139,7 @@
     "alreadyHaveAccount": "既にアカウントをお持ちですか？サインイン",
     "noAccount": "アカウントをお持ちでない方は登録",
     "forgotPassword": "パスワードをお忘れですか？",
-    "continueWith": "または続ける",
+    "continueWith": "または次の方法で続行",
     "continueWithGoogle": "Googleで続ける",
     "continueWithApple": "Appleで続ける",
     "termsAgreementPrefix": "続行することで、",
@@ -156,13 +156,13 @@
     "resetLinkSent": "パスワードリセットリンクを送信しました。",
     "emailRequired": "メールアドレスが必要です",
     "emailRequiredDesc": "パスワードをリセットするにはメールアドレスを入力してください。",
-    "appleNotAvailable": "Apple サインインは利用できません",
+    "appleNotAvailable": "Appleでのサインインは利用できません",
     "appleNotConfigured": "Apple認証はまだ設定されていません。アプリ管理者に連絡するか、別のサインイン方法を使用してください。",
     "userAlreadyExists": "アカウントは既に存在します",
-    "userAlreadyExistsDesc": "このメールアドレスは既に登録されています。サインインするか、以前Googleでサインアップした場合は「Googleで続行」をご利用ください。",
-    "invalidCredentials": "ログイン情報が無効です",
-    "invalidCredentialsDesc": "メールアドレスまたはパスワードが正しくありません。Googleでサインアップした場合は、下の「Googleで続行」をご利用ください。",
-    "oauthAccountHint": "Googleでサインアップしましたか？下の「Googleで続行」をお試しください。",
+    "userAlreadyExistsDesc": "このメールアドレスは既に登録されています。サインインするか、以前Googleでサインアップした場合は「Googleで続ける」をご利用ください。",
+    "invalidCredentials": "サインイン情報が無効です",
+    "invalidCredentialsDesc": "メールアドレスまたはパスワードが正しくありません。Googleでサインアップした場合は、下の「Googleで続ける」をご利用ください。",
+    "oauthAccountHint": "Googleでサインアップしましたか？下の「Googleで続ける」をお試しください。",
     "linkExpired": "リンクの有効期限が切れているか、無効です",
     "linkExpiredDesc": "このサインインリンクは期限切れか、すでに使用されています。再度サインインするか、新しいリンクをリクエストしてください。",
     "inAppBrowserWarning": "{{appName}}のアプリ内ブラウザで表示中です",
@@ -206,7 +206,7 @@
     "yourControl": "自分で管理",
     "worksOffline": "オフラインで動作",
     "alwaysAvailable": "常に利用可能",
-    "zeroKnowledge": "ゼロナレッジ (Zero Knowledge)",
+    "zeroKnowledge": "ゼロナレッジ",
     "privacyFirst": "あなたのデータは運営者を含む誰にも見えません"
   },
   "journal": {
@@ -230,25 +230,25 @@
     "exportWordTitle": "Wordでエクスポート",
     "editEntry": "日記を編集",
     "images": "画像",
-    "deleteEntryConfirmTitle": "記録を削除しますか？",
+    "deleteEntryConfirmTitle": "日記を削除しますか？",
     "deleteEntryConfirmDesc": "「{{title}}」を削除してもよろしいですか？この操作は元に戻せません。"
   },
   "demo": {
     "mode": "デモモード",
     "description": "サンプル日記でアプリを探索してください。あなたのデータはプライベートで暗号化されます。",
     "startJournal": "日記を始める",
-    "exportUnavailableTitle": "エクスポートはご自身のジャーナルで利用できます",
-    "exportUnavailableDesc": "データのエクスポートを有効にするにはジャーナルを開始してください",
-    "importUnavailableTitle": "インポートはご自身のジャーナルで利用できます",
-    "importUnavailableDesc": "データのインポートを有効にするにはジャーナルを開始してください"
+    "exportUnavailableTitle": "エクスポートはご自身の日記で利用できます",
+    "exportUnavailableDesc": "データをエクスポートするには、ご自身の日記を始めてください",
+    "importUnavailableTitle": "インポートはご自身の日記で利用できます",
+    "importUnavailableDesc": "データをインポートするには、ご自身の日記を始めてください"
   },
   "index": {
     "loadingAuth": "認証状態を確認中",
     "loadingEntries": "日記を読み込み中",
-    "loadingEntriesDesc": "暗号化された日記を復号化しています",
+    "loadingEntriesDesc": "暗号化された日記を復号しています",
     "initializingStorage": "ストレージを初期化中",
     "loadingCachedEntries": "キャッシュされた日記を読み込み中",
-    "decryptingEntries": "日記を復号化中",
+    "decryptingEntries": "日記を復号中",
     "syncingWithCloud": "クラウドと同期中",
     "noCloudConnected": "クラウドストレージが接続されていません",
     "noCloudConnectedDesc": "日記はローカルに保存され暗号化されています。設定でストレージに接続すると、デバイス間で同期できます。",
@@ -268,7 +268,7 @@
     "initialSyncFailed": "初期同期に失敗しました",
     "initialSyncFailedDesc": "初期同期を完了できませんでした。",
     "secondaryProviderConnected": "{{provider}}が接続されました",
-    "secondaryProviderConnectedDesc": "セカンダリバックアップとして接続されました。プライマリプロバイダが同期を処理します。",
+    "secondaryProviderConnectedDesc": "セカンダリバックアップとして接続されました。プライマリプロバイダーが同期を処理します。",
     "conflictDetected": "⚠️ 同期競合が検出されました",
     "conflictDetectedDesc": "同時編集が自動的に解決されました。{{count}}件の競合がログに記録されました。",
     "viewConflicts": "競合を表示",
@@ -287,7 +287,7 @@
     "deletionFailed": "削除に失敗しました",
     "deletionFailedDesc": "ストレージから日記を削除できませんでした。変更が元に戻される可能性があります。",
     "unexpectedError": "予期しないエラーが発生しました",
-    "appleSignInNotAvailable": "Apple サインインは利用できません",
+    "appleSignInNotAvailable": "Appleでのサインインは利用できません",
     "appleSignInNotAvailableDesc": "Apple認証はまだ設定されていません。アプリ管理者に連絡するか、別のサインイン方法を使用してください。",
     "signedOut": "サインアウトしました",
     "signedOutDesc": "正常にサインアウトしました",
@@ -341,20 +341,20 @@
     "description": "Nextcloudサーバーをブラウザアクセス用に設定する手順に従ってください",
     "setupHelp": "セットアップヘルプ",
     "whyNeeded": "なぜ必要ですか？",
-    "whyNeededDesc": "ブラウザには、ウェブサイトが他のサーバーに直接接続することを防ぐセキュリティルールがあります。Nextcloudはこのアプリが接続することを許可する必要があります。",
+    "whyNeededDesc": "ブラウザには、Webサイトが他のサーバーに直接接続することを防ぐセキュリティルールがあります。Nextcloudはこのアプリが接続することを許可する必要があります。",
     "apacheUsers": "Apacheユーザー向け",
     "apacheConfig": "Apache設定",
-    "apacheDesc": "NextcloudがApacheウェブサーバーで実行されている場合は、設定にCORSヘッダーを追加する必要があります。",
+    "apacheDesc": "NextcloudがApache Webサーバーで実行されている場合は、設定にCORSヘッダーを追加する必要があります。",
     "nginxUsers": "Nginxユーザー向け",
     "nginxConfig": "Nginx設定",
-    "nginxDesc": "NextcloudがNginxウェブサーバーで実行されている場合は、設定にCORSヘッダーを追加する必要があります。",
+    "nginxDesc": "NextcloudがNginx Webサーバーで実行されている場合は、設定にCORSヘッダーを追加する必要があります。",
     "sslIssues": "SSL証明書の問題",
     "sslFix": "SSL証明書を修正",
     "sslDesc": "SSL証明書エラーが表示される場合、HTTPS証明書が無効、期限切れ、または自己署名されている可能性があります。自己署名証明書はブラウザに信頼されていません。",
     "whereToAdd": "この設定をどこに追加しますか？",
     "whereToAddDesc": "サーバーへのSSHアクセスが必要です。",
     "afterConfig": "設定を追加した後：",
-    "afterConfigSteps": "ウェブサーバーを再起動して変更を適用します",
+    "afterConfigSteps": "Webサーバーを再起動して変更を適用します",
     "certbotInstructions": "自己署名証明書の場合は、Let's Encryptとcertbotを使用して無料のSSL証明書を取得してください",
     "needMoreHelp": "さらにヘルプが必要ですか？",
     "corsBlocked": "ブラウザのセキュリティ（CORS）によって接続がブロックされました。Nextcloudサーバーはブラウザ接続を許可する必要があります。",
@@ -380,7 +380,7 @@
     "testNginx": "設定をテスト：",
     "expectedOutput": "configtestの想定される出力：",
     "syntaxOkDesc": "設定は有効です。再起動に進んでください",
-    "ah00558Desc": "ServerNameに関する警告 - これは無害なので無視できます",
+    "ah00558Desc": "ServerNameに関する警告です。無害なので無視してかまいません",
     "invalidCommandDesc": "モジュールが有効になっていません。ステップ1を再実行してください",
     "syntaxErrorDesc": "設定に誤字がないか確認してください",
     "troubleshooting": "トラブルシューティング",
@@ -400,9 +400,9 @@
     "nginxFindFileInstruction": "Nextcloudのドメイン用のファイルを探すため、Nginxのサイト設定ファイルを確認してください：",
     "nginxEditFileInstruction": "Nextcloudのドメインに対応するファイルを編集してください：",
     "commonSslIssues": "一般的なSSL証明書の問題：",
-    "expiredCert": "期限切れの証明書 - 更新が必要",
-    "selfSignedCert": "自己署名証明書 - ブラウザに信頼されていない",
-    "invalidCert": "無効な証明書 - ドメインの不一致または設定エラー",
+    "expiredCert": "期限切れの証明書：更新が必要です",
+    "selfSignedCert": "自己署名証明書：ブラウザに信頼されていません",
+    "invalidCert": "無効な証明書：ドメインの不一致または設定エラー",
     "missingIntermediateCerts": "中間証明書の欠落",
     "howToCheckSsl": "SSL証明書を確認する方法：",
     "openNextcloudUrl": "ブラウザでNextcloud URLを開きます（例：{{url}}）",
@@ -419,7 +419,7 @@
     "installCertbot": "# certbotをインストール",
     "getCertApache": "# 証明書を取得（Apache）",
     "orForNginx": "# またはNginxの場合",
-    "sslFixNote": "注：SSL問題を修正した後、再接続する前にウェブサーバーを再起動し、ブラウザのキャッシュをクリアする必要がある場合があります。",
+    "sslFixNote": "注：SSL問題を修正した後、再接続する前にWebサーバーを再起動し、ブラウザのキャッシュをクリアする必要がある場合があります。",
     "checkHostingDocs": "ホスティングプロバイダーのドキュメントを確認",
     "askSysAdmin": "システム管理者に相談",
     "consultNextcloudDocs": "<docLink>Nextcloudドキュメント</docLink>を参照",
@@ -431,7 +431,7 @@
     "step2Desc": "Nextcloudにログインするときに使用するユーザー名を使います（通常、ログイン時に右上に表示されます）。",
     "step3Title": "ステップ3：アプリパスワードを作成",
     "step3CreatePassword": "アプリパスワードの作成方法：",
-    "step3Instructions1": "Nextcloudのウェブ画面にログインします",
+    "step3Instructions1": "NextcloudのWeb画面にログインします",
     "step3Instructions2": "右上のプロフィールアイコン → 設定をクリック",
     "step3Instructions3": "左サイドバーの「セキュリティ」をクリック",
     "step3Instructions4": "「デバイスとセッション」までスクロール",
@@ -444,13 +444,13 @@
     "corsDescriptionBold": "サーバー側の設定の問題",
     "corsDescriptionPart2": "であり、パスワードの問題ではありません。",
     "mobileAppNote": "📱 アプリユーザー",
-    "mobileAppNoteDesc": "アプリはブラウザより接続制限が厳しい場合があります。PCでは接続できるがスマートフォンではできない場合:",
+    "mobileAppNoteDesc": "アプリはブラウザより接続制限が厳しい場合があります。PCでは接続できるがスマートフォンではできない場合：",
     "mobileAppTip1": "Nextcloudサーバーで任意のオリジンからの接続を許可する（Access-Control-Allow-Origin: *）",
     "mobileAppTip2": "SSL証明書が有効で信頼されていること（自己署名ではない）",
     "mobileAppTip3": "一部のホスターはアプリ接続を既定でブロックしています。問題が続く場合はホスターに問い合わせてください",
-    "apacheEditConfig": "Apache SSL VirtualHost設定を編集:",
+    "apacheEditConfig": "Apache SSL VirtualHost設定を編集：",
     "apacheAddInside": "{{tag}}ブロック内（{{closeTag}}タグの前）に設定を追加",
-    "subdirectoryInstalls": "サブディレクトリインストールの場合はパスを調整（例: {{path}}）",
+    "subdirectoryInstalls": "サブディレクトリインストールの場合はパスを調整（例：{{path}}）",
     "nginxEditConfig": "Nginx設定ファイル（通常は{{path}}内）のNextcloudサイト用{{block}}ブロック内を編集してください。",
     "whichFileToEdit": "どのファイルを編集すればいいですか？",
     "letsEncryptSetup": "Let's Encrypt / Certbot",
@@ -466,8 +466,8 @@
     "replaceFilename": "YOUR_FILE.confを上記で見つけたファイル名に置き換えてください（例：nextcloud-le-ssl.conf）",
     "recommended": "推奨",
     "simpleConfig": "シンプル設定（個人サーバー向け）",
-    "simpleConfigDesc": "ワイルドカードオリジン (*) – すべてのブラウザとアプリで動作。個人用Nextcloudサーバーに最適。",
-    "simpleConfigDescNginx": "ワイルドカードオリジン (*) – すべてのブラウザとアプリで動作。個人用Nginxサーバーに最適。",
+    "simpleConfigDesc": "ワイルドカードオリジン（*）：すべてのブラウザとアプリで動作。個人用Nextcloudサーバーに最適。",
+    "simpleConfigDescNginx": "ワイルドカードオリジン（*）：すべてのブラウザとアプリで動作。個人用Nginxサーバーに最適。",
     "advanced": "詳細",
     "secureConfig": "セキュア設定（共有サーバー向け）",
     "secureConfigDesc": "オリジンリフレクション：アプリのドメインのみ。Nextcloudを共有する場合に使用。",
@@ -482,13 +482,13 @@
     "downloading": "プライベートなデバイス上分析用のAIモデルをダウンロード中",
     "mayTakeMinutes": "数分かかる場合があります。アプリを開いたままにしてください。",
     "toUsePrivateAI": "プライベートAI機能を使用するには、AIモデル（{{size}}）をデバイスにダウンロードする必要があります。",
-    "selected": "選択: {{name}}",
+    "selected": "選択：{{name}}",
     "multilingualName": "多言語（100以上の言語）",
     "lightweightName": "軽量（英語のみ）",
     "multilingualDesc": "日本語、中国語、スペイン語、その他100以上の言語をサポート",
     "lightweightDesc": "高速パフォーマンス、小さいダウンロード、英語のみ",
     "changeInSettings": "モデルを変更するには、設定を開き、AIモードに移動して、お好みのモデルタイプを選択してください。",
-    "privateOnDevice": "100%プライベート - 完全にデバイス上で実行",
+    "privateOnDevice": "100%プライベート：すべてデバイス上で実行",
     "worksOffline": "ダウンロード後はオフラインで動作",
     "oneTimeDownload": "1回限りのダウンロード（{{size}}）",
     "cancel": "キャンセル",
@@ -500,23 +500,23 @@
     "connectionError": "接続エラー",
     "connectionErrorDesc": "両方のプロバイダーが接続されている必要があります",
     "transferStarted": "転送を開始しました",
-    "transferStartedDesc": "{{source}}から{{target}}へエントリをコピー中",
+    "transferStartedDesc": "{{source}}から{{target}}へ日記をコピー中",
     "transferProgress": "転送中",
-    "transferProgressDesc": "{{current}} / {{total}} エントリをコピー中",
+    "transferProgressDesc": "日記をコピー中（{{current}}/{{total}}）",
     "complete": "転送完了",
-    "completeDesc": "{{source}}から{{target}}へ{{count}}個のファイルを正常に転送しました",
+    "completeDesc": "{{source}}から{{target}}へ{{count}}件のファイルを正常に転送しました",
     "completedWithErrors": "エラーありで転送完了",
-    "completedWithErrorsDesc": "{{transferred}}個のファイルが転送され、{{failed}}個が失敗しました。詳細はコンソールを確認してください。",
+    "completedWithErrorsDesc": "{{transferred}}件のファイルが転送され、{{failed}}件が失敗しました。詳細はコンソールを確認してください。",
     "failed": "転送に失敗しました",
     "stopped": "転送が停止されました",
     "stoppedDesc": "ユーザーによって転送が停止されました",
     "cancelled": "転送がキャンセルされました",
-    "cancelledDesc": "転送がキャンセルされました。キャンセル前に{{transferred}}個のファイルが転送されました。",
+    "cancelledDesc": "転送がキャンセルされました。キャンセル前に{{transferred}}件のファイルが転送されました。",
     "cleaningUp": "クリーンアップ中",
     "mirrorComplete": "ミラー同期完了",
-    "mirrorCompleteDesc": "{{source}}から{{target}}へ{{count}}個のファイルをミラーリングしました。転送先は転送元と同一になりました。",
-    "transferCompleteDisconnect": "転送完了 - 転送元を切断しますか？",
-    "transferCompleteDisconnectDesc": "すべてのエントリが{{target}}にミラーリングされました。混乱を避けるために{{source}}を切断しますか？",
+    "mirrorCompleteDesc": "{{source}}から{{target}}へ{{count}}件のファイルをミラーリングしました。転送先は転送元と同一になりました。",
+    "transferCompleteDisconnect": "転送が完了しました。転送元を切断しますか？",
+    "transferCompleteDisconnectDesc": "すべての日記が{{target}}にミラーリングされました。混乱を避けるために{{source}}を切断しますか？",
     "passwordRequiredAfterTransfer": "ストレージプロバイダーの切り替えを完了し、暗号化キーを再読み込みするには、パスワードを入力してください。",
     "keyValidationFailed": "暗号化キーが一致しません",
     "keyValidationFailedDesc": "転送された暗号化キーでは日記を復号できません。正しいキーがあるデバイスから接続して同期するか、バージョン履歴からキーを復元してください。"
@@ -532,7 +532,7 @@
     "settingUp": "クラウド同期を設定中…",
     "settingUpDesc": "暗号化キーをアップロードし、同期を準備しています。",
     "initialComplete": "初期同期完了",
-    "initialCompleteDesc": "{{count}}個の日記を同期しました。",
+    "initialCompleteDesc": "{{count}}件の日記を同期しました。",
     "initialFailed": "初期同期に失敗しました",
     "initialFailedDesc": "初期同期を完了できませんでした。",
     "savingEntry": "日記を保存中",
@@ -608,15 +608,15 @@
     "deleteAccount": {
       "title": "アカウント削除",
       "description": "アカウントとすべての関連データをサーバーから完全に削除します。",
-      "warning": "これによりサブスクリプションがキャンセルされ、プロフィールが削除され、すべてのデータが削除されます。この操作は取り消せません。",
-      "confirmLabel": "確認のため DELETE ACCOUNT と入力してください:",
+      "warning": "これによりサブスクリプションが解約され、プロフィールが削除され、すべてのデータが削除されます。この操作は取り消せません。",
+      "confirmLabel": "確認のため「DELETE ACCOUNT」と入力してください：",
       "button": "アカウントを削除",
       "success": "アカウントが削除されました",
       "successDesc": "アカウントは完全に削除されました。",
       "failed": "アカウントの削除に失敗しました",
       "failedDesc": "後でもう一度お試しいただくか、サポートにお問い合わせください。",
-      "deletingLocal": "ローカルデータを削除中...",
-      "deletingCloud": "クラウドファイルを削除中 ({{current}}/{{total}})...",
+      "deletingLocal": "ローカルデータを削除中…",
+      "deletingCloud": "クラウドファイルを削除中（{{current}}/{{total}}）…",
       "doNotClose": "削除が完了するまでこのページを閉じないでください"
     },
     "journalName": {
@@ -651,10 +651,10 @@
       "importHintDesc": "バックアップは Documents/ に保存されています。JSONバックアップファイルを見つけるにはそこに移動してください。"
     },
     "ai": {
-      "proMember": "Plus メンバー",
+      "proMember": "Plusメンバー",
       "active": "アクティブ",
       "allFeaturesUnlocked": "すべてのAI機能が利用可能",
-      "unlockFeatures": "AI機能のロックを解除",
+      "unlockFeatures": "AI機能を解放",
       "title": "AI機能",
       "description": "日記の強力なAI分析",
       "analysisEnabled": "AI分析が有効",
@@ -673,7 +673,7 @@
       "showInsightsHint": "気分カレンダー、気分の統計、相関、トレンド分析"
     },
     "feedback": {
-      "rateOnGooglePlay": "Google Play で OwnJournal を評価"
+      "rateOnGooglePlay": "Google PlayでOwnJournalを評価"
     }
   },
   "password": {
@@ -723,7 +723,7 @@
     "qrCameraPermission": "QRコードをスキャンするにはカメラの許可が必要です",
     "qrCameraPermissionDenied": "カメラの許可が拒否されました。デバイス設定でカメラへのアクセスを有効にしてください。",
     "openCameraToScan": "カメラを開いてスキャン",
-    "qrScanning": "スキャン中...",
+    "qrScanning": "スキャン中…",
     "qrSuccess": "認証情報を読み取りました",
     "qrSuccessDesc": "接続情報が入力されました。「接続」をタップして続行してください。"
   },
@@ -756,15 +756,17 @@
     },
     "tags": "タグ",
     "addTag": "タグを追加",
-    "addTagsPlaceholder": "タグを追加 (Enterキーを押す)",
+    "addTagsPlaceholder": "タグを追加（Enterキーで確定）",
     "startWriting": "あなたの思考を書き始めてください",
     "maxTags": "タグの最大数に達しました",
     "maxTagsDesc": "日記ごとに最大20個のタグを追加できます",
+    "maxActivitiesReached": "アクティビティの上限に達しました",
+    "maxActivitiesReachedDesc": "日記ごとに最大20個のアクティビティを追加できます。",
     "invalidTag": "無効なタグ",
     "proFeature": "Plus機能",
-    "imageUploadPro": "画像のアップロードはPlusユーザーのみ利用可能です。",
-    "pdfExportPro": "PDFエクスポートはPlusユーザーのみ利用可能です。",
-    "wordExportPro": "WordエクスポートはPlusユーザーのみ利用可能です。",
+    "imageUploadPro": "画像のアップロードはPlusメンバーのみ利用可能です。",
+    "pdfExportPro": "PDFエクスポートはPlusメンバーのみ利用可能です。",
+    "wordExportPro": "WordエクスポートはPlusメンバーのみ利用可能です。",
     "fileTooLarge": "ファイルが大きすぎます",
     "fileTooLargeDesc": "個々の画像は5MB未満である必要があります。",
     "totalSizeLimit": "合計サイズ制限に達しました",
@@ -799,13 +801,13 @@
     "simpleMode": "シンプル（パスワードなし）",
     "simpleModeDesc": "日記はクラウドに読み取り可能なJSONファイルとして同期されます。セキュリティはクラウドプロバイダーに依存します。セットアップが簡単で、パスワードは不要です。",
     "e2eMode": "エンドツーエンド暗号化",
-    "e2eModeDesc": "日記はクラウド同期前にローカルで暗号化されます。パスワードで復号化できるのはあなただけです。最大限のプライバシー。",
+    "e2eModeDesc": "日記はクラウド同期前にローカルで暗号化されます。パスワードで復号できるのはあなただけです。最大限のプライバシー。",
     "cannotSwitch": "暗号化モードを切り替えできません",
     "cannotSwitchDesc": "既存の日記があります。暗号化モードを切り替える前に、すべてのデータを削除してください。",
-    "cannotSwitchFromE2E": "E2Eモードから切り替えることはできません - 必要に応じてまずデータをリセットしてください",
+    "cannotSwitchFromE2E": "E2Eモードから切り替えることはできません。必要な場合は、先にデータをリセットしてください",
     "cannotSwitchToE2E": "E2E暗号化を使用するには、まずクラウドストレージから切断するか、すべてのデータをリセットしてください。",
     "disconnectFirst": "暗号化モードを変更するには、クラウドストレージから切断するか、すべてのデータを削除してください。",
-    "cannotVerify": "エントリを検証できません",
+    "cannotVerify": "日記を検証できません",
     "cannotVerifyDesc": "まずパスワードを入力するか、すべてのデータをリセットしてください。",
     "securityWarning": "セキュリティ警告",
     "enhancedSecurity": "強化されたセキュリティ",
@@ -832,7 +834,7 @@
     "resetAllDataConfirm": "この操作は元に戻せません。続行しますか？",
     "backupRecommendation": "続行する前にバックアップを作成することを強くお勧めします。",
     "backupInstructions": "バックアップを作成するには：プロフィールアイコン（右上）をクリック → データをエクスポート",
-    "confirmReset": "確認のため DELETE と入力してください",
+    "confirmReset": "確認のため「DELETE」と入力してください",
     "resetting": "リセット中",
     "resetButton": "すべて削除",
     "allDataDeleted": "すべてのデータが削除されました",
@@ -842,13 +844,13 @@
     "syncing": "同期中",
     "syncingDesc": "クラウドストレージに接続中",
     "synced": "同期完了",
-    "syncedDesc": "{{provider}}に接続 - {{count}}件のエントリを読み込み",
+    "syncedDesc": "接続して日記を読み込みました",
     "syncFailed": "同期失敗",
-    "syncFailedDesc": "{{provider}}との同期に失敗しました",
+    "syncFailedDesc": "クラウドストレージとの同期に失敗しました",
     "switchedToE2E": "E2Eモードに切り替えました",
-    "switchedToE2EDesc": "パスワードを入力して日記を復号化してください。",
+    "switchedToE2EDesc": "パスワードを入力して日記を復号してください。",
     "disconnectedForE2E": "ストレージが切断されました",
-    "disconnectedForE2EDesc": "E2E暗号化モードで再接続して、暗号化されたエントリにアクセスしてください。",
+    "disconnectedForE2EDesc": "E2E暗号化モードで再接続して、暗号化された日記にアクセスしてください。",
     "startingFresh": "新しく始める",
     "startingFreshDesc": "暗号化されたクラウドデータは削除されます。シンプルモードで新しい日記を同期できます。",
     "error": "エラー",
@@ -873,8 +875,8 @@
     "conflictResolution": "• 同時編集の自動競合解決",
     "offlineSupport": "• オフライン完全対応、バックグラウンド同期",
     "cannotSwitchMode": "暗号化モードを切り替えられません",
-    "cannotSwitchModeDesc": "{{count}}件の既存のエントリがあります。暗号化モードを切り替える前にすべてのデータを削除してください。",
-    "cannotVerifyEntries": "エントリを確認できません",
+    "cannotSwitchModeDesc": "既存の日記が{{count}}件あります。暗号化モードを切り替える前に、すべてのデータを削除してください。",
+    "cannotVerifyEntries": "日記を確認できません",
     "cannotVerifyEntriesDesc": "最初にパスワードを入力するか、すべてのデータをリセットしてください。",
     "passwordSaved": "パスワードが保存されました",
     "passwordSavedDesc": "パスワードは安全に保存され、記憶されます。",
@@ -884,9 +886,9 @@
     "passwordNotSet": "パスワードが設定されていません。E2E暗号化を有効にするにはパスワードを設定してください。",
     "passwordWillBeRequested": "クラウドプロバイダーに接続するときにパスワードが要求されます。",
     "clearPasswordConfirm": "デバイスから保存された暗号化パスワードが削除されます。次回アプリを開くときにパスワードを再度入力する必要があります。\n\n暗号化されたデータには影響しません。\n\n続行しますか？",
-    "changePasswordConfirm": "よろしいですか？\n\n古いパスワードですべてのエントリを復号化し、新しいパスワードで再暗号化します。\n\n新しいパスワードを必ず覚えておいてください - 忘れた場合は復旧できません。\n\n続行しますか？",
+    "changePasswordConfirm": "よろしいですか？\n\n古いパスワードですべての日記を復号し、新しいパスワードで再暗号化します。\n\n新しいパスワードを必ず覚えておいてください。忘れた場合は復元できません。\n\n続行しますか？",
     "confirmationRequiredDesc": "確認するには「DELETE」と入力してください。",
-    "finalConfirm": "最終確認\n\nこれにより、デバイスとクラウドストレージからすべての日記エントリが完全に削除されます。\n\n⚠️ 推奨：続行する前にバックアップを作成してください！\nバックアップを作成するには：プロフィールアイコン（右上）をクリック → データをエクスポート\n\n本当に続行しますか？",
+    "finalConfirm": "最終確認\n\nこれにより、デバイスとクラウドストレージからすべての日記が完全に削除されます。\n\n⚠️ 推奨：続行する前にバックアップを作成してください！\nバックアップを作成するには：プロフィールアイコン（右上）をクリック → データをエクスポート\n\n本当に続行しますか？",
     "passwordPersistenceChanged": "パスワード保存設定を更新しました",
     "passwordPersistenceError": "パスワード保存設定の更新に失敗しました",
     "passwordPersistence": {
@@ -913,7 +915,7 @@
     "googleDriveDesc": "暗号化された日記をGoogle Driveと同期します。",
     "connectGoogleDrive": "Google Driveに接続",
     "googleConnected": "Google Driveに接続しました",
-    "googleConnectedDesc": "日記エントリは自動的に同期されます。",
+    "googleConnectedDesc": "日記は自動的に同期されます。",
     "readyForSync": "接続完了。同期の準備ができました。",
     "googleDisconnected": "Google Driveから切断しました",
     "googleAuthFailed": "Google Drive認証に失敗しました",
@@ -926,7 +928,7 @@
     "dropboxDesc": "暗号化された日記をDropboxと同期します。",
     "connectDropbox": "Dropboxに接続",
     "dropboxConnected": "Dropboxに接続しました",
-    "dropboxConnectedDesc": "日記エントリは自動的に同期されます。",
+    "dropboxConnectedDesc": "日記は自動的に同期されます。",
     "dropboxDisconnected": "Dropboxから切断しました",
     "dropboxAuthFailed": "Dropbox認証に失敗しました",
     "dropboxSyncActive": "日記はDropboxと同期中です",
@@ -944,7 +946,7 @@
     "providerTransfer": "プロバイダー転送",
     "providerTransferDesc": "データを転送するには、少なくとも2つのクラウドプロバイダーに接続してください。",
     "transferBetweenProviders": "プロバイダー間で転送",
-    "transferBetweenProvidersDesc": "あるプロバイダーから別のプロバイダーにすべてのエントリをコピーします。",
+    "transferBetweenProvidersDesc": "あるプロバイダーから別のプロバイダーにすべての日記をコピーします。",
     "from": "転送元",
     "to": "転送先",
     "selectSource": "転送元を選択",
@@ -957,14 +959,14 @@
     "disconnected": "切断しました",
     "multipleProvidersWarning": "複数のストレージプロバイダーが接続されています",
     "multipleProvidersWarningDesc": "プライマリプロバイダーのみが積極的にデータを同期します。セカンダリプロバイダーは移行目的のみです。移行を使用してデータを転送し、非アクティブなプロバイダーを切断してください。",
-    "migrationCompleteDisconnect": "移行完了 - 移行元を切断しますか？",
-    "migrationCompleteDisconnectDesc": "すべてのエントリが{{target}}にコピーされました。混乱を避けるために{{source}}を切断しますか？",
+    "migrationCompleteDisconnect": "移行が完了しました。移行元を切断しますか？",
+    "migrationCompleteDisconnectDesc": "すべての日記が{{target}}にコピーされました。混乱を避けるために{{source}}を切断しますか？",
     "disconnectSource": "{{source}}を切断",
     "keepBoth": "両方接続を維持",
     "activeSync": "アクティブ",
     "activeSyncDesc": "このストレージはデータを積極的に同期しています",
     "inactiveSync": "非アクティブ",
-    "inactiveSyncDesc": "同期していません - 移行を使用してここにデータを転送してください",
+    "inactiveSyncDesc": "同期していません。移行機能を使ってデータをここに転送してください",
     "primary": "プライマリ",
     "primaryDesc": "このストレージからデータを読み込みます",
     "secondary": "セカンダリ",
@@ -989,7 +991,7 @@
     "copyKeyFirst": "このプロバイダーには暗号化キーがありません。「暗号化キーをコピー」を使用するか、先にデータを転送してください。",
     "idle": "同期準備完了",
     "connectProvider": "設定でクラウドストレージプロバイダーに接続して自動同期を有効にしてください",
-    "lastSync": "最終同期: {{time}}"
+    "lastSync": "最終同期：{{time}}"
   },
   "encryption": {
     "setPassword": "暗号化パスワードを設定",
@@ -1042,11 +1044,11 @@
     "deletionFailed": "削除に失敗しました",
     "deletionFailedDesc": "すべての日記の削除に失敗しました。",
     "passwordCleared": "パスワードがクリアされました",
-    "passwordClearedDesc": "保存された暗号化パスワードが削除されました。次回ログイン時に入力が必要です。",
+    "passwordClearedDesc": "保存された暗号化パスワードが削除されました。次回サインイン時に入力が必要です。",
     "incorrectPassword": "パスワードが正しくありません",
     "incorrectPasswordDesc": "入力したパスワードが正しくありません。もう一度お試しください。",
     "e2eExplanation": "日記はデバイス上で暗号化され、クラウドに同期されます。",
-    "chooseStrongPassword": "強力なパスワードを選んでください。紛失した場合は復元できません - 必ず覚えておくか安全に保管してください。",
+    "chooseStrongPassword": "強力なパスワードを選んでください。紛失した場合は復元できません。必ず覚えておくか、安全な場所に保管してください。",
     "howE2EWorks": "エンドツーエンド暗号化の仕組み",
     "criticalSavePassword": "重要：パスワードを保存してください",
     "setPasswordContinue": "パスワードを設定して続行",
@@ -1054,7 +1056,7 @@
     "saltNotFoundDesc": "暗号化設定データが見つかりませんでした。ブラウザのデータがクリアされたか、新しいデバイスを使用している可能性があります。",
     "saltNotFoundAction": "暗号化設定をリセットして最初からやり直すことができます。クラウドデータは暗号化されたままで、正しいパスワードでアクセスできます。",
     "resetSetup": "暗号化設定をリセット",
-    "decryptionFailed": "復号化に失敗しました",
+    "decryptionFailed": "復号に失敗しました",
     "decryptionFailedTitle": "パスワードが正しくありません",
     "decryptionFailedDesc": "入力したパスワードがクラウドに保存されている暗号化キーと一致しません。",
     "decryptionFailedHint": "新しいデバイスの場合は、元のデバイスで使用したパスワードと同じパスワードを使用してください。",
@@ -1160,8 +1162,8 @@
       "connectedSuccess": "Nextcloudに接続しました",
       "connectedSuccessDesc": "日記がNextcloudストレージと同期されます。すべての認証情報はローカルで暗号化されて保存されます。",
       "connectionFailed": "接続に失敗しました",
-      "testingConnection": "接続をテストしています...",
-      "simpleMode": "シンプルモード:",
+      "testingConnection": "接続をテストしています…",
+      "simpleMode": "シンプルモード：",
       "simpleModeDesc": "Nextcloudの認証情報はデバイスのローカルストレージに暗号化されずに保存されます。セキュリティを高めるには、ストレージ設定でE2E暗号化モードを有効にしてください。",
       "server": "サーバー：",
       "user": "ユーザー："
@@ -1172,7 +1174,7 @@
       "connectionFailed": "接続に失敗しました",
       "connectionTestFailed": "接続テストに失敗しました",
       "notAvailable": "このプラットフォームでは利用できません",
-      "notAvailableDesc": "iCloudはiOS、macOS、およびウェブブラウザでのみサポートされています。このデバイスではNextcloud、Google Drive、またはDropboxをご利用ください。",
+      "notAvailableDesc": "iCloudはiOS、macOS、およびWebブラウザでのみサポートされています。このデバイスではNextcloud、Google Drive、またはDropboxをご利用ください。",
       "connected": "接続済み",
       "connectedTo": "接続中のiCloudコンテナ：",
       "environment": "環境：",
@@ -1201,20 +1203,20 @@
       "containerIdDesc": "CloudKitコンテナ識別子（例：iCloud.com.yourcompany.app）",
       "apiTokenDesc": "Apple Developer Console → CloudKit Dashboard → APIアクセスで取得したAPIトークン",
       "environmentDesc": "テスト中は開発環境、公開済みアプリは本番環境を使用してください",
-      "syncDesc": "暗号化されたジャーナルをiCloudと同期します。すべてのAppleデバイスでデータがプライベートに保たれます。",
+      "syncDesc": "暗号化された日記をiCloudと同期します。すべてのAppleデバイスでデータがプライベートに保たれます。",
       "detailsLabel": "詳細",
       "connectionTestFailed421Hint": "localhostやカスタムドメインの場合は、CloudKitダッシュボードでAPIトークンの「許可するオリジン」に追加してください。",
       "signInWithAppleDesc": "Apple IDでサインインしてiCloudを接続します。以下のボタンをクリックしてAppleサインインウィンドウを開いてください。",
       "signInWithAppleButton": "Apple IDでサインイン",
       "afterSignedInDesc": "ポップアップでサインインを完了したら、以下をクリックして続行してください。",
-      "continueAfterSignIn": "サインイン完了 — 続行",
+      "continueAfterSignIn": "サインイン済み：続行",
       "signInRequired": "サインインが検出されませんでした",
       "signInRequiredDesc": "Appleサインインを完了してから続行をクリックしてください。",
       "popupBlocked": "サインインウィンドウがブロックされた可能性があります。このサイトのポップアップを許可して再度お試しください。",
       "signInLinkNotReady": "Appleサインインの読み込み中です。しばらく待ってから再度お試しください。",
-      "originNotAllowed": "このアプリのオリジン ({{origin}}) は iCloud に登録されていません。",
-      "adpNotice": "Apple IDで「高度なデータ保護」がオンになっている場合、Appleがアプリデータへのウェブアクセスをブロックするため、ブラウザからiCloudを使用できません。iCloudはiPhoneまたはiPadアプリでご利用いただくか、このブラウザで同期するにはGoogle Drive、Dropbox、またはNextcloudをお選びください。",
-      "signInWebAccessOff": "このApple IDではiCloudデータへのウェブアクセスがオフになっているとAppleから報告されました。iPhoneの「設定」>「自分の名前」>「iCloud」>「iCloud.com」でオンにしてから、もう一度お試しください。",
+      "originNotAllowed": "このアプリのオリジン（{{origin}}）はiCloudに登録されていません。",
+      "adpNotice": "Apple IDで「高度なデータ保護」がオンになっている場合、AppleがアプリデータへのWebアクセスをブロックするため、ブラウザからiCloudを使用できません。iCloudはiPhoneまたはiPadアプリでご利用いただくか、このブラウザで同期するにはGoogle Drive、Dropbox、またはNextcloudをお選びください。",
+      "signInWebAccessOff": "このApple IDではiCloudデータへのWebアクセスがオフになっているとAppleから報告されました。iPhoneの「設定」>「自分の名前」>「iCloud」>「iCloud.com」でオンにしてから、もう一度お試しください。",
       "signInFailedAdp": "AppleがiCloudへのサインインを完了できませんでした。通常はApple IDで「高度なデータ保護」がオンになっていることが原因で、AppleはそのようなアカウントによるブラウザからのiCloud利用を許可していません。iCloudはiPhoneまたはiPadアプリでご利用いただくか、代わりにGoogle Drive、Dropbox、またはNextcloudを接続してください。"
     },
     "oauth": {
@@ -1238,11 +1240,11 @@
     "minutesAgo": "{{minutes}}分前",
     "hoursAgo": "{{hours}}時間前",
     "daysAgo": "{{days}}日前",
-    "connectedProviders": "接続済み: {{providers}}",
+    "connectedProviders": "接続済み：{{providers}}",
     "connectProvider": "設定でクラウドストレージプロバイダーに接続して自動同期を有効にしてください",
-    "lastSync": "最終同期: {{time}}",
-    "lastSyncSuccess": "最後の同期成功: {{time}}",
-    "lastSyncFailed": "最後の同期失敗: {{time}}",
+    "lastSync": "最終同期：{{time}}",
+    "lastSyncSuccess": "最後の同期成功：{{time}}",
+    "lastSyncFailed": "最後の同期失敗：{{time}}",
     "syncInProgress": "同期中",
     "highFailureRate": "同期失敗率が高い",
     "highFailureRateDesc": "{{rate}}%の同期操作が失敗しています。接続の問題またはストレージプロバイダーの問題を示している可能性があります。",
@@ -1267,32 +1269,32 @@
   "syncProgress": {
     "preparing": "同期を準備中",
     "checkingCloud": "クラウドファイルを確認中",
-    "downloading": "エントリをダウンロード中",
-    "uploading": "エントリをアップロード中",
+    "downloading": "日記をダウンロード中",
+    "uploading": "日記をアップロード中",
     "finalizing": "同期を完了中",
     "syncing": "同期中",
-    "preparingSync": "同期を準備中...",
-    "downloadingEntries": "エントリをダウンロード中...",
-    "uploadingEntries": "エントリをアップロード中...",
+    "preparingSync": "同期を準備中…",
+    "downloadingEntries": "日記をダウンロード中…",
+    "uploadingEntries": "日記をアップロード中…",
     "syncComplete": "同期完了！",
-    "verifyingEncryption": "暗号化を確認中...",
-    "settingUpStructure": "クラウド構造を設定中...",
-    "gatheringData": "同期データを収集中...",
-    "foundEntries": "エントリを検出",
-    "syncingOperations": "保留中の操作を同期中...",
-    "reconcilingEntries": "エントリを照合中...",
-    "updatingSyncState": "同期状態を更新中..."
+    "verifyingEncryption": "暗号化を確認中…",
+    "settingUpStructure": "クラウド構造を設定中…",
+    "gatheringData": "同期データを収集中…",
+    "foundEntries": "日記を検出",
+    "syncingOperations": "保留中の操作を同期中…",
+    "reconcilingEntries": "日記を照合中…",
+    "updatingSyncState": "同期状態を更新中…"
   },
   "syncHealth": {
     "title": "同期ヘルスモニター",
     "description": "同期システムのリアルタイムモニタリングとアラート",
     "refresh": "更新",
-    "auto": "自動 (15秒)",
+    "auto": "自動（15秒）",
     "manual": "手動",
     "overallHealth": "全体的な健全性",
     "healthScore": "ヘルススコア",
     "allSystemsNormal": "✓ すべてのシステムが正常",
-    "activeAlerts": "アクティブなアラート ({{count}})",
+    "activeAlerts": "アクティブなアラート（{{count}}）",
     "excellent": "優秀",
     "good": "良好",
     "warning": "警告",
@@ -1315,27 +1317,27 @@
     "high": "高",
     "medium": "中",
     "low": "低",
-    "healthTips": "ヘルスモニタリングのヒント:",
+    "healthTips": "ヘルスモニタリングのヒント：",
     "greenMetrics": "• 緑色のメトリクスは健全な同期操作を示します",
     "yellowWarnings": "• 黄色の警告は監視すべき潜在的な問題を示します",
     "redAlerts": "• 赤色のアラートは即座の対応が必要です",
     "circuitBreakersReset": "• 一時的な制限は5分後に自動リセットされます",
     "checkDiagnostics": "• 詳細な操作ログについては診断タブを確認してください",
     "highFailureRate": "高い失敗率",
-    "highFailureRateDesc": "最近の同期操作の失敗率が高くなっています。",
+    "highFailureRateDesc": "同期操作の{{rate}}%が失敗しています。ネットワークまたはクラウドストレージに問題がある可能性があります。",
     "frequentConflicts": "頻繁な競合",
-    "frequentConflictsDesc": "複数のデバイスでの同時編集により競合が多発しています。",
+    "frequentConflictsDesc": "100回の同期あたり{{rate}}件の競合が検出されました。複数のデバイスで同時に編集している可能性があります。",
     "recentConflictSpike": "最近の競合急増",
-    "recentConflictSpikeDesc": "過去数時間で複数の競合が検出されました。",
+    "recentConflictSpikeDesc": "過去1時間に{{count}}件の競合が検出されました。複数のデバイスを同時に使用している可能性があります。",
     "circuitBreakersActive": "一時的な制限がアクティブ",
-    "circuitBreakersActiveDesc": "1つ以上のサービスで繰り返し失敗が発生しているため、一時的な制限が有効になっています。",
+    "circuitBreakersActiveDesc": "繰り返しの失敗により、{{count}}件の一時的な制限が有効になっています。同期操作は一時的に停止しています。",
     "multipleRecentFailures": "複数の最近の失敗",
-    "multipleRecentFailuresDesc": "過去1時間に複数の同期失敗が記録されました。",
+    "multipleRecentFailuresDesc": "直近10回の操作のうち{{count}}回が失敗しました。問題が継続しています。",
     "reduceFailures": "失敗を減らす",
     "reduceFailuresDesc": "インターネットとクラウド接続を確認してください。接続が不安定な場合は自動同期を一時的に無効にしてください。",
     "reduceFailuresAction": "診断タブで詳細なエラーログを確認",
     "minimizeConcurrentEdits": "同時編集を最小限にする",
-    "minimizeConcurrentEditsDesc": "同じエントリを複数デバイスで同時に編集しないでください。同期の完了を待ってください。",
+    "minimizeConcurrentEditsDesc": "同じ日記を複数デバイスで同時に編集しないでください。同期の完了を待ってください。",
     "minimizeConcurrentEditsAction": "解決した競合は競合タブで確認",
     "waitForCircuitBreaker": "一時的な制限のリセットを待つ",
     "waitForCircuitBreakerDesc": "システムは失敗したサービスへの試行を自動的に再開します",
@@ -1355,7 +1357,7 @@
     "refresh": "更新",
     "clear": "クリア",
     "downloadLogs": "ログをダウンロード",
-    "auto": "自動 (10秒)",
+    "auto": "自動（10秒）",
     "manual": "手動",
     "successRate": "成功率",
     "retries": "再試行",
@@ -1374,7 +1376,7 @@
     "noOperationsYet": "まだ操作が記録されていません",
     "operationSucceeded": "操作が成功しました",
     "attempt": "試行 {{number}}",
-    "retryDelay": "再試行遅延: {{ms}}ミリ秒",
+    "retryDelay": "再試行遅延：{{ms}}ミリ秒",
     "details": "詳細",
     "diagnosticsNote": "診断はメモリに保存され、ページの再読み込み時にリセットされます。最大200件が保持されます。",
     "noDiagnosticsYet": "まだ診断がありません。同期を実行してログを確認してください。",
@@ -1411,7 +1413,7 @@
     "tooFast": "操作が早すぎます",
     "tooFastDesc": "再分析するまで少々お待ちください",
     "authRequired": "認証が必要です",
-    "authRequiredDesc": "AI機能を使うにはログインしてください",
+    "authRequiredDesc": "AI機能を使うにはサインインしてください",
     "analysisFailed": "分析に失敗しました",
     "analysisFailedDesc": "AIサービスがリクエストを処理できませんでした。もう一度お試しください。",
     "analysisComplete": "分析完了",
@@ -1476,7 +1478,7 @@
     "weeklyLimitDesc": "週に1回のトレンド分析が可能です。来週もう一度お試しください。",
     "nextWeek": "来週利用可能",
     "availableOnceWeek": "週に1回利用可能",
-    "limitMessage": "週間分析制限に達しました - 来週再び利用可能",
+    "limitMessage": "週間分析の上限に達しました。来週また利用できます",
     "yourInsights": "あなたの日記の気づき",
     "backToInsights": "気づきに戻る",
     "periodSummary": "期間の要約",
@@ -1486,8 +1488,8 @@
     "suggestedFocusAreas": "おすすめのテーマ",
     "closingReflection": "まとめ",
     "reflection": "まとめ",
-    "lastAnalyzed": "最終分析: {{date}}",
-    "analyzedAt": "分析日時: {{date}}",
+    "lastAnalyzed": "最終分析：{{date}}",
+    "analyzedAt": "分析日時：{{date}}",
     "entriesAnalyzed": "{{count}}件の日記を分析",
     "reAnalyze": "再分析",
     "selectDifferentPeriod": "別の期間を選択",
@@ -1496,13 +1498,13 @@
     "summary": "概要",
     "progress": {
       "step": "ステップ {{current}} / {{total}}",
-      "checkingEntries": "日記を確認中...",
-      "analyzingEntry": "日記 {{current}} / {{total}} を分析中...",
-      "aggregatingPatterns": "パターンを集計中...",
-      "generatingInsights": "振り返りを生成中...",
-      "savingAnalysis": "分析を保存中...",
+      "checkingEntries": "日記を確認中…",
+      "analyzingEntry": "日記を分析中（{{current}}/{{total}}）…",
+      "aggregatingPatterns": "パターンを集計中…",
+      "generatingInsights": "振り返りを生成中…",
+      "savingAnalysis": "分析を保存中…",
       "entryProgress": "日記 {{current}} / {{total}}",
-      "retrying": "失敗した分析を再試行中...",
+      "retrying": "失敗した分析を再試行中…",
       "doNotCloseApp": "分析が完了するまでこのページを閉じないでください"
     }
   },
@@ -1519,14 +1521,14 @@
     "generatingWord": "Wordを生成中",
     "proOnly": "Plusのみ",
     "proFeature": "Plus機能",
-    "proFeatureDesc": "PDFエクスポートはPlusユーザーのみ利用可能です。",
-    "wordProFeatureDesc": "WordエクスポートはPlusユーザーのみ利用可能です。",
-    "upgradeToUnlock": "Plusにアップグレードしてエクスポート機能をアンロック",
+    "proFeatureDesc": "PDFエクスポートはPlusメンバーのみ利用可能です。",
+    "wordProFeatureDesc": "WordエクスポートはPlusメンバーのみ利用可能です。",
+    "upgradeToUnlock": "Plusにアップグレードしてエクスポート機能を解放",
     "noEntries": "選択した期間に日記がありません",
     "noEntriesToExportDesc": "エクスポートする日記がありません。",
     "exportSuccessful": "エクスポート成功",
     "exportFailed": "エクスポート失敗",
-    "exportFailedDesc": "PDFの生成に失敗しました。もう一度お試しください。",
+    "exportFailedDesc": "{{format}}の生成に失敗しました。もう一度お試しください。",
     "savedToPath": "{{path}}に保存しました",
     "savedToDownloads": "Documents/ に保存しました",
     "share": "共有",
@@ -1535,7 +1537,7 @@
     "exportSuccessDesc": "{{count}}件の日記を{{format}}形式でエクスポートしました。",
     "exportError": "エクスポートに失敗しました",
     "exportErrorDesc": "{{format}}のエクスポート中にエラーが発生しました。",
-    "upgradePrompt": "Plusにアップグレードしてエクスポート機能をアンロック",
+    "upgradePrompt": "Plusにアップグレードしてエクスポート機能を解放",
     "entriesReady": "{{count}}件の日記をエクスポートできます。",
     "unavailableNative": "ドキュメントのエクスポートはこのアプリバージョンでは利用できません。"
   },
@@ -1557,13 +1559,13 @@
     "description": "AIによる要約、気分分析、スマートタグ提案をすべての日記に。",
     "smartSummaries": "スマート要約",
     "moodTracking": "気分トラッキング",
-    "keyInsights": "キーインサイト",
+    "keyInsights": "主要インサイト",
     "priceYearly": "年額 {{yearlyPrice}}",
     "priceMonthly": "月額わずか約 {{monthlyPrice}}",
     "upgradeToPro": "Plusにアップグレード",
-    "processing": "処理中...",
-    "cancelAnytime": "いつでもキャンセル可能",
-    "unlockAI": "AI機能をアンロック",
+    "processing": "処理中…",
+    "cancelAnytime": "いつでも解約可能",
+    "unlockAI": "AI機能を解放",
     "upgrading": "アップグレード中",
     "upgradeFailed": "アップグレードに失敗しました",
     "upgradeFailedDesc": "サブスクリプションのアップグレード中にエラーが発生しました。もう一度お試しください。",
@@ -1592,7 +1594,7 @@
     "portalReturnDesc": "サブスクリプション設定が更新されました。",
     "purchasePending": "購入処理中",
     "purchaseFailed": "購入に失敗しました",
-    "purchasePendingDesc": "ご購入は承認待ちです。確認され次第、Plus のロックを解除します。",
+    "purchasePendingDesc": "ご購入は承認待ちです。確認され次第、Plusをご利用いただけるようになります。",
     "purchaseFailedDesc": "問題が発生し、料金は請求されていません。もう一度お試しください。",
     "restoreSuccess": "購入を復元しました",
     "restoreNothing": "復元できる購入はありません",
@@ -1606,14 +1608,14 @@
     "iapUnavailable": "アプリ内課金は現在利用できません",
     "iapUnavailableDesc": "ストアに接続できませんでした。接続を確認して、もう一度お試しください。",
     "tryAgain": "もう一度試す",
-    "disclosureTitle": "OwnJournal Plus — 年間サブスクリプション",
+    "disclosureTitle": "OwnJournal Plus（年間サブスクリプション）",
     "disclosureLength": "1年間の自動更新サブスクリプション。",
-    "priceWithMonthly": "{{yearlyPrice}}/年（月額換算 約{{monthlyEquivalent}}）",
+    "priceWithMonthly": "{{yearlyPrice}}/年（月額換算で約{{monthlyEquivalent}}）",
     "renewalApple": "購入確定時にApple IDから代金が請求されます。現在の期間終了の少なくとも24時間前までに自動更新をオフにしない限り、サブスクリプションは同じ価格で自動的に更新されます。購入後、App Storeのアカウント設定からサブスクリプションを管理・解約できます。",
     "renewalGoogle": "購入確定時にGoogle Playアカウントから代金が請求されます。現在の期間終了の少なくとも24時間前までにGoogle Playのサブスクリプションで解約しない限り、同じ価格で自動的に更新されます。",
     "iapOnly": {
       "title": "アプリで利用可能",
-      "description": "お住まいの地域では、OwnJournal Plus はモバイルアプリからご利用いただけます。ストアから入手して登録してください。",
+      "description": "お住まいの地域では、OwnJournal Plusはモバイルアプリからご利用いただけます。ストアから入手して登録してください。",
       "getOnPlay": "Google Play で手に入れよう"
     }
   },
@@ -1646,7 +1648,7 @@
     "alreadyAnalyzedDesc": "この日記はトレンド分析中に分析されました。再分析するには日記を編集してください。",
     "veryPositive": "非常にポジティブ",
     "positive": "ポジティブ",
-    "mixed": "複雑",
+    "mixed": "混在",
     "negative": "ネガティブ",
     "veryNegative": "非常にネガティブ",
     "morning": "朝",
@@ -1659,7 +1661,7 @@
     "long": "長い",
     "length": "長さ",
     "analyzing": "分析中",
-    "loading": "読み込み中...",
+    "loading": "読み込み中…",
     "analyzeEntry": "日記を分析",
     "proFeature": "Plus機能",
     "show": "表示",
@@ -1724,10 +1726,10 @@
     "generating": "生成中",
     "suggestTagsPrivate": "タグを提案（プライベート）",
     "suggestTagsEnhanced": "タグを提案",
-    "suggestTagsPro": "Plus: タグを提案",
+    "suggestTagsPro": "Plus：タグを提案",
     "suggestTitlePrivate": "タイトルを提案（プライベート）",
     "suggestTitleEnhanced": "タイトルを提案",
-    "suggestTitlePro": "Plus: タイトルを提案"
+    "suggestTitlePro": "Plus：タイトルを提案"
   },
   "notFound": {
     "title": "404",
@@ -1859,7 +1861,7 @@
       "firstEntry": {
         "title": "最初の日記を作成",
         "step1": "1. タイムライン上部の「+」ボタンをタップしてください",
-        "step2": "2. エディタで日記を書いてください（Markdown記法にも対応しています）",
+        "step2": "2. エディターで日記を書いてください（Markdown記法にも対応しています）",
         "step3": "3. タグと気分を追加して、保存ボタンをタップしてください"
       },
       "markdown": {
@@ -1877,7 +1879,7 @@
       },
       "accountSetup": {
         "title": "アカウントの作成",
-        "desc": "メール/パスワードまたはソーシャルログインで登録できます：",
+        "desc": "メールアドレスとパスワード、またはソーシャルアカウントで登録できます：",
         "emailOption": "メール＆パスワード：メールアドレスとパスワードを入力",
         "googleOption": "Google：「Googleで続ける」をクリックして簡単登録",
         "appleOption": "Apple：「Appleで続ける」をクリックしてプライバシー重視の登録",
@@ -1914,13 +1916,13 @@
         },
         "keyDerivation": {
           "title": "パスワード保護",
-          "desc": "パスワードは直接保存されません。代わりに、PBKDF2という技術で10万回の計算処理を経て暗号鍵に変換されます。これにより、総当たり攻撃を実質的に不可能にしています。"
+          "desc": "パスワードは直接保存されません。代わりに、PBKDF2という技術で10万回の計算処理を経て暗号化キーに変換されます。これにより、総当たり攻撃を実質的に不可能にしています。"
         },
         "howItWorks": {
           "title": "仕組み",
-          "step1": "1. パスワードからPBKDF2を使用して固有の暗号鍵を生成します",
-          "step2": "2. ランダムなマスターキーで各日記エントリを暗号化します",
-          "step3": "3. マスターキーはパスワード由来の鍵で保護されます",
+          "step1": "1. パスワードからPBKDF2を使用して固有の暗号化キーを生成します",
+          "step2": "2. ランダムなマスターキーで各日記を暗号化します",
+          "step3": "3. マスターキーはパスワードから導出したキーで保護されます",
           "step4": "4. 暗号化されたデータのみがクラウドに同期されます"
         },
         "summary": "この多層構造により、たとえ誰かがクラウドストレージにアクセスしても、パスワードなしでは日記を読むことはできません。"
@@ -1930,18 +1932,18 @@
         "simpleTitle": "シンプルモード",
         "simpleDesc": "データは暗号化せずにクラウドに同期されます。設定が簡単な一方、クラウドプロバイダーがデータを閲覧できる可能性があります。",
         "e2eTitle": "エンドツーエンド暗号化（推奨）",
-        "e2eDesc": "データは端末を離れる前に暗号化されます。あなただけが日記を読むことができ、クラウドプロバイダーでさえ内容を見ることはできません。"
+        "e2eDesc": "データはデバイスを離れる前に暗号化されます。あなただけが日記を読むことができ、クラウドプロバイダーでさえ内容を見ることはできません。"
       },
       "zeroKnowledge": {
         "title": "ゼロナレッジ設計",
-        "desc": "E2E暗号化では、暗号鍵がお使いの端末から外に出ることはありません。たとえ運営者であっても、あなたのデータにアクセスすることはできません。これが「ゼロナレッジ」の意味です。"
+        "desc": "E2E暗号化では、暗号化キーがお使いのデバイスから外に出ることはありません。たとえ運営者であっても、あなたのデータにアクセスすることはできません。これが「ゼロナレッジ」の意味です。"
       },
       "passwordTips": {
         "title": "パスワードのヒント",
         "tip1": "覚えやすい強力なパスワードを使用してください",
         "tip2": "複数の単語を組み合わせたパスフレーズは覚えやすく安全です",
         "tip3": "パスワードマネージャーに保存しておくことをおすすめします",
-        "warning": "重要: E2Eパスワードを忘れると、暗号化されたデータを復元することはできません。安全な場所に保管しておくことをおすすめします。"
+        "warning": "重要：E2Eパスワードを忘れると、暗号化されたデータを復元することはできません。安全な場所に保管しておくことをおすすめします。"
       }
     },
     "storage": {
@@ -1985,7 +1987,7 @@
       },
       "voiceEntry": {
         "title": "音声入力",
-        "desc": "エディターの下にあるマイクをタップし、文字を打つ代わりに話してください。録音を止めると、話した内容が句読点の入った整った文章になり、カーソルの位置に挿入されます。話している言語のまま文字起こしされ、文の途中で言語を切り替えても対応します。1回の録音は最長5分で、Plusでは毎月200分までご利用いただけます。",
+        "desc": "エディターの下にあるマイクをタップし、文字を打つ代わりに話してください。録音を止めると、話した内容が句読点の入った整った文章になり、カーソルの位置に挿入されます。話している言語のまま文字起こしされ、途中で言語を切り替えても対応します。1回の録音は最長5分で、Plusでは毎月200分までご利用いただけます。",
         "proNote": "（Plus機能）"
       },
       "aiAnalysis": {
@@ -2007,12 +2009,12 @@
         "proNote": "PDFとWordへのエクスポートはPlus機能です。JSONエクスポートは無料です。",
         "saveLocationTitle": "ファイルはどこに保存されますか？",
         "saveLocationMobile": "モバイル（Android/iOS）：ファイルはデバイスの Documents/ に保存されます。別の場所に保存したりメールで送信するための共有ボタン付きの通知が表示されます。",
-        "saveLocationWeb": "ウェブブラウザ：ファイルはブラウザのデフォルトダウンロードフォルダに自動的にダウンロードされます。",
+        "saveLocationWeb": "Webブラウザ：ファイルはブラウザのデフォルトダウンロードフォルダに自動的にダウンロードされます。",
         "shareHint": "モバイルでは、通知の共有ボタンをタップして別の保存場所を選択したり、ファイルを共有したりできます。"
       },
       "offlineBackup": {
         "title": "オフラインバックアップ",
-        "desc": "日記をJSON形式でお使いの端末に保存できます。インターネット接続なしで動作するため、クラウドを使わないバックアップとして最適です。"
+        "desc": "日記をJSON形式でお使いのデバイスに保存できます。インターネット接続なしで動作するため、クラウドを使わないバックアップとして最適です。"
       },
       "backupImportExport": {
         "title": "バックアップと復元",
@@ -2029,7 +2031,7 @@
       },
       "e2eEncryption": {
         "title": "エンドツーエンド暗号化",
-        "desc": "日記は同期や保存の前にお使いの端末上で暗号化されます。暗号鍵はあなただけが持っているため、保存中も転送中もデータは安全に保護されます。あなた以外には誰も読めません。"
+        "desc": "日記は同期や保存の前にお使いのデバイス上で暗号化されます。暗号化キーはあなただけが持っているため、保存中も転送中もデータは安全に保護されます。あなた以外には誰も読めません。"
       },
       "zeroKnowledge": {
         "title": "ゼロナレッジ設計",
@@ -2037,7 +2039,7 @@
       },
       "multiDeviceSync": {
         "title": "マルチデバイス同期",
-        "desc": "すべての端末間で日記をシームレスに同期できます。自動競合解決機能により、複数の端末で編集しても日記が失われることはありません。"
+        "desc": "すべてのデバイス間で日記をシームレスに同期できます。自動競合解決機能により、複数のデバイスで編集しても日記が失われることはありません。"
       },
       "moodTracking": {
         "title": "気分の記録",
@@ -2076,10 +2078,10 @@
         "fixOption1Title": "方法1：サーバー側暗号化を無効にする",
         "fixOption1Desc": "ご自身でNextcloudサーバーを管理している場合、管理画面のチェックボックスはファイルが暗号化されている間は外せないため、ターミナル（SSH）を使用する必要があります：",
         "fixOption1Step1": "1. Nextcloudサーバーでターミナルを開く",
-        "fixOption1Step2": "2. Nextcloudのフォルダに移動する（例: cd /var/www/nextcloud）",
-        "fixOption1Step3": "3. メンテナンスモードがオフであることを確認する。オンの場合は: sudo -u www-data php occ maintenance:mode --off",
-        "fixOption1Step4": "4. すべてのファイルを復号化する: sudo -u www-data php occ encryption:decrypt-all（Nextcloudは復号化中に自動でメンテナンスモードになり、完了時に暗号化をオフにします。）",
-        "fixOption1Step5": "5. 復号化が完了すると、暗号化は自動的に無効になります。",
+        "fixOption1Step2": "2. Nextcloudのフォルダに移動する（例：cd /var/www/nextcloud）",
+        "fixOption1Step3": "3. メンテナンスモードがオフであることを確認する。オンの場合は次を実行：sudo -u www-data php occ maintenance:mode --off",
+        "fixOption1Step4": "4. すべてのファイルを復号する：sudo -u www-data php occ encryption:decrypt-all（Nextcloudは復号中に自動でメンテナンスモードになり、完了時に暗号化をオフにします。）",
+        "fixOption1Step5": "5. 復号が完了すると、暗号化は自動的に無効になります。",
         "fixOption1Step6": "6. 完了後、Nextcloudは自動的にメンテナンスモードを解除します。",
         "fixOption1Note": "ファイルの数によっては時間がかかる場合があります。サーバー管理者でない場合は、管理者にこれらのコマンドの実行を依頼するか、OwnJournalフォルダを暗号化の対象外にしてもらうよう依頼してください。",
         "fixOption2Title": "方法2：E2E暗号化アプリを無効にする",
@@ -2099,7 +2101,7 @@
       "passwordRecovery": {
         "title": "E2Eパスワードを忘れた",
         "warning": "E2E暗号化されたデータはパスワードなしでは復元できません。",
-        "desc": "これはエンドツーエンド暗号化の重要なセキュリティ機能です。\n暗号鍵はあなただけが持っているため、運営者でさえデータにアクセスできません。\nプライバシーが守られる一方で、パスワードなしでは暗号化されたデータを復元する方法がありません。",
+        "desc": "これはエンドツーエンド暗号化の重要なセキュリティ機能です。\n暗号化キーはあなただけが持っているため、運営者でさえデータにアクセスできません。\nプライバシーが守られる一方で、パスワードなしでは暗号化されたデータを復元する方法がありません。",
         "actionTitle": "対処方法：",
         "action1": "暗号化されていないJSONバックアップをお持ちの場合は、そこから復元できます。",
         "action2": "新しく始める場合は、危険ゾーンにある「すべて削除」オプションを使用してリセットし、新しい暗号化された日記を作成してください。"
@@ -2141,7 +2143,7 @@
         "answer": "設定を開き、アカウントタブに移動し、サブスクリプションセクションまでスクロールして「管理」をクリックすると、請求ポータルが開きます。完全な請求履歴がそこで確認でき、PDF形式で請求書をダウンロードできます。"
       },
       "cancelSubscription": {
-        "question": "サブスクリプションをキャンセルするには？",
+        "question": "サブスクリプションを解約するには？",
         "answer": "設定を開き、アカウントタブに移動し、サブスクリプションセクションまでスクロールして「管理」をクリックし、請求ポータルにアクセスします。「プランをキャンセル」をクリックしてサブスクリプションを停止します。現在の請求期間の終了までPlusアクセスは維持されます。コアの日記機能は永久に無料です。"
       }
     }
@@ -2150,38 +2152,37 @@
     "name": "Recsty AB",
     "country": "スウェーデン",
     "email": "support@ownjournal.app",
-    "supervisoryAuthority": "スウェーデンデータ保護機関（IMY）",
+    "supervisoryAuthority": "スウェーデン・プライバシー保護庁（IMY）",
     "supervisoryAuthorityUrl": "imy.se"
   },
   "legal": {
     "backToApp": "OwnJournalに戻る",
     "backToHomepage": "ホームページに戻る",
     "openApp": "アプリを開く",
-    "lastUpdated": "最終更新日",
     "termsOfService": "利用規約",
     "privacyPolicy": "プライバシーポリシー",
     "terms": {
       "title": "利用規約",
       "lastUpdatedDate": "2026年4月",
       "acceptance": {
-        "title": "1. 規約の同意",
-        "content": "OwnJournalにアクセスまたは利用することで、お客様は本利用規約および当社のプライバシーポリシー(本規約の一部を構成します)に拘束されることに同意したものとみなされます。OwnJournalを利用するには、13歳以上、またはお客様の国で適用されるより高いデジタル同意年齢(一部のEU加盟国では最大16歳)に達している必要があります。本規約に同意されない場合は、本サービスをご利用にならないでください。"
+        "title": "1. 規約への同意",
+        "content": "OwnJournalにアクセスまたは利用することで、お客様は本利用規約および当社のプライバシーポリシー（本規約の一部を構成します）に拘束されることに同意したものとみなされます。OwnJournalを利用するには、13歳以上、またはお客様の国で適用されるより高いデジタル同意年齢（一部のEU加盟国では最大16歳）に達している必要があります。本規約に同意されない場合は、本サービスをご利用にならないでください。"
       },
       "description": {
         "title": "2. サービスの説明",
-        "content": "OwnJournalは、{{companyCountry}}に登録された企業である{{companyName}}が運営する個人向けジャーナリングアプリケーションです。Web、iOS、Android、デスクトップでジャーナルエントリの作成、保存、検索、分析が可能です。お客様は独自のクラウドストレージ(Google Drive、Dropbox、Nextcloud、iCloud Drive)を使用してデバイス間で同期する、またはローカルストレージを使用してアプリケーションを完全にオフラインで利用することができます。当社はエンドツーエンド暗号化(E2E)とエンドツーエンド暗号化なしのSimpleモードを提供します。Plus加入者は、ムード分析や提案などのオプションのAI機能を利用できます。"
+        "content": "OwnJournalは、{{companyCountry}}に登録された企業である{{companyName}}が運営する個人向け日記アプリケーションです。Web、iOS、Android、デスクトップで日記の作成、保存、検索、分析が可能です。お客様は独自のクラウドストレージ（Google Drive、Dropbox、Nextcloud、iCloud Drive）を使用してデバイス間で同期する、またはローカルストレージを使用してアプリケーションを完全にオフラインで利用することができます。当社はエンドツーエンド暗号化（E2E）とエンドツーエンド暗号化なしのシンプルモードを提供します。Plus加入者は、気分分析や提案などのオプションのAI機能を利用できます。"
       },
       "accounts": {
         "title": "3. ユーザーアカウント",
-        "content": "お客様は、サインイン認証情報および設定された暗号化パスワードの機密性を維持する責任を負います。お客様は、自分のアカウントで発生するすべての活動について責任を引き受け、認証情報を他人と共有しないことに同意します。E2E暗号化を使用する場合、お客様は暗号化パスワードを記憶する唯一の責任を負います — 紛失した場合、暗号化されたデータを復元することはできません。アカウントの作成または利用に際して、他人になりすましたり身元を偽ったりすることはできません。"
+        "content": "お客様は、サインイン認証情報および設定した暗号化パスワードの機密性を維持する責任を負います。お客様は、自分のアカウントで発生するすべての活動について責任を引き受け、認証情報を他人と共有しないことに同意します。E2E暗号化を使用する場合、暗号化パスワードを記憶しておく責任はお客様のみが負います。パスワードを紛失した場合、当社は暗号化されたデータを復元できません。アカウントの作成または利用に際して、他人になりすましたり身元を偽ったりすることはできません。"
       },
       "dataStorage": {
         "title": "8. データの保存とプライバシー",
-        "content": "ジャーナルのエントリは、お客様が選択したクラウドストレージプロバイダー(Google Drive、Dropbox、Nextcloud、またはiCloud Drive)に保存されます — 当社のサーバーには保存されません。E2E暗号化が有効な場合、お客様のデータはデバイスを離れる前にデバイス上で暗号化されます。当社は暗号化されたコンテンツにアクセスできません。Simpleモードでは、お客様のデータはエンドツーエンド暗号化なしで同期されます。当社の個人情報の取り扱いについては、当社のプライバシーポリシーに記載されています。"
+        "content": "日記は、お客様が選択したクラウドストレージプロバイダー（Google Drive、Dropbox、Nextcloud、またはiCloud Drive）に保存され、当社のサーバーには保存されません。E2E暗号化が有効な場合、お客様のデータはデバイスを離れる前にデバイス上で暗号化されるため、当社は暗号化されたコンテンツにアクセスできません。シンプルモードでは、お客様のデータはエンドツーエンド暗号化なしで同期されます。当社による個人情報の取り扱いについては、プライバシーポリシーに記載しています。"
       },
       "intellectualProperty": {
         "title": "7. 知的財産",
-        "content": "お客様は作成したジャーナルコンテンツに対するすべての権利を保持します。本規約の遵守を条件として、当社はお客様に対し、個人的な使用のためにOwnJournalをインストールし使用するための限定的、非独占的、譲渡不能、サブライセンス不可、取消可能なライセンスを付与します。OwnJournalアプリケーション(ソースコード、デザイン、ブランディングを含む)は、{{companyName}}が所有し、知的財産法によって保護されています。お客様は、本規約または適用法に明示的に許可されている場合を除き、アプリケーションをコピー、改変、配布、販売、または派生著作物を作成することはできません。"
+        "content": "お客様は作成した日記の内容に対するすべての権利を保持します。本規約の遵守を条件として、当社はお客様に対し、個人的な使用のためにOwnJournalをインストールし使用するための限定的、非独占的、譲渡不能、サブライセンス不可、取消可能なライセンスを付与します。OwnJournalアプリケーション（ソースコード、デザイン、ブランディングを含む）は、{{companyName}}が所有し、知的財産法によって保護されています。お客様は、本規約または適用法に明示的に許可されている場合を除き、アプリケーションをコピー、改変、配布、販売、または派生著作物を作成することはできません。"
       },
       "limitation": {
         "title": "9. 責任の制限",
@@ -2189,11 +2190,11 @@
       },
       "termination": {
         "title": "10. 解除",
-        "content": "お客様は、アプリケーションの設定からいつでもアカウントを削除できます。削除時には、プライバシーポリシーに記載されているとおり、お客様のアカウント情報が削除されます。お客様が本規約に重大な違反をした場合(許容される使用のセクションの違反を含む)、当社は、解除前に違反を是正する合理的な通知と機会を提供することを条件として、お客様のアカウントを停止または解除することがあります。ただし、重大な乱用、違法行為、または法律で要求される場合を除きます。当社は、少なくとも30日前に通知することにより、サービスを停止することもあります。"
+        "content": "お客様は、アプリケーションの設定からいつでもアカウントを削除できます。削除時には、プライバシーポリシーに記載されているとおり、お客様のアカウント情報が削除されます。お客様が本規約に重大な違反をした場合（許容される使用のセクションの違反を含む）、当社は、解除前に違反を是正する合理的な通知と機会を提供することを条件として、お客様のアカウントを停止または解除することがあります。ただし、重大な乱用、違法行為、または法律で要求される場合を除きます。当社は、少なくとも30日前に通知することにより、サービスを停止することもあります。"
       },
       "changes": {
         "title": "11. 規約の変更",
-        "content": "当社は本規約を随時更新することがあります。明確化、技術的、または法律で要求される変更については、事前の通知なしに本規約および「最終更新日」を更新します。消費者としてのお客様の権利または義務に重大な影響を与える変更(価格の引き上げ、サービスの大幅な変更、または新しい使用制限など)については、少なくとも30日前にメールおよびアプリケーションを通じて通知します。重大な変更を受け入れない場合、変更が有効になる前にサブスクリプションをキャンセルしてサービスの使用を停止することができ、次のサブスクリプション期間については請求されません。"
+        "content": "当社は本規約を随時更新することがあります。明確化、技術的、または法律で要求される変更については、事前の通知なしに本規約および「最終更新日」を更新します。消費者としてのお客様の権利または義務に重大な影響を与える変更（価格の引き上げ、サービスの大幅な変更、または新しい使用制限など）については、少なくとも30日前にメールおよびアプリケーションを通じて通知します。重大な変更を受け入れない場合、変更が有効になる前にサブスクリプションを解約してサービスの使用を停止することができ、次のサブスクリプション期間については請求されません。"
       },
       "contact": {
         "title": "14. お問い合わせ",
@@ -2205,19 +2206,19 @@
       },
       "subscriptions": {
         "title": "4. サブスクリプション、請求、解約",
-        "content": "OwnJournalは、自動更新サブスクリプションとして販売されるオプションの有料プラン(「Plus」)を提供します。Apple App Store(iOS)では、サブスクリプションはお客様のApple IDを通じて請求され、App Storeアカウントの設定で管理されます。購入確認時にお客様のApple IDに支払いが課金されます。お客様のサブスクリプションは、現在の期間終了の少なくとも24時間前に自動更新がオフにされない限り、自動的に更新されます。お客様のアカウントは、現在の期間終了前24時間以内に更新が課金されます。解約は現在の支払期間の終了時に有効になり、有料サブスクリプションを開始した時点で無料試用期間の未使用部分は失効します。Google Play(Android)では、サブスクリプションはお客様のGoogle Playアカウントを通じて請求され、Google Playのサブスクリプション設定で管理されます。同じ自動更新と解約の原則が適用されます。Webでは、サブスクリプションはStripeを通じて請求され、OwnJournal内のアカウント設定で管理されます。価格は、サポートされている場合、お客様の現地通貨で表示され、適用される税金が含まれています。提供される無料試用期間は、試用期間終了前にキャンセルされない限り、試用期間終了時に自動的に有料サブスクリプションに変換されます。"
+        "content": "OwnJournalは、自動更新サブスクリプションとして販売されるオプションの有料プラン（「Plus」）を提供します。Apple App Store（iOS）では、サブスクリプションはお客様のApple IDを通じて請求され、App Storeアカウントの設定で管理されます。購入確認時にお客様のApple IDに支払いが課金されます。お客様のサブスクリプションは、現在の期間終了の少なくとも24時間前に自動更新がオフにされない限り、自動的に更新されます。お客様のアカウントは、現在の期間終了前24時間以内に更新が課金されます。解約は現在の支払期間の終了時に有効になり、有料サブスクリプションを開始した時点で無料試用期間の未使用部分は失効します。Google Play（Android）では、サブスクリプションはお客様のGoogle Playアカウントを通じて請求され、Google Playのサブスクリプション設定で管理されます。同じ自動更新と解約の原則が適用されます。Webでは、サブスクリプションはStripeを通じて請求され、OwnJournal内のアカウント設定で管理されます。価格は、サポートされている場合、お客様の現地通貨で表示され、適用される税金が含まれています。提供される無料試用期間は、試用期間終了前に解約されない限り、試用期間終了時に自動的に有料サブスクリプションに変換されます。"
       },
       "withdrawal": {
-        "title": "5. 撤回権(EU/EEA消費者)",
-        "content": "お客様が欧州連合、欧州経済領域、または同等の権利を付与する他の管轄区域の消費者である場合、当社のウェブサイト(Stripe経由)で購入された有料サブスクリプションを、いかなる理由も示さずに撤回する14日間の撤回権を有します。この期間は契約締結の日から始まります。この権利を行使するには、14日以内に{{companyEmail}}までご連絡ください。サブスクリプション金額を返金いたします。14日間の撤回期間が満了する前に有料サービスの利用を開始することを選択することにより、お客様は明示的に即時履行を要求し、サービスが完全に提供された時点で撤回権を失うことを認めるものとします。サービスが部分的に提供された場合、当社はお客様がサービスを利用した分に比例した金額を保持することがあります。Apple App StoreまたはGoogle Playを通じて行われた購入については、返金リクエストはAppleまたはGoogleがそれぞれのポリシーに従って処理し、上記の撤回権はそれらの購入には適用されません。"
+        "title": "5. 撤回権（EU/EEA消費者）",
+        "content": "お客様が欧州連合、欧州経済領域、または同等の権利を付与する他の管轄区域の消費者である場合、当社のWebサイト（Stripe経由）で購入された有料サブスクリプションを、いかなる理由も示さずに撤回する14日間の撤回権を有します。この期間は契約締結の日から始まります。この権利を行使するには、14日以内に{{companyEmail}}までご連絡ください。サブスクリプション金額を返金いたします。14日間の撤回期間が満了する前に有料サービスの利用を開始することを選択することにより、お客様は明示的に即時履行を要求し、サービスが完全に提供された時点で撤回権を失うことを認めるものとします。サービスが部分的に提供された場合、当社はお客様がサービスを利用した分に比例した金額を保持することがあります。Apple App StoreまたはGoogle Playを通じて行われた購入については、返金リクエストはAppleまたはGoogleがそれぞれのポリシーに従って処理し、上記の撤回権はそれらの購入には適用されません。"
       },
       "acceptableUse": {
         "title": "6. 許容される使用",
-        "content": "お客様は、OwnJournalを以下の目的で使用しないことに同意します:(a)適用される法律または規制に違反する目的;(b)児童性的虐待コンテンツ、同意のない行為を描写したコンテンツ、または他人の知的財産権を侵害するコンテンツを含む、違法なコンテンツのアップロード、保存、または処理;(c)当社のシステム、当社のサービスプロバイダーのシステム、または他のユーザーのアカウントへの不正アクセスを試みること;(d)AI機能の公正利用制限またはプラットフォーム指定の購入メカニズムを回避すること;(e)適用法によって明示的に付与された権利を超えて、アプリケーションをリバースエンジニアリング、逆コンパイル、またはその他の方法でソースコードを導き出そうとすること;または(f)当社のサーバーまたは当社のAIプロバイダーに不釣り合いな量のリクエストを送信する自動化システムを運用すること。"
+        "content": "お客様は、OwnJournalを以下の目的で使用しないことに同意します：（a）適用される法律または規制に違反する目的、（b）児童性的虐待コンテンツ、同意のない行為を描写したコンテンツ、または他人の知的財産権を侵害するコンテンツを含む、違法なコンテンツのアップロード、保存、または処理、（c）当社のシステム、当社のサービスプロバイダーのシステム、または他のユーザーのアカウントへの不正アクセスを試みること、（d）AI機能の公正利用制限またはプラットフォーム指定の購入メカニズムを回避すること、（e）適用法によって明示的に付与された権利を超えて、アプリケーションをリバースエンジニアリング、逆コンパイル、またはその他の方法でソースコードを導き出そうとすること、または（f）当社のサーバーまたは当社のAIプロバイダーに不釣り合いな量のリクエストを送信する自動化システムを運用すること。"
       },
       "appleTerms": {
         "title": "12. Apple App Store向け追加規約",
-        "content": "Apple App StoreからOwnJournalを取得した場合、以下の追加規約が適用されます:(a)本規約はお客様と{{companyName}}との間でのみ締結され、Appleとの間では締結されません。{{companyName}}(Appleではなく)が、OwnJournalおよびその内容について単独で責任を負います。(b){{companyName}}は、本規約に明記されているか、または適用法で要求されている範囲で、OwnJournalに関する保守およびサポートサービスを提供する単独の責任を負います。Appleは、OwnJournalに関する保守およびサポートサービスを提供するいかなる義務も負いません。(c)OwnJournalが適用される保証に適合しない場合、お客様はAppleに通知することができ、Appleはアプリケーションの購入価格(該当する場合)を返金します;適用法で許される最大限の範囲で、Appleは、OwnJournalに関する他の保証義務を一切負いません。(d){{companyName}}は、OwnJournalまたはお客様によるOwnJournalの所有および使用に関する、お客様または第三者からの請求(製造物責任請求、OwnJournalが適用される法的または規制要件に適合しないという請求、消費者保護法または同様の法律に基づく請求を含む)に対処する単独の責任を負います。(e)OwnJournalまたはお客様によるOwnJournalの所有および使用が当該第三者の知的財産権を侵害するという第三者からの請求があった場合、{{companyName}}(Appleではなく)が、その請求の調査、防御、和解、解決について単独で責任を負います。(f)お客様は、米国政府の禁輸措置の対象となっている国または「テロ支援」国として指定されている国に所在せず、また、禁止または制限された当事者の米国政府リストに掲載されていないことを表明し、保証します。(g)Appleおよびその子会社は本規約の第三者受益者であり、お客様の同意により、Appleは第三者受益者として本規約をお客様に対して執行する権利を有します(かつ、その権利を受諾したものとみなされます)。"
+        "content": "Apple App StoreからOwnJournalを取得した場合、以下の追加規約が適用されます：（a）本規約はお客様と{{companyName}}との間でのみ締結され、Appleとの間では締結されません。{{companyName}}（Appleではなく）が、OwnJournalおよびその内容について単独で責任を負います。（b）{{companyName}}は、本規約に明記されているか、または適用法で要求されている範囲で、OwnJournalに関する保守およびサポートサービスを提供する単独の責任を負います。Appleは、OwnJournalに関する保守およびサポートサービスを提供するいかなる義務も負いません。（c）OwnJournalが適用される保証に適合しない場合、お客様はAppleに通知することができ、Appleはアプリケーションの購入価格（該当する場合）を返金します。適用法で許される最大限の範囲で、Appleは、OwnJournalに関する他の保証義務を一切負いません。（d）{{companyName}}は、OwnJournalまたはお客様によるOwnJournalの所有および使用に関する、お客様または第三者からの請求（製造物責任請求、OwnJournalが適用される法的または規制要件に適合しないという請求、消費者保護法または同様の法律に基づく請求を含む）に対処する単独の責任を負います。（e）OwnJournalまたはお客様によるOwnJournalの所有および使用が当該第三者の知的財産権を侵害するという第三者からの請求があった場合、{{companyName}}（Appleではなく）が、その請求の調査、防御、和解、解決について単独で責任を負います。（f）お客様は、米国政府の禁輸措置の対象となっている国または「テロ支援」国として指定されている国に所在せず、また、禁止または制限された当事者の米国政府リストに掲載されていないことを表明し、保証します。（g）Appleおよびその子会社は本規約の第三者受益者であり、お客様の同意により、Appleは第三者受益者として本規約をお客様に対して執行する権利を有します（かつ、その権利を受諾したものとみなされます）。"
       },
       "severability": {
         "title": "13. 分離可能性",
@@ -2229,7 +2230,7 @@
       "lastUpdatedDate": "2026年11月",
       "intro": {
         "title": "はじめに",
-        "content": "お客様のプライバシーは私たちにとって重要です。OwnJournalは、{{companyCountry}}に登録された企業である{{companyName}}が運営しています。本プライバシーポリシーは、OwnJournalがお客様の情報をどのように収集、使用、保護するかを説明します。当社は、プライバシーを基本原則としてOwnJournalを設計しました。"
+        "content": "お客様のプライバシーは当社にとって重要です。OwnJournalは、{{companyCountry}}に登録された企業である{{companyName}}が運営しています。本プライバシーポリシーは、OwnJournalがお客様の情報をどのように収集、使用、保護するかを説明します。当社は、プライバシーを基本原則としてOwnJournalを設計しました。"
       },
       "dataController": {
         "title": "データ管理者",
@@ -2237,27 +2238,27 @@
       },
       "collection": {
         "title": "収集する情報",
-        "content": "当社が収集する個人情報は最小限です。お客様のアカウントに関連して、当社は以下を収集します：メールアドレス、表示名（Googleまたは Apple などの外部認証プロバイダーから提供される場合）、およびクラウドストレージを接続した時点で、お選びいただいたプロバイダーの記録。ジャーナリングサービスを運営するために、当社のサーバーには少量の状態情報を保持します — 暗号化セットアップが完了しているかどうか、サブスクリプションの状態、および当社の決済処理業者（Stripe）がサブスクリプションを管理するために必要な識別子です。オプションの AI 機能の公正な利用を監視するため、ユーザーごとの利用カウンター（実行された分析の種類とタイムスタンプ。エントリの内容は決して保存しません）を記録します。音声入力では、文字起こしした各録音の長さ（秒数）もカウンターに記録しますが、録音そのものは保存しません。当社の認証バックエンドは、サインインのタイムスタンプなどの標準的なセッションメタデータも保持します。表示名はアプリ内での体験をパーソナライズするためにのみ使用され、公開されることはありません。サブスクリプション価格をお客様の現地通貨で表示するために、IPアドレスに関連付けられた国を一時的に参照することがありますが、使用するのは結果として得られる国コードのみで、お客様のアカウントには関連付けられず、IPアドレスは保存されません。当社はサードパーティの分析サービス、広告SDK、アプリ間トラッカーを使用していません。E2E暗号化を使用している場合、ジャーナルの内容はお客様のデバイス上で暗号化されるため、当社は読むことができません。シンプルモードでは、ジャーナルデータはエンドツーエンド暗号化なしで選択したクラウドプロバイダーと同期されます。シンプルモードは利便性を目的としており、E2Eモードと比較してプライバシーが低下する可能性がありますが、お客様のデータはクラウドプロバイダーの標準的なセキュリティ対策によって引き続き保護されます。"
+        "content": "当社が収集する個人情報は最小限です。お客様のアカウントに関連して、当社は以下を収集します：メールアドレス、表示名（GoogleまたはAppleなどの外部認証プロバイダーから提供される場合）、およびクラウドストレージを接続した時点で、お選びいただいたプロバイダーの記録。日記サービスを運営するために、当社のサーバーには少量の状態情報を保持します。具体的には、暗号化セットアップが完了しているかどうか、サブスクリプションの状態、および当社の決済処理業者（Stripe）がサブスクリプションを管理するために必要な識別子です。オプションのAI機能の公正な利用を監視するため、ユーザーごとの利用カウンター（実行された分析の種類とタイムスタンプ。日記の内容は一切保存しません）を記録します。音声入力では、文字起こしした各録音の長さ（秒数）もカウンターに記録しますが、録音そのものは保存しません。当社の認証バックエンドは、サインインのタイムスタンプなどの標準的なセッションメタデータも保持します。表示名はアプリ内での体験をパーソナライズするためにのみ使用され、公開されることはありません。サブスクリプション価格をお客様の現地通貨で表示するために、IPアドレスに関連付けられた国を一時的に参照することがありますが、使用するのは結果として得られる国コードのみで、お客様のアカウントには関連付けられず、IPアドレスは保存されません。当社はサードパーティの分析サービス、広告SDK、アプリ間トラッカーを使用していません。E2E暗号化を使用している場合、日記の内容はお客様のデバイス上で暗号化されるため、当社は読むことができません。シンプルモードでは、日記データはエンドツーエンド暗号化なしで選択したクラウドプロバイダーと同期されます。シンプルモードは利便性を目的としており、E2Eモードと比較してプライバシーが低下する可能性がありますが、お客様のデータはクラウドプロバイダーの標準的なセキュリティ対策によって引き続き保護されます。"
       },
       "usage": {
         "title": "情報の利用方法",
-        "content": "当社は収集した情報を以下の目的で使用します：メールアドレスはアカウント認証および重要なサービス通知のため、表示名はアプリ内での体験をパーソナライズするため、ストレージプロバイダーの選択と暗号化セットアップの状態は正しいアカウントに再接続して同期を再開するため、サブスクリプションの状態は有料機能へのアクセスを許可または制限するため、当社の決済処理業者（Stripe）が使用する識別子はサブスクリプションを管理するため、AI 利用カウンターはオプションの AI 機能の公正利用制限を実施するため。当社は、お客様の個人情報を販売したり、マーケティング目的で第三者と共有することはありません。"
+        "content": "当社は収集した情報を以下の目的で使用します：メールアドレスはアカウント認証および重要なサービス通知のため、表示名はアプリ内での体験をパーソナライズするため、ストレージプロバイダーの選択と暗号化セットアップの状態は正しいアカウントに再接続して同期を再開するため、サブスクリプションの状態は有料機能へのアクセスを許可または制限するため、当社の決済処理業者（Stripe）が使用する識別子はサブスクリプションを管理するため、AI利用カウンターはオプションのAI機能の公正利用制限を実施するため。当社は、お客様の個人情報を販売したり、マーケティング目的で第三者と共有することはありません。"
       },
       "storage": {
         "title": "データの保存",
-        "content": "ジャーナルのエントリは、お客様が選択したクラウドストレージプロバイダー（Google Drive、Dropbox、Nextcloud、または iCloud Drive）に保存されます。当社のサーバーには保存されません。データの保存場所は、お客様が完全に管理します。当社のサーバー（当社の認証およびデータベースバックエンドを通じて運営）には、サービスの運営に必要な情報のみを保存します：認証情報、表示名、ストレージプロバイダーの選択、暗号化セットアップの状態、サブスクリプションの状態、当社の決済処理業者（Stripe）がサブスクリプションを管理するために使用する識別子、およびユーザーごとの AI 機能利用カウンターです。お支払いは当社の決済プロバイダー（Web版は Stripe、iOS は Apple In-App Purchase、Android は Google Play Billing）によって処理されます。当社のサーバーには、お支払いカードの詳細情報を保存しません。"
+        "content": "日記は、お客様が選択したクラウドストレージプロバイダー（Google Drive、Dropbox、Nextcloud、またはiCloud Drive）に保存されます。当社のサーバーには保存されません。データの保存場所は、お客様が完全に管理します。当社のサーバー（当社の認証およびデータベースバックエンドを通じて運営）には、サービスの運営に必要な情報のみを保存します：認証情報、表示名、ストレージプロバイダーの選択、暗号化セットアップの状態、サブスクリプションの状態、当社の決済処理業者（Stripe）がサブスクリプションを管理するために使用する識別子、およびユーザーごとのAI機能利用カウンターです。お支払いは当社の決済プロバイダー（Web版はStripe、iOSはApple In-App Purchase、AndroidはGoogle Play Billing）によって処理されます。当社のサーバーには、お支払いカードの詳細情報を保存しません。"
       },
       "encryption": {
         "title": "エンドツーエンド暗号化",
-        "content": "E2E暗号化を有効にすると、日記はデバイスを離れる前に暗号化されます。暗号鍵を持っているのはお客様だけです。データは保存・転送中も保護され、暗号化パスワードなしでは誰も読むことができません。"
+        "content": "E2E暗号化を有効にすると、日記はデバイスを離れる前に暗号化されます。暗号化キーを持っているのはお客様だけです。データは保存・転送中も保護され、暗号化パスワードなしでは誰も読むことができません。"
       },
       "zeroKnowledge": {
         "title": "ゼロナレッジ設計",
-        "content": "当社のゼロ知識アーキテクチャは、エンドツーエンド暗号化されたジャーナルの内容に適用されます：E2E暗号化が有効な場合、お客様のデータを復号するために必要なパスワードを保有するのはお客様のみであり、当社はそれにアクセスしたり読んだりすることはできません。サービスの運営に必要なアカウント情報（メールアドレス、表示名、ストレージプロバイダーの選択、サブスクリプションの状態、AI 利用カウンターなど）は、当社が必然的に読み取ることができます。オプションの AI 機能を使用する場合、関連するテキストはお客様のデバイス上で復号され、以下の「AI 機能と処理」セクションに記載されているとおり送信されます。"
+        "content": "当社のゼロナレッジ設計は、エンドツーエンド暗号化された日記の内容に適用されます。E2E暗号化が有効な場合、データの復号に必要なパスワードを持つのはお客様だけであり、当社がその内容にアクセスしたり読んだりすることはできません。一方、サービスの運営に必要なアカウント情報（メールアドレス、表示名、ストレージプロバイダーの選択、サブスクリプションの状態、AI利用カウンターなど）は、その性質上、当社が読み取れる状態にあります。オプションのAI機能を使用する場合、該当するテキストはお客様のデバイス上で復号され、下記の「AI機能とデータ処理」セクションに記載のとおり送信されます。"
       },
       "thirdParty": {
         "title": "第三者サービス",
-        "content": "当社は、それぞれが独自の利用規約およびプライバシー慣行のもとで運営される以下のサードパーティサービスと統合しています：お客様自身のアカウントへの同期を行うクラウドストレージプロバイダー（Google Drive、Dropbox、Nextcloud、iCloud Drive）、安全なサインインのための認証サービス（Google、Apple）および当社の認証バックエンド、サブスクリプションを処理するための決済プロバイダー（Web版は Stripe、iOS は Apple In-App Purchase、Android は Google Play Billing）、ならびにオプションの AI 機能を使用する場合の AI サービスプロバイダー（Google Gemini）。"
+        "content": "当社は、それぞれが独自の利用規約およびプライバシー慣行のもとで運営される以下のサードパーティサービスと統合しています：お客様自身のアカウントへの同期を行うクラウドストレージプロバイダー（Google Drive、Dropbox、Nextcloud、iCloud Drive）、安全なサインインのための認証サービス（Google、Apple）および当社の認証バックエンド、サブスクリプションを処理するための決済プロバイダー（Web版はStripe、iOSはApple In-App Purchase、AndroidはGoogle Play Billing）、ならびにオプションのAI機能を使用する場合のAIサービスプロバイダー（Google Gemini）。"
       },
       "syncIdentifier": {
         "title": "同期とデバイス識別子",
@@ -2265,7 +2266,7 @@
       },
       "aiProcessing": {
         "title": "AI機能とデータ処理",
-        "content": "OwnJournalは、気分分析、提案、音声入力などのオプションのAI機能を提供しており、これらはPlus加入者専用です。AI処理は、Plus加入者であるお客様がこれらの機能を明示的に使用した場合にのみ行われます。テキストベースのAI機能を使用する場合、該当するテキストはまずお客様のデバイス上で復号され、その後お客様の明示的な操作により、当社のAIプロバイダー（現在はGoogleのGemini）へ有料APIを通じて送信されます。音声入力を使用する場合、デバイスのマイクは録音中にのみ使用されます。録音はテキストへの変換のためにGoogle（Gemini）へ送信され、変換されたテキストはお客様のデバイス上でエントリに追加されます。当社は、音声録音や文字起こしを含むAIの入力および出力を当社のサーバーに保存しません。公正利用のための利用制限を適用する目的で、AI機能の利用状況についてユーザーごとのカウンター（実行された分析の種類、タイムスタンプ、および音声入力の場合は録音の秒数。内容は一切含みません）のみを記録します。Googleは、現行のポリシーに従い、不正利用の監視およびポリシーの執行のために、プロンプトと出力を一定期間保持する場合があります。AI処理はEEA外で行われる場合があります。Googleは標準契約条項など、データ移転に関する適切な保護措置を講じています。当社はGoogleのAIサービスの有料プランを利用しており、その条件のもとでは、プロンプトと出力がGoogleのモデルのトレーニングや改善に使用されることはありません。AI機能を使用しないことも選択でき、その場合でも日記の基本機能には影響しません。"
+        "content": "OwnJournalは、気分分析、提案、音声入力などのオプションのAI機能を提供しており、これらはPlus加入者専用です。AI処理は、Plus加入者であるお客様がこれらの機能を明示的に使用した場合にのみ行われます。テキストベースのAI機能を使用する場合、該当するテキストはまずお客様のデバイス上で復号され、その後お客様の明示的な操作により、当社のAIプロバイダー（現在はGoogleのGemini）へ有料APIを通じて送信されます。音声入力を使用する場合、デバイスのマイクは録音中にのみ使用されます。録音はテキストへの変換のためにGoogle（Gemini）へ送信され、変換されたテキストはお客様のデバイス上で日記に追加されます。当社は、音声録音や文字起こしを含むAIの入力および出力を当社のサーバーに保存しません。公正利用のための利用制限を適用する目的で、AI機能の利用状況についてユーザーごとのカウンター（実行された分析の種類、タイムスタンプ、および音声入力の場合は録音の秒数。内容は一切含みません）のみを記録します。Googleは、現行のポリシーに従い、不正利用の監視およびポリシーの執行のために、プロンプトと出力を一定期間保持する場合があります。AI処理はEEA外で行われる場合があります。Googleは標準契約条項など、データ移転に関する適切な保護措置を講じています。当社はGoogleのAIサービスの有料プランを利用しており、その条件のもとでは、プロンプトと出力がGoogleのモデルのトレーニングや改善に使用されることはありません。AI機能を使用しないことも選択でき、その場合も日記の基本機能には影響しません。"
       },
       "diagnostics": {
         "title": "診断とクラッシュログ",
@@ -2273,15 +2274,15 @@
       },
       "retention": {
         "title": "データの保持",
-        "content": "お客様のジャーナルデータは、削除するまでクラウドストレージに残ります。当社のサーバーに保存されたアカウント情報は、アカウントが有効である間保持されます。アカウントを削除すると、プロフィール、サブスクリプション記録、AI 利用カウンター、認証データを当社のシステムから直ちに削除します。当社の決済処理業者（Stripe、Apple、Google）が保持する取引記録は、それぞれの方針および適用法に従って保持されます。当該記録へのアクセスまたは削除は、関連するプロバイダーに直接ご請求いただけます。"
+        "content": "お客様の日記データは、削除するまでクラウドストレージに残ります。当社のサーバーに保存されたアカウント情報は、アカウントが有効である間保持されます。アカウントを削除すると、プロフィール、サブスクリプション記録、AI利用カウンター、認証データを当社のシステムから直ちに削除します。当社の決済処理業者（Stripe、Apple、Google）が保持する取引記録は、それぞれの方針および適用法に従って保持されます。当該記録へのアクセスまたは削除は、関連するプロバイダーに直接ご請求いただけます。"
       },
       "accountDeletion": {
         "title": "アカウントの削除",
-        "content": "アプリ内の設定から、または{{companyEmail}}までご連絡いただくことで、いつでもアカウントを削除できます。アカウントの削除により、プロフィール、サブスクリプション、AI利用カウンター、認証データが当社のシステムから削除されます。クラウドストレージにあるジャーナルデータはお客様の管理下に残り、お客様自身でそこから削除できます。"
+        "content": "アプリ内の設定から、または{{companyEmail}}までご連絡いただくことで、いつでもアカウントを削除できます。アカウントの削除により、プロフィール、サブスクリプション、AI利用カウンター、認証データが当社のシステムから削除されます。クラウドストレージにある日記データはお客様の管理下に残り、お客様自身でそこから削除できます。"
       },
       "legalBasis": {
         "title": "処理の法的根拠",
-        "content": "当社は以下に基づいてお客様のデータを処理します：(1) 契約の履行 — お客様がご登録されたジャーナリングサービスを提供するため。(2) 正当な利益 — サービスのセキュリティを維持し不正利用を防止するため、およびオプションの AI 機能の公正利用制限を実施するため。(3) 同意 — AI 分析などのオプション機能のため（同意はいつでも撤回できます）。"
+        "content": "当社は以下の法的根拠に基づいてお客様のデータを処理します。（1）契約の履行：お客様にご登録いただいた日記サービスを提供するため。（2）正当な利益：サービスのセキュリティを維持して不正利用を防止するため、およびオプションのAI機能に公正利用のための利用制限を適用するため。（3）同意：AI分析などのオプション機能のため（同意はいつでも撤回できます）。"
       },
       "dpo": {
         "title": "データ保護責任者（DPO）について",
@@ -2289,11 +2290,11 @@
       },
       "rights": {
         "title": "お客様の権利",
-        "content": "GDPRおよび同様のプライバシー法に基づき、お客様には次の権利があります:データへのアクセス、データのエクスポート(可搬性)、不正確なデータの訂正、データの削除(忘れられる権利)、処理の制限、処理への異議、および現地のデータ保護当局への苦情の申立て。EU居住者の方は、各国の監督機関に連絡することができます。{{companyCountry}}では、これは{{supervisoryAuthority}}({{supervisoryAuthorityUrl}})です。これらの権利を行使するには、{{companyEmail}}までご連絡ください。"
+        "content": "GDPRおよび同様のプライバシー法に基づき、お客様には、ご自身のデータへのアクセス、データのエクスポート（データポータビリティ）、不正確なデータの訂正、データの消去（忘れられる権利）、処理の制限、および処理への異議申立てを求める権利があり、現地のデータ保護当局に苦情を申し立てる権利もあります。EU居住者の方は、各国の監督機関に連絡することができます。{{companyCountry}}の監督機関は{{supervisoryAuthority}}（{{supervisoryAuthorityUrl}}）です。これらの権利を行使するには、{{companyEmail}}までご連絡ください。"
       },
       "children": {
         "title": "お子様のプライバシー",
-        "content": "OwnJournal は13歳未満の児童、またはお客様の国で適用されるより高い年齢のデジタル同意年齢（一部の EU 加盟国では最大16歳）を対象としていません。当社は、適用される年齢未満の児童から意図的に個人情報を収集することはありません。誤って当該情報を収集したと思われる場合は、当社までご連絡ください。"
+        "content": "OwnJournalは、13歳未満、またはお客様の国で適用されるそれより高いデジタル同意年齢（一部のEU加盟国では最大16歳）未満の児童を対象としていません。当社は、適用される年齢未満の児童から意図的に個人情報を収集することはありません。誤って当該情報を収集したと思われる場合は、当社までご連絡ください。"
       },
       "changes": {
         "title": "ポリシーの変更",
@@ -2304,40 +2305,41 @@
         "content": "本プライバシーポリシーに関するご質問、データに関する権利の行使、またはご懸念がある場合は、{{companyEmail}}までご連絡ください。30日以内にお返事することを目指しています。"
       },
       "localStorage": {
-        "title": "Cookie とローカルストレージ",
-        "content": "OwnJournal はサードパーティの Cookie、広告 Cookie、アプリ間トラッカーを使用しません。アプリケーションは、お客様の暗号化キー、ジャーナルエントリ、同期状態、設定をデバイス上に保持するため、デバイスのローカルストレージ（Web ではブラウザの localStorage と IndexedDB、モバイルおよびデスクトップでは同等のローカルストア）を使用します。これらのローカルデータはユーザーごとであり、明示的にエクスポートするか、選択したクラウドストレージプロバイダーと同期しない限り、お客様のデバイスに留まります。認証には、当社の認証バックエンドが発行し、お客様のデバイスにローカルに保存されるセッショントークンを使用します。ローカルデータは、設定からまたはブラウザのストレージをクリアすることでいつでも消去できます。"
+        "title": "Cookieとローカルストレージ",
+        "content": "OwnJournalはサードパーティのCookie、広告Cookie、アプリ間トラッカーを使用しません。アプリケーションは、お客様の暗号化キー、日記、同期状態、設定をデバイス上に保持するため、デバイスのローカルストレージ（WebではブラウザのlocalStorageとIndexedDB、モバイルおよびデスクトップでは同等のローカルストア）を使用します。これらのローカルデータはユーザーごとであり、明示的にエクスポートするか、選択したクラウドストレージプロバイダーと同期しない限り、お客様のデバイスに留まります。認証には、当社の認証バックエンドが発行し、お客様のデバイスにローカルに保存されるセッショントークンを使用します。ローカルデータは、設定からまたはブラウザのストレージをクリアすることでいつでも消去できます。"
       },
       "internationalTransfers": {
-        "title": "国際的なデータ転送",
-        "content": "当社のサービスプロバイダーの一部は、欧州経済領域（EEA）外でデータを処理します。当社の認証およびデータベースバックエンド、決済プロバイダー（Stripe、Apple、Google）、AI プロバイダー（Google）、およびお客様が選択したクラウドストレージプロバイダーは、欧州委員会から十分性認定を受けていない国でデータを転送または処理する場合があります。そのような場合、当社およびプロバイダーは、欧州委員会の標準契約条項（SCC）と補足的な技術的および組織的措置などの GDPR 第46条に基づく適切な保護措置に依拠します。実施されている保護措置の詳細については、当社にご連絡ください。"
+        "title": "国際的なデータ移転",
+        "content": "当社のサービスプロバイダーの一部は、欧州経済領域（EEA）外でデータを処理します。当社の認証およびデータベースバックエンド、決済プロバイダー（Stripe、Apple、Google）、AIプロバイダー（Google）、およびお客様が選択したクラウドストレージプロバイダーは、欧州委員会の十分性認定を受けていない国へデータを移転し、またはそうした国でデータを処理する場合があります。そのような場合、当社およびプロバイダーは、GDPR第46条に基づく適切な保護措置に依拠します。たとえば、欧州委員会の標準契約条項（SCC）を、補足的な技術的および組織的措置と組み合わせて用います。実施している保護措置の詳細は、当社にお問い合わせいただければご案内します。"
       },
       "californiaRights": {
         "title": "米国州別プライバシー権",
         "content": "カリフォルニア州または包括的な消費者プライバシー法を有する他の米国州（バージニア州、コロラド州、コネチカット州、ユタ州、テキサス州、その他制定された州など）の住民である場合、お客様には個人情報に関する権利があり、これには以下が含まれる場合があります：当社が収集する個人情報を知る権利、お客様の個人情報を削除する権利、不正確な個人情報を訂正する権利、特定の利用（個人情報の販売または共有を含む）を拒否する権利、および機密性の高い個人情報の使用を制限する権利。当社はお客様の個人情報を販売せず、コンテキスト横断的な行動広告のために共有することもありません。お客様の権利を行使するには、「お問い合わせ」セクションに記載の住所までご連絡ください。"
       }
-    }
+    },
+    "lastUpdatedOn": "最終更新日：{{date}}"
   },
   "recovery": {
     "title": "暗号化された日記を復元",
-    "description": "一部の日記を復号化できませんでした。",
-    "decryptionFailures": "一部の日記を復号化できませんでした",
-    "decryptionFailuresDesc": "{{total}}件中{{count}}件の日記の復号化に失敗しました。パスワードが変更された可能性があります。",
-    "failedEntries": "{{total}}件中{{count}}件の日記の復号化に失敗",
+    "description": "一部の日記を復号できませんでした。",
+    "decryptionFailures": "一部の日記を復号できませんでした",
+    "decryptionFailuresDesc": "{{total}}件中{{count}}件の日記の復号に失敗しました。パスワードが変更された可能性があります。",
+    "failedEntries": "{{total}}件中{{count}}件の日記の復号に失敗",
     "explanation": "これは通常、暗号化パスワードが変更された場合に発生します。元のパスワードを入力して日記を復元してください。",
     "originalPassword": "元の暗号化パスワード",
     "passwordPlaceholder": "元のパスワードを入力",
     "passwordRequired": "元のパスワードを入力してください",
     "hint1": "• これは暗号化を最初に設定したときに使用したパスワードです",
-    "hint2": "• 暗号化された日記は失われていません - 正しいパスワードが必要なだけです",
+    "hint2": "• 暗号化された日記は失われていません。正しいパスワードが必要なだけです",
     "hint3": "• パスワードを思い出せない場合、日記を復元できない可能性があります",
     "recover": "復元",
     "recoverButton": "日記を復元",
     "recovering": "復元中",
     "success": "復元が成功しました",
     "successDesc": "{{count}}件の日記を復元しました",
-    "failed": "復元に失敗しました: {{error}}",
+    "failed": "復元に失敗しました：{{error}}",
     "wrongPassword": "パスワードが正しくありません。元の暗号化パスワードで再度お試しください。",
-    "keyCorrupted": "接続中のすべてのプロバイダーの暗号化キーで項目を復号できません。Google ドライブをお使いの場合は、OwnJournal フォルダ内の encryption-key.json の以前のバージョンをバージョン履歴で確認してください。",
+    "keyCorrupted": "接続中のどのプロバイダーの暗号化キーでも、項目を復号できません。Google Driveをお使いの場合は、OwnJournalフォルダ内にある encryption-key.json の以前のバージョンをバージョン履歴で確認してください。",
     "noCloudKey": "クラウドストレージに暗号化キーが見つかりません。データが削除された可能性があります。",
     "unknownError": "不明なエラーが発生しました",
     "entriesWithoutKey": "クラウドストレージには暗号化された日記がありますが、暗号化キーがありません。復元オプションを使用してアクセスを回復してください。",
@@ -2345,15 +2347,15 @@
     "networkError": "ネットワークエラーです。接続を確認して再度お試しください。",
     "rateLimited": "クラウドストレージが一時的にリクエストを制限しています。30〜60秒待ってから再度お試しください。",
     "deleteLink": "または復元できない日記を完全に削除する",
-    "confirmDelete": "復号化できない{{count}}件の日記を完全に削除します。元に戻せません。",
+    "confirmDelete": "復号できない{{count}}件の日記を完全に削除します。元に戻せません。",
     "confirmDeleteButton": "完全に削除",
     "deletedTitle": "日記を削除しました",
     "deletedDesc": "復元できない{{count}}件の日記を削除しました",
     "deleteFailed": "日記の削除に失敗しました。再度お試しください。",
     "keyMismatchExplanation": "これらの日記を復号できる暗号化キーが、現在使用中のキーと一致しません。クラウドからキーを再読み込みできます。",
-    "keyMismatchRecoveryHint": "クラウドストレージのバージョン履歴（Google ドライブや Nextcloud の OwnJournal フォルダ内 encryption-key.json のファイルバージョン）から元のキーを復元できる場合があります。",
+    "keyMismatchRecoveryHint": "クラウドストレージのバージョン履歴（Google DriveやNextcloudのOwnJournalフォルダ内 encryption-key.json のファイルバージョン）から元のキーを復元できる場合があります。",
     "keyMismatchHint1": "• クラウドストレージの暗号化キーがこの日記の暗号化に使用されたキーと一致しません",
-    "keyMismatchHint2": "• Google ドライブまたは Nextcloud のバージョン履歴で古い encryption-key.json を確認してください",
+    "keyMismatchHint2": "• Google DriveまたはNextcloudのバージョン履歴で古い encryption-key.json を確認してください",
     "keyMismatchHint3": "• 別のデバイスに正しいキーがキャッシュされている場合は、まずそのデバイスから接続してください",
     "reloadKeyFromCloud": "キーをクラウドから再読み込み",
     "reloadingKey": "再読み込み中…",
@@ -2372,25 +2374,25 @@
     "appPasswordTooLong": "アプリパスワードは500文字以内にしてください"
   },
   "cloudErrors": {
-    "notFound": "見つかりません - 指定された場所が存在しません",
-    "notFoundWithFile": "見つかりません - 指定された場所が存在しません。ファイル: {{file}}",
-    "permissionDenied": "アクセス拒否 - この場所にアクセスする権限がありません",
-    "authFailed": "認証に失敗しました - 認証情報を確認するか、再接続してください",
-    "serverError": "サーバーエラー - サーバーで内部エラーが発生しました",
-    "serverUnavailable": "サーバーが利用できません - 後でもう一度お試しください",
-    "storageFull": "ストレージがいっぱいです - サーバーの空き容量が不足しています",
-    "rateLimited": "レート制限 - リクエストが多すぎます。しばらくお待ちください",
-    "encryptionError": "暗号化エラー - サーバー側の暗号化がアクセスを妨げています",
+    "notFound": "見つかりません：指定された場所が存在しません",
+    "notFoundWithFile": "見つかりません：指定された場所が存在しません。ファイル：{{file}}",
+    "permissionDenied": "アクセスが拒否されました：この場所にアクセスする権限がありません",
+    "authFailed": "認証に失敗しました。認証情報を確認するか、再接続してください",
+    "serverError": "サーバーエラー：サーバーで内部エラーが発生しました",
+    "serverUnavailable": "サーバーが利用できません。後でもう一度お試しください",
+    "storageFull": "ストレージがいっぱいです。サーバーの空き容量が不足しています",
+    "rateLimited": "レート制限：リクエストが多すぎます。しばらくお待ちください",
+    "encryptionError": "暗号化エラー：サーバー側の暗号化によりアクセスできません",
     "syncStateFailed": "同期状態の更新に失敗しました",
     "uploadFailed": "アップロードに失敗しました",
-    "uploadFailedWithFile": "ファイルのアップロードに失敗しました: {{file}}",
+    "uploadFailedWithFile": "ファイルのアップロードに失敗しました：{{file}}",
     "downloadFailed": "ダウンロードに失敗しました",
-    "downloadFailedWithFile": "ファイルのダウンロードに失敗しました: {{file}}",
+    "downloadFailedWithFile": "ファイルのダウンロードに失敗しました：{{file}}",
     "deleteFailed": "削除に失敗しました",
     "listFailed": "ファイル一覧の取得に失敗しました",
-    "connectionFailed": "接続に失敗しました - インターネット接続を確認してください",
-    "tokenRefreshFailed": "セッションの有効期限が切れました - クラウドストレージを再接続してください",
-    "networkErrorCheckingKey": "一時的なネットワークエラー — しばらくしてからもう一度お試しください"
+    "connectionFailed": "接続に失敗しました。インターネット接続を確認してください",
+    "tokenRefreshFailed": "セッションの有効期限が切れました。クラウドストレージを再接続してください",
+    "networkErrorCheckingKey": "一時的なネットワークエラーです。しばらくしてからもう一度お試しください"
   },
   "incompatibleKey": {
     "title": "暗号化キーに互換性がありません",
@@ -2428,8 +2430,8 @@
     "longestStreak": "最長記録",
     "days": "日",
     "positivePercent": "{{percent}}%が前向きな気分です",
-    "bestDay": "いちばん調子がいい日: {{day}}",
-    "worstDay": "モヤモヤしがちな日: {{day}}",
+    "bestDay": "いちばん調子がいい日：{{day}}",
+    "worstDay": "モヤモヤしがちな日：{{day}}",
     "noData": "まだ日記が足りません",
     "last30days": "過去30日",
     "last90days": "過去90日",
@@ -2444,9 +2446,9 @@
     "decline": "{{value}} 気分ダウン",
     "notEnoughData": "分析するにはもう少し日記が必要です。同じ行動を3回以上記録してみてください。",
     "minEntries": "3回未満の行動は表示されません",
-    "topPositive": "{{activity}} のあとは気分がスッキリしやすいです",
-    "topNegative": "{{activity}} のあとは気分が沈みやすいです",
-    "proFeature": "Plusの機能",
+    "topPositive": "{{activity}}のあとは気分がスッキリしやすいです",
+    "topNegative": "{{activity}}のあとは気分が沈みやすいです",
+    "proFeature": "Plus機能",
     "proFeatureDesc": "行動と気分の分析はPlusプランでご利用いただけます",
     "tooltipAvg": "平均",
     "tooltipEntries": "件"
@@ -2457,14 +2459,14 @@
     "newNote": "新しいメモ",
     "searchPlaceholder": "メモを検索",
     "titlePlaceholder": "メモのタイトル（任意）",
-    "startWriting": "メモを書く...",
+    "startWriting": "メモを書く…",
     "saveNote": "メモを保存",
     "emptyTitle": "まだメモがありません",
     "emptyDesc": "特定の日付に紐づかないアイデアやリスト、参考資料を保存できます。",
     "noSearchResults": "検索に一致するメモがありません。",
     "deleteConfirmTitle": "このメモを削除しますか？",
     "deleteConfirmDesc": "このメモはストレージから完全に削除されます。",
-    "updated": "更新: {{date}}",
+    "updated": "更新：{{date}}",
     "saving": "メモを保存中",
     "savingDesc": "メモを暗号化して同期しています。",
     "saved": "メモが保存されました",
@@ -2500,7 +2502,7 @@
     "minutesLeft": "今月の残り：{{minutes}}分",
     "plusFeature": "音声入力はPlusでご利用いただけます",
     "consentTitle": "Googleで音声を文字起こししますか？",
-    "consentBody": "録音はGoogleのGeminiサービスに送信され、テキストに変換されます。OwnJournalが音声を保存することはなく、Googleがモデルのトレーニングに使用することもありません。文字起こしされたテキストは、日記のほかの部分と同じように保存されます。",
+    "consentBody": "録音はGoogleのGeminiサービスに送信され、テキストに変換されます。OwnJournalが音声を保存することはありません。Googleが録音をモデルのトレーニングに使用することはなく、不正利用を防ぐために短期間だけ保持する場合があります。文字起こしされたテキストは、日記のほかの部分と同じように保存されます。",
     "consentAccept": "続ける",
     "consentDecline": "今はしない",
     "teaserBody": "文字を打つ代わりに話すだけ。話した言語のまま、句読点の入った整った文章になります。毎月200分までご利用いただけます。",
