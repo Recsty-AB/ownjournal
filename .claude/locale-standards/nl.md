@@ -29,6 +29,8 @@ Target variety: Netherlands Dutch. Scope: app `src/i18n/locales/nl.json` and the
 | AI-powered | `AI-gestuurd` | `AI-aangedreven` |
 | sync | `synchronisatie`, `synchroniseren` | bare `sync`, `syncs` |
 | sign in / sign out | `inloggen` / `uitloggen` (`Log in om …`, `Inloggen met Apple`) | `aanmelden` for sign-in |
+| Apple Account (ex-Apple ID, renamed 2024) | `Apple Account` (Apple NL keeps it in English; `uw Apple Account`, `dit Apple Account`, compounds `Apple Account-wachtwoord`) | `Apple ID`, `Apple-account`, `Apple-ID` |
+| Sign in with Apple (button / feature) | `Log in met Apple` (Apple's official NL name; button label exactly this) | `Inloggen met Apple ID`, `Aanmelden met Apple` |
 | sign up | `registreren`, `een account aanmaken` | `aanmelden` (ambiguous) |
 | Plus member / user / subscriber | `Plus-abonnee(s)` | `Plus-lid`, `Plus-gebruiker` |
 | Free plan | `het gratis abonnement` (lower case), `Alles uit het gratis abonnement` | `het Gratis abonnement`, `Alles in Gratis` |
@@ -53,6 +55,8 @@ Target variety: Netherlands Dutch. Scope: app `src/i18n/locales/nl.json` and the
 | password manager | `wachtwoordbeheerder` | `wachtwoordmanager` |
 | tab / button names | `het tabblad Opslag`, `de knop Delen`, `de knop +` | `het Opslag-tabblad`, `Deel-knop`, `+ knop` |
 | scroll | `scrollen`, imperative `scrol` | `scroll` |
+| tap / click | mirror English: **Tap** (in-app control) = `tik op`, `tikken`; **Click** (web-only surface: Stripe portal, Nextcloud web UI, browser, e-mail link, Apple pop-up) = `klik op` | `tap`, `druk op` |
+| withdraw (EU right) | `herroepen`, `herroepingsrecht`; refund = `terugbetalen` | `annuleren` |
 
 Mood labels (app = website): Geweldig, Goed, Oké, Matig, Slecht. Activity "Exercise" = `Bewegen`.
 
@@ -75,7 +79,9 @@ Mood labels (app = website): Geweldig, Goed, Oké, Matig, Slecht. Activity "Exer
 - Facts to keep exact: audio goes to Google (Gemini); OwnJournal never stores audio, transcripts or AI
   content on its servers; only seconds are counted; Google's paid API does not train on the data; Google may
   retain data for a limited time only for abuse monitoring; 5 min per recording; 200 min per month; Plus only.
-- `legal.privacy.aiProcessing.content` must be byte-identical in the app and the website.
+- AI requests and recordings go **via our servers** to Google only in transit (`alleen via onze servers doorgestuurd naar
+  onze AI-provider, zonder dat wij deze bewaren`); keep that in `legal.privacy.aiProcessing` and `legal.privacy.dpo`.
+- The website no longer has its own `legal` block (it links to the app's legal pages); don't recreate it.
 
 ## 4. Typography (both files)
 
@@ -91,7 +97,10 @@ Mood labels (app = website): Geweldig, Goed, Oké, Matig, Slecht. Activity "Exer
   Headings of the form `Stap 1: …`, `Optie 1: …`, `Methode 1: …` keep their capital.
 - Units with a space: `5 MB`, `{{ms}} ms`, `15 s`, `{{seconds}} s`, `{{minutes}} min geleden`,
   `{{hours}} u geleden`, `{{days}} d geleden`, `200 min/maand`. Percent: `{{percent}}%` (no space).
-- Currency: `€ 19,99`, `€ 0`, `~€ 1,67/maand` (space after €, decimal comma).
+- Currency: `€ 19,99`, `€ 0` (space after €, decimal comma) in fixed text only. Website prices are
+  placeholders formatted in code for the visitor's currency: `{{price}} per jaar (ongeveer {{monthly}} per maand)`,
+  `~{{monthly}}/maand`. Never hard-code an amount or currency next to these placeholders.
+- Menu paths: arrow ` → ` (`Instellingen → [uw naam] → iCloud`, `Apps → Beveiliging`), not `>`.
 - Compounds closed or hyphenated, never open: `cloudsynchronisatie`, `JSON-back-upexport`, `AES-256-GCM-versleuteling`,
   `PDF- en Word-export`, `Plus-functie`, `pop-upvenster`, `privédagboek`, `privé-AI-functies`.
   Avoid `privé` as a separate attributive adjective (`privé cloudopslag` → `cloudopslag in eigen beheer`).
@@ -110,7 +119,21 @@ Mood labels (app = website): Geweldig, Goed, Oké, Matig, Slecht. Activity "Exer
   (`“Verify Email Address”`, `“End-to-End Encryption”`, `Allowed Origins`) stay as they are.
 - Do not convert Markdown syntax hints (`- lijsten`, `- opsommingspunt`) into dashes.
 
-## 6. Pitfalls
+## 6. Plurals (i18next, `Intl.PluralRules('nl')` = `one`, `other`)
+
+- Every key that has `_one`/`_other` in en.json needs exactly `key_one` and `key_other`; no base key.
+- `_one` must be a real singular with full agreement: `{{count}} item is …`, `om het te bekijken`,
+  `{{count}} versleuteld item … dat … kan`, `{{count}} niet-herstelbaar item`, `{{count}} bestaand item`.
+- "X of Y" partitives agree with the count: `_one` `{{count}} van {{total}} items kon niet …`,
+  `_other` `… konden niet …`; `{{count}} van de laatste 10 bewerkingen is` / `zijn mislukt`.
+- No hedges like `conflict(en)`, `veiligheidspauze(s)`.
+- `auth.termsAgreement` is one `<Trans>` sentence: `Door verder te gaan, gaat u akkoord met onze
+  <terms>Algemene voorwaarden</terms> en ons <privacy>Privacybeleid</privacy>.` – article agrees with each noun
+  (`onze` voorwaarden, `ons` privacybeleid), articles outside the tags, final full stop.
+- Chart tooltips: `{{delta}} (gem. {{emoji}} {{avg}}, {{count}} item/items)` – abbreviation `gem.` with no
+  colon after it (no `gem.:`).
+
+## 7. Pitfalls
 
 - Register drift back to `je` when adding new strings (especially Help, subscription disclosures, legal).
 - Calques: `laag` (tier), `Lijst uw …` (list), `Vind uw …` (find → `Zoek … op`), `Plus bevat 200 minuten`
@@ -126,3 +149,7 @@ Mood labels (app = website): Geweldig, Goed, Oké, Matig, Slecht. Activity "Exer
 - Uitvoeringsbesluit (EU) 2021/914 (standaardcontractbepalingen, NL): https://eur-lex.europa.eu/eli/dec_impl/2021/914/oj?locale=nl
 - Gboard spraakinvoer (NL): https://androidworld.nl/nieuws/nederlandse-leestekens-spraakgestuurd-typen/
 - Apple dicteren (NL): https://transkriptor.com/nl/dicteer-iphone/
+- Apple Account (NL): https://support.apple.com/nl-nl/HT6283 (“Apple Account-aankopen”);
+  https://support.apple.com/nl-nl/guide/mac-mini/apd74518e330/2024/mac/15 (“Inloggen bij je Apple Account”)
+- Log in met Apple (NL): https://support.apple.com/nl-nl/ht5394 (“'Log in met Apple' gebruiken voor apps en websites”);
+  https://support.apple.com/nl-nl/102609

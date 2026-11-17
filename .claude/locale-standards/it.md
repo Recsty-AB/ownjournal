@@ -28,7 +28,7 @@ app's term wins unless it is wrong.
 | Failures (metrics) | **errori** ("Tasso di errori", "Errori recenti") | fallimenti |
 | Storage | **archiviazione** ("archiviazione cloud", "provider di archiviazione") | storage, cloud storage |
 | Connect (storage) | **connettere / Connetti** | collegare (in the website, mixed) |
-| Tap (touch UI) / click (browser, email, web portal) | **Tocca** / **fai clic su** | Clicca, premi |
+| Tap (touch UI) / click (browser, email, web portal) | **Tocca** / **fai clic su** — follow English: the Stripe billing-portal FAQ ("Gestisci") says "fai clic su" | Clicca, premi |
 | Plus member / Plus users | **abbonato Plus / abbonati Plus** | membro Plus, utenti Plus |
 | Plus feature | **Funzionalità Plus** | Funzione Plus |
 | Free plan | **piano gratuito**; pricing card and column header **Gratuito** | piano Gratis, "Tutto in Gratis" |
@@ -44,6 +44,8 @@ app's term wins unless it is wrong.
 | Zero knowledge | **zero-knowledge** (lower case, hyphenated; "Architettura zero-knowledge") | Zero Knowledge |
 | Simple mode | **modalità semplice** (also in legal) | modalità Simple |
 | Email | **email** (un'email) | e-mail |
+| Apple Account (formerly Apple ID) | **Apple Account**, masculine: "il tuo Apple Account", "l'Apple Account" (Apple Italia) | ID Apple, Apple ID, "Account Apple" |
+| Sign in with Apple (button/feature) | **Accedi con Apple** (Apple's official Italian name) | Accedi con Apple ID |
 | Support (contact) | **assistenza** ("Contatta l'assistenza") | supporto |
 | Resets (monthly quota) | **si rinnova** ("Si rinnova il mese prossimo") | si reimposta, si azzera |
 | Paid tier | **piano a pagamento** | livello a pagamento |
@@ -73,7 +75,12 @@ user's speech ("trasforma le tue parole in testo"). Always say "voce del diario"
 - gross negligence, wilful misconduct → **colpa grave, dolo**. Mandatory rights → **diritti imperativi**.
 - Severability → "Clausola di salvaguardia". Terminate an account → "chiudere l'account".
 - Google is singular: "la sua API", "il nostro provider di IA".
-- `legal.privacy.aiProcessing.content` must be **identical** in app and website. Edit the app first, then copy it.
+- Legal texts (Terms, Privacy) live only in the app file; the website's `legal` block was deleted on
+  purpose. Do not recreate it. AI requests and recordings pass **via our servers only in transit**
+  ("passando per i nostri server", "transitano dai nostri server … e non vengono conservati").
+- Refunds (website FAQ) mirror the Terms: EU/SEE consumers who bought on the website can
+  "esercitare il diritto di recesso entro 14 giorni"; a proportionate amount may be kept if Plus
+  was used; store purchases are refunded by Apple/Google. Never promise "rimborso completo, senza domande".
 - Facts must stay unchanged: 5 min per recording, 200 min per month, Plus only, audio goes to Google
   (Gemini), OwnJournal stores neither audio nor transcripts, only seconds are counted, Google's
   paid tier does not train on the data, and Google may keep data briefly for abuse monitoring.
@@ -91,8 +98,11 @@ user's speech ("trasforma le tue parole in testo"). Always say "voce del diario"
 - Quotes: straight double quotes for UI labels and button names (Tocca "Gestisci"), escaped in
   JSON. No single-quoted labels (code such as `'always'` is unchanged). «…» only in editorial prose.
 - Apostrophe: ASCII ' everywhere (no ’).
+- Menu paths use " → " ("Impostazioni → il tuo nome → iCloud"), never ">".
 - Units: number, space, unit: "5 MB", "15 s", "{{ms}} ms", "{{minutes}} min fa", "{{hours}} h fa".
-  Prices: "19,99 $", "0 $", "circa 1,67 $/mese", "99 $/anno".
+  Prices are never hard-coded in either file: use the placeholders the code passes (`{{price}}`,
+  `{{monthly}}`, `{{yearlyPrice}}`, `{{monthlyPrice}}`), which are already formatted in the visitor's
+  currency: "Costa {{price}} all'anno (circa {{monthly}} al mese)", "circa {{monthly}}/mese".
 - Dates in legal texts: lower-case month plus year ("novembre 2026", "aprile 2026"), the same in
   privacy and terms in both repos. Label: "Ultimo aggiornamento: {{date}}".
 - No serial comma ("A, B e C"); "ed" before a vowel ("ed esportazione").
@@ -102,9 +112,20 @@ user's speech ("trasforma le tue parole in testo"). Always say "voce del diario"
   "Vedi prezzi", "Ultimo aggiornamento", "Termini di servizio", "Informativa sulla privacy").
   Proper nouns and acronyms keep their capitals.
 - Errors: problem first, then remedy. Put the purpose clause first ("Per dettare, consentilo…").
-- Placeholder grammar: Italian has no plural forms in these files, so avoid agreement with
-  `{{count}}`, `{{minutes}}` or `{{seconds}}`. Use the label pattern: "Conflitti registrati: {{count}}.",
-  "Voci non migrate: {{count}}", "Ancora {{minutes}} min questo mese". Never use "conflitto/i".
+- Plurals: every key that has `_one/_other` in English must have exactly **`_one`, `_many`, `_other`**
+  in it.json (`Intl.PluralRules('it')` → one, many, other; `many` = 1 000 000 etc., same text as
+  `_other`). No base key without suffix. Write real agreement: "{{count}} voce sincronizzata" /
+  "{{count}} voci sincronizzate", "È stato registrato {{count}} conflitto" / "Sono stati registrati
+  {{count}} conflitti". "file", "tag", "attività" are invariable but participles still agree.
+- Non-plural keys with a number (`{{transferred}}`, `{{days}}`, `{{seconds}}`, `{{minutes}}`): avoid
+  agreement with the label pattern or a unit: "File trasferiti: {{transferred}}", "Giorni rimanenti
+  della prova gratuita: {{days}}", "Attendi {{seconds}} s", "Ancora {{minutes}} min questo mese".
+  Never use "conflitto/i"-style hedges.
+- Sign-up agreement line is one `<Trans>` sentence (`auth.termsAgreement`) with exactly one
+  `<terms>…</terms>` and one `<privacy>…</privacy>` pair: "Continuando, accetti i nostri
+  <terms>Termini di servizio</terms> e la nostra <privacy>Informativa sulla privacy</privacy>."
+  (final full stop; articles agree: i nostri Termini, la nostra Informativa).
+- Chart tooltip `moodCorrelations.tooltipDetail_*`: "{{delta}} (media: {{emoji}} {{avg}}, {{count}} voce/voci)".
 - Placeholder sentence subjects that refer to entries or notes agree in the feminine
   ("Salvata localmente. Verrà sincronizzata…").
 - Dialog titles are questions with an infinitive: "Trascrivere la registrazione con Google?".
@@ -117,6 +138,8 @@ user's speech ("trasforma le tue parole in testo"). Always say "voce del diario"
   https://download.microsoft.com/download/f/f/7/ff70427c-1f7e-429f-96be-724d2e49cd47/ita-ita-StyleGuide.pdf
 - Microsoft style guides index: https://learn.microsoft.com/it-it/globalization/reference/microsoft-style-guides
 - Apple Italia, "Dettatura": https://support.apple.com/it-it/127070
+- Apple Italia, "Apple Account" ("L'Apple Account, in precedenza ID Apple, …"): https://support.apple.com/it-it/apple-account
+- Apple Developer (it), "Configurare Accedi con Apple per il web": https://developer.apple.com/it/help/account/capabilities/configure-sign-in-with-apple-for-the-web/
 - GDPR (Regolamento (UE) 2016/679), Italian text, Art. 6, 15-21, 37, 46: https://gdpr-text.com/it/read/article-46/
 - Decision (UE) 2021/914, "clausole contrattuali tipo": https://eur-lex.europa.eu/eli/dec_impl/2021/914/oj?locale=it
 - Garante privacy, trasferimento di dati all'estero: https://www.garanteprivacy.it/it/temi/trasferimento-di-dati-all-estero

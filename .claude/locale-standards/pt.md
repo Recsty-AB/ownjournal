@@ -1,6 +1,6 @@
 # Locale standard: pt (European Portuguese, pt-PT, app UI + legal)
 
-Scope: the OwnJournal app (`src/i18n/locales/pt.json`) and the website's UI, pricing, FAQ and legal strings (`ownjournal-website/src/i18n/locales/pt.json`). For long-form blog prose, the website repo's `.claude/locale-standards/pt.md` wins (informal *tu*). This file wins for UI, Help, paywall and privacy/legal text in both repos.
+Scope: the OwnJournal app (`src/i18n/locales/pt.json`) and the website's UI, pricing and FAQ strings (`ownjournal-website/src/i18n/locales/pt.json`). For long-form blog prose, the website repo's `.claude/locale-standards/pt.md` wins (informal *tu*). This file wins for UI, Help, paywall and privacy/legal text in both repos.
 
 ## Register and address form (owner decision, applied to both files)
 - **Formal third person, with no pronoun.** Use the verb and *o seu / a sua*, and never write *você*: *Toque no microfone*, *Pode optar por…*, *Inicie sessão*, *Já utilizou…*. Microsoft's pt-PT rule: avoid "you", and *você* even more so; rephrase or use the passive.
@@ -51,6 +51,8 @@ Scope: the OwnJournal app (`src/i18n/locales/pt.json`) and the website's UI, pri
 | fair use | utilização razoável | uso justo |
 | OwnJournal / Google | *o OwnJournal* (masc.) / *a Google* (fem.) | — |
 | Plus plan / Free plan | *o Plus* / *plano Grátis* (website) | — |
+| Apple Account (ex-Apple ID) | **conta Apple** (lowercase *conta*, fem.: *a sua conta Apple*, *esta conta Apple*, *cobrado na sua conta Apple*) | Apple ID, ID Apple, Conta Apple mid-sentence |
+| Sign in with Apple (button/feature) | **Iniciar sessão com a Apple**; noun *início de sessão com a Apple* | Iniciar sessão com o Apple ID |
 
 ## GDPR / legal vocabulary (official pt RGPD, EUR-Lex / EDPB pt)
 - RGPD (not GDPR); *artigo 46.º*; EEE; *em conformidade com o RGPD*.
@@ -59,7 +61,8 @@ Scope: the OwnJournal app (`src/i18n/locales/pt.json`) and the website's UI, pri
 - *Fundamento jurídico do tratamento*: *execução de um contrato*, *interesses legítimos*, *consentimento*, *retirar o consentimento*.
 - *decisão de adequação*, *garantias adequadas*, *cláusulas contratuais-tipo (CCT)* (lowercase), *medidas técnicas e organizativas*.
 - *conservar / Conservação dos dados* (not *retenção*); *prestador de serviços de pagamento*; auth backend = *infraestrutura de autenticação (e de base de dados)*.
-- Section titles are identical in both repos where the section exists (e.g. *Funcionalidades de IA e tratamento*, *Conservação dos dados*, *Encriptação ponta a ponta*). Website `legal.privacy.aiProcessing.content` = app text, verbatim.
+- The website no longer has a `legal` block (Terms/Privacy live in the app only). Website FAQ refund answer mirrors the app Terms (*direito de retratação*, 14 days, *valor proporcional à utilização*; App Store/Google Play refunds by Apple/Google).
+- AI requests and recordings go *através dos nossos servidores* only in transit (*apenas passa pelos nossos servidores em trânsito … e não é conservado*).
 - Never add facts. Voice invariants: 5 min/recording; 200 min/month; Plus only; audio sent to Google (Gemini); OwnJournal never stores audio or transcripts; only seconds are counted; paid tier does not train; Google may keep data briefly for abuse monitoring.
 - Keep legal *salvo* (= except) and *excluir/excluída* (= exclude) – they are not BR *salvar/excluir*.
 
@@ -69,13 +72,23 @@ Scope: the OwnJournal app (`src/i18n/locales/pt.json`) and the website's UI, pri
 - Ellipsis `…` (one character, no space before). Straight double quotes `"…"` for UI labels and quoted buttons (no single quotes, except code like `'always'`).
 - Dash: spaced en dash ` – ` for parentheticals and label separators in both UI and legal (*Ditado por voz – 200 minutos por mês*). Keep hyphens in code/markdown (`- listas`, `sudo …`).
 - No serial comma before *e*; lowercase after a colon.
-- Units and numbers: *5 MB*, *10 s*, *há {{minutes}} min*, *100 000*; currency on the website *US$ 19,99* / *US$ 0* (never R$).
+- Units and numbers: *5 MB*, *10 s*, *há {{minutes}} min*, *100 000*. Fixed third-party prices: *US$ 99/ano*. Website Plus prices are never hard-coded: use `{{price}}` / `{{monthly}}` (the code formats the visitor's currency); *US$ 0* only where English hard-codes $0.
 - Abbreviation "e.g." = *p. ex.,*.
 
 ## UI microcopy
 - Buttons: infinitive (*Continuar*, *Ditar*, *Agora não*, *Seguinte*, *Ignorar*).
 - Errors: problem first, then formal imperative (*Permita-o nas definições…*, *Tente novamente.*). Failure titles: *A ligação falhou*, *Não foi possível eliminar*, *Falha ao guardar a entrada*.
 - *Demasiado* (not *Muito*) for "too long/short/fast"; *Demasiados pedidos*.
+- Tap vs. click (house rule, mirrors English): in-app controls → *Toque em / toque no …* (Apple/Google pt-PT wording) wherever English says *Tap* (+ button, "Ajuda de configuração", "Ligar", profile icon, "Continuar com Google"). *Clique em* only where English keeps *Click*: web-only surfaces (Stripe portal "Gerir"), Nextcloud web UI, browser address bar, links in e-mails, Apple sign-in pop-up.
+- Name the danger-zone action exactly as `storage.resetAllData`: *"Eliminar todos os dados"* (in `storage.forgotPasswordOption2`, `help.troubleshooting.passwordRecovery.action2`).
+- `{{provider}}` takes no article (*sincronizadas com {{provider}}*, *Ligado a {{provider}}*, *Copiar para {{provider}}*), because the value may be "cloud" or any provider name.
+- Terms consent line: `auth.termsAgreement` is one `<Trans>` sentence: *Ao continuar, aceita os nossos <terms>Termos de Serviço</terms> e a nossa <privacy>Política de Privacidade</privacy>.* (*os nossos … a nossa* for gender agreement; final full stop; exactly one `<terms>` and one `<privacy>` pair).
+- Chart tooltip `moodCorrelations.tooltipDetail_*`: *{{delta}} (média: {{emoji}} {{avg}}, {{count}} entrada/entradas)*.
+
+## Plurals (i18next, `Intl.PluralRules('pt')` → one, many, other)
+- Every English `_one/_other` key needs `_one`, `_many` and `_other`; no base key. `_many` (1 000 000, compact numbers) = the `_other` text, since counts render as digits.
+- `pt` uses the pt-BR rule: **0 selects `_one`**. pt-PT says *0 entradas*, so where 0 is a real value (sync/connect toasts, trend-analysis meta, migration progress) write `_one` as a label that works for 0 and 1: *Entradas sincronizadas: {{count}}.*, *Ligado a {{provider}} – entradas carregadas: {{count}}*, *Entradas neste período: {{count}}*. Elsewhere `_one` is the plain singular (*{{count}} entrada importada*). The real fix is in code (resolve `pt` plurals with `pt-PT`).
+- Never *(s)* hedges (*conflito(s)*); agree verb and participle with the count (*Está ativa {{count}} pausa*, *Foi detetado {{count}} conflito*).
 
 ## Known pitfalls
 - pt-BR quick test: *você*, bare *Seu/Sua*, gerund progressives, *configurações, assinatura, senha, provedor, aplicativo, conectar, salvar, excluir, deletar, acessar, digite, habilitar, cadastro, navegador, aba, tela, arquivo, usuário, câmera, time, jornada, Ruim, Pular, Próximo*.
@@ -84,6 +97,7 @@ Scope: the OwnJournal app (`src/i18n/locales/pt.json`) and the website's UI, pri
 ## Sources
 - Microsoft pt-PT Style Guide: https://download.microsoft.com/download/9/9/5/995a8ca6-383c-439d-9db0-cd457c9c2724/por-prt-StyleGuide.pdf
 - Google Privacy Policy pt-PT: https://policies.google.com/privacy?hl=pt-PT
+- Apple pt-PT, "conta Apple, anteriormente ID Apple": https://support.apple.com/pt-pt/apple-account ; "Iniciar sessão com a Apple e Privacidade": https://www.apple.com/pt/legal/privacy/data/pt/sign-in-with-apple/
 - Apple Support pt-PT, "Melhorar Siri e Ditado": https://support.apple.com/pt-pt/127070
 - RGPD pt: https://gdpr-text.com/pt/read/article-46 , https://eur-lex.europa.eu/eli/dec_impl/2021/914/oj?locale=pt
 - Website long-form standard: `ownjournal-website/.claude/locale-standards/pt.md`

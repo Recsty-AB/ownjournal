@@ -35,7 +35,7 @@ export type { NativeExportResult };
 
 const getLocale = () => getDateLocale(i18n.language);
 
-const t = (key: string) => i18n.t(key);
+const t = (key: string, options?: Record<string, unknown>) => i18n.t(key, options);
 
 
 // Convert base64 data URL to raw base64
@@ -483,7 +483,7 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
   doc.setFontSize(14);
   applyFont(doc, embeddedFont, "italic");
   doc.setTextColor(COLORS.medium.r, COLORS.medium.g, COLORS.medium.b);
-  doc.text(`${entries.length} ${t("export.entries")}`, pageWidth / 2, yPosition, { align: "center" });
+  doc.text(t("export.entryCount", { count: entries.length }), pageWidth / 2, yPosition, { align: "center" });
 
   // Bottom ornamental divider
   yPosition = 180;

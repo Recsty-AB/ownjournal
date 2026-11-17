@@ -69,12 +69,12 @@
     "toE2EDesc": "您的條目正在使用密碼加密。",
     "toSimpleDesc": "您的條目正在解密為簡單儲存。",
     "processingEntry": "處理中：{{title}}",
-    "migrated": "已遷移 {{count}} 個條目",
-    "failed": "{{count}} 個條目失敗",
+    "migrated_other": "已遷移 {{count}} 個條目",
+    "failed_other": "{{count}} 個條目失敗",
     "retry": "重試失敗的項目",
     "connectionError": "連線錯誤",
     "connectionErrorDesc": "兩個供應商都必須連線",
-    "completeDesc": "已成功從 {{source}} 遷移 {{count}} 個檔案到 {{target}}",
+    "completeDesc_other": "已成功從 {{source}} 遷移 {{count}} 個檔案到 {{target}}",
     "completedWithErrors": "遷移完成但有錯誤",
     "completedWithErrorsDesc": "已遷移 {{migrated}} 個檔案，{{failed}} 個失敗。請查看主控台了解詳情。",
     "stopped": "遷移已停止",
@@ -91,7 +91,7 @@
   "import": {
     "invalidFormat": "匯入檔案格式無效",
     "complete": "匯入完成",
-    "completeDesc": "已匯入 {{count}} 個條目。正在同步到儲存空間…",
+    "completeDesc_other": "已匯入 {{count}} 個條目。正在同步到儲存空間…",
     "failed": "匯入失敗",
     "failedDesc": "無法匯入資料。請檢查檔案格式。",
     "storageSyncFailed": "儲存同步失敗",
@@ -105,8 +105,8 @@
     "connectionFailed": "連線失敗。請檢查您的伺服器網址和憑證。",
     "connectionFailedShort": "連線失敗",
     "masterKeyRequired": "在端對端模式中需要主金鑰才能儲存憑證",
-    "clickSetupHelpCors": "點擊上方的「設定說明」取得逐步指示。",
-    "clickSetupHelpSsl": "點擊上方的「設定說明」取得修復 SSL 憑證問題的指示。",
+    "clickSetupHelpCors": "點選上方的「設定說明」取得逐步指示。",
+    "clickSetupHelpSsl": "點選上方的「設定說明」取得修復 SSL 憑證問題的指示。",
     "credentialDecryptFailed": "無法解密您的 Nextcloud 憑證。這通常表示您的日記密碼不正確。請檢查您的密碼或中斷連線後重新連線。"
   },
   "app": {
@@ -142,9 +142,8 @@
     "continueWith": "或繼續使用",
     "continueWithGoogle": "使用 Google 繼續",
     "continueWithApple": "使用 Apple 繼續",
-    "termsAgreementPrefix": "繼續即表示您同意我們的",
+    "termsAgreement": "繼續即表示您同意我們的<terms>服務條款</terms>和<privacy>隱私權政策</privacy>。",
     "termsLink": "服務條款",
-    "and": "和",
     "privacyLink": "隱私權政策",
     "dataEncrypted": "您的資料已加密，絕不會儲存在我們的伺服器上",
     "accountCreated": "帳戶已建立！",
@@ -161,7 +160,7 @@
     "userAlreadyExists": "帳戶已存在",
     "userAlreadyExistsDesc": "此電子郵件已註冊。請嘗試登入，或如果您之前使用 Google 註冊，請使用「使用 Google 繼續」。",
     "invalidCredentials": "登入憑證無效",
-    "invalidCredentialsDesc": "電子郵件或密碼不正確。如果您使用 Google 註冊，請使用下方的「使用 Google 繼續」。",
+    "invalidCredentialsDesc": "電子郵件或密碼不正確。如果您使用 Google 註冊，請改用「使用 Google 繼續」。",
     "oauthAccountHint": "您是否使用 Google 註冊？請嘗試下方的「使用 Google 繼續」。",
     "linkExpired": "連結已過期或無效",
     "linkExpiredDesc": "此登入連結已過期或已被使用。請重新登入或請求新連結。",
@@ -214,7 +213,7 @@
     "anotherEntryEditingDesc": "請先儲存或取消另一個條目。",
     "goToEditingEntry": "前往正在編輯的日記",
     "switchToEditMode": "切換到編輯模式以套用標籤",
-    "switchToEditModeDesc": "點擊編輯按鈕以套用建議的標籤",
+    "switchToEditModeDesc": "點選編輯按鈕以套用建議的標籤",
     "entryTitlePlaceholder": "條目標題…",
     "finishEditingFirst": "請先完成另一個條目的編輯",
     "entrySaved": "條目已儲存",
@@ -264,13 +263,13 @@
     "settingUpSync": "設定雲端同步中…",
     "settingUpSyncDesc": "上傳加密金鑰並準備同步。",
     "initialSyncComplete": "初始同步完成",
-    "initialSyncCompleteDesc": "已與 {{provider}} 同步 {{count}} 個條目。",
+    "initialSyncCompleteDesc_other": "已與 {{provider}} 同步 {{count}} 個條目。",
     "initialSyncFailed": "初始同步失敗",
     "initialSyncFailedDesc": "無法完成初始同步。",
     "secondaryProviderConnected": "{{provider}} 已連線",
     "secondaryProviderConnectedDesc": "已連線為次要備份。您的主要供應商處理同步。",
     "conflictDetected": "⚠️ 偵測到同步衝突",
-    "conflictDetectedDesc": "並行編輯已自動解決。記錄了 {{count}} 個衝突。",
+    "conflictDetectedDesc_other": "並行編輯已自動解決。記錄了 {{count}} 個衝突。",
     "viewConflicts": "檢視衝突",
     "savingEntry": "儲存條目中…",
     "savingEntryDesc": "加密並同步您的日記條目。",
@@ -292,8 +291,8 @@
     "signedOut": "已登出",
     "signedOutDesc": "您已成功登出",
     "backupExported": "備份已匯出",
-    "backupExportedDesc": "已將 {{count}} 個條目匯出為 JSON 檔案",
-    "importCompleteDesc": "已匯入 {{count}} 個條目。正在同步到儲存空間…",
+    "backupExportedDesc_other": "已將 {{count}} 個條目匯出為 JSON 檔案",
+    "importCompleteDesc_other": "已匯入 {{count}} 個條目。正在同步到儲存空間…",
     "cloudSyncComplete": "雲端同步完成",
     "cloudSyncCompleteDesc": "匯入的條目已同步到雲端儲存。",
     "cloudSyncIncomplete": "雲端同步不完整",
@@ -324,15 +323,15 @@
     "encryptionSetupFailedDesc": "無法初始化加密。",
     "startingCloudSync": "開始雲端同步…",
     "startingCloudSyncDesc": "在背景同步您的日記條目。",
-    "syncCompleteDesc": "已與雲端儲存同步 {{count}} 個條目。",
+    "syncCompleteDesc_other": "已與雲端儲存同步 {{count}} 個條目。",
     "unableToStartSync": "無法開始同步。",
     "nextcloudEncryptionError": "無法與此 Nextcloud 資料夾同步",
     "nextcloudEncryptionErrorDesc": "這個 Nextcloud 資料夾啟用了伺服器端加密，導致 OwnJournal 無法讀寫您的檔案。點選「了解更多」查看詳細操作步驟。",
     "nextcloudEncryptionLearnMore": "了解更多",
     "encryptedEntriesDetected": "偵測到加密條目",
-    "encryptedEntriesInSimpleMode": "發現 {{count}} 個無法在簡單模式下讀取的加密條目。要存取它們，請中斷連線並以端對端模式重新連線。",
-    "encryptedEntriesInSimpleModeHint": "{{count}} 個條目需要端對端加密才能查看。請輸入密碼解鎖。",
-    "syncCompleteWithEncrypted": "同步完成，但有 {{count}} 個加密條目需要端對端模式才能查看。",
+    "encryptedEntriesInSimpleMode_other": "發現 {{count}} 個無法在簡單模式下讀取的加密條目。要存取它們，請中斷連線並以端對端模式重新連線。",
+    "encryptedEntriesInSimpleModeHint_other": "{{count}} 個條目需要端對端加密才能查看。請輸入密碼解鎖。",
+    "syncCompleteWithEncrypted_other": "同步完成，但有 {{count}} 個加密條目需要端對端模式才能查看。",
     "unlockNow": "立即解鎖",
     "viewStorageOptions": "檢視選項"
   },
@@ -504,7 +503,7 @@
     "transferProgress": "傳輸進行中",
     "transferProgressDesc": "已複製 {{current}}/{{total}} 個條目",
     "complete": "傳輸完成",
-    "completeDesc": "已成功從 {{source}} 傳輸 {{count}} 個檔案到 {{target}}",
+    "completeDesc_other": "已成功從 {{source}} 傳輸 {{count}} 個檔案到 {{target}}",
     "completedWithErrors": "傳輸完成但有錯誤",
     "completedWithErrorsDesc": "已傳輸 {{transferred}} 個檔案，{{failed}} 個失敗。請查看主控台了解詳情。",
     "failed": "傳輸失敗",
@@ -514,7 +513,7 @@
     "cancelledDesc": "傳輸已取消。在取消前已傳輸 {{transferred}} 個檔案。",
     "cleaningUp": "清理中…",
     "mirrorComplete": "鏡像同步完成",
-    "mirrorCompleteDesc": "已成功從 {{source}} 鏡像 {{count}} 個檔案到 {{target}}。目標現在與來源相同。",
+    "mirrorCompleteDesc_other": "已成功從 {{source}} 鏡像 {{count}} 個檔案到 {{target}}。目標現在與來源相同。",
     "transferCompleteDisconnect": "傳輸完成，要中斷來源連線嗎？",
     "transferCompleteDisconnectDesc": "所有條目已鏡像到 {{target}}。您想要中斷 {{source}} 的連線以避免混淆嗎？",
     "passwordRequiredAfterTransfer": "請輸入您的密碼以完成儲存供應商切換並重新載入您的加密金鑰。",
@@ -532,7 +531,7 @@
     "settingUp": "設定雲端同步中…",
     "settingUpDesc": "上傳加密金鑰並準備同步。",
     "initialComplete": "初始同步完成",
-    "initialCompleteDesc": "已同步 {{count}} 個條目。",
+    "initialCompleteDesc_other": "已同步 {{count}} 個條目。",
     "initialFailed": "初始同步失敗",
     "initialFailedDesc": "無法完成初始同步。",
     "savingEntry": "儲存條目中…",
@@ -547,7 +546,7 @@
     "deletionFailed": "刪除失敗",
     "deletionFailedDesc": "無法從儲存刪除條目。變更可能會被還原。",
     "conflictDetected": "⚠️ 偵測到同步衝突",
-    "conflictDetectedDesc": "並行編輯已自動解決。記錄了 {{count}} 個衝突。",
+    "conflictDetectedDesc_other": "並行編輯已自動解決。記錄了 {{count}} 個衝突。",
     "viewConflicts": "檢視衝突",
     "tooManyRequests": "請求過多",
     "tooManyRequestsDesc": "雲端儲存收到請求過於頻繁。同步將自動重試。",
@@ -559,6 +558,7 @@
     "completeDesc": "您的日記資料已成功匯出。",
     "myJournal": "我的個人日記",
     "entries": "條目",
+    "entryCount_other": "{{count}} 個條目",
     "exportedOn": "匯出於",
     "mood": "心情",
     "tags": "標籤"
@@ -725,7 +725,7 @@
     "openCameraToScan": "開啟相機掃描",
     "qrScanning": "掃描中…",
     "qrSuccess": "憑證已掃描",
-    "qrSuccessDesc": "連線資訊已填入。點擊連接以繼續。"
+    "qrSuccessDesc": "連線資訊已填入。點選「連線」以繼續。"
   },
   "timeline": {
     "today": "今天",
@@ -762,6 +762,7 @@
     "maxTagsDesc": "每個條目最多只能新增 20 個標籤",
     "maxActivitiesReached": "已達活動上限",
     "maxActivitiesReachedDesc": "每個條目最多只能新增 20 項活動。",
+    "maxActivitiesSkippedDesc": "已達 20 個活動的上限，因此部分活動未加入。",
     "invalidTag": "無效的標籤",
     "proFeature": "Plus 功能",
     "imageUploadPro": "圖片上傳僅限 Plus 使用者。",
@@ -794,7 +795,7 @@
     "syncInProgress": "同步進行中",
     "waitForSyncComplete": "請等待目前同步完成後再變更加密模式。",
     "pendingUploads": "待上傳",
-    "pendingUploadsWarning": "{{count}} 個條目仍在上傳中。現在中斷連線可能會導致資料遺失。確定要繼續嗎？",
+    "pendingUploadsWarning_other": "{{count}} 個條目仍在上傳中。現在中斷連線可能會導致資料遺失。確定要繼續嗎？",
     "encryptionPassword": "加密與密碼",
     "encryptionMode": "加密模式",
     "encryptionModeDesc": "選擇同步時如何保護您的日記條目",
@@ -824,7 +825,7 @@
     "clearStoredPassword": "清除儲存的密碼",
     "forgotPassword": "忘記密碼？",
     "forgotPasswordOption1": "如果您知道目前密碼，請使用下方的「變更密碼」",
-    "forgotPasswordOption2": "先匯出備份，然後使用危險區域中的「刪除所有資料」重新開始",
+    "forgotPasswordOption2": "請先匯出備份，再使用「危險區域」中的「重設所有資料」重新開始",
     "changePassword": "變更密碼",
     "changePasswordDesc": "變更您的日記密碼。所有條目將使用新密碼重新加密。",
     "dangerZone": "危險區域",
@@ -833,7 +834,7 @@
     "resetAllDataWarning": "這將永久刪除您所有的日記條目、加密金鑰和快取的密碼。如果您使用 E2E 加密，由於加密金鑰將被銷毀，您的條目將永久無法讀取。",
     "resetAllDataConfirm": "此操作無法復原。確定要繼續嗎？",
     "backupRecommendation": "我們強烈建議在繼續前建立備份。",
-    "backupInstructions": "要建立備份：點擊您的頭像圖示（右上角）→ 匯出資料",
+    "backupInstructions": "要建立備份：點選您的頭像圖示（右上角）→ 匯出資料",
     "confirmReset": "輸入 DELETE 以確認",
     "resetting": "正在重設…",
     "resetButton": "刪除所有內容",
@@ -844,9 +845,9 @@
     "syncing": "正在同步…",
     "syncingDesc": "正在連線雲端儲存",
     "synced": "已同步",
-    "syncedDesc": "已連線並載入條目",
+    "syncedDesc_other": "已連線至 {{provider}}，並載入 {{count}} 個條目",
     "syncFailed": "同步失敗",
-    "syncFailedDesc": "無法與雲端儲存同步",
+    "syncFailedDesc": "無法與 {{provider}} 同步",
     "switchedToE2E": "已切換到端對端模式",
     "switchedToE2EDesc": "請輸入密碼以解密您的條目。",
     "disconnectedForE2E": "儲存已中斷",
@@ -875,7 +876,7 @@
     "conflictResolution": "• 自動解決同時編輯的衝突",
     "offlineSupport": "• 完整離線支援，背景同步",
     "cannotSwitchMode": "無法切換加密模式",
-    "cannotSwitchModeDesc": "您有 {{count}} 個現有條目。請先刪除所有資料再切換加密模式。",
+    "cannotSwitchModeDesc_other": "您有 {{count}} 個現有條目。請先刪除所有資料再切換加密模式。",
     "cannotVerifyEntries": "無法驗證條目",
     "cannotVerifyEntriesDesc": "請先輸入密碼或重設所有資料。",
     "passwordSaved": "密碼已儲存",
@@ -888,7 +889,7 @@
     "clearPasswordConfirm": "這將從此裝置移除儲存的加密密碼。下次開啟應用程式時需重新輸入密碼。\n\n您的加密資料不會受影響。\n\n繼續嗎？",
     "changePasswordConfirm": "您確定嗎？\n\n這將以舊密碼解密所有條目，再以新密碼重新加密。\n\n請務必記住新密碼，忘記將無法復原。\n\n繼續嗎？",
     "confirmationRequiredDesc": "請輸入「DELETE」以確認。",
-    "finalConfirm": "最終確認\n\n這將從您的裝置與雲端儲存中永久刪除所有日記條目。\n\n⚠️ 建議：繼續前請先建立備份！\n要建立備份：點擊您的頭像圖示（右上角）→ 匯出資料\n\n您確定要繼續嗎？",
+    "finalConfirm": "最終確認\n\n這將從您的裝置與雲端儲存中永久刪除所有日記條目。\n\n⚠️ 建議：繼續前請先建立備份！\n要建立備份：點選您的頭像圖示（右上角）→ 匯出資料\n\n您確定要繼續嗎？",
     "passwordPersistenceChanged": "密碼儲存已更新",
     "passwordPersistenceError": "更新密碼儲存設定失敗",
     "passwordPersistence": {
@@ -911,17 +912,17 @@
     "e2eEncrypted": "端對端加密",
     "storedWithoutEncryption": "未加密儲存",
     "dangerZoneDesc": "永久刪除所有日記條目、加密金鑰與快取密碼。此操作無法復原。",
-    "googleDrive": "Google Drive",
-    "googleDriveDesc": "將您的加密日記條目與 Google Drive 同步。",
-    "connectGoogleDrive": "連接 Google Drive",
-    "googleConnected": "已連線至 Google Drive",
+    "googleDrive": "Google 雲端硬碟",
+    "googleDriveDesc": "將您的加密日記條目與 Google 雲端硬碟同步。",
+    "connectGoogleDrive": "連接 Google 雲端硬碟",
+    "googleConnected": "已連線至 Google 雲端硬碟",
     "googleConnectedDesc": "您的日記條目將自動同步。",
     "readyForSync": "已連線並可同步。",
-    "googleDisconnected": "已中斷 Google Drive",
-    "googleAuthFailed": "Google Drive 驗證失敗",
-    "googleSyncActive": "您的日記正在與 Google Drive 同步",
+    "googleDisconnected": "已中斷與 Google 雲端硬碟的連線",
+    "googleAuthFailed": "Google 雲端硬碟驗證失敗",
+    "googleSyncActive": "您的日記正在與 Google 雲端硬碟同步",
     "icloudSyncActive": "您的日記正在與 iCloud 同步",
-    "googleClientIdMissing": "未設定 Google Drive。缺少用戶端 ID。",
+    "googleClientIdMissing": "未設定 Google 雲端硬碟。缺少用戶端 ID。",
     "googleDevInstructions": "在 .env 檔案中設定 VITE_GOOGLE_CLIENT_ID",
     "googleSimpleModeWarning": "簡單模式下憑證未加密儲存",
     "dropbox": "Dropbox",
@@ -1076,7 +1077,7 @@
     "encryptedEntriesNeedCloudDesc": "您有來自之前同步的加密條目。使用加密密碼重新連線同一雲端儲存以存取它們。",
     "reconnectToAccessEntries": "重新連線雲端儲存以存取加密條目。它們使用端對端加密同步，需要相同的儲存連線。",
     "migrateEntries": "遷移未加密條目",
-    "migrateEntriesDesc": "{{count}} 個條目未加密。將它們遷移到端對端加密以獲得完整安全性。",
+    "migrateEntriesDesc_other": "{{count}} 個條目未加密。將它們遷移到端對端加密以獲得完整安全性。",
     "migrationComplete": "遷移完成",
     "migrationCompleteDesc": "已加密 {{migrated}} 個條目。{{failed}} 個失敗。",
     "migrated": "已遷移",
@@ -1206,8 +1207,8 @@
       "environmentDesc": "測試時使用開發環境，已發布的應用程式使用生產環境",
       "syncDesc": "將您的加密日記與 iCloud 同步。您的資料在所有 Apple 裝置上保持私密。",
       "detailsLabel": "詳細資訊",
-      "signInWithAppleDesc": "使用您的 Apple ID 登入以連接 iCloud。點擊下方按鈕開啟 Apple 登入視窗。",
-      "signInWithAppleButton": "使用 Apple ID 登入",
+      "signInWithAppleDesc": "使用您的 Apple 帳號登入以連接 iCloud。點擊下方按鈕開啟 Apple 登入視窗。",
+      "signInWithAppleButton": "使用 Apple 登入",
       "afterSignedInDesc": "在彈出視窗中完成登入後，點擊下方繼續。",
       "continueAfterSignIn": "我已登入，繼續",
       "signInRequired": "未偵測到登入",
@@ -1215,9 +1216,9 @@
       "popupBlocked": "登入視窗可能已被封鎖。請允許此網站顯示彈出視窗後重試。",
       "signInLinkNotReady": "Apple 登入仍在載入中，請稍候再試。",
       "originNotAllowed": "此應用程式的來源（{{origin}}）未在 iCloud 中註冊。",
-      "adpNotice": "若您的 Apple ID 已開啟「進階資料保護」，Apple 會封鎖透過網頁存取 App 資料，因此無法在瀏覽器中使用 iCloud。請在 iPhone 或 iPad App 中使用 iCloud，或選擇 Google 雲端硬碟、Dropbox 或 Nextcloud 在此瀏覽器中同步。",
-      "signInWebAccessOff": "Apple 回報此 Apple ID 已關閉 iCloud 資料的網頁存取。請在 iPhone 上前往「設定」>「您的名稱」>「iCloud」>「iCloud.com」開啟後再試一次。",
-      "signInFailedAdp": "Apple 無法完成 iCloud 登入。這通常是因為您的 Apple ID 已開啟「進階資料保護」，Apple 不允許這類帳戶在瀏覽器中使用 iCloud。請在 iPhone 或 iPad App 中使用 iCloud，或改為連接 Google 雲端硬碟、Dropbox 或 Nextcloud。"
+      "adpNotice": "若您的 Apple 帳號已開啟「進階資料保護」，Apple 會封鎖透過網頁存取 App 資料，因此無法在瀏覽器中使用 iCloud。請在 iPhone 或 iPad App 中使用 iCloud，或選擇 Google 雲端硬碟、Dropbox 或 Nextcloud 在此瀏覽器中同步。",
+      "signInWebAccessOff": "Apple 回報此 Apple 帳號已關閉 iCloud 資料的網頁存取。請在 iPhone 上前往「設定」>「您的名稱」>「iCloud」>「iCloud.com」開啟後再試一次。",
+      "signInFailedAdp": "Apple 無法完成 iCloud 登入。這通常是因為您的 Apple 帳號已開啟「進階資料保護」，Apple 不允許這類帳號在瀏覽器中使用 iCloud。請在 iPhone 或 iPad App 中使用 iCloud，或改為連接 Google 雲端硬碟、Dropbox 或 Nextcloud。"
     },
     "oauth": {
       "accessDenied": "授權已取消或被拒絕。",
@@ -1255,7 +1256,7 @@
     "circuitBreakersActive": "臨時限制啟用中",
     "circuitBreakersActiveDesc": "由於重複失敗，部分儲存操作暫時被阻擋。系統將自動恢復。",
     "multipleRecentFailures": "多次近期失敗",
-    "multipleRecentFailuresDesc": "過去 5 分鐘有 {{count}} 次同步嘗試失敗。請檢查您的連線和儲存供應商。",
+    "multipleRecentFailuresDesc_other": "過去 5 分鐘有 {{count}} 次同步嘗試失敗。請檢查您的連線和儲存供應商。",
     "reduceFailures": "減少同步失敗",
     "reduceFailuresDesc": "檢查您的網路連線和儲存供應商憑證。如果問題持續，考慮更換供應商。",
     "reduceFailuresAction": "檢查連線",
@@ -1294,7 +1295,7 @@
     "overallHealth": "整體健康",
     "healthScore": "健康評分",
     "allSystemsNormal": "✓ 所有系統正常",
-    "activeAlerts": "啟用中警報（{{count}}）",
+    "activeAlerts_other": "啟用中警報（{{count}}）",
     "excellent": "優秀",
     "good": "良好",
     "warning": "警告",
@@ -1328,11 +1329,11 @@
     "frequentConflicts": "頻繁同步衝突",
     "frequentConflictsDesc": "每 100 次同步偵測到 {{rate}} 個衝突。這表示多個裝置同時編輯。",
     "recentConflictSpike": "近期衝突激增",
-    "recentConflictSpikeDesc": "過去一小時偵測到 {{count}} 個衝突。您可能正在多個裝置上活躍使用。",
+    "recentConflictSpikeDesc_other": "過去一小時偵測到 {{count}} 個衝突。您可能正在多個裝置上活躍使用。",
     "circuitBreakersActive": "同步保護啟用中",
-    "circuitBreakersActiveDesc": "由於重複失敗，{{count}} 個安全暫停正在啟用中。同步操作暫時暫停。",
+    "circuitBreakersActiveDesc_other": "由於多次失敗，目前有 {{count}} 項安全暫停機制啟動中，同步作業已暫時停止。",
     "multipleRecentFailures": "多次近期失敗",
-    "multipleRecentFailuresDesc": "最近 10 次操作中有 {{count}} 次失敗。這表示存在持續問題。",
+    "multipleRecentFailuresDesc_other": "最近 10 次操作中有 {{count}} 次失敗。這表示存在持續問題。",
     "reduceFailures": "減少同步失敗",
     "reduceFailuresDesc": "檢查您的網路連線和雲端儲存存取。考慮在網路狀況不佳時暫時停用自動同步。",
     "reduceFailuresAction": "查看診斷標籤了解詳細錯誤記錄",
@@ -1369,7 +1370,7 @@
     "circuitBreakers": "同步保護",
     "open": "開啟",
     "closed": "關閉",
-    "failures_count": "{{count}} 次失敗",
+    "failures_count_other": "{{count}} 次失敗",
     "reopens": "{{time}} 後重新開啟",
     "currentlyRetrying": "目前重試中",
     "recentOperations": "近期操作",
@@ -1455,13 +1456,13 @@
     "need8Entries": "選定時期內至少需要 8 個條目才能進行有意義的分析。",
     "needMore": "至少需要 8 個條目",
     "need8": "至少需要 8 個條目",
-    "entriesInPeriod": "此時期有 {{count}} 個條目",
-    "entriesAvailable": "有 {{count}} 個條目可供分析",
+    "entriesInPeriod_other": "此時期有 {{count}} 個條目",
+    "entriesAvailable_other": "有 {{count}} 個條目可供分析",
     "limitReached": "已達限制",
     "analyzingEntries": "正在分析條目",
-    "analyzingEntriesDesc": "正在分析 {{count}} 個條目以產生您的洞察…",
+    "analyzingEntriesDesc_other": "正在分析 {{count}} 個條目以產生您的洞察…",
     "analyzing": "分析趨勢中…",
-    "analyzingCount": "首先分析 {{count}} 個條目…",
+    "analyzingCount_other": "正在先分析 {{count}} 個條目…",
     "authRequired": "需要驗證",
     "authRequiredDesc": "請登入以使用 AI 功能",
     "signInRequired": "請登入以使用 AI 驅動的趨勢分析。",
@@ -1490,7 +1491,7 @@
     "reflection": "結語反思",
     "lastAnalyzed": "上次分析：{{date}}",
     "analyzedAt": "分析於 {{date}}",
-    "entriesAnalyzed": "已分析 {{count}} 個條目",
+    "entriesAnalyzed_other": "已分析 {{count}} 個條目",
     "reAnalyze": "重新分析",
     "selectDifferentPeriod": "選擇不同的時期",
     "show": "顯示",
@@ -1534,11 +1535,11 @@
     "share": "分享",
     "shareFile": "分享檔案",
     "exportSuccess": "匯出成功",
-    "exportSuccessDesc": "{{count}} 個條目已匯出為 {{format}}",
+    "exportSuccessDesc_other": "{{count}} 個條目已匯出為 {{format}}",
     "exportError": "匯出失敗",
     "exportErrorDesc": "產生 {{format}} 失敗。請重試。",
     "upgradePrompt": "升級為 Plus 以解鎖匯出功能",
-    "entriesReady": "{{count}} 個條目已準備好匯出。",
+    "entriesReady_other": "{{count}} 個條目已準備好匯出。",
     "unavailableNative": "此應用程式版本不支援文件匯出。"
   },
   "subscription": {
@@ -1576,8 +1577,7 @@
       "tagSuggestions": "智慧標籤建議",
       "trendAnalysis": "心情與趨勢洞察",
       "voiceEntry": "語音輸入",
-      "exports": "PDF/Word 匯出",
-      "imageUpload": "照片回憶"
+      "exports": "PDF/Word 匯出"
     },
     "trialCta": "開始免費試用",
     "trialPricing": "免費試用 14 天，之後 {{yearlyPrice}}/年",
@@ -1611,7 +1611,7 @@
     "disclosureTitle": "OwnJournal Plus 年度訂閱",
     "disclosureLength": "1 年期自動續訂訂閱。",
     "priceWithMonthly": "{{yearlyPrice}}/年（約 {{monthlyEquivalent}}/月）",
-    "renewalApple": "確認購買時將從您的 Apple ID 扣款。除非在目前訂閱期間結束前至少 24 小時關閉自動續訂，否則訂閱將以相同價格自動續訂。購買後，您可以在 App Store 帳戶設定中管理和取消訂閱。",
+    "renewalApple": "確認購買時將從您的 Apple 帳號扣款。除非在目前訂閱期間結束前至少 24 小時關閉自動續訂，否則訂閱將以相同價格自動續訂。購買後，您可以在 App Store 帳戶設定中管理和取消訂閱。",
     "renewalGoogle": "確認購買時將從您的 Google Play 帳戶扣款。除非在目前訂閱期間結束前至少 24 小時在 Google Play 訂閱中取消，否則訂閱將以相同價格自動續訂。",
     "iapOnly": {
       "title": "可在應用程式中使用",
@@ -1709,12 +1709,12 @@
     "monthlyLimitReachedDescTags": "您本月的標籤產生次數已達上限，將於下個月重設。",
     "monthlyLimitReachedDescTitle": "您本月的標題產生次數已達上限，將於下個月重設。",
     "tagsApplied": "標籤已套用",
-    "tagsAppliedDesc": "已新增 {{count}} 個 AI 產生的標籤",
+    "tagsAppliedDesc_other": "已新增 {{count}} 個 AI 產生的標籤",
     "suggestedActivities": "建議的活動",
     "applyTags": "套用標籤",
     "applyActivities": "套用活動",
     "activitiesApplied": "已加入活動",
-    "activitiesAppliedDesc": "已加入 {{count}} 個建議的活動",
+    "activitiesAppliedDesc_other": "已加入 {{count}} 個建議的活動",
     "removeActivity": "從建議中移除",
     "titleApplied": "標題已套用",
     "titleAppliedDesc": "AI 產生的標題已套用",
@@ -1806,7 +1806,7 @@
     },
     "timeline": {
       "title": "您的日記時間軸",
-      "content": "您的日記條目將顯示在這裡，按日期排列。\n點擊 + 按鈕建立您的第一篇日記。"
+      "content": "您的日記條目會按日期排列在這裡。點選「+」按鈕，建立您的第一篇日記。"
     },
     "syncStatus": {
       "title": "同步狀態",
@@ -1822,7 +1822,7 @@
     },
     "help": {
       "title": "說明與支援",
-      "content": "需要協助嗎？點擊這裡存取指南、提示，並重新開始此導覽。"
+      "content": "需要協助嗎？點選這裡即可查看指南與提示，或重新開始此導覽。"
     },
     "complete": {
       "title": "準備開始寫日記！",
@@ -1860,9 +1860,9 @@
       "startTour": "開始導覽",
       "firstEntry": {
         "title": "建立您的第一篇日記",
-        "step1": "1. 點擊時間軸頂部的「+」按鈕",
+        "step1": "1. 點選時間軸頂部的「+」按鈕",
         "step2": "2. 在編輯器中寫下您的日記（支援 Markdown 格式）",
-        "step3": "3. 新增標籤和心情，然後點擊儲存按鈕"
+        "step3": "3. 新增標籤和心情，然後點選「儲存」"
       },
       "markdown": {
         "title": "使用 Markdown",
@@ -1873,7 +1873,7 @@
       },
       "syncSetup": {
         "title": "設定雲端同步",
-        "step1": "1. 開啟設定，前往儲存標籤頁",
+        "step1": "1. 開啟設定，前往「儲存」分頁",
         "step2": "2. 選擇您偏好的雲端供應商（Google 雲端硬碟、Dropbox 或 Nextcloud）",
         "step3": "3. 按照畫面指引完成驗證並連線"
       },
@@ -1881,8 +1881,8 @@
         "title": "建立您的帳戶",
         "desc": "您可以使用電子郵件/密碼或社交登入註冊：",
         "emailOption": "電子郵件與密碼：輸入您的電子郵件並選擇密碼",
-        "googleOption": "Google：點擊「使用 Google 繼續」快速註冊",
-        "appleOption": "Apple：點擊「使用 Apple 繼續」進行注重隱私的註冊",
+        "googleOption": "Google：點選「使用 Google 繼續」快速註冊",
+        "appleOption": "Apple：點選「使用 Apple 繼續」進行注重隱私的註冊",
         "tip": "提示：您可以隨時使用「忘記密碼？」連結重設密碼"
       }
     },
@@ -1949,13 +1949,13 @@
     "storage": {
       "googleDrive": {
         "title": "連線 Google 雲端硬碟",
-        "step1": "1. 在設定中點擊 Google 雲端硬碟旁邊的「連線」按鈕",
+        "step1": "1. 在設定中點選 Google 雲端硬碟旁邊的「連線」按鈕",
         "step2": "2. 使用您的 Google 帳戶登入並授予權限",
         "note": "注意：OwnJournal 將資料儲存在隱藏的應用程式資料夾中，在您的一般雲端硬碟中不可見"
       },
       "dropbox": {
         "title": "連線 Dropbox",
-        "step1": "1. 在設定中點擊 Dropbox 旁邊的「連線」按鈕",
+        "step1": "1. 在設定中點選 Dropbox 旁邊的「連線」按鈕",
         "step2": "2. 登入 Dropbox 並授權應用程式存取"
       },
       "nextcloud": {
@@ -2036,7 +2036,7 @@
         "saveLocationTitle": "檔案儲存在哪裡？",
         "saveLocationMobile": "行動裝置（Android/iOS）：檔案儲存到裝置的 Documents/ 資料夾。會顯示通知，帶有分享按鈕，可儲存到其他位置或透過電子郵件傳送。",
         "saveLocationWeb": "網頁瀏覽器：檔案會自動下載到瀏覽器的預設下載資料夾。",
-        "shareHint": "在行動裝置上，點擊通知中的分享按鈕可選擇不同的儲存位置或分享檔案。"
+        "shareHint": "在行動裝置上，點選通知中的分享按鈕，即可選擇其他儲存位置或分享檔案。"
       },
       "offlineBackup": {
         "title": "離線備份匯出",
@@ -2046,7 +2046,7 @@
         "title": "備份與還原",
         "desc": "將日記匯出為 JSON 檔案進行備份，或從先前的備份匯入以還原條目。",
         "exportTitle": "匯出備份",
-        "exportDesc": "要匯出資料備份，請點擊您的個人頭像並選擇「匯出資料」。在行動裝置上，檔案會儲存到 Documents/ 資料夾並顯示分享選項。在網頁上，檔案會下載到瀏覽器的下載資料夾。",
+        "exportDesc": "要匯出資料備份，請點選您的個人頭像並選擇「匯出資料」。在行動裝置上，檔案會儲存到 Documents/ 資料夾並顯示分享選項。在網頁上，檔案會下載到瀏覽器的下載資料夾。",
         "importTitle": "匯入備份",
         "importMobile": "行動裝置（Android/iOS）：匯入時，請導航到 Documents/ 資料夾以尋找備份檔案。",
         "importWeb": "網頁瀏覽器：從儲存位置選擇 JSON 備份檔案。"
@@ -2073,7 +2073,7 @@
         "title": "同步無法運作",
         "intro": "請嘗試以下步驟：",
         "tip1": "檢查您的網路連線",
-        "tip2": "嘗試手動點擊同步按鈕",
+        "tip2": "試著手動點選同步按鈕",
         "tip3": "中斷連線並重新連線您的雲端儲存"
       },
       "nextcloudEncryption": {
@@ -2104,7 +2104,7 @@
         "desc": "這是真正端對端加密的核心安全功能。只有您持有金鑰，這意味著即使我們也無法存取您的資料。雖然這保護了您的隱私，但也意味著沒有密碼就無法恢復加密的條目。",
         "actionTitle": "您可以採取的措施：",
         "action1": "如果您有未加密的 JSON 備份，可以從中還原條目。",
-        "action2": "要重新開始，請使用危險區域中的「全部刪除」選項重設並建立新的加密日記。"
+        "action2": "若要重新開始，請使用設定中「危險區域」的「重設所有資料」，然後建立新的加密日記。"
       }
     },
     "faq": {
@@ -2144,7 +2144,7 @@
       },
       "cancelSubscription": {
         "question": "如何取消我的訂閱？",
-        "answer": "開啟設定，前往帳戶分頁，捲動到訂閱區段，點擊「管理」以存取帳單入口。點擊「取消方案」以停止您的訂閱。您將保留 Plus 存取權限直到當前帳單週期結束。核心日記功能永久免費。"
+        "answer": "開啟設定，前往「帳戶」分頁，捲動到「訂閱」區段，點擊「管理」開啟帳單入口，即可在該處取消方案。在目前帳單週期結束前，您仍可繼續使用 Plus。核心日記功能永久免費。"
       }
     }
   },
@@ -2170,7 +2170,7 @@
       },
       "description": {
         "title": "2. 服務說明",
-        "content": "OwnJournal 是一款個人日記應用程式，由在 {{companyCountry}} 註冊的公司 {{companyName}} 營運。您可以在網頁、iOS、Android 和桌面版上建立、儲存、搜尋和分析您的日記條目。您可以使用自己的雲端儲存空間（Google Drive、Dropbox、Nextcloud 或 iCloud Drive）在裝置之間同步，也可以只使用本機儲存，完全離線使用本應用程式。我們提供端對端加密（E2E）以及不含端對端加密的簡單模式。Plus 訂閱者可以使用情緒分析和建議等選用的 AI 功能。"
+        "content": "OwnJournal 是一款個人日記應用程式，由在 {{companyCountry}} 註冊的公司 {{companyName}} 營運。您可以在網頁、iOS、Android 和桌面版上建立、儲存、搜尋和分析您的日記條目。您可以使用自己的雲端儲存空間（Google 雲端硬碟、Dropbox、Nextcloud 或 iCloud 雲碟）在裝置之間同步，也可以只使用本機儲存，完全離線使用本應用程式。我們提供端對端加密（E2E）以及不含端對端加密的簡單模式。Plus 訂閱者可以使用情緒分析和建議等選用的 AI 功能。"
       },
       "accounts": {
         "title": "3. 使用者帳戶",
@@ -2178,7 +2178,7 @@
       },
       "dataStorage": {
         "title": "8. 資料儲存和隱私",
-        "content": "您的日記條目儲存在您選擇的雲端儲存供應商（Google Drive、Dropbox、Nextcloud 或 iCloud Drive）中，而非我們的伺服器上。啟用 E2E 加密後，您的資料會在離開裝置之前於您的裝置上加密；我們無法存取您的加密內容。在簡單模式下，您的資料會在沒有端對端加密的情況下同步。我們如何處理個人資料，請參閱我們的隱私權政策。"
+        "content": "您的日記條目儲存在您選擇的雲端儲存供應商（Google 雲端硬碟、Dropbox、Nextcloud 或 iCloud 雲碟）中，而非我們的伺服器上。啟用 E2E 加密後，您的資料會在離開裝置之前於您的裝置上加密；我們無法存取您的加密內容。在簡單模式下，您的資料會在沒有端對端加密的情況下同步。我們如何處理個人資料，請參閱我們的隱私權政策。"
       },
       "intellectualProperty": {
         "title": "7. 智慧財產權",
@@ -2206,7 +2206,7 @@
       },
       "subscriptions": {
         "title": "4. 訂閱、計費和取消",
-        "content": "OwnJournal 提供以自動續訂訂閱形式銷售的選用付費方案（「Plus」）。在 Apple App Store（iOS）上，訂閱透過您的 Apple ID 計費，並在您的 App Store 帳戶設定中管理。款項會在確認購買時從您的 Apple ID 扣款。除非在目前訂閱期間結束前至少 24 小時關閉自動續訂，否則您的訂閱將自動續訂。系統會在目前訂閱期間結束前 24 小時內向您的帳戶收取續訂費用。取消將於目前付費期間結束時生效；當您開始付費訂閱時，免費試用期中任何未使用的部分將會失效。在 Google Play（Android）上，訂閱透過您的 Google Play 帳戶計費，並在 Google Play 訂閱設定中管理；相同的自動續訂和取消原則亦適用。在網頁上，訂閱透過 Stripe 計費，並在 OwnJournal 的帳戶設定中管理。在支援的情況下，價格會以您的當地貨幣顯示，並已包含任何適用稅金。如有提供免費試用，試用期結束時將自動轉為付費訂閱，除非您在試用期結束前取消。"
+        "content": "OwnJournal 提供以自動續訂訂閱形式銷售的選用付費方案（「Plus」）。在 Apple App Store（iOS）上，訂閱透過您的 Apple 帳號計費，並在您的 App Store 帳戶設定中管理。款項會在確認購買時從您的 Apple 帳號扣款。除非在目前訂閱期間結束前至少 24 小時關閉自動續訂，否則您的訂閱將自動續訂。系統會在目前訂閱期間結束前 24 小時內向您的帳戶收取續訂費用。取消將於目前付費期間結束時生效；當您開始付費訂閱時，免費試用期中任何未使用的部分將會失效。在 Google Play（Android）上，訂閱透過您的 Google Play 帳戶計費，並在 Google Play 訂閱設定中管理；相同的自動續訂和取消原則亦適用。在網頁上，訂閱透過 Stripe 計費，並在 OwnJournal 的帳戶設定中管理。在支援的情況下，價格會以您的當地貨幣顯示，並已包含任何適用稅金。如有提供免費試用，試用期結束時將自動轉為付費訂閱，除非您在試用期結束前取消。"
       },
       "withdrawal": {
         "title": "5. 撤回權（歐盟/歐洲經濟區消費者）",
@@ -2246,7 +2246,7 @@
       },
       "storage": {
         "title": "資料儲存",
-        "content": "您的日記條目儲存在您選擇的雲端儲存供應商（Google Drive、Dropbox、Nextcloud 或 iCloud Drive），而非我們的伺服器上。您完全掌控資料的儲存位置。在我們的伺服器上（透過我們的身分驗證和資料庫後端營運），我們僅儲存營運服務所需的資訊：您的身分驗證資料、顯示名稱、您選擇的儲存供應商、加密設定狀態、訂閱狀態、我們的付款處理商（Stripe）用於管理您訂閱的識別碼，以及每位使用者的 AI 功能使用計數器。付款由我們的付款服務供應商處理（網頁結帳使用 Stripe，iOS 使用 Apple In-App Purchase，Android 使用 Google Play Billing）；我們不會在伺服器上儲存您完整的付款卡資料。"
+        "content": "您的日記條目儲存在您選擇的雲端儲存供應商（Google 雲端硬碟、Dropbox、Nextcloud 或 iCloud 雲碟），而非我們的伺服器上。您完全掌控資料的儲存位置。在我們的伺服器上（透過我們的身分驗證和資料庫後端營運），我們僅儲存營運服務所需的資訊：您的身分驗證資料、顯示名稱、您選擇的儲存供應商、加密設定狀態、訂閱狀態、我們的付款處理商（Stripe）用於管理您訂閱的識別碼，以及每位使用者的 AI 功能使用計數器。付款由我們的付款服務供應商處理（網頁結帳使用 Stripe，iOS 使用 Apple In-App Purchase，Android 使用 Google Play Billing）；我們不會在伺服器上儲存您完整的付款卡資料。"
       },
       "encryption": {
         "title": "端對端加密",
@@ -2258,7 +2258,7 @@
       },
       "thirdParty": {
         "title": "第三方服務",
-        "content": "我們整合了下列第三方服務，每項服務均依其自身的條款和隱私實務營運：用於同步至您自己帳戶的雲端儲存供應商（Google Drive、Dropbox、Nextcloud、iCloud Drive）；用於安全登入的身分驗證服務（Google、Apple）及我們的身分驗證後端；用於處理訂閱的付款服務供應商（網頁結帳使用 Stripe，iOS 使用 Apple In-App Purchase，Android 使用 Google Play Billing）；以及在您選擇使用選用 AI 功能時的 AI 服務供應商（Google Gemini）。"
+        "content": "我們整合了下列第三方服務，每項服務均依其自身的條款和隱私實務營運：用於同步至您自己帳戶的雲端儲存供應商（Google 雲端硬碟、Dropbox、Nextcloud、iCloud 雲碟）；用於安全登入的身分驗證服務（Google、Apple）及我們的身分驗證後端；用於處理訂閱的付款服務供應商（網頁結帳使用 Stripe，iOS 使用 Apple In-App Purchase，Android 使用 Google Play Billing）；以及在您選擇使用選用 AI 功能時的 AI 服務供應商（Google Gemini）。"
       },
       "syncIdentifier": {
         "title": "同步與裝置識別碼",
@@ -2266,7 +2266,7 @@
       },
       "aiProcessing": {
         "title": "AI 功能和處理",
-        "content": "OwnJournal 提供選用的 AI 功能，例如情緒分析、建議和語音輸入，僅供 Plus 訂閱者使用。只有當您以 Plus 訂閱者身分明確使用這些功能時，才會進行 AI 處理。使用以文字為基礎的 AI 功能時，相關文字會先在您的裝置上解密，再經您明確操作，透過付費 API 傳送給我們的 AI 服務供應商（目前為 Google 的 Gemini）。使用語音輸入時，裝置麥克風僅在錄音期間使用；錄音會傳送給 Google 的 Gemini 轉換為文字，產生的文字會在您的裝置上加入您的條目。我們不會在伺服器上儲存 AI 的輸入或輸出，包括語音錄音和逐字稿；我們僅記錄每位使用者的 AI 功能使用計數器（執行的分析類型、時間戳記，以及語音輸入的錄音秒數；絕不記錄內容），以執行公平使用限制。Google 可能會依其現行政策，在有限期間內保留提示和輸出，用於濫用監控和政策執行。AI 處理可能在歐洲經濟區以外進行；Google 已採取標準契約條款等適當的資料傳輸保護措施。我們使用的是 Google AI 服務的付費方案；在此方案下，提示和輸出不會被用於訓練或改進 Google 的模型。您可以選擇不使用 AI 功能，這不會影響核心日記功能。"
+        "content": "OwnJournal 提供選用的 AI 功能，例如情緒分析、建議和語音輸入，僅供 Plus 訂閱者使用。只有當您以 Plus 訂閱者身分明確使用這些功能時，才會進行 AI 處理。使用以文字為基礎的 AI 功能時，相關文字會先在您的裝置上解密，再經您明確操作，經由我們的伺服器，透過付費 API 傳送給我們的 AI 服務供應商（目前為 Google 的 Gemini）。使用語音輸入時，裝置麥克風僅在錄音期間使用；錄音會經由我們的伺服器傳送給 Google 的 Gemini 轉換為文字，產生的文字會在您的裝置上加入您的條目。我們不會在伺服器上儲存 AI 的輸入或輸出，包括語音錄音和逐字稿；我們僅記錄每位使用者的 AI 功能使用計數器（執行的分析類型、時間戳記，以及語音輸入的錄音秒數；絕不記錄內容），以執行公平使用限制。Google 可能會依其現行政策，在有限期間內保留提示和輸出，用於濫用監控和政策執行。AI 處理可能在歐洲經濟區以外進行；Google 已採取標準契約條款等適當的資料傳輸保護措施。我們使用的是 Google AI 服務的付費方案；在此方案下，提示和輸出不會被用於訓練或改進 Google 的模型。您可以選擇不使用 AI 功能，這不會影響核心日記功能。"
       },
       "diagnostics": {
         "title": "診斷與當機記錄",
@@ -2286,7 +2286,7 @@
       },
       "dpo": {
         "title": "資料保護長（DPO）",
-        "content": "根據我們目前的營運情況，我們依 GDPR 第 37 條並無指定資料保護長的義務，因此並未指定。OwnJournal 不會在我們的伺服器上處理或儲存日記內容，我們的處理僅限於最少的帳戶、身分驗證和訂閱資訊。日記內容維持端對端加密，並由使用者控制。如果我們的處理活動有所變化，我們將重新評估此項義務。"
+        "content": "根據我們目前的營運情況，我們依 GDPR 第 37 條並無指定資料保護長的義務，因此並未指定。OwnJournal 不會在我們的伺服器上儲存日記內容。當您使用選用的 AI 功能時，相關文字或錄音只會在傳送給我們的 AI 服務供應商的過程中經過我們的伺服器，且不會被保留。除此之外，我們的處理僅限於最少的帳戶、身分驗證和訂閱資訊。日記內容維持端對端加密，並由使用者控制。如果我們的處理活動有所變化，我們將重新評估此項義務。"
       },
       "rights": {
         "title": "您的權利",
@@ -2323,8 +2323,8 @@
     "title": "恢復加密條目",
     "description": "部分條目無法解密。",
     "decryptionFailures": "部分條目無法解密",
-    "decryptionFailuresDesc": "{{count}}/{{total}} 個條目解密失敗。您的密碼可能已變更。",
-    "failedEntries": "{{count}}/{{total}} 個條目解密失敗",
+    "decryptionFailuresDesc_other": "{{count}}/{{total}} 個條目解密失敗。您的密碼可能已變更。",
+    "failedEntries_other": "{{count}}/{{total}} 個條目解密失敗",
     "explanation": "這通常發生在加密密碼被變更時。輸入您的原始密碼以恢復條目。",
     "originalPassword": "原始加密密碼",
     "passwordPlaceholder": "輸入您的原始密碼…",
@@ -2336,7 +2336,7 @@
     "recoverButton": "恢復條目",
     "recovering": "恢復中…",
     "success": "恢復成功",
-    "successDesc": "已恢復 {{count}} 個條目",
+    "successDesc_other": "已復原 {{count}} 個條目",
     "failed": "恢復失敗：{{error}}",
     "wrongPassword": "密碼不正確。請使用您的原始加密密碼重試。",
     "keyCorrupted": "所有已連線供應商中的加密金鑰都無法解密您的條目。若您曾使用 Google 雲端硬碟，請在版本紀錄中查看 OwnJournal 資料夾內 encryption-key.json 的較早版本。",
@@ -2347,10 +2347,10 @@
     "networkError": "網路錯誤。請檢查連線後重試。",
     "rateLimited": "雲端儲存暫時限制請求。請等待 30 到 60 秒後重試。",
     "deleteLink": "或永久移除無法恢復的條目",
-    "confirmDelete": "將永久刪除 {{count}} 個無法解密的條目。此操作無法復原。",
+    "confirmDelete_other": "將永久刪除 {{count}} 個無法解密的條目。此操作無法復原。",
     "confirmDeleteButton": "永久刪除",
     "deletedTitle": "已移除條目",
-    "deletedDesc": "已移除 {{count}} 個無法復原的條目",
+    "deletedDesc_other": "已移除 {{count}} 個無法復原的條目",
     "deleteFailed": "移除條目失敗。請重試。",
     "keyMismatchExplanation": "能解密這些條目的加密金鑰與目前使用的金鑰不符。可從雲端重新載入金鑰。",
     "keyMismatchRecoveryHint": "您或許可以從雲端儲存的版本記錄中復原原始金鑰（例如 OwnJournal 資料夾中 encryption-key.json 的 Google 雲端硬碟或 Nextcloud 檔案版本）。",
@@ -2450,8 +2450,7 @@
     "topNegative": "{{activity}}與較低的心情相關",
     "proFeature": "Plus 功能",
     "proFeatureDesc": "活動分析需要訂閱 Plus",
-    "tooltipAvg": "平均",
-    "tooltipEntries": "筆紀錄"
+    "tooltipDetail_other": "{{delta}}（平均：{{emoji}} {{avg}}，{{count}} 個條目）"
   },
   "notes": {
     "journalTab": "日記",

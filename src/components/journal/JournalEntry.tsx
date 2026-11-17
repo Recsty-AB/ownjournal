@@ -806,8 +806,8 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
                   // already exists, just clear input below
                 } else if (activities.length >= 20) {
                   toast({
-                    title: t('journalEntry.maxActivitiesReached', { defaultValue: 'Activity limit reached' }),
-                    description: t('journalEntry.maxActivitiesReachedDesc', { defaultValue: 'You can have at most 20 activities per entry.' }),
+                    title: t('journalEntry.maxActivitiesReached'),
+                    description: t('journalEntry.maxActivitiesReachedDesc'),
                     variant: "destructive",
                   });
                   return;
@@ -1014,8 +1014,8 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
                     }
                     if (droppedDueToCap) {
                       toast({
-                        title: t('journalEntry.maxActivitiesReached', { defaultValue: 'Activity limit reached' }),
-                        description: t('journalEntry.maxActivitiesReachedDesc', { defaultValue: 'Some activities were not added because you have reached the limit of 20.' }),
+                        title: t('journalEntry.maxActivitiesReached'),
+                        description: t('journalEntry.maxActivitiesSkippedDesc'),
                       });
                     }
                     return merged;

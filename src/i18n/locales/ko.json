@@ -69,12 +69,12 @@
     "toE2EDesc": "항목이 비밀번호로 암호화되고 있습니다.",
     "toSimpleDesc": "항목이 단순 저장을 위해 복호화되고 있습니다.",
     "processingEntry": "처리 중: {{title}}",
-    "migrated": "{{count}}개 항목 마이그레이션됨",
-    "failed": "{{count}}개 항목 실패",
+    "migrated_other": "{{count}}개 항목 마이그레이션됨",
+    "failed_other": "{{count}}개 항목 실패",
     "retry": "실패 항목 재시도",
     "connectionError": "연결 오류",
     "connectionErrorDesc": "두 제공업체 모두 연결되어 있어야 합니다",
-    "completeDesc": "{{source}}에서 {{target}}(으)로 {{count}}개 파일을 성공적으로 마이그레이션했습니다",
+    "completeDesc_other": "{{source}}에서 {{target}}(으)로 {{count}}개 파일을 성공적으로 마이그레이션했습니다",
     "completedWithErrors": "일부 오류와 함께 마이그레이션 완료",
     "completedWithErrorsDesc": "{{migrated}}개 파일 마이그레이션됨, {{failed}}개 실패. 자세한 내용은 콘솔을 확인하세요.",
     "stopped": "마이그레이션 중지됨",
@@ -91,7 +91,7 @@
   "import": {
     "invalidFormat": "잘못된 가져오기 파일 형식입니다",
     "complete": "가져오기 완료",
-    "completeDesc": "{{count}}개 항목을 가져왔습니다. 저장소에 동기화 중…",
+    "completeDesc_other": "{{count}}개 항목을 가져왔습니다. 저장소에 동기화 중…",
     "failed": "가져오기 실패",
     "failedDesc": "데이터를 가져오지 못했습니다. 파일 형식을 확인하세요.",
     "storageSyncFailed": "저장소 동기화 실패",
@@ -142,9 +142,8 @@
     "continueWith": "또는 다음으로 계속",
     "continueWithGoogle": "Google로 계속",
     "continueWithApple": "Apple로 계속",
-    "termsAgreementPrefix": "계속하면 다음에 동의하는 것으로 간주됩니다",
+    "termsAgreement": "계속하면 <terms>이용약관</terms> 및 <privacy>개인정보 처리방침</privacy>에 동의하는 것으로 간주됩니다.",
     "termsLink": "이용약관",
-    "and": "및",
     "privacyLink": "개인정보 처리방침",
     "dataEncrypted": "데이터는 암호화되어 당사 서버에 저장되지 않습니다",
     "accountCreated": "계정이 생성되었습니다!",
@@ -264,13 +263,13 @@
     "settingUpSync": "클라우드 동기화 설정 중…",
     "settingUpSyncDesc": "암호화 키를 업로드하고 동기화를 준비하는 중입니다.",
     "initialSyncComplete": "초기 동기화 완료",
-    "initialSyncCompleteDesc": "{{count}}개 항목이 {{provider}}와(과) 동기화되었습니다.",
+    "initialSyncCompleteDesc_other": "{{count}}개 항목이 {{provider}}와(과) 동기화되었습니다.",
     "initialSyncFailed": "초기 동기화 실패",
     "initialSyncFailedDesc": "초기 동기화를 완료하지 못했습니다.",
     "secondaryProviderConnected": "{{provider}} 연결됨",
     "secondaryProviderConnectedDesc": "보조 백업으로 연결되었습니다. 기본 제공업체가 동기화를 처리합니다.",
     "conflictDetected": "⚠️ 동기화 충돌 감지됨",
-    "conflictDetectedDesc": "동시 편집이 자동으로 해결되었습니다. {{count}}개의 충돌이 기록되었습니다.",
+    "conflictDetectedDesc_other": "동시 편집이 자동으로 해결되었습니다. {{count}}개의 충돌이 기록되었습니다.",
     "viewConflicts": "충돌 보기",
     "savingEntry": "항목 저장 중…",
     "savingEntryDesc": "일기 항목을 암호화하고 동기화하는 중입니다.",
@@ -292,8 +291,8 @@
     "signedOut": "로그아웃됨",
     "signedOutDesc": "성공적으로 로그아웃되었습니다",
     "backupExported": "백업 내보내기 완료",
-    "backupExportedDesc": "{{count}}개 항목이 JSON 파일로 내보내졌습니다",
-    "importCompleteDesc": "{{count}}개 항목을 가져왔습니다. 저장소에 동기화 중…",
+    "backupExportedDesc_other": "{{count}}개 항목이 JSON 파일로 내보내졌습니다",
+    "importCompleteDesc_other": "{{count}}개 항목을 가져왔습니다. 저장소에 동기화 중…",
     "cloudSyncComplete": "클라우드 동기화 완료",
     "cloudSyncCompleteDesc": "가져온 항목이 클라우드 저장소에 동기화되었습니다.",
     "cloudSyncIncomplete": "클라우드 동기화 미완료",
@@ -324,15 +323,15 @@
     "encryptionSetupFailedDesc": "암호화를 초기화하지 못했습니다.",
     "startingCloudSync": "클라우드 동기화 시작 중…",
     "startingCloudSyncDesc": "백그라운드에서 일기 항목을 동기화하는 중입니다.",
-    "syncCompleteDesc": "{{count}}개 항목이 클라우드 저장소와 동기화되었습니다.",
+    "syncCompleteDesc_other": "{{count}}개 항목이 클라우드 저장소와 동기화되었습니다.",
     "unableToStartSync": "동기화를 시작할 수 없습니다.",
     "nextcloudEncryptionError": "이 Nextcloud 폴더와 동기화할 수 없습니다",
     "nextcloudEncryptionErrorDesc": "이 Nextcloud 폴더에 서버 측 암호화가 활성화되어 있어 OwnJournal에서 파일을 읽거나 쓸 수 없습니다. '자세히 보기'를 탭하여 단계별 해결 방법을 확인하세요.",
     "nextcloudEncryptionLearnMore": "자세히 보기",
     "encryptedEntriesDetected": "암호화된 항목 발견됨",
-    "encryptedEntriesInSimpleMode": "단순 모드에서는 읽을 수 없는 {{count}}개의 암호화된 항목이 발견되었습니다. 접근하려면 연결을 해제하고 E2E 모드로 다시 연결하세요.",
-    "encryptedEntriesInSimpleModeHint": "{{count}}개의 항목을 보려면 E2E 암호화가 필요합니다. 비밀번호를 입력하여 잠금을 해제하세요.",
-    "syncCompleteWithEncrypted": "동기화가 완료되었지만 {{count}}개의 암호화된 항목을 보려면 E2E 모드가 필요합니다.",
+    "encryptedEntriesInSimpleMode_other": "단순 모드에서는 읽을 수 없는 {{count}}개의 암호화된 항목이 발견되었습니다. 접근하려면 연결을 해제하고 E2E 모드로 다시 연결하세요.",
+    "encryptedEntriesInSimpleModeHint_other": "{{count}}개의 항목을 보려면 E2E 암호화가 필요합니다. 비밀번호를 입력하여 잠금을 해제하세요.",
+    "syncCompleteWithEncrypted_other": "동기화가 완료되었지만 {{count}}개의 암호화된 항목을 보려면 E2E 모드가 필요합니다.",
     "unlockNow": "지금 잠금 해제",
     "viewStorageOptions": "옵션 보기"
   },
@@ -504,7 +503,7 @@
     "transferProgress": "전송 진행 중",
     "transferProgressDesc": "{{total}}개 중 {{current}}개 항목 복사됨",
     "complete": "전송 완료",
-    "completeDesc": "{{source}}에서 {{target}}(으)로 {{count}}개 파일을 성공적으로 전송했습니다",
+    "completeDesc_other": "{{source}}에서 {{target}}(으)로 {{count}}개 파일을 성공적으로 전송했습니다",
     "completedWithErrors": "일부 오류와 함께 전송 완료",
     "completedWithErrorsDesc": "{{transferred}}개 파일 전송됨, {{failed}}개 실패. 자세한 내용은 콘솔을 확인하세요.",
     "failed": "전송 실패",
@@ -514,7 +513,7 @@
     "cancelledDesc": "전송이 취소되었습니다. 취소 전에 {{transferred}}개 파일이 전송되었습니다.",
     "cleaningUp": "정리 중…",
     "mirrorComplete": "미러 동기화 완료",
-    "mirrorCompleteDesc": "{{source}}에서 {{target}}(으)로 {{count}}개 파일을 성공적으로 미러링했습니다. 이제 대상이 원본과 동일합니다.",
+    "mirrorCompleteDesc_other": "{{source}}에서 {{target}}(으)로 {{count}}개 파일을 성공적으로 미러링했습니다. 이제 대상이 원본과 동일합니다.",
     "transferCompleteDisconnect": "전송 완료 — 원본 연결을 해제할까요?",
     "transferCompleteDisconnectDesc": "모든 항목이 {{target}}(으)로 미러링되었습니다. 혼란을 피하기 위해 {{source}}의 연결을 해제하시겠습니까?",
     "passwordRequiredAfterTransfer": "저장소 제공업체 전환을 완료하고 암호화 키를 다시 로드하려면 비밀번호를 입력하세요.",
@@ -532,7 +531,7 @@
     "settingUp": "클라우드 동기화 설정 중…",
     "settingUpDesc": "암호화 키를 업로드하고 동기화를 준비하는 중입니다.",
     "initialComplete": "초기 동기화 완료",
-    "initialCompleteDesc": "{{count}}개 항목이 동기화되었습니다.",
+    "initialCompleteDesc_other": "{{count}}개 항목이 동기화되었습니다.",
     "initialFailed": "초기 동기화 실패",
     "initialFailedDesc": "초기 동기화를 완료하지 못했습니다.",
     "savingEntry": "항목 저장 중…",
@@ -547,7 +546,7 @@
     "deletionFailed": "삭제 실패",
     "deletionFailedDesc": "저장소에서 항목을 삭제하지 못했습니다. 변경 사항이 되돌려질 수 있습니다.",
     "conflictDetected": "⚠️ 동기화 충돌 감지됨",
-    "conflictDetectedDesc": "동시 편집이 자동으로 해결되었습니다. {{count}}개의 충돌이 기록되었습니다.",
+    "conflictDetectedDesc_other": "동시 편집이 자동으로 해결되었습니다. {{count}}개의 충돌이 기록되었습니다.",
     "viewConflicts": "충돌 보기",
     "tooManyRequests": "요청이 너무 많음",
     "tooManyRequestsDesc": "클라우드 저장소가 요청을 너무 빠르게 받고 있습니다. 동기화가 자동으로 재시도됩니다.",
@@ -559,6 +558,7 @@
     "completeDesc": "일기장 데이터가 성공적으로 내보내졌습니다.",
     "myJournal": "내 개인 일기",
     "entries": "항목",
+    "entryCount_other": "{{count}}개 항목",
     "exportedOn": "내보낸 날짜",
     "mood": "기분",
     "tags": "태그"
@@ -663,7 +663,7 @@
       "noDownloads": "다운로드 필요 없음",
       "requiresInternet": "인터넷 연결 필요",
       "privacyNote": "개인정보 보호 안내",
-      "privacyDesc": "AI 기능을 사용하면 일기 내용이 분석을 위해 타사 AI 서비스로 안전하게 전송됩니다. 당사는 이 데이터를 서버에 저장하지 않습니다. AI 제공업체는 악용 모니터링을 위해 데이터를 일시적으로 보관할 수 있지만 모델 학습에는 사용하지 않습니다.",
+      "privacyDesc": "AI 기능을 사용하면 일기 내용이 분석을 위해 타사 AI 서비스로 안전하게 전송됩니다. 저희는 이 데이터를 서버에 저장하지 않습니다. AI 제공업체는 악용 모니터링을 위해 데이터를 일시적으로 보관할 수 있지만 모델 학습에는 사용하지 않습니다.",
       "manageSubscription": "관리",
       "portalError": "구독 관리를 열 수 없습니다",
       "portalErrorDesc": "나중에 다시 시도하세요."
@@ -762,6 +762,7 @@
     "maxTagsDesc": "항목당 최대 20개의 태그만 추가할 수 있습니다",
     "maxActivitiesReached": "활동 한도 도달",
     "maxActivitiesReachedDesc": "항목당 활동은 최대 20개까지 추가할 수 있습니다.",
+    "maxActivitiesSkippedDesc": "활동 한도(20개)에 도달하여 일부 활동이 추가되지 않았습니다.",
     "invalidTag": "잘못된 태그",
     "proFeature": "Plus 기능",
     "imageUploadPro": "이미지 업로드는 Plus 구독자만 사용할 수 있습니다.",
@@ -794,7 +795,7 @@
     "syncInProgress": "동기화 진행 중",
     "waitForSyncComplete": "암호화 모드를 변경하기 전에 현재 동기화가 완료될 때까지 기다리세요.",
     "pendingUploads": "대기 중인 업로드",
-    "pendingUploadsWarning": "{{count}}개의 항목이 아직 업로드 중입니다. 지금 연결을 해제하면 데이터가 손실될 수 있습니다. 계속하시겠습니까?",
+    "pendingUploadsWarning_other": "{{count}}개의 항목이 아직 업로드 중입니다. 지금 연결을 해제하면 데이터가 손실될 수 있습니다. 계속하시겠습니까?",
     "encryptionPassword": "암호화 및 비밀번호",
     "encryptionMode": "암호화 모드",
     "encryptionModeDesc": "동기화 중 일기 항목 보호 방법을 선택하세요",
@@ -833,7 +834,7 @@
     "resetAllDataWarning": "이렇게 하면 모든 일기 항목, 암호화 키 및 캐시된 비밀번호가 영구적으로 삭제됩니다. E2E 암호화를 사용하는 경우, 암호화 키가 파괴되므로 항목을 영구적으로 읽을 수 없게 됩니다.",
     "resetAllDataConfirm": "이 작업은 되돌릴 수 없습니다. 계속하시겠습니까?",
     "backupRecommendation": "계속하기 전에 백업을 생성하는 것을 강력히 권장합니다.",
-    "backupInstructions": "백업 방법: 프로필 아이콘(오른쪽 위) → 데이터 내보내기",
+    "backupInstructions": "백업하려면 프로필 아이콘(오른쪽 위)을 탭한 다음 '데이터 내보내기'를 선택하세요",
     "confirmReset": "확인하려면 DELETE를 입력하세요",
     "resetting": "초기화 중…",
     "resetButton": "모두 삭제",
@@ -844,9 +845,9 @@
     "syncing": "동기화 중…",
     "syncingDesc": "클라우드 저장소에 연결 중",
     "synced": "동기화됨",
-    "syncedDesc": "연결됨, 항목 로드됨",
+    "syncedDesc_other": "{{provider}}에 연결되었으며 항목 {{count}}개를 불러왔습니다.",
     "syncFailed": "동기화 실패",
-    "syncFailedDesc": "클라우드 저장소와 동기화하지 못했습니다.",
+    "syncFailedDesc": "{{provider}}와(과) 동기화하지 못했습니다.",
     "switchedToE2E": "E2E 모드로 전환됨",
     "switchedToE2EDesc": "항목을 복호화하려면 비밀번호를 입력하세요.",
     "disconnectedForE2E": "저장소 연결 해제됨",
@@ -875,7 +876,7 @@
     "conflictResolution": "• 동시 편집 시 자동 충돌 해결",
     "offlineSupport": "• 백그라운드 동기화로 완전한 오프라인 지원",
     "cannotSwitchMode": "암호화 모드 전환 불가",
-    "cannotSwitchModeDesc": "기존 항목이 {{count}}개 있습니다. 암호화 모드를 바꾸려면 먼저 모든 데이터를 삭제하세요.",
+    "cannotSwitchModeDesc_other": "기존 항목이 {{count}}개 있습니다. 암호화 모드를 바꾸려면 먼저 모든 데이터를 삭제하세요.",
     "cannotVerifyEntries": "항목 확인 불가",
     "cannotVerifyEntriesDesc": "먼저 비밀번호를 입력하거나 모든 데이터를 초기화하세요.",
     "passwordSaved": "비밀번호 저장됨",
@@ -888,7 +889,7 @@
     "clearPasswordConfirm": "이 기기에서 저장된 암호화 비밀번호가 제거됩니다. 다음에 앱을 열 때 다시 입력해야 합니다.\n\n암호화된 데이터에는 영향을 주지 않습니다.\n\n계속하시겠습니까?",
     "changePasswordConfirm": "정말 하시겠습니까?\n\n모든 항목을 이전 비밀번호로 복호화한 뒤 새 비밀번호로 다시 암호화합니다.\n\n새 비밀번호를 꼭 기억하세요. 분실 시 복구할 수 없습니다.\n\n계속하시겠습니까?",
     "confirmationRequiredDesc": "확인하려면 \"DELETE\"를 입력하세요.",
-    "finalConfirm": "최종 확인\n\n기기와 클라우드 저장소의 모든 일기 항목이 영구적으로 삭제됩니다.\n\n⚠️ 권장: 진행 전 백업을 만드세요!\n백업: 프로필 아이콘(오른쪽 위) → 데이터 내보내기\n\n정말 계속하시겠습니까?",
+    "finalConfirm": "최종 확인\n\n기기와 클라우드 저장소의 모든 일기 항목이 영구적으로 삭제됩니다.\n\n⚠️ 권장: 진행 전 백업을 만드세요!\n백업하려면 프로필 아이콘(오른쪽 위)을 탭한 다음 '데이터 내보내기'를 선택하세요.\n\n정말 계속하시겠습니까?",
     "passwordPersistenceChanged": "비밀번호 저장 방식이 변경됨",
     "passwordPersistenceError": "비밀번호 저장 설정을 업데이트하지 못했습니다",
     "passwordPersistence": {
@@ -1076,7 +1077,7 @@
     "encryptedEntriesNeedCloudDesc": "이전 동기화의 암호화된 항목이 있습니다. 암호화 비밀번호로 같은 클라우드 저장소에 다시 연결해 접근하세요.",
     "reconnectToAccessEntries": "암호화된 항목에 접근하려면 클라우드 저장소에 다시 연결하세요. E2E 암호화로 동기화되었으며 같은 저장소 연결이 필요합니다.",
     "migrateEntries": "암호화되지 않은 항목 마이그레이션",
-    "migrateEntriesDesc": "{{count}}개의 항목이 암호화되지 않았습니다. 완전한 보안을 위해 E2E 암호화로 마이그레이션하세요.",
+    "migrateEntriesDesc_other": "{{count}}개의 항목이 암호화되지 않았습니다. 완전한 보안을 위해 E2E 암호화로 마이그레이션하세요.",
     "migrationComplete": "마이그레이션 완료",
     "migrationCompleteDesc": "{{migrated}}개 항목 암호화됨. {{failed}}개 실패.",
     "migrated": "마이그레이션됨",
@@ -1206,8 +1207,8 @@
       "environmentDesc": "테스트 중에는 개발 환경, 출시된 앱에는 프로덕션을 사용하세요",
       "syncDesc": "암호화된 일기를 iCloud와 동기화하세요. 모든 Apple 기기에서 데이터가 비공개로 유지됩니다.",
       "detailsLabel": "세부 정보",
-      "signInWithAppleDesc": "iCloud를 연결하려면 Apple ID로 로그인하세요. 아래 버튼을 클릭하여 Apple 로그인 창을 여세요.",
-      "signInWithAppleButton": "Apple ID로 로그인",
+      "signInWithAppleDesc": "iCloud를 연결하려면 Apple 계정으로 로그인하세요. 아래 버튼을 클릭하여 Apple 로그인 창을 여세요.",
+      "signInWithAppleButton": "Apple로 로그인",
       "afterSignedInDesc": "팝업에서 로그인을 완료한 후 아래를 클릭하여 계속하세요.",
       "continueAfterSignIn": "로그인 완료 — 계속",
       "signInRequired": "로그인이 감지되지 않음",
@@ -1215,9 +1216,9 @@
       "popupBlocked": "로그인 창이 차단되었을 수 있습니다. 이 사이트의 팝업을 허용한 후 다시 시도하세요.",
       "signInLinkNotReady": "Apple 로그인이 아직 로딩 중입니다. 잠시 후 다시 시도하세요.",
       "originNotAllowed": "이 앱의 오리진({{origin}})이 iCloud에 등록되어 있지 않습니다.",
-      "adpNotice": "Apple ID에 고급 데이터 보호가 켜져 있으면 Apple이 앱 데이터에 대한 웹 접근을 차단하므로 브라우저에서 iCloud를 사용할 수 없습니다. iCloud는 iPhone 또는 iPad 앱에서 사용하거나, 이 브라우저에서 동기화하려면 Google 드라이브, Dropbox 또는 Nextcloud를 선택하세요.",
-      "signInWebAccessOff": "이 Apple ID는 iCloud 데이터에 대한 웹 접근이 꺼져 있다고 Apple이 알려왔습니다. iPhone의 설정 > 내 이름 > iCloud > iCloud.com에서 켠 다음 다시 시도하세요.",
-      "signInFailedAdp": "Apple이 iCloud 로그인을 완료하지 못했습니다. 보통 Apple ID에 고급 데이터 보호가 켜져 있는 경우이며, Apple은 이러한 계정이 브라우저에서 iCloud를 사용하는 것을 허용하지 않습니다. iCloud는 iPhone 또는 iPad 앱에서 사용하거나, 대신 Google 드라이브, Dropbox 또는 Nextcloud를 연결하세요."
+      "adpNotice": "Apple 계정에 고급 데이터 보호가 켜져 있으면 Apple이 앱 데이터에 대한 웹 접근을 차단하므로 브라우저에서 iCloud를 사용할 수 없습니다. iCloud는 iPhone 또는 iPad 앱에서 사용하거나, 이 브라우저에서 동기화하려면 Google 드라이브, Dropbox 또는 Nextcloud를 선택하세요.",
+      "signInWebAccessOff": "이 Apple 계정은 iCloud 데이터에 대한 웹 접근이 꺼져 있다고 Apple이 알려왔습니다. iPhone의 설정 > 내 이름 > iCloud > iCloud.com에서 켠 다음 다시 시도하세요.",
+      "signInFailedAdp": "Apple이 iCloud 로그인을 완료하지 못했습니다. 보통 Apple 계정에 고급 데이터 보호가 켜져 있는 경우이며, Apple은 이러한 계정이 브라우저에서 iCloud를 사용하는 것을 허용하지 않습니다. iCloud는 iPhone 또는 iPad 앱에서 사용하거나, 대신 Google 드라이브, Dropbox 또는 Nextcloud를 연결하세요."
     },
     "oauth": {
       "accessDenied": "인증이 취소되었거나 거부되었습니다.",
@@ -1255,7 +1256,7 @@
     "circuitBreakersActive": "임시 제한 활성화됨",
     "circuitBreakersActiveDesc": "반복적인 실패로 인해 일부 저장소 작업이 일시적으로 차단되었습니다. 시스템이 자동으로 복구됩니다.",
     "multipleRecentFailures": "다수의 최근 실패",
-    "multipleRecentFailuresDesc": "지난 5분 동안 {{count}}개의 동기화 시도가 실패했습니다. 연결 및 저장소 제공업체를 확인하세요.",
+    "multipleRecentFailuresDesc_other": "지난 5분 동안 {{count}}개의 동기화 시도가 실패했습니다. 연결 및 저장소 제공업체를 확인하세요.",
     "reduceFailures": "동기화 실패 줄이기",
     "reduceFailuresDesc": "인터넷 연결과 저장소 제공업체 자격 증명을 확인하세요. 문제가 지속되면 제공업체 변경을 고려하세요.",
     "reduceFailuresAction": "연결 확인",
@@ -1294,7 +1295,7 @@
     "overallHealth": "전체 상태",
     "healthScore": "상태 점수",
     "allSystemsNormal": "✓ 모든 시스템 정상",
-    "activeAlerts": "활성 알림({{count}})",
+    "activeAlerts_other": "활성 알림({{count}})",
     "excellent": "우수",
     "good": "양호",
     "warning": "경고",
@@ -1328,11 +1329,11 @@
     "frequentConflicts": "동기화 충돌 빈번",
     "frequentConflictsDesc": "동기화 100회당 {{rate}}건의 충돌이 감지되었습니다. 여러 기기에서 동시에 편집하고 있을 수 있습니다.",
     "recentConflictSpike": "최근 충돌 급증",
-    "recentConflictSpikeDesc": "최근 1시간 동안 {{count}}건의 충돌이 감지되었습니다. 여러 기기를 동시에 사용 중일 수 있습니다.",
+    "recentConflictSpikeDesc_other": "최근 1시간 동안 {{count}}건의 충돌이 감지되었습니다. 여러 기기를 동시에 사용 중일 수 있습니다.",
     "circuitBreakersActive": "동기화 보호 활성",
-    "circuitBreakersActiveDesc": "반복된 실패로 {{count}}개의 안전 일시정지가 활성화되었습니다. 동기화가 일시 중단됩니다.",
+    "circuitBreakersActiveDesc_other": "반복된 실패로 {{count}}개의 안전 일시정지가 활성화되었습니다. 동기화가 일시 중단됩니다.",
     "multipleRecentFailures": "최근 실패 다수",
-    "multipleRecentFailuresDesc": "최근 10회 작업 중 {{count}}회가 실패했습니다. 지속적인 문제를 나타냅니다.",
+    "multipleRecentFailuresDesc_other": "최근 10회 작업 중 {{count}}회가 실패했습니다. 지속적인 문제를 나타냅니다.",
     "reduceFailures": "동기화 실패 줄이기",
     "reduceFailuresDesc": "인터넷 연결과 클라우드 저장소 접근을 확인하세요. 네트워크가 불안정할 때는 자동 동기화를 잠시 끄는 것이 좋습니다.",
     "reduceFailuresAction": "진단 탭에서 자세한 오류 로그 확인",
@@ -1369,7 +1370,7 @@
     "circuitBreakers": "동기화 보호",
     "open": "열림",
     "closed": "닫힘",
-    "failures_count": "{{count}}회 실패",
+    "failures_count_other": "{{count}}회 실패",
     "reopens": "{{time}}에 다시 열림",
     "currentlyRetrying": "재시도 중",
     "recentOperations": "최근 작업",
@@ -1455,13 +1456,13 @@
     "need8Entries": "의미 있는 분석을 위해 선택한 기간에 최소 8개 항목이 필요합니다.",
     "needMore": "최소 8개 항목 필요",
     "need8": "최소 8개 항목 필요",
-    "entriesInPeriod": "이 기간 항목 {{count}}개",
-    "entriesAvailable": "분석 가능한 항목 {{count}}개",
+    "entriesInPeriod_other": "이 기간 항목 {{count}}개",
+    "entriesAvailable_other": "분석 가능한 항목 {{count}}개",
     "limitReached": "한도 도달",
     "analyzingEntries": "항목 분석 중",
-    "analyzingEntriesDesc": "인사이트를 생성하기 위해 {{count}}개 항목 분석 중…",
+    "analyzingEntriesDesc_other": "인사이트를 생성하기 위해 {{count}}개 항목 분석 중…",
     "analyzing": "분석 중…",
-    "analyzingCount": "먼저 {{count}}개 항목 분석 중…",
+    "analyzingCount_other": "먼저 {{count}}개 항목 분석 중…",
     "authRequired": "인증이 필요합니다",
     "authRequiredDesc": "AI 기능을 사용하려면 로그인하세요",
     "signInRequired": "AI 트렌드 분석을 사용하려면 로그인하세요.",
@@ -1490,7 +1491,7 @@
     "reflection": "마무리 회고",
     "lastAnalyzed": "마지막 분석: {{date}}",
     "analyzedAt": "{{date}}에 분석됨",
-    "entriesAnalyzed": "{{count}}개 항목 분석됨",
+    "entriesAnalyzed_other": "{{count}}개 항목 분석됨",
     "reAnalyze": "다시 분석",
     "selectDifferentPeriod": "다른 기간 선택",
     "show": "표시",
@@ -1534,11 +1535,11 @@
     "share": "공유",
     "shareFile": "파일 공유",
     "exportSuccess": "내보내기 성공",
-    "exportSuccessDesc": "{{count}}개 항목을 {{format}} 형식으로 내보냈습니다",
+    "exportSuccessDesc_other": "{{count}}개 항목을 {{format}} 형식으로 내보냈습니다",
     "exportError": "내보내기 실패",
     "exportErrorDesc": "{{format}} 파일을 생성하지 못했습니다. 다시 시도하세요.",
     "upgradePrompt": "Plus로 업그레이드하여 내보내기 기능 잠금 해제",
-    "entriesReady": "{{count}}개 항목을 내보낼 준비가 되었습니다.",
+    "entriesReady_other": "{{count}}개 항목을 내보낼 준비가 되었습니다.",
     "unavailableNative": "문서 내보내기는 이 앱 버전에서 사용할 수 없습니다."
   },
   "subscription": {
@@ -1576,8 +1577,7 @@
       "tagSuggestions": "스마트 태그 제안",
       "trendAnalysis": "기분 및 트렌드 인사이트",
       "voiceEntry": "음성 입력",
-      "exports": "PDF/Word 내보내기",
-      "imageUpload": "사진 추억"
+      "exports": "PDF/Word 내보내기"
     },
     "trialCta": "무료 체험 시작",
     "trialPricing": "14일 무료, 이후 {{yearlyPrice}}/년",
@@ -1611,7 +1611,7 @@
     "disclosureTitle": "OwnJournal Plus — 연간 구독",
     "disclosureLength": "1년 자동 갱신 구독.",
     "priceWithMonthly": "{{yearlyPrice}}/년(약 {{monthlyEquivalent}}/월)",
-    "renewalApple": "구매 확인 시 Apple ID로 결제됩니다. 현재 기간 종료 최소 24시간 전에 자동 갱신을 끄지 않는 한, 구독은 동일한 가격으로 자동 갱신됩니다. 구매 후 App Store 계정 설정에서 구독을 관리하고 취소할 수 있습니다.",
+    "renewalApple": "구매 확인 시 Apple 계정으로 결제됩니다. 현재 기간 종료 최소 24시간 전에 자동 갱신을 끄지 않는 한, 구독은 동일한 가격으로 자동 갱신됩니다. 구매 후 App Store 계정 설정에서 구독을 관리하고 취소할 수 있습니다.",
     "renewalGoogle": "구매 확인 시 Google Play 계정으로 결제됩니다. 현재 기간 종료 최소 24시간 전에 Google Play 구독에서 취소하지 않는 한, 구독은 동일한 가격으로 자동 갱신됩니다.",
     "iapOnly": {
       "title": "앱에서 이용 가능",
@@ -1709,12 +1709,12 @@
     "monthlyLimitReachedDescTags": "태그 생성 한도에 도달했습니다. 다음 달에 초기화됩니다.",
     "monthlyLimitReachedDescTitle": "제목 생성 한도에 도달했습니다. 다음 달에 초기화됩니다.",
     "tagsApplied": "태그 적용됨",
-    "tagsAppliedDesc": "{{count}}개의 AI 생성 태그가 추가되었습니다",
+    "tagsAppliedDesc_other": "{{count}}개의 AI 생성 태그가 추가되었습니다",
     "suggestedActivities": "추천 활동",
     "applyTags": "태그 적용",
     "applyActivities": "활동 적용",
     "activitiesApplied": "활동 추가됨",
-    "activitiesAppliedDesc": "추천 활동 {{count}}개를 추가했습니다",
+    "activitiesAppliedDesc_other": "추천 활동 {{count}}개를 추가했습니다",
     "removeActivity": "추천에서 제거",
     "titleApplied": "제목 적용됨",
     "titleAppliedDesc": "AI 생성 제목이 적용되었습니다",
@@ -2010,7 +2010,7 @@
         "saveLocationTitle": "파일이 어디에 저장되나요?",
         "saveLocationMobile": "모바일(Android/iOS): 파일이 기기의 Documents/ 폴더에 저장됩니다. 다른 위치에 저장하거나 이메일로 보내기 위한 공유 버튼이 있는 알림이 표시됩니다.",
         "saveLocationWeb": "웹 브라우저: 파일이 브라우저의 기본 다운로드 폴더에 자동으로 다운로드됩니다.",
-        "shareHint": "모바일에서는 알림의 공유 버튼을 눌러 다른 저장 위치를 선택하거나 파일을 공유할 수 있습니다."
+        "shareHint": "모바일에서는 알림의 공유 버튼을 탭하여 다른 저장 위치를 선택하거나 파일을 공유할 수 있습니다."
       },
       "offlineBackup": {
         "title": "오프라인 백업",
@@ -2095,7 +2095,7 @@
         "title": "동기화가 작동하지 않음",
         "intro": "다음 단계를 시도하세요:",
         "tip1": "인터넷 연결을 확인하세요",
-        "tip2": "동기화 버튼을 수동으로 클릭해 보세요",
+        "tip2": "동기화 버튼을 수동으로 탭해 보세요",
         "tip3": "클라우드 저장소 연결을 해제하고 다시 연결하세요"
       },
       "passwordRecovery": {
@@ -2144,7 +2144,7 @@
       },
       "cancelSubscription": {
         "question": "구독을 어떻게 취소하나요?",
-        "answer": "설정을 열고 계정 탭으로 이동한 다음 구독 섹션까지 스크롤하여 '관리'를 클릭하면 결제 포털이 열립니다. '플랜 취소'를 클릭하여 구독을 중지하세요. 현재 결제 기간이 끝날 때까지 Plus 기능을 계속 이용할 수 있습니다. 핵심 일기 기능은 영원히 무료입니다."
+        "answer": "설정을 열고 계정 탭으로 이동한 다음 구독 섹션까지 스크롤하여 '관리'를 클릭하면 결제 포털이 열리며, 여기에서 요금제를 취소할 수 있습니다. 현재 결제 기간이 끝날 때까지 Plus 기능을 계속 이용할 수 있습니다. 핵심 일기 기능은 영원히 무료입니다."
       }
     }
   },
@@ -2170,7 +2170,7 @@
       },
       "description": {
         "title": "2. 서비스 설명",
-        "content": "OwnJournal은 {{companyCountry}}에 등록된 회사인 {{companyName}}가 운영하는 개인 일기 애플리케이션입니다. 웹, iOS, Android 및 데스크톱에서 일기 항목을 만들고, 저장하고, 검색하고, 분석할 수 있습니다. 기기 간 동기화를 위해 자체 클라우드 저장소(Google Drive, Dropbox, Nextcloud 또는 iCloud Drive)를 사용하거나, 로컬 저장소를 사용하여 애플리케이션을 완전히 오프라인으로 사용할 수 있습니다. 당사는 종단 간 암호화(E2E)와 종단 간 암호화 없는 단순 모드를 제공합니다. Plus 구독자는 기분 분석 및 제안과 같은 선택적 AI 기반 기능을 이용할 수 있습니다."
+        "content": "OwnJournal은 {{companyCountry}}에 등록된 회사인 {{companyName}}가 운영하는 개인 일기 애플리케이션입니다. 웹, iOS, Android 및 데스크톱에서 일기 항목을 만들고, 저장하고, 검색하고, 분석할 수 있습니다. 기기 간 동기화를 위해 자체 클라우드 저장소(Google 드라이브, Dropbox, Nextcloud 또는 iCloud Drive)를 사용하거나, 로컬 저장소를 사용하여 애플리케이션을 완전히 오프라인으로 사용할 수 있습니다. 당사는 종단 간 암호화(E2E)와 종단 간 암호화 없는 단순 모드를 제공합니다. Plus 구독자는 기분 분석 및 제안과 같은 선택적 AI 기반 기능을 이용할 수 있습니다."
       },
       "accounts": {
         "title": "3. 사용자 계정",
@@ -2178,7 +2178,7 @@
       },
       "dataStorage": {
         "title": "8. 데이터 저장 및 개인정보 보호",
-        "content": "일기 항목은 귀하가 선택한 클라우드 저장소 제공업체(Google Drive, Dropbox, Nextcloud 또는 iCloud Drive)에 저장되며, 당사 서버에는 저장되지 않습니다. E2E 암호화가 활성화되면 데이터는 기기를 떠나기 전에 기기에서 암호화되며, 당사는 암호화된 콘텐츠에 접근할 수 없습니다. 단순 모드에서는 데이터가 종단 간 암호화 없이 동기화됩니다. 개인정보 처리에 관한 사항은 당사의 개인정보 처리방침에 설명되어 있습니다."
+        "content": "일기 항목은 귀하가 선택한 클라우드 저장소 제공업체(Google 드라이브, Dropbox, Nextcloud 또는 iCloud Drive)에 저장되며, 당사 서버에는 저장되지 않습니다. E2E 암호화가 활성화되면 데이터는 기기를 떠나기 전에 기기에서 암호화되며, 당사는 암호화된 콘텐츠에 접근할 수 없습니다. 단순 모드에서는 데이터가 종단 간 암호화 없이 동기화됩니다. 개인정보 처리에 관한 사항은 당사의 개인정보 처리방침에 설명되어 있습니다."
       },
       "intellectualProperty": {
         "title": "7. 지적 재산권",
@@ -2198,7 +2198,7 @@
       },
       "contact": {
         "title": "14. 연락처",
-        "content": "본 약관에 대한 문의 사항은 {{companyEmail}}로 연락해 주십시오."
+        "content": "본 약관에 대한 문의 사항은 {{companyEmail}}(으)로 연락해 주십시오."
       },
       "governingLaw": {
         "title": "15. 준거법",
@@ -2206,11 +2206,11 @@
       },
       "subscriptions": {
         "title": "4. 구독, 결제 및 취소",
-        "content": "OwnJournal은 자동 갱신 구독으로 판매되는 선택적 유료 요금제(\"Plus\")를 제공합니다. Apple App Store(iOS)에서는 구독 요금이 귀하의 Apple ID를 통해 청구되며 App Store 계정 설정에서 구독을 관리합니다. 결제 금액은 구매 확인 시 귀하의 Apple ID로 청구됩니다. 구독은 현재 기간 종료 최소 24시간 전에 자동 갱신을 끄지 않는 한 자동으로 갱신됩니다. 갱신 요금은 현재 기간 종료 전 24시간 이내에 계정으로 청구됩니다. 취소는 현재 결제 기간이 끝날 때 효력이 발생하며, 유료 구독을 시작하면 무료 체험의 남은 기간은 소멸됩니다. Google Play(Android)에서는 구독 요금이 Google Play 계정을 통해 청구되며 Google Play 구독 설정에서 구독을 관리합니다. 동일한 자동 갱신 및 취소 원칙이 적용됩니다. 웹에서는 구독 요금이 Stripe를 통해 청구되며 OwnJournal 내 계정 설정에서 구독을 관리합니다. 가격은 지원되는 경우 현지 통화로 표시되며 해당 세금이 포함되어 있습니다. 무료 체험이 제공되는 경우, 체험 기간이 끝나기 전에 취소하지 않으면 체험 종료 시 자동으로 유료 구독으로 전환됩니다."
+        "content": "OwnJournal은 자동 갱신 구독으로 판매되는 선택적 유료 요금제(\"Plus\")를 제공합니다. Apple App Store(iOS)에서는 구독 요금이 귀하의 Apple 계정을 통해 청구되며 App Store 계정 설정에서 구독을 관리합니다. 결제 금액은 구매 확인 시 귀하의 Apple 계정으로 청구됩니다. 구독은 현재 기간 종료 최소 24시간 전에 자동 갱신을 끄지 않는 한 자동으로 갱신됩니다. 갱신 요금은 현재 기간 종료 전 24시간 이내에 계정으로 청구됩니다. 취소는 현재 결제 기간이 끝날 때 효력이 발생하며, 유료 구독을 시작하면 무료 체험의 남은 기간은 소멸됩니다. Google Play(Android)에서는 구독 요금이 Google Play 계정을 통해 청구되며 Google Play 구독 설정에서 구독을 관리합니다. 동일한 자동 갱신 및 취소 원칙이 적용됩니다. 웹에서는 구독 요금이 Stripe를 통해 청구되며 OwnJournal 내 계정 설정에서 구독을 관리합니다. 가격은 지원되는 경우 현지 통화로 표시되며 해당 세금이 포함되어 있습니다. 무료 체험이 제공되는 경우, 체험 기간이 끝나기 전에 취소하지 않으면 체험 종료 시 자동으로 유료 구독으로 전환됩니다."
       },
       "withdrawal": {
         "title": "5. 철회권(EU/EEA 소비자)",
-        "content": "귀하가 유럽연합, 유럽경제지역 또는 동등한 권리를 부여하는 다른 관할권의 소비자인 경우, 당사 웹사이트(Stripe를 통해)에서 구매한 유료 구독을 이유를 제시하지 않고 14일 이내에 철회할 권리가 있습니다. 이 기간은 계약 체결일에 시작됩니다. 이 권리를 행사하려면 14일 이내에 {{companyEmail}}로 연락하시면 구독 금액을 환불해 드립니다. 14일 철회 기간이 만료되기 전에 유료 서비스 사용을 시작하기로 선택함으로써 귀하는 즉시 이행을 명시적으로 요청하고, 서비스가 완전히 제공된 후에는 철회권을 잃는 것을 인정합니다. 서비스가 부분적으로 제공된 경우, 당사는 귀하가 서비스를 사용한 부분에 비례하는 금액을 보유할 수 있습니다. Apple App Store 또는 Google Play를 통해 이루어진 구매의 경우, 환불 요청은 Apple 또는 Google이 각자의 정책에 따라 처리하며, 위에서 설명한 철회권은 해당 구매에 적용되지 않습니다."
+        "content": "귀하가 유럽연합, 유럽경제지역 또는 동등한 권리를 부여하는 다른 관할권의 소비자인 경우, 당사 웹사이트(Stripe를 통해)에서 구매한 유료 구독을 이유를 제시하지 않고 14일 이내에 철회할 권리가 있습니다. 이 기간은 계약 체결일에 시작됩니다. 이 권리를 행사하려면 14일 이내에 {{companyEmail}}(으)로 연락하시면 구독 금액을 환불해 드립니다. 14일 철회 기간이 만료되기 전에 유료 서비스 사용을 시작하기로 선택함으로써 귀하는 즉시 이행을 명시적으로 요청하고, 서비스가 완전히 제공된 후에는 철회권을 잃는 것을 인정합니다. 서비스가 부분적으로 제공된 경우, 당사는 귀하가 서비스를 사용한 부분에 비례하는 금액을 보유할 수 있습니다. Apple App Store 또는 Google Play를 통해 이루어진 구매의 경우, 환불 요청은 Apple 또는 Google이 각자의 정책에 따라 처리하며, 위에서 설명한 철회권은 해당 구매에 적용되지 않습니다."
       },
       "acceptableUse": {
         "title": "6. 허용되는 사용",
@@ -2234,7 +2234,7 @@
       },
       "dataController": {
         "title": "개인정보 컨트롤러",
-        "content": "OwnJournal의 개인정보 컨트롤러는 {{companyName}}입니다. 개인정보 보호 관련 문의는 {{companyEmail}}로 연락해 주십시오."
+        "content": "OwnJournal의 개인정보 컨트롤러는 {{companyName}}입니다. 개인정보 보호 관련 문의는 {{companyEmail}}(으)로 연락해 주십시오."
       },
       "collection": {
         "title": "수집하는 정보",
@@ -2246,7 +2246,7 @@
       },
       "storage": {
         "title": "데이터 저장",
-        "content": "일기 항목은 귀하가 선택한 클라우드 저장소 제공업체(Google Drive, Dropbox, Nextcloud 또는 iCloud Drive)에 저장되며, 당사 서버에는 저장되지 않습니다. 데이터 저장 위치는 귀하가 완전히 통제합니다. 당사 서버(당사의 인증 및 데이터베이스 백엔드를 통해 운영됨)에는 서비스 운영에 필요한 정보만 저장합니다: 귀하의 인증 세부 정보, 표시 이름, 저장소 제공업체 선택, 암호화 설정 상태, 구독 상태, 당사의 결제 처리업체(Stripe)가 귀하의 구독을 관리하는 데 사용하는 식별자, 그리고 사용자별 AI 기능 사용 카운터입니다. 결제는 당사의 결제 제공업체(웹은 Stripe, iOS는 Apple In-App Purchase, Android는 Google Play Billing)에서 처리하며, 결제 카드의 전체 정보는 당사 서버에 저장되지 않습니다."
+        "content": "일기 항목은 귀하가 선택한 클라우드 저장소 제공업체(Google 드라이브, Dropbox, Nextcloud 또는 iCloud Drive)에 저장되며, 당사 서버에는 저장되지 않습니다. 데이터 저장 위치는 귀하가 완전히 통제합니다. 당사 서버(당사의 인증 및 데이터베이스 백엔드를 통해 운영됨)에는 서비스 운영에 필요한 정보만 저장합니다: 귀하의 인증 세부 정보, 표시 이름, 저장소 제공업체 선택, 암호화 설정 상태, 구독 상태, 당사의 결제 처리업체(Stripe)가 귀하의 구독을 관리하는 데 사용하는 식별자, 그리고 사용자별 AI 기능 사용 카운터입니다. 결제는 당사의 결제 제공업체(웹은 Stripe, iOS는 Apple In-App Purchase, Android는 Google Play Billing)에서 처리하며, 결제 카드의 전체 정보는 당사 서버에 저장되지 않습니다."
       },
       "encryption": {
         "title": "종단 간 암호화",
@@ -2258,7 +2258,7 @@
       },
       "thirdParty": {
         "title": "제3자 서비스",
-        "content": "당사는 다음 제3자 서비스와 연동하며, 각 서비스는 자체 약관과 개인정보 처리 관행에 따라 운영됩니다: 귀하 계정으로의 동기화를 위한 클라우드 저장소 제공업체(Google Drive, Dropbox, Nextcloud, iCloud Drive), 안전한 로그인을 위한 인증 서비스(Google, Apple) 및 당사 인증 백엔드, 구독 처리를 위한 결제 제공업체(웹은 Stripe, iOS는 Apple In-App Purchase, Android는 Google Play Billing), 그리고 귀하가 선택적 AI 기능을 사용하기로 한 경우의 AI 서비스 제공업체(Google Gemini)."
+        "content": "당사는 다음 제3자 서비스와 연동하며, 각 서비스는 자체 약관과 개인정보 처리 관행에 따라 운영됩니다: 귀하 계정으로의 동기화를 위한 클라우드 저장소 제공업체(Google 드라이브, Dropbox, Nextcloud, iCloud Drive), 안전한 로그인을 위한 인증 서비스(Google, Apple) 및 당사 인증 백엔드, 구독 처리를 위한 결제 제공업체(웹은 Stripe, iOS는 Apple In-App Purchase, Android는 Google Play Billing), 그리고 귀하가 선택적 AI 기능을 사용하기로 한 경우의 AI 서비스 제공업체(Google Gemini)."
       },
       "syncIdentifier": {
         "title": "동기화 및 기기 식별자",
@@ -2266,7 +2266,7 @@
       },
       "aiProcessing": {
         "title": "AI 기능 및 처리",
-        "content": "OwnJournal은 기분 분석, 제안, 음성 입력 등 선택적인 AI 기반 기능을 Plus 구독자 전용으로 제공합니다. AI 처리는 Plus 구독자인 귀하가 이러한 기능을 명시적으로 사용할 때만 이루어집니다. 텍스트 기반 AI 기능을 사용하면 해당 텍스트가 먼저 귀하의 기기에서 복호화된 후, 귀하의 명시적인 조작에 따라 현재 당사의 AI 제공업체인 Google(Gemini)에 유료 API를 통해 전송됩니다. 음성 입력을 사용하면 기기의 마이크는 녹음하는 동안에만 사용됩니다. 녹음은 텍스트 변환을 위해 Google(Gemini)로 전송되며, 변환된 텍스트는 귀하의 기기에서 항목에 추가됩니다. 당사는 음성 녹음과 변환된 텍스트를 포함한 AI 입력 및 출력을 당사 서버에 저장하지 않으며, 공정 사용 한도를 적용하기 위해 사용자별 AI 기능 사용 카운터만 기록합니다. 이 카운터에는 수행된 분석 유형과 타임스탬프, 음성 입력의 경우 초 단위 녹음 길이가 기록되며, 내용은 절대 포함되지 않습니다. Google은 현행 정책에 따라 악용 모니터링 및 정책 집행을 위해 프롬프트와 출력을 제한된 기간 동안 보관할 수 있습니다. AI 처리는 유럽경제지역(EEA) 밖에서 이루어질 수 있으며, Google은 표준계약조항(SCC) 등 개인정보 국외 이전을 위한 적정한 안전조치를 마련하고 있습니다. 당사는 Google AI 서비스의 유료 요금제를 이용하며, 이 요금제에서는 프롬프트와 출력이 Google 모델의 학습이나 개선에 사용되지 않습니다. 귀하는 AI 기능을 사용하지 않기로 선택할 수 있으며, 그렇게 해도 핵심 일기 기능에는 영향이 없습니다."
+        "content": "OwnJournal은 기분 분석, 제안, 음성 입력 등 선택적인 AI 기반 기능을 Plus 구독자 전용으로 제공합니다. AI 처리는 Plus 구독자인 귀하가 이러한 기능을 명시적으로 사용할 때만 이루어집니다. 텍스트 기반 AI 기능을 사용하면 해당 텍스트가 먼저 귀하의 기기에서 복호화된 후, 귀하의 명시적인 조작에 따라 당사 서버를 거쳐 현재 당사의 AI 제공업체인 Google(Gemini)에 유료 API를 통해 전송됩니다. 음성 입력을 사용하면 기기의 마이크는 녹음하는 동안에만 사용됩니다. 녹음은 텍스트 변환을 위해 당사 서버를 거쳐 Google(Gemini)로 전송되며, 변환된 텍스트는 귀하의 기기에서 항목에 추가됩니다. 당사는 음성 녹음과 변환된 텍스트를 포함한 AI 입력 및 출력을 당사 서버에 저장하지 않으며, 공정 사용 한도를 적용하기 위해 사용자별 AI 기능 사용 카운터만 기록합니다. 이 카운터에는 수행된 분석 유형과 타임스탬프, 음성 입력의 경우 초 단위 녹음 길이가 기록되며, 내용은 절대 포함되지 않습니다. Google은 현행 정책에 따라 악용 모니터링 및 정책 집행을 위해 프롬프트와 출력을 제한된 기간 동안 보관할 수 있습니다. AI 처리는 유럽경제지역(EEA) 밖에서 이루어질 수 있으며, Google은 표준계약조항(SCC) 등 개인정보 국외 이전을 위한 적정한 안전조치를 마련하고 있습니다. 당사는 Google AI 서비스의 유료 요금제를 이용하며, 이 요금제에서는 프롬프트와 출력이 Google 모델의 학습이나 개선에 사용되지 않습니다. 귀하는 AI 기능을 사용하지 않기로 선택할 수 있으며, 그렇게 해도 핵심 일기 기능에는 영향이 없습니다."
       },
       "diagnostics": {
         "title": "진단 및 크래시 로그",
@@ -2278,7 +2278,7 @@
       },
       "accountDeletion": {
         "title": "계정 삭제",
-        "content": "앱의 설정을 통해 또는 {{companyEmail}}로 문의하여 언제든지 계정을 삭제할 수 있습니다. 계정 삭제는 프로필, 구독, AI 사용 카운터 및 인증 데이터를 당사 시스템에서 제거합니다. 클라우드 저장소의 일기 데이터는 귀하의 관리하에 남아 있으며 귀하가 직접 삭제할 수 있습니다."
+        "content": "앱의 설정을 통해 또는 {{companyEmail}}(으)로 문의하여 언제든지 계정을 삭제할 수 있습니다. 계정 삭제는 프로필, 구독, AI 사용 카운터 및 인증 데이터를 당사 시스템에서 제거합니다. 클라우드 저장소의 일기 데이터는 귀하의 관리하에 남아 있으며 귀하가 직접 삭제할 수 있습니다."
       },
       "legalBasis": {
         "title": "처리의 법적 근거",
@@ -2286,11 +2286,11 @@
       },
       "dpo": {
         "title": "개인정보 보호책임자(DPO)",
-        "content": "당사는 현재 운영 방식상 GDPR 제37조에 따른 개인정보 보호책임자 지정 의무가 없으므로 개인정보 보호책임자를 지정하지 않았습니다. OwnJournal은 일기 콘텐츠를 당사 서버에서 처리하거나 저장하지 않으며, 당사의 처리는 최소한의 계정, 인증 및 구독 정보로 제한됩니다. 일기 콘텐츠는 종단 간 암호화된 상태로 사용자의 통제하에 있습니다. 처리 활동이 변경되면 이 의무를 다시 검토하겠습니다."
+        "content": "당사는 현재 운영 방식상 GDPR 제37조에 따른 개인정보 보호책임자 지정 의무가 없으므로 개인정보 보호책임자를 지정하지 않았습니다. OwnJournal은 일기 콘텐츠를 당사 서버에 저장하지 않습니다. 귀하가 선택적 AI 기능을 사용하는 경우, 해당 텍스트나 녹음은 당사의 AI 제공업체로 전송되는 과정에서만 당사 서버를 거치며 보관되지 않습니다. 그 밖에 당사의 처리는 최소한의 계정, 인증 및 구독 정보로 제한됩니다. 일기 콘텐츠는 종단 간 암호화된 상태로 사용자의 통제하에 있습니다. 처리 활동이 변경되면 이 의무를 다시 검토하겠습니다."
       },
       "rights": {
         "title": "귀하의 권리",
-        "content": "GDPR 및 이와 유사한 개인정보 보호법에 따라 귀하는 다음 권리를 가집니다: 개인정보 열람, 개인정보 내보내기(이동권), 부정확한 개인정보의 정정, 개인정보 삭제(삭제권), 처리 제한, 처리 반대, 관할 개인정보 감독기관에 민원 제기. EU 거주자는 자국의 감독기관에 연락할 수 있습니다. {{companyCountry}}의 감독기관은 {{supervisoryAuthority}}({{supervisoryAuthorityUrl}})입니다. 이러한 권리를 행사하려면 {{companyEmail}}로 문의하십시오."
+        "content": "GDPR 및 이와 유사한 개인정보 보호법에 따라 귀하는 다음 권리를 가집니다: 개인정보 열람, 개인정보 내보내기(이동권), 부정확한 개인정보의 정정, 개인정보 삭제(삭제권), 처리 제한, 처리 반대, 관할 개인정보 감독기관에 민원 제기. EU 거주자는 자국의 감독기관에 연락할 수 있습니다. {{companyCountry}}의 감독기관은 {{supervisoryAuthority}}({{supervisoryAuthorityUrl}})입니다. 이러한 권리를 행사하려면 {{companyEmail}}(으)로 문의하십시오."
       },
       "children": {
         "title": "아동 개인정보 보호",
@@ -2302,7 +2302,7 @@
       },
       "contact": {
         "title": "문의하기",
-        "content": "본 개인정보 처리방침에 대해 질문이 있거나, 개인정보 관련 권리를 행사하고 싶거나, 우려 사항이 있으면 {{companyEmail}}로 문의하십시오. 30일 이내에 답변드리는 것을 목표로 합니다."
+        "content": "본 개인정보 처리방침에 대해 질문이 있거나, 개인정보 관련 권리를 행사하고 싶거나, 우려 사항이 있으면 {{companyEmail}}(으)로 문의하십시오. 30일 이내에 답변드리는 것을 목표로 합니다."
       },
       "localStorage": {
         "title": "쿠키 및 로컬 저장소",
@@ -2323,8 +2323,8 @@
     "title": "암호화된 항목 복구",
     "description": "일부 항목을 복호화할 수 없습니다.",
     "decryptionFailures": "일부 항목을 복호화할 수 없음",
-    "decryptionFailuresDesc": "{{total}}개 중 {{count}}개 항목이 복호화에 실패했습니다. 비밀번호가 변경되었을 수 있습니다.",
-    "failedEntries": "{{total}}개 중 {{count}}개 항목이 복호화에 실패했습니다",
+    "decryptionFailuresDesc_other": "{{total}}개 중 {{count}}개 항목이 복호화에 실패했습니다. 비밀번호가 변경되었을 수 있습니다.",
+    "failedEntries_other": "{{total}}개 중 {{count}}개 항목이 복호화에 실패했습니다",
     "explanation": "이는 일반적으로 암호화 비밀번호가 변경되었을 때 발생합니다. 항목을 복구하려면 원래 비밀번호를 입력하세요.",
     "originalPassword": "원래 암호화 비밀번호",
     "passwordPlaceholder": "원래 비밀번호 입력…",
@@ -2336,10 +2336,10 @@
     "recoverButton": "항목 복구",
     "recovering": "복구 중…",
     "success": "복구 성공",
-    "successDesc": "{{count}}개 항목을 복구했습니다",
+    "successDesc_other": "{{count}}개 항목을 복구했습니다",
     "failed": "복구 실패: {{error}}",
     "wrongPassword": "비밀번호가 올바르지 않습니다. 원래 암호화 비밀번호로 다시 시도하세요.",
-    "keyCorrupted": "연결된 모든 제공업체의 암호화 키로 항목을 복호화할 수 없습니다. Google Drive를 사용한 경우 OwnJournal 폴더의 encryption-key.json 이전 버전을 버전 기록에서 확인하세요.",
+    "keyCorrupted": "연결된 모든 제공업체의 암호화 키로 항목을 복호화할 수 없습니다. Google 드라이브를 사용한 경우 OwnJournal 폴더의 encryption-key.json 이전 버전을 버전 기록에서 확인하세요.",
     "noCloudKey": "클라우드 저장소에서 암호화 키를 찾을 수 없습니다. 데이터가 삭제되었을 수 있습니다.",
     "unknownError": "알 수 없는 오류가 발생했습니다",
     "entriesWithoutKey": "클라우드 저장소에 암호화된 항목이 있지만 암호화 키가 없습니다. 접근을 복원하려면 복구 옵션을 사용하세요.",
@@ -2347,10 +2347,10 @@
     "networkError": "네트워크 오류입니다. 연결을 확인하고 다시 시도하세요.",
     "rateLimited": "클라우드 저장소가 일시적으로 요청을 제한하고 있습니다. 30~60초 후에 다시 시도하세요.",
     "deleteLink": "또는 복구할 수 없는 항목을 영구 삭제",
-    "confirmDelete": "복호화할 수 없는 {{count}}개 항목이 영구적으로 삭제됩니다. 이 작업은 되돌릴 수 없습니다.",
+    "confirmDelete_other": "복호화할 수 없는 {{count}}개 항목이 영구적으로 삭제됩니다. 이 작업은 되돌릴 수 없습니다.",
     "confirmDeleteButton": "영구 삭제",
     "deletedTitle": "항목 제거됨",
-    "deletedDesc": "복구할 수 없는 {{count}}개 항목 제거됨",
+    "deletedDesc_other": "복구할 수 없는 {{count}}개 항목 제거됨",
     "deleteFailed": "항목 제거에 실패했습니다. 다시 시도하세요.",
     "keyMismatchExplanation": "이 항목들을 복호화할 수 있는 암호화 키가 현재 사용 중인 키와 일치하지 않습니다. 클라우드에서 키를 다시 불러올 수 있습니다.",
     "keyMismatchRecoveryHint": "클라우드 저장소의 버전 기록에서 원래 키를 복구할 수 있을 수도 있습니다(예: OwnJournal 폴더의 encryption-key.json에 대한 Google 드라이브 또는 Nextcloud 파일 버전).",
@@ -2450,8 +2450,7 @@
     "topNegative": "{{activity}}은(는) 낮은 기분과 관련이 있습니다",
     "proFeature": "Plus 기능",
     "proFeatureDesc": "활동 분석은 Plus 구독이 필요합니다",
-    "tooltipAvg": "평균",
-    "tooltipEntries": "편"
+    "tooltipDetail_other": "{{delta}} (평균: {{emoji}} {{avg}}, 항목 {{count}}개)"
   },
   "notes": {
     "journalTab": "일기",

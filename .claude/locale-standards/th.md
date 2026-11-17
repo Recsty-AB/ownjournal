@@ -8,6 +8,7 @@ The scope is the app's UI, Help, paywall and privacy/legal strings in `src/i18n/
 - Google Gboard / Android Thai UI: "การพิมพ์ด้วยเสียง" (voice typing), "การป้อนข้อมูลด้วยเสียง" (voice input)
 - Thailand PDPA (พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562): ss. 19 (ถอนความยินยอม), 24 (ฐานทางกฎหมาย, ประโยชน์โดยชอบด้วยกฎหมาย), 28–29 (ส่งหรือโอนข้อมูลไปต่างประเทศ, มาตรฐานการคุ้มครองที่เพียงพอ, มาตรการคุ้มครองที่เหมาะสม), 30–36 (data-subject rights): https://www.bangkokbiznews.com/news/news-update/1115730
 - Royal Institute (ราชบัณฑิตยสถาน) spacing rule for ๆ and the spelling สิทธิ
+- Apple Support (th-th): glossary "บัญชี Apple" https://support.apple.com/th-th/guide/assistive-access-iphone/aside/glosbdc8e694/26/ios/26 , "ลงชื่อเข้าด้วย Apple บน iPhone" https://support.apple.com/th-th/guide/iphone/iph238921d37/ios , "ลงชื่อเข้าด้วย Apple คืออะไร" https://support.apple.com/th-th/102609
 
 ## Register and address (owner decision, both repos)
 - **One address form everywhere: the user is คุณ** in app UI, website product pages and all legal text. Questions written in the user's voice (FAQ) stay neutral, without ฉัน: "ข้อมูลบันทึกเก็บไว้ที่ไหน?".
@@ -15,6 +16,7 @@ The scope is the app's UI, Help, paywall and privacy/legal strings in `src/i18n/
 - No ครับ/ค่ะ particles in UI.
 - Polite requests use **กรุณา**, never โปรด.
 - Sign-in is **เข้าสู่ระบบ** everywhere, including "เข้าสู่ระบบด้วยบัญชี Google". Never ลงชื่อเข้าใช้.
+- Sole exception: Apple's branded button "Sign in with Apple" uses Apple's official Thai name **ลงชื่อเข้าด้วย Apple** (Apple requires its own button wording). Body text around it still says เข้าสู่ระบบ.
 
 ## Glossary (term → preferred → avoid); one term per concept in both repos
 | English | Thai | Avoid / note |
@@ -38,7 +40,7 @@ The scope is the app's UI, Help, paywall and privacy/legal strings in `src/i18n/
 | Not now | ไว้ทีหลัง | ไม่ใช่ตอนนี้ (calque) |
 | Voice entry (feature name) | การป้อนด้วยเสียง | Short list items may drop การ: "ป้อนด้วยเสียง — …" |
 | Dictate (mic button label) | พิมพ์ด้วยเสียง | "พูดเพื่อพิมพ์" |
-| Microphone | ไมโครโฟน (Tap the mic: แตะไอคอนไมโครโฟน) | ไมค์ |
+| Microphone | ไมโครโฟน (Tap the mic: กดไอคอนไมโครโฟน) | ไมค์ |
 | Recording (audio) | การบันทึกเสียง / เสียงที่บันทึก / ไฟล์บันทึกเสียง | bare การบันทึก (also means saving or an entry) |
 | Transcribe / transcript | ถอดเสียง / ข้อความที่ถอดเสียง(แล้ว) | ถอดความ (also means paraphrase) |
 | Switch languages along the way | สลับภาษาไปมาระหว่างที่พูด | กลางประโยค, กลางคัน |
@@ -54,6 +56,7 @@ The scope is the app's UI, Help, paywall and privacy/legal strings in `src/i18n/
 | Fair use | การใช้งานอย่างเป็นธรรม | การใช้งานที่เป็นธรรม |
 | Danger Zone | โซนอันตราย | Latin "Danger Zone" |
 | Company country | สวีเดน (`company.country`) | "Sweden" |
+| Apple Account (formerly Apple ID) | บัญชี Apple (บัญชี Apple ของคุณ) | Apple ID (renamed by Apple in 2024), Apple Account in Latin script. "บัญชี Apple Developer" is a different thing and stays |
 
 ## Legal vocabulary (PDPA/GDPR; both repos, whole policy)
 | English | Thai |
@@ -83,7 +86,8 @@ The scope is the app's UI, Help, paywall and privacy/legal strings in `src/i18n/
 | Termination | การยุติ |
 | Mandatory consumer rights | สิทธิคุ้มครองผู้บริโภคที่เป็นบทบังคับ |
 - Section titles shared by the app and the website use the same Thai wording (e.g. "การใช้ข้อมูล", "บริการของบุคคลที่สาม", "คำอธิบายบริการ", "การจำกัดความรับผิด").
-- Website `legal.privacy.aiProcessing.content` is a byte-for-byte copy of the app's value. Change both together.
+- The website has no legal block any more (deleted on purpose; the site links to the app's policy). Do not re-add `legal.*` or price keys to the website file.
+- AI data flow: text and recordings go *through our servers* (ผ่านเซิร์ฟเวอร์ของเรา) to Google only in transit and are not kept (เพียงส่งผ่าน… โดยไม่มีการเก็บไว้). Never claim the request goes straight from the device to Google.
 - Keep facts in parity with English: Plus only; 5 minutes per recording; 200 minutes per month; audio goes to Google Gemini; OwnJournal never stores audio or transcripts; only seconds are counted; Google's paid tier does not train on the data; Google may keep data for a limited time only for abuse monitoring.
 
 ## Dates (owner decision)
@@ -100,7 +104,7 @@ The scope is the app's UI, Help, paywall and privacy/legal strings in `src/i18n/
 - One space between Thai and Latin script or numbers; no space between Thai words inside a phrase ("แอปมือถือ", "รหัสผ่านแอป", "ในประเทศ{{companyCountry}}").
 - The question mark is house style for dialog titles and FAQ questions ("…หรือไม่?", "…ได้ไหม?").
 - Numbers as Arabic digits with a space before the unit: "{{seconds}} วินาที". Thai has no plural. "In N seconds" is ในอีก N วินาที.
-- Brand and product names stay in Latin script: OwnJournal, Plus, Google, Gemini, Stripe, Google Drive, Dropbox, Nextcloud, iCloud. Third-party UI labels the user must find in English-only screens may be quoted after the Thai: กดยกเลิกแพลน (“Cancel plan”).
+- Brand and product names stay in Latin script: OwnJournal, Plus, Google, Gemini, Stripe, Google Drive, Dropbox, Nextcloud, iCloud. Do not quote third-party button labels we cannot verify (e.g. Stripe portal buttons): describe the action instead (“…ซึ่งคุณยกเลิกแพลนได้จากที่นั่น”). Nextcloud's own UI names (Apps → Security, "End-to-End Encryption") stay in Latin script because the user must find them on an English-labelled server UI.
 
 ## UI microcopy
 - Buttons are short verb phrases: หยุด, ดำเนินการต่อ, ลองถอดเสียงอีกครั้ง, ไว้ทีหลัง.
@@ -110,3 +114,22 @@ The scope is the app's UI, Help, paywall and privacy/legal strings in `src/i18n/
 - Use "ไม่จัดเก็บ…เลย" for the policy statement "never stores".
 - Prefer "มีเพียงคุณเท่านั้นที่…" over "มีเพียงเจ้าของเท่านั้นที่…" for "only you".
 - Classifiers: "การบันทึกเสียงแต่ละครั้ง", not "แต่ละการบันทึกเสียง".
+- Tap vs. click (house rule, mirrors English): in-app controls → **กด** on every platform (กดปุ่ม +, กด “วิธีตั้งค่า”, กดไอคอนโปรไฟล์, กด “ดำเนินการต่อด้วย Google”). **แตะ** only for touch-only steps (mobile browser menus ⋯/⋮, QR flow, website “แตะเพื่อเปิดเดโมเต็มจอ”). **คลิก** only where English keeps "click": links in e-mails, Nextcloud web UI, browser address bar, the Apple sign-in pop-up and iCloud web setup.
+- Menu paths use the arrow " → " with spaces (การตั้งค่า → ชื่อของคุณ → iCloud), never ">".
+- Toggled conditions: "With E2E turned on" → เมื่อเปิดการเข้ารหัสแบบต้นทางถึงปลายทาง; never state that *all* data is encrypted unconditionally (Simple mode exists).
+
+## Plurals and counts
+- `Intl.PluralRules('th')` has only **other**. Every English `_one/_other` key is `key_other` only in th.json: no `_one`, no bare base key.
+- Thai word order with a count is noun + number + classifier: ความขัดแย้ง {{count}} รายการ, ล้มเหลว {{count}} ครั้ง, เพิ่มกิจกรรม {{count}} กิจกรรม, ถอดรหัสไม่สำเร็จ {{count}} จาก {{total}} รายการ. Never number + bare noun ("{{count}} ความขัดแย้ง", "{{count}} ครั้งที่ล้มเหลว"). A sentence may open with มี {{count}} รายการที่…
+- Bare counters: "{{count}} รายการ" (entries), "{{count}} ไฟล์" (files).
+- Completed actions end with แล้ว after the object: ซิงค์ {{count}} รายการกับ {{provider}} แล้ว.
+
+## Prices (website)
+- Never hard-code an amount or currency symbol. Use the placeholders as given: "ในราคา {{price}} ต่อปี (ประมาณ {{monthly}} ต่อเดือน)", "~{{monthly}}/เดือน". The code formats the visitor's currency.
+- Refund FAQ mirrors the Terms: EU/EEA consumers buying on the website → ถอนตัวจากสัญญาได้ภายใน 14 วัน; proportionate deduction if Plus was used; App Store / Google Play refunds by Apple or Google.
+
+## Auth agreement line
+- `auth.termsAgreement` is one sentence rendered with `<Trans>`: "เมื่อดำเนินการต่อ ถือว่าคุณยอมรับ<terms>ข้อกำหนดการให้บริการ</terms>และ<privacy>นโยบายความเป็นส่วนตัว</privacy>ของเรา". No spaces between the Thai words and the link tags (the links are styled, so they stay distinct), one space after the opening clause, no final period. Exactly one `<terms>` and one `<privacy>` pair.
+
+## Chart tooltips
+- Mood-correlation tooltip: "{{delta}} (เฉลี่ย {{emoji}} {{avg}} จาก {{count}} รายการ)". No colon after เฉลี่ย and no comma in Thai; จาก links the average to the entry count. Only `_other`.

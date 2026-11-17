@@ -14,11 +14,11 @@ For blog and long-form brand voice, see the website repo's `.claude/locale-stand
 |---|---|---|
 | Entry | 条目 (UI, legal), 日记 (casual or website) | 帖子, 记录项 |
 | Mood (the emoji the user records) | 心情: 心情记录, 心情日历(热力图), 心情统计, 表情符号心情记录 | 情绪 for user-recorded mood |
-| Mood analysis / emotions (AI output) | 情绪分析, 情绪模式, 情感倾向 | — |
+| Mood analysis / emotions (AI output) | 情绪分析, 情绪模式, 情感倾向 (also subscription.description) | 心情分析 |
 | Voice entry (feature name) and Dictate button | 语音输入 | 语音条目, 口述 (Apple says 听写; Gboard says 语音输入) |
 | Transcribe / transcription / transcript | 转写 / 转写 / 转写文本、转写内容 | 转录, 抄写 |
 | Recording / Microphone | 录音 / 麦克风 | 录制品, 话筒, 麥克風 |
-| Tap / click | 点击 | 点按, 轻点 |
+| Tap / click | 点击 (both English verbs; English now says Tap in most UI strings, zh stays 点击) | 点按, 轻点 |
 | Sign out | 退出登录 | 登出 |
 | Settings / Account / Sign in | 设置 / 账户 / 登录 | 設定, 帐户, 帳號, 登入 |
 | Provider (cloud) | 提供商 | 提供程序 |
@@ -35,6 +35,8 @@ For blog and long-form brand voice, see the website repo's `.claude/locale-stand
 | Discard recording | 放弃录音 | — |
 | Paid tier (Google API) | 付费层级 | 付费方案 (that is a plan) |
 | Abuse monitoring | 滥用监控 | 滥用监测 |
+| Apple Account (formerly Apple ID) | Apple 账户 (Apple's official zh-CN name since 2024) | Apple ID, Apple 帐户, Apple 账号 |
+| Sign in with Apple (button/feature) | 通过 Apple 登录 (Apple's official zh-CN label) | 使用 Apple ID 登录, 用 Apple 登录 |
 
 ## Legal vocabulary (GDPR in Chinese; PIPL wording where it fits)
 - EUR-Lex has no official Chinese GDPR. Use the established Chinese GDPR terms consistently through both policies:
@@ -49,9 +51,10 @@ For blog and long-form brand voice, see the website repo's `.claude/locale-stand
 - Voice entry facts: Plus only; 5 minutes per recording; 200 minutes a month.
   Audio goes to Google (Gemini) for transcription. OwnJournal never stores audio or transcripts and only counts seconds (录音秒数, not 时长（秒）).
   Google's paid tier does not train on the data; Google may keep it for a limited period, only for abuse monitoring.
-- Purpose phrases: 用于实施合理使用限制 / 用于实施每月用量限制. Avoid "执行上限".
-- The website's `legal.privacy.aiProcessing.content` must be byte-identical to the app's. Edit the app first, then copy it over.
-- Legal dates: "2026 年 11 月" (half-width spaces around the digits) for both privacy and terms, in both repos.
+- Fair use → 公平使用 (all legal sections: 公平使用限制, 用于实施公平使用限制; 合理使用 is the copyright term). 用于实施每月用量限制. Avoid "执行上限".
+- AI requests and voice recordings pass via our servers only in transit: 经由我们的服务器 / 仅在传输…的过程中经过我们的服务器，不会被保留. Do not write that OwnJournal does not "process" journal content.
+- The website no longer has a `legal` block (removed on purpose, round 3). Legal text lives only in the app file. Do not re-add website legal or price keys.
+- Legal dates: "2026 年 11 月" (half-width spaces around the digits).
   `legal.lastUpdatedOn` = "最后更新：{{date}}" (full-width colon, no space).
 
 ## Typography (both whole files)
@@ -67,10 +70,19 @@ For blog and long-form brand voice, see the website repo's `.claude/locale-stand
   Put no space next to full-width punctuation or “”.
   Placeholders that hold numbers or Latin names get spaces ("通过 {{store}} 购买"). Placeholders that hold Chinese text do not ({{activity}}, {{theme}}, {{time}}).
 - `{{time}}` in `syncStatus.syncedTimeAgo` already ends in 前 (e.g. "5 分钟前"), so the string is "{{time}}已同步". Never write "{{time}}前…".
-- Prices: keep the source currency. The website shows Free "$0" next to Plus "$19.99", never ¥0. Write a USD amount inside a sentence as "99 美元".
+- Prices: never hard-code an amount or currency on the website. Use the placeholders the code formats in the visitor's currency: `pricing.plus.monthlyNote` = "约 {{monthly}}/月 • 随时取消"; FAQ "价格为每年 {{price}}（约每月 {{monthly}}）". In fixed app text (Apple developer fee) write a USD amount as "99 美元".
+- Website refund FAQ mirrors the app Terms (撤回权 for EU/EEA/equivalent consumers buying on the website, proportionate amount kept after use, App Store/Google Play refunds by Apple/Google). No "全额退款，无需解释".
+- Website: encryption claims are conditional (开启端到端加密后…). Sign-in is required: never write 无需注册账户 outside the demo (demo.subtitle "无需注册" is correct).
 - Copyright line: "© {{year}} OwnJournal 保留所有权利。"
 
 ## UI microcopy
+- Plurals: zh has only the `other` category (Intl.PluralRules('zh')). Every English `_one/_other` key gets exactly `key_other` in zh; no `_one`, no bare base key.
+- Entry counts: "{{count}} 个条目" (never "条条目", never a bare "{{count}} 条" or "条记录"). With a modifier in between, 条 is fine: "{{count}} 条无法解密的条目".
+- Menu paths: quote each item and join with → and no spaces: “设置”→“[您的姓名]”→“iCloud”. Never >.
+- `auth.termsAgreement` is one <Trans> sentence: "继续即表示您同意我们的<terms>服务条款</terms>和<privacy>隐私政策</privacy>。" (ends on the links, closing 。 outside the tags).
+- Chart tooltip `moodCorrelations.tooltipDetail_other` = "{{delta}}（平均：{{emoji}} {{avg}}，{{count}} 个条目）": full-width （）：，, everyday 平均 (not 均值).
+- `storage.syncedDesc_other` = "已连接到 {{provider}}，并加载了 {{count}} 个条目"; `storage.syncFailedDesc` = "无法与 {{provider}} 同步".
+- Subscription cancel FAQ does not quote Stripe's button label: "点击“管理”打开计费门户，即可在其中取消订阅".
 - Buttons: 2–6 characters, verb-first: 停止, 继续, 重试转写, 取消录音. No trailing punctuation.
 - Errors: state the fact, then the fix, as two clauses joined by ，, 。 or ：. Use 请… for instructions, for example "转写失败，请重试。"
 - Hardware or detection failures: 未检测到… (microphone, speech). 未找到 is for searches and files.
@@ -90,5 +102,6 @@ For blog and long-form brand voice, see the website repo's `.claude/locale-stand
 - GB/T 15834-2011 标点符号用法 (——, “”, full-width marks, ranges)
 - Google Gemini API additional terms (zh-CN): https://ai.google.dev/gemini-api/terms?hl=zh-cn ; ZDR page: https://ai.google.dev/gemini-api/docs/zdr?hl=zh-cn
 - Apple iPhone User Guide zh-CN (听写): https://support.apple.com/zh-cn/guide/iphone/
+- Apple 账户 (formerly Apple ID): https://support.apple.com/zh-cn/apple-account ; 通过 Apple 登录: https://support.apple.com/zh-cn/102609
 - 中华人民共和国个人信息保护法 (PIPL) for privacy vocabulary; established Chinese GDPR translations for GDPR terms
-- House decisions: owner review of both zh.json files (2026-11).
+- House decisions: owner review of both zh.json files (2026-11); round 3 fixes (2026-11-17).

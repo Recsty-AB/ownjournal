@@ -47,13 +47,18 @@ that register does NOT apply to the app or the website UI.
 | Plan (pricing) | Tarif (kostenloser Tarif, Plus-Tarif) | Plan, Stufe; "Alles aus Kostenlos" → "Alles aus dem kostenlosen Tarif" |
 | Service (the product) | Dienst (Tagebuchdienst, Drittanbieter-Dienste, KI-Dienst/KI-Anbieter) | Service, Tagebuchservice |
 | Appearance (settings) | Darstellung | Erscheinung |
-| Apple ID | Apple-ID (Apple's German spelling) | Apple ID |
+| Apple Account (formerly Apple ID, renamed 2024) | der Apple Account (Apple DE spelling, no hyphen, masculine: „mit Ihrem Apple Account“, „für Ihren Apple Account“) | Apple-ID, Apple ID, Apple-Konto, Apple-Account |
+| Sign in with Apple (button/feature) | Mit Apple anmelden (Apple's official DE label) | Mit Apple-ID anmelden; "Mit Apple fortfahren" only for the Continue-with-Apple button |
 | Reconnect | die Verbindung erneut herstellen / erneut verbinden (with object) | "verbinden Sie erneut" (no object) |
 | Title suggestions | (KI-)Titelvorschläge | – |
 | Cursor position | an der Cursorposition | – |
 | per month / min | pro Monat; "Min." with number, "200 Min./Monat" in tables | min |
 
 ## 3. GDPR / legal vocabulary (official DSGVO wording)
+- Consent lines: users *accept* the Nutzungsbedingungen but only *take note of* the Datenschutzerklärung
+  (it is information under Art. 13 DSGVO, not a contract): „Indem Sie fortfahren, akzeptieren Sie unsere
+  Nutzungsbedingungen und nehmen unsere Datenschutzerklärung zur Kenntnis.“ – never „akzeptieren Sie … die Datenschutzerklärung“.
+- Average in compact chart labels/tooltips: „Ø 3,4“ (no colon after Ø).
 - Privacy policy → **Datenschutzerklärung** everywhere (title, links, footer, "diese Datenschutzerklärung");
   never "Datenschutzrichtlinie" or "diese Richtlinie". Third parties' policies: "Datenschutzerklärungen".
 - Data retention section → **Speicherdauer** (not a second "Datenspeicherung").
@@ -64,7 +69,11 @@ that register does NOT apply to the app or the website UI.
 - Age clause: "mindestens 13 Jahre alt sein oder das … höhere Alter der digitalen Einwilligung erreicht
   haben"; children: "nicht für Kinder unter 13 Jahren bzw. unter dem … Alter … bestimmt".
 - Dates: "Monat JJJJ" ("November 2026"), label "Zuletzt aktualisiert: {{date}}" in both repos.
-- Website `legal.privacy.aiProcessing.content` is a verbatim copy of the app's value.
+- The website no longer has its own legal block (deleted on purpose); legal text lives only in the app.
+- AI requests and voice recordings pass "über unsere Server" only in transit ("durchläuft unsere Server nur
+  auf dem Weg zu unserem KI-Anbieter und wird nicht gespeichert"); never claim we do not process them at all.
+- Refunds (website FAQ) mirror Terms `legal.terms.withdrawal`: EU/EWR consumers, website purchases only,
+  14 Tage widerrufen, anteiliger Betrag bei Nutzung, App Store/Google Play erstatten Apple bzw. Google.
 - appropriate safeguards (Art. 46) → **geeignete Garantien** (not "angemessene Schutzmaßnahmen").
 - adequacy decision (Art. 45) → **Angemessenheitsbeschluss**.
 - Standard Contractual Clauses → **Standardvertragsklauseln (SCC)**; DSGVO text itself says
@@ -93,7 +102,8 @@ that register does NOT apply to the app or the website UI.
 - Units: number + space + unit ("10 s", "5 Minuten", "25 %", "{{rate}} %", "5 MB", "{{ms}} ms");
   "Min." works for singular and plural ("Noch 1 Min."). Relative time: "vor {{minutes}} Min.",
   "vor {{hours}} Std.", "vor {{days}} Tg." (abbreviations avoid singular/plural problems).
-- "z. B." with a space; prices "99 $/Jahr", "ca. 1,67 $/Monat" (not "~").
+- "z. B." with a space; prices are never hard-coded: website uses "{{price}}/Jahr", "ca. {{monthly}}/Monat"
+  (code formats amount + currency in de, e.g. "19,99 $"); "ca." not "~".
 - Compounds with multi-word names are fully hyphenated: Google-Drive-Speicher, Google-Play-Konto,
   App-Store-Konto, Apple-Developer-Konto, Google-OAuth-Token, Dropbox-Cloud-Speicher.
 - Lowercase inside parentheses after a label: "(empfohlen)", "(privat)", "(kein Passwort)";
@@ -112,12 +122,30 @@ that register does NOT apply to the app or the website UI.
   detected" – prefer "nichts Gesprochenes erkannt".
 - Questions as dialog titles end with "?" ("Ihre Sprachaufnahme mit Google transkribieren?").
 - Keep toasts under ~2 short sentences for phone width.
+- Tap vs. click (house rule, mirrors English): in-app controls → "Tippen Sie auf …" on every platform
+  (+-Schaltfläche, „Einrichtungshilfe“, „Verbinden“, Profilsymbol, „Mit Google fortfahren“). "Klicken Sie" only
+  where English keeps "click": web-only surfaces (Stripe portal „Verwalten“), Nextcloud web UI, browser
+  address bar, links in e-mails, Apple sign-in popup. Typing a character → "eingeben" ("Geben Sie # ein").
+- Settings tabs: Speicher, Allgemein (= "Preferences"; never "Einstellungen", which is the dialog title),
+  Konto, Diagnose. In prose: zum Tab „Konto“, im Abschnitt „Abonnement“, im Bereich „Gefahrenzone“.
+- Cite labels exactly as the file defines them: storage.resetAllData „Alle Daten zurücksetzen“,
+  storage.dangerZone „Gefahrenzone“, storage.resetButton „Alles löschen“.
+- Do not quote third-party button labels (Stripe portal) – describe the action ("… in dem Sie Ihr
+  Abonnement kündigen können").
+
+## 5a. Plurals (i18next, Intl.PluralRules("de") = one, other)
+- Every English `_one/_other` key needs exactly `_one` and `_other` in de; no base key, no other suffixes.
+- `_one` uses the real singular with agreeing verb/adjective/pronoun: "{{count}} Eintrag ist …, migrieren
+  Sie ihn", "{{count}} verschlüsselter Eintrag benötigt", "{{count}} von {{total}} Einträgen konnte nicht".
+- Never "(e)", "(n)", "(s)" hedges ("Konflikt(e)", "Sicherheitspause(n)").
+- Count labels are number + noun in one key ("{{count}} Eintrag" / "{{count}} Einträge"), never concatenated.
 
 ## 6. Pitfalls seen in machine-written copy
 - Stray du-forms in otherwise Sie-texts ("Bitte versuche es erneut", "Genieße", "Prüfe", "Probiere",
   "Markiere", "Finde heraus"). Scan whole files for them after every batch.
-- "auth.termsAgreementPrefix" is followed by two links in code with no suffix, so the German must not
-  need a final verb: "Wenn Sie fortfahren, akzeptieren Sie unsere … und …".
+- Terms agreement renders prefix + " " + termsLink + " " + and + " " + privacyLink + suffix. German uses
+  "Wenn Sie fortfahren, akzeptieren Sie unsere … und …" with `auth.termsAgreementSuffix` = "" (a "zustimmen"
+  construction would need suffix " zu").
 - Passive of "vertrauen" ("werden von Browsern nicht vertraut") is ungrammatical → "Browser vertrauen …
   nicht" / "stufen es als nicht vertrauenswürdig ein".
 - Double "tippen" (tap + type) in one sentence.
@@ -136,6 +164,8 @@ that register does NOT apply to the app or the website UI.
   https://support.google.com/gboard/answer/9058584?hl=de
 - Apple German UI terms "Diktieren", "Diktierfunktion", "Mikrofontaste" (Apple Support DE /
   Apple Community DE): https://communities.apple.com/de/thread/254818867
+- Apple "Apple Account" / „Mit Apple anmelden“ (DE): https://support.apple.com/de-de/HT4895 ;
+  https://developer.apple.com/de/help/account/capabilities/about-sign-in-with-apple/
 - Duden (spelling, Stopp, units, dashes): https://www.duden.de/sprachwissen/rechtschreibregeln
 - House style: existing `src/i18n/locales/de.json` (Sie-form, KI, Plus-Abonnement, Fair-Use-Limits,
   geeignete Garantien gemäß Artikel 46 DSGVO).

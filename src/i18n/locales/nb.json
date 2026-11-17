@@ -69,12 +69,15 @@
     "toE2EDesc": "Innleggene dine krypteres med passordet ditt.",
     "toSimpleDesc": "Innleggene dine dekrypteres for enkel lagring.",
     "processingEntry": "Behandler: {{title}}",
-    "migrated": "{{count}} innlegg migrert",
-    "failed": "{{count}} innlegg mislyktes",
+    "migrated_one": "{{count}} innlegg migrert",
+    "migrated_other": "{{count}} innlegg migrert",
+    "failed_one": "{{count}} innlegg feilet",
+    "failed_other": "{{count}} innlegg feilet",
     "retry": "Prøv mislykkede på nytt",
     "connectionError": "Tilkoblingsfeil",
     "connectionErrorDesc": "Begge leverandørene må være tilkoblet",
-    "completeDesc": "Migrerte {{count}} filer fra {{source}} til {{target}}",
+    "completeDesc_one": "Migrerte {{count}} fil fra {{source}} til {{target}}",
+    "completeDesc_other": "Migrerte {{count}} filer fra {{source}} til {{target}}",
     "completedWithErrors": "Migrering fullført med feil",
     "completedWithErrorsDesc": "{{migrated}} filer migrert, {{failed}} mislyktes. Sjekk konsollen for detaljer.",
     "stopped": "Migrering stoppet",
@@ -91,7 +94,8 @@
   "import": {
     "invalidFormat": "Ugyldig importfilformat",
     "complete": "Import fullført",
-    "completeDesc": "Importerte {{count}} innlegg. Synkroniserer til lagring…",
+    "completeDesc_one": "Importerte {{count}} innlegg. Synkroniserer til lagring…",
+    "completeDesc_other": "Importerte {{count}} innlegg. Synkroniserer til lagring…",
     "failed": "Import mislyktes",
     "failedDesc": "Kunne ikke importere data. Sjekk filformatet.",
     "storageSyncFailed": "Lagringssynkronisering mislyktes",
@@ -105,8 +109,8 @@
     "connectionFailed": "Tilkobling mislyktes. Sjekk server-URL-en og påloggingsopplysningene dine.",
     "connectionFailedShort": "Tilkobling mislyktes",
     "masterKeyRequired": "Hovednøkkel kreves for å lagre påloggingsopplysninger i E2E-modus",
-    "clickSetupHelpCors": "Klikk på «Oppsettshjelp» over for trinnvise instruksjoner.",
-    "clickSetupHelpSsl": "Klikk på «Oppsettshjelp» over for instruksjoner om å fikse SSL-sertifikatproblemer.",
+    "clickSetupHelpCors": "Trykk på «Oppsettshjelp» over for trinnvise instruksjoner.",
+    "clickSetupHelpSsl": "Trykk på «Oppsettshjelp» over for instruksjoner om å fikse SSL-sertifikatproblemer.",
     "credentialDecryptFailed": "Nextcloud-påloggingsopplysningene dine kunne ikke dekrypteres. Dette betyr vanligvis at dagbokpassordet ditt er feil. Sjekk passordet eller koble fra og koble til på nytt."
   },
   "app": {
@@ -142,9 +146,8 @@
     "continueWith": "Eller fortsett med",
     "continueWithGoogle": "Fortsett med Google",
     "continueWithApple": "Fortsett med Apple",
-    "termsAgreementPrefix": "Ved å fortsette godtar du våre",
+    "termsAgreement": "Ved å fortsette godtar du <terms>tjenestevilkårene</terms> og <privacy>personvernerklæringen</privacy> våre.",
     "termsLink": "Tjenestevilkår",
-    "and": "og",
     "privacyLink": "Personvernerklæring",
     "dataEncrypted": "Dataene dine er kryptert og lagres aldri på våre servere",
     "accountCreated": "Konto opprettet!",
@@ -214,7 +217,7 @@
     "anotherEntryEditingDesc": "Lagre eller avbryt det andre innlegget først.",
     "goToEditingEntry": "Gå til innlegget som redigeres",
     "switchToEditMode": "Bytt til redigeringsmodus for å bruke etiketter",
-    "switchToEditModeDesc": "Klikk på rediger-knappen for å bruke foreslåtte etiketter",
+    "switchToEditModeDesc": "Trykk på rediger-knappen for å bruke foreslåtte etiketter",
     "entryTitlePlaceholder": "Innleggstittel…",
     "finishEditingFirst": "Fullfør redigeringen av det andre innlegget først",
     "entrySaved": "Innlegg lagret",
@@ -264,13 +267,15 @@
     "settingUpSync": "Setter opp skysynkronisering…",
     "settingUpSyncDesc": "Laster opp krypteringsnøkkel og forbereder synkronisering.",
     "initialSyncComplete": "Første synkronisering fullført",
-    "initialSyncCompleteDesc": "{{count}} innlegg synkronisert med {{provider}}.",
+    "initialSyncCompleteDesc_one": "{{count}} innlegg synkronisert med {{provider}}.",
+    "initialSyncCompleteDesc_other": "{{count}} innlegg synkronisert med {{provider}}.",
     "initialSyncFailed": "Første synkronisering mislyktes",
     "initialSyncFailedDesc": "Kunne ikke fullføre første synkronisering.",
     "secondaryProviderConnected": "{{provider}} tilkoblet",
     "secondaryProviderConnectedDesc": "Tilkoblet som sekundær sikkerhetskopi. Din primære leverandør håndterer synkronisering.",
     "conflictDetected": "⚠️ Synkroniseringskonflikt oppdaget",
-    "conflictDetectedDesc": "Samtidige redigeringer ble løst automatisk. {{count}} konflikt(er) logget.",
+    "conflictDetectedDesc_one": "Samtidige redigeringer ble løst automatisk. {{count}} konflikt logget.",
+    "conflictDetectedDesc_other": "Samtidige redigeringer ble løst automatisk. {{count}} konflikter logget.",
     "viewConflicts": "Vis konflikter",
     "savingEntry": "Lagrer innlegg…",
     "savingEntryDesc": "Krypterer og synkroniserer dagbokinnlegget ditt.",
@@ -292,8 +297,10 @@
     "signedOut": "Logget ut",
     "signedOutDesc": "Du har blitt logget ut",
     "backupExported": "Sikkerhetskopi eksportert",
-    "backupExportedDesc": "{{count}} innlegg eksportert til JSON-fil",
-    "importCompleteDesc": "Importerte {{count}} innlegg. Synkroniserer til lagring…",
+    "backupExportedDesc_one": "{{count}} innlegg eksportert til JSON-fil",
+    "backupExportedDesc_other": "{{count}} innlegg eksportert til JSON-fil",
+    "importCompleteDesc_one": "Importerte {{count}} innlegg. Synkroniserer til lagring…",
+    "importCompleteDesc_other": "Importerte {{count}} innlegg. Synkroniserer til lagring…",
     "cloudSyncComplete": "Skysynkronisering fullført",
     "cloudSyncCompleteDesc": "Importerte innlegg er synkronisert til skylagring.",
     "cloudSyncIncomplete": "Skysynkronisering ufullstendig",
@@ -324,15 +331,19 @@
     "encryptionSetupFailedDesc": "Kunne ikke initialisere kryptering.",
     "startingCloudSync": "Starter skysynkronisering…",
     "startingCloudSyncDesc": "Synkroniserer dagbokinnleggene dine i bakgrunnen.",
-    "syncCompleteDesc": "{{count}} innlegg synkronisert med skylagring.",
+    "syncCompleteDesc_one": "{{count}} innlegg synkronisert med skylagring.",
+    "syncCompleteDesc_other": "{{count}} innlegg synkronisert med skylagring.",
     "unableToStartSync": "Kunne ikke starte synkronisering.",
     "nextcloudEncryptionError": "Kan ikke synkronisere med denne Nextcloud-mappen",
-    "nextcloudEncryptionErrorDesc": "Denne Nextcloud-mappen har serverkryptering aktivert, så OwnJournal kan ikke lese eller skrive filene dine. Trykk «Finn ut mer» for trinnvise instruksjoner.",
+    "nextcloudEncryptionErrorDesc": "Denne Nextcloud-mappen har serverkryptering aktivert, så OwnJournal kan ikke lese eller skrive filene dine. Trykk på «Finn ut mer» for trinnvise instruksjoner.",
     "nextcloudEncryptionLearnMore": "Finn ut mer",
     "encryptedEntriesDetected": "Krypterte innlegg funnet",
-    "encryptedEntriesInSimpleMode": "Fant {{count}} krypterte innlegg som ikke kan leses i enkel modus. For å få tilgang til dem, koble fra og koble til igjen i E2E-modus.",
-    "encryptedEntriesInSimpleModeHint": "{{count}} innlegg krever E2E-kryptering for å vises. Skriv inn passordet ditt for å låse opp.",
-    "syncCompleteWithEncrypted": "Synkronisering fullført, men {{count}} krypterte innlegg krever E2E-modus for å vises.",
+    "encryptedEntriesInSimpleMode_one": "Fant {{count}} kryptert innlegg som ikke kan leses i enkel modus. Koble fra og koble til igjen i E2E-modus for å få tilgang til det.",
+    "encryptedEntriesInSimpleMode_other": "Fant {{count}} krypterte innlegg som ikke kan leses i enkel modus. Koble fra og koble til igjen i E2E-modus for å få tilgang til dem.",
+    "encryptedEntriesInSimpleModeHint_one": "{{count}} innlegg krever E2E-kryptering for å vises. Skriv inn passordet ditt for å låse opp.",
+    "encryptedEntriesInSimpleModeHint_other": "{{count}} innlegg krever E2E-kryptering for å vises. Skriv inn passordet ditt for å låse opp.",
+    "syncCompleteWithEncrypted_one": "Synkronisering fullført, men {{count}} kryptert innlegg krever E2E-modus for å vises.",
+    "syncCompleteWithEncrypted_other": "Synkronisering fullført, men {{count}} krypterte innlegg krever E2E-modus for å vises.",
     "unlockNow": "Lås opp nå",
     "viewStorageOptions": "Vis alternativer"
   },
@@ -504,7 +515,8 @@
     "transferProgress": "Overføring pågår",
     "transferProgressDesc": "{{current}} av {{total}} innlegg kopiert",
     "complete": "Overføring fullført",
-    "completeDesc": "Overførte {{count}} filer fra {{source}} til {{target}}",
+    "completeDesc_one": "Overførte {{count}} fil fra {{source}} til {{target}}",
+    "completeDesc_other": "Overførte {{count}} filer fra {{source}} til {{target}}",
     "completedWithErrors": "Overføring fullført med feil",
     "completedWithErrorsDesc": "{{transferred}} filer overført, {{failed}} mislyktes. Sjekk konsollen for detaljer.",
     "failed": "Overføring mislyktes",
@@ -514,7 +526,8 @@
     "cancelledDesc": "Overføringen ble avbrutt. {{transferred}} filer ble overført før avbryting.",
     "cleaningUp": "Rydder opp…",
     "mirrorComplete": "Speiling fullført",
-    "mirrorCompleteDesc": "Speilet {{count}} filer fra {{source}} til {{target}}. Destinasjonen er nå identisk med kilden.",
+    "mirrorCompleteDesc_one": "Speilet {{count}} fil fra {{source}} til {{target}}. Destinasjonen er nå identisk med kilden.",
+    "mirrorCompleteDesc_other": "Speilet {{count}} filer fra {{source}} til {{target}}. Destinasjonen er nå identisk med kilden.",
     "transferCompleteDisconnect": "Overføring fullført – koble fra kilden?",
     "transferCompleteDisconnectDesc": "Alle innlegg er speilet til {{target}}. Vil du koble fra {{source}} for å unngå forvirring?",
     "passwordRequiredAfterTransfer": "Skriv inn passordet ditt for å fullføre byttet av lagringsleverandør og laste inn krypteringsnøkkelen på nytt.",
@@ -532,7 +545,8 @@
     "settingUp": "Setter opp skysynkronisering…",
     "settingUpDesc": "Laster opp krypteringsnøkkel og forbereder synkronisering.",
     "initialComplete": "Første synkronisering fullført",
-    "initialCompleteDesc": "{{count}} innlegg synkronisert.",
+    "initialCompleteDesc_one": "{{count}} innlegg synkronisert.",
+    "initialCompleteDesc_other": "{{count}} innlegg synkronisert.",
     "initialFailed": "Første synkronisering mislyktes",
     "initialFailedDesc": "Kunne ikke fullføre første synkronisering.",
     "savingEntry": "Lagrer innlegg…",
@@ -547,7 +561,8 @@
     "deletionFailed": "Sletting mislyktes",
     "deletionFailedDesc": "Kunne ikke slette innlegget fra lagringen. Endringer kan bli tilbakestilt.",
     "conflictDetected": "⚠️ Synkroniseringskonflikt oppdaget",
-    "conflictDetectedDesc": "Samtidige redigeringer ble løst automatisk. {{count}} konflikt(er) logget.",
+    "conflictDetectedDesc_one": "Samtidige redigeringer ble løst automatisk. {{count}} konflikt logget.",
+    "conflictDetectedDesc_other": "Samtidige redigeringer ble løst automatisk. {{count}} konflikter logget.",
     "viewConflicts": "Vis konflikter",
     "tooManyRequests": "For mange forespørsler",
     "tooManyRequestsDesc": "Skylagring mottar forespørsler for raskt. Synkronisering prøver igjen automatisk.",
@@ -559,6 +574,8 @@
     "completeDesc": "Dagbokdataene dine er eksportert.",
     "myJournal": "Min personlige dagbok",
     "entries": "innlegg",
+    "entryCount_one": "{{count}} innlegg",
+    "entryCount_other": "{{count}} innlegg",
     "exportedOn": "Eksportert",
     "mood": "Humør",
     "tags": "Etiketter"
@@ -608,7 +625,7 @@
     "deleteAccount": {
       "title": "Slett konto",
       "description": "Slett kontoen din og alle tilknyttede data permanent fra serverne våre.",
-      "warning": "Dette vil kansellere abonnementet ditt, slette profilen din og fjerne alle dataene dine. Denne handlingen kan ikke angres.",
+      "warning": "Dette sier opp abonnementet ditt, sletter profilen din og fjerner alle dataene dine. Denne handlingen kan ikke angres.",
       "confirmLabel": "Skriv DELETE ACCOUNT for å bekrefte:",
       "button": "Slett kontoen min",
       "success": "Konto slettet",
@@ -663,7 +680,7 @@
       "noDownloads": "Ingen nedlastinger kreves",
       "requiresInternet": "Krever internettilkobling",
       "privacyNote": "Personvernmerknad",
-      "privacyDesc": "Når du bruker AI-funksjoner, sendes dagbokinnholdet ditt sikkert til tredjeparts AI-tjenester for analyse. Vi lagrer ikke disse dataene på våre servere. AI-leverandørene våre kan oppbevare data midlertidig for å overvåke misbruk, men bruker dem ikke til å trene modeller.",
+      "privacyDesc": "Når du bruker AI-funksjoner, sendes dagbokinnholdet ditt sikkert til en tredjeparts AI-tjeneste for analyse. Vi lagrer ikke disse dataene på våre servere. AI-leverandøren vår kan oppbevare data midlertidig for å overvåke misbruk, men bruker dem ikke til å trene modeller.",
       "manageSubscription": "Administrer",
       "portalError": "Kunne ikke åpne abonnementsadministrasjonen",
       "portalErrorDesc": "Prøv igjen senere."
@@ -762,6 +779,7 @@
     "maxTagsDesc": "Du kan bare legge til opptil 20 etiketter per innlegg",
     "maxActivitiesReached": "Maksimalt antall aktiviteter nådd",
     "maxActivitiesReachedDesc": "Du kan ha maksimalt 20 aktiviteter per innlegg.",
+    "maxActivitiesSkippedDesc": "Noen aktiviteter ble ikke lagt til fordi du har nådd grensen på 20.",
     "invalidTag": "Ugyldig etikett",
     "proFeature": "Plus-funksjon",
     "imageUploadPro": "Bildeopplasting er kun tilgjengelig for Plus-brukere.",
@@ -794,7 +812,8 @@
     "syncInProgress": "Synkronisering pågår",
     "waitForSyncComplete": "Vent til gjeldende synkronisering er fullført før du endrer krypteringsmodus.",
     "pendingUploads": "Ventende opplastinger",
-    "pendingUploadsWarning": "{{count}} innlegg lastes fortsatt opp. Frakobling nå kan føre til datatap. Vil du fortsette likevel?",
+    "pendingUploadsWarning_one": "{{count}} innlegg lastes fortsatt opp. Frakobling nå kan føre til datatap. Vil du fortsette likevel?",
+    "pendingUploadsWarning_other": "{{count}} innlegg lastes fortsatt opp. Frakobling nå kan føre til datatap. Vil du fortsette likevel?",
     "encryptionPassword": "Kryptering og passord",
     "encryptionMode": "Krypteringsmodus",
     "encryptionModeDesc": "Velg hvordan dagbokinnleggene dine beskyttes under synkronisering",
@@ -818,13 +837,13 @@
     "e2eEnabledDesc": "Bruker eksisterende passord for kryptering.",
     "simpleModeEnabled": "Enkel modus aktivert",
     "simpleModeEnabledDesc": "Innleggene dine synkroniseres som lesbare JSON-filer.",
-    "e2eModeCancelled": "Krypteringsoppsett ble avbrutt.",
+    "e2eModeCancelled": "Krypteringsoppsettet ble avbrutt.",
     "passwordManagement": "Passordadministrasjon",
     "passwordStoredSecurely": "Passordet ditt er sikkert lagret på denne enheten for automatisk kryptering.",
     "clearStoredPassword": "Fjern lagret passord",
     "forgotPassword": "Glemt passord?",
     "forgotPasswordOption1": "Bruk «Endre passord» nedenfor hvis du husker det gjeldende passordet",
-    "forgotPasswordOption2": "Eksporter en sikkerhetskopi først, bruk deretter «SLETT alle data» i Faresonen for å starte på nytt",
+    "forgotPasswordOption2": "Eksporter en sikkerhetskopi først, og bruk deretter «Tilbakestill alle data» i delen «Faresone» for å starte på nytt",
     "changePassword": "Endre passord",
     "changePasswordDesc": "Endre dagbokpassordet ditt. Alle innlegg vil bli kryptert på nytt med det nye passordet.",
     "dangerZone": "Faresone",
@@ -833,7 +852,7 @@
     "resetAllDataWarning": "Dette vil permanent slette alle dagbokinnlegg, krypteringsnøkler og buffret passord. Hvis du bruker E2E-kryptering, vil innleggene dine bli permanent uleselige fordi krypteringsnøkkelen blir ødelagt.",
     "resetAllDataConfirm": "Denne handlingen kan ikke angres. Vil du fortsette?",
     "backupRecommendation": "Vi anbefaler sterkt å ta en sikkerhetskopi før du fortsetter.",
-    "backupInstructions": "For å lage en sikkerhetskopi: Klikk på profilikonet (øverst til høyre) → Eksporter data",
+    "backupInstructions": "For å lage en sikkerhetskopi: Trykk på profilikonet (øverst til høyre) → Eksporter data",
     "confirmReset": "Skriv DELETE for å bekrefte",
     "resetting": "Tilbakestiller…",
     "resetButton": "Slett alt",
@@ -844,9 +863,10 @@
     "syncing": "Synkroniserer…",
     "syncingDesc": "Kobler til skyen",
     "synced": "Synkronisert",
-    "syncedDesc": "Tilkoblet og innlegg lastet",
+    "syncedDesc_one": "Koblet til {{provider}} og lastet inn {{count}} innlegg",
+    "syncedDesc_other": "Koblet til {{provider}} og lastet inn {{count}} innlegg",
     "syncFailed": "Synkronisering mislyktes",
-    "syncFailedDesc": "Kunne ikke synkronisere med skyen.",
+    "syncFailedDesc": "Kunne ikke synkronisere med {{provider}}.",
     "switchedToE2E": "Byttet til E2E-modus",
     "switchedToE2EDesc": "Skriv inn passordet ditt for å dekryptere innleggene.",
     "disconnectedForE2E": "Lagring frakoblet",
@@ -875,7 +895,8 @@
     "conflictResolution": "• Automatisk konfliktløsning for samtidige redigeringer",
     "offlineSupport": "• Full offline-støtte med bakgrunnssynkronisering",
     "cannotSwitchMode": "Kan ikke bytte krypteringsmodus",
-    "cannotSwitchModeDesc": "Du har {{count}} eksisterende innlegg. Slett alle data før du bytter krypteringsmodus.",
+    "cannotSwitchModeDesc_one": "Du har {{count}} eksisterende innlegg. Slett alle data før du bytter krypteringsmodus.",
+    "cannotSwitchModeDesc_other": "Du har {{count}} eksisterende innlegg. Slett alle data før du bytter krypteringsmodus.",
     "cannotVerifyEntries": "Kan ikke verifisere innlegg",
     "cannotVerifyEntriesDesc": "Skriv inn passordet ditt først eller tilbakestill alle data.",
     "passwordSaved": "Passord lagret",
@@ -888,7 +909,7 @@
     "clearPasswordConfirm": "Dette vil fjerne det lagrede krypteringspassordet fra denne enheten. Du må skrive inn passordet ditt igjen neste gang du åpner appen.\n\nDe krypterte dataene dine påvirkes ikke.\n\nVil du fortsette?",
     "changePasswordConfirm": "Er du sikker?\n\nDette vil dekryptere alle innleggene dine med det gamle passordet og kryptere dem på nytt med det nye passordet.\n\nSørg for å huske det nye passordet – det kan ikke gjenopprettes hvis det glemmes.\n\nVil du fortsette?",
     "confirmationRequiredDesc": "Skriv «DELETE» for å bekrefte.",
-    "finalConfirm": "Endelig bekreftelse\n\nDette vil permanent slette ALLE dagbokinnleggene dine fra enheten og skylagringen din.\n\n⚠️ ANBEFALT: Lag en sikkerhetskopi før du fortsetter!\nFor å lage en sikkerhetskopi: Klikk på profilikonet (øverst til høyre) → Eksporter data\n\nEr du helt sikker på at du vil fortsette?",
+    "finalConfirm": "Endelig bekreftelse\n\nDette vil permanent slette ALLE dagbokinnleggene dine fra enheten og skylagringen din.\n\n⚠️ ANBEFALT: Lag en sikkerhetskopi før du fortsetter!\nFor å lage en sikkerhetskopi: Trykk på profilikonet (øverst til høyre) → Eksporter data\n\nEr du helt sikker på at du vil fortsette?",
     "passwordPersistenceChanged": "Passordlagring oppdatert",
     "passwordPersistenceError": "Kunne ikke oppdatere passordlagringsinnstilling",
     "passwordPersistence": {
@@ -1076,7 +1097,8 @@
     "encryptedEntriesNeedCloudDesc": "Du har krypterte innlegg fra en tidligere synkronisering. Koble til samme sky med krypteringspassordet for å få tilgang.",
     "reconnectToAccessEntries": "Koble til skyen igjen for å få tilgang til de krypterte innleggene. De ble synkronisert med E2E-kryptering og krever samme lagringstilkobling.",
     "migrateEntries": "Migrer ukrypterte innlegg",
-    "migrateEntriesDesc": "{{count}} innlegg er ikke kryptert. Migrer dem til E2E-kryptering for full sikkerhet.",
+    "migrateEntriesDesc_one": "{{count}} innlegg er ikke kryptert. Migrer det til E2E-kryptering for full sikkerhet.",
+    "migrateEntriesDesc_other": "{{count}} innlegg er ikke kryptert. Migrer dem til E2E-kryptering for full sikkerhet.",
     "migrationComplete": "Migrering fullført",
     "migrationCompleteDesc": "{{migrated}} innlegg kryptert. {{failed}} mislyktes.",
     "migrated": "Migrert",
@@ -1206,8 +1228,8 @@
       "environmentDesc": "Bruk Utvikling under testing, Produksjon for publiserte apper",
       "syncDesc": "Synkroniser dagboken din med iCloud. Dataene dine forblir private på alle Apple-enhetene dine.",
       "detailsLabel": "Detaljer",
-      "signInWithAppleDesc": "Logg inn med Apple ID for å koble til iCloud. Klikk på knappen nedenfor for å åpne Apple-påloggingsvinduet.",
-      "signInWithAppleButton": "Logg inn med Apple ID",
+      "signInWithAppleDesc": "Logg inn med Apple-kontoen din for å koble til iCloud. Klikk på knappen nedenfor for å åpne Apple-påloggingsvinduet.",
+      "signInWithAppleButton": "Logg på med Apple",
       "afterSignedInDesc": "Etter å ha logget inn i popup-vinduet, klikk nedenfor for å fortsette.",
       "continueAfterSignIn": "Jeg er logget inn – fortsett",
       "signInRequired": "Innlogging ikke oppdaget",
@@ -1215,9 +1237,9 @@
       "popupBlocked": "Innloggingsvinduet kan ha blitt blokkert. Tillat popups for dette nettstedet og prøv igjen.",
       "signInLinkNotReady": "Apple-innlogging lastes fortsatt. Vent et øyeblikk og prøv igjen.",
       "originNotAllowed": "Denne appens opprinnelse ({{origin}}) er ikke registrert med iCloud.",
-      "adpNotice": "iCloud kan ikke brukes i en nettleser når Avansert databeskyttelse er slått på for Apple ID-en din, fordi Apple da blokkerer nettilgang til appdata. Bruk iPhone- eller iPad-appen for iCloud, eller velg Google Drive, Dropbox eller Nextcloud for å synkronisere i denne nettleseren.",
-      "signInWebAccessOff": "Apple melder at nettilgang til iCloud-data er slått av for denne Apple ID-en. Slå den på på iPhonen din under Innstillinger > navnet ditt > iCloud > iCloud.com, og prøv igjen.",
-      "signInFailedAdp": "Apple kunne ikke fullføre iCloud-innloggingen. Det betyr som regel at Avansert databeskyttelse er slått på for Apple ID-en din, og Apple lar ikke slike kontoer bruke iCloud i en nettleser. Bruk iPhone- eller iPad-appen for iCloud, eller koble til Google Drive, Dropbox eller Nextcloud i stedet."
+      "adpNotice": "iCloud kan ikke brukes i en nettleser når Avansert databeskyttelse er slått på for Apple-kontoen din, fordi Apple da blokkerer nettilgang til appdata. Bruk iPhone- eller iPad-appen for iCloud, eller velg Google Drive, Dropbox eller Nextcloud for å synkronisere i denne nettleseren.",
+      "signInWebAccessOff": "Apple melder at nettilgang til iCloud-data er slått av for denne Apple-kontoen. Slå den på på iPhonen din under Innstillinger → navnet ditt → iCloud → iCloud.com, og prøv igjen.",
+      "signInFailedAdp": "Apple kunne ikke fullføre iCloud-innloggingen. Det betyr som regel at Avansert databeskyttelse er slått på for Apple-kontoen din, og Apple lar ikke slike kontoer bruke iCloud i en nettleser. Bruk iPhone- eller iPad-appen for iCloud, eller koble til Google Drive, Dropbox eller Nextcloud i stedet."
     },
     "oauth": {
       "accessDenied": "Autorisasjon ble avbrutt eller nektet.",
@@ -1255,7 +1277,8 @@
     "circuitBreakersActive": "Midlertidige begrensninger aktive",
     "circuitBreakersActiveDesc": "Noen lagringsoperasjoner er midlertidig blokkert på grunn av gjentatte feil. Systemet gjenopprettes automatisk.",
     "multipleRecentFailures": "Flere nylige feil",
-    "multipleRecentFailuresDesc": "{{count}} synkroniseringsforsøk mislyktes de siste 5 minuttene. Sjekk tilkoblingen og lagringsleverandøren.",
+    "multipleRecentFailuresDesc_one": "{{count}} synkroniseringsforsøk mislyktes de siste 5 minuttene. Sjekk tilkoblingen og lagringsleverandøren.",
+    "multipleRecentFailuresDesc_other": "{{count}} synkroniseringsforsøk mislyktes de siste 5 minuttene. Sjekk tilkoblingen og lagringsleverandøren.",
     "reduceFailures": "Reduser synkroniseringsfeil",
     "reduceFailuresDesc": "Sjekk internettilkoblingen og lagringsleverandørens påloggingsopplysninger. Vurder å bytte leverandør hvis problemene vedvarer.",
     "reduceFailuresAction": "Sjekk tilkobling",
@@ -1294,7 +1317,8 @@
     "overallHealth": "Overordnet helse",
     "healthScore": "Helsescore",
     "allSystemsNormal": "✓ Alle systemer normale",
-    "activeAlerts": "Aktive varsler ({{count}})",
+    "activeAlerts_one": "Aktive varsler ({{count}})",
+    "activeAlerts_other": "Aktive varsler ({{count}})",
     "excellent": "Utmerket",
     "good": "Bra",
     "warning": "Advarsel",
@@ -1328,11 +1352,14 @@
     "frequentConflicts": "Hyppige synkroniseringskonflikter",
     "frequentConflictsDesc": "{{rate}} konflikter per 100 synkroniseringer oppdaget. Dette tyder på samtidig redigering på tvers av flere enheter.",
     "recentConflictSpike": "Nylig konfliktøkning",
-    "recentConflictSpikeDesc": "{{count}} konflikter oppdaget den siste timen. Du bruker kanskje aktivt flere enheter.",
+    "recentConflictSpikeDesc_one": "{{count}} konflikt oppdaget den siste timen. Du bruker kanskje flere enheter samtidig.",
+    "recentConflictSpikeDesc_other": "{{count}} konflikter oppdaget den siste timen. Du bruker kanskje flere enheter samtidig.",
     "circuitBreakersActive": "Synkroniseringsbeskyttelser aktive",
-    "circuitBreakersActiveDesc": "{{count}} sikkerhetspause(r) er aktive på grunn av gjentatte feil. Synkroniseringsoperasjoner er midlertidig satt på pause.",
+    "circuitBreakersActiveDesc_one": "{{count}} sikkerhetspause er aktiv på grunn av gjentatte feil. Synkroniseringen er midlertidig satt på pause.",
+    "circuitBreakersActiveDesc_other": "{{count}} sikkerhetspauser er aktive på grunn av gjentatte feil. Synkroniseringen er midlertidig satt på pause.",
     "multipleRecentFailures": "Flere nylige feil",
-    "multipleRecentFailuresDesc": "{{count}} av de siste 10 operasjonene mislyktes. Dette indikerer et pågående problem.",
+    "multipleRecentFailuresDesc_one": "{{count}} av de siste 10 operasjonene mislyktes. Dette tyder på et vedvarende problem.",
+    "multipleRecentFailuresDesc_other": "{{count}} av de siste 10 operasjonene mislyktes. Dette tyder på et vedvarende problem.",
     "reduceFailures": "Reduser synkroniseringsfeil",
     "reduceFailuresDesc": "Sjekk internettilkoblingen og tilgang til skylagring. Vurder å midlertidig deaktivere automatisk synkronisering under dårlige nettverksforhold.",
     "reduceFailuresAction": "Sjekk Diagnostikk-fanen for detaljerte feillogger",
@@ -1369,7 +1396,8 @@
     "circuitBreakers": "Synkroniseringsbeskyttelser",
     "open": "ÅPEN",
     "closed": "LUKKET",
-    "failures_count": "{{count}} feil",
+    "failures_count_one": "{{count}} feil",
+    "failures_count_other": "{{count}} feil",
     "reopens": "gjenåpnes {{time}}",
     "currentlyRetrying": "Prøver på nytt nå",
     "recentOperations": "Nylige operasjoner",
@@ -1455,13 +1483,17 @@
     "need8Entries": "Trenger minst 8 innlegg i valgt periode for meningsfull analyse.",
     "needMore": "Trenger minst 8 innlegg",
     "need8": "Trenger minst 8 innlegg",
-    "entriesInPeriod": "{{count}} innlegg i denne perioden",
-    "entriesAvailable": "{{count}} innlegg tilgjengelig for analyse",
+    "entriesInPeriod_one": "{{count}} innlegg i denne perioden",
+    "entriesInPeriod_other": "{{count}} innlegg i denne perioden",
+    "entriesAvailable_one": "{{count}} innlegg tilgjengelig for analyse",
+    "entriesAvailable_other": "{{count}} innlegg tilgjengelige for analyse",
     "limitReached": "Grense nådd",
     "analyzingEntries": "Analyserer innlegg",
-    "analyzingEntriesDesc": "Analyserer {{count}} innlegg for å generere innsikter…",
+    "analyzingEntriesDesc_one": "Analyserer {{count}} innlegg for å generere innsikter…",
+    "analyzingEntriesDesc_other": "Analyserer {{count}} innlegg for å generere innsikter…",
     "analyzing": "Analyserer trender…",
-    "analyzingCount": "Analyserer {{count}} innlegg først…",
+    "analyzingCount_one": "Analyserer {{count}} innlegg først…",
+    "analyzingCount_other": "Analyserer {{count}} innlegg først…",
     "authRequired": "Innlogging kreves",
     "authRequiredDesc": "Logg inn for å bruke AI-funksjoner",
     "signInRequired": "Logg inn for å bruke AI-drevet trendanalyse.",
@@ -1490,7 +1522,8 @@
     "reflection": "Avsluttende refleksjon",
     "lastAnalyzed": "Sist analysert {{date}}",
     "analyzedAt": "Analysert {{date}}",
-    "entriesAnalyzed": "{{count}} innlegg analysert",
+    "entriesAnalyzed_one": "{{count}} innlegg analysert",
+    "entriesAnalyzed_other": "{{count}} innlegg analysert",
     "reAnalyze": "Analyser på nytt",
     "selectDifferentPeriod": "Velg en annen periode",
     "show": "Vis",
@@ -1534,11 +1567,13 @@
     "share": "Del",
     "shareFile": "Del fil",
     "exportSuccess": "Eksport vellykket",
-    "exportSuccessDesc": "{{count}} innlegg eksportert som {{format}}",
+    "exportSuccessDesc_one": "{{count}} innlegg eksportert som {{format}}",
+    "exportSuccessDesc_other": "{{count}} innlegg eksportert som {{format}}",
     "exportError": "Eksport mislyktes",
     "exportErrorDesc": "Kunne ikke generere {{format}}. Prøv igjen.",
     "upgradePrompt": "Oppgrader til Plus for å låse opp eksportfunksjoner",
-    "entriesReady": "{{count}} innlegg klare til eksport.",
+    "entriesReady_one": "{{count}} innlegg klart til eksport.",
+    "entriesReady_other": "{{count}} innlegg klare til eksport.",
     "unavailableNative": "Dokumenteksport er ikke tilgjengelig i denne appversjonen."
   },
   "subscription": {
@@ -1576,8 +1611,7 @@
       "tagSuggestions": "Smarte etikettforslag",
       "trendAnalysis": "Humør- og trendinnsikter",
       "voiceEntry": "Diktering",
-      "exports": "PDF- og Word-eksport",
-      "imageUpload": "Fotominner"
+      "exports": "PDF- og Word-eksport"
     },
     "trialCta": "Start gratis prøveperiode",
     "trialPricing": "14 dager gratis, deretter {{yearlyPrice}}/år",
@@ -1611,7 +1645,7 @@
     "disclosureTitle": "OwnJournal Plus – årsabonnement",
     "disclosureLength": "Årlig abonnement med automatisk fornyelse.",
     "priceWithMonthly": "{{yearlyPrice}}/år (ca. {{monthlyEquivalent}}/måned)",
-    "renewalApple": "Betalingen trekkes fra Apple-ID-en din ved kjøpsbekreftelse. Abonnementet fornyes automatisk til samme pris hvis ikke automatisk fornyelse slås av minst 24 timer før slutten av gjeldende periode. Du kan administrere og avslutte abonnementet i App Store-kontoinnstillingene etter kjøpet.",
+    "renewalApple": "Betalingen trekkes fra Apple-kontoen din ved kjøpsbekreftelse. Abonnementet fornyes automatisk til samme pris hvis ikke automatisk fornyelse slås av minst 24 timer før slutten av gjeldende periode. Du kan administrere og avslutte abonnementet i App Store-kontoinnstillingene etter kjøpet.",
     "renewalGoogle": "Betalingen trekkes fra Google Play-kontoen din ved kjøpsbekreftelse. Abonnementet fornyes automatisk til samme pris hvis det ikke avsluttes i Google Play-abonnementene dine minst 24 timer før slutten av gjeldende periode.",
     "iapOnly": {
       "title": "Tilgjengelig i appen",
@@ -1678,8 +1712,8 @@
   },
   "suggestions": {
     "contentTooLong": "Innholdet er for langt",
-    "contentTooLongDescTags": "Innlegget ditt har {{wordCount}} ord. Reduser til {{limit}} ord eller mindre for å generere etiketter.",
-    "contentTooLongDescTitle": "Innlegget ditt har {{wordCount}} ord. Reduser til {{limit}} ord eller mindre for å generere tittel.",
+    "contentTooLongDescTags": "Innlegget ditt har {{wordCount}} ord. Kort det ned til {{limit}} ord eller færre for å generere etiketter.",
+    "contentTooLongDescTitle": "Innlegget ditt har {{wordCount}} ord. Kort det ned til {{limit}} ord eller færre for å generere en tittel.",
     "limitReached": "Forslagsgrense nådd",
     "tooFast": "For raskt",
     "tooFastDesc": "Vent litt før du genererer igjen",
@@ -1709,12 +1743,14 @@
     "monthlyLimitReachedDescTags": "Du har nådd grensen for etikettgenerering. Den nullstilles neste måned.",
     "monthlyLimitReachedDescTitle": "Du har nådd grensen for tittelgenerering. Den nullstilles neste måned.",
     "tagsApplied": "Etiketter lagt til",
-    "tagsAppliedDesc": "La til {{count}} AI-genererte etiketter",
+    "tagsAppliedDesc_one": "La til {{count}} AI-generert etikett",
+    "tagsAppliedDesc_other": "La til {{count}} AI-genererte etiketter",
     "suggestedActivities": "Foreslåtte aktiviteter",
     "applyTags": "Bruk etiketter",
     "applyActivities": "Bruk aktiviteter",
     "activitiesApplied": "Aktiviteter lagt til",
-    "activitiesAppliedDesc": "La til {{count}} foreslåtte aktiviteter",
+    "activitiesAppliedDesc_one": "La til {{count}} foreslått aktivitet",
+    "activitiesAppliedDesc_other": "La til {{count}} foreslåtte aktiviteter",
     "removeActivity": "Fjern fra forslag",
     "titleApplied": "Tittel lagt til",
     "titleAppliedDesc": "Den AI-genererte tittelen er lagt til",
@@ -1806,7 +1842,7 @@
     },
     "timeline": {
       "title": "Din dagboktidslinje",
-      "content": "Dagbokinnleggene dine vises her, organisert etter dato.\nKlikk på +-knappen for å opprette ditt første innlegg."
+      "content": "Dagbokinnleggene dine vises her, organisert etter dato.\nTrykk på +-knappen for å opprette ditt første innlegg."
     },
     "syncStatus": {
       "title": "Synkroniseringsstatus",
@@ -1822,7 +1858,7 @@
     },
     "help": {
       "title": "Hjelp og støtte",
-      "content": "Trenger du hjelp? Klikk her for å få tilgang til veiledninger, tips og starte denne omvisningen på nytt."
+      "content": "Trenger du hjelp? Trykk her for å få tilgang til veiledninger, tips og starte denne omvisningen på nytt."
     },
     "complete": {
       "title": "Klar til å skrive!",
@@ -1860,9 +1896,9 @@
       "startTour": "Start omvisning",
       "firstEntry": {
         "title": "Opprett ditt første innlegg",
-        "step1": "1. Klikk på +-knappen øverst på tidslinjen",
+        "step1": "1. Trykk på +-knappen øverst på tidslinjen",
         "step2": "2. Skriv dagbokinnlegget ditt i redigeringsfeltet – Markdown-formatering støttes",
-        "step3": "3. Legg til etiketter og humør, klikk deretter Lagre"
+        "step3": "3. Legg til etiketter og humør, og trykk deretter på Lagre"
       },
       "markdown": {
         "title": "Bruke Markdown",
@@ -1881,8 +1917,8 @@
         "title": "Opprette kontoen din",
         "desc": "Du kan registrere deg med e-post/passord eller sosial innlogging:",
         "emailOption": "E-post og passord: Skriv inn e-posten din og velg et sikkert passord",
-        "googleOption": "Google: Klikk «Fortsett med Google» for rask registrering",
-        "appleOption": "Apple: Klikk «Fortsett med Apple» for personvernfokusert registrering",
+        "googleOption": "Google: Trykk på «Fortsett med Google» for rask registrering",
+        "appleOption": "Apple: Trykk på «Fortsett med Apple» for personvernfokusert registrering",
         "tip": "Tips: Du kan tilbakestille passordet ditt når som helst med lenken «Glemt passord?»"
       }
     },
@@ -1941,7 +1977,7 @@
       "passwordTips": {
         "title": "Sikkerhetstips for passord",
         "tip1": "Bruk et sterkt, unikt passord du kan huske",
-        "tip2": "Vurder å bruke en passfrase (flere ord) for bedre sikkerhet",
+        "tip2": "Vurder å bruke en passfrase – flere ord er lettere å huske og sikrere",
         "tip3": "Lagre passordet ditt i en passordbehandler som sikkerhetskopi",
         "warning": "⚠️ Advarsel: Hvis du glemmer E2E-passordet ditt, kan ikke dataene dine gjenopprettes!"
       }
@@ -1949,13 +1985,13 @@
     "storage": {
       "googleDrive": {
         "title": "Koble til Google Drive",
-        "step1": "1. Klikk «Koble til» ved siden av Google Drive i Innstillinger",
+        "step1": "1. Trykk på «Koble til» ved siden av Google Drive i Innstillinger",
         "step2": "2. Logg inn med Google-kontoen din og gi tillatelser",
         "note": "Merk: OwnJournal lagrer data i en skjult appmappe som ikke er synlig i Drive"
       },
       "dropbox": {
         "title": "Koble til Dropbox",
-        "step1": "1. Klikk «Koble til» ved siden av Dropbox i Innstillinger",
+        "step1": "1. Trykk på «Koble til» ved siden av Dropbox i Innstillinger",
         "step2": "2. Logg inn og autoriser appen"
       },
       "nextcloud": {
@@ -2010,7 +2046,7 @@
         "saveLocationTitle": "Hvor lagres filene?",
         "saveLocationMobile": "Mobil (Android/iOS): Filer lagres i Documents/ på enheten. Et varsel vises med en Del-knapp for å lagre et annet sted eller sende via e-post.",
         "saveLocationWeb": "Nettleser: Filer lastes automatisk ned til nettleserens standard nedlastingsmappe.",
-        "shareHint": "På mobil, trykk på Del-knappen i varselet for å velge et annet lagringssted eller dele filen."
+        "shareHint": "På mobil kan du trykke på Del-knappen i varselet for å velge et annet lagringssted eller dele filen."
       },
       "offlineBackup": {
         "title": "Offline-eksport av sikkerhetskopi",
@@ -2020,7 +2056,7 @@
         "title": "Sikkerhetskopiering og gjenoppretting",
         "desc": "Eksporter dagboken din som JSON-fil for sikkerhetskopi eller importer fra en tidligere sikkerhetskopi for å gjenopprette innleggene dine.",
         "exportTitle": "Eksportere sikkerhetskopier",
-        "exportDesc": "For å eksportere en sikkerhetskopi av dataene dine, trykk på profilbildet ditt og velg Eksporter data. På mobil lagres filer i Documents/ med et Del-alternativ. På web lastes filer ned til nettleserens nedlastingsmappe.",
+        "exportDesc": "For å eksportere en sikkerhetskopi av dataene dine trykker du på profilbildet ditt og velger Eksporter data. På mobil lagres filer i Documents/ med et Del-alternativ. På nett lastes filer ned til nettleserens nedlastingsmappe.",
         "importTitle": "Importere sikkerhetskopier",
         "importMobile": "Mobil (Android/iOS): Ved import, naviger til Documents/ for å finne sikkerhetskopifilene dine.",
         "importWeb": "Nettleser: Velg JSON-sikkerhetskopifilen fra der du lagret den."
@@ -2031,7 +2067,7 @@
       },
       "e2eEncryption": {
         "title": "Ende-til-ende-kryptering",
-        "desc": "Dagbokinnleggene dine krypteres på enheten din før de synkroniseres eller lagres. Bare du har krypteringsnøklene, noe som sikrer at dataene dine forblir beskyttet under lagring og overføring."
+        "desc": "Dagbokinnleggene dine krypteres på enheten din før de synkroniseres eller lagres. Bare du har krypteringsnøklene, så dataene dine er beskyttet både under lagring og overføring – ingen andre kan lese dem."
       },
       "zeroKnowledge": {
         "title": "Zero Knowledge-arkitektur",
@@ -2086,7 +2122,7 @@
         "fixOption1Note": "Dette kan ta en stund avhengig av hvor mange filer du har. Hvis du ikke er serveradministrator, be dem om å kjøre disse kommandoene eller utelukke OwnJournal-mappen fra kryptering.",
         "fixOption2Title": "Alternativ 2: Deaktiver E2E-krypteringsappen",
         "fixOption2Desc": "Hvis Nextcloud har appen «End-to-End Encryption» aktivert:",
-        "fixOption2Step1": "1. Gå til Apper > Sikkerhet i Nextcloud",
+        "fixOption2Step1": "1. Gå til Apper → Sikkerhet i Nextcloud",
         "fixOption2Step2": "2. Finn «End-to-End Encryption» og deaktiver den",
         "fixOption2Step3": "3. Eller sørg for at OwnJournal-mappen ikke er merket for E2E-kryptering",
         "importantNote": "OwnJournal har sin egen innebygde E2E-kryptering som fungerer uavhengig. Du trenger ikke Nextclouds kryptering – dataene dine er allerede kryptert av OwnJournal før de forlater enheten din."
@@ -2095,7 +2131,7 @@
         "title": "Synkronisering fungerer ikke",
         "intro": "Prøv dette:",
         "tip1": "Sjekk internettilkoblingen din",
-        "tip2": "Prøv å klikke synkroniser-knappen manuelt",
+        "tip2": "Prøv å trykke på synkroniser-knappen manuelt",
         "tip3": "Koble fra og koble til skylagringen på nytt"
       },
       "passwordRecovery": {
@@ -2104,7 +2140,7 @@
         "desc": "Dette er en grunnleggende sikkerhetsfunksjon i ekte ende-til-ende-kryptering. Bare du har nøkkelen, noe som betyr at selv vi ikke kan få tilgang til dataene dine. Selv om dette beskytter personvernet ditt, betyr det også at det ikke er mulig å gjenopprette krypterte innlegg uten passordet.",
         "actionTitle": "Hva du kan gjøre:",
         "action1": "Hvis du har en ukryptert JSON-sikkerhetskopi, kan du gjenopprette innleggene dine fra den.",
-        "action2": "For å starte på nytt, bruk alternativet «Slett alt» i Faresonen i Innstillinger for å tilbakestille og opprette en ny kryptert dagbok."
+        "action2": "For å starte på nytt kan du bruke «Tilbakestill alle data» i delen «Faresone» i Innstillinger og deretter opprette en ny kryptert dagbok."
       }
     },
     "faq": {
@@ -2143,8 +2179,8 @@
         "answer": "Åpne Innstillinger, gå til Konto-fanen, bla til Abonnement-seksjonen og klikk «Administrer» for å åpne faktureringsportalen. Din fullstendige fakturahistorikk er tilgjengelig der, og du kan laste ned fakturaer som PDF."
       },
       "cancelSubscription": {
-        "question": "Hvordan kansellerer jeg abonnementet mitt?",
-        "answer": "Åpne Innstillinger, gå til Konto-fanen, bla til Abonnement-seksjonen og klikk «Administrer» for å få tilgang til faktureringsportalen. Klikk «Kanseller plan» for å stoppe abonnementet ditt. Du beholder Plus-tilgang til slutten av din nåværende faktureringsperiode. Kjernefunksjonene for dagbokskriving forblir gratis for alltid."
+        "question": "Hvordan sier jeg opp abonnementet mitt?",
+        "answer": "Åpne Innstillinger, gå til Konto-fanen, bla til Abonnement-seksjonen og klikk på «Administrer» for å åpne faktureringsportalen, der du kan si opp abonnementet ditt. Du beholder Plus-tilgangen til slutten av den nåværende faktureringsperioden. Kjernefunksjonene for dagbokskriving forblir gratis for alltid."
       }
     }
   },
@@ -2206,7 +2242,7 @@
       },
       "subscriptions": {
         "title": "4. Abonnementer, fakturering og oppsigelse",
-        "content": "OwnJournal tilbyr et valgfritt betalt nivå («Plus») solgt som et automatisk fornyende abonnement. På Apple App Store (iOS) faktureres abonnementer gjennom Apple-ID-en din og administreres i innstillingene for App Store-kontoen din. Betaling belastes Apple-ID-en din ved bekreftelse av kjøpet. Abonnementet ditt fornyes automatisk med mindre automatisk fornyelse er slått av minst 24 timer før slutten av den nåværende perioden. Kontoen din belastes for fornyelse innen 24 timer før slutten av den nåværende perioden. Oppsigelse trer i kraft ved slutten av den nåværende betalte perioden, og enhver ubrukt del av en gratis prøveperiode tapes når du starter et betalt abonnement. På Google Play (Android) faktureres abonnementer gjennom Google Play-kontoen din og administreres i Google Play-abonnementsinnstillingene; de samme prinsippene for automatisk fornyelse og oppsigelse gjelder. På nett faktureres abonnementer gjennom Stripe og administreres i kontoinnstillingene dine i OwnJournal. Priser vises i din lokale valuta der det støttes og inkluderer eventuelle gjeldende avgifter. Gratis prøveperioder, der de tilbys, konverteres automatisk til et betalt abonnement ved slutten av prøveperioden med mindre de avbrytes før prøveperioden er over."
+        "content": "OwnJournal tilbyr et valgfritt betalt nivå («Plus») solgt som et automatisk fornyende abonnement. På Apple App Store (iOS) faktureres abonnementer gjennom Apple-kontoen din og administreres i innstillingene for App Store-kontoen din. Betaling belastes Apple-kontoen din ved bekreftelse av kjøpet. Abonnementet ditt fornyes automatisk med mindre automatisk fornyelse er slått av minst 24 timer før slutten av den nåværende perioden. Kontoen din belastes for fornyelse innen 24 timer før slutten av den nåværende perioden. Oppsigelse trer i kraft ved slutten av den nåværende betalte perioden, og enhver ubrukt del av en gratis prøveperiode tapes når du starter et betalt abonnement. På Google Play (Android) faktureres abonnementer gjennom Google Play-kontoen din og administreres i Google Play-abonnementsinnstillingene; de samme prinsippene for automatisk fornyelse og oppsigelse gjelder. På nett faktureres abonnementer gjennom Stripe og administreres i kontoinnstillingene dine i OwnJournal. Priser vises i din lokale valuta der det støttes og inkluderer eventuelle gjeldende avgifter. Gratis prøveperioder, der de tilbys, konverteres automatisk til et betalt abonnement ved slutten av prøveperioden med mindre de avbrytes før prøveperioden er over."
       },
       "withdrawal": {
         "title": "5. Angrerett (EU/EØS-forbrukere)",
@@ -2266,7 +2302,7 @@
       },
       "aiProcessing": {
         "title": "AI-funksjoner og behandling",
-        "content": "OwnJournal tilbyr valgfrie AI-drevne funksjoner som humøranalyse, forslag og diktering, som kun er tilgjengelige for Plus-abonnenter. AI-behandling skjer bare når du som Plus-abonnent uttrykkelig bruker disse funksjonene. Når du bruker tekstbaserte AI-funksjoner, dekrypteres den aktuelle teksten først på enheten din og sendes deretter, ved din uttrykkelige handling, til vår AI-leverandør, for tiden Google (Gemini), via deres betalte API. Når du bruker diktering, brukes enhetens mikrofon bare mens du tar opp; opptaket sendes til Google (Gemini) for å gjøres om til tekst, og den resulterende teksten legges til innlegget ditt på enheten din. Vi lagrer ikke AI-inndata eller -utdata, inkludert taleopptak og transkripsjoner, på våre servere; vi registrerer bare tellere for bruk av AI-funksjoner per bruker (typen analyse som er utført, et tidsstempel og, for diktering, opptakets lengde i sekunder; aldri innholdet) for å håndheve grensene for rimelig bruk. Google kan oppbevare forespørsler og utdata i en begrenset periode for å overvåke misbruk og håndheve retningslinjer, i henhold til sine gjeldende retningslinjer. AI-behandling kan skje utenfor EØS; Google har nødvendige garantier for overføring av data, som standard personvernbestemmelser (SCC). Vi bruker det betalte nivået av Googles AI-tjeneste, der forespørsler og utdata ikke brukes til å trene eller forbedre modellene deres. Du kan velge å ikke bruke AI-funksjoner, og det påvirker ikke den grunnleggende dagbokfunksjonaliteten."
+        "content": "OwnJournal tilbyr valgfrie AI-drevne funksjoner som humøranalyse, forslag og diktering, som kun er tilgjengelige for Plus-abonnenter. AI-behandling skjer bare når du som Plus-abonnent uttrykkelig bruker disse funksjonene. Når du bruker tekstbaserte AI-funksjoner, dekrypteres den aktuelle teksten først på enheten din og sendes deretter, ved din uttrykkelige handling og via serverne våre, til vår AI-leverandør, for tiden Google (Gemini), gjennom Googles betalte API. Når du bruker diktering, brukes enhetens mikrofon bare mens du tar opp; opptaket sendes via serverne våre til Google (Gemini) for å gjøres om til tekst, og den resulterende teksten legges til innlegget ditt på enheten din. Vi lagrer ikke AI-inndata eller -utdata, inkludert taleopptak og transkripsjoner, på våre servere; vi registrerer bare tellere for bruk av AI-funksjoner per bruker (typen analyse som er utført, et tidsstempel og, for diktering, opptakets lengde i sekunder; aldri innholdet) for å håndheve grensene for rimelig bruk. Google kan oppbevare forespørsler og utdata i en begrenset periode for å overvåke misbruk og håndheve retningslinjer, i henhold til sine gjeldende retningslinjer. AI-behandling kan skje utenfor EØS; Google har nødvendige garantier for overføring av data, som standard personvernbestemmelser (SCC). Vi bruker det betalte nivået av Googles AI-tjeneste, der forespørsler og utdata ikke brukes til å trene eller forbedre modellene deres. Du kan velge å ikke bruke AI-funksjoner, og det påvirker ikke den grunnleggende dagbokfunksjonaliteten."
       },
       "diagnostics": {
         "title": "Diagnostikk og krasjlogger",
@@ -2286,7 +2322,7 @@
       },
       "dpo": {
         "title": "Personvernombud (DPO)",
-        "content": "Vi har ikke utnevnt et personvernombud fordi vi, basert på vår nåværende virksomhet, ikke er pålagt å gjøre det i henhold til artikkel 37 i GDPR. OwnJournal behandler eller lagrer ikke dagbokinnhold på våre servere, og vår behandling er begrenset til minimal konto-, autentiserings- og abonnementsinformasjon. Dagbokinnhold forblir ende-til-ende-kryptert og under brukerens kontroll. Vi vil revurdere denne forpliktelsen hvis behandlingsaktivitetene våre endres."
+        "content": "Vi har ikke utnevnt et personvernombud fordi vi, basert på vår nåværende virksomhet, ikke er pålagt å gjøre det i henhold til artikkel 37 i GDPR. OwnJournal lagrer ikke dagbokinnhold på våre servere. Når du bruker valgfrie AI-funksjoner, går den aktuelle teksten eller det aktuelle opptaket bare gjennom serverne våre på vei til AI-leverandøren vår, og det lagres ikke. Utover dette er behandlingen vår begrenset til minimal konto-, autentiserings- og abonnementsinformasjon. Dagbokinnhold forblir ende-til-ende-kryptert og under brukerens kontroll. Vi vil revurdere denne forpliktelsen hvis behandlingsaktivitetene våre endres."
       },
       "rights": {
         "title": "Dine rettigheter",
@@ -2323,8 +2359,10 @@
     "title": "Gjenopprett krypterte innlegg",
     "description": "Noen innlegg kunne ikke dekrypteres.",
     "decryptionFailures": "Noen innlegg kunne ikke dekrypteres",
-    "decryptionFailuresDesc": "{{count}} av {{total}} innlegg kunne ikke dekrypteres. Passordet ditt kan ha blitt endret.",
-    "failedEntries": "{{count}} av {{total}} innlegg kunne ikke dekrypteres",
+    "decryptionFailuresDesc_one": "{{count}} av {{total}} innlegg kunne ikke dekrypteres. Passordet ditt kan ha blitt endret.",
+    "decryptionFailuresDesc_other": "{{count}} av {{total}} innlegg kunne ikke dekrypteres. Passordet ditt kan ha blitt endret.",
+    "failedEntries_one": "{{count}} av {{total}} innlegg kunne ikke dekrypteres",
+    "failedEntries_other": "{{count}} av {{total}} innlegg kunne ikke dekrypteres",
     "explanation": "Dette skjer vanligvis når krypteringspassordet ble endret. Skriv inn det opprinnelige passordet ditt for å gjenopprette innleggene.",
     "originalPassword": "Opprinnelig krypteringspassord",
     "passwordPlaceholder": "Skriv inn det opprinnelige passordet ditt…",
@@ -2336,7 +2374,8 @@
     "recoverButton": "Gjenopprett innlegg",
     "recovering": "Gjenoppretter…",
     "success": "Gjenoppretting vellykket",
-    "successDesc": "Gjenopprettet {{count}} innlegg",
+    "successDesc_one": "Gjenopprettet {{count}} innlegg",
+    "successDesc_other": "Gjenopprettet {{count}} innlegg",
     "failed": "Gjenoppretting mislyktes: {{error}}",
     "wrongPassword": "Feil passord. Prøv igjen med det opprinnelige krypteringspassordet ditt.",
     "keyCorrupted": "Krypteringsnøkkelen på alle tilkoblede tjenester kan ikke dekryptere innleggene. Hvis du brukte Google Drive, sjekk versjonshistorikken for en tidligere versjon av encryption-key.json i OwnJournal-mappen.",
@@ -2347,10 +2386,12 @@
     "networkError": "Nettverksfeil. Sjekk tilkoblingen og prøv igjen.",
     "rateLimited": "Skylagringen begrenser forespørsler midlertidig. Vent 30–60 sekunder og prøv igjen.",
     "deleteLink": "Eller fjern innlegg som ikke kan gjenopprettes",
-    "confirmDelete": "Dette sletter permanent {{count}} innlegg som ikke kan dekrypteres. Dette kan ikke angres.",
+    "confirmDelete_one": "Dette sletter permanent {{count}} innlegg som ikke kan dekrypteres. Dette kan ikke angres.",
+    "confirmDelete_other": "Dette sletter permanent {{count}} innlegg som ikke kan dekrypteres. Dette kan ikke angres.",
     "confirmDeleteButton": "Slett permanent",
     "deletedTitle": "Innlegg fjernet",
-    "deletedDesc": "Fjernet {{count}} innlegg som ikke kunne gjenopprettes",
+    "deletedDesc_one": "Fjernet {{count}} innlegg som ikke kunne gjenopprettes",
+    "deletedDesc_other": "Fjernet {{count}} innlegg som ikke kunne gjenopprettes",
     "deleteFailed": "Kunne ikke fjerne innlegg. Prøv igjen.",
     "keyMismatchExplanation": "Krypteringsnøkkelen som kan dekryptere disse innleggene stemmer ikke med den som er i bruk. Du kan laste inn nøkkelen på nytt fra skyen.",
     "keyMismatchRecoveryHint": "Du kan kanskje gjenopprette den opprinnelige nøkkelen fra versjonshistorikken til skylagringen din (f.eks. Google Drive eller Nextcloud-filversjoner for encryption-key.json i OwnJournal-mappen).",
@@ -2450,8 +2491,8 @@
     "topNegative": "{{activity}} er forbundet med lavere humør",
     "proFeature": "Plus-funksjon",
     "proFeatureDesc": "Aktivitetsinnsikt er tilgjengelig med et Plus-abonnement",
-    "tooltipAvg": "gj.sn.",
-    "tooltipEntries": "innlegg"
+    "tooltipDetail_one": "{{delta}} (gj.sn.: {{emoji}} {{avg}}, {{count}} innlegg)",
+    "tooltipDetail_other": "{{delta}} (gj.sn.: {{emoji}} {{avg}}, {{count}} innlegg)"
   },
   "notes": {
     "journalTab": "Dagbok",

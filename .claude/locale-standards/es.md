@@ -45,28 +45,29 @@ Scope: OwnJournal app (`src/i18n/locales/es.json`) and website (`ownjournal-webs
 | no-compromise | sin concesiones | sin compromisos |
 | period | periodo | período (both RAE; house picks one) |
 | app settings (in-app) | Configuración | Ajustes (reserve for device/OS settings) |
-| Apple ID | Apple ID | ID de Apple |
+| Apple Account (formerly Apple ID) | **Cuenta de Apple** (capital C, as on support.apple.com/es-es): *tu Cuenta de Apple*, *esta Cuenta de Apple* (feminine), *cargar en tu Cuenta de Apple* | *Apple ID*, *ID de Apple* (renamed 2024), *cuenta Apple* |
+| Sign in with Apple (feature/button) | **Iniciar sesión con Apple** (Apple's official es name) | *Iniciar sesión con Apple ID*, *Acceder con Apple* |
 
 ## GDPR / legal vocabulary (official Spanish RGPD text)
 - RGPD (not GDPR); EEE (Espacio Económico Europeo); *decisión de adecuación*.
 - *garantías adecuadas* (art. 46) — not *salvaguardas apropiadas*.
 - *Cláusulas Contractuales Tipo (CCT)* — the AEPD term; not *Cláusulas Contractuales Estándar*. (RGPD art. 46.2.c literally says *cláusulas tipo de protección de datos*.)
 - *responsable del tratamiento*, *encargado del tratamiento*, *tratamiento de datos*, *conservar* (retain), *plazo/periodo de conservación*.
-- *expresamente* for "explicitly" in legal text, both repos.
+- *expresamente* for "explicitly" in legal text.
 - Data processing (GDPR) = *tratamiento/tratar*, never *procesamiento/procesar* (that stays only for payments, *procesador de pagos*, and the AI service "processing a request"). Section titles: *Funciones de IA y tratamiento de datos*, *Base jurídica del tratamiento*, *Conservación de datos* (not *Retención*), *Delegado de protección de datos (DPD)* (not DPO).
 - Rights list: *rectificar* (not corregir), *supresión*, *limitación del tratamiento* (not restringir), *presentar una reclamación*, *dirigirse a la autoridad de control*. Lawful bases in lowercase after the colon: *(1) ejecución de un contrato, …; (2) intereses legítimos, …; (3) consentimiento, …*.
 - Contract vocabulary: *incumplimiento sustancial / cambios sustanciales* (not *materialmente*), *infracciones* (not violaciones), *dejar de prestar el servicio* (not discontinuar), *no afecta a* (with *a*), *protección del consumidor*, *en virtud de las leyes*, *por tu cuenta y riesgo*, *conducta dolosa*, *a sabiendas*.
 - Document names in sentence case everywhere: *Términos de servicio*, *Política de privacidad*. The defined term *estos Términos* keeps its capital.
-- App and website `legal.privacy.aiProcessing.content` must be byte-identical.
+- The website no longer has its own `legal` block (removed 2026-11; the site links to the app texts), so legal text lives only in the app file. AI requests and voice recordings pass **via our servers only in transit** to Google (*a través de nuestros servidores*, *solo pasa por nuestros servidores en tránsito… y no se conserva*); never claim the servers are not involved.
 - Never add or soften facts. Voice-feature invariants: 5 min per recording; 200 min/month; Plus only; audio goes to Google (Gemini); OwnJournal never stores audio or transcripts; only seconds are counted; paid tier does not train on data; Google may retain data for a limited time for abuse monitoring.
 
 ## Typography and orthography (RAE / Fundéu)
-- Dates: month lowercase with *de*: *noviembre de 2026*, *abril de 2026*, *diciembre de 2024*, for privacy and terms in both repos. Label `legal.lastUpdatedOn` = *Última actualización: {{date}}* (sentence case, no space before the colon); website label *Última actualización*.
+- Dates: month lowercase with *de*: *noviembre de 2026*, *abril de 2026*. Label `legal.lastUpdatedOn` = *Última actualización: {{date}}* (sentence case, no space before the colon).
 - Opening `¿` and `¡` are mandatory.
 - Ellipsis `…` (U+2026), no space before it.
 - Quotes: straight double `" "` (house rule; no « »).
 - Unit symbols: *5 min*, *10 s*, *5 MB*, *{{ms}} ms* with a space; no plural *s* on symbols. Percent with a space: *{{percent}} %*, *100 %*. Relative time: *hace {{minutes}} min*, *hace {{hours}} h*, *hace {{days}} d*.
-- Numbers: thousands with a point (*100.000*), decimals with a comma; prices *19,99 $*, *0 $*, *~1,67 $/mes*.
+- Numbers: thousands with a point (*100.000*), decimals with a comma. Website prices are NEVER hard-coded: use `{{price}}` / `{{monthly}}` (the code formats the visitor's currency in es, e.g. *19,99 €*): *Cuesta {{price}} al año (unos {{monthly}} al mes)*, *Unos {{monthly}} al mes • Cancela cuando quieras*. Website refund FAQ mirrors the app Terms (withdrawal 14 days for EU/EEA/equivalent consumers buying on the website; proportional amount if already used; App Store/Google Play refunds by Apple/Google), never "sin preguntas".
 - Abbreviation *p. ej.,* (not *ej.*, *ej:*, *p.ej.*). *mín.* with a point.
 - Quotes for UI labels referenced in text: straight double quotes, never single quotes ('Gestionar' → "Gestionar").
 - Dashes: spaced em dash `—` only as a separator in website feature-list items (*Dictado por voz — 200 minutos al mes*) and the store disclosure title. In prose replace English-style ` — ` / ` - ` with a colon, comma or parentheses (*Sesión caducada: vuelve a conectar…*); a true Spanish inciso uses closed rayas (*—incluido su código fuente—*). Error pattern "X - Y" → *X: y…* (lowercase after the colon).
@@ -76,7 +77,13 @@ Scope: OwnJournal app (`src/i18n/locales/es.json`) and website (`ownjournal-webs
 ## UI microcopy conventions
 - Buttons: infinitive (*Continuar*, *Dictar*, *Descartar grabación*), short; *Ahora no* for "Not now".
 - Errors: state the problem, then the action in imperative tú (*Permítelo en los ajustes…*, *Inténtalo de nuevo.*). Avoid *Por favor* in short errors when it adds length (house style uses it elsewhere; not wrong).
-- Placeholders without i18next plural forms must read correctly for 1 and 0: avoid verbs/nouns that agree with the number (*Quedan {{minutes}} min*, *{{count}} entradas migradas*, *{{count}} conflicto(s)* break at 1). Use a label pattern: *Tiempo restante este mes: {{minutes}} min*, *Entradas migradas: {{count}}*, or a parenthesis: *Hay entradas cifradas ({{count}}) que…*. Never write *(s)* plurals.
+- Plurals (i18next 25, CLDR `es` = **one / many / other**; all three are required, a missing one falls back to English). Every key that has `_one/_other` in en.json gets `_one`, `_many`, `_other` and no bare base key. Write real sentences with the number (*Se han importado {{count}} entradas*), not the old label workaround. `_one` agrees in the singular (*Se ha añadido {{count}} etiqueta*). `_many` (1.000.000, 2.000.000…) is the "millón de" form: put *de* between the number and the noun (*{{count}} de entradas*, *Se han migrado {{count}} de archivos*); where the number is not directly followed by its noun (*Alertas activas ({{count}})*, *{{count}} de las últimas 10 operaciones*, *{{count}} de {{total}} entradas*), `_many` = `_other`. Partitive "X of Y failed": *No se pudo descifrar {{count}} de {{total}} entradas* (one) / *No se pudieron…* (other). Never write *(s)* plurals.
+- Placeholders WITHOUT plural forms (no `_one/_other` in English) must still read correctly for 1 and 0: use a label pattern (*Tiempo restante este mes: {{minutes}} min*) or a parenthesis.
+- Success toasts: perfect *Se ha(n) + participio* (*Se han recuperado…*); keep preterite where the sentence already uses it (*…se resolvieron automáticamente. Se registraron {{count}} conflictos.*).
+- Tap vs click (house rule, mirrors English): *Toca* for in-app controls that exist on mobile; *Haz clic* only on web/desktop-only surfaces (Nextcloud web UI, browser address bar, email links, the Stripe billing portal and its "Gestionar" button, the Apple web sign-in popup). *Pulsa* only for physical keys (*pulsa Enter*). After a colon the imperative is lowercase (*Para crear una copia de seguridad: toca tu icono de perfil → Exportar datos*). Menu paths use `→` (*Ajustes → tu nombre → iCloud*), not `>`.
+- UI labels named in Help must match the real label: the reset action is *"Restablecer todos los datos"* in the *Zona de peligro* (not *Eliminar todo*).
+- `auth.termsAgreement` is one `<Trans>` sentence: *Al continuar, aceptas nuestros <terms>Términos de servicio</terms> y nuestra <privacy>Política de privacidad</privacy>.* Repeat the possessive for each noun (gender differs) and end with a period. Exactly one `<terms>` and one `<privacy>` pair, no other tags.
+- Chart tooltips with two numbers: never separate them with a bare comma (*3,4, 5 entradas* is ambiguous with decimal commas). Use *en*: *{{delta}} (media: {{emoji}} {{avg}} en {{count}} entradas)*.
 - Drop *Por favor* in UI messages (*Inténtalo de nuevo.*, *Introduce tu contraseña.*); retry = *Inténtalo de nuevo* / *antes de volver a intentarlo*.
 - Sentence case for every title, button and label (*Ver conflictos*, *Aplicar todo*, *Ahora no*); Title Case is an English carry-over.
 - Prefer active/impersonal *se* over *ha sido + participio* (*Se ha eliminado tu cuenta*). *múltiples* → *varios* in UI.
@@ -100,4 +107,6 @@ Scope: OwnJournal app (`src/i18n/locales/es.json`) and website (`ownjournal-webs
 - Gboard Spanish usage ("dictado por voz", "escritura por voz"): https://www.xatakandroid.com/aplicaciones-android/google-reinventa-su-teclado-para-hacer-sencilla-escritura-voz-gboard-hemos-probado
 - RGPD, Reglamento (UE) 2016/679, texto en español (EUR-Lex): https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32016R0679
 - AEPD, transferencias internacionales: https://www.aepd.es/derechos-y-deberes/cumple-tus-deberes/medidas-de-cumplimiento/transferencias-internacionales
+- Apple, Cuenta de Apple (es-ES; "Tu Cuenta de Apple, que antes llamábamos ID de Apple"): https://support.apple.com/es-es/apple-account
+- Apple, ¿Qué es Iniciar sesión con Apple?: https://support.apple.com/es-lamr/HT210318 (es-ES Apple Business guide uses the same name: https://support.apple.com/es-es/guide/business/axmc55f52fac/web)
 - RAE, Diccionario panhispánico de dudas — mayúsculas (meses en minúscula): https://www.rae.es/dpd/may%C3%BAsculas

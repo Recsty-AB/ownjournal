@@ -52,9 +52,25 @@ voice see the website repo's `.claude/locale-standards/pt-BR.md` (brand voice, c
   contêiner; Apple Developer account = conta Apple Developer; snapshot = panorama (not "instantâneo");
   multiple = vários/várias (not "múltiplos"); supports = é compatível com / aceita (not "suporta").
 - Avoid "Por favor" in UI (Microsoft pt-BR guide); plain imperative: "Tente novamente".
-- Count strings have no plural variants in this app; prefer number-agnostic forms
-  ("Dias restantes no seu teste gratuito: {{days}}"). Activity names are feminine/masculine
-  at random, so avoid adjectives that agree with {{activity}} ("{{activity}} se associa a…").
+- Plurals (i18next 25, CLDR): every key that has `_one/_other` in en.json must have exactly
+  `_one`, `_many`, `_other` here, no base key. CLDR pt maps **0 and 1** (and 1.5) to `one`, so
+  `_one` is singular ("{{count}} entrada sincronizada"; "0 entrada" is accepted, cf. "zero
+  quilômetro"); `many` (1000000, 2000000) = same text as `_other` (digits, no "de"). No "(s)".
+  Agree verbs/participles too ("{{count}} das últimas 10 operações falhou/falharam").
+  Other number placeholders without plural keys stay number-agnostic ("Dias restantes no seu
+  teste gratuito: {{days}}", "Arquivos transferidos antes do cancelamento: {{transferred}}").
+- Activity names are feminine/masculine at random, so avoid adjectives that agree with
+  {{activity}} ("{{activity}} se associa a…"). `{{provider}}` values (Google Drive, Dropbox,
+  Nextcloud, iCloud) are all masculine: "Conectado ao {{provider}}"; "com {{provider}}" without article.
+- Tap vs. click (house rule, mirrors English): in-app controls → "Toque em…/Toque no…/Tente
+  tocar no…"; "Clique/clicar" only where English keeps "click" (Nextcloud web UI, browser
+  address bar, e-mail links, Apple web sign-in popup, the billing-portal FAQ: clique em
+  "Gerenciar"). Lowercase after a colon ("Para criar um backup: toque no…", "Google: toque em…").
+  Menu paths use `→` ("Ajustes → seu nome → iCloud", "Aplicativos → Segurança"), never `>`.
+- Quoted UI labels must match this file's actual label: "Redefinir todos os dados"
+  (`storage.resetAllData`) in the "Zona de perigo" (`storage.dangerZone`).
+- Missing articles before subjects are calques: "A transferência foi cancelada", "A
+  autorização foi cancelada", "As credenciais são criptografadas localmente".
 
 ## Voice/dictation glossary
 | English | pt-BR | Notes |
@@ -77,7 +93,8 @@ voice see the website repo's `.claude/locale-standards/pt-BR.md` (brand voice, c
 - Buttons: infinitive ("Ditar", "Parar", "Continuar", "Cancelar gravação"); "Agora não" for decline.
 - Errors: plain statement + action ("A transcrição falhou. Tente novamente.").
 - Units: number + space + symbol: "10 s", "200 min", "5 MB", "{{ms}} ms"; ranges with "a":
-  "24 a 48 horas". Money: "US$ 99". "100+" = "mais de 100". Example = "ex.:".
+  "24 a 48 horas". Money in fixed text: "US$ 99"; website prices are
+  never hard-coded: use `{{price}}`/`{{monthly}}` (code formats the visitor's currency). "100+" = "mais de 100". Example = "ex.:".
 - Relative time: "há {{minutes}} min", "há {{hours}} h", "há {{days}} d"; justNow = "agora"
   (reads "Sincronizado há 5 min" / "Sincronizado agora").
 - Count placeholders without plural variants must be number-agnostic: avoid
@@ -90,8 +107,17 @@ voice see the website repo's `.claude/locale-standards/pt-BR.md` (brand voice, c
   hyphen (not in addresses such as seu@email.com).
 - Months are lowercase with "de": "novembro de 2026" (VOLP/Acordo Ortográfico 1990). Same
   style for privacy and terms dates in both repos ("abril de 2026", "dezembro de 2024").
-- Last-updated label: app `legal.lastUpdatedOn` = "Última atualização: {{date}}"; website
-  `legal.lastUpdated` = "Última atualização" (sentence case).
+- Last-updated label: app `legal.lastUpdatedOn` = "Última atualização: {{date}}" (sentence case).
+- `auth.termsAgreement` is one `<Trans>` sentence: "Ao continuar, você concorda com nossos
+  <terms>Termos de Serviço</terms> e nossa <privacy>Política de Privacidade</privacy>." —
+  possessive agrees with each noun (nossos/nossa), final period, exactly one tag pair each.
+- Chart tooltip `moodCorrelations.tooltipDetail_*`: "{{delta}} (média: {{emoji}} {{avg}},
+  {{count}} entrada/entradas)" — ASCII parentheses/colon/comma; `_one`/`_many`/`_other`.
+- Apple names (Apple pt-BR, since 2024): **Conta Apple** (capital C, feminine: "na sua Conta
+  Apple", "esta Conta Apple", "cobrado na sua Conta Apple"); never "Apple ID"/"ID Apple".
+  "Sign in with Apple" button = **Iniciar sessão com a Apple** (Apple's official feature name;
+  the only allowed "iniciar sessão" — generic sign-in stays "Entrar"/"fazer login").
+  "Continue with Apple" = "Continuar com Apple". Generic "conta Apple Developer" stays lowercase.
 
 ## Legal / privacy conventions
 - Brazilian readers, EU controller: use LGPD/RGPD Portuguese vocabulary consistently in the
@@ -112,7 +138,11 @@ voice see the website repo's `.claude/locale-standards/pt-BR.md` (brand voice, c
 - Prompts/outputs (AI) = solicitações e respostas; "AI inputs" = "dados enviados à IA"
   ("entrada" is the journal entry). Avoid ambiguous "seus/suas" for Google's things: "os
   modelos do Google", "conforme as próprias políticas vigentes", "a API paga desse provedor".
-- Website `legal.privacy.aiProcessing.content` must be identical to the app's.
+- The legal texts live only in the app (website `legal` block removed). AI text and
+  recordings pass "por meio dos nossos servidores", "apenas em trânsito", and "não é retido".
+- Stripe is feminine, as Stripe Brasil writes it: "pela Stripe", "a Stripe, nossa processadora
+  de pagamentos"; generic term stays "processador de pagamentos (Stripe)".
+- Refund/withdrawal (EU consumer right) = "direito de arrependimento" (website FAQ mirrors the Terms).
 - "Rate limiting for fair use" = "aplicar os limites de uso justo".
 - Paid tier = plano pago (not "nível pago"); free trial = período de teste gratuito (not
   "avaliação"); current period = período atual (not "em curso").
@@ -130,3 +160,5 @@ voice see the website repo's `.claude/locale-standards/pt-BR.md` (brand voice, c
 - LGPD, Lei nº 13.709/2018: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
 - RGPD in Portuguese (EUR-Lex): https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32016R0679
 - Academia Brasileira de Letras, VOLP / Acordo Ortográfico 1990: https://www.academia.org.br/nossa-lingua/busca-no-vocabulario
+- Apple Suporte (BR), "Conta Apple, anteriormente ID Apple": https://support.apple.com/pt-br/apple-account
+- Apple Developer (BR), "Sobre o recurso Iniciar sessão com a Apple": https://developer.apple.com/br/help/account/capabilities/about-sign-in-with-apple/

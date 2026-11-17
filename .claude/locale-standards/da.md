@@ -4,7 +4,7 @@ Scope: app UI, Help, paywall, privacy/legal texts in `src/i18n/locales/da.json` 
 For long-form blog/brand voice see the website's `.claude/locale-standards/da.md`; this file covers UI and legal copy.
 
 ## 1. Register and address
-- Informal `du / dig / din / dit / dine` everywhere, product UI and legal text, both repos. Never `De / Dem / Deres`. (House style + Microsoft Danish style guide.) `bedes du` (website legal) is tolerated; it is not a different address form.
+- Informal `du / dig / din / dit / dine` everywhere, product UI and legal text, both repos. Never `De / Dem / Deres`. (House style + Microsoft Danish style guide.) `bedes du` is tolerated; it is not a different address form.
 - Active voice by default; passive (`-s` form or `blive` + participle) is fine in error messages so the user is not blamed (Microsoft).
 - Avoid `venligst` in new strings; a plain imperative is polite in Danish (`Prøv igen.`). Existing `Prøv venligst igen` strings are tolerated.
 - Instructions with a condition: `Hvis problemet fortsætter, kan du prøve at …` (not `…, prøv at …`). `Når du har logget ind, skal du klikke …` (not `Efter at have logget ind, klik …`).
@@ -30,7 +30,9 @@ For long-form blog/brand voice see the website's `.claude/locale-standards/da.md
 | backup | sikkerhedskopi, sikkerhedskopiering; `Eksport af JSON-sikkerhedskopi` | backup, JSON-backup-eksport |
 | self-hosted | selvhostet, `hoste selv`, selvhosting | self-hostet, self-hoste |
 | password manager | adgangskodeadministrator | password manager, adgangskodemanager |
-| danger zone | Farezone | Fareområdet |
+| danger zone | Farezone (`i sektionen Farezone`) | Fareområdet |
+| Reset All Data (storage.resetAllData) | `Nulstil alle data` – quote this exact label in help/recovery text | `SLET alle data`, `Slet alt` |
+| cancel (a subscription) | opsige (`opsige dit abonnement`) | annullere planen |
 | Photo memories | Fotominder | Fotominner (nb) |
 | editor | editoren | |
 | cloud storage / cloud provider | skylagring, skyudbyder, skyfiler (both repos) | cloudlagring, cloud-lagring, cloudlager, cloududbyder |
@@ -54,6 +56,8 @@ For long-form blog/brand voice see the website's `.claude/locale-standards/da.md
 | AI | AI (house style; not KI) | |
 | Simple mode | simpel tilstand (lowercase mid-sentence, also in legal text) | Simple-tilstand |
 | Google Drive | Google Drive (product name, never translated) | Google Drev |
+| Apple Account (formerly Apple ID) | Apple-konto, common gender: `din Apple-konto`, `denne Apple-konto` (Apple da-dk, 2024 rename) | Apple ID, Apple-id, `dit Apple ID` |
+| Sign in with Apple (button/feature) | Log ind med Apple (Apple da-dk) | Log ind med Apple ID, Log på med Apple (third-party wording) |
 
 Owner decision (2026-11): the feature is `Diktering` everywhere in both repos (`Diktering kræver et Plus-abonnement`, `minutter med diktering`). `Stemmeinput` is retired.
 One term per concept across both repos; the app's term wins unless it is wrong.
@@ -66,8 +70,14 @@ One term per concept across both repos; the app's term wins unless it is wrong.
 - Error messages: complete sentences that end with a period; include the article (`Optagelsen er for stor.`, not `For stor optagelse`). Avoid opening with `Kan ikke …`/`Kunne ikke …` in new strings (Microsoft); use `… blev ikke …`, `… mislykkedes.`
 - Buttons: short verb or verb + object, no period (`Fortsæt`, `Ikke nu`, `Kassér optagelsen`).
 - Progress: present tense + ellipsis character `…` with no space (`Transskriberer…`).
+- Plurals (i18next): Danish uses exactly `_one` and `_other` (`Intl.PluralRules('da')`). Every English `_one/_other` key needs both; no bare base key, no `(er)`/`(r)` hedges. `indlæg`, `fejl`, `forsøg`, `tag` are invariant, but agreement changes: `1 krypteret indlæg` / `krypterede`, `tilgængeligt` / `tilgængelige`, `er ikke krypteret … det` / `krypterede … dem`, `1 fil` / `filer`, `1 konflikt` / `konflikter`, `1 sikkerhedspause er aktiv` / `pauser er aktive`, `1 AI-genereret tag` / `AI-genererede tags`, `1 foreslået aktivitet` / `foreslåede`.
 - Placeholders: `{{minutes}} min` / `{{seconds}} s` work for any number (unit symbol, no inflection). With words, plural forms are `minut/minutter`, `sekund/sekunder`. Avoid genitive constructions around a number (`alle {{minutes}} minutters stemmeinput` – awkward); write `alle dine {{minutes}} minutter med stemmeinput`.
 - Avoid zeugma with `blive`: `bliver til tekst og indsat` mixes "become" and passive; write `omdannes til tekst, som indsættes …`.
+
+- Tap vs. click (mirrors the English house rule): in-app controls → `Tryk på …` / `Tryk her` / `prøv at trykke på` (Apple/Google Danish). `Klik på …` only where English keeps "click": Nextcloud web UI, browser address bar, links in e-mails, the Stripe portal (`klik på "Administrer"`), the Apple sign-in popup on the web. Choosing from a list → `Vælg`. Keys: `tryk Enter` for the keyboard.
+- Auth line: `auth.termsAgreement` is one `<Trans>` sentence with exactly one `<terms>…</terms>` and one `<privacy>…</privacy>` pair: `Ved at fortsætte accepterer du vores <terms>Servicevilkår</terms> og <privacy>Privatlivspolitik</privacy>.` (ends with a period; no other tags).
+- Chart tooltip `moodCorrelations.tooltipDetail_*`: `{{delta}} (gns. {{emoji}} {{avg}}, {{count}} indlæg)` – abbreviation `gns.` (gennemsnit) with period and no colon; `indlæg` is invariant in `_one`/`_other`.
+- Website prices: never hard-code an amount or currency; use `{{price}}` / `{{monthly}}` (the code formats the visitor's currency): `Det koster {{price}}/år (~{{monthly}}/måned).`
 
 ## 5. Punctuation and typography
 - Dash: spaced en-dash ` – `; never em-dash `—` and never a spaced hyphen ` - ` as a dash (Microsoft). Both files are clean (2026-11). After a dash in an error message continue in lowercase (`Ikke fundet – målplaceringen findes ikke`). Exception: Markdown syntax hints (`- lister`).
@@ -78,7 +88,7 @@ One term per concept across both repos; the app's term wins unless it is wrong.
 - `&` only in quoted third-party UI labels (`Enheder & sessioner` in Nextcloud); otherwise `og`.
 - `per` → `pr.` (`pr. ugedag`, `pr. indlæg`). `+-knappen`, `{{tag}}-blokken` (hyphen after a symbol/placeholder in a compound).
 - Comma: the file uses startkomma (comma before every subordinate clause: `viser, hvilke`, `krypteret, hvis du …`). Keep it consistent (Dansk Sprognævn allows both systems, but not mixed).
-- Months and weekdays lowercase, also standalone after a label: `Sidst opdateret: november 2026`. Legal dates use `<måned> <år>` lowercase in both repos for both privacy and terms (`april 2026`, `december 2024`). `legal.lastUpdatedOn` = `Sidst opdateret: {{date}}` (sentence case, colon, no space before it).
+- Months and weekdays lowercase, also standalone after a label: `Sidst opdateret: november 2026`. Legal dates use `<måned> <år>` lowercase for both privacy and terms (`april 2026`, `december 2024`). `legal.lastUpdatedOn` = `Sidst opdateret: {{date}}` (sentence case, colon, no space before it).
 - Decimal comma, `kr.` with period; `pr.` (per) with period; `min` and `s` as unit symbols without period.
 - Compounds are written as one word or with a hyphen before an abbreviation/brand: `Plus-abonnement`, `Gemini-API`, `PDF- og Word-eksport` (suspension hyphen).
 
@@ -110,8 +120,11 @@ One term per concept across both repos; the app's term wins unless it is wrong.
 | abuse monitoring | overvågning af misbrug |
 - Legal facts to preserve: Plus only; 5 min per recording; 200 min per month; audio sent to Google (Gemini) for transcription; OwnJournal never stores audio or transcripts; only seconds are counted; Google's paid tier does not train on the data; Google may retain data for a limited time for abuse monitoring.
 - Prefer naming the party (`Googles modeller`) over ambiguous `deres/dennes`.
-- `legal.privacy.aiProcessing.content` must be identical in the app and website `da.json`.
-- Defined terms `Vilkår` / `Privatlivspolitik` stay capitalized in the app terms (house style); the website terms use lowercase `vilkår`. Do not mix within one document.
+- The website no longer has a `legal` block (removed 2026-11; it links to the app's legal pages). Legal text lives only in the app `da.json`.
+- Defined terms `Vilkår` / `Privatlivspolitik` stay capitalized in the app terms (house style). In website FAQ running text, `vores servicevilkår` / `vores privatlivspolitik` are lowercase.
+- AI processing: text and recordings pass *via vores servere* only in transit (`passerer kun gennem vores servere under overførslen … og opbevares ikke`); never claim they go directly to Google. Google "may keep" data briefly → `opbevarer den højst kortvarigt` / `kan opbevare` (not a flat statement that it does).
+- Refunds (website FAQ mirrors the Terms): `fortryde købet inden for 14 dage`, `tilbageholde et beløb, der står i forhold til din brug`; App Store/Google Play purchases are refunded by Apple/Google.
+- Encryption claims: entries are encrypted on the device only with E2E on (`Når end-to-end-kryptering er slået til, …`); never "alle data krypteres". Sign-in is required (`Log ind, tilslut …`); never "ingen konto nødvendig".
 - `login` is neuter: `et sikkert login`.
 
 ## 7. Known pitfalls
@@ -120,6 +133,8 @@ One term per concept across both repos; the app's term wins unless it is wrong.
 - English calques: `stole på` (rely on, legal), `ved din handling`, `realisere at`, `adressere`, `baseret på en undersøgelse`.
 
 ## Sources
+- Apple Support (da-dk), "Support til Apple-konto" ("tidligere kaldet Apple-id"): https://support.apple.com/da-dk/apple-account
+- Apple iPhone User Guide (da-dk) contents ("Log ind med Apple"): https://support.apple.com/da-dk/guide/iphone/welcome/ios
 - Microsoft Danish style guide: https://download.microsoft.com/download/8/f/9/8f99052e-43df-49ac-a877-b8364e2331d7/dan-dnk-StyleGuide.pdf (imperative accents, error messages, en-dash, ellipsis, "Vil du …")
 - Apple iPhone User Guide (da-dk), "Dikter tekst på iPhone": https://support.apple.com/da-dk/guide/iphone/iph2c0651d2/ios
 - Google Docs Help (da), "Skriv og rediger med din stemme" – Indtaling: https://support.google.com/docs/answer/4492226?hl=da

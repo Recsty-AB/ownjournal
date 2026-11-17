@@ -1,6 +1,6 @@
 # Norwegian Bokmål (nb) – UI and legal localization standard for the OwnJournal app
 
-Scope: app UI, Help, paywall, privacy/legal texts in `src/i18n/locales/nb.json` and the website's `no.json` (same language, different code). One term per concept across both repos; the app's term wins unless wrong. Website `legal.privacy.aiProcessing.content` must be byte-identical to the app's.
+Scope: app UI, Help, paywall, privacy/legal texts in `src/i18n/locales/nb.json` and the website's `no.json` (same language, different code). One term per concept across both repos; the app's term wins unless wrong. The website no longer has a `legal` block (removed 2026-11; legal text lives only in the app).
 For long-form blog/brand voice see the website's `.claude/locale-standards/no.md`; this file covers UI and legal copy.
 
 ## 1. Register and variety
@@ -47,6 +47,11 @@ For long-form blog/brand voice see the website's `.claude/locale-standards/no.md
 | AI | AI (house style, not KI) | |
 | Activity Insights | Aktivitetsinnsikt | |
 | Photo memories | Fotominner | Fotominder (da) |
+| Apple Account (renamed from Apple ID, 2024) | Apple-konto, Apple-kontoen din, denne Apple-kontoen (Apple nb support) | Apple ID, Apple-ID-en |
+| Sign in with Apple (button/feature) | Logg på med Apple (Apple's official nb feature name; brand exception to house `Logg inn`) | Logg inn med Apple ID |
+| Tap (in-app control) / Click | `Trykk på …` where English says Tap (Apple/Google nb); `Klikk på …` only where English keeps Click (Nextcloud web UI, address bar, e-mail links, Stripe portal «Administrer», Apple web pop-up). `trykk Enter` for keys | `Klikk` for in-app controls, bare `Trykk «X»` without `på` |
+| cancel a subscription | si opp abonnementet, oppsigelse (`Avbryt` stays for buttons/processes; website `Avbryt når som helst` is accepted marketing copy) | kansellere |
+| Reset All Data (storage.resetAllData) | «Tilbakestill alle data» in the button, the Danger Zone «Faresone» named as `i delen «Faresone»` | «SLETT alle data», «Slett alt» |
 
 Owner decision (2026-11): the feature is `Diktering` everywhere (renamed from `Taleinndata` in both repos at once). Entry is always `innlegg`; `oppføring` only for a record/log row (abonnementsoppføring, transaksjonsoppføringer, diagnostic log entries).
 
@@ -57,6 +62,13 @@ Owner decision (2026-11): the feature is `Diktering` everywhere (renamed from `T
 - `via deres API` is accepted for a company; prefer naming it (`Googles betalte API`).
 - Comma before a subordinate clause that follows a long subject: `skylagringsleverandøren du har valgt, kan …`.
 
+## 3a. Plurals (i18next, `nb` categories: one, other)
+- Every key that has `_one/_other` in en.json needs both `_one` and `_other` in nb.json, never the bare key. No `(er)`/`(r)` hedges.
+- `innlegg`, `ord`, `feil`, `forsøk` are identical in both forms, but agreeing words change: `1 kryptert innlegg` / `2 krypterte innlegg`, `klart/klare`, `tilgjengelig/tilgjengelige`, `foreslått aktivitet/foreslåtte aktiviteter`, `fil/filer`, `konflikt/konflikter`, `sikkerhetspause er aktiv/sikkerhetspauser er aktive`, pronoun `det/dem`.
+- Website prices: never hard-code an amount or currency; use `{{price}}/år` and `ca. {{monthly}}/måned` (the code formats the currency).
+- `auth.termsAgreement` (one `<Trans>` sentence): `Ved å fortsette godtar du <terms>tjenestevilkårene</terms> og <privacy>personvernerklæringen</privacy> våre.` – definite lowercase forms in running text, possessive after, final period. Standalone link labels (`Tjenestevilkår`, `Personvernerklæring`) stay indefinite title forms. Never `våre` + mixed plural/singular nouns.
+- Chart tooltip `moodCorrelations.tooltipDetail_*`: `{{delta}} (gj.sn.: {{emoji}} {{avg}}, {{count}} innlegg)` – `innlegg` is the same in one/other.
+
 ## 4. Microcopy conventions
 - Buttons: short verb or verb + object, no period (`Fortsett`, `Ikke nå`, `Forkast opptaket`, `Avbryt opptaket`).
 - Progress labels: present tense + ellipsis with no space (`Transkriberer…`, `Synkroniserer…`). Always the single `…` character; the whole file was converted (no `...` left).
@@ -65,12 +77,15 @@ Owner decision (2026-11): the feature is `Diktering` everywhere (renamed from `T
 - Error pattern `Tittel – detalj` with lowercase after the dash (`Ikke funnet – målplasseringen finnes ikke`).
 - Error messages are full sentences with a period.
 - Teasers/tooltips: one or two short sentences.
+- Menu paths use `→` (`Innstillinger → navnet ditt → iCloud`), not `>`.
+- Countable limits: `{{limit}} ord eller færre`, not `eller mindre`.
+- No comma-imperative calque after an adverbial (`På mobil, trykk …`); write `På mobil kan du trykke …`.
 
 ## 5. Punctuation and typography
 - Dash: spaced en-dash ` – ` in prose, lists and titles; unspaced en-dash for ranges (`24–48 timer`). No em-dash `—` and no spaced hyphen ` - ` as a dash anywhere (both files converted). Exception: the Markdown list hint `- lister` is syntax.
 - Quotes: `«…»` for all quoted UI labels, typed confirmations (`«DELETE ALL»`) and English button names (`«Verify Email Address»`, `«Allowed Origins»`). No straight `"…"` or `'…'` quotes.
 - Months and weekdays lowercase, also standalone after a label. Legal dates: `Sist oppdatert: november 2026` / `april 2026` / `desember 2024` – same style for privacy and terms in both repos. `legal.lastUpdatedOn` = `Sist oppdatert: {{date}}`.
-- Decimal comma; percent and units with a no-break space (U+00A0): `{{percent}} %`, `100 %`, `15 s`, `{{ms}} ms`; `kr` without period (Danish uses `kr.`). Prices on the website: `$19,99/år`, `ca. $1,67/måned` (not `~`).
+- Decimal comma; percent and units with a no-break space (U+00A0): `{{percent}} %`, `100 %`, `15 s`, `{{ms}} ms`; `kr` without period (Danish uses `kr.`). Prices on the website come from placeholders: `{{price}}/år`, `ca. {{monthly}}/måned` (`ca.`, not `~`).
 - Abbreviation inflection with hyphen: `URL-en`, `SDK-er`, `API-tokenet`.
 - Sentence case in headings and titles.
 
@@ -94,6 +109,8 @@ Owner decision (2026-11): the feature is `Diktering` everywhere (renamed from `T
 | legitimate interests | berettigede interesser | |
 | data subject rights | få innsyn, få rettet, få slettet, begrense behandlingen, protestere mot behandlingen, klage til personvernmyndigheten | korrigere unøyaktige data, `slette (sletting)` |
 | Data Retention (heading) | Lagringstid (distinct from `Datalagring` = Data Storage) | |
+| right of withdrawal | angrerett, `angre kjøpet`, angrefrist | `gå fra kjøpet` (legal only: `gå fra avtalen`) |
+| passes through our servers only in transit | går bare gjennom serverne våre på vei til …, og lagres ikke | |
 | supervisory authority (company) | Integritetsskyddsmyndigheten (IMY), imy.se – the company is Swedish; never Datatilsynet here | Datatilsynet / datatilsynet.no |
 | governing law | Gjeldende rett | Gjeldende lov |
 | defined terms | lowercase in running text: `disse vilkårene`, `personvernerklæringen vår`; section names in «» | `disse Vilkårene`, `vår Personvernerklæring` |
@@ -111,4 +128,6 @@ Legal facts that must survive translation: 5 minutes per recording; 200 minutes 
 - Google Gboard (nb) "Stemmestyrt skriving": https://support.google.com/gboard/answer/11197787?hl=no
 - Google Docs (nb) "Skriv og rediger med stemmen": https://support.google.com/docs/answer/4492226?hl=no
 - Regjeringen.no writing rules (follow Språkrådet): https://www.regjeringen.no/no/om-nettstedet/innholdsstrategi/ti-bud-for-godt-innhold-pa-regjeringen.no/skriveregler-for-regjeringen.no/id2517901/
+- Apple-konto (formerly Apple-ID): https://support.apple.com/no-no/apple-account
+- «Logg på med Apple» in Apple's nb iPhone User Guide: https://support.apple.com/no-no/guide/iphone/iphdebc1050f/18/ios
 - Microsoft Norwegian style guide: https://learn.microsoft.com/globalization/reference/microsoft-style-guides

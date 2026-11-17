@@ -14,7 +14,7 @@ see the website's `.claude/locale-standards/fr.md`. Target is France French (fr-
 ## Glossary (house terms win over generic guides)
 | English | Use | Avoid / notes |
 |---|---|---|
-| tap | **appuyer sur** (house style in both repos; Google/Android wording) | « toucher/touchez » |
+| tap / click | **appuyer sur** for in-app controls (house, both repos; Google/Android wording). « cliquer sur » only where English keeps *Click*: outside the app or on web/desktop-only surfaces (Nextcloud web UI, browser, e-mail links, Stripe billing portal and its « Gérer » button, Apple web sign-in pop-up) | « toucher/touchez » |
 | microphone | **micro** (house, Android permission label "Micro") | « microphone » in UI copy; OK in legal text but « micro » is fine there too |
 | Voice Entry (feature) | **Saisie vocale** (= Gboard's own name) | « Entrée vocale » (clashes with *entrée* = journal entry) |
 | Dictate (button) | **Dicter** | « Dictée » is Apple's feature name, not a verb button |
@@ -34,6 +34,8 @@ see the website's `.claude/locale-standards/fr.md`. Target is France French (fr-
 | moods | Excellent, Bien, Correct, Mauvais, Terrible (app labels; website FAQ uses the same) | Génial, Moyen |
 | settings (device/browser) | **paramètres** (Android, Chrome, rest of file) | « réglages » only for an explicit iOS path (Réglages > …) |
 | AI | **IA**: nouns take « d'IA » (fonctionnalités, service, modèles, fournisseur, outils d'IA); actions take « par IA » (analyse, suggestions de titres/tags, génération par IA); « traitement par l'IA » | « fonctionnalités IA », « analyse IA » (both repos converted); « alimenté par l'IA » (calque of *AI-powered*); « basé sur l'IA » is fine |
+| Apple Account (ex-Apple ID) | **compte Apple** (Apple FR, lowercase *compte* in running text: « votre compte Apple », « ce compte Apple ») | « identifiant Apple » (pre-2024 name, removed Nov 2026) |
+| Sign in with Apple (button/feature) | **Se connecter avec Apple** (Apple's official FR name); « Continuer avec Apple » for the continue variant | « Se connecter avec l'identifiant Apple » |
 | Plus | **Plus** (invariable, product name), « abonnés Plus », « (Fonctionnalité Plus) » | |
 | Activity Insights | **Analyses d'activités** (feature name, both repos, capital A when it names the feature) | « Analyse des activités », « Analyses par activité » |
 | insights (generic) | **analyses**; Key Insights → « Points clés »; Focus Areas → « Axes de progression » | « insights » (anglicism, removed from both repos) |
@@ -43,6 +45,9 @@ see the website's `.claude/locale-standards/fr.md`. Target is France French (fr-
 | clean (text) | « un texte propre » (+ « et ponctué ») | « texte nettoyé » |
 | your words | « ce que vous dites / avez dit » | « vos paroles » (sounds like song lyrics) |
 | offline | **hors ligne**; internet connection → « connexion Internet » | |
+| upload (to cloud) / image upload | « envoi », « en cours d'envoi », « envoyer vers »; images → « ajout d'images » | « téléchargement » (= download), « téléverser » only in legal text |
+| Reset All Data (`storage.resetAllData`) | « Réinitialiser toutes les données »; Help/recovery texts must quote this exact label | « Tout supprimer », « SUPPRIMER toutes les données » |
+| cancel a subscription | UI/FAQ: **annuler** (« annuler votre abonnement », « Annulez à tout moment », = Apple's « Annuler l'abonnement »); legal text: « résiliation » | mixing « résilier » into UI copy |
 
 ## GDPR / legal vocabulary (official FR text of Regulation (EU) 2016/679, CNIL)
 - personal data → **données à caractère personnel** in the privacy policy and terms (both repos), never
@@ -57,7 +62,9 @@ see the website's `.claude/locale-standards/fr.md`. Target is France French (fr-
   (not « responsable du traitement des données »); payment processor → « prestataire de paiement ».
 - Section titles: « Base juridique du traitement », « Fonctionnalités d'IA et traitement », « Droit applicable »,
   sentence case. Documents are named « Politique de confidentialité » / « Conditions d'utilisation » (capital first word only).
-- Website `legal.privacy.aiProcessing.content` must be byte-identical to the app's.
+- The website no longer carries legal texts (its `legal` block was deleted on purpose, Nov 2026); the app's
+  privacy policy and terms are the only legal source. AI requests and voice recordings pass « via nos
+  serveurs » only in transit (« ne fait que transiter par nos serveurs … et n'est pas conservé »).
 - adequacy decision → **décision d'adéquation** (art. 45); EEA → **Espace économique européen (EEE)**.
 - appropriate safeguards → **garanties appropriées** (art. 46); « met en œuvre / prévoit des garanties
   appropriées », not « maintient des garanties ».
@@ -96,7 +103,20 @@ see the website's `.claude/locale-standards/fr.md`. Target is France French (fr-
 - Errors: state the problem, then the fix, in vous form: « L'accès au micro est bloqué. Autorisez-le
   dans les paramètres… ». No exclamation marks.
 - Progress states: noun + `…` (« Transcription… »), or « … en cours » if space allows.
-- Placeholders: French has no ICU plural here unless the code passes `count`. With `{{minutes}}` coming
+- **Plurals** (i18next 25, CLDR fr = `one`, `many`, `other`): every key split into `_one/_other` in en.json
+  needs `_one`, `_many` and `_other` in fr.json, never a bare base key (a missing category falls back to
+  English). `one` covers 0 and 1 (« 0 entrée synchronisée »). `many` (1 000 000, 1,5 M…) uses the same
+  text as `other` because `{{count}}` is printed as digits (no « de »). Real agreement in each form, no
+  « (s) » hedges. Prefer « {{count}} entrées sur {{total}} » to « {{count}} sur {{total}} entrées ».
+- Website prices: never hard-code an amount or currency; use `{{price}}` / `{{monthly}}` (the code formats
+  them for the visitor's currency in fr), e.g. « {{price}} par an (environ {{monthly}} par mois) ».
+- `auth.termsAgreement` is one `<Trans>` sentence: « En continuant, vous acceptez nos <terms>Conditions
+  d'utilisation</terms> et notre <privacy>Politique de confidentialité</privacy>. » (final period; exactly one
+  `<terms>` and one `<privacy>` pair, no other tags). The old prefix/`and`/suffix keys are gone.
+- Chart tooltip `moodCorrelations.tooltipDetail_*`: « {{delta}} (moy. : {{emoji}} {{avg}}, {{count}} entrée[s]) »
+  with U+00A0 before the colon. `{{avg}}`/`{{delta}}` come from `toFixed(1)` (dot decimal), so the comma
+  separator is unambiguous; switch to « ; » if the code ever formats them with a decimal comma.
+- Other placeholders: French has no ICU plural here unless the code passes `count`. With `{{minutes}}` coming
   from `Math.floor` (0/1 possible), use constructions that work for any number: « Il reste {{minutes}} min… »,
   not « {{minutes}} min restantes ».
 - Avoid English sentence mirroring: subordinate instead of stacking clauses, prefer an absolute
@@ -112,6 +132,8 @@ see the website's `.claude/locale-standards/fr.md`. Target is France French (fr-
   (both repos); « switcher » is not French.
 
 ## Sources
+- Apple, Compte Apple (« anciennement identifiant Apple »): https://support.apple.com/fr-fr/apple-account
+- Apple, « Comment utiliser le service Se connecter avec Apple »: https://support.apple.com/fr-afri/102379 (also https://support.apple.com/fr-fr/102379)
 - GDPR, French text (EUR-Lex): https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679
 - CNIL, RGPD chapitre 5 (transferts): https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre5
 - Microsoft fr-FR localization style guide: https://download.microsoft.com/download/c/7/9/c7921dbd-4531-4a4e-8490-e4656d739f3d/fra-fra-StyleGuide.pdf

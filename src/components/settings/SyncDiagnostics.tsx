@@ -16,7 +16,7 @@ import {
   Download
 } from "lucide-react";
 import { formatDistanceToNow, format } from "date-fns";
-import { ja, es, enUS } from "date-fns/locale";
+import { getDateLocale } from "@/utils/dateLocale";
 import { saveAs } from "file-saver";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
@@ -30,7 +30,7 @@ export const SyncDiagnostics = () => {
   const { t, i18n } = useTranslation();
   
   // Get date-fns locale based on current language
-  const dateLocale = i18n.language === 'ja' ? ja : i18n.language === 'es' ? es : enUS;
+  const dateLocale = getDateLocale(i18n.language);
 
   const refreshDiagnostics = () => {
     const data = storageServiceV2.getDiagnostics();
@@ -235,8 +235,8 @@ export const SyncDiagnostics = () => {
                       {isOpen ? t('syncDiagnostics.open') : t('syncDiagnostics.closed')}
                     </Badge>
                     <span className="text-xs text-muted-foreground">
-                      {status.failures} {t('syncDiagnostics.failures').toLowerCase()}
-                      {isOpen && ` • ${t('syncDiagnostics.reopens')} ${formatDistanceToNow(status.openUntil, { addSuffix: true })}`}
+                      {t('syncDiagnostics.failures_count', { count: status.failures })}
+                      {isOpen && ` • ${t('syncDiagnostics.reopens', { time: formatDistanceToNow(status.openUntil, { addSuffix: true, locale: dateLocale }) })}`}
                     </span>
                   </div>
                 </div>

@@ -1,6 +1,6 @@
 # Hindi (hi) – UI, Help and legal standard for OwnJournal
 
-Scope: app strings (`src/i18n/locales/hi.json`) and the website's UI/FAQ/legal strings
+Scope: app strings (`src/i18n/locales/hi.json`) and the website's UI/FAQ strings
 (`ownjournal-website/src/i18n/locales/hi.json`). Blog prose follows the website's long-form
 standard (`ownjournal-website/.claude/locale-standards/hi.md`). Its तुम register is only for
 blog posts. It does NOT apply to the app or to website UI/FAQ/legal pages, which use आप.
@@ -61,9 +61,11 @@ The app's term wins unless it is wrong.
 | Feature (UI) / feature (legal) | फीचर, फीचर्स / सुविधा, सुविधाएं | – |
 | Store / save | UI: सेव / स्टोर; legal: संग्रहीत | – |
 | Tour (onboarding) | गाइड | – |
+| Apple Account (ex-Apple ID) / Sign in with Apple | Apple खाता (m., obl. "आपके Apple खाते में/से/पर"; Apple: "अपने Apple खाते में साइन इन करें") / button "Apple से साइन इन करें" | Apple ID, "आपकी Apple ID", Apple अकाउंट |
+| Danger Zone / Reset All Data | डेंजर ज़ोन / “सभी डेटा रीसेट करें” (quote `storage.resetAllData` exactly in Help) | “DELETE All Data”, सभी डेटा हटाएं |
 
-## 3. Legal / privacy vocabulary (both repos, same register)
-The website legal pages use the app's formal legal Hindi. No Hinglish (प्रोसेसिंग, ट्रांसफर,
+## 3. Legal / privacy vocabulary (app legal pages; website FAQ answers that touch privacy)
+Formal legal Hindi. No Hinglish (प्रोसेसिंग, ट्रांसफर,
 पेड टियर, यूज़र, अकाउंट, डिलीट) in either policy. India has no Hindi GDPR text; use the
 vocabulary of the Hindi DPDP Act 2023 and standard Rajbhasha terms:
 - processing → **प्रसंस्करण** (m.); verb संसाधित करना. Title: "प्रसंस्करण का कानूनी आधार".
@@ -76,11 +78,14 @@ vocabulary of the Hindi DPDP Act 2023 and standard Rajbhasha terms:
 - contract concluded → अनुबंध संपन्न होना (not समाप्त, which means ended);
   immediate performance → तत्काल निष्पादन; "as is" / "as available" → “जैसा है” / “जैसा उपलब्ध है”
 - abuse monitoring → दुरुपयोग की निगरानी; fair-use rate limiting → उचित-उपयोग सीमाएं लागू करना
-- `legal.privacy.aiProcessing.content` must be byte-identical in both repos (same English source).
+- The website has no `legal` block any more (removed Nov 2026); legal text lives only in the app.
+- "via our servers" (AI requests) → "हमारे सर्वर से होते हुए"; "passes through our servers only in
+  transit … and is not kept" → "… तक पहुंचने के रास्ते में ही हमारे सर्वर से होकर गुज़रती है और रखी नहीं जाती".
+- Right of withdrawal → वापसी का अधिकार; "withdraw from a subscription" → "सदस्यता से हटना"
+  (not "सदस्यता से वापस लेना", which lacks an object). Refund (FAQ) → रिफंड; legal → धनवापसी.
 - Keep the direction of "X such as Y": "मानक संविदात्मक खंड जैसे उचित … सुरक्षा उपाय".
-- Dates: month name + year, "नवंबर 2026", "अप्रैल 2026", same style for privacy and terms in
-  both repos. Label: "अंतिम अपडेट: {{date}}" (app `legal.lastUpdatedOn`), website `legal.lastUpdated`
-  = "अंतिम अपडेट".
+- Dates: month name + year, "नवंबर 2026", "अप्रैल 2026", same style for privacy and terms.
+  Label: "अंतिम अपडेट: {{date}}" (`legal.lastUpdatedOn`).
 - Required voice-entry facts: 5 minutes per recording; 200 minutes per month; Plus only; audio goes
   to Google (Gemini); OwnJournal never stores audio or transcripts; only seconds are counted;
   Google's paid tier does not train on the data; Google may keep data only briefly / for a limited
@@ -102,6 +107,8 @@ vocabulary of the Hindi DPDP Act 2023 and standard Rajbhasha terms:
   With nukta: प्रोफ़ाइल, ज़ीरो, ज़रूरी, ज़रूरत, ज़्यादा, तेज़, डिफ़ॉल्ट, फ़िल्टर, ब्राउज़र, कॉन्फ़िग,
   दस्तावेज़, माइक्रोफ़ोन, आज़माएं, हक़दार. Use decomposed nukta (letter + U+093C) as the files do.
 - Numbers: Western digits; units spaced "5 MB", "20 MB", "{{ms}} ms", "5 मिनट"; "/माह", "/वर्ष".
+- Website prices: never hard-code an amount or currency; use "{{price}}/वर्ष", "~{{monthly}}/माह"
+  (the code formats the visitor's currency).
 
 ## 5. Grammar pitfalls (seen in machine output)
 - Perfective transitive verbs agree with the object: "सभी {{minutes}} मिनट इस्तेमाल कर लिए हैं".
@@ -110,7 +117,16 @@ vocabulary of the Hindi DPDP Act 2023 and standard Rajbhasha terms:
 - Placeholders that already carry "पहले" (time-ago strings) must not get another: syncedTimeAgo is
   "{{time}} सिंक हुआ". `{{activity}}` can be m. or f.: use "{{activity}} का संबंध … से है".
 - Labels followed by code/URL in the UI end with ":" ("सिंक हो रहा है:", "… जिसके नाम के अंत में यह हो:").
-- The sign-up legal line has no suffix key: prefix is "जारी रखकर आप इनसे सहमत होते हैं:".
+- Sign-up legal line is one `<Trans>` key `auth.termsAgreement`: "जारी रखकर आप हमारी
+  <terms>सेवा की शर्तें</terms> और <privacy>गोपनीयता नीति</privacy> स्वीकार करते हैं।"
+  स्वीकार करना takes a direct object, so the link labels stay in the nominative ("… से सहमत"
+  would need the oblique शर्तों, which the fixed link label cannot give).
+- Plurals: CLDR hi = one / other only. `_one` covers 0 AND 1 (i = 0 or n = 1), so write a
+  singular that reads with both: "{{count}} प्रविष्टि सिंक हुई", "{{count}} फाइल … हुई",
+  "{{count}} टैग जोड़ा गया", "{{count}} विफलता". Singular oblique stays प्रविष्टि ("{{count}} प्रविष्टि
+  का विश्लेषण"); `_other` uses प्रविष्टियां / obl. प्रविष्टियों and plural verbs. Never a base key.
+- Chart tooltip `moodCorrelations.tooltipDetail_*`: "{{delta}} (औसत: {{emoji}} {{avg}}, {{count}} प्रविष्टि/प्रविष्टियां)"
+  — ASCII parentheses and comma, label "औसत:" (no full stop inside a tooltip).
 - "When you stop (recording)" → "रिकॉर्डिंग रोकते ही". "mid-sentence / along the way" → "बोलते-बोलते".
 - Possibility: "हो सकता है कि … हो" / "शायद …", not "… गया हो सकता है".
 - "Transcribe your voice with Google?" → "अपनी रिकॉर्डिंग Google से ट्रांसक्राइब करवाएं?".
@@ -127,5 +143,7 @@ Button labels: 1–3 words ("बोलकर लिखें", "रोकें"
 - Microsoft style guides index: https://learn.microsoft.com/en-us/globalization/reference/microsoft-style-guides
 - DPDP Act 2023 / DPDP Rules 2025 Hindi gazette (डेटा न्यासी, सहमति, प्रसंस्करण): https://egazette.gov.in/WriteReadData/2025/259889.pdf
 - Google India blog on voice typing in Indian languages: https://india.googleblog.com/2017/08/type-less-talk-more-in-eight-indian.html
+- Apple Hindi naming: https://support.apple.com/hi-in/guide/iphone/iph76e54c61e/ios ("अपने Apple खाते में साइन इन करें");
+  https://www.apple.com/legal/privacy/data/hi/sign-in-with-apple/ ("Apple से साइन इन करें")
 - Gboard dictation help (Gemini "Rambler" voice input): https://support.google.com/gboard/answer/17468539
 - House style: term counts from both hi.json files (Nov 2026); owner decisions of Nov 2026.

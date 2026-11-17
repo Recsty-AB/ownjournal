@@ -8,7 +8,8 @@ The rules below are owner-approved house rules (whole-file pass, Nov 2026). They
 ## 1. Register
 - です/ます throughout UI, Help, FAQ and legal text. No だ/である.
 - The user: UI and FAQ use あなた sparingly or omit the pronoun; legal text uses お客様 (never あなた).
-  Self-reference: legal = 当社 (not 私たち); UI = 運営者; FAQ answers may use 私たち or OwnJournal.
+  Self-reference: legal = 当社 (not 私たち); UI = 運営者; FAQ answers use OwnJournal or 私たち, never 当社
+  (「OwnJournalのサーバーを経由して」, 「OwnJournalが利用するAIプロバイダー」).
 - Requests: 「〜してください」. Retry: 「もう一度お試しください。」
   Availability: 「Plusでご利用いただけます」. Avoid double honorifics (ご登録された → ご登録いただいた).
 - Progress/status lines are 体言止め with 中 and end with 「…」: 「文字起こし中…」, 「同期を準備中…」.
@@ -31,7 +32,7 @@ The rules below are owner-approved house rules (whole-file pass, Nov 2026). They
 | Plus member (UI) | Plusメンバー | Plusユーザー, Plus メンバー |
 | Plus subscriber (legal, both repos) | Plus加入者 | Plusサブスクリプション会員, サブスクライバー |
 | Unlock (Plus/AI features) | 解放 (「AI機能を解放」) | アンロック, 解除 (解除 reads as "cancel") |
-| Cancel a subscription | 解約 (Apple/Google JP term) | キャンセル for subscriptions. Button 「キャンセル」 and Stripe's own 「プランをキャンセル」 stay |
+| Cancel a subscription | 解約 (Apple/Google JP term) | キャンセル for subscriptions. The 「キャンセル」 button stays. Do not quote Stripe portal labels: 「請求ポータルが開き、そこでプランを解約できます」 |
 | Activity insights (feature) | アクティビティの分析 | アクティビティインサイト |
 | Key insights | 主要インサイト | キーインサイト |
 | Mood analysis | 気分分析 | ムード分析 |
@@ -45,7 +46,11 @@ The rules below are owner-approved house rules (whole-file pass, Nov 2026). They
 | Continue / Not now (consent) | 続ける / 今はしない | – |
 | AI | AI (Latin) | 人工知能 |
 | Paid tier (API) | 有料プラン | 有料ティア |
-| Counters | files and entries: 件; tags/activities: 個 | mixing 個/件 for the same noun |
+| Counters | files, entries, conflicts: 件; tags/activities: 個; attempts/failures: 回 | mixing 個/件 for the same noun |
+| Reset All Data (Danger Zone button) | 「すべてのデータをリセット」 in 危険ゾーン; Help text quotes this label exactly | 「すべて削除」, 「すべてのデータを削除」 |
+| Tap / Click | follow English: Tap → タップ, Click → クリック (see §5) | – |
+| Apple Account (ex-Apple ID) | Apple Account (Latin, as Apple Japan writes it: 「Apple Accountでサインイン」, 「お客様のApple Account」) | Apple ID, Appleアカウント |
+| Sign in with Apple (button/feature) | Appleでサインイン (Apple's official JP name; 「Appleで続ける」 stays for the Continue button) | Apple IDでサインイン |
 | Product names | OwnJournal, Plus, Google Drive, Dropbox, Nextcloud, iCloud, Gemini (Latin, unchanged) | Google ドライブ |
 
 ## 3. Legal / GDPR vocabulary (JETRO + PPC terminology)
@@ -63,7 +68,11 @@ The rules below are owner-approved house rules (whole-file pass, Nov 2026). They
 - IMY → スウェーデン・プライバシー保護庁（IMY）.
 - abuse monitoring and policy enforcement → 不正利用の監視およびポリシーの執行; for a limited
   period → 一定期間.
-- Website `legal.privacy.aiProcessing.content` must be byte-identical to the app's.
+- Legal text lives only in the app; the website has no `legal` block (deleted on purpose).
+- AI requests pass through our servers only in transit: 「当社のサーバーを経由して…へ送信」;
+  DPO wording 「…への転送中にのみ当社のサーバーを経由し、保存されることはありません」.
+- Refund/withdrawal (EU/EEA consumers, website purchases) → 撤回(権); proportionate amount →
+  利用分に応じた金額; App Store / Google Play refunds are handled by Apple or Google under their policies.
 - Dates: 「2026年11月」 (年/月, no day, no spaces). Label: 「最終更新日：{{date}}」 (full-width colon).
 - Facts to keep exact: max 5 min per recording; 200 min per month; Plus only; audio goes to Google
   (Gemini); OwnJournal stores neither audio nor transcripts; only seconds are counted; paid tier means
@@ -101,6 +110,21 @@ The rules below are owner-approved house rules (whole-file pass, Nov 2026). They
 - Help desc style: two or three short です/ます sentences, from benefit to how-to.
 - Website feature descriptions and pricing bullets are noun-phrase fragments without 。.
 - Website pricing bullets may be reworded but must keep the same Free/Plus entitlements and order.
+- Website prices are never hard-coded: use {{price}} / {{monthly}} (the code formats the visitor's currency),
+  with the price-label space: 「料金は年額 {{price}}（月額約 {{monthly}}）です。」, 「月額約 {{monthly}} • いつでも解約可能」.
+- Website facts: sign-in is required (never 「アカウント不要」); encryption on the device only "with E2E
+  turned on" (「エンドツーエンド暗号化をオンにしている場合」).
+- Tap vs. click (mirrors the English house rule): English "Tap" (in-app controls on every platform, e.g.
+  「セットアップヘルプ」, the + button, the profile icon, 「Googleで続ける」) → 「タップ」; 「クリック」 only where
+  English keeps "Click" (Nextcloud web UI, browser address bar, e-mail links, the 「管理」 → billing portal
+  step, the Apple web sign-in pop-up).
+- Terms consent line (code: prefix + " " + 利用規約 + " " + と + " " + プライバシーポリシー + suffix):
+  prefix 「続行すると、」, suffix 「に同意したものとみなされます。」 (Japanese puts the predicate after the links).
+
+## 6. Plurals (i18next 25, Intl.PluralRules('ja') = [other])
+- Every key that has _one/_other in en.json exists in ja.json only as `key_other`. No `_one`, no base key.
+- Write the count with its counter inside the sentence (「{{count}}件の日記」, 「{{count}}個」, 「{{count}}回」);
+  no 「(s)」-style hedges. Progress lines still end in 「中…」 (「{{count}}件の日記を分析中…」).
 
 ## Sources
 - Microsoft Japanese localization style guide (no space between DBCS/SBCS, punctuation):
@@ -111,4 +135,6 @@ The rules below are owner-approved house rules (whole-file pass, Nov 2026). They
   (`subscription.renewalApple`, `subscription.renewalGoogle`, `subscription.nativeSubWarning*`).
 - PPC GDPR materials (移転 / 十分性認定 / 適切な保護措置): https://www.ppc.go.jp/enforcement/infoprovision/EU/
 - JETRO GDPR special (処理, data-subject rights): https://www.jetro.go.jp/world/europe/eu/gdpr/
+- Apple Account / Appleでサインイン (Apple JP support): https://support.apple.com/ja-jp/HT5576 ,
+  https://support.apple.com/ja-jp/guide/business/axmc55f52fac/web
 - MIC GDPR provisional excerpt (Art. 45): https://www.soumu.go.jp/main_content/000661609.pdf

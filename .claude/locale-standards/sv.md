@@ -40,9 +40,13 @@ For long-form blog/brand voice see the website's `.claude/locale-standards/sv.md
 | streak | svit (Pågående svit, Längsta svit, humörsviter) | serie |
 | mood levels | Utmärkt, Bra, Okej, Dåligt, Fruktansvärt (= app UI) | Toppen, Hemskt |
 | journal entries (legal) | dagboksinlägg / inlägg | dagboksanteckningar, poster (poster only for log records) |
-| Apple ID | Apple-ID | Apple ID |
-| Tap (EN changed Click to Tap) | Tryck på | Klicka på (keep only where EN still says Click, e.g. web portal, padlock icon) |
+| Apple Account (formerly Apple ID) | Apple-konto, ditt Apple-konto, det här Apple-kontot (Apple sv-se, "Ditt Apple-konto, tidigare Apple ID") | Apple-ID, Apple ID |
+| Sign in with Apple (button/feature) | Logga in med Apple (Apple sv-se) | Logga in med Apple-ID |
+| Tap (EN changed Click to Tap) | Tryck på | Klicka på (keep only where EN still says click, e.g. "Hantera" in the billing-portal FAQ, padlock icon) |
 | email (noun, verb) | mejl, mejla, verifieringsmejl | mail, maila |
+| E2E/encryption turned on | `Med end-to-end-kryptering aktiverad` (common gender: aktiverad, not aktiverat) | |
+| billing portal cancel | `där du kan säga upp din prenumeration` (don't quote Stripe's button label) | `Välj att säga upp planen` |
+| Reset All Data (button, quoted in Help) | "Återställ all data" (= `storage.resetAllData`), section `Farozon` | Radera all data |
 | Retries (metric label) | Omförsök | Försök igen (that is the button) |
 | AI | AI (not KI) | |
 | Activity Insights | Aktivitetsinsikter (capitalised as product feature) | |
@@ -65,6 +69,14 @@ For long-form blog/brand voice see the website's `.claude/locale-standards/sv.md
 - Decimal comma, space as thousands separator, `kr`; `min/månad` in compact tables. Approximation: `ca 16,67 kr/månad`, never `~`.
 - Percent and unit symbols take a no-break space (U+00A0): `{{percent}} %`, `<10 %`, `15 s`, `{{ms}} ms`, `5 MB`. Money: `99 USD/år`, not `99$/år`.
 - Relative time: `{{minutes}} min sedan`, `{{hours}} tim sedan`, `{{days}} d sedan`.
+
+- Plurals: i18next uses `_one` / `_other` (Intl.PluralRules `sv` = one, other). Define both for every key English splits; never a base key without suffix and never `(er)`, `(ar)` hedges. Inflect agreement in `_one`: neuter participles/adjectives `inlägg exporterat / synkroniserat / migrerat / analyserat / tillgängligt / krypterat`, `befintligt inlägg`, `Migrera det`; common gender `fil har …`, `föreslagen aktivitet`, `AI-genererad tagg`, `säkerhetspaus är aktiv`. Plurals: `konflikter`, `säkerhetspauser`. Invariant nouns (`inlägg`, `fel`, `försök`) may have identical forms.
+- Count + noun labels (`entryCount_*`) are one phrase: `{{count}} inlägg`; never concatenate a number and a separate noun key.
+- Prices on the website are never hard-coded: `{{price}}/år`, `ca {{monthly}}/månad` (the code formats the currency in Swedish).
+- Toast past events in active past tense: `Anslöt till {{provider}} och läste in {{count}} inlägg`; failure: `Det gick inte att synkronisera med {{provider}}`.
+- `auth.termsAgreement` is one `<Trans>` sentence: `Genom att fortsätta godkänner du våra <terms>Användarvillkor</terms> och vår <privacy>Integritetspolicy</privacy>.` (`vår` before the singular common-gender noun, final period, only the two tag pairs).
+- Chart tooltip `moodCorrelations.tooltipDetail_*`: `{{delta}} (snitt: {{emoji}} {{avg}}, {{count}} inlägg)`; `inlägg` is invariant, so `_one` and `_other` are identical.
+- Settings paths use `→` like English (`Inställningar → ditt namn → iCloud`, `Appar → Säkerhet`).
 
 ## 5. Punctuation and typography (Språkrådet, TT-språket, Microsoft)
 - Dash: spaced en-dash ` – ` in both files (em-dash `—` and spaced hyphen ` - ` were converted file-wide). Numeric ranges: unspaced `–` (`24–48 timmar`). Exception: markdown syntax such as `- listor` in `editor.markdownSupport`.
@@ -103,7 +115,8 @@ For long-form blog/brand voice see the website's `.claude/locale-standards/sv.md
 | paid tier | betald nivå |
 - Legal text uses `dina data` (plural agreement: `dina data förblir skyddade`); marketing/UI may keep `din data`.
 - Defined terms in the app's Terms keep their capital (`dessa Villkor`, `Integritetspolicyn`); the website's shorter terms use lowercase consistently.
-- The website's `legal.privacy.aiProcessing.content` must be byte-identical to the app's.
+- The website no longer has a `legal` block (it was removed on purpose); legal text lives only in the app file. The website FAQ refund answer mirrors the app's Terms section 5 (`Ångerrätt`): EU/EES consumers, bought on the website, 14 days, proportionate amount may be kept, App Store / Google Play refunds by Apple or Google.
+- AI data flow: text and recordings go `via våra servrar` to Google only during transfer (`enbart under överföringen … och sparas inte`); never write that nothing passes our servers.
 - Facts to preserve: Plus only; 5 min per recording; 200 min per month; audio sent to Google (Gemini) for transcription; OwnJournal never stores audio or transcripts; only seconds are counted; Google's paid tier does not train on the data; Google may retain data for a limited time for abuse monitoring.
 - Name the party instead of ambiguous `dess/deras` (`Googles modeller`). Singular vs plural must match English after provider removal (`en AI-tjänsteleverantör (Google Gemini)`, `AI-leverantör (Google)`).
 
@@ -120,4 +133,6 @@ For long-form blog/brand voice see the website's `.claude/locale-standards/sv.md
 - Google Docs Help (sv), "Röstinmatning", "Lägga till skiljetecken", "Stoppa röstinmatning": https://support.google.com/docs/answer/4492226?hl=sv
 - IMY, "Överföring till tredje land" (adekvat skyddsnivå, lämpliga skyddsåtgärder, standardavtalsklausuler): https://www.imy.se/verksamhet/dataskydd/det-har-galler-enligt-gdpr/overforing-till-tredje-land/
 - GDPR, Swedish text (EUR-Lex): https://eur-lex.europa.eu/legal-content/SV/TXT/?uri=CELEX:32016R0679
+- Apple Support (sv-se), "Apple-konto" ("Ditt Apple-konto, tidigare Apple ID"): https://support.apple.com/sv-se/apple-account
+- Apple Support (sv-se) Mac guide, "Logga in med Apple": https://support.apple.com/sv-se/guide/mac-pro/apd1c52f9d30/2024/mac/15
 - Språkrådet / Svenska skrivregler (month lowercase, dashes, compounds): https://www.isof.se/sprak/sprakrad

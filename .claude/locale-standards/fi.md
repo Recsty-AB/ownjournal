@@ -29,15 +29,35 @@ One term per concept across BOTH repos; the app's term wins unless it is wrong.
   `Aloita synkronointi asettamalla se ensisijaiseksi.` The short pattern
   `Kirjaudu sisään käyttääksesi X:ää` (no comma) is still accepted.
 - "Resets next month" (quota): `Kiintiö uusiutuu ensi kuussa` – never `nollautuu`.
-- Counts: avoid `{{count}}`/`{{minutes}}` directly before a partitive noun where 1 is
-  possible; use a label form: `Aikaa jäljellä tässä kuussa: {{minutes}} min`,
-  `Kirjattuja ristiriitoja: {{count}}`, `Vietyjä merkintöjä: {{count}} ({{format}})`,
-  or genitive constructions (`{{count}} merkinnän lähetys on kesken`). Older strings with
-  `{{count}} merkintää` remain where 1 is unlikely (bulk counts); fix when touching them.
+- Plurals: Finnish CLDR categories are `one` and `other` only. Every English `_one/_other`
+  key needs both, no bare base key. `_one` = nominative singular (`{{count}} merkintä`,
+  `{{count}} virhe`), `_other` = partitive singular (`{{count}} merkintää`, `{{count}} virhettä`),
+  verb in the singular in both (`{{count}} merkintää on salaamatta`). Object case for `_one`:
+  genitive after an active verb (`poistaa {{count}} merkinnän`), nominative in passive or
+  imperative (`Tuotiin {{count}} merkintä`, `Palautettiin {{count}} merkintä`). Genitive
+  constructions may be identical in both forms (`{{count}} merkinnän lähetys on kesken`,
+  `{{count}} / {{total}} merkinnän salausta …`).
+- Counts in keys WITHOUT plural forms: avoid `{{x}}` directly before a partitive noun where 1
+  is possible; use a label form: `Aikaa jäljellä tässä kuussa: {{minutes}} min`,
+  `Ennen peruutusta siirrettyjä tiedostoja: {{transferred}}`.
 - `per` is not Finnish: `merkintää kohden`, `/ 100 synk.`.
 - Format placeholders compound with a hyphen: `{{format}}-tiedostoa ei voitu luoda`.
 - Provider placeholders: never attach case endings (`{{provider}}:lla` breaks for
-  "Google Drive"); use `palveluntarjoajalla {{provider}}`, `palveluun {{provider}}`.
+  "Google Drive"); use `palveluntarjoajalla {{provider}}`, `palveluun {{provider}}`,
+  `palvelun {{provider}} kanssa` ("with {{provider}}").
+- Sign-up legal line is one `<Trans>` sentence (`auth.termsAgreement`):
+  `Jatkamalla hyväksyt <terms>Käyttöehdot</terms> ja <privacy>Tietosuojakäytännön</privacy>.`
+  (total object: plural nom. `Käyttöehdot`, singular gen. `Tietosuojakäytännön`; final period).
+  The old prefix/suffix/`and` keys are gone.
+- Chart tooltip (`moodCorrelations.tooltipDetail_one/_other`):
+  `{{delta}} (keskiarvo {{emoji}} {{avg}}, {{count}} merkintä/merkintää)` – no `keskim.:`
+  (abbreviation period + colon is clumsy).
+- Tap vs click (follows English): English "Tap" (in-app controls) → `napauta`; "Click" only
+  where English keeps it (email links, Nextcloud web UI, address bar, Stripe portal
+  ”Hallinnoi”, Apple web sign-in popup) → `napsauta`.
+- Refer to the reset button by its label: `”Nollaa kaikki tiedot” -toiminto` (storage.resetAllData),
+  in `Asetusten Vaaravyöhykkeellä`. Never `”Poista kaikki”`.
+- Menu paths use `→` (`Asetukset → oma nimesi → iCloud`), as in the rest of the file.
   Exception kept: `{{companyName}}:n` (Recsty AB:n), `{{companyCountry}}n` (Ruotsin).
 
 ## Glossary (house style + platform terms)
@@ -69,7 +89,10 @@ One term per concept across BOTH repos; the app's term wins unless it is wrong.
 | Plus / subscriber | `Plus`, `Plus-tilaus`, `Plus-tilaaja`; partitive `Plussaa`, illative `Plussaan` | `Plus-tila`(an), `Plus-käyttäjä`, `Plus:lle` |
 | Free plan | `Ilmainen`, `Ilmainen-paketti`, `Kaikki Ilmainen-paketin ominaisuudet` | `Kaikki Ilmaisessa` |
 | click / tap | `napsauta` / `napauta` | `klikkaa` |
-| Advanced Data Protection | `Edistynyt tietosuoja` (Apple fi) | `edistyksellinen tietosuojaus` |
+| Apple Account (ex-Apple ID) | `Apple-tili` (Apple fi; `Apple-tililläsi`, `Apple-tililtäsi`, `Apple-tilisi kautta`, `tällä Apple-tilillä`) | `Apple ID`, `Apple-tunnus` (retired 2026-11) |
+| Sign in with Apple (button/feature) | `Kirjaudu sisään Applella` (Apple fi); feature in running text `Kirjaudu sisään Applella -toiminto` | `Kirjaudu Apple ID:llä` |
+| Advanced Data Protection | `kehittynyt tietosuojaus` (Apple fi, lowercase in running text; part. `kehittynyttä tietosuojausta`, gen. `kehittyneen tietosuojauksen`) | `Edistynyt tietosuoja` (retired 2026-11), `edistyksellinen tietosuojaus` |
+| Reset All Data | `Nollaa kaikki tiedot` | `Poista kaikki` |
 | Get it on Google Play | `Hanki Google Playsta` (`Google Playssa`, back vowels) | `Playstä` |
 | home page | `etusivu` | `kotisivu` |
 | supervisory authority (Sweden) | `Integritetsskyddsmyndigheten (IMY)`, `imy.se` | not the Finnish DPA: the company is Swedish |
@@ -96,7 +119,12 @@ One term per concept across BOTH repos; the app's term wins unless it is wrong.
   (space before the hyphen when the label contains a space). `+-painike`,
   `AES-256-GCM-standardi`, `brute force -hyökkäys`, `Documents-kansio`.
 - Percent: no-break space before `%`: `{{percent}} %`, `100 %`, `< 10 %`. Time units:
-  `15 s`, `{{ms}} ms`. Currency after number: `19,99 $`, `noin 1,67 $/kk`.
+  `15 s`, `{{ms}} ms`.
+- Website prices: never hard-code an amount or currency; the code formats `{{price}}` and
+  `{{monthly}}` in the visitor's currency (`1,67 €`). Use `noin {{monthly}}/kk`,
+  `Plus maksaa {{price}} vuodessa (noin {{monthly}} kuukaudessa)`.
+- Kept on purpose: `providers.icloud.requiresDevAccount` says `99 €/vuosi` (Apple's
+  eurozone developer price) where English says `$99/year`.
 - `Huom.` (abbreviation with a period), not `Huom:`.
 
 ## Dates (legal)
@@ -127,8 +155,13 @@ One term per concept across BOTH repos; the app's term wins unless it is wrong.
 | severability | `Ehtojen osittainen pätemättömyys`; contract clause = `määräys` |
 
 Legal rules: precise, no facts added or dropped; "we" as the actor; `Ehdot` capitalised as
-the defined term in the Terms. Website `legal.privacy.aiProcessing.content` must be
-identical to the app's. Keep the voice facts exact (Plus only; audio → Google Gemini;
+the defined term in the Terms. The website no longer has its own legal block (it links to
+the app's policy). AI text and recordings pass "via our servers" only in transit:
+`lähetetään palvelimiemme kautta`, DPO: `kulkee palvelimiemme kautta ainoastaan
+välitettäväksi tekoälypalveluntarjoajallemme, eikä sitä säilytetä`. With OwnJournal as the
+subject use `palvelimilleen`, with "we" `palvelimillemme`. Website refund FAQ mirrors Terms §5
+(`peruuttaa ostoksen 14 päivän kuluessa`, `käyttöösi suhteutetun osuuden maksusta`). Keep
+the voice facts exact (Plus only; audio → Google Gemini;
 OwnJournal never stores audio or transcripts; only transcribed seconds are counted; 5 min
 per recording, 200 min/month; paid tier not used for training; Google may retain data for
 a limited time for abuse monitoring).
@@ -147,7 +180,11 @@ a limited time for abuse monitoring).
 - Microsoft Finnish Localization Style Guide:
   https://download.microsoft.com/download/c/7/3/c7371dae-ae9d-4f9b-aa10-a131d432930f/fin-fin-StyleGuide.pdf
 - Apple Support Finnish (Sanelu): https://support.apple.com/fi-fi/guide/iphone/iphadba31424/ios
-- Apple Edistynyt tietosuoja (fi usage): https://proton.me/fi/blog/apple-icloud-privacy
+- Apple fi, Kirjaudu sisään Applella: https://support.apple.com/fi-fi/guide/iphone/iph238921d37/ios
+  and https://www.apple.com/fi/legal/privacy/data/fi/sign-in-with-apple/
+- Apple fi, Apple-tili: https://support.apple.com/fi-fi/guide/iphone/iph76e54c61e/ios
+  (”Apple-tilille kirjautuminen ja tilin hallitseminen iPhonella”)
+- Apple fi, Kehittynyt tietosuojaus (official): https://www.apple.com/legal/privacy/data/fi/advanced-data-protection/
 - GDPR Finnish text (EUR-Lex): https://eur-lex.europa.eu/eli/reg/2016/679/oj/fin
 - EDPB Recommendations 01/2020, Finnish: https://edpb.europa.eu/system/files/2022-04/edpb_recommendations_202001vo.2.0_supplementarymeasurestransferstools_fi.pdf
 - Kielitoimiston ohjepankki (hyphen at identical vowels, abbreviation inflection, dashes,

@@ -46,7 +46,8 @@ register but not its blog-only rules (scene openers, citations, particles).
 | Desktop (platform) | komputer | „desktop” |
 | Origin (CORS) | źródło; header name stays `Origin` | „origin” as a Polish noun |
 | Voice entry | Wprowadzanie głosowe | Google: „Pisanie głosowe”, Apple: „Dyktowanie” |
-| Dictate / Tap | Dyktuj / Dotknij + gen. (`Dotknij mikrofonu`) | „Stuknij”; „Kliknij” only web/desktop |
+| Dictate / Tap | Dyktuj / Dotknij + gen. (`Dotknij mikrofonu`); button label → `Dotknij przycisku „Połącz”` | „Stuknij”; follow English: *Tap* → „Dotknij”, *Click* → „Kliknij” |
+| Reset All Data (Danger Zone) | `„Zresetuj wszystkie dane”` in sekcja `„Strefa niebezpieczeństwa”` (= `storage.resetAllData`, `storage.dangerZone`) | „Usuń wszystko” in Help text |
 | Transcribe / transcript | transkrybować / transkrypcja; speech-to-text → zamiana mowy na tekst | „Transkrybować Twój głos” |
 | Clean (punctuated) text | uporządkowany tekst ze znakami interpunkcyjnymi | „czysty tekst” |
 | Filler words | przerywniki | „słowa wypełniacze” |
@@ -58,18 +59,39 @@ register but not its blog-only rules (scene openers, citations, particles).
 | Fair-use limits | limity uczciwego użytkowania | „ograniczanie uczciwego korzystania” |
 | Abuse monitoring | monitorowanie nadużyć | – |
 | Acceptable Use | Dopuszczalne korzystanie | „Akceptowalne użytkowanie” |
+| Apple Account (ex-Apple ID) | **konto Apple**, lowercase *k* mid-sentence, inflected (`Twojego konta Apple`, `na koncie Apple`, `Zaloguj się na swoje konto Apple`) | „Apple ID”, „Konto Apple” mid-sentence (Apple PL capitalises only at sentence/bullet start) |
+| Sign in with Apple (button/feature) | **Zaloguj się, używając konta Apple** (Apple's official PL button; also `Kontynuuj, używając konta Apple`, `Zarejestruj się, używając konta Apple`) | „Zaloguj się przez Apple ID”; existing `Kontynuuj z Apple` (auth screen + Help) is house style, change both together if ever |
 
 ## 3. Numbers, plurals and placeholders
-- Polish has three plural forms; the app has no i18next plural keys. Never put `{{count}}`
-  (or any variable) directly before a noun. Use a colon or a parenthesis:
-  `Zsynchronizowano wpisy ({{count}}).`, `Przeanalizowane wpisy: {{count}}`,
-  `Liczba słów we wpisie: {{wordCount}}.` Constructions `{{count}} z {{total}} wpisów` are fine.
+- **i18next plural keys (app):** every key that has `_one/_other` in en.json must have exactly
+  `_one`, `_few`, `_many`, `_other` in pl.json (`Intl.PluralRules('pl')`); no base key. A missing
+  category falls back to English. Put the number in the sentence with the right form:
+  one `1 wpis`, few (2–4, 22–24…) `3 wpisy`, many (0, 5–21, 25…) `5 wpisów`, other (fractions)
+  `1,5 wpisu` (genitive sg., neuter sg. verb: `1,5 wpisu nie jest zaszyfrowane`).
+  Agree verbs/adjectives: `1 wpis wymaga` / `3 wpisy wymagają` / `5 wpisów wymaga`;
+  `nie powiodła się 1 próba` / `nie powiodły się 3 próby` / `nie powiodło się 5 prób`.
+  Prefer impersonal `-no` verbs (`Zsynchronizowano 3 wpisy`) and accusative/nominative frames;
+  avoid frames that force the genitive plural after 2–4 under negation (`nie zmigrowano 3 wpisów`
+  reads like an error). `{{count}} z {{total}} wpisów` and `Aktywne alerty ({{count}})` work
+  for every category and may repeat the same text.
+- **Non-plural keys:** never put a variable directly before a noun; use a colon or parenthesis
+  (`Liczba słów we wpisie: {{wordCount}}.`).
 - Unit symbols after a space, no dot: `5 MB`, `{{seconds}} s`, `{{minutes}} min`, `{{ms}} ms`,
   `Auto (15 s)`; days ago: `{{days}} d temu`; hours: `{{hours}} godz. temu`.
 - Fixed numbers in prose agree normally: `do 5 minut`, `200 minut miesięcznie`, `200 min/mies.`
 - Decimal comma (`1,67`), currency after the number (`19,99 USD`, `99 USD rocznie`);
   approximate → `ok. 1,67 USD/mies.` (not `~`).
+- Website prices: never hard-code amounts or currencies; the code formats `{{price}}` and
+  `{{monthly}}` in the visitor's currency (`Kosztuje {{price}} rocznie (ok. {{monthly}}/mies.).`,
+  `ok. {{monthly}}/mies. • Anuluj w dowolnym momencie`).
 - Never alter `{{placeholders}}`, even where code does not pass them.
+- `auth.termsAgreement` is one `<Trans>` sentence with exactly one `<terms>…</terms>` and one
+  `<privacy>…</privacy>` pair, links in the instrumental, final full stop:
+  `Kontynuując, zgadzasz się z naszymi <terms>Warunkami korzystania z usługi</terms> i
+  <privacy>Polityką prywatności</privacy>.` (old prefix/suffix/`and` keys are gone).
+- `moodCorrelations.tooltipDetail_*`: `{{delta}} (śr.: {{emoji}} {{avg}}; {{count}} wpisy)` —
+  semicolon before the count, because a comma right after a decimal number reads as a decimal
+  comma (`3,4, 5 wpisów`). Code currently passes `avg`/`delta` via `toFixed(1)` (dot).
 - `company.country` is **`Szwecji`** (genitive = locative). It is only interpolated into legal
   sentences that need that case: `zarejestrowana w {{companyCountry}}`,
   `podlegają prawu {{companyCountry}}`, `W {{companyCountry}} jest to …`.
@@ -78,6 +100,8 @@ register but not its blog-only rules (scene openers, citations, particles).
 - Ellipsis: always the single character `…` (no `...` anywhere).
 - Quotes: always `„…”` – button names, UI paths, legal terms (`„w stanie, w jakim się znajduje”`).
   No straight `"…"`/`'…'`. Apostrophe in inflected brand names: `iPhone’a`.
+- Menu paths use ` → ` (`Ustawienia → Magazyn`, `przejdź do sekcji Aplikacje → Bezpieczeństwo`),
+  never ` > `.
 - Dashes: spaced em dash ` — ` for parenthetical/explanatory dashes (never ` - ` or ` – `);
   en dash without spaces for ranges (`24–48 godzin`, `30–60 sekund`). Markdown list hyphens
   (`- listy`) stay.
@@ -95,7 +119,7 @@ register but not its blog-only rules (scene openers, citations, particles).
 - Buttons 1–2 words; status chips under ~30 characters.
 - Badge pair in the sign-in screen: `Szyfrowanie` / `end-to-end` (title / subtitle).
 
-## 6. Legal (RODO) vocabulary – same wording in app and website
+## 6. Legal (RODO) vocabulary
 Source: Polish text of Regulation (EU) 2016/679 (RODO) on EUR-Lex; EDPB Polish documents.
 - GDPR → **RODO**; EEA → **EOG**; supervisory authority → **organ nadzorczy**.
 - Rights: dostęp, **sprostowanie**, usunięcie („prawo do bycia zapomnianym”), ograniczenie
@@ -112,7 +136,14 @@ Source: Polish text of Regulation (EU) 2016/679 (RODO) on EUR-Lex; EDPB Polish d
   is distinct from `Przechowywanie danych` (storage).
 - Section titles shared by both repos: `Wprowadzenie`, `Usługi zewnętrzne`,
   `Zmiany w tej polityce`, `Skontaktuj się z nami`, `Architektura zero-knowledge`.
-- `legal.privacy.aiProcessing.content` must be byte-identical in app and website.
+- The website no longer has a `legal` block (its privacy/terms pages use the app's text); legal
+  wording lives only in the app file.
+- AI requests and voice recordings pass **through our servers only in transit**:
+  `wysyłany za pośrednictwem naszych serwerów do …`, DPO text: `przechodzi przez nasze serwery
+  wyłącznie w trakcie przesyłania do naszego dostawcy AI i nie jest przechowywane`.
+- Refund FAQ (website) mirrors Terms §5: withdrawal within 14 days for EU/EEA-type consumers
+  buying on the website, proportionate amount may be kept, App Store/Google Play refunds by
+  Apple/Google; impersonal `jeśli z Plus już korzystano`, `subskrypcja Plus została kupiona`.
 - Refer to Google as `firma Google` / `modele Google` (not `jej modeli`, not `przez ich API`).
 - Facts to preserve exactly: 5 min per recording; 200 min per month; Plus only; audio sent to
   Google (Gemini); OwnJournal never stores audio or transcripts; only seconds are counted;
@@ -129,9 +160,10 @@ Source: Polish text of Regulation (EU) 2016/679 (RODO) on EUR-Lex; EDPB Polish d
 - Perfective participle for a finished action: `przetranskrybowanego`.
 - Agreement: `Obaj dostawcy`, `Niektórzy dostawcy hostingu`, `długi wpis` (masc.).
 - Apple is neuter in this file (`Apple nie mogło`, `Apple … przyjęło`).
-- Code-side limits (cannot be fixed in JSON): `moodCorrelations.tooltipEntries` and
-  `export.entries` are concatenated after a bare number (`5 wpisów`, `3 wpisy`); a correct form
-  for every number needs plural keys or a code change.
+- `export.entryCount_*` and `moodCorrelations.entryCount_*` are full `{{count}} + noun` plural
+  keys (the old concatenated `tooltipEntries`/`export.entries` are gone).
+- `syncDiagnostics.reopens` receives `{{time}}` from date-fns `formatDistanceToNow` without a
+  locale, so the time phrase renders in English (code-side).
 
 ## Sources
 - Microsoft Polish localization style guide: https://learn.microsoft.com/en-us/globalization/reference/microsoft-style-guides
@@ -140,4 +172,7 @@ Source: Polish text of Regulation (EU) 2016/679 (RODO) on EUR-Lex; EDPB Polish d
 - EDPB, Międzynarodowe przekazywanie danych: https://www.edpb.europa.eu/node/386_pl
 - Apple PL, Siri i Dyktowanie: https://support.apple.com/pl-pl/127070
 - Samsung community PL („Wprowadzanie głosowe Samsung” vs „pisanie głosowe Google”): https://eu.community.samsung.com/t5/aplikacje-i-us%C5%82ugi/klawiatura-i-wpisywanie-g%C5%82osowe-po-polsku/td-p/1051547/page/15
+- Apple PL Personal Safety User Guide (Oct 2026; „konto Apple”, „Zaloguj się, używając konta Apple”, no „Apple ID”): https://help.apple.com/pdf/personal-safety/pl_PL/personal-safety-user-guide-pl_PL.pdf
+- Apple PL, Funkcja Zaloguj się, używając konta Apple i prywatność: https://support.apple.com/pl-pl/HT210699
+- Apple Sign in with Apple JS, Polish button strings: https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/pl_PL/appleid.auth.js
 - Poradnia językowa PWN (comma with „zamiast” + bezokolicznik; lowercase after colon; month names): https://sjp.pwn.pl/poradnia

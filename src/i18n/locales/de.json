@@ -69,12 +69,15 @@
     "toE2EDesc": "Ihre Einträge werden mit Ihrem Passwort verschlüsselt.",
     "toSimpleDesc": "Ihre Einträge werden für einfache Speicherung entschlüsselt.",
     "processingEntry": "Verarbeitung: {{title}}",
-    "migrated": "{{count}} Einträge migriert",
-    "failed": "{{count}} Einträge fehlgeschlagen",
+    "migrated_one": "{{count}} Eintrag migriert",
+    "migrated_other": "{{count}} Einträge migriert",
+    "failed_one": "{{count}} Eintrag fehlgeschlagen",
+    "failed_other": "{{count}} Einträge fehlgeschlagen",
     "retry": "Fehlgeschlagene wiederholen",
     "connectionError": "Verbindungsfehler",
     "connectionErrorDesc": "Beide Anbieter müssen verbunden sein",
-    "completeDesc": "{{count}} Dateien erfolgreich von {{source}} nach {{target}} migriert",
+    "completeDesc_one": "{{count}} Datei erfolgreich von {{source}} nach {{target}} migriert",
+    "completeDesc_other": "{{count}} Dateien erfolgreich von {{source}} nach {{target}} migriert",
     "completedWithErrors": "Migration mit Fehlern abgeschlossen",
     "completedWithErrorsDesc": "{{migrated}} Dateien migriert, {{failed}} fehlgeschlagen. Details in der Konsole.",
     "stopped": "Migration gestoppt",
@@ -86,12 +89,13 @@
     "placeholder": "Schreiben Sie Ihren Tagebucheintrag… Verwenden Sie Markdown für Formatierung:\n\n# Überschrift\n**fett** *kursiv*\n- Aufzählung",
     "markdownSupport": "Unterstützt: **fett**, *kursiv*, # Überschriften, - Listen",
     "noContentPreview": "*Kein Inhalt für Vorschau*",
-    "inlineTagHint": "Tippen Sie # im Text, um Tags hinzuzufügen"
+    "inlineTagHint": "Geben Sie # im Text ein, um Tags hinzuzufügen"
   },
   "import": {
     "invalidFormat": "Ungültiges Importdateiformat",
     "complete": "Import abgeschlossen",
-    "completeDesc": "{{count}} Einträge importiert. Synchronisierung mit Speicher…",
+    "completeDesc_one": "{{count}} Eintrag importiert. Wird mit dem Speicher synchronisiert…",
+    "completeDesc_other": "{{count}} Einträge importiert. Wird mit dem Speicher synchronisiert…",
     "failed": "Import fehlgeschlagen",
     "failedDesc": "Daten konnten nicht importiert werden. Bitte überprüfen Sie das Dateiformat.",
     "storageSyncFailed": "Speichersynchronisierung fehlgeschlagen",
@@ -105,8 +109,8 @@
     "connectionFailed": "Verbindung fehlgeschlagen. Bitte überprüfen Sie Ihre Server-URL und Anmeldedaten.",
     "connectionFailedShort": "Verbindung fehlgeschlagen",
     "masterKeyRequired": "Master-Schlüssel ist erforderlich, um Anmeldedaten im E2E-Modus zu speichern",
-    "clickSetupHelpCors": "Klicken Sie oben auf „Einrichtungshilfe“ für schrittweise Anweisungen.",
-    "clickSetupHelpSsl": "Klicken Sie oben auf „Einrichtungshilfe“ für Anweisungen zur Behebung von SSL-Zertifikatproblemen.",
+    "clickSetupHelpCors": "Tippen Sie oben auf „Einrichtungshilfe“, um eine Schritt-für-Schritt-Anleitung zu erhalten.",
+    "clickSetupHelpSsl": "Tippen Sie oben auf „Einrichtungshilfe“, um zu erfahren, wie Sie Probleme mit dem SSL-Zertifikat beheben.",
     "credentialDecryptFailed": "Ihre Nextcloud-Anmeldedaten konnten nicht entschlüsselt werden. Dies bedeutet normalerweise, dass Ihr Tagebuch-Passwort falsch ist. Bitte überprüfen Sie Ihr Passwort oder trennen Sie die Verbindung und stellen Sie sie erneut her."
   },
   "app": {
@@ -142,9 +146,8 @@
     "continueWith": "Oder fortfahren mit",
     "continueWithGoogle": "Mit Google fortfahren",
     "continueWithApple": "Mit Apple fortfahren",
-    "termsAgreementPrefix": "Wenn Sie fortfahren, akzeptieren Sie unsere",
+    "termsAgreement": "Indem Sie fortfahren, akzeptieren Sie unsere <terms>Nutzungsbedingungen</terms> und nehmen unsere <privacy>Datenschutzerklärung</privacy> zur Kenntnis.",
     "termsLink": "Nutzungsbedingungen",
-    "and": "und",
     "privacyLink": "Datenschutzerklärung",
     "dataEncrypted": "Ihre Daten sind verschlüsselt und werden niemals auf unseren Servern gespeichert",
     "accountCreated": "Konto erstellt!",
@@ -214,7 +217,7 @@
     "anotherEntryEditingDesc": "Bitte speichern oder verwerfen Sie zuerst den anderen Eintrag.",
     "goToEditingEntry": "Zum bearbeiteten Eintrag",
     "switchToEditMode": "Wechseln Sie in den Bearbeitungsmodus, um Tags anzuwenden",
-    "switchToEditModeDesc": "Klicken Sie auf Bearbeiten, um vorgeschlagene Tags anzuwenden",
+    "switchToEditModeDesc": "Tippen Sie auf „Bearbeiten“, um vorgeschlagene Tags anzuwenden",
     "entryTitlePlaceholder": "Eintragtitel…",
     "finishEditingFirst": "Bitte beenden Sie zuerst die Bearbeitung des anderen Eintrags",
     "entrySaved": "Eintrag gespeichert",
@@ -264,13 +267,15 @@
     "settingUpSync": "Cloud-Synchronisierung wird eingerichtet…",
     "settingUpSyncDesc": "Verschlüsselungsschlüssel wird hochgeladen und Synchronisierung vorbereitet.",
     "initialSyncComplete": "Erste Synchronisierung abgeschlossen",
-    "initialSyncCompleteDesc": "{{count}} Einträge mit {{provider}} synchronisiert.",
+    "initialSyncCompleteDesc_one": "{{count}} Eintrag mit {{provider}} synchronisiert.",
+    "initialSyncCompleteDesc_other": "{{count}} Einträge mit {{provider}} synchronisiert.",
     "initialSyncFailed": "Erste Synchronisierung fehlgeschlagen",
     "initialSyncFailedDesc": "Erste Synchronisierung konnte nicht abgeschlossen werden.",
     "secondaryProviderConnected": "{{provider}} verbunden",
     "secondaryProviderConnectedDesc": "Als sekundäres Backup verbunden. Ihr primärer Anbieter übernimmt die Synchronisierung.",
     "conflictDetected": "⚠️ Synchronisierungskonflikt erkannt",
-    "conflictDetectedDesc": "Gleichzeitige Bearbeitungen wurden automatisch aufgelöst. {{count}} Konflikt(e) protokolliert.",
+    "conflictDetectedDesc_one": "Gleichzeitige Bearbeitungen wurden automatisch aufgelöst. {{count}} Konflikt protokolliert.",
+    "conflictDetectedDesc_other": "Gleichzeitige Bearbeitungen wurden automatisch aufgelöst. {{count}} Konflikte protokolliert.",
     "viewConflicts": "Konflikte anzeigen",
     "savingEntry": "Eintrag wird gespeichert…",
     "savingEntryDesc": "Ihr Tagebucheintrag wird verschlüsselt und synchronisiert.",
@@ -292,8 +297,10 @@
     "signedOut": "Abgemeldet",
     "signedOutDesc": "Sie wurden erfolgreich abgemeldet",
     "backupExported": "Backup exportiert",
-    "backupExportedDesc": "{{count}} Einträge in JSON-Datei exportiert",
-    "importCompleteDesc": "{{count}} Einträge importiert. Synchronisierung mit Speicher…",
+    "backupExportedDesc_one": "{{count}} Eintrag in JSON-Datei exportiert",
+    "backupExportedDesc_other": "{{count}} Einträge in JSON-Datei exportiert",
+    "importCompleteDesc_one": "{{count}} Eintrag importiert. Wird mit dem Speicher synchronisiert…",
+    "importCompleteDesc_other": "{{count}} Einträge importiert. Wird mit dem Speicher synchronisiert…",
     "cloudSyncComplete": "Cloud-Synchronisierung abgeschlossen",
     "cloudSyncCompleteDesc": "Importierte Einträge wurden mit dem Cloud-Speicher synchronisiert.",
     "cloudSyncIncomplete": "Cloud-Synchronisierung unvollständig",
@@ -324,15 +331,19 @@
     "encryptionSetupFailedDesc": "Verschlüsselung konnte nicht initialisiert werden.",
     "startingCloudSync": "Cloud-Synchronisierung wird gestartet…",
     "startingCloudSyncDesc": "Ihre Tagebucheinträge werden im Hintergrund synchronisiert.",
-    "syncCompleteDesc": "{{count}} Einträge mit Cloud-Speicher synchronisiert.",
+    "syncCompleteDesc_one": "{{count}} Eintrag mit dem Cloud-Speicher synchronisiert.",
+    "syncCompleteDesc_other": "{{count}} Einträge mit dem Cloud-Speicher synchronisiert.",
     "unableToStartSync": "Synchronisierung kann nicht gestartet werden.",
     "nextcloudEncryptionError": "Synchronisierung mit diesem Nextcloud-Ordner nicht möglich",
     "nextcloudEncryptionErrorDesc": "Dieser Nextcloud-Ordner hat serverseitige Verschlüsselung aktiviert, daher kann OwnJournal Ihre Dateien nicht lesen oder schreiben. Tippen Sie auf „Mehr erfahren“ für eine Schritt-für-Schritt-Anleitung.",
     "nextcloudEncryptionLearnMore": "Mehr erfahren",
     "encryptedEntriesDetected": "Verschlüsselte Einträge gefunden",
-    "encryptedEntriesInSimpleMode": "{{count}} verschlüsselte Einträge gefunden, die im einfachen Modus nicht gelesen werden können. Um darauf zuzugreifen, trennen Sie die Verbindung und stellen Sie sie im E2E-Modus erneut her.",
-    "encryptedEntriesInSimpleModeHint": "{{count}} Einträge benötigen E2E-Verschlüsselung zur Anzeige. Passwort eingeben zum Entsperren.",
-    "syncCompleteWithEncrypted": "Synchronisierung abgeschlossen, aber {{count}} verschlüsselte Einträge benötigen den E2E-Modus zur Anzeige.",
+    "encryptedEntriesInSimpleMode_one": "{{count}} verschlüsselter Eintrag gefunden, der im einfachen Modus nicht gelesen werden kann. Um darauf zuzugreifen, trennen Sie die Verbindung und stellen Sie sie im E2E-Modus erneut her.",
+    "encryptedEntriesInSimpleMode_other": "{{count}} verschlüsselte Einträge gefunden, die im einfachen Modus nicht gelesen werden können. Um darauf zuzugreifen, trennen Sie die Verbindung und stellen Sie sie im E2E-Modus erneut her.",
+    "encryptedEntriesInSimpleModeHint_one": "{{count}} Eintrag kann nur mit E2E-Verschlüsselung angezeigt werden. Geben Sie Ihr Passwort ein, um ihn zu entsperren.",
+    "encryptedEntriesInSimpleModeHint_other": "{{count}} Einträge können nur mit E2E-Verschlüsselung angezeigt werden. Geben Sie Ihr Passwort ein, um sie zu entsperren.",
+    "syncCompleteWithEncrypted_one": "Synchronisierung abgeschlossen, aber {{count}} verschlüsselter Eintrag benötigt zur Anzeige den E2E-Modus.",
+    "syncCompleteWithEncrypted_other": "Synchronisierung abgeschlossen, aber {{count}} verschlüsselte Einträge benötigen zur Anzeige den E2E-Modus.",
     "unlockNow": "Jetzt entsperren",
     "viewStorageOptions": "Optionen anzeigen"
   },
@@ -504,7 +515,8 @@
     "transferProgress": "Transfer läuft",
     "transferProgressDesc": "{{current}} von {{total}} Einträgen kopiert",
     "complete": "Transfer abgeschlossen",
-    "completeDesc": "{{count}} Dateien erfolgreich von {{source}} nach {{target}} übertragen",
+    "completeDesc_one": "{{count}} Datei erfolgreich von {{source}} nach {{target}} übertragen",
+    "completeDesc_other": "{{count}} Dateien erfolgreich von {{source}} nach {{target}} übertragen",
     "completedWithErrors": "Transfer mit Fehlern abgeschlossen",
     "completedWithErrorsDesc": "{{transferred}} Dateien übertragen, {{failed}} fehlgeschlagen. Details in der Konsole.",
     "failed": "Transfer fehlgeschlagen",
@@ -514,7 +526,8 @@
     "cancelledDesc": "Transfer wurde abgebrochen. {{transferred}} Dateien wurden vor dem Abbruch übertragen.",
     "cleaningUp": "Wird aufgeräumt…",
     "mirrorComplete": "Spiegelung abgeschlossen",
-    "mirrorCompleteDesc": "{{count}} Dateien erfolgreich von {{source}} nach {{target}} gespiegelt. Ziel ist jetzt identisch mit der Quelle.",
+    "mirrorCompleteDesc_one": "{{count}} Datei erfolgreich von {{source}} nach {{target}} gespiegelt. Das Ziel ist jetzt identisch mit der Quelle.",
+    "mirrorCompleteDesc_other": "{{count}} Dateien erfolgreich von {{source}} nach {{target}} gespiegelt. Das Ziel ist jetzt identisch mit der Quelle.",
     "transferCompleteDisconnect": "Transfer abgeschlossen – Quelle trennen?",
     "transferCompleteDisconnectDesc": "Alle Einträge wurden nach {{target}} gespiegelt. Möchten Sie {{source}} trennen, um Verwirrung zu vermeiden?",
     "passwordRequiredAfterTransfer": "Bitte geben Sie Ihr Passwort ein, um den Speicheranbieter-Wechsel abzuschließen und Ihren Verschlüsselungsschlüssel neu zu laden.",
@@ -532,7 +545,8 @@
     "settingUp": "Cloud-Synchronisierung wird eingerichtet…",
     "settingUpDesc": "Verschlüsselungsschlüssel wird hochgeladen und Synchronisierung vorbereitet.",
     "initialComplete": "Erste Synchronisierung abgeschlossen",
-    "initialCompleteDesc": "{{count}} Einträge synchronisiert.",
+    "initialCompleteDesc_one": "{{count}} Eintrag synchronisiert.",
+    "initialCompleteDesc_other": "{{count}} Einträge synchronisiert.",
     "initialFailed": "Erste Synchronisierung fehlgeschlagen",
     "initialFailedDesc": "Erste Synchronisierung konnte nicht abgeschlossen werden.",
     "savingEntry": "Eintrag wird gespeichert…",
@@ -547,7 +561,8 @@
     "deletionFailed": "Löschen fehlgeschlagen",
     "deletionFailedDesc": "Eintrag konnte nicht aus dem Speicher gelöscht werden. Änderungen könnten rückgängig gemacht werden.",
     "conflictDetected": "⚠️ Synchronisierungskonflikt erkannt",
-    "conflictDetectedDesc": "Gleichzeitige Bearbeitungen wurden automatisch aufgelöst. {{count}} Konflikt(e) protokolliert.",
+    "conflictDetectedDesc_one": "Gleichzeitige Bearbeitungen wurden automatisch aufgelöst. {{count}} Konflikt protokolliert.",
+    "conflictDetectedDesc_other": "Gleichzeitige Bearbeitungen wurden automatisch aufgelöst. {{count}} Konflikte protokolliert.",
     "viewConflicts": "Konflikte anzeigen",
     "tooManyRequests": "Zu viele Anfragen",
     "tooManyRequestsDesc": "Cloud-Speicher empfängt Anfragen zu schnell. Synchronisierung wird automatisch wiederholt.",
@@ -559,6 +574,8 @@
     "completeDesc": "Ihre Tagebuchdaten wurden erfolgreich exportiert.",
     "myJournal": "Mein persönliches Tagebuch",
     "entries": "Einträge",
+    "entryCount_one": "{{count}} Eintrag",
+    "entryCount_other": "{{count}} Einträge",
     "exportedOn": "Exportiert am",
     "mood": "Stimmung",
     "tags": "Tags"
@@ -573,7 +590,7 @@
     "resetCompleteDesc": "Bitte laden Sie die Seite neu, um Ihr neues Passwort zu verwenden.",
     "tabs": {
       "storage": "Speicher",
-      "preferences": "Einstellungen",
+      "preferences": "Allgemein",
       "account": "Konto",
       "diagnostics": "Diagnose"
     },
@@ -663,7 +680,7 @@
       "noDownloads": "Keine Downloads erforderlich",
       "requiresInternet": "Erfordert Internetverbindung",
       "privacyNote": "Datenschutzhinweis",
-      "privacyDesc": "Wenn Sie KI-Funktionen nutzen, wird Ihr Tagebuchinhalt sicher an KI-Drittanbieter-Dienste zur Analyse gesendet. Wir speichern diese Daten nicht auf unseren Servern. Unsere KI-Anbieter können Daten vorübergehend zur Missbrauchsüberwachung aufbewahren, verwenden sie jedoch nicht für Modelltraining.",
+      "privacyDesc": "Wenn Sie KI-Funktionen nutzen, wird Ihr Tagebuchinhalt zur Analyse sicher an einen KI-Drittanbieter gesendet. Wir speichern diese Daten nicht auf unseren Servern. Unser KI-Anbieter kann Daten vorübergehend zur Missbrauchsüberwachung aufbewahren, verwendet sie jedoch nicht zum Trainieren von Modellen.",
       "manageSubscription": "Verwalten",
       "portalError": "Abonnementverwaltung konnte nicht geöffnet werden",
       "portalErrorDesc": "Bitte versuchen Sie es später erneut."
@@ -762,6 +779,7 @@
     "maxTagsDesc": "Sie können nur bis zu 20 Tags pro Eintrag hinzufügen",
     "maxActivitiesReached": "Aktivitätslimit erreicht",
     "maxActivitiesReachedDesc": "Sie können höchstens 20 Aktivitäten pro Eintrag hinzufügen.",
+    "maxActivitiesSkippedDesc": "Einige Aktivitäten wurden nicht hinzugefügt, weil das Limit von 20 erreicht ist.",
     "invalidTag": "Ungültiger Tag",
     "proFeature": "Plus-Funktion",
     "imageUploadPro": "Bildupload ist nur für Plus-Abonnenten verfügbar.",
@@ -794,7 +812,8 @@
     "syncInProgress": "Synchronisierung läuft",
     "waitForSyncComplete": "Bitte warten Sie, bis die aktuelle Synchronisierung abgeschlossen ist, bevor Sie den Verschlüsselungsmodus ändern.",
     "pendingUploads": "Ausstehende Uploads",
-    "pendingUploadsWarning": "{{count}} Einträge werden noch hochgeladen. Wenn Sie jetzt trennen, können Daten verloren gehen. Trotzdem fortfahren?",
+    "pendingUploadsWarning_one": "{{count}} Eintrag wird noch hochgeladen. Wenn Sie jetzt trennen, können Daten verloren gehen. Trotzdem fortfahren?",
+    "pendingUploadsWarning_other": "{{count}} Einträge werden noch hochgeladen. Wenn Sie jetzt trennen, können Daten verloren gehen. Trotzdem fortfahren?",
     "encryptionPassword": "Verschlüsselung & Passwort",
     "encryptionMode": "Verschlüsselungsmodus",
     "encryptionModeDesc": "Wählen Sie, wie Ihre Tagebucheinträge während der Synchronisierung geschützt werden",
@@ -824,7 +843,7 @@
     "clearStoredPassword": "Gespeichertes Passwort löschen",
     "forgotPassword": "Passwort vergessen?",
     "forgotPasswordOption1": "Verwenden Sie „Passwort ändern“ unten, wenn Sie Ihr aktuelles Passwort kennen",
-    "forgotPasswordOption2": "Exportieren Sie zuerst ein Backup, dann verwenden Sie „ALLE Daten LÖSCHEN“ in der Gefahrenzone, um neu zu beginnen",
+    "forgotPasswordOption2": "Exportieren Sie zuerst ein Backup und verwenden Sie dann „Alle Daten zurücksetzen“ in der Gefahrenzone, um neu zu beginnen",
     "changePassword": "Passwort ändern",
     "changePasswordDesc": "Ändern Sie Ihr Tagebuch-Passwort. Alle Einträge werden mit dem neuen Passwort neu verschlüsselt.",
     "dangerZone": "Gefahrenzone",
@@ -833,7 +852,7 @@
     "resetAllDataWarning": "Dies löscht dauerhaft alle Ihre Tagebucheinträge, Verschlüsselungsschlüssel und gespeicherte Passwörter. Wenn Sie E2E-Verschlüsselung verwenden, werden Ihre Einträge dauerhaft unlesbar, da der Verschlüsselungsschlüssel zerstört wird.",
     "resetAllDataConfirm": "Diese Aktion kann nicht rückgängig gemacht werden. Fortfahren?",
     "backupRecommendation": "Wir empfehlen dringend, vor dem Fortfahren ein Backup zu erstellen.",
-    "backupInstructions": "Um ein Backup zu erstellen: Klicken Sie auf Ihr Avatar-Symbol (oben rechts) → Daten exportieren",
+    "backupInstructions": "Um ein Backup zu erstellen: Tippen Sie auf Ihr Profilsymbol (oben rechts) → Daten exportieren",
     "confirmReset": "Zur Bestätigung DELETE eingeben",
     "resetting": "Wird zurückgesetzt…",
     "resetButton": "Alles löschen",
@@ -844,9 +863,10 @@
     "syncing": "Wird synchronisiert…",
     "syncingDesc": "Verbindung mit Cloud-Speicher wird hergestellt",
     "synced": "Synchronisiert",
-    "syncedDesc": "Verbunden und Einträge geladen",
+    "syncedDesc_one": "Mit {{provider}} verbunden und {{count}} Eintrag geladen",
+    "syncedDesc_other": "Mit {{provider}} verbunden und {{count}} Einträge geladen",
     "syncFailed": "Synchronisierung fehlgeschlagen",
-    "syncFailedDesc": "Synchronisierung mit Cloud-Speicher fehlgeschlagen",
+    "syncFailedDesc": "Synchronisierung mit {{provider}} fehlgeschlagen",
     "switchedToE2E": "Auf E2E-Modus umgestellt",
     "switchedToE2EDesc": "Bitte Passwort eingeben, um Einträge zu entschlüsseln.",
     "disconnectedForE2E": "Speicher getrennt",
@@ -875,7 +895,8 @@
     "conflictResolution": "• Automatische Konfliktlösung bei gleichzeitigen Bearbeitungen",
     "offlineSupport": "• Volle Offline-Nutzung mit Hintergrund-Sync",
     "cannotSwitchMode": "Verschlüsselungsmodus nicht wechselbar",
-    "cannotSwitchModeDesc": "Sie haben {{count}} bestehende Einträge. Bitte alle Daten löschen, bevor Sie den Modus wechseln.",
+    "cannotSwitchModeDesc_one": "Sie haben {{count}} bestehenden Eintrag. Bitte löschen Sie alle Daten, bevor Sie den Verschlüsselungsmodus wechseln.",
+    "cannotSwitchModeDesc_other": "Sie haben {{count}} bestehende Einträge. Bitte löschen Sie alle Daten, bevor Sie den Verschlüsselungsmodus wechseln.",
     "cannotVerifyEntries": "Einträge nicht prüfbar",
     "cannotVerifyEntriesDesc": "Bitte zuerst Passwort eingeben oder alle Daten zurücksetzen.",
     "passwordSaved": "Passwort gespeichert",
@@ -1076,7 +1097,8 @@
     "encryptedEntriesNeedCloudDesc": "Sie haben verschlüsselte Einträge von einem früheren Sync. Mit dem gleichen Cloud-Speicher und Verschlüsselungspasswort verbinden, um sie zu öffnen.",
     "reconnectToAccessEntries": "Cloud-Speicher wieder verbinden, um verschlüsselte Einträge zu öffnen. Sie wurden E2E-verschlüsselt synchronisiert.",
     "migrateEntries": "Unverschlüsselte Einträge migrieren",
-    "migrateEntriesDesc": "{{count}} Einträge sind nicht verschlüsselt. Migrieren Sie sie zur E2E-Verschlüsselung für volle Sicherheit.",
+    "migrateEntriesDesc_one": "{{count}} Eintrag ist nicht verschlüsselt. Migrieren Sie ihn für vollständige Sicherheit zur E2E-Verschlüsselung.",
+    "migrateEntriesDesc_other": "{{count}} Einträge sind nicht verschlüsselt. Migrieren Sie sie für vollständige Sicherheit zur E2E-Verschlüsselung.",
     "migrationComplete": "Migration abgeschlossen",
     "migrationCompleteDesc": "{{migrated}} Einträge verschlüsselt. {{failed}} fehlgeschlagen.",
     "migrated": "Migriert",
@@ -1206,8 +1228,8 @@
       "environmentDesc": "Entwicklung beim Testen verwenden, Produktion für veröffentlichte Apps",
       "syncDesc": "Synchronisieren Sie Ihr verschlüsseltes Tagebuch mit iCloud. Ihre Daten bleiben auf allen Apple-Geräten privat.",
       "detailsLabel": "Details",
-      "signInWithAppleDesc": "Melden Sie sich mit Ihrer Apple-ID an, um iCloud zu verbinden. Klicken Sie auf die Schaltfläche unten, um das Apple-Anmeldefenster zu öffnen.",
-      "signInWithAppleButton": "Mit Apple-ID anmelden",
+      "signInWithAppleDesc": "Melden Sie sich mit Ihrem Apple Account an, um iCloud zu verbinden. Klicken Sie auf die Schaltfläche unten, um das Apple-Anmeldefenster zu öffnen.",
+      "signInWithAppleButton": "Mit Apple anmelden",
       "afterSignedInDesc": "Nach der Anmeldung im Popup-Fenster hier fortfahren.",
       "continueAfterSignIn": "Ich habe mich angemeldet – Weiter",
       "signInRequired": "Anmeldung nicht erkannt",
@@ -1215,9 +1237,9 @@
       "popupBlocked": "Das Anmeldefenster wurde möglicherweise blockiert. Bitte erlauben Sie Popups für diese Seite und versuchen Sie es erneut.",
       "signInLinkNotReady": "Die Apple-Anmeldung wird noch geladen. Bitte warten Sie einen Moment und versuchen Sie es erneut.",
       "originNotAllowed": "Der Ursprung dieser App ({{origin}}) ist bei iCloud nicht registriert.",
-      "adpNotice": "iCloud kann nicht im Browser verwendet werden, wenn für Ihre Apple-ID der Erweiterte Datenschutz aktiviert ist, da Apple den Webzugriff auf App-Daten dann sperrt. Nutzen Sie für iCloud die iPhone- oder iPad-App, oder wählen Sie Google Drive, Dropbox oder Nextcloud, um in diesem Browser zu synchronisieren.",
-      "signInWebAccessOff": "Laut Apple ist der Webzugriff auf iCloud-Daten für diese Apple-ID deaktiviert. Aktivieren Sie ihn auf Ihrem iPhone unter Einstellungen > Ihr Name > iCloud > iCloud.com und versuchen Sie es dann erneut.",
-      "signInFailedAdp": "Apple konnte die iCloud-Anmeldung nicht abschließen. Das liegt in der Regel daran, dass für Ihre Apple-ID der Erweiterte Datenschutz aktiviert ist; Apple erlaubt solchen Accounts keine iCloud-Nutzung im Browser. Nutzen Sie für iCloud die iPhone- oder iPad-App, oder verbinden Sie stattdessen Google Drive, Dropbox oder Nextcloud."
+      "adpNotice": "iCloud kann nicht im Browser verwendet werden, wenn für Ihren Apple Account der Erweiterte Datenschutz aktiviert ist, da Apple den Webzugriff auf App-Daten dann sperrt. Nutzen Sie für iCloud die iPhone- oder iPad-App, oder wählen Sie Google Drive, Dropbox oder Nextcloud, um in diesem Browser zu synchronisieren.",
+      "signInWebAccessOff": "Laut Apple ist der Webzugriff auf iCloud-Daten für diesen Apple Account deaktiviert. Aktivieren Sie ihn auf Ihrem iPhone unter Einstellungen > Ihr Name > iCloud > iCloud.com und versuchen Sie es dann erneut.",
+      "signInFailedAdp": "Apple konnte die iCloud-Anmeldung nicht abschließen. Das liegt in der Regel daran, dass für Ihren Apple Account der Erweiterte Datenschutz aktiviert ist; Apple erlaubt solchen Accounts keine iCloud-Nutzung im Browser. Nutzen Sie für iCloud die iPhone- oder iPad-App, oder verbinden Sie stattdessen Google Drive, Dropbox oder Nextcloud."
     },
     "oauth": {
       "accessDenied": "Autorisierung wurde abgebrochen oder verweigert.",
@@ -1255,7 +1277,8 @@
     "circuitBreakersActive": "Temporäre Limits aktiv",
     "circuitBreakersActiveDesc": "Einige Speichervorgänge sind aufgrund wiederholter Fehlschläge vorübergehend blockiert. Das System wird sich automatisch erholen.",
     "multipleRecentFailures": "Mehrere kürzliche Fehlschläge",
-    "multipleRecentFailuresDesc": "{{count}} Synchronisierungsversuche sind in den letzten 5 Minuten fehlgeschlagen. Überprüfen Sie Ihre Verbindung und den Speicheranbieter.",
+    "multipleRecentFailuresDesc_one": "{{count}} Synchronisierungsversuch ist in den letzten 5 Minuten fehlgeschlagen. Überprüfen Sie Ihre Verbindung und den Speicheranbieter.",
+    "multipleRecentFailuresDesc_other": "{{count}} Synchronisierungsversuche sind in den letzten 5 Minuten fehlgeschlagen. Überprüfen Sie Ihre Verbindung und den Speicheranbieter.",
     "reduceFailures": "Synchronisierungsfehler reduzieren",
     "reduceFailuresDesc": "Überprüfen Sie Ihre Internetverbindung und Speicheranbieter-Anmeldedaten. Erwägen Sie einen Anbieterwechsel, wenn Probleme bestehen bleiben.",
     "reduceFailuresAction": "Verbindung prüfen",
@@ -1294,7 +1317,8 @@
     "overallHealth": "Gesamtzustand",
     "healthScore": "Zustandswert",
     "allSystemsNormal": "✓ Alle Systeme normal",
-    "activeAlerts": "Aktive Warnungen ({{count}})",
+    "activeAlerts_one": "Aktive Warnungen ({{count}})",
+    "activeAlerts_other": "Aktive Warnungen ({{count}})",
     "excellent": "Ausgezeichnet",
     "good": "Gut",
     "warning": "Warnung",
@@ -1328,11 +1352,14 @@
     "frequentConflicts": "Häufige Sync-Konflikte",
     "frequentConflictsDesc": "{{rate}} Konflikte pro 100 Syncs. Deutet auf gleichzeitige Bearbeitung auf mehreren Geräten hin.",
     "recentConflictSpike": "Konfliktspitze",
-    "recentConflictSpikeDesc": "{{count}} Konflikte in der letzten Stunde. Möglicherweise Nutzung mehrerer Geräte.",
+    "recentConflictSpikeDesc_one": "{{count}} Konflikt in der letzten Stunde erkannt. Möglicherweise nutzen Sie gerade mehrere Geräte.",
+    "recentConflictSpikeDesc_other": "{{count}} Konflikte in der letzten Stunde erkannt. Möglicherweise nutzen Sie gerade mehrere Geräte.",
     "circuitBreakersActive": "Sync-Schutz aktiv",
-    "circuitBreakersActiveDesc": "{{count}} Sicherheitspause(n) wegen wiederholter Fehler. Sync vorübergehend pausiert.",
+    "circuitBreakersActiveDesc_one": "{{count}} Sicherheitspause ist wegen wiederholter Fehler aktiv. Die Synchronisierung ist vorübergehend pausiert.",
+    "circuitBreakersActiveDesc_other": "{{count}} Sicherheitspausen sind wegen wiederholter Fehler aktiv. Die Synchronisierung ist vorübergehend pausiert.",
     "multipleRecentFailures": "Mehrere letzte Fehler",
-    "multipleRecentFailuresDesc": "{{count}} der letzten 10 Vorgänge fehlgeschlagen. Hinweis auf anhaltendes Problem.",
+    "multipleRecentFailuresDesc_one": "{{count}} der letzten 10 Vorgänge ist fehlgeschlagen. Das deutet auf ein anhaltendes Problem hin.",
+    "multipleRecentFailuresDesc_other": "{{count}} der letzten 10 Vorgänge sind fehlgeschlagen. Das deutet auf ein anhaltendes Problem hin.",
     "reduceFailures": "Sync-Fehler verringern",
     "reduceFailuresDesc": "Internet und Cloud-Zugang prüfen. Auto-Sync bei schlechtem Netz ggf. vorübergehend deaktivieren.",
     "reduceFailuresAction": "Diagnose-Tab für Fehlerdetails",
@@ -1369,7 +1396,8 @@
     "circuitBreakers": "Sync-Schutz",
     "open": "OFFEN",
     "closed": "GESCHLOSSEN",
-    "failures_count": "{{count}} Fehlschläge",
+    "failures_count_one": "{{count}} Fehlschlag",
+    "failures_count_other": "{{count}} Fehlschläge",
     "reopens": "Öffnet wieder in {{time}}",
     "currentlyRetrying": "Wird gerade wiederholt",
     "recentOperations": "Kürzliche Vorgänge",
@@ -1455,13 +1483,17 @@
     "need8Entries": "Mindestens 8 Einträge im ausgewählten Zeitraum sind erforderlich für eine aussagekräftige Analyse.",
     "needMore": "Mindestens 8 Einträge erforderlich",
     "need8": "Mindestens 8 Einträge erforderlich",
-    "entriesInPeriod": "{{count}} Einträge in diesem Zeitraum",
-    "entriesAvailable": "{{count}} Einträge zur Analyse verfügbar",
+    "entriesInPeriod_one": "{{count}} Eintrag in diesem Zeitraum",
+    "entriesInPeriod_other": "{{count}} Einträge in diesem Zeitraum",
+    "entriesAvailable_one": "{{count}} Eintrag zur Analyse verfügbar",
+    "entriesAvailable_other": "{{count}} Einträge zur Analyse verfügbar",
     "limitReached": "Limit erreicht",
     "analyzingEntries": "Einträge werden analysiert",
-    "analyzingEntriesDesc": "{{count}} Einträge werden analysiert, um Ihre Erkenntnisse zu generieren…",
+    "analyzingEntriesDesc_one": "{{count}} Eintrag wird analysiert, um Ihre Erkenntnisse zu erstellen…",
+    "analyzingEntriesDesc_other": "{{count}} Einträge werden analysiert, um Ihre Erkenntnisse zu erstellen…",
     "analyzing": "Wird analysiert…",
-    "analyzingCount": "Zuerst {{count}} Einträge analysieren…",
+    "analyzingCount_one": "Zunächst wird {{count}} Eintrag analysiert…",
+    "analyzingCount_other": "Zunächst werden {{count}} Einträge analysiert…",
     "authRequired": "Authentifizierung erforderlich",
     "authRequiredDesc": "Bitte melden Sie sich an, um KI-Funktionen zu nutzen",
     "signInRequired": "Bitte melden Sie sich an, um die KI-gestützte Trendanalyse zu nutzen.",
@@ -1490,7 +1522,8 @@
     "reflection": "Abschließende Reflexion",
     "lastAnalyzed": "Zuletzt analysiert {{date}}",
     "analyzedAt": "Analysiert {{date}}",
-    "entriesAnalyzed": "{{count}} Einträge analysiert",
+    "entriesAnalyzed_one": "{{count}} Eintrag analysiert",
+    "entriesAnalyzed_other": "{{count}} Einträge analysiert",
     "reAnalyze": "Erneut analysieren",
     "selectDifferentPeriod": "Anderen Zeitraum auswählen",
     "show": "Anzeigen",
@@ -1534,11 +1567,13 @@
     "share": "Teilen",
     "shareFile": "Datei teilen",
     "exportSuccess": "Export erfolgreich",
-    "exportSuccessDesc": "{{count}} Einträge als {{format}} exportiert",
+    "exportSuccessDesc_one": "{{count}} Eintrag als {{format}} exportiert",
+    "exportSuccessDesc_other": "{{count}} Einträge als {{format}} exportiert",
     "exportError": "Export fehlgeschlagen",
     "exportErrorDesc": "{{format}} konnte nicht erstellt werden. Bitte versuchen Sie es erneut.",
     "upgradePrompt": "Upgraden Sie auf Plus, um Exportfunktionen freizuschalten",
-    "entriesReady": "{{count}} Einträge bereit zum Exportieren.",
+    "entriesReady_one": "{{count}} Eintrag bereit zum Exportieren.",
+    "entriesReady_other": "{{count}} Einträge bereit zum Exportieren.",
     "unavailableNative": "Dokument-Exporte sind in dieser App-Version nicht verfügbar."
   },
   "subscription": {
@@ -1576,8 +1611,7 @@
       "tagSuggestions": "Intelligente Tag-Vorschläge",
       "trendAnalysis": "Stimmungs- und Trend-Einblicke",
       "voiceEntry": "Spracheingabe",
-      "exports": "PDF- & Word-Export",
-      "imageUpload": "Foto-Erinnerungen"
+      "exports": "PDF- & Word-Export"
     },
     "trialCta": "Kostenlos testen",
     "trialPricing": "14 Tage kostenlos, danach {{yearlyPrice}}/Jahr",
@@ -1611,7 +1645,7 @@
     "disclosureTitle": "OwnJournal Plus – Jahresabonnement",
     "disclosureLength": "Einjähriges, sich automatisch verlängerndes Abonnement.",
     "priceWithMonthly": "{{yearlyPrice}}/Jahr (ca. {{monthlyEquivalent}}/Monat)",
-    "renewalApple": "Die Zahlung wird bei Kaufbestätigung von Ihrer Apple-ID abgebucht. Ihr Abonnement verlängert sich automatisch zum gleichen Preis, sofern die automatische Verlängerung nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums deaktiviert wird. Sie können Ihr Abonnement nach dem Kauf in Ihren App-Store-Kontoeinstellungen verwalten und kündigen.",
+    "renewalApple": "Die Zahlung wird bei Kaufbestätigung über Ihren Apple Account abgerechnet. Ihr Abonnement verlängert sich automatisch zum gleichen Preis, sofern die automatische Verlängerung nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums deaktiviert wird. Sie können Ihr Abonnement nach dem Kauf in Ihren App-Store-Kontoeinstellungen verwalten und kündigen.",
     "renewalGoogle": "Die Zahlung wird bei Kaufbestätigung von Ihrem Google-Play-Konto abgebucht. Ihr Abonnement verlängert sich automatisch zum gleichen Preis, sofern es nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums in Ihren Google-Play-Abonnements gekündigt wird.",
     "iapOnly": {
       "title": "In der App verfügbar",
@@ -1709,12 +1743,14 @@
     "monthlyLimitReachedDescTags": "Sie haben Ihr Tag-Generierungslimit erreicht. Es wird nächsten Monat zurückgesetzt.",
     "monthlyLimitReachedDescTitle": "Sie haben Ihr Titelgenerierungslimit erreicht. Es wird nächsten Monat zurückgesetzt.",
     "tagsApplied": "Tags angewendet",
-    "tagsAppliedDesc": "{{count}} KI-generierte Tags hinzugefügt",
+    "tagsAppliedDesc_one": "{{count}} KI-generierter Tag hinzugefügt",
+    "tagsAppliedDesc_other": "{{count}} KI-generierte Tags hinzugefügt",
     "suggestedActivities": "Vorgeschlagene Aktivitäten",
     "applyTags": "Tags anwenden",
     "applyActivities": "Aktivitäten anwenden",
     "activitiesApplied": "Aktivitäten hinzugefügt",
-    "activitiesAppliedDesc": "{{count}} vorgeschlagene Aktivitäten hinzugefügt",
+    "activitiesAppliedDesc_one": "{{count}} vorgeschlagene Aktivität hinzugefügt",
+    "activitiesAppliedDesc_other": "{{count}} vorgeschlagene Aktivitäten hinzugefügt",
     "removeActivity": "Aus Vorschlägen entfernen",
     "titleApplied": "Titel angewendet",
     "titleAppliedDesc": "Der KI-generierte Titel wurde angewendet",
@@ -1806,7 +1842,7 @@
     },
     "timeline": {
       "title": "Ihre Tagebuch-Zeitleiste",
-      "content": "Ihre Tagebucheinträge erscheinen hier, nach Datum sortiert.\nKlicken Sie auf die Schaltfläche „+“, um Ihren ersten Eintrag zu erstellen."
+      "content": "Ihre Tagebucheinträge erscheinen hier, nach Datum sortiert.\nTippen Sie auf die Schaltfläche „+“, um Ihren ersten Eintrag zu erstellen."
     },
     "syncStatus": {
       "title": "Synchronisierungsstatus",
@@ -1822,7 +1858,7 @@
     },
     "help": {
       "title": "Hilfe & Support",
-      "content": "Brauchen Sie Hilfe? Klicken Sie hier, um Anleitungen und Tipps aufzurufen oder diese Tour erneut zu starten."
+      "content": "Brauchen Sie Hilfe? Tippen Sie hier, um Anleitungen und Tipps aufzurufen oder diese Tour erneut zu starten."
     },
     "complete": {
       "title": "Bereit zum Schreiben!",
@@ -1860,9 +1896,9 @@
       "startTour": "Tour starten",
       "firstEntry": {
         "title": "Ihren ersten Eintrag erstellen",
-        "step1": "1. Klicken Sie auf die Schaltfläche „+“ oben in der Zeitleiste",
+        "step1": "1. Tippen Sie auf die Schaltfläche „+“ oben in der Zeitleiste",
         "step2": "2. Schreiben Sie Ihren Tagebucheintrag im Editor – Markdown-Formatierung wird unterstützt",
-        "step3": "3. Fügen Sie Tags und Stimmung hinzu, dann klicken Sie auf Speichern"
+        "step3": "3. Fügen Sie Tags und Stimmung hinzu und tippen Sie dann auf „Speichern“"
       },
       "markdown": {
         "title": "Markdown verwenden",
@@ -1881,8 +1917,8 @@
         "title": "Ihr Konto erstellen",
         "desc": "Sie können sich per E-Mail/Passwort oder Social Login registrieren:",
         "emailOption": "E-Mail & Passwort: Geben Sie Ihre E-Mail ein und wählen Sie ein sicheres Passwort",
-        "googleOption": "Google: Klicken Sie auf „Mit Google fortfahren“ für schnelle Registrierung",
-        "appleOption": "Apple: Klicken Sie auf „Mit Apple fortfahren“ für datenschutzorientierte Registrierung",
+        "googleOption": "Google: Tippen Sie für eine schnelle Registrierung auf „Mit Google fortfahren“",
+        "appleOption": "Apple: Tippen Sie für eine datenschutzfreundliche Registrierung auf „Mit Apple fortfahren“",
         "tip": "Tipp: Sie können Ihr Passwort jederzeit über den „Passwort vergessen?“-Link zurücksetzen"
       }
     },
@@ -1949,13 +1985,13 @@
     "storage": {
       "googleDrive": {
         "title": "Google Drive verbinden",
-        "step1": "1. Klicken Sie auf „Verbinden“ neben Google Drive in den Einstellungen",
+        "step1": "1. Tippen Sie in den Einstellungen neben Google Drive auf „Verbinden“",
         "step2": "2. Melden Sie sich mit Ihrem Google-Konto an und erteilen Sie Berechtigungen",
         "note": "Hinweis: OwnJournal speichert Daten in einem versteckten App-Ordner, nicht sichtbar in Ihrem normalen Drive"
       },
       "dropbox": {
         "title": "Dropbox verbinden",
-        "step1": "1. Klicken Sie auf „Verbinden“ neben Dropbox in den Einstellungen",
+        "step1": "1. Tippen Sie in den Einstellungen neben Dropbox auf „Verbinden“",
         "step2": "2. Melden Sie sich an und autorisieren Sie die App"
       },
       "nextcloud": {
@@ -2095,7 +2131,7 @@
         "title": "Synchronisierung funktioniert nicht",
         "intro": "Bitte versuchen Sie die folgenden Schritte:",
         "tip1": "Überprüfen Sie Ihre Internetverbindung",
-        "tip2": "Klicken Sie manuell auf die Synchronisierungsschaltfläche",
+        "tip2": "Tippen Sie manuell auf die Synchronisierungsschaltfläche",
         "tip3": "Trennen Sie Ihren Cloud-Speicher und verbinden Sie ihn erneut"
       },
       "passwordRecovery": {
@@ -2104,7 +2140,7 @@
         "desc": "Dies ist eine zentrale Sicherheitsfunktion echter Ende-zu-Ende-Verschlüsselung. Nur Sie besitzen den Schlüssel, was bedeutet, dass selbst wir nicht auf Ihre Daten zugreifen können. Während dies Ihre Privatsphäre schützt, bedeutet es auch, dass verschlüsselte Einträge ohne das Passwort nicht wiederhergestellt werden können.",
         "actionTitle": "Was Sie tun können:",
         "action1": "Wenn Sie ein unverschlüsseltes JSON-Backup haben, können Sie Ihre Einträge daraus wiederherstellen.",
-        "action2": "Um neu zu beginnen, verwenden Sie die Option „Alles löschen“ im Gefahrenbereich der Einstellungen, um zurückzusetzen und ein neues verschlüsseltes Tagebuch zu erstellen."
+        "action2": "Um neu zu beginnen, verwenden Sie „Alle Daten zurücksetzen“ im Bereich „Gefahrenzone“ der Einstellungen und erstellen Sie anschließend ein neues verschlüsseltes Tagebuch."
       }
     },
     "faq": {
@@ -2136,15 +2172,15 @@
       },
       "manageSubscription": {
         "question": "Wie verwalte ich mein Abonnement?",
-        "answer": "Öffnen Sie Einstellungen, gehen Sie zum Tab Konto, scrollen Sie zum Abonnement-Bereich und klicken Sie auf „Verwalten“, um das Abrechnungsportal zu öffnen. Dort können Sie Ihre Zahlungsmethode aktualisieren, Ihre Tarifdetails einsehen und Abrechnungseinstellungen verwalten."
+        "answer": "Öffnen Sie die Einstellungen, gehen Sie zum Tab „Konto“, scrollen Sie zum Abschnitt „Abonnement“ und klicken Sie auf „Verwalten“, um das Abrechnungsportal zu öffnen. Dort können Sie Ihre Zahlungsmethode aktualisieren, Ihre Tarifdetails einsehen und Abrechnungseinstellungen verwalten."
       },
       "invoices": {
         "question": "Wie sehe ich meine Rechnungen?",
-        "answer": "Öffnen Sie Einstellungen, gehen Sie zum Tab Konto, scrollen Sie zum Abonnement-Bereich und klicken Sie auf „Verwalten“, um das Abrechnungsportal zu öffnen. Ihre vollständige Rechnungshistorie ist dort verfügbar, und Sie können Rechnungen als PDF herunterladen."
+        "answer": "Öffnen Sie die Einstellungen, gehen Sie zum Tab „Konto“, scrollen Sie zum Abschnitt „Abonnement“ und klicken Sie auf „Verwalten“, um das Abrechnungsportal zu öffnen. Ihre vollständige Rechnungshistorie ist dort verfügbar, und Sie können Rechnungen als PDF herunterladen."
       },
       "cancelSubscription": {
         "question": "Wie kündige ich mein Abonnement?",
-        "answer": "Öffnen Sie Einstellungen, gehen Sie zum Tab Konto, scrollen Sie zum Abonnement-Bereich und klicken Sie auf „Verwalten“, um das Abrechnungsportal zu öffnen. Klicken Sie auf „Abonnement kündigen“, um Ihr Abonnement zu beenden. Sie behalten Plus-Zugang bis zum Ende Ihrer aktuellen Abrechnungsperiode. Kern-Tagebuchfunktionen bleiben für immer kostenlos."
+        "answer": "Öffnen Sie die Einstellungen, gehen Sie zum Tab „Konto“, scrollen Sie zum Abschnitt „Abonnement“ und klicken Sie auf „Verwalten“, um das Abrechnungsportal zu öffnen, in dem Sie Ihr Abonnement kündigen können. Sie behalten den Plus-Zugang bis zum Ende Ihres aktuellen Abrechnungszeitraums. Die grundlegenden Tagebuchfunktionen bleiben dauerhaft kostenlos."
       }
     }
   },
@@ -2206,7 +2242,7 @@
       },
       "subscriptions": {
         "title": "4. Abonnements, Abrechnung und Kündigung",
-        "content": "OwnJournal bietet einen optionalen kostenpflichtigen Tarif („Plus“) als sich automatisch verlängerndes Abonnement an. Im Apple App Store (iOS) werden Abonnements über Ihre Apple-ID abgerechnet und in den Einstellungen Ihres App-Store-Kontos verwaltet. Die Zahlung wird bei Bestätigung des Kaufs über Ihre Apple-ID eingezogen. Ihr Abonnement verlängert sich automatisch, sofern die automatische Verlängerung nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums deaktiviert wird. Ihr Konto wird innerhalb von 24 Stunden vor Ablauf des aktuellen Zeitraums für die Verlängerung belastet. Die Kündigung wird zum Ende des aktuellen bezahlten Zeitraums wirksam, und ein nicht genutzter Anteil einer kostenlosen Testphase verfällt, wenn Sie ein kostenpflichtiges Abonnement abschließen. Bei Google Play (Android) werden Abonnements über Ihr Google-Play-Konto abgerechnet und in den Google-Play-Abonnementeinstellungen verwaltet; es gelten die gleichen Grundsätze für die automatische Verlängerung und Kündigung. Im Web werden Abonnements über Stripe abgerechnet und in den Kontoeinstellungen innerhalb von OwnJournal verwaltet. Die Preise werden, wo unterstützt, in Ihrer Landeswährung angezeigt und verstehen sich inklusive aller anfallenden Steuern. Eventuelle kostenlose Testphasen werden am Ende der Testphase automatisch in ein kostenpflichtiges Abonnement umgewandelt, sofern sie nicht vor Ablauf der Testphase gekündigt werden."
+        "content": "OwnJournal bietet einen optionalen kostenpflichtigen Tarif („Plus“) als sich automatisch verlängerndes Abonnement an. Im Apple App Store (iOS) werden Abonnements über Ihren Apple Account abgerechnet und in den Einstellungen Ihres App-Store-Kontos verwaltet. Die Zahlung wird bei Bestätigung des Kaufs über Ihren Apple Account eingezogen. Ihr Abonnement verlängert sich automatisch, sofern die automatische Verlängerung nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums deaktiviert wird. Ihr Konto wird innerhalb von 24 Stunden vor Ablauf des aktuellen Zeitraums für die Verlängerung belastet. Die Kündigung wird zum Ende des aktuellen bezahlten Zeitraums wirksam, und ein nicht genutzter Anteil einer kostenlosen Testphase verfällt, wenn Sie ein kostenpflichtiges Abonnement abschließen. Bei Google Play (Android) werden Abonnements über Ihr Google-Play-Konto abgerechnet und in den Google-Play-Abonnementeinstellungen verwaltet; es gelten die gleichen Grundsätze für die automatische Verlängerung und Kündigung. Im Web werden Abonnements über Stripe abgerechnet und in den Kontoeinstellungen innerhalb von OwnJournal verwaltet. Die Preise werden, wo unterstützt, in Ihrer Landeswährung angezeigt und verstehen sich inklusive aller anfallenden Steuern. Eventuelle kostenlose Testphasen werden am Ende der Testphase automatisch in ein kostenpflichtiges Abonnement umgewandelt, sofern sie nicht vor Ablauf der Testphase gekündigt werden."
       },
       "withdrawal": {
         "title": "5. Widerrufsrecht (EU/EWR-Verbraucher)",
@@ -2266,7 +2302,7 @@
       },
       "aiProcessing": {
         "title": "KI-Funktionen und Verarbeitung",
-        "content": "OwnJournal bietet optionale KI-gestützte Funktionen wie Stimmungsanalyse, Vorschläge und Spracheingabe, die ausschließlich Plus-Abonnenten zur Verfügung stehen. Eine KI-Verarbeitung findet nur statt, wenn Sie als Plus-Abonnent diese Funktionen ausdrücklich nutzen. Wenn Sie textbasierte KI-Funktionen nutzen, wird der betreffende Text zunächst auf Ihrem Gerät entschlüsselt und dann durch Ihre ausdrückliche Aktion an unseren KI-Anbieter, derzeit Google (Gemini), über dessen kostenpflichtige API gesendet. Wenn Sie die Spracheingabe nutzen, wird das Mikrofon Ihres Geräts nur während der Aufnahme verwendet; die Aufnahme wird zur Umwandlung in Text an Google (Gemini) gesendet, und der daraus entstandene Text wird auf Ihrem Gerät in Ihren Eintrag eingefügt. Wir speichern keine KI-Eingaben oder -Ausgaben, einschließlich Sprachaufnahmen und Transkripte, auf unseren Servern; wir erfassen lediglich nutzerbezogene Zähler der KI-Nutzung (die Art der durchgeführten Analyse, einen Zeitstempel und bei der Spracheingabe die Länge der Aufnahme in Sekunden; niemals den Inhalt) zur Durchsetzung von Fair-Use-Limits. Google kann Prompts und Ausgaben gemäß seinen aktuellen Richtlinien für einen begrenzten Zeitraum zur Missbrauchsüberwachung und Durchsetzung von Richtlinien aufbewahren. Die KI-Verarbeitung kann außerhalb des EWR erfolgen; Google sichert Datenübermittlungen durch geeignete Garantien wie Standardvertragsklauseln ab. Wir nutzen den kostenpflichtigen Tarif des KI-Dienstes von Google, in dem Prompts und Ausgaben nicht zum Trainieren oder Verbessern seiner Modelle verwendet werden. Sie können sich gegen die Nutzung von KI-Funktionen entscheiden; dies beeinträchtigt die grundlegenden Tagebuchfunktionen nicht."
+        "content": "OwnJournal bietet optionale KI-gestützte Funktionen wie Stimmungsanalyse, Vorschläge und Spracheingabe, die ausschließlich Plus-Abonnenten zur Verfügung stehen. Eine KI-Verarbeitung findet nur statt, wenn Sie als Plus-Abonnent diese Funktionen ausdrücklich nutzen. Wenn Sie textbasierte KI-Funktionen nutzen, wird der betreffende Text zunächst auf Ihrem Gerät entschlüsselt und dann durch Ihre ausdrückliche Aktion über unsere Server an unseren KI-Anbieter, derzeit Google (Gemini), über dessen kostenpflichtige API gesendet. Wenn Sie die Spracheingabe nutzen, wird das Mikrofon Ihres Geräts nur während der Aufnahme verwendet; die Aufnahme wird zur Umwandlung in Text über unsere Server an Google (Gemini) gesendet, und der daraus entstandene Text wird auf Ihrem Gerät in Ihren Eintrag eingefügt. Wir speichern keine KI-Eingaben oder -Ausgaben, einschließlich Sprachaufnahmen und Transkripte, auf unseren Servern; wir erfassen lediglich nutzerbezogene Zähler der KI-Nutzung (die Art der durchgeführten Analyse, einen Zeitstempel und bei der Spracheingabe die Länge der Aufnahme in Sekunden; niemals den Inhalt) zur Durchsetzung von Fair-Use-Limits. Google kann Prompts und Ausgaben gemäß seinen aktuellen Richtlinien für einen begrenzten Zeitraum zur Missbrauchsüberwachung und Durchsetzung von Richtlinien aufbewahren. Die KI-Verarbeitung kann außerhalb des EWR erfolgen; Google sichert Datenübermittlungen durch geeignete Garantien wie Standardvertragsklauseln ab. Wir nutzen den kostenpflichtigen Tarif des KI-Dienstes von Google, in dem Prompts und Ausgaben nicht zum Trainieren oder Verbessern seiner Modelle verwendet werden. Sie können sich gegen die Nutzung von KI-Funktionen entscheiden; dies beeinträchtigt die grundlegenden Tagebuchfunktionen nicht."
       },
       "diagnostics": {
         "title": "Diagnose und Absturzprotokolle",
@@ -2286,7 +2322,7 @@
       },
       "dpo": {
         "title": "Datenschutzbeauftragter (DSB)",
-        "content": "Wir haben keinen Datenschutzbeauftragten ernannt, da wir basierend auf unseren aktuellen Aktivitäten gemäß Artikel 37 der DSGVO nicht dazu verpflichtet sind. OwnJournal verarbeitet oder speichert keinen Tagebuchinhalt auf unseren Servern, und unsere Verarbeitung beschränkt sich auf minimale Konto-, Authentifizierungs- und Abonnementinformationen. Tagebuchinhalte bleiben Ende-zu-Ende-verschlüsselt und unter der Kontrolle des Benutzers. Wir werden diese Verpflichtung neu bewerten, wenn sich unsere Verarbeitungsaktivitäten ändern."
+        "content": "Wir haben keinen Datenschutzbeauftragten benannt, da wir auf Grundlage unserer derzeitigen Tätigkeit nach Artikel 37 DSGVO nicht dazu verpflichtet sind. OwnJournal speichert keine Tagebuchinhalte auf unseren Servern. Wenn Sie optionale KI-Funktionen nutzen, durchläuft der betreffende Text bzw. die Aufnahme unsere Server nur auf dem Weg zu unserem KI-Anbieter und wird nicht gespeichert. Darüber hinaus beschränkt sich unsere Verarbeitung auf ein Minimum an Konto-, Authentifizierungs- und Abonnementdaten. Tagebuchinhalte bleiben Ende-zu-Ende-verschlüsselt und unter der Kontrolle der Nutzer. Wir werden diese Verpflichtung neu prüfen, wenn sich unsere Verarbeitungstätigkeiten ändern."
       },
       "rights": {
         "title": "Ihre Rechte",
@@ -2323,8 +2359,10 @@
     "title": "Verschlüsselte Einträge wiederherstellen",
     "description": "Einige Einträge konnten nicht entschlüsselt werden.",
     "decryptionFailures": "Einige Einträge konnten nicht entschlüsselt werden",
-    "decryptionFailuresDesc": "{{count}} von {{total}} Einträgen konnten nicht entschlüsselt werden. Ihr Passwort wurde möglicherweise geändert.",
-    "failedEntries": "{{count}} von {{total}} Einträgen konnten nicht entschlüsselt werden",
+    "decryptionFailuresDesc_one": "{{count}} von {{total}} Einträgen konnte nicht entschlüsselt werden. Ihr Passwort wurde möglicherweise geändert.",
+    "decryptionFailuresDesc_other": "{{count}} von {{total}} Einträgen konnten nicht entschlüsselt werden. Ihr Passwort wurde möglicherweise geändert.",
+    "failedEntries_one": "{{count}} von {{total}} Einträgen konnte nicht entschlüsselt werden",
+    "failedEntries_other": "{{count}} von {{total}} Einträgen konnten nicht entschlüsselt werden",
     "explanation": "Dies passiert normalerweise, wenn das Verschlüsselungspasswort geändert wurde. Geben Sie Ihr ursprüngliches Passwort ein, um die Einträge wiederherzustellen.",
     "originalPassword": "Ursprüngliches Verschlüsselungspasswort",
     "passwordPlaceholder": "Geben Sie Ihr ursprüngliches Passwort ein…",
@@ -2336,7 +2374,8 @@
     "recoverButton": "Einträge wiederherstellen",
     "recovering": "Wird wiederhergestellt…",
     "success": "Wiederherstellung erfolgreich",
-    "successDesc": "{{count}} Einträge wiederhergestellt",
+    "successDesc_one": "{{count}} Eintrag wiederhergestellt",
+    "successDesc_other": "{{count}} Einträge wiederhergestellt",
     "failed": "Wiederherstellung fehlgeschlagen: {{error}}",
     "wrongPassword": "Falsches Passwort. Bitte versuchen Sie es mit Ihrem ursprünglichen Verschlüsselungspasswort erneut.",
     "keyCorrupted": "Der Verschlüsselungsschlüssel bei allen verbundenen Anbietern kann Ihre Einträge nicht entschlüsseln. Wenn Sie Google Drive nutzen, prüfen Sie den Versionsverlauf für eine frühere Version von encryption-key.json im OwnJournal-Ordner.",
@@ -2347,10 +2386,12 @@
     "networkError": "Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
     "rateLimited": "Der Cloud-Speicher schränkt Anfragen vorübergehend ein. Bitte warten Sie 30–60 Sekunden und versuchen Sie es erneut.",
     "deleteLink": "Oder die nicht wiederherstellbaren Einträge dauerhaft entfernen",
-    "confirmDelete": "Dies löscht dauerhaft {{count}} Einträge, die nicht entschlüsselt werden können. Dies kann nicht rückgängig gemacht werden.",
+    "confirmDelete_one": "Dadurch wird {{count}} Eintrag, der nicht entschlüsselt werden kann, dauerhaft gelöscht. Dies kann nicht rückgängig gemacht werden.",
+    "confirmDelete_other": "Dadurch werden {{count}} Einträge, die nicht entschlüsselt werden können, dauerhaft gelöscht. Dies kann nicht rückgängig gemacht werden.",
     "confirmDeleteButton": "Dauerhaft löschen",
     "deletedTitle": "Einträge entfernt",
-    "deletedDesc": "{{count}} nicht wiederherstellbare Einträge entfernt",
+    "deletedDesc_one": "{{count}} nicht wiederherstellbarer Eintrag entfernt",
+    "deletedDesc_other": "{{count}} nicht wiederherstellbare Einträge entfernt",
     "deleteFailed": "Einträge konnten nicht entfernt werden. Bitte versuchen Sie es erneut.",
     "keyMismatchExplanation": "Der Verschlüsselungsschlüssel, der diese Einträge entschlüsseln kann, stimmt nicht mit dem derzeit verwendeten überein. Sie können den Schlüssel aus dem Cloud-Speicher neu laden.",
     "keyMismatchRecoveryHint": "Sie können den ursprünglichen Schlüssel möglicherweise aus dem Versionsverlauf Ihres Cloud-Speichers wiederherstellen (z. B. Google Drive oder Nextcloud-Dateiversionen für encryption-key.json im OwnJournal-Ordner).",
@@ -2450,8 +2491,8 @@
     "topNegative": "{{activity}} senkt Ihre Stimmung",
     "proFeature": "Plus-Funktion",
     "proFeatureDesc": "Aktivitäts-Einblicke sind mit einem Plus-Abo verfügbar",
-    "tooltipAvg": "Ø",
-    "tooltipEntries": "Einträge"
+    "tooltipDetail_one": "{{delta}} (Ø {{emoji}} {{avg}}, {{count}} Eintrag)",
+    "tooltipDetail_other": "{{delta}} (Ø {{emoji}} {{avg}}, {{count}} Einträge)"
   },
   "notes": {
     "journalTab": "Tagebuch",

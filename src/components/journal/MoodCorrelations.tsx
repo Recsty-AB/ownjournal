@@ -97,7 +97,12 @@ export const MoodCorrelations = ({ entries, isPro }: MoodCorrelationsProps) => {
                     const delta = Number(value);
                     const mood = SCORE_TO_MOOD[Math.round(props.payload.avgMood)] || '';
                     const emoji = MOOD_EMOJI[mood] || '';
-                    return `${delta >= 0 ? '+' : ''}${delta.toFixed(1)} (${t('moodCorrelations.tooltipAvg')}: ${emoji} ${props.payload.avgMood.toFixed(1)}, ${props.payload.count} ${t('moodCorrelations.tooltipEntries')})`;
+                    return t('moodCorrelations.tooltipDetail', {
+                      delta: `${delta >= 0 ? '+' : ''}${delta.toFixed(1)}`,
+                      emoji,
+                      avg: props.payload.avgMood.toFixed(1),
+                      count: props.payload.count,
+                    });
                   }} />} />
                   <Bar dataKey="delta" radius={[0, 4, 4, 0]}>
                     {chartData.map((entry, index) => (
