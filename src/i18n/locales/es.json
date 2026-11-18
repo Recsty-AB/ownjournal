@@ -771,6 +771,8 @@
     "searchPlaceholder": "Buscar entradas…",
     "startDate": "Fecha de inicio",
     "endDate": "Fecha de fin",
+    "filters": "Filtros",
+    "clearFilters": "Borrar filtros",
     "noEntries": "No hay entradas coincidentes",
     "startJourney": "Comienza tu viaje",
     "tryAdjusting": "Intenta ajustar tu búsqueda o filtros",

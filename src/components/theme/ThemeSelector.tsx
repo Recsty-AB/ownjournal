@@ -27,11 +27,12 @@ export function ThemeSelector() {
               aria-checked={selected}
               onClick={() => setTheme(theme)}
               className={cn(
-                'flex flex-col items-center gap-2 whitespace-normal rounded-lg border p-3 text-center text-sm leading-snug transition-colors',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+                'flex min-w-0 flex-col items-center gap-2 whitespace-normal break-words rounded-xl border bg-card p-3 text-center text-sm leading-snug transition-colors',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+                // Selection reads through a heavier rule and weight, not hue alone.
                 selected
-                  ? 'border-primary bg-accent text-accent-foreground'
-                  : 'border-border hover:bg-muted'
+                  ? 'border-primary font-medium text-foreground shadow-[inset_0_0_0_1px_hsl(var(--primary))]'
+                  : 'border-border text-muted-foreground hover:bg-accent hover:text-foreground'
               )}
             >
               <ThemeIcon theme={theme} aria-hidden="true" className="h-5 w-5 shrink-0" />

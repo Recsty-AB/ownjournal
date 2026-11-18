@@ -427,22 +427,22 @@ export const TagSuggestion = ({
     const currentTags = hasTagSets ? allTagSets[currentSetIndex] : [];
 
     return (
-      <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg animate-in fade-in duration-200 space-y-3">
+      <div className="space-y-4 border-l-2 border-border pl-4 animate-in fade-in duration-200">
         {/* Tags row */}
         {hasTagSets && (
           <div className="space-y-2">
             <div className="flex items-start gap-2">
-              <Sparkles className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-              <div className="flex flex-wrap gap-1 flex-1 min-w-0">
+              <Sparkles aria-hidden="true" className="mt-1.5 h-4 w-4 flex-shrink-0 text-muted-foreground" />
+              <div className="flex flex-wrap gap-1.5 flex-1 min-w-0">
                 {currentTags.map(tag => (
-                  <Badge key={tag} variant="outline" className="text-xs bg-background">
+                  <Badge key={tag} variant="outline" className="px-3 py-1 text-sm font-normal">
                     {tag}
                   </Badge>
                 ))}
               </div>
             </div>
-            <Button onClick={applyTags} size="sm" variant="outline" className="h-7">
-              <Check className="w-3.5 h-3.5 mr-1" />
+            <Button onClick={applyTags} size="sm" variant="outline" className="min-h-10 rounded-full sm:min-h-9">
+              <Check aria-hidden="true" className="w-3.5 h-3.5 mr-1" />
               {t('suggestions.applyTags')}
             </Button>
           </div>
@@ -451,36 +451,35 @@ export const TagSuggestion = ({
         {/* Suggested activities row */}
         {hasSuggestedActivities && (
           <div className="space-y-2">
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Sparkles className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+            <div className="eyebrow">
               <span>{t('suggestions.suggestedActivities')}</span>
             </div>
-            <div className="flex flex-wrap gap-1">
+            <div className="flex flex-wrap gap-1.5">
               {suggestedActivities.map(key => (
-                <Badge
+                <button
                   key={key}
-                  variant="outline"
-                  className="text-xs bg-background cursor-pointer hover:bg-destructive hover:text-destructive-foreground transition-colors"
+                  type="button"
+                  className="chip"
                   onClick={() => toggleSuggestedActivity(key)}
                   title={t('suggestions.removeActivity')}
                 >
                   {getActivityLabel ? getActivityLabel(key) : key}
-                  <span className="ml-1" aria-hidden="true">×</span>
-                </Badge>
+                  <span className="text-muted-foreground" aria-hidden="true">×</span>
+                </button>
               ))}
             </div>
-            <Button onClick={applyActivities} size="sm" variant="outline" className="h-7">
-              <Check className="w-3.5 h-3.5 mr-1" />
+            <Button onClick={applyActivities} size="sm" variant="outline" className="min-h-10 rounded-full sm:min-h-9">
+              <Check aria-hidden="true" className="w-3.5 h-3.5 mr-1" />
               {t('suggestions.applyActivities')}
             </Button>
           </div>
         )}
 
         {/* Buttons row - stacks properly on mobile */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           {hasTagSets && hasSuggestedActivities && (
-            <Button onClick={applyAll} size="sm" variant="default" className="bg-gradient-primary hover:opacity-90">
-              <Check className="w-4 h-4 mr-1" />
+            <Button onClick={applyAll} size="sm" variant="secondary" className="min-h-10 rounded-full sm:min-h-9">
+              <Check aria-hidden="true" className="w-4 h-4 mr-1" />
               {t('suggestions.applyAll')}
             </Button>
           )}
@@ -488,18 +487,18 @@ export const TagSuggestion = ({
             <Button
               onClick={showNextTagSet}
               size="sm"
-              variant="outline"
+              variant="ghost"
               disabled={showingNext || loading}
-              className="whitespace-nowrap"
+              className="min-h-10 whitespace-nowrap sm:min-h-9"
             >
               {showingNext || loading ? (
                 <>
-                  <Loader2 className="w-4 h-4 mr-1 animate-spin" />
+                  <Loader2 aria-hidden="true" className="w-4 h-4 mr-1 animate-spin" />
                   {t('suggestions.suggesting')}
                 </>
               ) : (
                 <>
-                  <RefreshCw className="w-4 h-4 mr-1 flex-shrink-0" />
+                  <RefreshCw aria-hidden="true" className="w-4 h-4 mr-1 flex-shrink-0" />
                   {t('suggestions.suggestAnother')}
                 </>
               )}
@@ -514,6 +513,7 @@ export const TagSuggestion = ({
             }}
             size="sm"
             variant="ghost"
+            className="min-h-10 text-muted-foreground sm:min-h-9"
           >
             {t('suggestions.dismiss')}
           </Button>
@@ -536,22 +536,22 @@ export const TagSuggestion = ({
       }}
       disabled={loading || !isPro}
       size="sm"
-      variant={isPro ? "outline" : "secondary"}
-      className="w-full xl:h-11 xl:text-base"
+      variant="ghost"
+      className="-ml-3 h-auto min-h-10 justify-start whitespace-normal text-left text-muted-foreground sm:min-h-9"
     >
       {loading ? (
         <>
-          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+          <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0 animate-spin" />
           {t('suggestions.generating')}
         </>
       ) : !isPro ? (
         <>
-          <Crown className="w-4 h-4 mr-2" />
+          <Crown aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0 text-seal" />
           {mode === 'local' ? t('suggestions.suggestTagsPrivate') : t('suggestions.suggestTagsEnhanced')}
         </>
       ) : (
         <>
-          <Sparkles className="w-4 h-4 mr-2" />
+          <Sparkles aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
           {mode === 'local' ? t('suggestions.suggestTagsPrivate') : t('suggestions.suggestTagsEnhanced')}
         </>
       )}

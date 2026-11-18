@@ -253,53 +253,57 @@ export const AuthScreen = ({ onGoogleSignIn, onAppleSignIn }: AuthScreenProps) =
   const isForgotPassword = viewMode === 'forgot-password';
 
   return (
-    <div className="min-h-screen bg-gradient-paper flex items-center justify-center p-4" style={{ paddingTop: 'calc(var(--safe-area-inset-top) + 1rem)' }}>
-      <div className="w-full max-w-md space-y-5">
+    <div className="min-h-screen bg-background flex items-center justify-center p-4" style={{ paddingTop: 'calc(var(--safe-area-inset-top) + 1rem)' }}>
+      <div className="w-full max-w-md space-y-6">
         {/* Hero Section */}
-        <div className="text-center space-y-2">
-          <div className="w-14 h-14 mx-auto rounded-full bg-gradient-primary flex items-center justify-center shadow-glow p-3">
-            <img src={logo} alt="OwnJournal" className="w-full h-full object-contain" />
-          </div>
-          <div>
-            <h1 className="text-2xl font-bold text-foreground">{t('auth.title')}</h1>
-            <p className="text-muted-foreground mt-1">
-              {t('auth.subtitle')}
-            </p>
-          </div>
+        <div className="text-center">
+          <img src={logo} alt="" className="mx-auto mb-3 h-12 w-12 object-contain dark:invert" />
+          <h1 className="text-2xl font-semibold text-foreground">{t('auth.title')}</h1>
+          <p className="mt-1.5 text-muted-foreground">
+            {t('auth.subtitle')}
+          </p>
         </div>
 
-        {/* Features - 2x2 cards on all screen sizes */}
+        {/* What makes it yours: one ruled 2x2 block rather than four floating tiles */}
         {!isForgotPassword && (
-          <div className="grid grid-cols-2 gap-3">
-            <div className="text-center p-3 bg-card rounded-lg shadow-soft">
-              <Shield className="w-6 h-6 mx-auto mb-1 text-primary" />
-              <p className="text-xs font-medium text-foreground">{t('features.endToEnd')}</p>
-              <p className="text-xs text-muted-foreground">{t('features.encryption')}</p>
-            </div>
-            <div className="text-center p-3 bg-card rounded-lg shadow-soft">
-              <Cloud className="w-6 h-6 mx-auto mb-1 text-primary" />
-              <p className="text-xs font-medium text-foreground">{t('features.yourStorage')}</p>
-              <p className="text-xs text-muted-foreground">{t('features.yourControl')}</p>
-            </div>
-            <div className="text-center p-3 bg-card rounded-lg shadow-soft">
-              <Smartphone className="w-6 h-6 mx-auto mb-1 text-primary" />
-              <p className="text-xs font-medium text-foreground">{t('features.worksOffline')}</p>
-              <p className="text-xs text-muted-foreground">{t('features.alwaysAvailable')}</p>
-            </div>
-            <div className="text-center p-3 bg-card rounded-lg shadow-soft">
-              <Lock className="w-6 h-6 mx-auto mb-1 text-primary" />
-              <p className="text-xs font-medium text-foreground">{t('features.zeroKnowledge')}</p>
-              <p className="text-xs text-muted-foreground">{t('features.privacyFirst')}</p>
-            </div>
-          </div>
+          <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border">
+            <li className="flex items-start gap-3 bg-card p-3.5">
+              <Shield aria-hidden="true" className="mt-0.5 h-5 w-5 flex-shrink-0 text-seal" />
+              <div className="min-w-0">
+                <p className="text-sm font-medium leading-snug text-foreground">{t('features.endToEnd')}</p>
+                <p className="text-xs text-muted-foreground">{t('features.encryption')}</p>
+              </div>
+            </li>
+            <li className="flex items-start gap-3 bg-card p-3.5">
+              <Cloud aria-hidden="true" className="mt-0.5 h-5 w-5 flex-shrink-0 text-seal" />
+              <div className="min-w-0">
+                <p className="text-sm font-medium leading-snug text-foreground">{t('features.yourStorage')}</p>
+                <p className="text-xs text-muted-foreground">{t('features.yourControl')}</p>
+              </div>
+            </li>
+            <li className="flex items-start gap-3 bg-card p-3.5">
+              <Smartphone aria-hidden="true" className="mt-0.5 h-5 w-5 flex-shrink-0 text-seal" />
+              <div className="min-w-0">
+                <p className="text-sm font-medium leading-snug text-foreground">{t('features.worksOffline')}</p>
+                <p className="text-xs text-muted-foreground">{t('features.alwaysAvailable')}</p>
+              </div>
+            </li>
+            <li className="flex items-start gap-3 bg-card p-3.5">
+              <Lock aria-hidden="true" className="mt-0.5 h-5 w-5 flex-shrink-0 text-seal" />
+              <div className="min-w-0">
+                <p className="text-sm font-medium leading-snug text-foreground">{t('features.zeroKnowledge')}</p>
+                <p className="text-xs text-muted-foreground">{t('features.privacyFirst')}</p>
+              </div>
+            </li>
+          </ul>
         )}
 
         {/* Forgot Password View */}
         {isForgotPassword ? (
-          <Card className="p-4 shadow-medium bg-gradient-subtle">
+          <Card className="rounded-2xl border-border bg-card p-5 shadow-medium sm:p-6">
             <div className="space-y-3">
               <div className="text-center mb-3">
-                <h2 className="text-lg font-semibold text-foreground mb-2">
+                <h2 className="text-2xl font-semibold text-foreground mb-2">
                   {t('auth.resetPassword')}
                 </h2>
                 <p className="text-sm text-muted-foreground">
@@ -348,10 +352,10 @@ export const AuthScreen = ({ onGoogleSignIn, onAppleSignIn }: AuthScreenProps) =
           </Card>
         ) : (
           /* Sign In / Sign Up View */
-          <Card className="p-4 shadow-medium bg-gradient-subtle">
+          <Card className="rounded-2xl border-border bg-card p-5 shadow-medium sm:p-6">
             <div className="space-y-3">
               <div className="text-center mb-3">
-                <h2 className="text-lg font-semibold text-foreground mb-2">
+                <h2 className="text-2xl font-semibold text-foreground mb-2">
                   {t('auth.signInTitle')}
                 </h2>
               </div>
@@ -436,7 +440,7 @@ export const AuthScreen = ({ onGoogleSignIn, onAppleSignIn }: AuthScreenProps) =
                   <span className="w-full border-t" />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-background px-2 text-muted-foreground">
+                  <span className="bg-card px-2 text-muted-foreground">
                     {t('auth.continueWith')}
                   </span>
                 </div>
@@ -464,7 +468,7 @@ export const AuthScreen = ({ onGoogleSignIn, onAppleSignIn }: AuthScreenProps) =
                       className="flex-1"
                     >
                       {urlCopied ? (
-                        <Check className="w-4 h-4 mr-2 text-green-600" />
+                        <Check className="w-4 h-4 mr-2 text-diagnostic-success" />
                       ) : (
                         <Copy className="w-4 h-4 mr-2" />
                       )}
@@ -481,7 +485,7 @@ export const AuthScreen = ({ onGoogleSignIn, onAppleSignIn }: AuthScreenProps) =
                 className="w-full"
               >
                 {isLoading === 'google' ? (
-                  <div className="w-4 h-4 mr-3 animate-spin rounded-full border-2 border-gray-300 border-t-gray-900" />
+                  <div className="w-4 h-4 mr-3 animate-spin rounded-full border-2 border-muted-foreground/30 border-t-foreground" />
                 ) : (
                   <svg className="w-4 h-4 mr-3" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -501,7 +505,7 @@ export const AuthScreen = ({ onGoogleSignIn, onAppleSignIn }: AuthScreenProps) =
                   className="w-full"
                 >
                   {isLoading === 'apple' ? (
-                    <div className="w-4 h-4 mr-3 animate-spin rounded-full border-2 border-gray-600 border-t-white" />
+                    <div className="w-4 h-4 mr-3 animate-spin rounded-full border-2 border-muted-foreground/30 border-t-foreground" />
                   ) : (
                     <svg className="w-4 h-4 mr-3" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>

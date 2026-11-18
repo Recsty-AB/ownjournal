@@ -2,7 +2,7 @@ import { saveAs } from "file-saver";
 import { isNativePlatform, saveJsonBackupNative, shareFileNative } from "@/utils/nativeExport";
 import { canShowAnyPurchaseCTA, canShowNativeCheckout, canShowStripeCheckout } from "@/utils/platformDetection";
 import { NativePaywall } from "@/components/subscription/NativePaywall";
-import { BookOpen, Share2, StickyNote } from "lucide-react";
+import { BookOpen, Info, Share2, StickyNote, TriangleAlert } from "lucide-react";
 import i18n from "@/i18n/config";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
@@ -2940,7 +2940,7 @@ const Index = () => {
   if (isAuthLoading && entries.length === 0) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-muted-foreground/30 border-t-foreground" />
       </div>
     );
   }
@@ -2954,7 +2954,7 @@ const Index = () => {
   // Show minimal UI during password recovery - clean background with only the dialog
   if (isRecoveryMode && showSetNewPasswordDialog) {
     return (
-      <div className="min-h-screen bg-gradient-paper flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <SetNewPasswordDialog
           open={showSetNewPasswordDialog}
           onSuccess={() => {
@@ -2993,7 +2993,7 @@ const Index = () => {
     : undefined;
 
   return (
-    <div className="min-h-screen bg-gradient-paper">
+    <div className="min-h-screen bg-background">
       {/* Onboarding Tour */}
       <OnboardingTour
         run={showTour && !!user}
@@ -3164,13 +3164,14 @@ const Index = () => {
 
           {/* Journal / Notes view toggle */}
           <Tabs value={activeView} onValueChange={(v) => setActiveView(v as 'journal' | 'notes')}>
-            <TabsList className="grid w-full grid-cols-2 sm:w-auto sm:inline-grid">
-              <TabsTrigger value="journal" className="flex items-center gap-2 sm:px-6">
-                <BookOpen className="w-4 h-4" />
+            {/* Segmented control: the selected view is a raised paper tab, not a block of ink. */}
+            <TabsList className="grid w-full grid-cols-2 rounded-full bg-muted p-1 sm:w-auto sm:inline-grid">
+              <TabsTrigger value="journal" className="flex items-center gap-2 sm:px-6 rounded-full data-[state=active]:bg-raised data-[state=active]:text-foreground data-[state=active]:shadow-soft">
+                <BookOpen aria-hidden="true" className="w-4 h-4" />
                 {t('notes.journalTab')}
               </TabsTrigger>
-              <TabsTrigger value="notes" className="flex items-center gap-2 sm:px-6">
-                <StickyNote className="w-4 h-4" />
+              <TabsTrigger value="notes" className="flex items-center gap-2 sm:px-6 rounded-full data-[state=active]:bg-raised data-[state=active]:text-foreground data-[state=active]:shadow-soft">
+                <StickyNote aria-hidden="true" className="w-4 h-4" />
                 {t('notes.title')}
               </TabsTrigger>
             </TabsList>
@@ -3216,57 +3217,29 @@ const Index = () => {
           )}
 
           {connectedProviders.length === 0 && (
-            <div className="bg-muted border border-border rounded-lg p-3 sm:p-4">
-              {/* Vertical on mobile, horizontal on tablet+ */}
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3">
-                <div className="flex items-start gap-3 flex-1">
-                  <svg
-                    className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"
-                    />
-                  </svg>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-medium text-sm sm:text-base">{t('index.noCloudConnected')}</p>
-                    <p className="text-xs sm:text-sm text-muted-foreground">
-                      {t('index.noCloudConnectedDesc')}
-                    </p>
-                  </div>
-                </div>
-                {/* Full-width button on mobile */}
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="w-full sm:w-auto flex-shrink-0"
-                  onClick={() => {
-                    setSettingsDefaultTab("storage");
-                    setShowSettings(true);
-                  }}
-                >
-                  {t('index.connectStorage')}
-                </Button>
+            <div className="notice flex-wrap sm:flex-nowrap sm:items-center">
+              <Info aria-hidden="true" className="text-muted-foreground" />
+              <div className="min-w-0 flex-1 basis-48">
+                <p className="font-medium">{t('index.noCloudConnected')}</p>
+                <p className="text-muted-foreground">{t('index.noCloudConnectedDesc')}</p>
               </div>
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full flex-shrink-0 rounded-full sm:w-auto"
+                onClick={() => {
+                  setSettingsDefaultTab("storage");
+                  setShowSettings(true);
+                }}
+              >
+                {t('index.connectStorage')}
+              </Button>
             </div>
           )}
 
           {initializationError && (
-            <div className="bg-destructive/10 border border-destructive text-destructive rounded-lg p-4">
-              <div className="flex items-start gap-3">
-                <svg className="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                  />
-                </svg>
+            <div className="notice notice-error" role="alert">
+                <TriangleAlert aria-hidden="true" />
                 <div className="flex-1">
                   <h3 className="font-semibold mb-1">{t('index.storageInitError')}</h3>
                   <p className="text-sm">{initializationError}</p>
@@ -3290,7 +3263,6 @@ const Index = () => {
                     </div>
                   )}
                 </div>
-              </div>
             </div>
           )}
         </div>

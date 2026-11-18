@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { JournalEntry, JournalEntryData } from "./JournalEntry";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Plus, Search, Calendar, Tag, ArrowUp, ChevronDown, ChevronRight } from "lucide-react";
+import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
+import { Plus, Search, Calendar, ArrowUp, SlidersHorizontal, X } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
@@ -16,13 +15,9 @@ import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo.png";
 import { MOOD_EMOJI } from "@/utils/moodEmoji";
-import { MOOD_CELL_COLORS, MOOD_BORDER_COLORS } from "@/utils/moodColors";
+import { MOOD_CELL_COLORS } from "@/utils/moodColors";
 import { cn } from "@/lib/utils";
 import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
-import { Activity } from "lucide-react";
-
-const TAGS_COLLAPSED_KEY = 'ownjournal:tags-collapsed';
-const ACTIVITIES_COLLAPSED_KEY = 'ownjournal:activities-collapsed';
 
 const groupEntriesByDate = (entries: JournalEntryData[], t: (key: string) => string, locale: Locale) => {
   const groups: { [key: string]: JournalEntryData[] } = {};
@@ -70,30 +65,13 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
   const [dateFilter, setDateFilter] = useState({ start: "", end: "" });
   const [editingEntryId, setEditingEntryId] = useState<string | null>(null);
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [isTagsCollapsed, setIsTagsCollapsed] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    const stored = localStorage.getItem(TAGS_COLLAPSED_KEY);
-    return stored === 'true';
-  });
-  const [isActivitiesCollapsed, setIsActivitiesCollapsed] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    const stored = localStorage.getItem(ACTIVITIES_COLLAPSED_KEY);
-    return stored === 'true';
-  });
+  // Filters stay folded away until asked for, so the page opens on the
+  // writing, not on the controls for narrowing it down.
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const newEntryRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const { t, i18n } = useTranslation();
-
-  // Persist tags collapsed state
-  useEffect(() => {
-    localStorage.setItem(TAGS_COLLAPSED_KEY, String(isTagsCollapsed));
-  }, [isTagsCollapsed]);
-
-  // Persist activities collapsed state
-  useEffect(() => {
-    localStorage.setItem(ACTIVITIES_COLLAPSED_KEY, String(isActivitiesCollapsed));
-  }, [isActivitiesCollapsed]);
 
   // Walk up from this component's root to find the nearest ancestor that
   // actually scrolls vertically. Depending on layout this can be the Radix
@@ -284,241 +262,183 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
     );
   };
 
-  return (
-    <div className="h-full flex flex-col">
-      {/* Header - Mobile-First Design */}
-      <div className="p-4 sm:p-6 border-b border-border bg-gradient-paper">
-        {/* New Entry Button - Full width on mobile */}
-        <Button 
-          onClick={() => {
-            if (editingEntryId) {
-              toast({
-                title: t('timeline.finishCurrent'),
-                description: t('timeline.finishCurrentDesc'),
-                variant: "destructive",
-              });
-              return;
-            }
-            setShowNewEntry(true);
-            onEditingChange?.(true);
-          }}
-          className="w-full sm:w-auto mb-4 bg-gradient-primary shadow-glow"
-        >
-          <Plus aria-hidden="true" className="w-4 h-4 mr-2" />
-          {t('timeline.newEntry')}
-        </Button>
+  const activeFilterCount =
+    selectedTags.length + selectedMoods.length + selectedActivities.length +
+    (dateFilter.start ? 1 : 0) + (dateFilter.end ? 1 : 0);
+  const isFiltering = searchQuery !== "" || activeFilterCount > 0;
 
-        {/* Search */}
-        <div className="relative mb-4">
-          <Search aria-hidden="true" className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
-          <Input
-            placeholder={t('timeline.searchPlaceholder')}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10"
-          />
-        </div>
+  const clearFilters = () => {
+    setSelectedTags([]);
+    setSelectedMoods([]);
+    setSelectedActivities([]);
+    setDateFilter({ start: "", end: "" });
+  };
 
-        {/* Date range filter - Stack on mobile */}
-        <div className="flex flex-col sm:flex-row gap-2 mb-4">
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button variant="outline" className="justify-start text-left font-normal">
-                <Calendar aria-hidden="true" className="mr-2 h-4 w-4" />
-                {dateFilter.start ? format(new Date(dateFilter.start), 'PPP', { locale: currentLocale }) : t('timeline.startDate')}
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0">
-              <CalendarComponent
-                mode="single"
-                selected={dateFilter.start ? new Date(dateFilter.start) : undefined}
-                onSelect={(date) => setDateFilter(prev => ({ ...prev, start: date ? format(date, 'yyyy-MM-dd') : '' }))}
-                initialFocus
-              />
-              {dateFilter.start && (
-                <div className="p-2 border-t">
-                  <Button variant="ghost" size="sm" className="w-full" onClick={() => setDateFilter(prev => ({ ...prev, start: '' }))}>
-                    {t('calendar.clear')}
-                  </Button>
-                </div>
-              )}
-            </PopoverContent>
-          </Popover>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button variant="outline" className="justify-start text-left font-normal">
-                <Calendar aria-hidden="true" className="mr-2 h-4 w-4" />
-                {dateFilter.end ? format(new Date(dateFilter.end), 'PPP', { locale: currentLocale }) : t('timeline.endDate')}
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0">
-              <CalendarComponent
-                mode="single"
-                selected={dateFilter.end ? new Date(dateFilter.end) : undefined}
-                onSelect={(date) => setDateFilter(prev => ({ ...prev, end: date ? format(date, 'yyyy-MM-dd') : '' }))}
-                initialFocus
-              />
-              {dateFilter.end && (
-                <div className="p-2 border-t">
-                  <Button variant="ghost" size="sm" className="w-full" onClick={() => setDateFilter(prev => ({ ...prev, end: '' }))}>
-                    {t('calendar.clear')}
-                  </Button>
-                </div>
-              )}
-            </PopoverContent>
-          </Popover>
-        </div>
+  const startNewEntry = () => {
+    if (editingEntryId) {
+      toast({
+        title: t('timeline.finishCurrent'),
+        description: t('timeline.finishCurrentDesc'),
+        variant: "destructive",
+      });
+      return;
+    }
+    setShowNewEntry(true);
+    onEditingChange?.(true);
+  };
 
-        {/* Tags filter */}
-        {allTags.length > 0 && (
-          <Collapsible open={!isTagsCollapsed} onOpenChange={(open) => setIsTagsCollapsed(!open)}>
-            <div className="mb-4">
-              <CollapsibleTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="flex items-center gap-2 p-0 h-auto hover:bg-transparent"
-                >
-                  <Tag aria-hidden="true" className="w-4 h-4 text-muted-foreground" />
-                  <span className="text-sm text-muted-foreground">
-                    {t('journalEntry.tags', 'Tags')} ({allTags.length})
-                  </span>
-                  {isTagsCollapsed ? (
-                    <ChevronRight aria-hidden="true" className="w-4 h-4 text-muted-foreground" />
-                  ) : (
-                    <ChevronDown aria-hidden="true" className="w-4 h-4 text-muted-foreground" />
-                  )}
-                </Button>
-              </CollapsibleTrigger>
-              
-              {/* Show selected tags even when collapsed */}
-              {isTagsCollapsed && selectedTags.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {selectedTags.map(tag => (
-                    <Button
-                      key={tag}
-                      variant="default"
-                      size="sm"
-                      onClick={() => toggleTag(tag)}
-                      className="text-sm min-h-11 px-3"
-                    >
-                      {tag}
-                    </Button>
-                  ))}
-                </div>
-              )}
-              
-              <CollapsibleContent>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {allTags.map(tag => (
-                    <Button
-                      key={tag}
-                      variant={selectedTags.includes(tag) ? "default" : "outline"}
-                      size="sm"
-                      onClick={() => toggleTag(tag)}
-                      className="text-sm min-h-11 px-3"
-                    >
-                      {tag}
-                    </Button>
-                  ))}
-                </div>
-              </CollapsibleContent>
-            </div>
-          </Collapsible>
-        )}
+  const activityLabel = (activity: string) =>
+    PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity;
 
-        {/* Activity filter */}
-        {allActivities.length > 0 && (
-          <Collapsible open={!isActivitiesCollapsed} onOpenChange={(open) => setIsActivitiesCollapsed(!open)}>
-            <div className="mb-4">
-              <CollapsibleTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="flex items-center gap-2 p-0 h-auto hover:bg-transparent"
-                >
-                  <Activity aria-hidden="true" className="w-4 h-4 text-muted-foreground" />
-                  <span className="text-sm text-muted-foreground">
-                    {t('activities.label')} ({allActivities.length})
-                  </span>
-                  {isActivitiesCollapsed ? (
-                    <ChevronRight aria-hidden="true" className="w-4 h-4 text-muted-foreground" />
-                  ) : (
-                    <ChevronDown aria-hidden="true" className="w-4 h-4 text-muted-foreground" />
-                  )}
-                </Button>
-              </CollapsibleTrigger>
-
-              {/* Show selected activities even when collapsed */}
-              {isActivitiesCollapsed && selectedActivities.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {selectedActivities.map(activity => (
-                    <Button
-                      key={activity}
-                      variant="default"
-                      size="sm"
-                      onClick={() => toggleActivity(activity)}
-                      className="text-sm min-h-11 px-3"
-                      aria-label={PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
-                    >
-                      {getActivityEmoji(activity)}{' '}{PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
-                    </Button>
-                  ))}
-                </div>
-              )}
-
-              <CollapsibleContent>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {allActivities.map(activity => (
-                    <Button
-                      key={activity}
-                      variant={selectedActivities.includes(activity) ? "default" : "outline"}
-                      size="sm"
-                      onClick={() => toggleActivity(activity)}
-                      className="text-sm min-h-11 px-3"
-                      aria-label={PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
-                    >
-                      {getActivityEmoji(activity)}{' '}{PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
-                    </Button>
-                  ))}
-                </div>
-              </CollapsibleContent>
-            </div>
-          </Collapsible>
-        )}
-
-        {/* Mood filter — color-coded so each mood reads at a glance */}
-        {allMoods.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-4">
-            <span className="text-sm text-muted-foreground self-center">{t('journalEntry.mood')}:</span>
-            {allMoods.map(mood => {
-              const isSelected = selectedMoods.includes(mood);
-              const fillClass = MOOD_CELL_COLORS[mood];
-              const borderClass = MOOD_BORDER_COLORS[mood];
-              return (
-                <Button
-                  key={mood}
-                  variant="outline"
-                  size="sm"
-                  onClick={() => toggleMood(mood)}
-                  className={cn(
-                    "text-sm h-8 px-3 capitalize gap-1.5 border-2 text-foreground",
-                    isSelected
-                      ? `${fillClass} hover:opacity-90 border-transparent`
-                      : `bg-transparent hover:bg-muted ${borderClass} border-current`
-                  )}
-                  aria-label={t(`journalEntry.moods.${mood}`)}
-                >
-                  {/* Emoji on desktop, text-only on mobile for a cleaner filter row on small screens. */}
-                  <span aria-hidden="true" className="hidden sm:inline">{MOOD_EMOJI[mood]}</span>
-                  <span className="text-foreground">
-                    {t(`journalEntry.moods.${mood}`, mood)}
-                  </span>
-                </Button>
-              );
-            })}
+  const renderDateFilter = (edge: 'start' | 'end') => (
+    <Popover>
+      <PopoverTrigger asChild>
+        <button type="button" className="chip" aria-pressed={!!dateFilter[edge]}>
+          <Calendar aria-hidden="true" className="h-4 w-4" />
+          {dateFilter[edge]
+            ? format(new Date(dateFilter[edge]), 'PP', { locale: currentLocale })
+            : t(edge === 'start' ? 'timeline.startDate' : 'timeline.endDate')}
+        </button>
+      </PopoverTrigger>
+      <PopoverContent className="w-auto p-0" align="start">
+        <CalendarComponent
+          mode="single"
+          selected={dateFilter[edge] ? new Date(dateFilter[edge]) : undefined}
+          onSelect={(date) => setDateFilter(prev => ({ ...prev, [edge]: date ? format(date, 'yyyy-MM-dd') : '' }))}
+          initialFocus
+        />
+        {dateFilter[edge] && (
+          <div className="p-2 border-t">
+            <Button variant="ghost" size="sm" className="w-full" onClick={() => setDateFilter(prev => ({ ...prev, [edge]: '' }))}>
+              {t('calendar.clear')}
+            </Button>
           </div>
         )}
+      </PopoverContent>
+    </Popover>
+  );
+
+  return (
+    <div className="h-full flex flex-col">
+      {/* Toolbar: find, narrow, write. */}
+      <div className="px-4 sm:px-6 pt-4 sm:pt-6 pb-2">
+        <div className="flex items-center gap-2">
+          <div className="relative flex-1 min-w-0">
+            <Search aria-hidden="true" className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Input
+              type="search"
+              placeholder={t('timeline.searchPlaceholder')}
+              aria-label={t('timeline.searchPlaceholder')}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="h-11 rounded-full border-border bg-card pl-11 pr-4 shadow-soft"
+            />
+          </div>
+          <Button
+            variant="outline"
+            onClick={() => setFiltersOpen(open => !open)}
+            aria-expanded={filtersOpen}
+            aria-controls="timeline-filters"
+            aria-label={t('timeline.filters')}
+            className={cn(
+              "h-11 shrink-0 rounded-full border-border bg-card px-3.5 shadow-soft sm:px-4",
+              (filtersOpen || activeFilterCount > 0) && "border-primary"
+            )}
+          >
+            <SlidersHorizontal aria-hidden="true" className="h-4 w-4" />
+            <span className="hidden sm:inline">{t('timeline.filters')}</span>
+            {activeFilterCount > 0 && (
+              <span className="grid h-5 min-w-5 place-items-center rounded-full bg-primary px-1.5 text-xs font-medium tabular-nums text-primary-foreground">
+                {activeFilterCount}
+              </span>
+            )}
+          </Button>
+          {/* On phones the floating button below is the way to write. */}
+          <Button onClick={startNewEntry} className="hidden h-11 shrink-0 rounded-full px-5 bg-gradient-primary shadow-glow sm:inline-flex">
+            <Plus aria-hidden="true" className="h-4 w-4" />
+            {t('timeline.newEntry')}
+          </Button>
+        </div>
+
+        <Collapsible open={filtersOpen} onOpenChange={setFiltersOpen}>
+          <CollapsibleContent
+            id="timeline-filters"
+            className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up"
+          >
+            <div className="mt-3 space-y-4 rounded-2xl border border-border bg-card p-4 shadow-soft sm:p-5">
+              <div className="flex flex-wrap items-center gap-2">
+                {renderDateFilter('start')}
+                {renderDateFilter('end')}
+                {activeFilterCount > 0 && (
+                  <Button variant="ghost" size="sm" onClick={clearFilters} className="ml-auto rounded-full text-muted-foreground">
+                    <X aria-hidden="true" className="h-4 w-4" />
+                    {t('timeline.clearFilters')}
+                  </Button>
+                )}
+              </div>
+
+              {allMoods.length > 0 && (
+                <div role="group" aria-labelledby="timeline-filter-mood" className="space-y-2">
+                  <p id="timeline-filter-mood" className="eyebrow">{t('journalEntry.mood')}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {allMoods.map(mood => (
+                      <button
+                        key={mood}
+                        type="button"
+                        className="chip"
+                        aria-pressed={selectedMoods.includes(mood)}
+                        onClick={() => toggleMood(mood)}
+                      >
+                        {/* Colour is a second cue only; the label carries the meaning. */}
+                        <span aria-hidden="true" className={cn("h-2 w-2 rounded-full", MOOD_CELL_COLORS[mood])} />
+                        {t(`journalEntry.moods.${mood}`, mood)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {allActivities.length > 0 && (
+                <div role="group" aria-labelledby="timeline-filter-activities" className="space-y-2">
+                  <p id="timeline-filter-activities" className="eyebrow">{t('activities.label')}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {allActivities.map(activity => (
+                      <button
+                        key={activity}
+                        type="button"
+                        className="chip"
+                        aria-pressed={selectedActivities.includes(activity)}
+                        onClick={() => toggleActivity(activity)}
+                      >
+                        <span aria-hidden="true">{getActivityEmoji(activity)}</span>
+                        {activityLabel(activity)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {allTags.length > 0 && (
+                <div role="group" aria-labelledby="timeline-filter-tags" className="space-y-2">
+                  <p id="timeline-filter-tags" className="eyebrow">{t('journalEntry.tags', 'Tags')}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {allTags.map(tag => (
+                      <button
+                        key={tag}
+                        type="button"
+                        className="chip"
+                        aria-pressed={selectedTags.includes(tag)}
+                        onClick={() => toggleTag(tag)}
+                      >
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </CollapsibleContent>
+        </Collapsible>
       </div>
 
       {/* Timeline */}
@@ -552,37 +472,39 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
 
           {/* Grouped Entries */}
           {Object.keys(groupedEntries).length === 0 ? (
-            <Card className="p-6 sm:p-12 text-center bg-gradient-paper">
-              <img src={logo} alt="OwnJournal" className="w-12 h-12 object-contain mx-auto mb-4 opacity-50" />
-              <h3 className="text-lg font-semibold text-foreground mb-2">
-                {searchQuery || selectedTags.length > 0 || selectedMoods.length > 0 || selectedActivities.length > 0 || dateFilter.start || dateFilter.end ? t('timeline.noEntries') : t('timeline.startJourney')}
+            <div className="mx-auto max-w-md px-2 py-12 text-center sm:py-20">
+              <img src={logo} alt="" className="mx-auto mb-6 h-12 w-12 object-contain opacity-60 dark:invert" />
+              <h3 className="text-2xl font-semibold text-foreground mb-2">
+                {isFiltering ? t('timeline.noEntries') : t('timeline.startJourney')}
               </h3>
-              <p className="text-muted-foreground mb-6">
-                 {searchQuery || selectedTags.length > 0 || selectedMoods.length > 0 || selectedActivities.length > 0 || dateFilter.start || dateFilter.end
-                  ? t('timeline.tryAdjusting')
-                  : t('timeline.beginDocumenting')
-                }
+              <p className="text-muted-foreground mb-8">
+                {isFiltering ? t('timeline.tryAdjusting') : t('timeline.beginDocumenting')}
               </p>
-              {!searchQuery && selectedTags.length === 0 && selectedMoods.length === 0 && selectedActivities.length === 0 && !dateFilter.start && !dateFilter.end && (
-                <Button onClick={() => setShowNewEntry(true)} className="bg-gradient-primary">
-                  <Plus aria-hidden="true" className="w-4 h-4 mr-2" />
+              {isFiltering ? (
+                activeFilterCount > 0 && (
+                  <Button variant="outline" onClick={clearFilters} className="rounded-full">
+                    {t('timeline.clearFilters')}
+                  </Button>
+                )
+              ) : (
+                <Button onClick={startNewEntry} className="h-11 rounded-full px-6 bg-gradient-primary shadow-glow">
+                  <Plus aria-hidden="true" className="h-4 w-4" />
                   {t('timeline.writeFirst')}
                 </Button>
               )}
-            </Card>
+            </div>
           ) : (
             sortedGroups.map(([group, groupEntries]) => (
               <div key={group} className="space-y-4">
-                <div className="flex items-center gap-3 sticky top-0 z-10 bg-background py-2">
-                  <Calendar aria-hidden="true" className="w-4 h-4 text-primary" />
-                  <h2 className="text-lg font-semibold text-foreground">{group}</h2>
-                  <div className="flex-1 h-px bg-border"></div>
+                <div className="sticky top-0 z-10 flex items-center gap-4 bg-background/90 py-2 backdrop-blur-sm">
+                  <h2 className="eyebrow">{group}</h2>
+                  <div aria-hidden="true" className="h-px flex-1 bg-border" />
                 </div>
                 
                 <div className="space-y-4">
                   {/* entries already sorted in sortedFilteredEntries; groupEntries preserves that order */}
                   {groupEntries.map(entry => (
-                      <div key={entry.id} data-entry-id={entry.id}>
+                      <div key={entry.id} data-entry-id={entry.id} className="animate-settle">
                       <JournalEntry
                         entry={entry}
                         editingEntryId={editingEntryId}
@@ -629,15 +551,13 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
         </div>
       </ScrollArea>
 
-      {/* New Entry – primary FAB, always available unless the composer is already open or another entry is being edited */}
+      {/* New Entry – floating button. Always there on phones; on wider screens the
+          toolbar button does the job until it has scrolled out of view. */}
       {!showNewEntry && !editingEntryId && (
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
-              onClick={() => {
-                setShowNewEntry(true);
-                onEditingChange?.(true);
-              }}
+              onClick={startNewEntry}
               size="icon"
               style={{
                 bottom: 'calc(1.5rem + var(--safe-area-inset-bottom))',
@@ -645,8 +565,10 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
               // Hug the content column's right edge (where the ScrollArea scrollbar sits) so the
               // FAB stays visually connected to the entries instead of drifting to the viewport corner
               // on wide monitors. Breakpoints mirror the main container's max-w-4xl / xl:5xl / 2xl:6xl.
-              className="fixed z-50 size-14 rounded-full shadow-lg bg-primary text-primary-foreground hover:bg-primary/90
-                right-[max(calc(1.5rem_+_var(--safe-area-inset-right)),calc(50vw_-_28rem_+_1.5rem))]"
+              className={cn(
+                "fixed z-50 size-14 rounded-full shadow-large bg-primary text-primary-foreground hover:bg-primary/90 right-[max(calc(1.5rem_+_var(--safe-area-inset-right)),calc(50vw_-_28rem_+_1.5rem))]",
+                !showBackToTop && "sm:hidden"
+              )}
               aria-label={t('timeline.newEntry')}
             >
               <Plus aria-hidden="true" className="h-6 w-6" />
@@ -669,7 +591,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                 bottom: 'calc(5.75rem + var(--safe-area-inset-bottom))',
               }}
               // Stacks above the size-14 New Entry FAB; +0.375rem centers this size-11 button over it.
-              className="fixed z-50 size-11 rounded-full shadow-lg bg-primary hover:bg-primary/90 animate-in fade-in duration-200
+              className="fixed z-50 size-11 rounded-full border border-border bg-card text-foreground shadow-medium hover:bg-accent animate-in fade-in duration-200
                 right-[calc(max(calc(1.5rem_+_var(--safe-area-inset-right)),calc(50vw_-_28rem_+_1.5rem))_+_0.375rem)]"
               aria-label={t('timeline.backToTop', 'Back to top')}
             >

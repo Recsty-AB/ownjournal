@@ -10,6 +10,7 @@ import { MOOD_EMOJI } from "@/utils/moodEmoji";
 import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
 import { computeActivityCorrelations, SCORE_TO_MOOD } from "@/utils/moodAnalytics";
 import { canShowAnyPurchaseCTA } from "@/utils/platformDetection";
+import { cn } from "@/lib/utils";
 import type { JournalEntryData } from "./JournalEntry";
 
 interface MoodCorrelationsProps {
@@ -30,7 +31,7 @@ export const MoodCorrelations = ({ entries, isPro }: MoodCorrelationsProps) => {
       label: getActivityEmoji(c.activity)
         ? `${getActivityEmoji(c.activity)} ${PREDEFINED_ACTIVITIES.some(p => p.key === c.activity) ? t(`activities.${c.activity}`) : c.activity}`
         : c.activity,
-      fill: c.delta >= 0 ? "#34d399" : "#f87171",
+      fill: c.delta >= 0 ? "hsl(var(--diagnostic-success))" : "hsl(var(--diagnostic-error))",
     })),
     [correlations, t]
   );
@@ -54,45 +55,46 @@ export const MoodCorrelations = ({ entries, isPro }: MoodCorrelationsProps) => {
 
   return (
     <Collapsible open={!isCollapsed} onOpenChange={(open) => setIsCollapsed(!open)}>
-      <Card className="bg-gradient-paper border border-border shadow-soft overflow-hidden">
+      <Card className="overflow-hidden rounded-2xl border-border bg-card shadow-soft">
         <CollapsibleTrigger asChild>
-          <button className="w-full p-3 sm:p-4 flex items-center justify-between hover:bg-accent/50 transition-colors">
-            <div className="flex items-center gap-2">
-              <Lightbulb className="w-5 h-5 text-primary" />
-              <h3 className="font-semibold text-sm sm:text-base">{t('moodCorrelations.title')}</h3>
-              {!isPro && <Crown className="w-4 h-4 text-amber-500" />}
+          <button type="button" className="flex w-full items-center justify-between gap-2 p-3 text-left transition-colors hover:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring sm:p-4">
+            <div className="flex min-w-0 items-center gap-2">
+              <Lightbulb aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-primary" />
+              <h3 className="text-sm font-medium sm:text-base">{t('moodCorrelations.title')}</h3>
+              {!isPro && <Crown aria-hidden="true" className="h-4 w-4 flex-shrink-0 text-seal" />}
             </div>
-            <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${!isCollapsed ? 'rotate-180' : ''}`} />
+            <ChevronDown aria-hidden="true" className={cn("h-4 w-4 flex-shrink-0 text-muted-foreground transition-transform duration-200", !isCollapsed && "rotate-180")} />
           </button>
         </CollapsibleTrigger>
         <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
           {!isPro ? (
-            <div className="px-3 sm:px-4 pb-3 sm:pb-4 text-center space-y-2">
-              <Crown className="w-8 h-8 text-amber-500 mx-auto" />
+            <div className="space-y-1 px-3 pb-4 sm:px-4 sm:pb-5">
               <p className="text-sm font-medium">{t('moodCorrelations.proFeature')}</p>
-              <p className="text-xs text-muted-foreground">{t('moodCorrelations.proFeatureDesc')}</p>
+              <p className="text-sm text-muted-foreground">{t('moodCorrelations.proFeatureDesc')}</p>
             </div>
           ) : correlations.length === 0 ? (
-            <div className="px-3 sm:px-4 pb-3 sm:pb-4">
+            <div className="px-3 pb-4 sm:px-4 sm:pb-5">
               <p className="text-sm text-muted-foreground">{t('moodCorrelations.notEnoughData')}</p>
             </div>
           ) : (
-          <div className="px-3 sm:px-4 pb-3 sm:pb-4 space-y-4">
-            <p className="text-xs text-muted-foreground">{t('moodCorrelations.description')}</p>
+          <div className="space-y-5 px-3 pb-4 sm:px-4 sm:pb-5">
+            <p className="text-sm text-muted-foreground">{t('moodCorrelations.description')}</p>
 
             {/* Horizontal bar chart */}
-            <div style={{ height: `${Math.max(200, chartData.length * 40)}px` }}>
-              <ChartContainer config={chartConfig} className="h-full">
+            <div className="max-w-3xl" style={{ height: `${Math.max(200, chartData.length * 40)}px` }}>
+              <ChartContainer config={chartConfig} className="aspect-auto h-full w-full">
                 <BarChart data={chartData} layout="vertical" margin={{ left: 10, right: 30 }}>
-                  <CartesianGrid strokeDasharray="3 3" className="stroke-border" horizontal={false} />
-                  <XAxis type="number" tick={{ fontSize: 10 }} domain={['dataMin - 0.5', 'dataMax + 0.5']} />
+                  <CartesianGrid className="stroke-border" horizontal={false} />
+                  <XAxis type="number" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} domain={['dataMin - 0.5', 'dataMax + 0.5']} />
                   <YAxis
                     type="category"
                     dataKey="label"
                     width={120}
                     tick={{ fontSize: 11 }}
+                    tickLine={false}
+                    axisLine={false}
                   />
-                  <ReferenceLine x={0} stroke="hsl(var(--border))" />
+                  <ReferenceLine x={0} stroke="hsl(var(--muted-foreground))" />
                   <ChartTooltip content={<ChartTooltipContent formatter={(value, name, props) => {
                     const delta = Number(value);
                     const mood = SCORE_TO_MOOD[Math.round(props.payload.avgMood)] || '';
@@ -104,7 +106,7 @@ export const MoodCorrelations = ({ entries, isPro }: MoodCorrelationsProps) => {
                       count: props.payload.count,
                     });
                   }} />} />
-                  <Bar dataKey="delta" radius={[0, 4, 4, 0]}>
+                  <Bar dataKey="delta" radius={3} barSize={14}>
                     {chartData.map((entry, index) => (
                       <Cell key={index} fill={entry.fill} />
                     ))}
@@ -116,8 +118,8 @@ export const MoodCorrelations = ({ entries, isPro }: MoodCorrelationsProps) => {
             {/* Summary insights */}
             <div className="space-y-2">
               {topPositive && (
-                <div className="flex items-center gap-2 text-sm">
-                  <TrendingUp className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                <div className="flex items-start gap-2 text-sm">
+                  <TrendingUp aria-hidden="true" className="mt-0.5 h-4 w-4 flex-shrink-0 text-diagnostic-success" />
                   <span>
                     {t('moodCorrelations.topPositive', {
                       activity: getActivityEmoji(topPositive.activity)
@@ -125,15 +127,15 @@ export const MoodCorrelations = ({ entries, isPro }: MoodCorrelationsProps) => {
                         : topPositive.activity
                     })}
                     {' '}
-                    <Badge variant="secondary" className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
+                    <Badge variant="outline" className="border-diagnostic-success/30 bg-diagnostic-success/10 font-medium tabular-nums">
                       {t('moodCorrelations.improvement', { value: topPositive.delta.toFixed(1) })}
                     </Badge>
                   </span>
                 </div>
               )}
               {topNegative && (
-                <div className="flex items-center gap-2 text-sm">
-                  <TrendingDown className="w-4 h-4 text-red-500 flex-shrink-0" />
+                <div className="flex items-start gap-2 text-sm">
+                  <TrendingDown aria-hidden="true" className="mt-0.5 h-4 w-4 flex-shrink-0 text-diagnostic-error" />
                   <span>
                     {t('moodCorrelations.topNegative', {
                       activity: getActivityEmoji(topNegative.activity)
@@ -141,7 +143,7 @@ export const MoodCorrelations = ({ entries, isPro }: MoodCorrelationsProps) => {
                         : topNegative.activity
                     })}
                     {' '}
-                    <Badge variant="secondary" className="bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">
+                    <Badge variant="outline" className="border-diagnostic-error/30 bg-diagnostic-error/10 font-medium tabular-nums">
                       {t('moodCorrelations.decline', { value: topNegative.delta.toFixed(1) })}
                     </Badge>
                   </span>

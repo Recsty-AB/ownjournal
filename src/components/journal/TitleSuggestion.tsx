@@ -317,34 +317,32 @@ export const TitleSuggestion = ({ content, tags = [], mood, onApply, isPro }: Ti
     const currentTitle = suggestedTitles[currentTitleIndex];
     
     return (
-      <div className="p-3 sm:p-4 bg-primary/5 border border-primary/20 rounded-lg animate-in fade-in duration-200 space-y-3">
-        {/* Title text - full width, proper wrapping */}
+      <div className="space-y-2 border-l-2 border-border pl-4 animate-in fade-in duration-200">
         <div className="flex items-start gap-2">
-          <Sparkles className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-          <span className="text-sm font-medium leading-relaxed break-words">{currentTitle}</span>
+          <Sparkles aria-hidden="true" className="mt-1.5 h-4 w-4 flex-shrink-0 text-muted-foreground" />
+          <span className="min-w-0 break-words text-xl leading-snug">{currentTitle}</span>
         </div>
-        
-        {/* Buttons - wrap on mobile */}
-        <div className="flex flex-wrap gap-2">
-          <Button onClick={applyTitle} size="sm" variant="default" className="flex-1 sm:flex-none bg-gradient-primary hover:opacity-90">
-            <Check className="w-4 h-4 mr-1" />
+
+        <div className="flex flex-wrap items-center gap-2">
+          <Button onClick={applyTitle} size="sm" variant="outline" className="min-h-10 rounded-full sm:min-h-9">
+            <Check aria-hidden="true" className="w-4 h-4 mr-1" />
             {t('suggestions.apply')}
           </Button>
           <Button 
             onClick={showNextTitle}
             size="sm" 
-            variant="outline"
+            variant="ghost"
             disabled={showingNext || loading}
-            className="flex-1 sm:flex-none whitespace-nowrap"
+            className="min-h-10 whitespace-nowrap sm:min-h-9"
           >
             {showingNext || loading ? (
               <>
-                <Loader2 className="w-4 h-4 mr-1 animate-spin" />
+                <Loader2 aria-hidden="true" className="w-4 h-4 mr-1 animate-spin" />
                 {t('suggestions.suggesting')}
               </>
             ) : (
               <>
-                <RefreshCw className="w-4 h-4 mr-1 flex-shrink-0" />
+                <RefreshCw aria-hidden="true" className="w-4 h-4 mr-1 flex-shrink-0" />
                 {t('suggestions.suggestAnother')}
               </>
             )}
@@ -358,7 +356,7 @@ export const TitleSuggestion = ({ content, tags = [], mood, onApply, isPro }: Ti
             }} 
             size="sm" 
             variant="ghost"
-            className="sm:ml-auto"
+            className="min-h-10 text-muted-foreground sm:min-h-9"
           >
             {t('suggestions.dismiss')}
           </Button>
@@ -381,22 +379,22 @@ export const TitleSuggestion = ({ content, tags = [], mood, onApply, isPro }: Ti
       }}
       disabled={loading || !isPro}
       size="sm"
-      variant={isPro ? "outline" : "secondary"}
-      className="w-full xl:h-11 xl:text-base"
+      variant="ghost"
+      className="-ml-3 h-auto min-h-10 justify-start whitespace-normal text-left text-muted-foreground sm:min-h-9"
     >
       {loading ? (
         <>
-          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+          <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0 animate-spin" />
           {t('suggestions.generating')}
         </>
       ) : !isPro ? (
         <>
-          <Crown className="w-4 h-4 mr-2" />
+          <Crown aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0 text-seal" />
           {mode === 'local' ? t('suggestions.suggestTitlePrivate') : t('suggestions.suggestTitleEnhanced')}
         </>
       ) : (
         <>
-          <Sparkles className="w-4 h-4 mr-2" />
+          <Sparkles aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
           {mode === 'local' ? t('suggestions.suggestTitlePrivate') : t('suggestions.suggestTitleEnhanced')}
         </>
       )}

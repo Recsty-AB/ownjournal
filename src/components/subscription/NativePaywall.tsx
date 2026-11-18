@@ -29,7 +29,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
 import {
-  Crown, Sparkles, Brain, Lightbulb, Tag, TrendingUp, FileText, Mic, Loader2, RotateCcw,
+  AlertCircle, Brain, Lightbulb, Tag, TrendingUp, FileText, Mic, Loader2, RotateCcw,
 } from "lucide-react";
 import { iapService, IAPError, type IAPProduct, type IAPEntitlement } from "@/services/iapService";
 import { getPlatformInfo } from "@/utils/platformDetection";
@@ -185,107 +185,100 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
   };
 
   const priceLine = isLoadingProduct ? (
-    <Skeleton className="h-7 sm:h-8 w-32 mx-auto" />
+    <Skeleton className="h-8 w-40" />
   ) : product ? (
     isEligibleForTrial ? (
-      <p className="text-xl sm:text-2xl font-bold text-primary">
+      <p className="text-2xl font-semibold leading-tight text-foreground">
         {t("subscription.trialPricing", "{{trialDays}} days free, then {{yearlyPrice}}/year", {
           trialDays: product.introOffer?.periodDays ?? 14,
           yearlyPrice: product.priceFormatted,
         })}
       </p>
     ) : (
-      <p className="text-xl sm:text-2xl font-bold text-primary">
+      <p className="text-2xl font-semibold leading-tight text-foreground">
         {t("subscription.priceYearly", { yearlyPrice: product.priceFormatted })}
       </p>
     )
   ) : null;
 
   return (
-    <Card className="p-4 sm:p-6 bg-gradient-subtle border-2 border-dashed border-primary/20 mb-4 sm:mb-6">
-      <div className="text-center space-y-3 sm:space-y-4">
-        <div className="flex items-center justify-center gap-2">
-          <Sparkles className="w-5 sm:w-6 h-5 sm:h-6 text-primary" />
-          <h3 className="text-base sm:text-lg font-bold text-foreground">
-            {t("subscription.unlockInsights")}
-          </h3>
-          <Sparkles className="w-5 sm:w-6 h-5 sm:h-6 text-primary" />
+    <Card className="mb-4 rounded-2xl border-border bg-card p-5 shadow-soft sm:mb-6 sm:p-6">
+      <div className="space-y-5">
+        {/* Right padding keeps the title clear of the collapse button the plan row overlays. */}
+        <div className="space-y-1.5 pr-10">
+          <h3 className="text-2xl font-semibold leading-tight text-foreground">{t("subscription.unlockInsights")}</h3>
+          <p className="max-w-prose text-sm text-muted-foreground">
+            {t("subscription.description")}
+          </p>
         </div>
-
-        <p className="text-xs sm:text-sm text-muted-foreground max-w-md mx-auto">
-          {t("subscription.description")}
-        </p>
 
         {/* 6 features: keep 3 columns from sm up so they fill two balanced
             rows — 4 columns would leave a lopsided 4+2 split. */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 max-w-lg mx-auto">
+        <ul className="grid grid-cols-2 gap-x-4 gap-y-3 border-y border-border py-4 sm:grid-cols-3">
           {proFeatures.map(({ key, icon: Icon }) => (
-            <div key={key} className="text-center p-1.5 sm:p-2">
-              <Icon className="w-4 sm:w-5 h-4 sm:h-5 mx-auto mb-1 text-primary" />
-              <p className="text-[10px] sm:text-xs font-medium">{t(`subscription.features.${key}`)}</p>
-            </div>
+            <li key={key} className="flex min-w-0 items-start gap-2.5">
+              <Icon aria-hidden="true" className="mt-0.5 h-4 w-4 flex-shrink-0 text-muted-foreground" />
+              <span className="min-w-0 text-sm text-foreground [overflow-wrap:anywhere]">{t(`subscription.features.${key}`)}</span>
+            </li>
           ))}
-        </div>
+        </ul>
 
         {loadFailed && !isLoadingProduct ? (
-          <div className="space-y-2">
-            <p className="text-sm font-medium text-destructive">
-              {t("subscription.iapUnavailable", "In-app purchases aren't available right now")}
-            </p>
-            <p className="text-xs text-muted-foreground max-w-md mx-auto">
-              {t("subscription.iapUnavailableDesc", "We couldn't reach the store. Please check your connection and try again.")}
-            </p>
-            <Button variant="outline" size="sm" onClick={handleRetry} className="mt-1">
-              <RotateCcw className="w-3.5 h-3.5 mr-1.5" />
-              {t("subscription.tryAgain", "Try again")}
-            </Button>
+          <div className="notice notice-error">
+            <AlertCircle aria-hidden="true" />
+            <div className="min-w-0 space-y-1">
+              <p className="font-medium">
+                {t("subscription.iapUnavailable", "In-app purchases aren't available right now")}
+              </p>
+              <p className="text-muted-foreground">
+                {t("subscription.iapUnavailableDesc", "We couldn't reach the store. Please check your connection and try again.")}
+              </p>
+              <Button variant="outline" size="sm" onClick={handleRetry} className="!mt-3 h-10 rounded-full bg-card">
+                <RotateCcw aria-hidden="true" className="w-3.5 h-3.5 mr-1.5" />
+                {t("subscription.tryAgain", "Try again")}
+              </Button>
+            </div>
           </div>
         ) : (
-          <>
-            <div className="space-y-1 sm:space-y-2">{priceLine}</div>
+          <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
+            <div className="min-w-0 space-y-1">
+              {priceLine}
+              <p className="text-sm text-muted-foreground">
+                {t("subscription.cancelAnytime")}
+              </p>
+            </div>
 
             <Button
               onClick={handlePurchase}
               disabled={isPurchasing || isLoadingProduct || !product}
-              className="w-full sm:w-auto bg-gradient-primary shadow-glow"
+              className="h-11 w-full rounded-full px-6 bg-gradient-primary shadow-glow sm:w-auto"
             >
               {isPurchasing ? (
                 <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 animate-spin" />
                   {t("subscription.processing")}
                 </>
-              ) : (
-                <>
-                  <Crown className="w-4 h-4 mr-2" />
-                  {isEligibleForTrial
-                    ? t("subscription.trialCta", "Start Free Trial")
-                    : t("subscription.upgradeToPro")}
-                </>
-              )}
+              ) : isEligibleForTrial
+                ? t("subscription.trialCta", "Start Free Trial")
+                : t("subscription.upgradeToPro")}
             </Button>
-
-            <p className="text-[10px] sm:text-xs text-muted-foreground">
-              {t("subscription.cancelAnytime")}
-            </p>
-          </>
+          </div>
         )}
 
-        <div className="pt-2 border-t border-border/50">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={handleRestore}
-            disabled={isRestoring || isPurchasing}
-            className="text-xs text-muted-foreground"
-          >
-            {isRestoring ? (
-              <Loader2 className="w-3 h-3 mr-1.5 animate-spin" />
-            ) : (
-              <RotateCcw className="w-3 h-3 mr-1.5" />
-            )}
-            {t("subscription.restorePurchases", "Restore Purchases")}
-          </Button>
-        </div>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleRestore}
+          disabled={isRestoring || isPurchasing}
+          className="h-10 w-full rounded-full sm:w-auto"
+        >
+          {isRestoring ? (
+            <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 animate-spin" />
+          ) : (
+            <RotateCcw aria-hidden="true" className="w-4 h-4 mr-2" />
+          )}
+          {t("subscription.restorePurchases", "Restore Purchases")}
+        </Button>
 
         {/*
           App Store guideline 3.1.2(c) requires the following visible on the
@@ -296,12 +289,12 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
           the required disclosure is never missing. The price line is shown
           once the product has loaded (it reflects the exact store price).
         */}
-        <div className="pt-3 mt-1 border-t border-border/50 space-y-1.5 text-[10px] sm:text-xs text-muted-foreground max-w-md mx-auto text-left">
-          <p className="font-semibold text-foreground text-center">
+        <div className="space-y-1.5 border-t border-border pt-4 text-xs leading-relaxed text-muted-foreground">
+          <p className="text-sm font-medium text-foreground">
             {t("subscription.disclosureTitle")}
           </p>
           {product && (
-            <p className="text-center">
+            <p>
               {(() => {
                 const monthly = formatMonthlyEquivalent(product, i18n.language);
                 return monthly
@@ -313,7 +306,7 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
               })()}
             </p>
           )}
-          <p className="text-center">{t("subscription.disclosureLength")}</p>
+          <p>{t("subscription.disclosureLength")}</p>
           <p>
             {t(isIOS ? "subscription.renewalApple" : "subscription.renewalGoogle")}
           </p>
@@ -324,12 +317,12 @@ export const NativePaywall = ({ onPurchased }: NativePaywallProps) => {
           on the paywall surface before purchase confirmation. These are
           internal routes — Apple reviewers click them in-app.
         */}
-        <p className="text-[10px] text-muted-foreground space-x-2">
-          <Link to="/privacy" className="underline hover:text-primary">
+        <p className="flex flex-wrap items-center gap-x-3 text-sm text-muted-foreground">
+          <Link to="/privacy" className="inline-flex min-h-10 items-center underline underline-offset-4 transition-colors hover:text-foreground">
             {t("auth.privacyLink")}
           </Link>
           <span aria-hidden="true">·</span>
-          <Link to="/terms" className="underline hover:text-primary">
+          <Link to="/terms" className="inline-flex min-h-10 items-center underline underline-offset-4 transition-colors hover:text-foreground">
             {t("auth.termsLink")}
           </Link>
         </p>

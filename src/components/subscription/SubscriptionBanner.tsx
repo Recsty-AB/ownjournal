@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Crown, Sparkles, Brain, Lightbulb, Tag, TrendingUp, FileText, Mic, Loader2, ExternalLink, Smartphone } from "lucide-react";
+import { Crown, Brain, Lightbulb, Tag, TrendingUp, FileText, Mic, Loader2, ExternalLink, Smartphone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedPricing } from "@/hooks/useLocalizedPricing";
 import { useIapOnlyRegion } from "@/hooks/useIapOnlyRegion";
@@ -51,14 +51,14 @@ export const SubscriptionBanner = ({
 
   if (isPro) {
     return (
-      <Card className="p-3 sm:p-4 bg-gradient-primary text-primary-foreground shadow-glow mb-4 sm:mb-6">
-        <div className="flex items-center gap-3">
-          <Crown className="w-5 h-5 flex-shrink-0" />
+      <Card className="mb-4 rounded-2xl border-border bg-card px-4 py-3 shadow-soft sm:mb-6 sm:px-5">
+        <div className="flex flex-wrap items-center gap-3">
+          <Crown aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-seal" />
           <div className="min-w-0 flex-1">
-            <p className="font-semibold text-sm sm:text-base">
+            <p className="text-sm font-medium text-foreground">
               {isTrialing ? t('subscription.trialMember', 'Plus Trial') : t('subscription.proMember')}
             </p>
-            <p className="text-xs sm:text-sm opacity-90">{t('subscription.enjoyingFeatures')}</p>
+            <p className="text-sm text-muted-foreground">{t('subscription.enjoyingFeatures')}</p>
           </div>
           {/*
             Manage Subscription opens the Stripe billing portal, which is
@@ -71,16 +71,16 @@ export const SubscriptionBanner = ({
           */}
           {canShowStripeCheckout() && hasStripeCustomer && onManageSubscription && (
             <Button
-              variant="secondary"
+              variant="outline"
               size="sm"
               onClick={onManageSubscription}
               disabled={isManagingSubscription}
-              className="flex-shrink-0"
+              className="flex-shrink-0 rounded-full"
             >
               {isManagingSubscription ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
+                <Loader2 aria-hidden="true" className="w-4 h-4 animate-spin" />
               ) : (
-                <ExternalLink className="w-4 h-4 mr-1.5" />
+                <ExternalLink aria-hidden="true" className="w-4 h-4 mr-1.5" />
               )}
               {!isManagingSubscription && t('subscription.manageButton')}
             </Button>
@@ -93,91 +93,83 @@ export const SubscriptionBanner = ({
   const showTrialCta = !hasUsedTrial;
 
   return (
-    <Card className="p-4 sm:p-6 bg-gradient-subtle border-2 border-dashed border-primary/20 mb-4 sm:mb-6">
-      <div className="text-center space-y-3 sm:space-y-4">
-        <div className="flex items-center justify-center gap-2">
-          <Sparkles className="w-5 sm:w-6 h-5 sm:h-6 text-primary" />
-          <h3 className="text-base sm:text-lg font-bold text-foreground">{t('subscription.unlockInsights')}</h3>
-          <Sparkles className="w-5 sm:w-6 h-5 sm:h-6 text-primary" />
+    <Card className="mb-4 rounded-2xl border-border bg-card p-5 shadow-soft sm:mb-6 sm:p-6">
+      <div className="space-y-5">
+        {/* Right padding keeps the title clear of the collapse button the plan row overlays. */}
+        <div className="space-y-1.5 pr-10">
+          <h3 className="text-2xl font-semibold leading-tight text-foreground">{t('subscription.unlockInsights')}</h3>
+          <p className="max-w-prose text-sm text-muted-foreground">
+            {t('subscription.description')}
+          </p>
         </div>
-
-        <p className="text-xs sm:text-sm text-muted-foreground max-w-md mx-auto">
-          {t('subscription.description')}
-        </p>
 
         {/* 6 features: keep 3 columns from sm up so they fill two balanced
             rows — 4 columns would leave a lopsided 4+2 split. */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 max-w-lg mx-auto">
+        <ul className="grid grid-cols-2 gap-x-4 gap-y-3 border-y border-border py-4 sm:grid-cols-3">
           {proFeatures.map(({ key, icon: Icon }) => (
-            <div key={key} className="text-center p-1.5 sm:p-2">
-              <Icon className="w-4 sm:w-5 h-4 sm:h-5 mx-auto mb-1 text-primary" />
-              <p className="text-[10px] sm:text-xs font-medium">{t(`subscription.features.${key}`)}</p>
-            </div>
+            <li key={key} className="flex min-w-0 items-start gap-2.5">
+              <Icon aria-hidden="true" className="mt-0.5 h-4 w-4 flex-shrink-0 text-muted-foreground" />
+              <span className="min-w-0 text-sm text-foreground [overflow-wrap:anywhere]">{t(`subscription.features.${key}`)}</span>
+            </li>
           ))}
-        </div>
+        </ul>
 
         {isRegionLoading ? (
           // Wait for region detection before showing any CTA so a UK user
           // never sees the Stripe button flash before it's replaced.
-          <Skeleton className="h-16 w-full max-w-xs mx-auto" />
+          <Skeleton className="h-16 w-full max-w-xs" />
         ) : isIapOnly ? (
           // UK VAT / NETP compliance: do NOT offer Stripe checkout here.
           // Point the user to the app store IAP path instead, where Apple /
           // Google handle UK VAT. See @/config/iapOnlyCountries.
-          <div className="space-y-2 sm:space-y-3">
-            <p className="text-sm font-semibold text-foreground">
+          <div className="space-y-3">
+            <p className="text-sm font-medium text-foreground">
               {t('subscription.iapOnly.title', 'Available in the app')}
             </p>
-            <p className="text-xs sm:text-sm text-muted-foreground max-w-md mx-auto">
+            <p className="max-w-prose text-sm text-muted-foreground">
               {t('subscription.iapOnly.description', 'In your region, OwnJournal Plus is available through the mobile app. Get it from the store to subscribe.')}
             </p>
-            <Button asChild className="w-full sm:w-auto bg-gradient-primary shadow-glow">
+            <Button asChild className="h-11 w-full rounded-full px-6 bg-gradient-primary shadow-glow sm:w-auto">
               <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
-                <Smartphone className="w-4 h-4 mr-2" />
+                <Smartphone aria-hidden="true" className="w-4 h-4 mr-2" />
                 {t('subscription.iapOnly.getOnPlay', 'Get it on Google Play')}
               </a>
             </Button>
           </div>
         ) : (
-          <>
-            <div className="space-y-1 sm:space-y-2">
+          <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
+            <div className="min-w-0 space-y-1">
               {isDetecting ? (
-                <Skeleton className="h-7 sm:h-8 w-24 mx-auto" />
+                <Skeleton className="h-8 w-40" />
               ) : showTrialCta ? (
-                <p className="text-xl sm:text-2xl font-bold text-primary">
+                <p className="text-2xl font-semibold leading-tight text-foreground">
                   {t('subscription.trialPricing', '14 days free, then {{yearlyPrice}}/year', { yearlyPrice })}
                 </p>
               ) : (
-                <p className="text-xl sm:text-2xl font-bold text-primary">
+                <p className="text-2xl font-semibold leading-tight text-foreground">
                   {t('subscription.priceYearly', { yearlyPrice })}
                 </p>
               )}
+              <p className="text-sm text-muted-foreground">
+                {t('subscription.cancelAnytime')}
+              </p>
             </div>
 
             <Button
               onClick={() => onUpgrade(currency)}
               disabled={isLoading}
-              className="w-full sm:w-auto bg-gradient-primary shadow-glow"
+              className="h-11 w-full rounded-full px-6 bg-gradient-primary shadow-glow sm:w-auto"
             >
               {isLoading ? (
                 <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 animate-spin" />
                   {t('subscription.processing')}
                 </>
-              ) : (
-                <>
-                  <Crown className="w-4 h-4 mr-2" />
-                  {showTrialCta
-                    ? t('subscription.trialCta', 'Start Free Trial')
-                    : t('subscription.upgradeToPro')}
-                </>
-              )}
+              ) : showTrialCta
+                ? t('subscription.trialCta', 'Start Free Trial')
+                : t('subscription.upgradeToPro')}
             </Button>
-
-            <p className="text-[10px] sm:text-xs text-muted-foreground">
-              {t('subscription.cancelAnytime')}
-            </p>
-          </>
+          </div>
         )}
       </div>
     </Card>

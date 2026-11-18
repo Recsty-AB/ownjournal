@@ -20,7 +20,7 @@ import { translateCloudError } from "@/utils/translateCloudError";
 import { isNextcloudEncryptionError } from "@/utils/cloudErrorCodes";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Shield, Lock, Trash2, Key, ShieldOff, AlertTriangle, Star, Database, Eye, EyeOff } from "lucide-react";
+import { Shield, Lock, Trash2, Key, ShieldOff, AlertTriangle, Star, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
@@ -1104,76 +1104,82 @@ export const StorageSecuritySettings = ({
       
       {/* Encryption & Password Section */}
       <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Shield className="h-5 w-5 text-primary" />
-          <h3 className="text-lg font-semibold">{t('storage.encryptionPassword')}</h3>
-        </div>
-        
+        <h3 className="flex items-center gap-2 text-xl font-semibold">
+          <Shield className="h-5 w-5 flex-shrink-0 text-seal" aria-hidden="true" />
+          {t('storage.encryptionPassword')}
+        </h3>
+
         {/* Encryption Mode Selector */}
-        <div className="tour-encryption-mode space-y-4 p-4 bg-muted/50 rounded-lg border">
-          <div className="space-y-2">
-            <p className="text-sm font-medium">{t('storage.encryptionMode')}</p>
-            <p className="text-xs text-muted-foreground">
+        <div className="tour-encryption-mode space-y-3">
+          <div className="space-y-1">
+            <p className="eyebrow">{t('storage.encryptionMode')}</p>
+            <p className="text-sm text-muted-foreground">
               {t('storage.encryptionModeDesc')}
             </p>
           </div>
-          
+
           <RadioGroup value={encryptionMode} onValueChange={handleEncryptionModeChange}>
             <div className="space-y-3">
-              <div className={`flex items-start space-x-3 p-3 rounded-lg border transition-colors ${
-                (encryptionMode === 'e2e' && passwordSet) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-muted/50'
+              <div className={`flex items-start gap-3 rounded-xl border p-4 transition-colors ${
+                encryptionMode === 'simple' ? 'border-primary bg-muted/50' : 'border-border bg-card'
+              } ${
+                (encryptionMode === 'e2e' && passwordSet) ? 'cursor-not-allowed' : 'hover:bg-muted/50'
               }`}>
-                <RadioGroupItem 
-                  value="simple" 
-                  id="mode-simple" 
-                  className="mt-1" 
+                <RadioGroupItem
+                  value="simple"
+                  id="mode-simple"
+                  className="mt-0.5"
                   disabled={encryptionMode === 'e2e' && passwordSet}
                 />
-                <div className="space-y-1 flex-1">
-                  <Label 
-                    htmlFor="mode-simple" 
+                <div className="min-w-0 flex-1 space-y-1">
+                  <Label
+                    htmlFor="mode-simple"
                     className={`text-sm font-medium ${
-                      (encryptionMode === 'e2e' && passwordSet) ? 'cursor-not-allowed' : 'cursor-pointer'
+                      (encryptionMode === 'e2e' && passwordSet) ? 'cursor-not-allowed text-muted-foreground' : 'cursor-pointer'
                     }`}
                   >
                     {t('storage.simpleMode')}
                   </Label>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     {t('storage.simpleModeDesc')}
                   </p>
                   {encryptionMode === 'e2e' && passwordSet && (
-                    <p className="text-xs text-amber-600 dark:text-amber-500">
+                    <p className="flex items-start gap-1.5 pt-1 text-xs text-foreground">
+                      <Lock className="mt-0.5 h-3 w-3 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
                       {t('storage.cannotSwitchFromE2E')}
                     </p>
                   )}
                 </div>
               </div>
-              
-              <div className={`flex items-start space-x-3 p-3 rounded-lg border transition-colors ${
+
+              <div className={`flex items-start gap-3 rounded-xl border p-4 transition-colors ${
+                encryptionMode === 'e2e' ? 'border-primary bg-muted/50' : 'border-border bg-card'
+              } ${
                 encryptionMode === 'simple' && cloudConnectedCount > 0
-                  ? 'opacity-50 cursor-not-allowed'
+                  ? 'cursor-not-allowed'
                   : 'hover:bg-muted/50'
               }`}>
-                <RadioGroupItem 
-                  value="e2e" 
-                  id="mode-e2e" 
-                  className="mt-1"
+                <RadioGroupItem
+                  value="e2e"
+                  id="mode-e2e"
+                  className="mt-0.5"
                   disabled={encryptionMode === 'simple' && cloudConnectedCount > 0}
                 />
-                <div className="space-y-1 flex-1">
-                  <Label 
-                    htmlFor="mode-e2e" 
+                <div className="min-w-0 flex-1 space-y-1">
+                  <Label
+                    htmlFor="mode-e2e"
                     className={`text-sm font-medium ${
-                      encryptionMode === 'simple' && cloudConnectedCount > 0 ? 'cursor-not-allowed' : 'cursor-pointer'
+                      encryptionMode === 'simple' && cloudConnectedCount > 0 ? 'cursor-not-allowed text-muted-foreground' : 'cursor-pointer'
                     }`}
                   >
                     {t('storage.e2eMode')}
                   </Label>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     {t('storage.e2eModeDesc')}
                   </p>
                   {encryptionMode === 'simple' && cloudConnectedCount > 0 && (
-                    <p className="text-xs text-amber-600 dark:text-amber-500 mt-2">
+                    <p className="flex items-start gap-1.5 pt-1 text-xs text-foreground">
+                      <Lock className="mt-0.5 h-3 w-3 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
                       {t('storage.cannotSwitchToE2E')}
                     </p>
                   )}
@@ -1182,62 +1188,58 @@ export const StorageSecuritySettings = ({
             </div>
           </RadioGroup>
         </div>
-        
-        {/* Password Management - only show in E2E mode */}
+
+        {/* Password management and password change - only shown in E2E mode */}
         {encryptionMode === 'e2e' && (
-          <div className="space-y-4 p-4 bg-muted/50 rounded-lg border">
-            <div className="flex items-center gap-2">
-              <Key className="h-4 w-4 text-primary" />
-              <p className="text-sm font-medium">{t('storage.passwordManagement')}</p>
-            </div>
-            
-            {passwordSet ? (
-              <div className="space-y-3">
-                <p className="text-xs text-muted-foreground">
-                  {t('storage.passwordStoredSecurely')}
-                </p>
-                <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3 text-xs space-y-2">
-                  <div className="flex items-start gap-2">
-                    <AlertTriangle className="h-4 w-4 text-amber-600 mt-0.5 flex-shrink-0" />
-                    <div className="space-y-1">
-                      <p className="font-medium text-amber-800 dark:text-amber-200">
+          <div className="surface divide-y divide-border">
+            <div className="space-y-3 p-5 sm:p-6">
+              <p className="eyebrow">{t('storage.passwordManagement')}</p>
+
+              {passwordSet ? (
+                <div className="space-y-3">
+                  <p className="text-sm text-muted-foreground">
+                    {t('storage.passwordStoredSecurely')}
+                  </p>
+                  <div className="notice notice-warning">
+                    <AlertTriangle aria-hidden="true" />
+                    <div className="min-w-0 space-y-1">
+                      <p className="font-medium">
                         {t('storage.forgotPassword')}
                       </p>
-                      <ul className="text-muted-foreground space-y-1 list-disc list-inside">
+                      <ul className="list-disc space-y-1 pl-4 text-xs">
                         <li>{t('storage.forgotPasswordOption1')}</li>
                         <li>{t('storage.forgotPasswordOption2')}</li>
                       </ul>
                     </div>
                   </div>
                 </div>
-              </div>
-            ) : (
-              <div className="space-y-2">
-                <p className="text-xs text-muted-foreground">
-                  {t('storage.passwordNotSet')}
-                </p>
-                <Button 
-                  variant="default" 
-                  size="sm" 
-                  className="w-full"
-                  onClick={() => setShowPasswordDialog(true)}
-                >
-                  <Key className="h-4 w-4 mr-2" />
-                  {t('encryption.setPassword')}
-                </Button>
-              </div>
-            )}
-            
+              ) : (
+                <div className="space-y-3">
+                  <p className="text-sm text-muted-foreground">
+                    {t('storage.passwordNotSet')}
+                  </p>
+                  <Button
+                    variant="default"
+                    size="sm"
+                    className="w-full"
+                    onClick={() => setShowPasswordDialog(true)}
+                  >
+                    <Key className="h-4 w-4 mr-2" aria-hidden="true" />
+                    {t('encryption.setPassword')}
+                  </Button>
+                </div>
+              )}
+            </div>
+
             {/* Password Persistence Setting */}
-            <Separator className="my-3" />
-            <div className="space-y-3">
+            <div className="space-y-3 p-5 sm:p-6">
               <div className="space-y-1">
-                <p className="text-sm font-medium">{t('storage.passwordPersistence.title')}</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="eyebrow">{t('storage.passwordPersistence.title')}</p>
+                <p className="text-sm text-muted-foreground">
                   {t('storage.passwordPersistence.description')}
                 </p>
               </div>
-              
+
               <Select value={passwordPersistence} onValueChange={(v) => handlePasswordPersistenceChange(v as PasswordPersistenceMode)}>
                 <SelectTrigger className="w-full">
                   <SelectValue />
@@ -1260,178 +1262,154 @@ export const StorageSecuritySettings = ({
                   </SelectItem>
                 </SelectContent>
               </Select>
-              
-              <p className="text-xs text-muted-foreground italic">
+
+              <p className="text-xs text-muted-foreground">
                 {passwordPersistence === 'localStorage' && t('storage.passwordPersistence.localStorageHint')}
                 {passwordPersistence === 'sessionStorage' && t('storage.passwordPersistence.sessionStorageHint')}
                 {passwordPersistence === 'none' && t('storage.passwordPersistence.noneHint')}
               </p>
             </div>
-          </div>
-        )}
-        
-        {/* Reset Password - only show in E2E mode */}
-        {encryptionMode === 'e2e' && (
-          <div className="space-y-3 p-4 bg-muted/50 rounded-lg border">
-            <div className="flex items-center gap-2">
-              <Key className="h-4 w-4 text-primary" />
-              <p className="text-sm font-medium">{t('storage.changePassword')}</p>
-            </div>
-            <p className="text-xs text-muted-foreground">
-              {t('storage.changePasswordDesc')}
-            </p>
-            
-            <div className="space-y-3">
-              <div className="space-y-2">
-                <Label htmlFor="old-password">{t('encryption.currentPassword')}</Label>
-                <div className="relative">
-                  <Input
-                    id="old-password"
-                    type={showCurrentPassword ? "text" : "password"}
-                    placeholder={t('encryption.currentPasswordPlaceholder')}
-                    value={oldPassword}
-                    onChange={(e) => setOldPassword(e.target.value)}
-                    disabled={isResetting}
-                    className="pr-10"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                    tabIndex={-1}
-                  >
-                    {showCurrentPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                  </button>
-                </div>
+
+            {/* Change Password */}
+            <div className="space-y-4 p-5 sm:p-6">
+              <div className="space-y-1">
+                <p className="eyebrow">{t('storage.changePassword')}</p>
+                <p className="text-sm text-muted-foreground">
+                  {t('storage.changePasswordDesc')}
+                </p>
               </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="new-password">{t('encryption.newPassword')}</Label>
-                <div className="relative">
-                  <Input
-                    id="new-password"
-                    type={showNewPassword ? "text" : "password"}
-                    placeholder={t('encryption.newPasswordPlaceholder')}
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                    disabled={isResetting}
-                    minLength={12}
-                    className="pr-10"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowNewPassword(!showNewPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                    tabIndex={-1}
-                  >
-                    {showNewPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                  </button>
+
+              <div className="space-y-3">
+                <div className="space-y-2">
+                  <Label htmlFor="old-password">{t('encryption.currentPassword')}</Label>
+                  <div className="relative">
+                    <Input
+                      id="old-password"
+                      type={showCurrentPassword ? "text" : "password"}
+                      placeholder={t('encryption.currentPasswordPlaceholder')}
+                      value={oldPassword}
+                      onChange={(e) => setOldPassword(e.target.value)}
+                      disabled={isResetting}
+                      className="pr-11"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowCurrentPassword(!showCurrentPassword)}
+                      className="absolute right-1 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
+                      tabIndex={-1}
+                    >
+                      {showCurrentPassword ? <EyeOff className="h-4 w-4" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
+                    </button>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="confirm-new-password">{t('encryption.confirmNewPassword')}</Label>
-                <div className="relative">
-                  <Input
-                    id="confirm-new-password"
-                    type={showConfirmPassword ? "text" : "password"}
-                    placeholder={t('encryption.confirmNewPasswordPlaceholder')}
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    disabled={isResetting}
-                    minLength={12}
-                    className="pr-10"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                    tabIndex={-1}
-                  >
-                    {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                  </button>
+
+                <div className="space-y-2">
+                  <Label htmlFor="new-password">{t('encryption.newPassword')}</Label>
+                  <div className="relative">
+                    <Input
+                      id="new-password"
+                      type={showNewPassword ? "text" : "password"}
+                      placeholder={t('encryption.newPasswordPlaceholder')}
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      disabled={isResetting}
+                      minLength={12}
+                      className="pr-11"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowNewPassword(!showNewPassword)}
+                      className="absolute right-1 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
+                      tabIndex={-1}
+                    >
+                      {showNewPassword ? <EyeOff className="h-4 w-4" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
+                    </button>
+                  </div>
                 </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="confirm-new-password">{t('encryption.confirmNewPassword')}</Label>
+                  <div className="relative">
+                    <Input
+                      id="confirm-new-password"
+                      type={showConfirmPassword ? "text" : "password"}
+                      placeholder={t('encryption.confirmNewPasswordPlaceholder')}
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      disabled={isResetting}
+                      minLength={12}
+                      className="pr-11"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      className="absolute right-1 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
+                      tabIndex={-1}
+                    >
+                      {showConfirmPassword ? <EyeOff className="h-4 w-4" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
+                    </button>
+                  </div>
+                </div>
+
+                <Button
+                  variant="outline"
+                  disabled={!oldPassword || !newPassword || !confirmPassword || isResetting}
+                  className="w-full"
+                  onClick={() => {
+                    if (window.confirm(t('storage.changePasswordConfirm'))) {
+                      handleResetKey();
+                    }
+                  }}
+                >
+                  {isResetting ? t('encryption.resetting') : t('storage.changePassword')}
+                </Button>
               </div>
-              
-              <Button 
-                variant="outline" 
-                disabled={!oldPassword || !newPassword || !confirmPassword || isResetting}
-                className="w-full"
-                onClick={() => {
-                  if (window.confirm(t('storage.changePasswordConfirm'))) {
-                    handleResetKey();
-                  }
-                }}
-              >
-                {isResetting ? t('encryption.resetting') : t('storage.changePassword')}
-              </Button>
             </div>
           </div>
         )}
       </div>
-      
+
       <Separator />
-      
+
       {/* Cloud Storage Providers Section */}
       <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Lock className="h-5 w-5 text-primary" />
-          <h3 className="text-lg font-semibold">{t('storage.cloudStorage')}</h3>
+        <div className="space-y-1">
+          <h3 className="text-xl font-semibold">{t('storage.cloudStorage')}</h3>
+          <p className="text-sm text-muted-foreground">
+            {t('storage.cloudStorageDesc', { mode: encryptionMode === 'e2e' ? t('storage.e2eEncrypted') : t('storage.storedWithoutEncryption') })}
+          </p>
         </div>
-        <p className="text-sm text-muted-foreground">
-          {t('storage.cloudStorageDesc', { mode: encryptionMode === 'e2e' ? t('storage.e2eEncrypted') : t('storage.storedWithoutEncryption') })}
-        </p>
-        
+
         {/* Active Provider Selector - only show when 2+ providers connected */}
         {Object.values(connectedProviders).filter(Boolean).length >= 2 && (
-          <div className="p-4 bg-muted/50 rounded-lg border space-y-2">
-            <Label className="text-sm font-semibold flex items-center gap-2">
-              <Star className="h-4 w-4 text-primary" />
+          <div className="space-y-2 rounded-xl border border-border bg-muted/50 p-4">
+            <Label className="flex items-center gap-2 text-sm font-medium">
+              <Star className="h-4 w-4 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
               {t('storage.activeProvider')}
             </Label>
             <Select value={primaryProviderName || ''} onValueChange={handlePrimaryChange}>
-              <SelectTrigger className="w-full">
+              <SelectTrigger className="w-full bg-card">
                 <SelectValue placeholder={t('storage.selectActiveProvider')} />
               </SelectTrigger>
               <SelectContent>
                 {connectedProviders.googledrive && (
-                  <SelectItem value="Google Drive">
-                    <div className="flex items-center gap-2">
-                      <Database className="h-4 w-4" />
-                      Google Drive
-                    </div>
-                  </SelectItem>
+                  <SelectItem value="Google Drive">Google Drive</SelectItem>
                 )}
                 {connectedProviders.icloud && (
-                  <SelectItem value="iCloud">
-                    <div className="flex items-center gap-2">
-                      <Database className="h-4 w-4" />
-                      iCloud
-                    </div>
-                  </SelectItem>
+                  <SelectItem value="iCloud">iCloud</SelectItem>
                 )}
                 {connectedProviders.dropbox && (
-                  <SelectItem value="Dropbox">
-                    <div className="flex items-center gap-2">
-                      <Database className="h-4 w-4" />
-                      Dropbox
-                    </div>
-                  </SelectItem>
+                  <SelectItem value="Dropbox">Dropbox</SelectItem>
                 )}
                 {connectedProviders.nextcloud && (
-                  <SelectItem value="Nextcloud">
-                    <div className="flex items-center gap-2">
-                      <Database className="h-4 w-4" />
-                      Nextcloud
-                    </div>
-                  </SelectItem>
+                  <SelectItem value="Nextcloud">Nextcloud</SelectItem>
                 )}
               </SelectContent>
             </Select>
             <p className="text-xs text-muted-foreground">{t('storage.activeProviderDesc')}</p>
           </div>
         )}
-        
+
         <div className="tour-cloud-providers space-y-3">
           <GoogleDriveSync masterKey={masterKey} onRequirePassword={handleRequirePassword} onConfigChange={createConfigChangeHandler('googledrive', 'Google Drive')} isPrimary={primaryProviderName === 'Google Drive'} />
           {FEATURES.ICLOUD_ENABLED && (
@@ -1446,75 +1424,75 @@ export const StorageSecuritySettings = ({
           <NextcloudSync masterKey={masterKey} onRequirePassword={handleRequirePassword} onConfigChange={createConfigChangeHandler('nextcloud', 'Nextcloud')} isPrimary={primaryProviderName === 'Nextcloud'} />
         </div>
       </div>
-      
+
       <Separator />
-      
+
       {/* Provider Transfer Section */}
       <div className="space-y-4">
         <ProviderTransfer />
       </div>
-      
+
       <Separator />
-      
+
       {/* Danger Zone */}
       <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Trash2 className="h-5 w-5 text-destructive" />
-          <h3 className="text-lg font-semibold text-destructive">{t('storage.dangerZone')}</h3>
+        <div className="space-y-1">
+          <h3 className="flex items-center gap-2 text-xl font-semibold text-destructive">
+            <Trash2 className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
+            {t('storage.dangerZone')}
+          </h3>
+          <p className="text-sm text-muted-foreground">
+            {t('storage.dangerZoneDesc')}
+          </p>
         </div>
-        <p className="text-sm text-muted-foreground">
-          {t('storage.dangerZoneDesc')}
-        </p>
-        
-        <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4 space-y-3">
-          <div className="flex items-start gap-2">
-            <AlertTriangle className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />
-            <div>
-              <p className="text-sm font-medium text-destructive">{t('encryption.warningPermanent')}</p>
-              <p className="text-xs text-destructive/90 mt-1">
-                {t('encryption.warningPermanentDesc')}
-              </p>
-            </div>
+
+        <div className="notice notice-error">
+          <AlertTriangle aria-hidden="true" />
+          <div className="min-w-0 space-y-1">
+            <p className="font-medium">{t('encryption.warningPermanent')}</p>
+            <p className="text-xs">
+              {t('encryption.warningPermanentDesc')}
+            </p>
           </div>
-          
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="confirm-delete">{t('storage.confirmReset')}</Label>
+          <Input
+            id="confirm-delete"
+            placeholder={SAFETY_CONSTANTS.DELETE_CONFIRMATION}
+            value={confirmText}
+            onChange={(e) => setConfirmText(e.target.value)}
+            disabled={isDeleting}
+          />
+        </div>
+
+        {isDeleting && deletionProgress && (
           <div className="space-y-2">
-            <Label htmlFor="confirm-delete">{t('storage.confirmReset')}</Label>
-            <Input
-              id="confirm-delete"
-              placeholder={SAFETY_CONSTANTS.DELETE_CONFIRMATION}
-              value={confirmText}
-              onChange={(e) => setConfirmText(e.target.value)}
-              disabled={isDeleting}
+            <Progress
+              value={deletionProgress.total > 0 ? Math.round((deletionProgress.current / deletionProgress.total) * 100) : 0}
+              className="h-2"
             />
+            <p className="text-xs text-muted-foreground">
+              {deletionProgress.phase === 'local'
+                ? t('settings.deleteAccount.deletingLocal')
+                : t('settings.deleteAccount.deletingCloud', { current: deletionProgress.current, total: deletionProgress.total })}
+            </p>
           </div>
-          
-          {isDeleting && deletionProgress && (
-            <div className="space-y-2">
-              <Progress
-                value={deletionProgress.total > 0 ? Math.round((deletionProgress.current / deletionProgress.total) * 100) : 0}
-                className="h-2"
-              />
-              <p className="text-xs text-muted-foreground">
-                {deletionProgress.phase === 'local'
-                  ? t('settings.deleteAccount.deletingLocal')
-                  : t('settings.deleteAccount.deletingCloud', { current: deletionProgress.current, total: deletionProgress.total })}
-              </p>
-            </div>
-          )}
-          
-          <Button 
-            variant="destructive" 
-            disabled={confirmText !== SAFETY_CONSTANTS.DELETE_CONFIRMATION || isDeleting}
-            className="w-full"
-            onClick={() => {
-              if (window.confirm(t('storage.finalConfirm'))) {
-                handleResetAllData();
-              }
-            }}
-          >
-            {isDeleting ? t('encryption.deleting') : t('storage.resetButton')}
-          </Button>
-        </div>
+        )}
+
+        <Button
+          variant="destructive"
+          disabled={confirmText !== SAFETY_CONSTANTS.DELETE_CONFIRMATION || isDeleting}
+          className="w-full"
+          onClick={() => {
+            if (window.confirm(t('storage.finalConfirm'))) {
+              handleResetAllData();
+            }
+          }}
+        >
+          {isDeleting ? t('encryption.deleting') : t('storage.resetButton')}
+        </Button>
       </div>
     </div>
   );

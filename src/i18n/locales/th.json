@@ -737,6 +737,8 @@
     "searchPlaceholder": "ค้นหารายการ…",
     "startDate": "วันที่เริ่มต้น",
     "endDate": "วันที่สิ้นสุด",
+    "filters": "ตัวกรอง",
+    "clearFilters": "ล้างตัวกรอง",
     "noEntries": "ไม่พบรายการที่ตรงกัน",
     "startJourney": "เริ่มเขียนบันทึก",
     "tryAdjusting": "ลองปรับคำค้นหาหรือตัวกรอง",

@@ -1,6 +1,5 @@
 import Joyride, { CallBackProps, STATUS, Step, ACTIONS, EVENTS, TooltipRenderProps } from 'react-joyride';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -12,7 +11,6 @@ interface OnboardingTourProps {
   onSkip: () => void;
 }
 
-// Custom tooltip component for modern look
 const CustomTooltip = ({
   continuous,
   index,
@@ -29,78 +27,62 @@ const CustomTooltip = ({
   return (
     <div
       {...tooltipProps}
-      className="bg-background border border-border rounded-xl shadow-2xl min-w-[280px] max-w-[85vw] sm:max-w-lg md:max-w-xl lg:max-w-2xl overflow-hidden animate-in fade-in-0 zoom-in-95 duration-200"
+      className="surface min-w-[280px] max-w-[min(28rem,calc(100vw-2rem))] overflow-hidden shadow-large animate-in fade-in-0 duration-200"
     >
-      {/* Header */}
-      <div className="px-5 pt-5 pb-3">
-      {step.title && (
-          <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2 text-center">
+      <div className="px-5 pb-5 pt-5 sm:px-6 sm:pt-6">
+        <p className="eyebrow mb-2 tabular-nums">
+          {index + 1}/{size}
+        </p>
+        {step.title && (
+          <h3 className="mb-2 text-2xl font-semibold leading-tight text-foreground">
             {step.title}
           </h3>
         )}
-        <p className="text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
+        <p className="whitespace-pre-line text-base leading-relaxed text-muted-foreground">
           {step.content}
         </p>
       </div>
-      
-      {/* Footer */}
-      <div
-        className="px-5 pt-4 bg-muted/30 border-t border-border flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
-        style={{ paddingBottom: 'calc(1rem + var(--safe-area-inset-bottom))' }}
-      >
-        <div className="flex items-center justify-center sm:justify-start gap-2">
-          {/* Progress dots */}
-          <div className="flex gap-1.5">
-            {Array.from({ length: size }).map((_, i) => (
-              <div
-                key={i}
-                className={`w-1.5 h-1.5 rounded-full transition-colors ${
-                  i === index ? 'bg-primary' : 'bg-muted-foreground/30'
-                }`}
-              />
-            ))}
-          </div>
-          <span className="text-xs text-muted-foreground ml-2 whitespace-nowrap">
-            {index + 1}/{size}
-          </span>
-        </div>
-        
-        <div className="flex items-center justify-center sm:justify-end gap-2">
-          <Button
-            {...skipProps}
-            variant="ghost"
-            size="sm"
-            className="text-xs text-muted-foreground h-8 px-2"
-          >
-            {t('onboardingTour.buttons.skip', 'Skip')}
-          </Button>
 
+      <div
+        className="flex flex-wrap items-center justify-between gap-2 border-t border-border px-5 pt-3 sm:px-6"
+        style={{ paddingBottom: 'calc(0.75rem + var(--safe-area-inset-bottom))' }}
+      >
+        <Button
+          {...skipProps}
+          variant="ghost"
+          size="sm"
+          className="-ml-3 h-10 rounded-full px-3 text-muted-foreground"
+        >
+          {t('onboardingTour.buttons.skip', 'Skip')}
+        </Button>
+
+        <div className="flex items-center gap-1">
           {index > 0 && (
             <Button
               {...backProps}
               variant="ghost"
-              size="sm"
-              className="h-8 px-2"
+              size="icon"
+              className="h-10 w-10 rounded-full text-muted-foreground"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft aria-hidden="true" className="h-4 w-4" />
             </Button>
           )}
-          
+
           {continuous && (
             <Button
               {...primaryProps}
               size="sm"
-              className="h-8 gap-1"
+              className="h-10 gap-1 rounded-full px-5"
             >
               {isLastStep ? (
                 <>
                   {t('onboardingTour.buttons.finish', 'Start Journaling')}
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight aria-hidden="true" className="h-4 w-4" />
                 </>
               ) : (
                 <>
                   {t('onboardingTour.buttons.next', 'Next')}
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight aria-hidden="true" className="h-4 w-4" />
                 </>
               )}
             </Button>
@@ -119,8 +101,6 @@ export const OnboardingTour = ({
   onSkip,
 }: OnboardingTourProps) => {
   const { t } = useTranslation();
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
 
   // 7-step tour with center-placed educational content
   const steps: Step[] = [
@@ -224,14 +204,14 @@ export const OnboardingTour = ({
       styles={{
         options: {
           primaryColor: 'hsl(var(--primary))',
-          backgroundColor: isDark ? 'hsl(var(--card))' : 'hsl(var(--background))',
-          textColor: isDark ? 'hsl(var(--foreground))' : 'hsl(var(--foreground))',
-          arrowColor: isDark ? 'hsl(var(--card))' : 'hsl(var(--background))',
+          backgroundColor: 'hsl(var(--card))',
+          textColor: 'hsl(var(--foreground))',
+          arrowColor: 'hsl(var(--card))',
           overlayColor: 'rgba(0, 0, 0, 0.6)',
           zIndex: 10000,
         },
         spotlight: {
-          borderRadius: '12px',
+          borderRadius: '16px',
         },
         overlay: {
           backgroundColor: 'rgba(0, 0, 0, 0.5)',

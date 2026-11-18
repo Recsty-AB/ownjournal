@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Download, FileText, File, Loader2, Lock, Share2 } from 'lucide-react';
 import { exportToPDF, exportToWord, type JournalEntry, type NativeExportResult } from '@/utils/journalExport';
@@ -170,8 +170,7 @@ export const ExportDialog = ({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md" aria-describedby="export-dialog-description">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <Download className="h-5 w-5" />
+          <DialogTitle className="text-xl font-medium leading-snug">
             {t('exportDialog.title')}
           </DialogTitle>
           <DialogDescription id="export-dialog-description">
@@ -180,112 +179,109 @@ export const ExportDialog = ({
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-4 py-4">
+        <div className="divide-y divide-border border-y border-border">
           {/* PDF Export — hidden on native for free users to avoid Lock/Plus
               branding that app stores read as referencing a paid tier without
               an in-app purchase product. */}
           {(isPro || canShowAnyPurchaseCTA()) && (
-            <div className="flex items-start gap-4 p-4 rounded-lg border border-border bg-muted/50">
-              <div className="flex-shrink-0 mt-1">
-                <div className="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-900/20 flex items-center justify-center">
-                  <FileText className="h-5 w-5 text-red-600 dark:text-red-400" />
+            <div className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:gap-4">
+              <div className="flex min-w-0 flex-1 items-start gap-3">
+                <FileText className="mt-0.5 h-5 w-5 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-medium">{t('exportDialog.pdfDocument')}</h3>
+                    {!isPro && <Lock className="h-3 w-3 text-muted-foreground" aria-hidden="true" />}
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    {t('exportDialog.pdfDescription')}
+                  </p>
                 </div>
               </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-1">
-                  <h3 className="font-semibold">{t('exportDialog.pdfDocument')}</h3>
-                  {!isPro && <Lock className="h-3 w-3 text-muted-foreground" />}
-                </div>
-                <p className="text-sm text-muted-foreground mb-3">
-                  {t('exportDialog.pdfDescription')}
-                </p>
-                <Button
-                  onClick={handleExportPDF}
-                  disabled={exportingPDF || !isPro || entries.length === 0}
-                  size="sm"
-                  className="w-full"
-                >
-                  {exportingPDF ? (
-                    <>
-                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                      {t('exportDialog.generatingPDF')}
-                    </>
-                  ) : !isPro ? (
-                    <>
-                      <Lock className="h-4 w-4 mr-2" />
-                      {t('exportDialog.proOnly')}
-                    </>
-                  ) : (
-                    <>
-                      <FileText className="h-4 w-4 mr-2" />
-                      {t('exportDialog.exportAsPDF')}
-                    </>
-                  )}
-                </Button>
-              </div>
+              <Button
+                onClick={handleExportPDF}
+                disabled={exportingPDF || !isPro || entries.length === 0}
+                variant="outline"
+                className="h-auto min-h-10 w-full whitespace-normal sm:w-auto sm:flex-shrink-0"
+              >
+                {exportingPDF ? (
+                  <>
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" aria-hidden="true" />
+                    {t('exportDialog.generatingPDF')}
+                  </>
+                ) : !isPro ? (
+                  <>
+                    <Lock className="h-4 w-4 mr-2" aria-hidden="true" />
+                    {t('exportDialog.proOnly')}
+                  </>
+                ) : (
+                  <>
+                    <Download className="h-4 w-4 mr-2" aria-hidden="true" />
+                    {t('exportDialog.exportAsPDF')}
+                  </>
+                )}
+              </Button>
             </div>
           )}
 
           {/* Word Export — same gating as PDF above. */}
           {(isPro || canShowAnyPurchaseCTA()) && (
-            <div className="flex items-start gap-4 p-4 rounded-lg border border-border bg-muted/50">
-              <div className="flex-shrink-0 mt-1">
-                <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center">
-                  <File className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+            <div className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:gap-4">
+              <div className="flex min-w-0 flex-1 items-start gap-3">
+                <File className="mt-0.5 h-5 w-5 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-medium">{t('exportDialog.wordDocument')}</h3>
+                    {!isPro && <Lock className="h-3 w-3 text-muted-foreground" aria-hidden="true" />}
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    {t('exportDialog.wordDescription')}
+                  </p>
                 </div>
               </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-1">
-                  <h3 className="font-semibold">{t('exportDialog.wordDocument')}</h3>
-                  {!isPro && <Lock className="h-3 w-3 text-muted-foreground" />}
-                </div>
-                <p className="text-sm text-muted-foreground mb-3">
-                  {t('exportDialog.wordDescription')}
-                </p>
-                <Button
-                  onClick={handleExportWord}
-                  disabled={exportingWord || !isPro || entries.length === 0}
-                  size="sm"
-                  variant="secondary"
-                  className="w-full"
-                >
-                  {exportingWord ? (
-                    <>
-                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                      {t('exportDialog.generatingWord')}
-                    </>
-                  ) : !isPro ? (
-                    <>
-                      <Lock className="h-4 w-4 mr-2" />
-                      {t('exportDialog.proOnly')}
-                    </>
-                  ) : (
-                    <>
-                      <File className="h-4 w-4 mr-2" />
-                      {t('exportDialog.exportAsWord')}
-                    </>
-                  )}
-                </Button>
-              </div>
+              <Button
+                onClick={handleExportWord}
+                disabled={exportingWord || !isPro || entries.length === 0}
+                variant="outline"
+                className="h-auto min-h-10 w-full whitespace-normal sm:w-auto sm:flex-shrink-0"
+              >
+                {exportingWord ? (
+                  <>
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" aria-hidden="true" />
+                    {t('exportDialog.generatingWord')}
+                  </>
+                ) : !isPro ? (
+                  <>
+                    <Lock className="h-4 w-4 mr-2" aria-hidden="true" />
+                    {t('exportDialog.proOnly')}
+                  </>
+                ) : (
+                  <>
+                    <Download className="h-4 w-4 mr-2" aria-hidden="true" />
+                    {t('exportDialog.exportAsWord')}
+                  </>
+                )}
+              </Button>
             </div>
           )}
 
           {!isPro && !canShowAnyPurchaseCTA() && (
-            <div className="text-center py-6">
-              <p className="text-sm text-muted-foreground">
-                {t('exportDialog.unavailableNative')}
-              </p>
-            </div>
+            <p className="py-6 text-center text-sm text-muted-foreground">
+              {t('exportDialog.unavailableNative')}
+            </p>
           )}
 
           {!isPro && canShowAnyPurchaseCTA() && (
-            <div className="text-center pt-2">
-              <p className="text-sm text-muted-foreground">
-                {t('exportDialog.upgradePrompt')}
-              </p>
-            </div>
+            <p className="py-4 text-sm text-muted-foreground">
+              {t('exportDialog.upgradePrompt')}
+            </p>
           )}
         </div>
+
+        <DialogFooter>
+          <Button variant="ghost" onClick={() => onOpenChange(false)}>
+            {t('common.close')}
+          </Button>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

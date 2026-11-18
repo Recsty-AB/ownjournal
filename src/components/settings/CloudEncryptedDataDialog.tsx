@@ -48,7 +48,7 @@ export const CloudEncryptedDataDialog = ({
       <DialogContent className="sm:max-w-[500px]" aria-describedby="cloud-encrypted-dialog-description">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <Shield className="h-5 w-5 text-primary" />
+            <Shield className="h-5 w-5 flex-shrink-0 text-seal" aria-hidden="true" />
             {t('cloudEncrypted.title')}
           </DialogTitle>
           <DialogDescription id="cloud-encrypted-dialog-description">
@@ -57,8 +57,8 @@ export const CloudEncryptedDataDialog = ({
         </DialogHeader>
 
         <div className="space-y-4 py-4">
-          <Alert>
-            <Info className="h-4 w-4" />
+          <Alert className="rounded-xl border-diagnostic-info/35 bg-diagnostic-info/10">
+            <Info className="h-4 w-4 !text-diagnostic-info" aria-hidden="true" />
             <AlertDescription>
               {t('cloudEncrypted.cannotAccessInSimple')}
             </AlertDescription>
@@ -68,12 +68,12 @@ export const CloudEncryptedDataDialog = ({
             <div className="space-y-3">
               <Button
                 variant="default"
-                className="w-full justify-start h-auto py-4 px-4"
+                className="h-auto w-full justify-start whitespace-normal rounded-xl px-4 py-4"
                 onClick={handleDisconnect}
               >
                 <div className="text-left">
-                  <div className="font-semibold mb-1">{t('cloudEncrypted.reconnectE2E')}</div>
-                  <div className="text-xs opacity-90 font-normal">
+                  <div className="mb-1 font-medium">{t('cloudEncrypted.reconnectE2E')}</div>
+                  <div className="text-xs font-normal opacity-90">
                     {t('cloudEncrypted.reconnectE2EDesc')}
                   </div>
                 </div>
@@ -81,27 +81,27 @@ export const CloudEncryptedDataDialog = ({
 
               <Button
                 variant="outline"
-                className="w-full justify-start h-auto py-4 px-4"
+                className="h-auto w-full justify-start whitespace-normal rounded-xl px-4 py-4"
                 onClick={handleStartFresh}
               >
                 <div className="text-left">
-                  <div className="font-semibold mb-1">{t('cloudEncrypted.startFresh')}</div>
-                  <div className="text-xs opacity-70 font-normal">
+                  <div className="mb-1 font-medium">{t('cloudEncrypted.startFresh')}</div>
+                  <div className="text-xs font-normal text-muted-foreground">
                     {t('cloudEncrypted.startFreshDesc')}
                   </div>
                 </div>
               </Button>
             </div>
           ) : (
-            <Alert variant="destructive">
-              <AlertTriangle className="h-4 w-4" />
+            <Alert variant="destructive" className="rounded-xl bg-diagnostic-error/10 text-foreground">
+              <AlertTriangle className="h-4 w-4" aria-hidden="true" />
               <AlertDescription>
                 <div className="space-y-3">
-                  <p className="font-semibold">{t('cloudEncrypted.warning')}</p>
+                  <p className="font-medium">{t('cloudEncrypted.warning')}</p>
                   <p className="text-xs">
                     {t('cloudEncrypted.warningDesc')}
                   </p>
-                  <div className="flex gap-2 mt-4">
+                  <div className="mt-4 flex flex-wrap gap-2">
                     <Button
                       variant="destructive"
                       size="sm"

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -83,15 +83,11 @@ export const SetNewPasswordDialog = ({ open, onClose, onSuccess }: SetNewPasswor
         aria-describedby="set-new-password-description"
       >
         <DialogHeader>
-          <DialogTitle>{t('auth.setNewPassword')}</DialogTitle>
+          <DialogTitle className="text-xl font-medium leading-snug">{t('auth.setNewPassword')}</DialogTitle>
           <DialogDescription id="set-new-password-description">
             {t('auth.setNewPasswordDesc')}
           </DialogDescription>
         </DialogHeader>
-        
-        <p className="text-sm text-muted-foreground">
-          {t('auth.passwordRequirements')}
-        </p>
         
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
@@ -99,6 +95,7 @@ export const SetNewPasswordDialog = ({ open, onClose, onSuccess }: SetNewPasswor
             <div className="relative">
               <Input
                 id="new-password"
+                aria-describedby="new-password-requirements"
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -111,14 +108,19 @@ export const SetNewPasswordDialog = ({ open, onClose, onSuccess }: SetNewPasswor
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                className="absolute inset-y-0 right-0 flex w-10 items-center justify-center rounded-r-md text-muted-foreground transition-colors hover:text-foreground"
                 tabIndex={-1}
+                aria-label={showPassword ? t('ai.hide') : t('ai.show')}
+                aria-pressed={showPassword}
               >
-                {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                {showPassword ? <EyeOff className="h-4 w-4" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
               </button>
             </div>
+            <p id="new-password-requirements" className="text-xs text-muted-foreground">
+              {t('auth.passwordRequirements')}
+            </p>
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="confirm-password">{t('auth.confirmNewPassword')}</Label>
             <div className="relative">
@@ -136,24 +138,31 @@ export const SetNewPasswordDialog = ({ open, onClose, onSuccess }: SetNewPasswor
               <button
                 type="button"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                className="absolute inset-y-0 right-0 flex w-10 items-center justify-center rounded-r-md text-muted-foreground transition-colors hover:text-foreground"
                 tabIndex={-1}
+                aria-label={showConfirmPassword ? t('ai.hide') : t('ai.show')}
+                aria-pressed={showConfirmPassword}
               >
-                {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                {showConfirmPassword ? <EyeOff className="h-4 w-4" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
               </button>
             </div>
           </div>
           
-          <Button type="submit" className="w-full" disabled={isLoading}>
-            {isLoading ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                {t('common.loading')}
-              </>
-            ) : (
-              t('auth.updatePassword')
-            )}
-          </Button>
+          <DialogFooter className="gap-2 pt-2 sm:gap-0">
+            <Button type="button" variant="ghost" onClick={onClose} disabled={isLoading}>
+              {t('common.cancel')}
+            </Button>
+            <Button type="submit" disabled={isLoading}>
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
+                  {t('common.loading')}
+                </>
+              ) : (
+                t('auth.updatePassword')
+              )}
+            </Button>
+          </DialogFooter>
         </form>
       </DialogContent>
     </Dialog>

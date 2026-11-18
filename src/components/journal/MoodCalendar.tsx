@@ -9,10 +9,8 @@ import { useTranslation } from "react-i18next";
 import { getDateLocale } from "@/utils/dateLocale";
 import { MOOD_EMOJI } from "@/utils/moodEmoji";
 import { MOOD_CELL_COLORS } from "@/utils/moodColors";
+import { cn } from "@/lib/utils";
 import type { JournalEntryData } from "./JournalEntry";
-
-// Re-export so existing imports from this module keep working during the transition.
-export { MOOD_CELL_COLORS };
 
 const MOOD_SCORE: Record<string, number> = {
   terrible: 1, poor: 2, okay: 3, good: 4, great: 5
@@ -81,38 +79,39 @@ export const MoodCalendar = ({ entries, onDayClick }: MoodCalendarProps) => {
 
   return (
     <Collapsible open={!isCollapsed} onOpenChange={(open) => setIsCollapsed(!open)}>
-      <Card className="bg-gradient-paper border border-border shadow-soft overflow-hidden">
+      <Card className="overflow-hidden rounded-2xl border-border bg-card shadow-soft">
         <CollapsibleTrigger asChild>
-          <button className="w-full p-3 sm:p-4 flex items-center justify-between hover:bg-accent/50 transition-colors">
-            <div className="flex items-center gap-2">
-              <CalendarIcon aria-hidden="true" className="w-5 h-5 text-primary" />
-              <h3 className="font-semibold text-sm sm:text-base">{t('moodCalendar.title')}</h3>
+          <button type="button" className="flex w-full items-center justify-between gap-2 p-3 text-left transition-colors hover:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring sm:p-4">
+            <div className="flex min-w-0 items-center gap-2">
+              <CalendarIcon aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-primary" />
+              <h3 className="text-sm font-medium sm:text-base">{t('moodCalendar.title')}</h3>
             </div>
-            <ChevronDown aria-hidden="true" className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${!isCollapsed ? 'rotate-180' : ''}`} />
+            <ChevronDown aria-hidden="true" className={cn("h-4 w-4 flex-shrink-0 text-muted-foreground transition-transform duration-200", !isCollapsed && "rotate-180")} />
           </button>
         </CollapsibleTrigger>
         <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
-          <div className="px-3 sm:px-4 pb-3 sm:pb-4 space-y-3">
+          {/* Capped width: the card spans the full row when open on desktop,
+              and a month stretched across it stops reading as a calendar. */}
+          <div className="mx-auto max-w-[22rem] space-y-3 px-3 pb-4 sm:px-4 sm:pb-5">
             {/* Month navigation */}
             <div className="flex items-center justify-between">
-              <Button variant="ghost" size="sm" onClick={() => setCurrentMonth(prev => subMonths(prev, 1))} aria-label={t('moodCalendar.previousMonth', 'Previous month')}>
+              <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground" onClick={() => setCurrentMonth(prev => subMonths(prev, 1))} aria-label={t('moodCalendar.previousMonth', 'Previous month')}>
                 <ChevronLeft aria-hidden="true" className="w-4 h-4" />
               </Button>
-              <span className="text-base sm:text-lg font-semibold">
+              <span className="text-sm font-medium sm:text-base">
                 {format(currentMonth, 'MMMM yyyy', { locale: dateLocale })}
               </span>
-              <Button variant="ghost" size="sm" onClick={() => setCurrentMonth(prev => addMonths(prev, 1))} disabled={!canGoForward} aria-label={t('moodCalendar.nextMonth', 'Next month')}>
+              <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground" onClick={() => setCurrentMonth(prev => addMonths(prev, 1))} disabled={!canGoForward} aria-label={t('moodCalendar.nextMonth', 'Next month')}>
                 <ChevronRight aria-hidden="true" className="w-4 h-4" />
               </Button>
             </div>
 
-            {/* Calendar grid — justify-items-center keeps fixed-size cells aligned
-                under their day-of-week column header on wide layouts. */}
+            {/* Cells size to their column so seven always fit, down to 360px. */}
             <TooltipProvider>
-              <div className="grid grid-cols-7 gap-1 justify-items-center">
+              <div className="grid grid-cols-7 gap-1">
                 {/* Day-of-week headers */}
                 {weekDayHeaders.map((header, i) => (
-                  <div key={i} className="text-xs text-muted-foreground font-medium py-1">
+                  <div key={i} className="py-1 text-center text-xs text-muted-foreground">
                     {header}
                   </div>
                 ))}
@@ -125,10 +124,9 @@ export const MoodCalendar = ({ entries, onDayClick }: MoodCalendarProps) => {
                   const isToday = isSameDay(day, new Date());
 
                   if (!isCurrentMonth) {
-                    return <div key={i} className="w-11 h-11 sm:w-10 sm:h-10" />;
+                    return <div key={i} className="aspect-square" />;
                   }
 
-                  const cellColor = mood ? MOOD_CELL_COLORS[mood] : "bg-muted/50";
                   const tooltipText = mood
                     ? `${format(day, 'PPP', { locale: dateLocale })} — ${MOOD_EMOJI[mood]} ${t(`journalEntry.moods.${mood}`)}`
                     : `${format(day, 'PPP', { locale: dateLocale })} — ${t('moodCalendar.noEntries')}`;
@@ -137,12 +135,21 @@ export const MoodCalendar = ({ entries, onDayClick }: MoodCalendarProps) => {
                     <Tooltip key={i}>
                       <TooltipTrigger asChild>
                         <button
-                          className={`w-11 h-11 sm:w-10 sm:h-10 rounded-sm ${cellColor} transition-colors hover:opacity-80 flex items-center justify-center text-xs ${isToday ? 'ring-2 ring-primary ring-offset-1 ring-offset-background' : ''} ${mood ? 'cursor-pointer' : 'cursor-default'}`}
+                          type="button"
+                          className={cn(
+                            "flex aspect-square w-full items-center justify-center rounded-md text-xs tabular-nums transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:ring-offset-background",
+                            // Mood fills are the same mid-tones in every theme, so the
+                            // day number on them stays dark instead of following the theme.
+                            mood
+                              ? cn(MOOD_CELL_COLORS[mood], "cursor-pointer text-black/80 hover:opacity-80")
+                              : "cursor-default bg-muted/60 text-muted-foreground",
+                            isToday && "ring-2 ring-primary ring-offset-1 ring-offset-background"
+                          )}
                           onClick={() => mood && onDayClick?.(day)}
                           tabIndex={mood ? 0 : -1}
                           aria-label={tooltipText}
                         >
-                          <span className="text-[10px] sm:text-xs opacity-70">{format(day, 'd')}</span>
+                          <span>{format(day, 'd')}</span>
                         </button>
                       </TooltipTrigger>
                       <TooltipContent>
@@ -155,11 +162,12 @@ export const MoodCalendar = ({ entries, onDayClick }: MoodCalendarProps) => {
             </TooltipProvider>
 
             {/* Legend */}
-            <div className="flex items-center justify-center gap-3 flex-wrap pt-2">
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 pt-2 text-xs text-muted-foreground">
               {(['terrible', 'poor', 'okay', 'good', 'great'] as const).map(mood => (
                 <div key={mood} className="flex items-center gap-1.5">
-                  <div className={`w-4 h-4 rounded-sm ${MOOD_CELL_COLORS[mood]}`} />
-                  <span className="text-base">{MOOD_EMOJI[mood]}</span>
+                  <div aria-hidden="true" className={cn("h-3 w-3 rounded-sm", MOOD_CELL_COLORS[mood])} />
+                  <span aria-hidden="true">{MOOD_EMOJI[mood]}</span>
+                  <span>{t(`journalEntry.moods.${mood}`)}</span>
                 </div>
               ))}
             </div>

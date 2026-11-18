@@ -754,6 +754,8 @@
     "searchPlaceholder": "Hae merkintöjä…",
     "startDate": "Alkamispäivä",
     "endDate": "Päättymispäivä",
+    "filters": "Suodattimet",
+    "clearFilters": "Tyhjennä suodattimet",
     "noEntries": "Ei vastaavia merkintöjä",
     "startJourney": "Aloita matkasi",
     "tryAdjusting": "Kokeile muuttaa hakua tai suodattimia",

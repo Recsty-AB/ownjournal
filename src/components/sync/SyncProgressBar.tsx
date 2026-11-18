@@ -55,17 +55,17 @@ export const SyncProgressBar = ({ className, isExpanded }: SyncProgressBarProps)
   const getPhaseIcon = (phase: SyncPhase) => {
     switch (phase) {
       case 'preparing':
-        return <Loader2 className="w-4 h-4 animate-spin" />;
+        return <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />;
       case 'checking-cloud':
-        return <Cloud className="w-4 h-4" />;
+        return <Cloud className="w-4 h-4" aria-hidden="true" />;
       case 'downloading':
-        return <Download className="w-4 h-4" />;
+        return <Download className="w-4 h-4" aria-hidden="true" />;
       case 'uploading':
-        return <Upload className="w-4 h-4" />;
+        return <Upload className="w-4 h-4" aria-hidden="true" />;
       case 'finalizing':
-        return <CheckCircle2 className="w-4 h-4" />;
+        return <CheckCircle2 className="w-4 h-4" aria-hidden="true" />;
       default:
-        return <Loader2 className="w-4 h-4 animate-spin" />;
+        return <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />;
     }
   };
 
@@ -89,29 +89,29 @@ export const SyncProgressBar = ({ className, isExpanded }: SyncProgressBarProps)
   return (
     <div
       className={cn(
-        "fixed left-0 right-0 z-40 bg-background/95 backdrop-blur-sm border-b px-4 py-2 transition-all duration-300",
+        "fixed left-0 right-0 z-40 border-b border-border bg-background/95 px-4 py-2.5 backdrop-blur-sm transition-all duration-300",
         isExpanded && isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full",
         className
       )}
       style={{ top: 'calc(4rem + var(--safe-area-inset-top))' }}
     >
       <div className="max-w-4xl mx-auto">
-        <div className="flex items-center gap-3 mb-1">
-          <span className="text-primary">
+        <div className="mb-1.5 flex items-center gap-2.5">
+          <span className="flex-shrink-0 text-muted-foreground">
             {getPhaseIcon(progress.phase)}
           </span>
-          <span className="text-sm font-medium">
+          <span className="min-w-0 truncate text-sm font-medium">
             {progress.message ? t(progress.message) : getPhaseText(progress.phase)}
           </span>
           {progress.totalFiles > 0 && (
-            <span className="text-xs text-muted-foreground ml-auto">
+            <span className="ml-auto flex-shrink-0 text-xs tabular-nums text-muted-foreground">
               {progress.filesProcessed}/{progress.totalFiles}
             </span>
           )}
         </div>
         <Progress 
           value={progress.percentComplete} 
-          className="h-1.5"
+          className="h-1"
         />
       </div>
     </div>

@@ -20,7 +20,7 @@ import { ThemeSelector } from "@/components/theme/ThemeSelector";
 import { SyncDiagnostics } from "./SyncDiagnostics";
 import { SubscriptionBanner } from "@/components/subscription/SubscriptionBanner";
 import { JournalNameSettings } from "./JournalNameSettings";
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState, useCallback, type ReactNode } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -133,6 +133,32 @@ interface SettingsDialogProps {
  */
 const wrappingButton =
   "w-full h-auto min-h-10 whitespace-normal break-words py-2 text-center leading-snug";
+
+const sectionTitle = "text-xl font-semibold text-foreground";
+
+const featureList = "list-disc space-y-1 pl-4 text-xs text-muted-foreground";
+
+const linkRow =
+  "flex min-h-11 items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground";
+
+/** Every settings group: a title, an optional one-line description, then its controls. */
+const SettingsSection = ({
+  title,
+  description,
+  children,
+}: {
+  title: string;
+  description?: string;
+  children: ReactNode;
+}) => (
+  <section className="space-y-4 py-6 first:pt-0 last:pb-0">
+    <div className="space-y-1">
+      <h3 className={sectionTitle}>{title}</h3>
+      {description && <p className="text-sm text-muted-foreground">{description}</p>}
+    </div>
+    {children}
+  </section>
+);
 
 export const SettingsDialog = ({
   open,
@@ -473,24 +499,34 @@ export const SettingsDialog = ({
   // Shared content between Dialog and Drawer
   const settingsContent = (
     <Tabs key={open ? 'tabs-open' : 'tabs-closed'} defaultValue={defaultTab} className="w-full">
-      <TabsList className="grid grid-cols-4 gap-1 w-full">
-        {([
-          { value: 'storage', label: t('settings.tabs.storage') },
-          { value: 'preferences', label: t('settings.tabs.preferences') },
-          { value: 'account', label: t('settings.tabs.account') },
-          { value: 'diagnostics', label: t('settings.tabs.diagnostics') },
-        ] as const).map((tab) => (
-          <TabsTrigger
-            key={tab.value}
-            value={tab.value}
-            className="min-w-0 whitespace-normal break-words px-1 py-2 text-center text-xs leading-tight sm:px-4 sm:text-sm"
-          >
-            {tab.label}
-          </TabsTrigger>
-        ))}
-      </TabsList>
-      
-      <TabsContent value="storage" className="space-y-4 mt-4">
+      {/* The tab bar stays in reach while a long tab scrolls beneath it. In the
+          desktop dialog it also has to cover the dialog's own top padding,
+          or scrolled content shows through above the bar. */}
+      <div
+        className={cn(
+          'sticky z-10 -mx-1 bg-background px-1 pb-2',
+          isMobile ? 'top-0 pt-2' : '-top-6 -mt-4 pt-6'
+        )}
+      >
+        <TabsList className="grid w-full grid-cols-4 gap-1 rounded-2xl bg-muted p-1 sm:rounded-full">
+          {([
+            { value: 'storage', label: t('settings.tabs.storage') },
+            { value: 'preferences', label: t('settings.tabs.preferences') },
+            { value: 'account', label: t('settings.tabs.account') },
+            { value: 'diagnostics', label: t('settings.tabs.diagnostics') },
+          ] as const).map((tab) => (
+            <TabsTrigger
+              key={tab.value}
+              value={tab.value}
+              className="min-h-10 min-w-0 whitespace-normal break-words rounded-xl px-1 py-2 text-center text-xs leading-tight data-[state=active]:bg-raised data-[state=active]:text-foreground data-[state=active]:shadow-soft sm:rounded-full sm:px-4 sm:text-sm"
+            >
+              {tab.label}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </div>
+
+      <TabsContent value="storage" className="mt-4 focus-visible:ring-0 focus-visible:ring-offset-0 space-y-4">
         <StorageSecuritySettings
           onResetComplete={() => {
             toast({
@@ -503,170 +539,148 @@ export const SettingsDialog = ({
           }}
         />
       </TabsContent>
-      
-      <TabsContent value="preferences" className="space-y-6 mt-4">
 
-      {/* Journal Name */}
-      <JournalNameSettings />
+      <TabsContent value="preferences" className="mt-4 focus-visible:ring-0 focus-visible:ring-offset-0 divide-y divide-border">
+        <JournalNameSettings />
 
-      {/* Language */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-semibold">{t('settings.sections.language')}</h3>
-        <LanguageSwitcher />
-      </div>
+        <SettingsSection title={t('settings.sections.language')}>
+          <LanguageSwitcher />
+        </SettingsSection>
 
-      {/* Data Management */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-semibold">{t('settings.sections.dataManagement')}</h3>
-        
-        {/* Cloud Sync vs Import/Export Explanation */}
-        <div className="space-y-3 p-4 bg-gradient-subtle rounded-lg border">
-          <div className="space-y-2">
-            <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Cloud className="w-4 h-4 text-primary" />
-              </div>
-              <div className="space-y-1">
-                <h4 className="text-sm font-semibold">{t('settings.dataManagement.cloudSyncTitle')}</h4>
-                <p className="text-xs text-muted-foreground">
-                  {t('settings.dataManagement.cloudSyncDesc')}
-                </p>
-                <ul className="text-xs text-muted-foreground space-y-1 mt-2">
-                  <li>✓ {t('settings.dataManagement.cloudFeature1')}</li>
-                  <li>✓ {t('settings.dataManagement.cloudFeature2')}</li>
-                  <li>✓ {t('settings.dataManagement.cloudFeature3')}</li>
-                  <li>✓ {t('settings.dataManagement.cloudFeature4')}</li>
-                </ul>
-              </div>
+        <SettingsSection title={t('settings.sections.dataManagement')}>
+          {/* Cloud sync vs. manual backup, explained side by side */}
+          <div className="grid gap-6 sm:grid-cols-2">
+            <div className="space-y-2">
+              <h4 className="flex items-center gap-2 text-sm font-medium text-foreground">
+                <Cloud className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+                {t('settings.dataManagement.cloudSyncTitle')}
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                {t('settings.dataManagement.cloudSyncDesc')}
+              </p>
+              <ul className={featureList}>
+                <li>{t('settings.dataManagement.cloudFeature1')}</li>
+                <li>{t('settings.dataManagement.cloudFeature2')}</li>
+                <li>{t('settings.dataManagement.cloudFeature3')}</li>
+                <li>{t('settings.dataManagement.cloudFeature4')}</li>
+              </ul>
+            </div>
+
+            <div className="space-y-2 border-t border-border pt-6 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
+              <h4 className="flex items-center gap-2 text-sm font-medium text-foreground">
+                <Download className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+                {t('settings.dataManagement.backupTitle')}
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                {t('settings.dataManagement.backupDesc')}
+              </p>
+              <ul className={featureList}>
+                <li>{t('settings.dataManagement.backupFeature1')}</li>
+                <li>{t('settings.dataManagement.backupFeature2')}</li>
+                <li>{t('settings.dataManagement.backupFeature3')}</li>
+              </ul>
             </div>
           </div>
-          
-          <div className="h-px bg-border" />
-          
-          <div className="space-y-2">
-            <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
-                <Download className="w-4 h-4 text-muted-foreground" />
-              </div>
-              <div className="space-y-1">
-                <h4 className="text-sm font-semibold">{t('settings.dataManagement.backupTitle')}</h4>
-                <p className="text-xs text-muted-foreground">
-                  {t('settings.dataManagement.backupDesc')}
-                </p>
-                <ul className="text-xs text-muted-foreground space-y-1 mt-2">
-                  <li>• {t('settings.dataManagement.backupFeature1')}</li>
-                  <li>• {t('settings.dataManagement.backupFeature2')}</li>
-                  <li>• {t('settings.dataManagement.backupFeature3')}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <Button onClick={onExportData} variant="outline" className={wrappingButton}>
-            <Download className="w-4 h-4 mr-2 shrink-0" />
-            {t('settings.dataManagement.exportBackup')}
-          </Button>
-          <Button onClick={handleImportClick} variant="outline" className={wrappingButton}>
-            <Upload className="w-4 h-4 mr-2 shrink-0" />
-            {t('settings.dataManagement.importBackup')}
-          </Button>
-        </div>
-        {/* PDF/Word export entry — hidden on native for free users, same
-            reasoning as the Header dropdown item. Pro users on native keep
-            access. */}
-        {onExportToFile && (isPro || canShowAnyPurchaseCTA()) && (
-          <Button onClick={onExportToFile} variant="outline" className={wrappingButton}>
-            <FileText className="w-4 h-4 mr-2 shrink-0" />
-            {t('settings.dataManagement.exportFile')}
-          </Button>
-        )}
-        <input
-          ref={fileInputRef}
-          type="file"
-          accept=".json"
-          onChange={handleFileSelect}
-          className="hidden"
-        />
-        <p className="text-xs text-muted-foreground">
-          {t('settings.dataManagement.backupNote')}
-        </p>
-      </div>
 
-      {/* Appearance */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-semibold">{t('settings.sections.appearance')}</h3>
-        <ThemeSelector />
-
-        <div className="flex items-start justify-between gap-4">
-          <div className="space-y-1">
-            <Label htmlFor="show-insights" className="text-sm font-medium">
-              {t('settings.appearance.showInsights')}
-            </Label>
-            <p className="text-xs text-muted-foreground">
-              {t('settings.appearance.showInsightsHint')}
-            </p>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            <Button onClick={onExportData} variant="outline" className={wrappingButton}>
+              <Download className="w-4 h-4 mr-2 shrink-0" aria-hidden="true" />
+              {t('settings.dataManagement.exportBackup')}
+            </Button>
+            <Button onClick={handleImportClick} variant="outline" className={wrappingButton}>
+              <Upload className="w-4 h-4 mr-2 shrink-0" aria-hidden="true" />
+              {t('settings.dataManagement.importBackup')}
+            </Button>
+            {/* PDF/Word export entry — hidden on native for free users, same
+                reasoning as the Header dropdown item. Pro users on native keep
+                access. */}
+            {onExportToFile && (isPro || canShowAnyPurchaseCTA()) && (
+              <Button onClick={onExportToFile} variant="outline" className={cn(wrappingButton, 'sm:col-span-2')}>
+                <FileText className="w-4 h-4 mr-2 shrink-0" aria-hidden="true" />
+                {t('settings.dataManagement.exportFile')}
+              </Button>
+            )}
           </div>
-          <Switch
-            id="show-insights"
-            checked={showInsights}
-            onCheckedChange={(checked) => onToggleInsights?.(checked)}
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".json"
+            onChange={handleFileSelect}
+            className="hidden"
           />
-        </div>
-      </div>
+          <p className="text-xs text-muted-foreground">
+            {t('settings.dataManagement.backupNote')}
+          </p>
+        </SettingsSection>
 
-      {/* Feedback: store rating link (Android only until an App Store URL exists) */}
-      {getPlatformInfo().platform === 'capacitor-android' && (
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold">{t('settings.sections.feedback')}</h3>
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Star className="w-4 h-4" />
-            {t('settings.feedback.rateOnGooglePlay')}
-          </a>
-        </div>
-      )}
+        <SettingsSection title={t('settings.sections.appearance')}>
+          <ThemeSelector />
 
-      {/* Legal */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-semibold">{t('settings.sections.legal')}</h3>
-        <div className="flex flex-col gap-2">
-          <Link 
-            to="/terms" 
-            onClick={() => onOpenChange(false)}
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <LegalIcon className="w-4 h-4" />
-            {t('legal.termsOfService')}
-          </Link>
-          <Link
-            to="/privacy"
-            onClick={() => onOpenChange(false)}
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Shield className="w-4 h-4" />
-            {t('legal.privacyPolicy')}
-          </Link>
-          <a
-            href="https://ownjournal.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Globe className="w-4 h-4" />
-            ownjournal.app
-          </a>
-        </div>
-      </div>
+          <div className="flex items-center justify-between gap-4 border-t border-border pt-4">
+            <div className="min-w-0 space-y-1">
+              <Label htmlFor="show-insights" className="text-sm font-medium">
+                {t('settings.appearance.showInsights')}
+              </Label>
+              <p className="text-xs text-muted-foreground">
+                {t('settings.appearance.showInsightsHint')}
+              </p>
+            </div>
+            <Switch
+              id="show-insights"
+              checked={showInsights}
+              onCheckedChange={(checked) => onToggleInsights?.(checked)}
+              className="shrink-0"
+            />
+          </div>
+        </SettingsSection>
 
+        {/* Feedback: store rating link (Android only until an App Store URL exists) */}
+        {getPlatformInfo().platform === 'capacitor-android' && (
+          <SettingsSection title={t('settings.sections.feedback')}>
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkRow}
+            >
+              <Star className="h-4 w-4 shrink-0" aria-hidden="true" />
+              {t('settings.feedback.rateOnGooglePlay')}
+            </a>
+          </SettingsSection>
+        )}
+
+        <SettingsSection title={t('settings.sections.legal')}>
+          <div className="divide-y divide-border border-y border-border">
+            <Link
+              to="/terms"
+              onClick={() => onOpenChange(false)}
+              className={linkRow}
+            >
+              <LegalIcon className="h-4 w-4 shrink-0" aria-hidden="true" />
+              {t('legal.termsOfService')}
+            </Link>
+            <Link
+              to="/privacy"
+              onClick={() => onOpenChange(false)}
+              className={linkRow}
+            >
+              <Shield className="h-4 w-4 shrink-0" aria-hidden="true" />
+              {t('legal.privacyPolicy')}
+            </Link>
+            <a
+              href="https://ownjournal.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkRow}
+            >
+              <Globe className="h-4 w-4 shrink-0" aria-hidden="true" />
+              ownjournal.app
+            </a>
+          </div>
+        </SettingsSection>
       </TabsContent>
 
-      <TabsContent value="account" className="space-y-6 mt-4">
+      <TabsContent value="account" className="mt-4 focus-visible:ring-0 focus-visible:ring-offset-0 divide-y divide-border">
         {/*
           Subscription section:
           - Pro (any platform): SubscriptionBanner status card + (if native)
@@ -677,8 +691,7 @@ export const SettingsDialog = ({
             still shown so a user who paid on another device can recover.
         */}
         {(canShowAnyPurchaseCTA() || isPro) && (
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">{t('settings.sections.subscription')}</h3>
+          <SettingsSection title={t('settings.sections.subscription')}>
             {isPro ? (
               <SubscriptionBanner
                 onUpgrade={onUpgrade}
@@ -707,61 +720,62 @@ export const SettingsDialog = ({
             {canShowNativeCheckout() && (
               <NativeSubscriptionActions isPro={isPro} />
             )}
-          </div>
+          </SettingsSection>
         )}
 
-        {/* Email Address */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold">{t('settings.sections.email')}</h3>
-          <div className="space-y-3">
-            {pendingEmailChange && (
-              <p className="text-sm text-amber-600 dark:text-amber-400">
-                {t('settings.email.verificationSentDesc')}
-              </p>
-            )}
-            <div className="flex flex-col gap-2 sm:flex-row">
-              <Input
-                type="email"
-                value={newEmail}
-                onChange={(e) => setNewEmail(e.target.value)}
-                placeholder={t('settings.email.new')}
-                className="flex-1"
-                disabled={isChangingEmail}
-              />
-              <Button
-                onClick={handleEmailChange}
-                disabled={!newEmail || isChangingEmail}
-                variant="outline"
-                className="whitespace-normal break-words sm:shrink-0"
-              >
-                {isChangingEmail ? t('common.loading') : t('settings.email.change')}
-              </Button>
+        <SettingsSection
+          title={t('settings.sections.email')}
+          description={t('settings.email.verificationNote')}
+        >
+          {pendingEmailChange && (
+            <div className="notice notice-info">
+              <Mail aria-hidden="true" />
+              <p>{t('settings.email.verificationSentDesc')}</p>
             </div>
-            <p className="text-xs text-muted-foreground">
-              {t('settings.email.verificationNote')}
-            </p>
+          )}
+          <div className="flex flex-col gap-2 sm:flex-row">
+            <Input
+              type="email"
+              value={newEmail}
+              onChange={(e) => setNewEmail(e.target.value)}
+              placeholder={t('settings.email.new')}
+              aria-label={t('settings.email.new')}
+              className="flex-1"
+              disabled={isChangingEmail}
+            />
+            <Button
+              onClick={handleEmailChange}
+              disabled={!newEmail || isChangingEmail}
+              variant="outline"
+              className="h-auto min-h-10 whitespace-normal break-words sm:shrink-0"
+            >
+              {isChangingEmail ? t('common.loading') : t('settings.email.change')}
+            </Button>
           </div>
-        </div>
+        </SettingsSection>
 
-        {/* Sign Out */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold">{t('settings.sections.signOut')}</h3>
-          <Button 
-            onClick={onSignOut} 
-            variant="outline" 
-            className={wrappingButton}
+        <SettingsSection title={t('settings.sections.signOut')}>
+          <Button
+            onClick={onSignOut}
+            variant="outline"
+            className={cn(wrappingButton, 'sm:w-auto')}
             disabled={!onSignOut}
           >
-            <LogOut className="w-4 h-4 mr-2 shrink-0" />
+            <LogOut className="w-4 h-4 mr-2 shrink-0" aria-hidden="true" />
             {t('header.signOut')}
           </Button>
-        </div>
+        </SettingsSection>
 
         {/* Delete Account - Danger Zone */}
-        <div className="space-y-4 p-4 bg-destructive/5 border border-destructive/20 rounded-lg">
-          <div className="flex items-center gap-2">
-            <AlertTriangle className="w-5 h-5 text-destructive" />
-            <h3 className="text-lg font-semibold text-destructive">{t('settings.deleteAccount.title')}</h3>
+        <section className="space-y-4 py-6 last:pb-0">
+          <div className="space-y-1">
+            <h3 className={cn(sectionTitle, 'flex items-center gap-2 text-destructive')}>
+              <AlertTriangle className="h-5 w-5 shrink-0" aria-hidden="true" />
+              {t('settings.deleteAccount.title')}
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              {t('settings.deleteAccount.description')}
+            </p>
           </div>
           {(() => {
             const hasActiveNativeSub = isPro && (subscriptionProvider === 'apple' || subscriptionProvider === 'google');
@@ -783,40 +797,37 @@ export const SettingsDialog = ({
               }
             };
             return (
-              <div className="space-y-3 p-3 bg-destructive/10 border border-destructive/40 rounded-md">
-                <div className="flex items-start gap-2">
-                  <AlertTriangle className="w-4 h-4 text-destructive flex-shrink-0 mt-0.5" />
+              <div className="notice notice-error">
+                <AlertTriangle aria-hidden="true" />
+                <div className="min-w-0 flex-1 space-y-3">
                   <div className="space-y-1">
-                    <p className="text-sm font-semibold text-destructive">
+                    <p className="font-medium">
                       {t('subscription.nativeSubWarningTitle')}
                     </p>
-                    <p className="text-xs text-destructive/90">
+                    <p className="text-xs">
                       {t('subscription.nativeSubWarningDesc', { store: storeName })}
                     </p>
                   </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className={wrappingButton}
+                    onClick={handleOpenStore}
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2 shrink-0" aria-hidden="true" />
+                    {t('subscription.nativeSubManageCta', { store: storeName })}
+                  </Button>
                 </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className={cn(wrappingButton, 'border-destructive/40 hover:bg-destructive/20')}
-                  onClick={handleOpenStore}
-                >
-                  <ExternalLink className="w-4 h-4 mr-2 shrink-0" />
-                  {t('subscription.nativeSubManageCta', { store: storeName })}
-                </Button>
               </div>
             );
           })()}
-          <p className="text-sm text-muted-foreground">
-            {t('settings.deleteAccount.description')}
-          </p>
-          <p className="text-sm text-destructive font-medium">
+          <p className="text-sm font-medium text-destructive">
             {t('settings.deleteAccount.warning')}
           </p>
           <div className="space-y-2">
-            <label htmlFor="confirm-delete-account" className="text-sm font-medium">
+            <Label htmlFor="confirm-delete-account" className="text-sm font-medium">
               {t('settings.deleteAccount.confirmLabel')}
-            </label>
+            </Label>
             <Input
               id="confirm-delete-account"
               value={deleteConfirmText}
@@ -827,23 +838,21 @@ export const SettingsDialog = ({
             />
           </div>
           {isDeleting && (
-            <div className="flex items-center gap-2 text-xs text-destructive bg-destructive/10 p-2 rounded-md border border-destructive/20">
-              <AlertTriangle className="w-4 h-4 flex-shrink-0" />
+            <div className="notice notice-warning">
+              <AlertTriangle aria-hidden="true" />
               <span>{t('settings.deleteAccount.doNotClose')}</span>
             </div>
           )}
           {isDeleting && deletionProgress && (
-            <div className="space-y-2">
-              <Progress
-                value={deletionProgress.total > 0 ? Math.round((deletionProgress.current / deletionProgress.total) * 100) : 0}
-                className="h-2"
-              />
-            </div>
+            <Progress
+              value={deletionProgress.total > 0 ? Math.round((deletionProgress.current / deletionProgress.total) * 100) : 0}
+              className="h-2"
+            />
           )}
           <Button
             onClick={handleDeleteAccount}
             variant="destructive"
-            className={wrappingButton}
+            className={cn(wrappingButton, 'sm:w-auto')}
             disabled={
               deleteConfirmText !== SAFETY_CONSTANTS.DELETE_ACCOUNT_CONFIRMATION ||
               isDeleting ||
@@ -861,10 +870,10 @@ export const SettingsDialog = ({
               ) : t('common.loading')
             ) : t('settings.deleteAccount.button')}
           </Button>
-        </div>
+        </section>
       </TabsContent>
 
-      <TabsContent value="diagnostics" className="space-y-4 mt-4">
+      <TabsContent value="diagnostics" className="mt-4 focus-visible:ring-0 focus-visible:ring-offset-0 space-y-4">
         <SyncDiagnostics />
       </TabsContent>
     </Tabs>
@@ -876,15 +885,15 @@ export const SettingsDialog = ({
     return (
       <Drawer open={open} onOpenChange={onOpenChange} modal dismissible={false}>
         <DrawerContent fullHeight hideHandle>
-          <DrawerHeader className="text-left flex items-center justify-between pr-4">
-            <DrawerTitle>{t('settings.title')}</DrawerTitle>
-            <Button 
-              variant="ghost" 
-              size="icon" 
+          <DrawerHeader className="flex items-center justify-between gap-2 pb-2 pr-2 text-left">
+            <DrawerTitle className="text-xl font-medium">{t('settings.title')}</DrawerTitle>
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={() => onOpenChange(false)}
-              className="h-8 w-8"
+              className="shrink-0"
             >
-              <X className="h-4 w-4" />
+              <X className="h-4 w-4" aria-hidden="true" />
               <span className="sr-only">{t('common.close')}</span>
             </Button>
           </DrawerHeader>
@@ -899,12 +908,12 @@ export const SettingsDialog = ({
   // Desktop: Keep the familiar dialog modal
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent 
+      <DialogContent
         className="max-w-2xl max-h-[80vh] overflow-y-auto"
         aria-describedby="settings-dialog-description"
       >
         <DialogHeader>
-          <DialogTitle>{t('settings.title')}</DialogTitle>
+          <DialogTitle className="text-xl font-medium">{t('settings.title')}</DialogTitle>
           <p id="settings-dialog-description" className="sr-only">
             {t('settings.title')} - Configure storage, preferences, and diagnostics
           </p>

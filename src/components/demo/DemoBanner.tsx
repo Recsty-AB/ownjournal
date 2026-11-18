@@ -18,7 +18,7 @@ export function DemoBanner({ onStartJournal, cleanMode = false }: DemoBannerProp
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-4 py-2.5 shadow-lg"
+      className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-secondary text-secondary-foreground px-4 py-2.5"
       style={{
         paddingTop: 'calc(0.625rem + var(--safe-area-inset-top))',
         paddingLeft: 'calc(1rem + var(--safe-area-inset-left))',
@@ -27,7 +27,7 @@ export function DemoBanner({ onStartJournal, cleanMode = false }: DemoBannerProp
     >
       <div className="container mx-auto flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 bg-primary-foreground/20 rounded-full px-3 py-1">
+          <div className="flex items-center gap-2 whitespace-nowrap rounded-full border border-border bg-card px-3 py-1">
             <Play className="h-3.5 w-3.5" />
             <span className="text-sm font-medium">{t('demo.mode')}</span>
           </div>
@@ -40,8 +40,7 @@ export function DemoBanner({ onStartJournal, cleanMode = false }: DemoBannerProp
           <Button
             onClick={onStartJournal}
             size="sm"
-            variant="secondary"
-            className="whitespace-nowrap"
+            className="whitespace-nowrap rounded-full"
           >
             {t('demo.startJournal')}
           </Button>
@@ -49,7 +48,7 @@ export function DemoBanner({ onStartJournal, cleanMode = false }: DemoBannerProp
             onClick={() => setDismissed(true)}
             size="icon"
             variant="ghost"
-            className="h-8 w-8 text-primary-foreground hover:bg-primary-foreground/20"
+            className="h-8 w-8 rounded-full"
           >
             <X className="h-4 w-4" />
             <span className="sr-only">{t('accessibility.close')}</span>

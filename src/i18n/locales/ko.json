@@ -737,6 +737,8 @@
     "searchPlaceholder": "항목 검색…",
     "startDate": "시작 날짜",
     "endDate": "종료 날짜",
+    "filters": "필터",
+    "clearFilters": "필터 지우기",
     "noEntries": "일치하는 항목 없음",
     "startJourney": "여정 시작하기",
     "tryAdjusting": "검색 또는 필터를 조정해 보세요",

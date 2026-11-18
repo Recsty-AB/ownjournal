@@ -61,11 +61,11 @@ export const MigrationProgressDialog = ({
       case 'preparing':
       case 'entries':
       case 'credentials':
-        return <Loader2 className="h-6 w-6 animate-spin text-primary" />;
+        return <Loader2 className="h-5 w-5 flex-shrink-0 animate-spin text-muted-foreground" aria-hidden="true" />;
       case 'complete':
-        return <CheckCircle2 className="h-6 w-6 text-green-500" />;
+        return <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-diagnostic-success" aria-hidden="true" />;
       case 'error':
-        return <XCircle className="h-6 w-6 text-destructive" />;
+        return <XCircle className="h-5 w-5 flex-shrink-0 text-diagnostic-error" aria-hidden="true" />;
       default:
         return null;
     }
@@ -100,7 +100,7 @@ export const MigrationProgressDialog = ({
           {(progress.phase === 'entries' || progress.phase === 'credentials') && (
             <div className="space-y-2">
               <Progress value={percentage} className="h-2" />
-              <div className="flex justify-between text-xs text-muted-foreground">
+              <div className="flex justify-between text-xs tabular-nums text-muted-foreground">
                 <span>{progress.currentItem} / {progress.totalItems}</span>
                 <span>{percentage}%</span>
               </div>
@@ -116,14 +116,14 @@ export const MigrationProgressDialog = ({
           
           {/* Stats */}
           {(progress.phase === 'complete' || progress.phase === 'error') && (
-            <div className="space-y-2 p-3 bg-muted/50 rounded-lg">
+            <div className="space-y-2 rounded-xl bg-muted/50 p-3.5">
               <div className="flex items-center gap-2 text-sm">
-                <CheckCircle2 className="h-4 w-4 text-green-500" />
+                <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-diagnostic-success" aria-hidden="true" />
                 <span>{t('migration.migrated', '{{count}} entries migrated', { count: progress.migratedCount })}</span>
               </div>
               {progress.failedCount > 0 && (
-                <div className="flex items-center gap-2 text-sm text-destructive">
-                  <AlertCircle className="h-4 w-4" />
+                <div className="flex items-center gap-2 text-sm">
+                  <AlertCircle className="h-4 w-4 flex-shrink-0 text-diagnostic-error" aria-hidden="true" />
                   <span>{t('migration.failed', '{{count}} entries failed', { count: progress.failedCount })}</span>
                 </div>
               )}
@@ -132,14 +132,15 @@ export const MigrationProgressDialog = ({
           
           {/* Error Message */}
           {progress.errorMessage && (
-            <div className="p-3 bg-destructive/10 text-destructive text-sm rounded-lg">
-              {progress.errorMessage}
+            <div className="notice notice-error">
+              <AlertCircle aria-hidden="true" />
+              <p className="min-w-0 break-words">{progress.errorMessage}</p>
             </div>
           )}
           
           {/* Actions */}
           {canClose && (
-            <div className="flex justify-end gap-2 pt-2">
+            <div className="flex flex-wrap justify-end gap-2 pt-2">
               {progress.phase === 'error' && onRetry && (
                 <Button variant="outline" onClick={onRetry}>
                   {t('common.retry', 'Retry')}

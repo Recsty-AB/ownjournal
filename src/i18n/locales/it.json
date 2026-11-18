@@ -771,6 +771,8 @@
     "searchPlaceholder": "Cerca voci…",
     "startDate": "Data inizio",
     "endDate": "Data fine",
+    "filters": "Filtri",
+    "clearFilters": "Cancella filtri",
     "noEntries": "Nessuna voce corrispondente",
     "startJourney": "Inizia il tuo viaggio",
     "tryAdjusting": "Prova a modificare la ricerca o i filtri",

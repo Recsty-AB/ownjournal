@@ -133,12 +133,12 @@ export const MarkdownEditor = ({ value, onChange, placeholder, availableTags, vo
 
   return (
     <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as "edit" | "preview")} className="w-full">
-      <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value="edit" className="flex items-center gap-2">
+      <TabsList className="grid w-full grid-cols-2 rounded-full bg-muted p-1 sm:inline-grid sm:w-auto">
+        <TabsTrigger value="edit" className="flex items-center gap-2 sm:px-6 rounded-full data-[state=active]:bg-raised data-[state=active]:text-foreground data-[state=active]:shadow-soft">
           <Edit className="w-4 h-4" />
           {t('editor.edit')}
         </TabsTrigger>
-        <TabsTrigger value="preview" className="flex items-center gap-2">
+        <TabsTrigger value="preview" className="flex items-center gap-2 sm:px-6 rounded-full data-[state=active]:bg-raised data-[state=active]:text-foreground data-[state=active]:shadow-soft">
           <Eye className="w-4 h-4" />
           {t('editor.preview')}
         </TabsTrigger>
@@ -161,7 +161,7 @@ export const MarkdownEditor = ({ value, onChange, placeholder, availableTags, vo
             onKeyDown={handleKeyDown}
             onBlur={() => setTimeout(() => setSuggest(null), 150)}
             placeholder={placeholder || t('editor.placeholder')}
-            className="min-h-[300px] font-mono text-sm"
+            className="reading min-h-[300px] max-w-none rounded-xl border-border bg-background/60 p-4 md:text-lg"
           />
 
           {/* Inline #tag autocomplete dropdown, anchored at the caret */}
@@ -203,7 +203,7 @@ export const MarkdownEditor = ({ value, onChange, placeholder, availableTags, vo
       </TabsContent>
 
       <TabsContent value="preview" className="mt-2">
-        <div className="min-h-[300px] p-4 border rounded-lg bg-background prose prose-sm max-w-none">
+        <div className="reading prose min-h-[300px] max-w-none rounded-xl border bg-background/60 p-4 dark:prose-invert">
           <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
             {value || t('editor.noContentPreview')}
           </ReactMarkdown>

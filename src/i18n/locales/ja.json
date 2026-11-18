@@ -737,6 +737,8 @@
     "searchPlaceholder": "日記を検索",
     "startDate": "開始日",
     "endDate": "終了日",
+    "filters": "フィルター",
+    "clearFilters": "フィルターをクリア",
     "noEntries": "一致する日記がありません",
     "startJourney": "あなたの旅を始めましょう",
     "tryAdjusting": "検索条件やフィルターを調整してみてください",

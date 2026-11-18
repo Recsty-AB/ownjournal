@@ -46,6 +46,13 @@
     --accent: 35 35% 85%;
     --accent-foreground: 25 40% 20%;
 
+    /* Plus / premium marker */
+    --seal: 30 90% 38%;
+    --seal-foreground: 42 15% 97%;
+
+    /* Selected segment on a muted track: must sit visibly above it in every theme */
+    --raised: 40 20% 99%;
+
     /* Destructive - muted red */
     --destructive: 0 55% 50%;
     --destructive-foreground: 42 15% 97%;
@@ -57,8 +64,6 @@
 
     /* Gradients for depth and warmth */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-paper: linear-gradient(180deg, hsl(var(--background)), hsl(40 12% 95%));
-    --gradient-subtle: linear-gradient(45deg, hsl(var(--muted)), hsl(var(--accent)));
 
     /* Shadows for depth */
     --shadow-soft: 0 2px 8px -2px hsl(25 25% 15% / 0.08);
@@ -71,13 +76,14 @@
     --transition-spring: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     /* Diagnostic status colors */
-    --diagnostic-success: 142 71% 45%;
+    /* Dark enough to be read as text on paper, not only as fills */
+    --diagnostic-success: 142 64% 30%;
     --diagnostic-success-foreground: 0 0% 100%;
-    --diagnostic-error: 0 72% 51%;
+    --diagnostic-error: 0 72% 45%;
     --diagnostic-error-foreground: 0 0% 100%;
-    --diagnostic-warning: 45 93% 47%;
-    --diagnostic-warning-foreground: 25 25% 15%;
-    --diagnostic-info: 217 91% 60%;
+    --diagnostic-warning: 32 90% 36%;
+    --diagnostic-warning-foreground: 0 0% 100%;
+    --diagnostic-info: 217 80% 45%;
     --diagnostic-info-foreground: 0 0% 100%;
 
     --radius: 0.75rem;
@@ -124,6 +130,11 @@
     --accent: 35 25% 20%;
     --accent-foreground: 42 25% 85%;
 
+    --seal: 43 96% 56%;
+    --seal-foreground: 25 25% 8%;
+
+    --raised: 25 12% 24%;
+
     --destructive: 0 65% 60%;
     --destructive-foreground: 42 15% 92%;
 
@@ -133,8 +144,6 @@
 
     /* Dark mode gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-paper: linear-gradient(180deg, hsl(var(--background)), hsl(25 20% 12%));
-    --gradient-subtle: linear-gradient(45deg, hsl(var(--muted)), hsl(var(--accent)));
 
     /* Dark shadows */
     --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.25);
@@ -194,6 +203,11 @@
     --accent: 0 0% 92%;
     --accent-foreground: 0 0% 12%;
 
+    --seal: 0 0% 12%;
+    --seal-foreground: 0 0% 100%;
+
+    --raised: 0 0% 100%;
+
     --destructive: 0 0% 25%;
     --destructive-foreground: 0 0% 100%;
 
@@ -203,8 +217,6 @@
 
     /* Gradients collapse to flat fills - a gradient on e-ink is just dither noise. */
     --gradient-primary: linear-gradient(hsl(var(--primary)), hsl(var(--primary)));
-    --gradient-paper: linear-gradient(hsl(var(--background)), hsl(var(--background)));
-    --gradient-subtle: linear-gradient(hsl(var(--muted)), hsl(var(--muted)));
 
     /* Hairline rules instead of blurred shadows - e-ink cannot render blur. */
     --shadow-soft: 0 0 0 1px hsl(0 0% 82%);
@@ -300,6 +312,90 @@
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+}
+
+@layer components {
+  /* Small-caps style label used above content: dates, section names. */
+  .eyebrow {
+    @apply text-xs font-medium uppercase text-muted-foreground;
+    letter-spacing: 0.12em;
+  }
+
+  /* Long-form reading and writing: the same size, measure and rhythm in the
+     entry view and the editor, so what you write looks like what you read. */
+  .reading {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    max-width: 68ch;
+  }
+  .reading :is(h1, h2, h3, h4) {
+    font-weight: 600;
+  }
+  /* Headings inside an entry are subordinate to the entry's own title. */
+  .reading h1 { font-size: 1.4em; }
+  .reading h2 { font-size: 1.25em; }
+  .reading h3 { font-size: 1.1em; }
+
+  /* The one raised surface: cards, panels, list containers. */
+  .surface {
+    @apply rounded-2xl border border-border bg-card text-card-foreground shadow-soft;
+  }
+
+  /* Inline callouts. One neutral shape; status is carried by a tinted edge,
+     an icon and the wording, never by a block of saturated colour. */
+  .notice {
+    @apply flex items-start gap-3 rounded-xl border border-border bg-muted/50 p-3.5 text-sm text-foreground;
+  }
+  .notice > svg:first-child {
+    @apply mt-0.5 h-4 w-4 flex-shrink-0;
+  }
+  .notice-info { border-color: hsl(var(--diagnostic-info) / 0.35); background-color: hsl(var(--diagnostic-info) / 0.07); }
+  .notice-info > svg:first-child { color: hsl(var(--diagnostic-info)); }
+  .notice-success { border-color: hsl(var(--diagnostic-success) / 0.35); background-color: hsl(var(--diagnostic-success) / 0.07); }
+  .notice-success > svg:first-child { color: hsl(var(--diagnostic-success)); }
+  .notice-warning { border-color: hsl(var(--diagnostic-warning) / 0.45); background-color: hsl(var(--diagnostic-warning) / 0.09); }
+  .notice-warning > svg:first-child { color: hsl(var(--diagnostic-warning)); }
+  .notice-error { border-color: hsl(var(--diagnostic-error) / 0.4); background-color: hsl(var(--diagnostic-error) / 0.07); }
+  .notice-error > svg:first-child { color: hsl(var(--diagnostic-error)); }
+
+  /* Filter chip: one shape for tags, activities and moods. */
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 text-sm text-foreground transition-colors min-h-10 sm:min-h-8;
+  }
+  .chip:hover {
+    @apply bg-accent;
+  }
+  .chip:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+  .chip[aria-pressed="true"] {
+    @apply border-primary bg-primary text-primary-foreground;
+  }
+}
+
+@layer utilities {
+  /* Entries settle onto the page rather than popping in. */
+  .animate-settle {
+    animation: settle 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @keyframes settle {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+/* More contrast on request: darker secondary text, visible rules. */
+@media (prefers-contrast: more) {
+  :root:not(.dark) {
+    --muted-foreground: 25 20% 25%;
+    --border: 25 10% 45%;
+    --input: 25 10% 40%;
+  }
+  .dark {
+    --muted-foreground: 42 15% 82%;
+    --border: 42 8% 55%;
+    --input: 42 8% 60%;
   }
 }
 

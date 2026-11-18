@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Calendar, Tag, Heart, Save, Edit3, Trash2, ImagePlus, X, Loader2, FileText, Activity, ChevronDown } from "lucide-react";
+import { Calendar, Tag, Heart, Save, Edit3, Trash2, ImagePlus, X, Loader2, FileText, FileType, Activity, ChevronDown } from "lucide-react";
 import { format } from "date-fns";
 import { getDateLocale } from "@/utils/dateLocale";
 import { MarkdownEditor } from "@/components/editor/MarkdownEditor";
@@ -23,7 +23,7 @@ import { saveAs } from "file-saver";
 import { journalEntrySchema, tagSchema } from "@/utils/validation";
 import { extractInlineTags, mergeInlineTags } from "@/utils/inlineTags";
 import { MOOD_EMOJI } from "@/utils/moodEmoji";
-import { MOOD_BADGE_COLORS as moodColors } from "@/utils/moodColors";
+import { MOOD_CELL_COLORS } from "@/utils/moodColors";
 import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
 import {
   AlertDialog,
@@ -561,25 +561,23 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
 
   if (!isEditMode && entry) {
     return (
-      <Card className="p-4 sm:p-6 shadow-medium hover:shadow-large transition-all duration-300 bg-gradient-paper">
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
-          {/* Date - full width on mobile */}
-          <div className="flex items-center gap-3 min-w-0">
-            <Calendar className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-            <span className="text-sm text-muted-foreground truncate">
-              {format(entry.date, 'PPPP', { locale: getDateLocale(i18n.language) })}
-            </span>
-          </div>
-          
-          {/* Action buttons - row with icon-only */}
-          <div className="flex gap-1 sm:gap-2 flex-shrink-0">
+      <Card className="group/entry rounded-2xl border-border bg-card p-5 shadow-soft transition-shadow duration-300 hover:shadow-medium sm:p-8">
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <time dateTime={format(entry.date, 'yyyy-MM-dd')} className="eyebrow min-w-0">
+            {/* Phones get the short form so the date holds one line beside the actions. */}
+            <span className="whitespace-nowrap sm:hidden">{format(entry.date, 'PP', { locale: getDateLocale(i18n.language) })}</span>
+            <span className="hidden sm:inline">{format(entry.date, 'PPPP', { locale: getDateLocale(i18n.language) })}</span>
+          </time>
+
+          {/* Actions stay quiet until the entry has attention; always visible on touch. */}
+          <div className="-mr-2 flex flex-shrink-0 gap-0.5 text-muted-foreground transition-opacity sm:opacity-60 sm:group-hover/entry:opacity-100 sm:group-focus-within/entry:opacity-100">
             {isPro && (
               <>
-                <Button variant="ghost" size="icon" className="h-10 w-10 sm:h-9 sm:w-9" onClick={exportToPDF} title={t('journal.exportPDFTitle')}>
-                  <FileText className="w-5 h-5 text-red-600" />
+                <Button variant="ghost" size="icon" className="h-10 w-10 sm:h-9 sm:w-9" onClick={exportToPDF} title={t('journal.exportPDFTitle')} aria-label={t('journal.exportPDFTitle')}>
+                  <FileText aria-hidden="true" className="w-5 h-5" />
                 </Button>
-                <Button variant="ghost" size="icon" className="h-10 w-10 sm:h-9 sm:w-9" onClick={exportToWord} title={t('journal.exportWordTitle')}>
-                  <FileText className="w-5 h-5 text-blue-600" />
+                <Button variant="ghost" size="icon" className="h-10 w-10 sm:h-9 sm:w-9" onClick={exportToWord} title={t('journal.exportWordTitle')} aria-label={t('journal.exportWordTitle')}>
+                  <FileType aria-hidden="true" className="w-5 h-5" />
                 </Button>
               </>
             )}
@@ -617,14 +615,15 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
                 onEditingChange?.(true);
               }}
               title={isAnotherEntryEditing ? t('journal.finishEditingFirst') : t('journal.editEntry')}
+              aria-label={isAnotherEntryEditing ? t('journal.finishEditingFirst') : t('journal.editEntry')}
             >
-              <Edit3 className="w-5 h-5" />
+              <Edit3 aria-hidden="true" className="w-5 h-5" />
             </Button>
             {onDelete && (
               <AlertDialog>
                 <AlertDialogTrigger asChild>
-                  <Button variant="ghost" size="icon" className="h-10 w-10 sm:h-9 sm:w-9">
-                    <Trash2 className="w-5 h-5" />
+                  <Button variant="ghost" size="icon" className="h-10 w-10 sm:h-9 sm:w-9" aria-label={t('common.delete')}>
+                    <Trash2 aria-hidden="true" className="w-5 h-5" />
                   </Button>
                 </AlertDialogTrigger>
                 <AlertDialogContent>
@@ -649,9 +648,9 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
           </div>
         </div>
 
-        <h2 className="text-2xl font-semibold mb-4 text-foreground">{entry.title}</h2>
-        
-        <div className="prose prose-lg max-w-none mb-6 text-foreground leading-relaxed">
+        <h2 className="mb-4 text-2xl font-semibold leading-tight text-foreground">{entry.title}</h2>
+
+        <div className="reading prose mb-6 text-foreground dark:prose-invert">
           <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
             {entry.body}
           </ReactMarkdown>
@@ -677,35 +676,22 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
           </div>
         )}
 
-        <div className="flex items-center gap-4 flex-wrap mb-4">
-          <div className="flex items-center gap-2">
-            <Heart className="w-4 h-4 text-muted-foreground" />
-            <Badge variant="secondary" className={moodColors[entry.mood]}>
-              {MOOD_EMOJI[entry.mood]} {t(`journalEntry.moods.${entry.mood}`)}
-            </Badge>
-          </div>
-          
-          {entry.activities && entry.activities.length > 0 && (
-            <div className="flex items-center gap-2 flex-wrap">
-              <Activity className="w-4 h-4 text-muted-foreground" />
-              {entry.activities.map(activity => (
-                <Badge key={activity} variant="outline" className="text-xs">
-                  {getActivityEmoji(activity)}{getActivityEmoji(activity) ? ' ' : ''}{PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
-                </Badge>
-              ))}
-            </div>
-          )}
+        <div className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-2 text-sm text-muted-foreground">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-foreground">
+            <span aria-hidden="true" className={`h-2 w-2 rounded-full ${MOOD_CELL_COLORS[entry.mood]}`} />
+            {t(`journalEntry.moods.${entry.mood}`)}
+          </span>
 
-          {entry.tags.length > 0 && (
-            <div className="flex items-center gap-2 flex-wrap">
-              <Tag className="w-4 h-4 text-muted-foreground" />
-              {entry.tags.map(tag => (
-                <Badge key={tag} variant="outline" className="text-xs">
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-          )}
+          {entry.activities?.map(activity => (
+            <span key={activity} className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1">
+              <span aria-hidden="true">{getActivityEmoji(activity)}</span>
+              {PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
+            </span>
+          ))}
+
+          {entry.tags.map(tag => (
+            <span key={tag} className="px-1">#{tag}</span>
+          ))}
         </div>
 
         <AIAnalysis 
@@ -731,7 +717,7 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
   }
 
   return (
-    <Card className="p-4 sm:p-6 shadow-medium bg-gradient-paper overflow-hidden max-w-full">
+    <Card className="max-w-full overflow-hidden rounded-2xl border-border bg-card p-5 shadow-medium sm:p-8">
       <div className="space-y-6 min-w-0">
         <div className="flex items-center gap-3 text-sm xl:text-base text-muted-foreground mb-4">
           <Calendar className="w-4 h-4 xl:w-5 xl:h-5 flex-shrink-0" />
@@ -747,7 +733,7 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
           placeholder={t('journalEntry.titlePlaceholder')}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="text-xl xl:text-2xl font-semibold border-0 bg-transparent p-0 focus-visible:ring-0 placeholder:text-muted-foreground"
+          className="h-auto border-0 bg-transparent p-0 text-2xl font-semibold leading-tight focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-muted-foreground/70"
         />
 
         {body.length >= 20 && (
@@ -774,18 +760,17 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
             <Heart className="w-4 h-4 xl:w-5 xl:h-5 text-muted-foreground flex-shrink-0" />
             <div className="flex flex-wrap gap-1.5 sm:gap-2 min-w-0">
               {(['great', 'good', 'okay', 'poor', 'terrible'] as const).map((moodOption) => (
-                <Button
+                <button
                   key={moodOption}
-                  variant={mood === moodOption ? "default" : "outline"}
-                  size="sm"
+                  type="button"
+                  className="chip"
+                  aria-pressed={mood === moodOption}
                   onClick={() => setMood(moodOption)}
-                  className="capitalize text-xs sm:text-sm xl:text-base px-2 sm:px-3 xl:px-4 min-h-10 xl:min-h-11 gap-1.5"
-                  aria-label={t(`journalEntry.moods.${moodOption}`)}
                 >
                   {/* Emoji on desktop; mobile stays text-only to keep the row compact. */}
                   <span aria-hidden="true" className="hidden sm:inline">{MOOD_EMOJI[moodOption]}</span>
                   <span>{t(`journalEntry.moods.${moodOption}`)}</span>
-                </Button>
+                </button>
               ))}
             </div>
           </div>
@@ -827,17 +812,16 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
               <>
                 <div className={vertical ? "grid grid-cols-2 gap-2" : "flex flex-wrap gap-2"}>
                   {PREDEFINED_ACTIVITIES.map((activity) => (
-                    <Button
+                    <button
                       key={activity.key}
-                      variant={activities.includes(activity.key) ? "default" : "outline"}
-                      size="sm"
+                      type="button"
+                      className={vertical ? "chip justify-start whitespace-nowrap" : "chip whitespace-nowrap flex-shrink-0"}
+                      aria-pressed={activities.includes(activity.key)}
                       onClick={() => toggleActivity(activity.key)}
-                      className={vertical ? "justify-start whitespace-nowrap xl:min-h-11 xl:text-base xl:px-4" : "whitespace-nowrap flex-shrink-0 xl:min-h-11 xl:text-base xl:px-4"}
-                      aria-label={t(`activities.${activity.key}`)}
                     >
                       <span aria-hidden="true">{activity.emoji}</span>
-                      <span className="ml-1">{t(`activities.${activity.key}`)}</span>
-                    </Button>
+                      <span>{t(`activities.${activity.key}`)}</span>
+                    </button>
                   ))}
                 </div>
                 <Input
@@ -1080,15 +1064,15 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
         </div>
 
         <div className="flex gap-3 pt-4 border-t border-border">
-          <Button onClick={handleSave} className="bg-gradient-primary xl:h-11 xl:px-4 xl:text-base">
+          <Button onClick={handleSave} className="rounded-full px-5 bg-gradient-primary shadow-glow xl:h-11 xl:text-base">
             <Save className="w-4 h-4 xl:w-5 xl:h-5 mr-2" />
             {t('journalEntry.saveEntry')}
           </Button>
           {(entry || onCancel) && (
             <Button
-              variant="outline"
+              variant="ghost"
               onClick={handleCancel}
-              className="xl:h-11 xl:px-4 xl:text-base"
+              className="rounded-full px-5 xl:h-11 xl:text-base"
             >
               {t('common.cancel')}
             </Button>

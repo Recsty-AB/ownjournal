@@ -788,6 +788,8 @@
     "searchPlaceholder": "Szukaj wpisów…",
     "startDate": "Data początkowa",
     "endDate": "Data końcowa",
+    "filters": "Filtry",
+    "clearFilters": "Wyczyść filtry",
     "noEntries": "Brak pasujących wpisów",
     "startJourney": "Rozpocznij swoją podróż",
     "tryAdjusting": "Spróbuj dostosować wyszukiwanie lub filtry",

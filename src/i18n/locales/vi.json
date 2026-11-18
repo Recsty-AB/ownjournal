@@ -737,6 +737,8 @@
     "searchPlaceholder": "Tìm kiếm bài viết…",
     "startDate": "Ngày bắt đầu",
     "endDate": "Ngày kết thúc",
+    "filters": "Bộ lọc",
+    "clearFilters": "Xóa bộ lọc",
     "noEntries": "Không tìm thấy bài viết phù hợp",
     "startJourney": "Bắt đầu hành trình của bạn",
     "tryAdjusting": "Hãy thử thay đổi từ khóa hoặc bộ lọc",

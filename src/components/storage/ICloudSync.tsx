@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -786,56 +785,56 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
   }
 
   return (
-    <Card className="p-6">
-      {/* Header - stack on mobile */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-        {/* Provider info with wrapping badges */}
-        <div className="flex flex-wrap items-center gap-2">
-          <ICloudIcon className="w-5 h-5 text-blue-600" />
-          <h3 className="text-lg font-semibold whitespace-nowrap">{t('storage.icloud')}</h3>
-          {isConnected && (
-            <>
-              <Badge variant="secondary" className="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
-                <CheckCircle className="w-3 h-3 mr-1" />
-                {t('storage.connected')}
-              </Badge>
-              {isPrimaryLocal && (
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Badge
-                      variant="default"
-                      className="bg-green-600 hover:bg-green-700 text-white"
-                    >
-                      <Star className="w-3 h-3 mr-1" />
-                      {t('storage.activeSync')}
-                    </Badge>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    {t('storage.activeSyncDesc')}
-                  </TooltipContent>
-                </Tooltip>
-              )}
-              {!isPrimaryLocal && connectionStateManager.getConnectedProviderNames().length > 1 && (
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Badge
-                      variant="outline"
-                      className="bg-muted text-muted-foreground border-dashed"
-                    >
-                      {t('storage.inactiveSync')}
-                    </Badge>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    {t('storage.inactiveSyncDesc')}
-                  </TooltipContent>
-                </Tooltip>
-              )}
-            </>
-          )}
+    <Card className="rounded-2xl border-border bg-card p-5 shadow-soft sm:p-6 space-y-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex min-w-0 items-center gap-3">
+          <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-muted" aria-hidden="true">
+            <ICloudIcon className="text-foreground" />
+          </span>
+          <div className="min-w-0 space-y-1">
+            <h3 className="text-base font-medium leading-snug">{t('storage.icloud')}</h3>
+            {isConnected && (
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-diagnostic-success">
+                  <CheckCircle className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                  {t('storage.connected')}
+                </span>
+                {isPrimaryLocal && (
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Badge className="gap-1 font-medium">
+                        <Star className="h-3 w-3" aria-hidden="true" />
+                        {t('storage.activeSync')}
+                      </Badge>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      {t('storage.activeSyncDesc')}
+                    </TooltipContent>
+                  </Tooltip>
+                )}
+                {!isPrimaryLocal && connectionStateManager.getConnectedProviderNames().length > 1 && (
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Badge variant="outline" className="border-dashed font-medium text-muted-foreground">
+                        {t('storage.inactiveSync')}
+                      </Badge>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      {t('storage.inactiveSyncDesc')}
+                    </TooltipContent>
+                  </Tooltip>
+                )}
+              </div>
+            )}
+          </div>
         </div>
-        {/* Disconnect button in header - matches Google Drive/Dropbox */}
         {isConnected && (
-          <Button variant="outline" size="sm" onClick={isNativeIOS ? handleNativeDisconnect : handleDisconnect} className="self-start sm:self-auto">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={isNativeIOS ? handleNativeDisconnect : handleDisconnect}
+            className="-ml-3 min-h-10 self-start text-destructive hover:bg-destructive/10 hover:text-destructive sm:ml-0 sm:min-h-9"
+          >
             {t('storage.disconnect')}
           </Button>
         )}
@@ -849,44 +848,44 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
           }
         </p>
       ) : isNativeIOS ? (
-        <div className="space-y-3">
+        <div className="space-y-4">
           <p className="text-sm text-muted-foreground">
             {t('providers.icloud.syncDesc')}
           </p>
 
           {getEncryptionMode() === 'simple' && (
-            <Alert className="border-amber-200 bg-amber-50 dark:bg-amber-950/20">
-              <AlertCircle className="h-4 w-4 text-amber-600" />
-              <AlertDescription className="text-amber-800 dark:text-amber-400 text-xs">
-                <strong>{t('providers.icloud.simpleMode')}</strong> {t('providers.icloud.simpleModeDesc')}
-              </AlertDescription>
-            </Alert>
+            <div role="alert" className="notice notice-warning">
+              <AlertCircle aria-hidden="true" />
+              <div className="min-w-0">
+                <strong className="font-medium">{t('providers.icloud.simpleMode')}</strong> {t('providers.icloud.simpleModeDesc')}
+              </div>
+            </div>
           )}
 
           {connectionError && (
-            <Alert variant={needsICloudAccount ? "default" : "destructive"} className={needsICloudAccount ? "border-amber-200 bg-amber-50 dark:bg-amber-950/20" : ""}>
-              <AlertCircle className={`h-4 w-4 ${needsICloudAccount ? "text-amber-600" : ""}`} />
-              <AlertDescription className={needsICloudAccount ? "text-amber-800 dark:text-amber-400" : ""}>
+            <div role="alert" className={needsICloudAccount ? "notice notice-warning" : "notice notice-error"}>
+              <AlertCircle aria-hidden="true" />
+              <div className="min-w-0">
                 {connectionError}
-              </AlertDescription>
-            </Alert>
+              </div>
+            </div>
           )}
 
           {needsICloudAccount ? (
-            <div className="space-y-2">
+            <div className="flex flex-col gap-2 sm:flex-row">
               <Button
                 onClick={handleOpenSettings}
                 variant="outline"
-                className="w-full"
+                className="w-full sm:w-auto"
               >
                 {t('providers.icloud.openSettings', 'Open Settings')}
               </Button>
               <Button
                 onClick={handleNativeConnect}
                 disabled={isConnecting}
-                className="w-full bg-blue-600 hover:bg-blue-700"
+                className="w-full sm:w-auto"
               >
-                {isConnecting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                {isConnecting && <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />}
                 {t('providers.icloud.retryConnection', 'Retry Connection')}
               </Button>
             </div>
@@ -894,9 +893,9 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
             <Button
               onClick={handleNativeConnect}
               disabled={isConnecting}
-              className="w-full bg-blue-600 hover:bg-blue-700"
+              className="w-full sm:w-auto"
             >
-              {isConnecting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {isConnecting && <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />}
               {t('providers.icloud.connectButton')}
             </Button>
           )}
@@ -921,17 +920,17 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
                 <p className="text-sm text-muted-foreground">
                   {t('providers.icloud.signInLinkNotReady')}
                 </p>
-                <Button
-                  className="w-full bg-blue-600 hover:bg-blue-700"
-                  onClick={handleSignInClick}
-                >
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  {t('providers.icloud.signInWithAppleButton')}
-                </Button>
-                <div className="pt-2 flex justify-center">
+                <div className="flex flex-col gap-2 sm:flex-row">
+                  <Button
+                    className="w-full sm:w-auto"
+                    onClick={handleSignInClick}
+                  >
+                    <ExternalLink className="mr-2 h-4 w-4" aria-hidden="true" />
+                    {t('providers.icloud.signInWithAppleButton')}
+                  </Button>
                   <button
                     type="button"
-                    className="text-sm text-muted-foreground hover:text-foreground underline"
+                    className="inline-flex min-h-10 items-center justify-center rounded-md px-4 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     onClick={() => {
                       pendingSignInRef.current = null;
                       setNeedsAppleSignIn(false);
@@ -948,7 +947,7 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
           }
 
           return (
-            <div className="space-y-3">
+            <div className="space-y-4">
               {/* CloudKit JS needs this element to exist before first connect so it can render the sign-in link. */}
               <div
                 id="apple-sign-in-button"
@@ -962,35 +961,35 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
               {/* Apple blocks CloudKit web access for Apple Accounts with Advanced Data
                   Protection (the native iOS app is unaffected). Say so before the user
                   goes through the Apple popup and gets Apple's generic error page. */}
-              <Alert className="border-blue-200 bg-blue-50 dark:bg-blue-950/20">
-                <Info className="h-4 w-4 text-blue-600" />
-                <AlertDescription className="text-blue-800 dark:text-blue-400 text-xs">
+              <div role="alert" className="notice notice-info">
+                <Info aria-hidden="true" />
+                <div className="min-w-0">
                   {t('providers.icloud.adpNotice')}
-                </AlertDescription>
-              </Alert>
+                </div>
+              </div>
 
               {getEncryptionMode() === 'simple' && (
-                <Alert className="border-amber-200 bg-amber-50 dark:bg-amber-950/20">
-                  <AlertCircle className="h-4 w-4 text-amber-600" />
-                  <AlertDescription className="text-amber-800 dark:text-amber-400 text-xs">
-                    <strong>{t('providers.icloud.simpleMode')}</strong> {t('providers.icloud.simpleModeDesc')}
-                  </AlertDescription>
-                </Alert>
+                <div role="alert" className="notice notice-warning">
+                  <AlertCircle aria-hidden="true" />
+                  <div className="min-w-0">
+                    <strong className="font-medium">{t('providers.icloud.simpleMode')}</strong> {t('providers.icloud.simpleModeDesc')}
+                  </div>
+                </div>
               )}
 
               {connectionError && (
-                <Alert variant="destructive">
-                  <AlertCircle className="h-4 w-4" />
-                  <AlertDescription>{connectionError}</AlertDescription>
-                </Alert>
+                <div role="alert" className="notice notice-error">
+                  <AlertCircle aria-hidden="true" />
+                  <div className="min-w-0">{connectionError}</div>
+                </div>
               )}
 
               <Button
                 onClick={() => handleConnect()}
                 disabled={isConnecting || isCloudKitOriginRejected()}
-                className="w-full bg-blue-600 hover:bg-blue-700"
+                className="w-full sm:w-auto"
               >
-                {isConnecting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <ExternalLink className="w-4 h-4 mr-2" />}
+                {isConnecting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" /> : <ExternalLink className="mr-2 h-4 w-4" aria-hidden="true" />}
                 {t('providers.icloud.connectButton')}
               </Button>
             </div>
@@ -1000,48 +999,44 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
         // No env vars — developer/self-hosting setup form
         return (
           <Collapsible open={isSetupExpanded} onOpenChange={setIsSetupExpanded}>
-            <CollapsibleTrigger className="w-full">
-              <Alert className="mb-4 border-blue-200 bg-blue-50 dark:bg-blue-950/20 cursor-pointer hover:bg-blue-100 dark:hover:bg-blue-950/30 transition-colors">
-                <div className="flex items-start justify-between w-full">
-                  <div className="flex items-start gap-2">
-                    <Info className="h-4 w-4 text-blue-600 mt-0.5" />
-                    <AlertDescription className="text-sm text-blue-800 dark:text-blue-400 text-left">
-                      <strong>{t('providers.icloud.devSetupRequired')}</strong>
-                      <p className="mt-1">{t('providers.icloud.devSetupRequiredDesc')}</p>
-                    </AlertDescription>
-                  </div>
-                  <ChevronDown className={`h-4 w-4 text-blue-600 transition-transform ${isSetupExpanded ? 'rotate-180' : ''}`} />
+            <CollapsibleTrigger className="block w-full rounded-xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+              <div role="alert" className="notice notice-info">
+                <Info aria-hidden="true" />
+                <div className="min-w-0 flex-1">
+                  <strong className="font-medium">{t('providers.icloud.devSetupRequired')}</strong>
+                  <p className="mt-1">{t('providers.icloud.devSetupRequiredDesc')}</p>
                 </div>
-              </Alert>
+                <ChevronDown className={`mt-0.5 h-4 w-4 flex-shrink-0 text-muted-foreground transition-transform ${isSetupExpanded ? 'rotate-180' : ''}`} aria-hidden="true" />
+              </div>
             </CollapsibleTrigger>
 
             <CollapsibleContent>
-              <div className="space-y-4">
-                <Alert className="border-blue-200 bg-blue-50 dark:bg-blue-950/20">
-                  <Info className="h-4 w-4 text-blue-600" />
-                  <AlertDescription className="text-sm text-blue-800 dark:text-blue-400">
+              <div className="space-y-4 pt-4">
+                <div role="alert" className="notice notice-info">
+                  <Info aria-hidden="true" />
+                  <div className="min-w-0">
                     {t('providers.icloud.requiresDevAccount')}
                     <a
                       href="https://developer.apple.com/documentation/cloudkitjs/cloudkit/configuring_cloudkit_js"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline ml-1"
+                      className="ml-1 underline underline-offset-2"
                     >
                       {t('common.learnMore')}
                     </a>
-                  </AlertDescription>
-                </Alert>
+                  </div>
+                </div>
 
                 {getEncryptionMode() === 'simple' && (
-                  <Alert className="border-amber-200 bg-amber-50 dark:bg-amber-950/20">
-                    <AlertCircle className="h-4 w-4 text-amber-600" />
-                    <AlertDescription className="text-amber-800 dark:text-amber-400 text-xs">
-                      <strong>{t('providers.icloud.simpleMode')}</strong> {t('providers.icloud.simpleModeDesc')}
-                    </AlertDescription>
-                  </Alert>
+                  <div role="alert" className="notice notice-warning">
+                    <AlertCircle aria-hidden="true" />
+                    <div className="min-w-0">
+                      <strong className="font-medium">{t('providers.icloud.simpleMode')}</strong> {t('providers.icloud.simpleModeDesc')}
+                    </div>
+                  </div>
                 )}
 
-                <div>
+                <div className="space-y-1.5">
                   <Label htmlFor="containerId">{t('providers.icloud.containerId')}</Label>
                   <Input
                     id="containerId"
@@ -1050,12 +1045,12 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
                     placeholder={t('providers.icloud.containerIdPlaceholder')}
                     disabled={isConnecting}
                   />
-                  <p className="text-xs text-muted-foreground mt-1">
+                  <p className="text-xs text-muted-foreground">
                     {t('providers.icloud.containerIdDesc')}
                   </p>
                 </div>
 
-                <div>
+                <div className="space-y-1.5">
                   <Label htmlFor="apiToken">{t('providers.icloud.apiToken')}</Label>
                   <Input
                     id="apiToken"
@@ -1065,41 +1060,41 @@ export const ICloudSync = ({ onConfigChange, masterKey, onRequirePassword, isPri
                     placeholder={t('providers.icloud.apiTokenPlaceholder')}
                     disabled={isConnecting}
                   />
-                  <p className="text-xs text-muted-foreground mt-1">
+                  <p className="text-xs text-muted-foreground">
                     {t('providers.icloud.apiTokenDesc')}
                   </p>
                 </div>
 
-                <div>
+                <div className="space-y-1.5">
                   <Label htmlFor="environment">{t('providers.icloud.environmentLabel')}</Label>
                   <select
                     id="environment"
                     value={environment}
                     onChange={(e) => setEnvironment(e.target.value as 'development' | 'production')}
-                    className="w-full px-3 py-2 rounded-md border border-input bg-background text-sm"
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                     disabled={isConnecting}
                   >
                     <option value="development">{t('providers.icloud.development')}</option>
                     <option value="production">{t('providers.icloud.production')}</option>
                   </select>
-                  <p className="text-xs text-muted-foreground mt-1">
+                  <p className="text-xs text-muted-foreground">
                     {t('providers.icloud.environmentDesc')}
                   </p>
                 </div>
 
                 {connectionError && (
-                  <Alert variant="destructive">
-                    <AlertCircle className="h-4 w-4" />
-                    <AlertDescription>{connectionError}</AlertDescription>
-                  </Alert>
+                  <div role="alert" className="notice notice-error">
+                    <AlertCircle aria-hidden="true" />
+                    <div className="min-w-0">{connectionError}</div>
+                  </div>
                 )}
 
                 <Button
                   onClick={() => handleConnect()}
                   disabled={isConnecting || !apiToken.trim() || !containerId.trim() || isCloudKitOriginRejected()}
-                  className="w-full"
+                  className="w-full sm:w-auto"
                 >
-                  {isConnecting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  {isConnecting && <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />}
                   {t('providers.icloud.connectButton')}
                 </Button>
               </div>

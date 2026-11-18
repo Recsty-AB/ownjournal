@@ -22,7 +22,7 @@ import { translateCloudError } from "@/utils/translateCloudError";
 import { isNextcloudEncryptionError } from "@/utils/cloudErrorCodes";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Shield, Lock, Trash2, Database, Star, AlertCircle } from "lucide-react";
+import { Shield, Lock, Trash2, Star, AlertCircle } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
@@ -899,85 +899,96 @@ export const StorageSettings = () => {
       />
       
       {/* Encryption Mode Selector */}
-      <div className="space-y-4 p-4 bg-muted/50 rounded-lg border">
-        <div className="space-y-2">
-          <h3 className="text-sm font-semibold flex items-center gap-2">
-            <Shield className="h-4 w-4" />
+      <div className="space-y-3">
+        <div className="space-y-1">
+          <h3 className="flex items-center gap-2 text-xl font-semibold">
+            <Shield className="h-5 w-5 flex-shrink-0 text-seal" aria-hidden="true" />
             {t('storage.encryptionMode')}
           </h3>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             {t('storage.encryptionModeDesc')}
           </p>
         </div>
         
         <RadioGroup value={encryptionMode} onValueChange={handleEncryptionModeChange}>
           <div className="space-y-3">
-            <div className={`flex items-start space-x-3 p-3 rounded-lg border transition-colors ${
-              encryptionMode === 'e2e' ? 'opacity-50 cursor-not-allowed' : 'hover:bg-muted/50'
+            <div className={`flex items-start gap-3 rounded-xl border p-4 transition-colors ${
+              encryptionMode === 'simple' ? 'border-primary bg-muted/50' : 'border-border bg-card'
+            } ${
+              encryptionMode === 'e2e' ? 'cursor-not-allowed' : 'hover:bg-muted/50'
             }`}>
               <RadioGroupItem 
                 value="simple" 
                 id="mode-simple" 
-                className="mt-1" 
+                className="mt-0.5" 
                 disabled={encryptionMode === 'e2e'}
               />
-              <div className="space-y-1 flex-1">
+              <div className="min-w-0 flex-1 space-y-1">
                 <Label 
                   htmlFor="mode-simple" 
                   className={`text-sm font-medium ${
-                    encryptionMode === 'e2e' ? 'cursor-not-allowed' : 'cursor-pointer'
+                    encryptionMode === 'e2e' ? 'cursor-not-allowed text-muted-foreground' : 'cursor-pointer'
                   }`}
                 >
                   {t('storage.simpleMode')}
                 </Label>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   {t('storage.simpleModeDesc')}
                 </p>
-                <div className="mt-2 p-2 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/50 rounded text-xs space-y-1">
-                  <p className="font-medium text-amber-800 dark:text-amber-400">⚠️ {t('storage.securityWarning')}:</p>
-                  <ul className="list-disc list-inside space-y-0.5 text-amber-700 dark:text-amber-500">
+                <div className="mt-2 space-y-1 border-t border-border pt-2 text-xs">
+                  <p className="font-medium text-diagnostic-warning">⚠️ {t('storage.securityWarning')}:</p>
+                  <ul className="list-disc space-y-0.5 pl-4 text-muted-foreground">
                     <li>{t('storage.cloudCredentialsWarning')}</li>
                     <li>{t('storage.deviceAccessWarning')}</li>
                     <li>{t('storage.recommendE2E')}</li>
                   </ul>
                 </div>
                 {encryptionMode === 'e2e' && (
-                  <p className="text-xs text-amber-600 dark:text-amber-500 mt-2">
+                  <p className="flex items-start gap-1.5 pt-1 text-xs text-foreground">
+                    <Lock className="mt-0.5 h-3 w-3 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
                     {t('storage.cannotSwitchFromE2E')}
                   </p>
                 )}
               </div>
             </div>
             
-            <div className={`flex items-start space-x-3 p-3 rounded-lg border transition-colors ${
+            <div className={`flex items-start gap-3 rounded-xl border p-4 transition-colors ${
+              encryptionMode === 'e2e' ? 'border-primary bg-muted/50' : 'border-border bg-card'
+            } ${
               encryptionMode === 'simple' && cloudConnectedCount > 0
-                ? 'opacity-50 cursor-not-allowed'
+                ? 'cursor-not-allowed'
                 : 'hover:bg-muted/50'
             }`}>
               <RadioGroupItem 
                 value="e2e" 
                 id="mode-e2e" 
-                className="mt-1"
+                className="mt-0.5"
                 disabled={encryptionMode === 'simple' && cloudConnectedCount > 0}
               />
-              <div className="space-y-1 flex-1">
-                <Label htmlFor="mode-e2e" className="text-sm font-medium cursor-pointer flex items-center gap-1">
-                  <Lock className="h-3 w-3" />
+              <div className="min-w-0 flex-1 space-y-1">
+                <Label
+                  htmlFor="mode-e2e"
+                  className={`flex items-center gap-1.5 text-sm font-medium ${
+                    encryptionMode === 'simple' && cloudConnectedCount > 0 ? 'cursor-not-allowed text-muted-foreground' : 'cursor-pointer'
+                  }`}
+                >
+                  <Lock className="h-3 w-3 flex-shrink-0" aria-hidden="true" />
                   {t('storage.e2eMode')}
                 </Label>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   {t('storage.e2eModeDesc')}
                 </p>
-                <div className="mt-2 p-2 bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/50 rounded text-xs space-y-1">
-                  <p className="font-medium text-emerald-800 dark:text-emerald-400">✓ {t('storage.enhancedSecurity')}:</p>
-                  <ul className="list-disc list-inside space-y-0.5 text-emerald-700 dark:text-emerald-500">
+                <div className="mt-2 space-y-1 border-t border-border pt-2 text-xs">
+                  <p className="font-medium text-diagnostic-success">✓ {t('storage.enhancedSecurity')}:</p>
+                  <ul className="list-disc space-y-0.5 pl-4 text-muted-foreground">
                     <li>{t('storage.cloudCredentialsWarning')}</li>
                     <li>{t('storage.deviceAccessWarning')}</li>
                     <li>{t('storage.recommendE2E')}</li>
                   </ul>
                 </div>
                 {encryptionMode === 'simple' && cloudConnectedCount > 0 && (
-                  <p className="text-xs text-amber-600 dark:text-amber-500 mt-2">
+                  <p className="flex items-start gap-1.5 pt-1 text-xs text-foreground">
+                    <Lock className="mt-0.5 h-3 w-3 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
                     {t('storage.cannotSwitchToE2E')}
                   </p>
                 )}
@@ -1095,36 +1106,33 @@ export const StorageSettings = () => {
         };
         
         return (
-          <div className="p-4 bg-muted/50 rounded-lg border space-y-4">
-            <div>
-              <Label className="text-sm font-semibold flex items-center gap-2 mb-2">
-                <Star className="h-4 w-4 text-primary" />
+          <div className="space-y-4 rounded-xl border border-border bg-muted/50 p-4">
+            <div className="space-y-2">
+              <Label className="flex items-center gap-2 text-sm font-medium">
+                <Star className="h-4 w-4 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
                 {t('storage.activeProvider')}
               </Label>
               <Select value={primaryProviderName || ''} onValueChange={handlePrimaryChange}>
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="w-full bg-card">
                   <SelectValue placeholder={t('storage.selectActiveProvider')} />
                 </SelectTrigger>
                 <SelectContent>
                   {connectedNames.map(name => (
                     <SelectItem key={name} value={name}>
-                      <span className="flex items-center gap-2">
-                        <Database className="h-4 w-4" />
-                        {name}
-                      </span>
+                      {name}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
-              <p className="text-xs text-muted-foreground mt-2">
+              <p className="text-xs text-muted-foreground">
                 {t('storage.activeProviderDesc')}
               </p>
             </div>
             
             {/* Copy encryption key button for E2E mode */}
             {isE2EEnabled() && connectedNames.length >= 2 && (
-              <div className="pt-2 border-t">
-                <Label className="text-xs font-medium text-muted-foreground mb-2 block">
+              <div className="space-y-2 border-t border-border pt-4">
+                <Label className="eyebrow block">
                   {t('storage.copyEncryptionKey')}
                 </Label>
                 <div className="flex flex-wrap gap-2">
@@ -1141,7 +1149,7 @@ export const StorageSettings = () => {
                       </Button>
                     ))}
                 </div>
-                <p className="text-xs text-muted-foreground mt-2">
+                <p className="text-xs text-muted-foreground">
                   {t('storage.copyKeyExplanation')}
                 </p>
               </div>
@@ -1179,35 +1187,39 @@ export const StorageSettings = () => {
         />
       </div>
 
-      <div className="mt-6">
+      <div>
         <ProviderTransfer />
       </div>
 
       {encryptionMode === 'e2e' && (
-        <div className="mt-6 p-4 bg-muted rounded-lg border">
-          <h4 className="text-sm font-semibold mb-2 flex items-center gap-2">
-            <Lock className="h-4 w-4 text-primary" />
-            {t('storage.e2eMode')}
-          </h4>
-          <p className="text-xs text-muted-foreground">
-            {t('encryption.e2eExplanation')}
-          </p>
+        <div className="notice">
+          <Lock className="text-seal" aria-hidden="true" />
+          <div className="min-w-0 space-y-1">
+            <h4 className="font-medium">
+              {t('storage.e2eMode')}
+            </h4>
+            <p className="text-xs text-muted-foreground">
+              {t('encryption.e2eExplanation')}
+            </p>
+          </div>
         </div>
       )}
       
       {/* Danger Zone - Reset All Data */}
-      <div className="mt-6 p-4 bg-destructive/10 rounded-lg border border-destructive/20">
-        <h4 className="text-sm font-semibold mb-2 flex items-center gap-2 text-destructive">
-          <Trash2 className="h-4 w-4" />
-          {t('storage.dangerZone')}
-        </h4>
-        <p className="text-xs text-muted-foreground mb-4">
-          {t('storage.resetAllDataDesc')}
-        </p>
+      <div className="space-y-3 border-t border-border pt-6">
+        <div className="space-y-1">
+          <h4 className="flex items-center gap-2 text-xl font-semibold text-destructive">
+            <Trash2 className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
+            {t('storage.dangerZone')}
+          </h4>
+          <p className="text-sm text-muted-foreground">
+            {t('storage.resetAllDataDesc')}
+          </p>
+        </div>
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <Button variant="destructive" size="sm" disabled={isResetting}>
-              <Trash2 className="h-3 w-3 mr-2" />
+              <Trash2 className="h-3 w-3 mr-2" aria-hidden="true" />
               {t('storage.resetAllData')}
             </Button>
           </AlertDialogTrigger>
@@ -1218,10 +1230,10 @@ export const StorageSettings = () => {
                 <div className="space-y-4">
                   <p>{t('storage.resetAllDataWarning')}</p>
                   
-                  <Alert className="border-yellow-500 bg-yellow-50 dark:bg-yellow-950/20">
-                    <AlertCircle className="h-4 w-4 text-yellow-600" />
-                    <AlertDescription className="text-yellow-800 dark:text-yellow-200">
-                      <strong>{t('storage.backupRecommendation')}</strong>
+                  <Alert className="rounded-xl border-diagnostic-warning/45 bg-diagnostic-warning/10 text-foreground">
+                    <AlertCircle className="h-4 w-4 !text-diagnostic-warning" aria-hidden="true" />
+                    <AlertDescription>
+                      <strong className="font-medium">{t('storage.backupRecommendation')}</strong>
                       <p className="mt-1 text-sm">{t('storage.backupInstructions')}</p>
                     </AlertDescription>
                   </Alert>
@@ -1230,7 +1242,7 @@ export const StorageSettings = () => {
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>{t('common.cancel')}</AlertDialogCancel>
-              <AlertDialogAction onClick={handleResetAllData} className="bg-destructive hover:bg-destructive/90">
+              <AlertDialogAction onClick={handleResetAllData} className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
                 {t('storage.resetButton')}
               </AlertDialogAction>
             </AlertDialogFooter>
