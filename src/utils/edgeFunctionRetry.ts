@@ -8,7 +8,7 @@ const RETRY_DELAY_MS = 2000;
 const MAX_RETRIES = 1;
 
 export interface EdgeFunctionInvokeOptions {
-  body?: Record<string, unknown>;
+  body?: Record<string, unknown> | FormData;
   headers?: Record<string, string>;
 }
 

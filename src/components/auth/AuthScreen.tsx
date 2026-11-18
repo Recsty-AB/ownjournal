@@ -8,7 +8,7 @@ import { Shield, Cloud, Smartphone, Lock, Key, AlertTriangle, Copy, Check, Arrow
 import { supabase } from "@/integrations/supabase/client";
 import logo from "@/assets/logo.png";
 import { useToast } from "@/hooks/use-toast";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { authSchema } from "@/utils/validation";
 import { FEATURES, isAppleSignInAvailable } from "@/config/features";
 import { SUPABASE_CONFIG } from "@/config/supabase";
@@ -514,14 +514,14 @@ export const AuthScreen = ({ onGoogleSignIn, onAppleSignIn }: AuthScreenProps) =
 
               <div className="text-xs text-center text-muted-foreground space-y-1 mt-4">
                 <p>
-                  {t('auth.termsAgreementPrefix')}{" "}
-                  <Link to="/terms" className="underline hover:text-primary">
-                    {t('auth.termsLink')}
-                  </Link>{" "}
-                  {t('auth.and')}{" "}
-                  <Link to="/privacy" className="underline hover:text-primary">
-                    {t('auth.privacyLink')}
-                  </Link>
+                  {/* One sentence per language, so word order and spacing around the links are the translator's. */}
+                  <Trans
+                    i18nKey="auth.termsAgreement"
+                    components={{
+                      terms: <Link to="/terms" className="underline hover:text-primary" />,
+                      privacy: <Link to="/privacy" className="underline hover:text-primary" />,
+                    }}
+                  />
                 </p>
                 <div className="flex items-center justify-center gap-2">
                   <Key className="w-3 h-3" />

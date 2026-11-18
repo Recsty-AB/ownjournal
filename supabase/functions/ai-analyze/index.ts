@@ -1,7 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 import { callGoogleAI, isGoogleAIConfigured } from "./googleAIProvider.ts";
-import { AI_MODELS, getModelForType } from "./modelConfig.ts";
+import { AI_MODELS, getModelForType } from "../_shared/modelConfig.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",

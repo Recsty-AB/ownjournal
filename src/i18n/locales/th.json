@@ -1,7 +1,7 @@
 {
   "activities": {
     "label": "กิจกรรม",
-    "addCustom": "เพิ่มกิจกรรมเอง...",
+    "addCustom": "เพิ่มกิจกรรมเอง…",
     "exercise": "ออกกำลังกาย",
     "social": "สังคม",
     "work": "งาน",
@@ -41,7 +41,7 @@
     "cancel": "ยกเลิก",
     "delete": "ลบ",
     "edit": "แก้ไข",
-    "loading": "กำลังโหลด...",
+    "loading": "กำลังโหลด…",
     "error": "ข้อผิดพลาด",
     "stop": "หยุด",
     "copied": "คัดลอกแล้ว",
@@ -58,23 +58,23 @@
     "copyEmail": "คัดลอกอีเมล"
   },
   "migration": {
-    "preparing": "กำลังเตรียมการย้ายข้อมูล...",
-    "encryptingEntries": "กำลังเข้ารหัสรายการ...",
-    "decryptingEntries": "กำลังถอดรหัสรายการ...",
-    "migratingCredentials": "กำลังย้ายข้อมูลรับรอง...",
+    "preparing": "กำลังเตรียมการย้ายข้อมูล…",
+    "encryptingEntries": "กำลังเข้ารหัสรายการ…",
+    "decryptingEntries": "กำลังถอดรหัสรายการ…",
+    "migratingCredentials": "กำลังย้ายข้อมูลรับรอง…",
     "complete": "ย้ายข้อมูลเสร็จสิ้น!",
     "error": "การย้ายข้อมูลล้มเหลว",
-    "toE2ETitle": "กำลังเปิดใช้การเข้ารหัสแบบ E2E",
+    "toE2ETitle": "กำลังเปิดใช้การเข้ารหัส E2E",
     "toSimpleTitle": "กำลังเปลี่ยนเป็นโหมดง่าย",
     "toE2EDesc": "กำลังเข้ารหัสรายการด้วยรหัสผ่าน",
     "toSimpleDesc": "กำลังถอดรหัสรายการเพื่อจัดเก็บแบบง่าย",
     "processingEntry": "กำลังประมวลผล: {{title}}",
-    "migrated": "ย้ายข้อมูลแล้ว {{count}} รายการ",
-    "failed": "ล้มเหลว {{count}} รายการ",
+    "migrated_other": "ย้ายข้อมูลแล้ว {{count}} รายการ",
+    "failed_other": "ย้ายข้อมูลไม่สำเร็จ {{count}} รายการ",
     "retry": "ลองรายการที่ล้มเหลวอีกครั้ง",
     "connectionError": "เชื่อมต่อผิดพลาด",
     "connectionErrorDesc": "ต้องเชื่อมต่อผู้ให้บริการทั้งสองฝั่ง",
-    "completeDesc": "ย้ายข้อมูลสำเร็จ {{count}} ไฟล์จาก {{source}} ไปยัง {{target}}",
+    "completeDesc_other": "ย้ายข้อมูลสำเร็จ {{count}} ไฟล์จาก {{source}} ไปยัง {{target}}",
     "completedWithErrors": "ย้ายข้อมูลเสร็จสิ้นแต่มีข้อผิดพลาด",
     "completedWithErrorsDesc": "ย้ายสำเร็จ {{migrated}} ไฟล์ ล้มเหลว {{failed}} ไฟล์ ตรวจสอบรายละเอียดในคอนโซล",
     "stopped": "หยุดการย้ายข้อมูลแล้ว",
@@ -83,7 +83,7 @@
   "editor": {
     "edit": "แก้ไข",
     "preview": "ดูตัวอย่าง",
-    "placeholder": "เขียนบันทึกประจำวัน... ใช้ Markdown จัดรูปแบบได้:\n\n# หัวข้อ\n**ตัวหนา** *ตัวเอียง*\n- รายการ",
+    "placeholder": "เขียนบันทึกประจำวัน… ใช้ Markdown จัดรูปแบบได้:\n\n# หัวข้อ\n**ตัวหนา** *ตัวเอียง*\n- รายการ",
     "markdownSupport": "รองรับ: **ตัวหนา**, *ตัวเอียง*, # หัวข้อ, - รายการ",
     "noContentPreview": "*ไม่มีเนื้อหาให้แสดงตัวอย่าง*",
     "inlineTagHint": "พิมพ์ # ในข้อความเพื่อเพิ่มแท็ก"
@@ -91,27 +91,27 @@
   "import": {
     "invalidFormat": "รูปแบบไฟล์นำเข้าไม่ถูกต้อง",
     "complete": "นำเข้าเสร็จสิ้น",
-    "completeDesc": "นำเข้าแล้ว {{count}} รายการ กำลังซิงค์ไปยังที่จัดเก็บ...",
+    "completeDesc_other": "นำเข้าแล้ว {{count}} รายการ กำลังซิงค์ไปยังพื้นที่จัดเก็บ…",
     "failed": "การนำเข้าล้มเหลว",
     "failedDesc": "ไม่สามารถนำเข้าข้อมูลได้ กรุณาตรวจสอบรูปแบบไฟล์",
-    "storageSyncFailed": "การซิงค์ที่จัดเก็บล้มเหลว",
-    "storageSyncFailedDesc": "บางรายการอาจไม่ได้ถูกบันทึกลงที่จัดเก็บ"
+    "storageSyncFailed": "การซิงค์พื้นที่จัดเก็บล้มเหลว",
+    "storageSyncFailedDesc": "บางรายการอาจไม่ได้ถูกบันทึกลงพื้นที่จัดเก็บ"
   },
   "nextcloudErrors": {
     "connectionTestFailed": "ทดสอบการเชื่อมต่อล้มเหลว กรุณาตรวจสอบข้อมูลรับรอง",
     "sslCertificateError": "ตรวจพบข้อผิดพลาดใบรับรอง SSL ใบรับรอง HTTPS ของเซิร์ฟเวอร์ไม่ถูกต้อง หมดอายุ หรือไม่น่าเชื่อถือ",
     "corsIssueDetected": "ตรวจพบการตั้งค่าความปลอดภัยของการเชื่อมต่อ เซิร์ฟเวอร์ Nextcloud ต้องได้รับการกำหนดค่าเพื่ออนุญาตการเชื่อมต่อจากเบราว์เซอร์",
-    "authFailed": "การยืนยันตัวตนล้มเหลว กรุณาตรวจสอบชื่อผู้ใช้และรหัสผ่าน app",
+    "authFailed": "การยืนยันตัวตนล้มเหลว กรุณาตรวจสอบชื่อผู้ใช้และรหัสผ่านแอป",
     "connectionFailed": "เชื่อมต่อล้มเหลว กรุณาตรวจสอบ URL ของเซิร์ฟเวอร์และข้อมูลรับรอง",
     "connectionFailedShort": "เชื่อมต่อล้มเหลว",
-    "masterKeyRequired": "ต้องใช้คีย์หลักเพื่อบันทึกข้อมูลรับรองในโหมด E2E",
-    "clickSetupHelpCors": "คลิก \"วิธีตั้งค่า\" ด้านบนเพื่อดูคำแนะนำทีละขั้นตอน",
-    "clickSetupHelpSsl": "คลิก \"วิธีตั้งค่า\" ด้านบนเพื่อดูวิธีแก้ไขปัญหาใบรับรอง SSL",
+    "masterKeyRequired": "ต้องใช้มาสเตอร์คีย์เพื่อบันทึกข้อมูลรับรองในโหมด E2E",
+    "clickSetupHelpCors": "กด “วิธีตั้งค่า” ด้านบนเพื่อดูคำแนะนำทีละขั้นตอน",
+    "clickSetupHelpSsl": "กด “วิธีตั้งค่า” ด้านบนเพื่อดูวิธีแก้ไขปัญหาใบรับรอง SSL",
     "credentialDecryptFailed": "ไม่สามารถถอดรหัสข้อมูลรับรอง Nextcloud ได้ ซึ่งมักเกิดจากรหัสผ่านบันทึกไม่ถูกต้อง กรุณาตรวจสอบรหัสผ่านหรือยกเลิกการเชื่อมต่อแล้วเชื่อมต่อใหม่"
   },
   "app": {
     "name": "OwnJournal",
-    "tagline": "พื้นที่ปลอดภัยสำหรับความคิดของเรา"
+    "tagline": "พื้นที่ปลอดภัยสำหรับความคิดของคุณ"
   },
   "header": {
     "back": "กลับ",
@@ -128,7 +128,7 @@
   },
   "auth": {
     "title": "OwnJournal",
-    "subtitle": "พื้นที่ปลอดภัยสำหรับความคิดของเรา",
+    "subtitle": "พื้นที่ปลอดภัยสำหรับความคิดของคุณ",
     "signInTitle": "เข้าสู่ระบบเพื่อดำเนินการต่อ",
     "email": "อีเมล",
     "password": "รหัสผ่าน",
@@ -142,13 +142,12 @@
     "continueWith": "หรือดำเนินการต่อด้วย",
     "continueWithGoogle": "ดำเนินการต่อด้วย Google",
     "continueWithApple": "ดำเนินการต่อด้วย Apple",
-    "termsAgreementPrefix": "การดำเนินการต่อถือว่ายอมรับ",
+    "termsAgreement": "เมื่อดำเนินการต่อ ถือว่าคุณยอมรับ<terms>ข้อกำหนดการให้บริการ</terms>และ<privacy>นโยบายความเป็นส่วนตัว</privacy>ของเรา",
     "termsLink": "ข้อกำหนดการให้บริการ",
-    "and": "และ",
     "privacyLink": "นโยบายความเป็นส่วนตัว",
     "dataEncrypted": "ข้อมูลถูกเข้ารหัสและไม่ได้จัดเก็บบนเซิร์ฟเวอร์ของเรา",
     "accountCreated": "สร้างบัญชีแล้ว!",
-    "accountCreatedDesc": "กรุณาตรวจสอบอีเมลแล้วคลิก \"ยืนยันที่อยู่อีเมล\" เพื่อเปิดใช้งานบัญชี",
+    "accountCreatedDesc": "กรุณาตรวจสอบอีเมลแล้วคลิก “ยืนยันที่อยู่อีเมล” เพื่อเปิดใช้งานบัญชี",
     "checkSpamHint": "หากไม่พบ กรุณาตรวจสอบโฟลเดอร์สแปมหรือถังขยะ",
     "authError": "ข้อผิดพลาดการยืนยันตัวตน",
     "error": "ข้อผิดพลาด",
@@ -159,14 +158,14 @@
     "appleNotAvailable": "ไม่สามารถเข้าสู่ระบบด้วย Apple ได้",
     "appleNotConfigured": "ยังไม่ได้ตั้งค่าการยืนยันตัวตนด้วย Apple กรุณาติดต่อผู้ดูแลระบบหรือใช้วิธีเข้าสู่ระบบอื่น",
     "userAlreadyExists": "บัญชีมีอยู่แล้ว",
-    "userAlreadyExistsDesc": "อีเมลนี้ลงทะเบียนแล้ว ลองเข้าสู่ระบบ หรือใช้ 'ดำเนินการต่อด้วย Google' หากเคยสมัครด้วยวิธีนั้น",
+    "userAlreadyExistsDesc": "อีเมลนี้ลงทะเบียนแล้ว ลองเข้าสู่ระบบ หรือใช้ “ดำเนินการต่อด้วย Google” หากเคยสมัครด้วยวิธีนั้น",
     "invalidCredentials": "ข้อมูลเข้าสู่ระบบไม่ถูกต้อง",
-    "invalidCredentialsDesc": "อีเมลหรือรหัสผ่านไม่ถูกต้อง หากสมัครด้วย Google กรุณาใช้ 'ดำเนินการต่อด้วย Google' แทน",
-    "oauthAccountHint": "สมัครด้วย Google? ลอง 'ดำเนินการต่อด้วย Google' ด้านล่าง",
+    "invalidCredentialsDesc": "อีเมลหรือรหัสผ่านไม่ถูกต้อง หากสมัครด้วย Google กรุณาใช้ “ดำเนินการต่อด้วย Google” แทน",
+    "oauthAccountHint": "สมัครด้วย Google? ลอง “ดำเนินการต่อด้วย Google” ด้านล่าง",
     "linkExpired": "ลิงก์หมดอายุหรือไม่ถูกต้อง",
     "linkExpiredDesc": "ลิงก์เข้าสู่ระบบนี้หมดอายุหรือถูกใช้แล้ว กรุณาเข้าสู่ระบบอีกครั้งหรือขอลิงก์ใหม่",
     "inAppBrowserWarning": "กำลังดูหน้านี้ใน {{appName}}",
-    "inAppBrowserDesc": "การเข้าสู่ระบบด้วย Google ไม่ทำงานในเบราว์เซอร์ของ app กรุณาเปิดหน้านี้ในเบราว์เซอร์มาตรฐาน เช่น Safari หรือ Chrome",
+    "inAppBrowserDesc": "การเข้าสู่ระบบด้วย Google ไม่ทำงานในเบราว์เซอร์ภายในแอป กรุณาเปิดหน้านี้ในเบราว์เซอร์มาตรฐาน เช่น Safari หรือ Chrome",
     "openInBrowser": "เปิดในเบราว์เซอร์",
     "copyUrl": "คัดลอก URL",
     "copied": "คัดลอกแล้ว!",
@@ -197,16 +196,16 @@
     "noAccountFoundDesc": "ไม่มีบัญชีที่ใช้อีเมลนี้ กรุณาตรวจสอบอีเมลหรือสร้างบัญชีใหม่",
     "rateLimited": "คำขอมากเกินไป",
     "rateLimitedDesc": "เพื่อความปลอดภัย กรุณารอสักครู่ก่อนขอลิงก์รีเซ็ตอีกครั้ง",
-    "callbackMissingTokens": "การลงชื่อเข้าใช้ไม่สำเร็จ โปรดลองอีกครั้ง"
+    "callbackMissingTokens": "การเข้าสู่ระบบไม่สำเร็จ กรุณาลองอีกครั้ง"
   },
   "features": {
-    "endToEnd": "ครบวงจร",
-    "encryption": "การเข้ารหัส",
-    "yourStorage": "ที่เก็บข้อมูลของเรา",
+    "endToEnd": "เข้ารหัส E2E",
+    "encryption": "ต้นทางถึงปลายทาง",
+    "yourStorage": "พื้นที่จัดเก็บของคุณ",
     "yourControl": "ควบคุมเอง",
     "worksOffline": "ใช้งานออฟไลน์ได้",
     "alwaysAvailable": "พร้อมใช้เสมอ",
-    "zeroKnowledge": "Zero Knowledge",
+    "zeroKnowledge": "Zero-Knowledge",
     "privacyFirst": "ไม่มีใครอ่านข้อมูลได้ แม้แต่เรา"
   },
   "journal": {
@@ -214,15 +213,15 @@
     "anotherEntryEditingDesc": "กรุณาบันทึกหรือยกเลิกรายการอื่นก่อน",
     "goToEditingEntry": "ไปยังบันทึกที่กำลังแก้ไข",
     "switchToEditMode": "เปลี่ยนเป็นโหมดแก้ไขเพื่อใส่แท็ก",
-    "switchToEditModeDesc": "คลิกปุ่มแก้ไขเพื่อใส่แท็กที่แนะนำ",
-    "entryTitlePlaceholder": "ชื่อรายการ...",
+    "switchToEditModeDesc": "กดปุ่มแก้ไขเพื่อใส่แท็กที่แนะนำ",
+    "entryTitlePlaceholder": "ชื่อรายการ…",
     "finishEditingFirst": "กรุณาแก้ไขรายการอื่นให้เสร็จก่อน",
     "entrySaved": "บันทึกรายการแล้ว",
     "entrySavedDesc": "บันทึกที่เข้ารหัสแล้วถูกบันทึกและจะซิงค์โดยอัตโนมัติ",
     "entryDeleted": "ลบรายการแล้ว",
     "entryDeletedDesc": "ลบรายการเรียบร้อยแล้ว",
     "deletionFailed": "การลบล้มเหลว",
-    "deletionFailedDesc": "ไม่สามารถลบรายการจากที่จัดเก็บได้",
+    "deletionFailedDesc": "ไม่สามารถลบรายการจากพื้นที่จัดเก็บได้",
     "conflictDetected": "ตรวจพบความขัดแย้ง",
     "conflictDetectedDesc": "มีหลายเวอร์ชันของรายการเดียวกัน ตรวจสอบบันทึกความขัดแย้งเพื่อดูรายละเอียด",
     "viewConflicts": "ดูความขัดแย้ง",
@@ -231,29 +230,29 @@
     "editEntry": "แก้ไขรายการ",
     "images": "รูปภาพ",
     "deleteEntryConfirmTitle": "ลบรายการ?",
-    "deleteEntryConfirmDesc": "แน่ใจหรือไม่ว่าต้องการลบ \"{{title}}\"? การดำเนินการนี้ไม่สามารถย้อนกลับได้"
+    "deleteEntryConfirmDesc": "แน่ใจหรือไม่ว่าต้องการลบ “{{title}}”? การดำเนินการนี้ไม่สามารถย้อนกลับได้"
   },
   "demo": {
     "mode": "โหมดทดลอง",
-    "description": "สำรวจ app ด้วยตัวอย่างบันทึก ข้อมูลจริงจะเป็นส่วนตัวและเข้ารหัส",
+    "description": "สำรวจแอปด้วยตัวอย่างบันทึก ข้อมูลจริงจะเป็นส่วนตัวและเข้ารหัส",
     "startJournal": "เริ่มเขียนบันทึก",
-    "exportUnavailableTitle": "การส่งออกพร้อมใช้งานในไดอารี่ของคุณเอง",
-    "exportUnavailableDesc": "เริ่มไดอารี่ของคุณเพื่อเปิดใช้งานการส่งออกข้อมูล",
-    "importUnavailableTitle": "การนำเข้าพร้อมใช้งานในไดอารี่ของคุณเอง",
-    "importUnavailableDesc": "เริ่มไดอารี่ของคุณเพื่อเปิดใช้งานการนำเข้าข้อมูล"
+    "exportUnavailableTitle": "การส่งออกพร้อมใช้งานในสมุดบันทึกของคุณเอง",
+    "exportUnavailableDesc": "เริ่มสมุดบันทึกของคุณเพื่อเปิดใช้งานการส่งออกข้อมูล",
+    "importUnavailableTitle": "การนำเข้าพร้อมใช้งานในสมุดบันทึกของคุณเอง",
+    "importUnavailableDesc": "เริ่มสมุดบันทึกของคุณเพื่อเปิดใช้งานการนำเข้าข้อมูล"
   },
   "index": {
-    "loadingAuth": "กำลังตรวจสอบการยืนยันตัวตน...",
-    "loadingEntries": "กำลังโหลดรายการ...",
-    "loadingEntriesDesc": "กำลังถอดรหัสรายการที่เข้ารหัส...",
-    "initializingStorage": "กำลังเริ่มต้นที่จัดเก็บ...",
-    "loadingCachedEntries": "กำลังโหลดรายการที่แคชไว้...",
-    "decryptingEntries": "กำลังถอดรหัสรายการ...",
-    "syncingWithCloud": "กำลังซิงค์กับคลาวด์...",
-    "noCloudConnected": "ยังไม่ได้เชื่อมต่อที่จัดเก็บคลาวด์",
-    "noCloudConnectedDesc": "รายการถูกจัดเก็บในเครื่องและเข้ารหัส เชื่อมต่อที่จัดเก็บในตั้งค่าเพื่อซิงค์ข้ามอุปกรณ์",
-    "connectStorage": "เชื่อมต่อที่จัดเก็บ",
-    "storageInitError": "เกิดข้อผิดพลาดในการเริ่มต้นที่จัดเก็บ",
+    "loadingAuth": "กำลังตรวจสอบการยืนยันตัวตน…",
+    "loadingEntries": "กำลังโหลดรายการ…",
+    "loadingEntriesDesc": "กำลังถอดรหัสรายการที่เข้ารหัส…",
+    "initializingStorage": "กำลังเริ่มต้นพื้นที่จัดเก็บ…",
+    "loadingCachedEntries": "กำลังโหลดรายการที่แคชไว้…",
+    "decryptingEntries": "กำลังถอดรหัสรายการ…",
+    "syncingWithCloud": "กำลังซิงค์กับคลาวด์…",
+    "noCloudConnected": "ยังไม่ได้เชื่อมต่อพื้นที่จัดเก็บคลาวด์",
+    "noCloudConnectedDesc": "รายการถูกจัดเก็บในเครื่องและเข้ารหัส เชื่อมต่อพื้นที่จัดเก็บในตั้งค่าเพื่อซิงค์ข้ามอุปกรณ์",
+    "connectStorage": "เชื่อมต่อพื้นที่จัดเก็บ",
+    "storageInitError": "เกิดข้อผิดพลาดในการเริ่มต้นพื้นที่จัดเก็บ",
     "solution": "วิธีแก้ไข",
     "incompatibleSolution": "กรุณาลบโฟลเดอร์ OwnJournal จาก Nextcloud แล้วยกเลิกการเชื่อมต่อ/เชื่อมต่อ Nextcloud ใหม่ในตั้งค่า",
     "setEncryptionPassword": "ตั้งรหัสผ่านการเข้ารหัส",
@@ -261,39 +260,39 @@
     "authFailedDesc": "รหัสผ่านที่จัดเก็บไม่ถูกต้อง กรุณากรอกรหัสผ่าน",
     "initError": "เกิดข้อผิดพลาดในการเริ่มต้น",
     "initErrorDesc": "กรุณาลองอีกครั้ง",
-    "settingUpSync": "กำลังตั้งค่าการซิงค์คลาวด์...",
+    "settingUpSync": "กำลังตั้งค่าการซิงค์คลาวด์…",
     "settingUpSyncDesc": "กำลังอัปโหลดคีย์เข้ารหัสและเตรียมการซิงค์",
     "initialSyncComplete": "ซิงค์เริ่มต้นเสร็จสิ้น",
-    "initialSyncCompleteDesc": "ซิงค์แล้ว {{count}} รายการกับ {{provider}}",
+    "initialSyncCompleteDesc_other": "ซิงค์ {{count}} รายการกับ {{provider}} แล้ว",
     "initialSyncFailed": "การซิงค์เริ่มต้นล้มเหลว",
     "initialSyncFailedDesc": "ไม่สามารถซิงค์เริ่มต้นได้",
     "secondaryProviderConnected": "เชื่อมต่อ {{provider}} แล้ว",
-    "secondaryProviderConnectedDesc": "เชื่อมต่อเป็นที่สำรองรอง ผู้ให้บริการหลักจะจัดการการซิงค์",
+    "secondaryProviderConnectedDesc": "เชื่อมต่อเป็นพื้นที่จัดเก็บสำรองแล้ว ผู้ให้บริการหลักจะจัดการการซิงค์",
     "conflictDetected": "⚠️ ตรวจพบความขัดแย้งในการซิงค์",
-    "conflictDetectedDesc": "แก้ไขการแก้ไขพร้อมกันโดยอัตโนมัติแล้ว บันทึกความขัดแย้ง {{count}} รายการ",
+    "conflictDetectedDesc_other": "จัดการการแก้ไขที่เกิดขึ้นพร้อมกันโดยอัตโนมัติแล้ว บันทึกความขัดแย้งไว้ {{count}} รายการ",
     "viewConflicts": "ดูความขัดแย้ง",
-    "savingEntry": "กำลังบันทึกรายการ...",
+    "savingEntry": "กำลังบันทึกรายการ…",
     "savingEntryDesc": "กำลังเข้ารหัสและซิงค์บันทึก",
     "entrySaved": "บันทึกรายการแล้ว",
     "entrySavedDesc": "บันทึกที่เข้ารหัสถูกบันทึกและซิงค์แล้ว",
     "entrySavedOfflineDesc": "บันทึกในเครื่องแล้ว จะซิงค์เมื่อกลับมาออนไลน์",
     "failedToSaveEntry": "บันทึกรายการล้มเหลว",
     "pleaseTryAgain": "กรุณาลองอีกครั้ง",
-    "deletingEntry": "กำลังลบรายการ...",
-    "deletingEntryDesc": "กำลังลบรายการจากที่จัดเก็บและซิงค์กับคลาวด์",
+    "deletingEntry": "กำลังลบรายการ…",
+    "deletingEntryDesc": "กำลังลบรายการจากพื้นที่จัดเก็บและซิงค์กับคลาวด์",
     "entryDeleted": "ลบรายการแล้ว",
     "entryDeletedDesc": "บันทึกถูกลบและซิงค์แล้ว",
     "entryDeletedOfflineDesc": "ลบในเครื่องแล้ว จะซิงค์เมื่อกลับมาออนไลน์",
     "deletionFailed": "การลบล้มเหลว",
-    "deletionFailedDesc": "ไม่สามารถลบรายการจากที่จัดเก็บได้ การเปลี่ยนแปลงอาจถูกย้อนกลับ",
+    "deletionFailedDesc": "ไม่สามารถลบรายการจากพื้นที่จัดเก็บได้ การเปลี่ยนแปลงอาจถูกย้อนกลับ",
     "unexpectedError": "เกิดข้อผิดพลาดที่ไม่คาดคิด",
     "appleSignInNotAvailable": "ไม่สามารถเข้าสู่ระบบด้วย Apple ได้",
     "appleSignInNotAvailableDesc": "ยังไม่ได้ตั้งค่าการยืนยันตัวตนด้วย Apple กรุณาติดต่อผู้ดูแลระบบหรือใช้วิธีเข้าสู่ระบบอื่น",
     "signedOut": "ออกจากระบบแล้ว",
     "signedOutDesc": "ออกจากระบบเรียบร้อยแล้ว",
     "backupExported": "ส่งออกข้อมูลสำรองแล้ว",
-    "backupExportedDesc": "ส่งออก {{count}} รายการเป็นไฟล์ JSON",
-    "importCompleteDesc": "นำเข้าแล้ว {{count}} รายการ กำลังซิงค์ไปยังที่จัดเก็บ...",
+    "backupExportedDesc_other": "ส่งออก {{count}} รายการเป็นไฟล์ JSON",
+    "importCompleteDesc_other": "นำเข้าแล้ว {{count}} รายการ กำลังซิงค์ไปยังพื้นที่จัดเก็บ…",
     "cloudSyncComplete": "ซิงค์คลาวด์เสร็จสิ้น",
     "cloudSyncCompleteDesc": "รายการที่นำเข้าถูกซิงค์กับคลาวด์แล้ว",
     "cloudSyncIncomplete": "ซิงค์คลาวด์ไม่สมบูรณ์",
@@ -309,9 +308,9 @@
     "storageFull": "พื้นที่จัดเก็บเต็ม",
     "storageFullDesc": "พื้นที่คลาวด์เต็มแล้ว กรุณาเพิ่มพื้นที่ว่างแล้วลองอีกครั้ง",
     "authenticationFailed": "การยืนยันตัวตนล้มเหลว",
-    "authenticationFailedDesc": "ข้อมูลรับรองอาจหมดอายุ กรุณาเชื่อมต่อที่จัดเก็บคลาวด์ใหม่ในตั้งค่า",
+    "authenticationFailedDesc": "ข้อมูลรับรองอาจหมดอายุ กรุณาเชื่อมต่อพื้นที่จัดเก็บคลาวด์ใหม่ในตั้งค่า",
     "permissionDenied": "ไม่ได้รับอนุญาต",
-    "permissionDeniedDesc": "ไม่มีสิทธิ์เข้าถึงตำแหน่งจัดเก็บนี้ กรุณาตรวจสอบสิทธิ์ที่จัดเก็บคลาวด์",
+    "permissionDeniedDesc": "ไม่มีสิทธิ์เข้าถึงตำแหน่งจัดเก็บนี้ กรุณาตรวจสอบสิทธิ์ของพื้นที่จัดเก็บคลาวด์",
     "signInRequired": "ต้องเข้าสู่ระบบ",
     "signInRequiredDesc": "กรุณาเข้าสู่ระบบเพื่ออัปเกรดเป็น Plus",
     "checkoutNotAvailable": "ชำระเงินไม่พร้อมใช้งาน",
@@ -322,17 +321,17 @@
     "passwordSavedDesc": "ตั้งรหัสผ่านการเข้ารหัสแล้ว",
     "encryptionSetupFailed": "ตั้งค่าการเข้ารหัสล้มเหลว",
     "encryptionSetupFailedDesc": "ไม่สามารถเริ่มต้นการเข้ารหัสได้",
-    "startingCloudSync": "กำลังเริ่มการซิงค์คลาวด์...",
+    "startingCloudSync": "กำลังเริ่มการซิงค์คลาวด์…",
     "startingCloudSyncDesc": "กำลังซิงค์บันทึกในพื้นหลัง",
-    "syncCompleteDesc": "ซิงค์แล้ว {{count}} รายการกับคลาวด์",
+    "syncCompleteDesc_other": "ซิงค์ {{count}} รายการกับพื้นที่จัดเก็บคลาวด์แล้ว",
     "unableToStartSync": "ไม่สามารถเริ่มการซิงค์ได้",
     "nextcloudEncryptionError": "ไม่สามารถซิงค์กับโฟลเดอร์ Nextcloud นี้ได้",
-    "nextcloudEncryptionErrorDesc": "โฟลเดอร์ Nextcloud นี้เปิดใช้การเข้ารหัสฝั่งเซิร์ฟเวอร์ ทำให้ OwnJournal ไม่สามารถอ่านหรือเขียนไฟล์ได้ แตะ \"เรียนรู้เพิ่มเติม\" เพื่อดูคำแนะนำทีละขั้นตอน",
+    "nextcloudEncryptionErrorDesc": "โฟลเดอร์ Nextcloud นี้เปิดใช้การเข้ารหัสฝั่งเซิร์ฟเวอร์ ทำให้ OwnJournal ไม่สามารถอ่านหรือเขียนไฟล์ได้ กด “เรียนรู้เพิ่มเติม” เพื่อดูคำแนะนำทีละขั้นตอน",
     "nextcloudEncryptionLearnMore": "เรียนรู้เพิ่มเติม",
     "encryptedEntriesDetected": "พบรายการที่เข้ารหัส",
-    "encryptedEntriesInSimpleMode": "พบ {{count}} รายการที่เข้ารหัสซึ่งไม่สามารถอ่านได้ในโหมดง่าย หากต้องการเข้าถึง กรุณายกเลิกการเชื่อมต่อแล้วเชื่อมต่อใหม่ในโหมด E2E",
-    "encryptedEntriesInSimpleModeHint": "{{count}} รายการต้องใช้การเข้ารหัส E2E เพื่อดู กรอกรหัสผ่านเพื่อปลดล็อก",
-    "syncCompleteWithEncrypted": "ซิงค์เสร็จสิ้น แต่ {{count}} รายการที่เข้ารหัสต้องใช้โหมด E2E เพื่อดู",
+    "encryptedEntriesInSimpleMode_other": "พบรายการที่เข้ารหัส {{count}} รายการ ซึ่งอ่านไม่ได้ในโหมดง่าย หากต้องการเข้าถึง กรุณายกเลิกการเชื่อมต่อแล้วเชื่อมต่อใหม่ในโหมด E2E",
+    "encryptedEntriesInSimpleModeHint_other": "มี {{count}} รายการที่ต้องใช้การเข้ารหัส E2E จึงจะดูได้ กรอกรหัสผ่านเพื่อปลดล็อก",
+    "syncCompleteWithEncrypted_other": "ซิงค์เสร็จสิ้น แต่มีรายการที่เข้ารหัส {{count}} รายการที่ต้องใช้โหมด E2E จึงจะดูได้",
     "unlockNow": "ปลดล็อกเลย",
     "viewStorageOptions": "ดูตัวเลือก"
   },
@@ -341,7 +340,7 @@
     "description": "ทำตามขั้นตอนเหล่านี้เพื่อตั้งค่าเซิร์ฟเวอร์ Nextcloud สำหรับการเข้าถึงผ่านเบราว์เซอร์",
     "setupHelp": "ช่วยเหลือการตั้งค่า",
     "whyNeeded": "ทำไมถึงต้องทำ?",
-    "whyNeededDesc": "เบราว์เซอร์มีกฎความปลอดภัยที่ป้องกันไม่ให้เว็บไซต์เชื่อมต่อกับเซิร์ฟเวอร์อื่นโดยตรง Nextcloud ต้องอนุญาตให้ app นี้เชื่อมต่อได้",
+    "whyNeededDesc": "เบราว์เซอร์มีกฎความปลอดภัยที่ป้องกันไม่ให้เว็บไซต์เชื่อมต่อกับเซิร์ฟเวอร์อื่นโดยตรง Nextcloud ต้องอนุญาตให้แอปนี้เชื่อมต่อได้",
     "apacheUsers": "สำหรับผู้ใช้ Apache",
     "apacheConfig": "การตั้งค่า Apache",
     "apacheDesc": "หาก Nextcloud ทำงานบนเว็บเซิร์ฟเวอร์ Apache จะต้องเพิ่ม CORS headers ในการตั้งค่า",
@@ -358,13 +357,13 @@
     "certbotInstructions": "สำหรับใบรับรองที่ลงนามเอง ใช้ Let's Encrypt กับ certbot เพื่อรับใบรับรอง SSL ฟรี",
     "needMoreHelp": "ต้องการความช่วยเหลือเพิ่มเติม?",
     "corsBlocked": "การเชื่อมต่อถูกบล็อกโดยความปลอดภัยของเบราว์เซอร์ (CORS) เซิร์ฟเวอร์ Nextcloud ต้องอนุญาตการเชื่อมต่อจากเบราว์เซอร์",
-    "authFailed": "ยืนยันตัวตนไม่สำเร็จ กรุณาตรวจสอบชื่อผู้ใช้และรหัสผ่าน app ในตั้งค่า Nextcloud",
+    "authFailed": "ยืนยันตัวตนไม่สำเร็จ กรุณาตรวจสอบชื่อผู้ใช้และรหัสผ่านแอปในตั้งค่า Nextcloud",
     "sslError": "ข้อผิดพลาดใบรับรอง SSL ใบรับรอง HTTPS ของเซิร์ฟเวอร์ไม่ถูกต้อง หมดอายุ หรือไม่น่าเชื่อถือ",
     "howToFix": "วิธีแก้ไข:",
     "copied": "คัดลอกแล้ว!",
     "copiedDesc": "คัดลอกการตั้งค่าไปยังคลิปบอร์ดแล้ว",
     "dialogTitle": "วิธีเชื่อมต่อ Nextcloud",
-    "dialogDescription": "ทำตามขั้นตอนง่ายๆ เหล่านี้เพื่อเปิดใช้งานการเชื่อมต่อผ่านเบราว์เซอร์กับเซิร์ฟเวอร์ Nextcloud",
+    "dialogDescription": "ทำตามขั้นตอนง่าย ๆ เหล่านี้เพื่อเปิดใช้งานการเชื่อมต่อผ่านเบราว์เซอร์กับเซิร์ฟเวอร์ Nextcloud",
     "apacheMethod": "วิธีที่ 1: ตั้งค่า Apache",
     "nginxMethod": "วิธีที่ 2: ตั้งค่า Nginx",
     "sslMethod": "วิธีที่ 3: แก้ไขข้อผิดพลาดใบรับรอง SSL",
@@ -374,13 +373,13 @@
     "sslInstructions": "ตัวเลือกในการแก้ไขข้อผิดพลาดใบรับรอง SSL:",
     "restartApache": "จากนั้นรีสตาร์ท Apache:",
     "restartNginx": "จากนั้นรีสตาร์ท Nginx:",
-    "testConnection": "จากนั้นทดสอบการเชื่อมต่ออีกครั้งจาก app นี้",
+    "testConnection": "จากนั้นทดสอบการเชื่อมต่ออีกครั้งจากแอปนี้",
     "saveFile": "บันทึกไฟล์",
     "testConfig": "ทดสอบการตั้งค่า:",
     "testNginx": "ทดสอบการตั้งค่า:",
     "expectedOutput": "ผลลัพธ์ที่คาดว่าจะได้จาก configtest:",
     "syntaxOkDesc": "การตั้งค่าถูกต้อง ดำเนินการรีสตาร์ทได้",
-    "ah00558Desc": "คำเตือนเกี่ยวกับ ServerName - ไม่มีผลกระทบ สามารถเพิกเฉยได้",
+    "ah00558Desc": "คำเตือนเกี่ยวกับ ServerName — ไม่มีผลกระทบ สามารถเพิกเฉยได้",
     "invalidCommandDesc": "โมดูลยังไม่ได้เปิดใช้งาน ทำขั้นตอนที่ 1 อีกครั้ง",
     "syntaxErrorDesc": "ตรวจสอบการพิมพ์ผิดในการตั้งค่า",
     "troubleshooting": "การแก้ไขปัญหา",
@@ -394,15 +393,15 @@
     "copyConfig": "คัดลอกการตั้งค่า",
     "nginxSyntaxOkDesc": "การตั้งค่าถูกต้อง ดำเนินการโหลดใหม่ได้",
     "nginxTestOkDesc": "ผ่านการทดสอบทั้งหมด สามารถโหลดใหม่ได้อย่างปลอดภัย",
-    "nginxUnknownDirectiveDesc": "ตรวจสอบไวยากรณ์ - อาจพิมพ์ผิดหรือขาดเครื่องหมายอัฒภาค",
+    "nginxUnknownDirectiveDesc": "ตรวจสอบไวยากรณ์ — อาจพิมพ์ผิดหรือขาดเครื่องหมายอัฒภาค",
     "nginxOptions401Fix": "ตรวจสอบว่าบล็อก OPTIONS ตอบ 204 ก่อนการตรวจสอบสิทธิ์",
-    "nginxCorsHeaderMissingFix": "ตรวจสอบว่า add_header มีแฟล็ก 'always'",
+    "nginxCorsHeaderMissingFix": "ตรวจสอบว่า add_header มีแฟล็ก “always”",
     "nginxFindFileInstruction": "แสดงรายการไฟล์ตั้งค่าไซต์ Nginx เพื่อค้นหาไฟล์สำหรับโดเมน Nextcloud:",
     "nginxEditFileInstruction": "แก้ไขไฟล์สำหรับโดเมน Nextcloud:",
     "commonSslIssues": "ปัญหาใบรับรอง SSL ที่พบบ่อย:",
-    "expiredCert": "ใบรับรองหมดอายุ - ต้องต่ออายุ",
-    "selfSignedCert": "ใบรับรองลงนามเอง - เบราว์เซอร์ไม่เชื่อถือ",
-    "invalidCert": "ใบรับรองไม่ถูกต้อง - โดเมนไม่ตรงหรือตั้งค่าผิดพลาด",
+    "expiredCert": "ใบรับรองหมดอายุ — ต้องต่ออายุ",
+    "selfSignedCert": "ใบรับรองลงนามเอง — เบราว์เซอร์ไม่เชื่อถือ",
+    "invalidCert": "ใบรับรองไม่ถูกต้อง — โดเมนไม่ตรงหรือตั้งค่าผิดพลาด",
     "missingIntermediateCerts": "ขาดใบรับรองกลาง",
     "howToCheckSsl": "วิธีตรวจสอบใบรับรอง SSL:",
     "openNextcloudUrl": "เปิด URL ของ Nextcloud ในเบราว์เซอร์ (เช่น {{url}})",
@@ -410,7 +409,7 @@
     "checkCertDetails": "ตรวจสอบรายละเอียดใบรับรอง:",
     "isExpired": "หมดอายุหรือไม่? ตรวจสอบวันที่ที่มีผล",
     "doesDomainMatch": "โดเมนตรงหรือไม่? ใบรับรองต้องตรงกับ URL",
-    "isSelfSigned": "ลงนามเองหรือไม่? มองหา \"Unknown Certificate Authority\"",
+    "isSelfSigned": "ลงนามเองหรือไม่? มองหา “Unknown Certificate Authority”",
     "howToFixSsl": "วิธีแก้ไขปัญหาใบรับรอง SSL:",
     "forExpiredCerts": "สำหรับใบรับรองที่หมดอายุ:",
     "ifUsingLetsEncrypt": "หากใช้ Let's Encrypt กับ Certbot:",
@@ -429,25 +428,25 @@
     "step1Desc": "URL ของเซิร์ฟเวอร์ Nextcloud คือที่อยู่ที่ใช้เข้าถึง Nextcloud ในเบราว์เซอร์ (เช่น https://cloud.example.com หรือ https://your-domain.com/nextcloud)",
     "step2Title": "ขั้นตอนที่ 2: ชื่อผู้ใช้",
     "step2Desc": "ใช้ชื่อผู้ใช้เดียวกับที่ใช้เข้าสู่ระบบ Nextcloud (มักแสดงที่มุมขวาบนเมื่อเข้าสู่ระบบแล้ว)",
-    "step3Title": "ขั้นตอนที่ 3: สร้างรหัสผ่าน app",
-    "step3CreatePassword": "วิธีสร้างรหัสผ่าน app:",
+    "step3Title": "ขั้นตอนที่ 3: สร้างรหัสผ่านแอป",
+    "step3CreatePassword": "วิธีสร้างรหัสผ่านแอป:",
     "step3Instructions1": "เข้าสู่ระบบเว็บ Nextcloud",
     "step3Instructions2": "คลิกไอคอนโปรไฟล์ (มุมขวาบน) → ตั้งค่า",
-    "step3Instructions3": "ไปที่ \"ความปลอดภัย\" ในแถบด้านซ้าย",
-    "step3Instructions4": "เลื่อนลงไปที่ \"อุปกรณ์และเซสชัน\"",
-    "step3Instructions5": "ใส่ชื่อเช่น \"OwnJournal\" แล้วคลิก \"สร้างรหัสผ่าน app ใหม่\"",
+    "step3Instructions3": "ไปที่ “ความปลอดภัย” ในแถบด้านซ้าย",
+    "step3Instructions4": "เลื่อนลงไปที่ “อุปกรณ์และเซสชัน”",
+    "step3Instructions5": "ใส่ชื่อเช่น “OwnJournal” แล้วคลิก “สร้างรหัสผ่านแอปใหม่”",
     "step3Instructions6": "คัดลอกรหัสผ่านที่สร้าง (แสดงเพียงครั้งเดียว!)",
-    "step3Tip": "รหัสผ่าน app เป็นรหัสผ่านพิเศษที่ให้ app เชื่อมต่อกับ Nextcloud โดยไม่ต้องใช้รหัสผ่านหลัก สามารถเพิกถอนได้ตลอดเวลาจากตั้งค่าความปลอดภัย",
-    "generateAppPassword": "สร้างรหัสผ่าน app ในตั้งค่าความปลอดภัยของ Nextcloud",
+    "step3Tip": "รหัสผ่านแอปเป็นรหัสผ่านพิเศษที่ให้แอปเชื่อมต่อกับ Nextcloud โดยไม่ต้องใช้รหัสผ่านหลัก สามารถเพิกถอนได้ตลอดเวลาจากตั้งค่าความปลอดภัย",
+    "generateAppPassword": "สร้างรหัสผ่านแอปในตั้งค่าความปลอดภัยของ Nextcloud",
     "corsTitle": "🌐 ต้องตั้งค่าเซิร์ฟเวอร์",
     "corsDescriptionPart1": "เซิร์ฟเวอร์ Nextcloud ต้องได้รับการตั้งค่าเพื่ออนุญาตการเชื่อมต่อจากเบราว์เซอร์ นี่คือ",
     "corsDescriptionBold": "ปัญหาการตั้งค่าฝั่งเซิร์ฟเวอร์",
     "corsDescriptionPart2": " ไม่ใช่ปัญหารหัสผ่าน",
-    "mobileAppNote": "📱 ผู้ใช้ app มือถือ",
-    "mobileAppNoteDesc": "app มือถืออาจมีข้อจำกัดการเชื่อมต่อที่เข้มงวดกว่าเบราว์เซอร์เดสก์ท็อป หากเชื่อมต่อได้จากคอมพิวเตอร์แต่ไม่ได้จากโทรศัพท์:",
+    "mobileAppNote": "📱 ผู้ใช้แอปมือถือ",
+    "mobileAppNoteDesc": "แอปมือถืออาจมีข้อจำกัดการเชื่อมต่อที่เข้มงวดกว่าเบราว์เซอร์เดสก์ท็อป หากเชื่อมต่อได้จากคอมพิวเตอร์แต่ไม่ได้จากโทรศัพท์:",
     "mobileAppTip1": "ตรวจสอบว่าเซิร์ฟเวอร์ Nextcloud อนุญาตการเชื่อมต่อจากทุกที่ (Access-Control-Allow-Origin: *)",
     "mobileAppTip2": "ตรวจสอบว่าใบรับรอง SSL ถูกต้องและน่าเชื่อถือ (ไม่ใช่ลงนามเอง)",
-    "mobileAppTip3": "ผู้ให้บริการโฮสติ้งบางรายบล็อกการเชื่อมต่อจาก app มือถือโดยค่าเริ่มต้น - ติดต่อผู้ให้บริการหากปัญหายังคงอยู่",
+    "mobileAppTip3": "ผู้ให้บริการโฮสติ้งบางรายบล็อกการเชื่อมต่อจากแอปมือถือโดยค่าเริ่มต้น — ติดต่อผู้ให้บริการหากปัญหายังคงอยู่",
     "apacheEditConfig": "แก้ไขไฟล์ตั้งค่า Apache SSL VirtualHost:",
     "apacheAddInside": "เพิ่มการตั้งค่าภายในบล็อก {{tag}} (ก่อนแท็กปิด {{closeTag}})",
     "subdirectoryInstalls": "สำหรับการติดตั้งในไดเรกทอรีย่อย ปรับเส้นทาง (เช่น {{path}})",
@@ -466,12 +465,12 @@
     "replaceFilename": "แทนที่ YOUR_FILE.conf ด้วยชื่อไฟล์จากด้านบน (เช่น nextcloud-le-ssl.conf)",
     "recommended": "แนะนำ",
     "simpleConfig": "ตั้งค่าอย่างง่าย (สำหรับเซิร์ฟเวอร์ส่วนตัว)",
-    "simpleConfigDesc": "ใช้ wildcard origin (*) - ใช้งานได้กับทุกเบราว์เซอร์และ app มือถือ เหมาะสำหรับเซิร์ฟเวอร์ Nextcloud ส่วนตัว",
-    "simpleConfigDescNginx": "ใช้ wildcard origin (*) - ใช้งานได้กับทุกเบราว์เซอร์และ app มือถือ เหมาะสำหรับเซิร์ฟเวอร์ Nginx ส่วนตัว",
+    "simpleConfigDesc": "ใช้ wildcard origin (*) — ใช้งานได้กับทุกเบราว์เซอร์และแอปมือถือ เหมาะสำหรับเซิร์ฟเวอร์ Nextcloud ส่วนตัว",
+    "simpleConfigDescNginx": "ใช้ wildcard origin (*) — ใช้งานได้กับทุกเบราว์เซอร์และแอปมือถือ เหมาะสำหรับเซิร์ฟเวอร์ Nginx ส่วนตัว",
     "advanced": "ขั้นสูง",
     "secureConfig": "ตั้งค่าแบบปลอดภัย (สำหรับเซิร์ฟเวอร์ที่ใช้ร่วมกัน)",
-    "secureConfigDesc": "ใช้ origin reflection - อนุญาตเฉพาะโดเมน app ที่กำหนด ใช้หาก Nextcloud ใช้ร่วมกับผู้อื่น",
-    "secureConfigDescNginx": "ใช้ origin reflection - อนุญาตเฉพาะโดเมน app ที่กำหนด ใช้หากเซิร์ฟเวอร์ Nginx ใช้ร่วมกับผู้อื่น"
+    "secureConfigDesc": "ใช้ origin reflection — อนุญาตเฉพาะโดเมนแอปที่กำหนด ใช้หาก Nextcloud ใช้ร่วมกับผู้อื่น",
+    "secureConfigDescNginx": "ใช้ origin reflection — อนุญาตเฉพาะโดเมนแอปที่กำหนด ใช้หากเซิร์ฟเวอร์ Nginx ใช้ร่วมกับผู้อื่น"
   },
   "modelDownload": {
     "title": "ดาวน์โหลดโมเดล AI?",
@@ -479,8 +478,8 @@
     "modelsReadyDesc": "ดาวน์โหลดโมเดล AI สำเร็จแล้ว",
     "downloadFailed": "ดาวน์โหลดไม่สำเร็จ",
     "downloadFailedDesc": "ดาวน์โหลดโมเดล AI ไม่สำเร็จ กรุณาลองอีกครั้ง",
-    "downloading": "กำลังดาวน์โหลดโมเดล AI สำหรับการวิเคราะห์แบบส่วนตัวบนอุปกรณ์...",
-    "mayTakeMinutes": "อาจใช้เวลาสักครู่ กรุณาเปิด app ค้างไว้",
+    "downloading": "กำลังดาวน์โหลดโมเดล AI สำหรับการวิเคราะห์แบบส่วนตัวบนอุปกรณ์…",
+    "mayTakeMinutes": "อาจใช้เวลาสักครู่ กรุณาเปิดแอปค้างไว้",
     "toUsePrivateAI": "เพื่อใช้ฟีเจอร์ Private AI ต้องดาวน์โหลดโมเดล AI ({{size}}) ลงอุปกรณ์",
     "selected": "เลือก: {{name}}",
     "multilingualName": "หลายภาษา (100+ ภาษา)",
@@ -488,23 +487,23 @@
     "multilingualDesc": "รองรับภาษาญี่ปุ่น จีน สเปน และอีก 100+ ภาษา",
     "lightweightDesc": "ทำงานเร็วกว่า ดาวน์โหลดน้อยกว่า ภาษาอังกฤษเท่านั้น",
     "changeInSettings": "หากต้องการเปลี่ยนโมเดล เปิดตั้งค่า ไปที่โหมด AI แล้วเลือกประเภทโมเดลที่ต้องการ",
-    "privateOnDevice": "เป็นส่วนตัว 100% - ทำงานบนอุปกรณ์ทั้งหมด",
+    "privateOnDevice": "เป็นส่วนตัว 100% — ทำงานบนอุปกรณ์ทั้งหมด",
     "worksOffline": "ใช้งานออฟไลน์ได้หลังดาวน์โหลด",
     "oneTimeDownload": "ดาวน์โหลดครั้งเดียว ({{size}})",
     "cancel": "ยกเลิก",
-    "notNow": "ไม่ใช่ตอนนี้",
+    "notNow": "ไว้ทีหลัง",
     "downloadModels": "ดาวน์โหลดโมเดล",
-    "downloadingBtn": "กำลังดาวน์โหลด..."
+    "downloadingBtn": "กำลังดาวน์โหลด…"
   },
   "transfer": {
     "connectionError": "เชื่อมต่อผิดพลาด",
     "connectionErrorDesc": "ผู้ให้บริการทั้งสองต้องเชื่อมต่อ",
     "transferStarted": "เริ่มถ่ายโอนแล้ว",
-    "transferStartedDesc": "กำลังคัดลอกรายการจาก {{source}} ไปยัง {{target}}...",
+    "transferStartedDesc": "กำลังคัดลอกรายการจาก {{source}} ไปยัง {{target}}…",
     "transferProgress": "กำลังถ่ายโอน",
     "transferProgressDesc": "{{current}} จาก {{total}} รายการถูกคัดลอก",
     "complete": "ถ่ายโอนเสร็จแล้ว",
-    "completeDesc": "ถ่ายโอน {{count}} ไฟล์จาก {{source}} ไปยัง {{target}} สำเร็จ",
+    "completeDesc_other": "ถ่ายโอน {{count}} ไฟล์จาก {{source}} ไปยัง {{target}} สำเร็จ",
     "completedWithErrors": "ถ่ายโอนเสร็จแต่มีข้อผิดพลาด",
     "completedWithErrorsDesc": "ถ่ายโอน {{transferred}} ไฟล์ ล้มเหลว {{failed}} ไฟล์ ตรวจสอบคอนโซลสำหรับรายละเอียด",
     "failed": "ถ่ายโอนไม่สำเร็จ",
@@ -512,10 +511,10 @@
     "stoppedDesc": "การถ่ายโอนถูกหยุดโดยผู้ใช้",
     "cancelled": "ยกเลิกการถ่ายโอนแล้ว",
     "cancelledDesc": "ยกเลิกการถ่ายโอนแล้ว ถ่ายโอน {{transferred}} ไฟล์ก่อนยกเลิก",
-    "cleaningUp": "กำลังทำความสะอาด...",
+    "cleaningUp": "กำลังทำความสะอาด…",
     "mirrorComplete": "มิเรอร์ซิงค์เสร็จแล้ว",
-    "mirrorCompleteDesc": "มิเรอร์ {{count}} ไฟล์จาก {{source}} ไปยัง {{target}} สำเร็จ ปลายทางตรงกับต้นทางแล้ว",
-    "transferCompleteDisconnect": "ถ่ายโอนเสร็จ - ยกเลิกการเชื่อมต่อต้นทาง?",
+    "mirrorCompleteDesc_other": "มิเรอร์ {{count}} ไฟล์จาก {{source}} ไปยัง {{target}} สำเร็จ ปลายทางตรงกับต้นทางแล้ว",
+    "transferCompleteDisconnect": "ถ่ายโอนเสร็จ — ยกเลิกการเชื่อมต่อต้นทาง?",
     "transferCompleteDisconnectDesc": "รายการทั้งหมดถูกมิเรอร์ไปยัง {{target}} แล้ว ต้องการยกเลิกการเชื่อมต่อ {{source}} หรือไม่?",
     "passwordRequiredAfterTransfer": "กรุณากรอกรหัสผ่านเพื่อเสร็จสิ้นการเปลี่ยนผู้ให้บริการและโหลดคีย์การเข้ารหัสใหม่",
     "keyValidationFailed": "คีย์การเข้ารหัสไม่ตรงกัน",
@@ -532,33 +531,34 @@
     "settingUp": "กำลังตั้งค่าซิงค์คลาวด์…",
     "settingUpDesc": "กำลังอัปโหลดคีย์การเข้ารหัสและเตรียมซิงค์",
     "initialComplete": "ซิงค์เริ่มต้นเสร็จแล้ว",
-    "initialCompleteDesc": "ซิงค์ {{count}} รายการแล้ว",
+    "initialCompleteDesc_other": "ซิงค์ {{count}} รายการแล้ว",
     "initialFailed": "ซิงค์เริ่มต้นไม่สำเร็จ",
     "initialFailedDesc": "ไม่สามารถซิงค์เริ่มต้นได้",
-    "savingEntry": "กำลังบันทึกรายการ...",
+    "savingEntry": "กำลังบันทึกรายการ…",
     "savingEntryDesc": "กำลังเข้ารหัสและซิงค์รายการสมุดบันทึก",
     "entrySaved": "บันทึกรายการแล้ว",
     "entrySavedDesc": "รายการสมุดบันทึกเข้ารหัสถูกบันทึกและซิงค์แล้ว",
     "failedToSave": "บันทึกรายการไม่สำเร็จ",
-    "deletingEntry": "กำลังลบรายการ...",
+    "deletingEntry": "กำลังลบรายการ…",
     "deletingEntryDesc": "กำลังลบรายการจากพื้นที่จัดเก็บและซิงค์ไปคลาวด์",
     "entryDeleted": "ลบรายการแล้ว",
     "entryDeletedDesc": "รายการสมุดบันทึกถูกลบและซิงค์แล้ว",
     "deletionFailed": "ลบไม่สำเร็จ",
     "deletionFailedDesc": "ลบรายการจากพื้นที่จัดเก็บไม่สำเร็จ การเปลี่ยนแปลงอาจถูกย้อนกลับ",
     "conflictDetected": "⚠️ ตรวจพบความขัดแย้งในการซิงค์",
-    "conflictDetectedDesc": "แก้ไขที่ซ้ำกันถูกจัดการอัตโนมัติแล้ว บันทึกความขัดแย้ง {{count}} รายการ",
+    "conflictDetectedDesc_other": "จัดการการแก้ไขที่เกิดขึ้นพร้อมกันโดยอัตโนมัติแล้ว บันทึกความขัดแย้งไว้ {{count}} รายการ",
     "viewConflicts": "ดูความขัดแย้ง",
     "tooManyRequests": "คำขอมากเกินไป",
     "tooManyRequestsDesc": "คลาวด์ได้รับคำขอเร็วเกินไป การซิงค์จะลองใหม่อัตโนมัติ",
     "dropboxRateLimited": "Dropbox ไม่ว่าง",
-    "dropboxRateLimitedDesc": "มีการเขียนมากเกินไป กำลังรอก่อนลองใหม่..."
+    "dropboxRateLimitedDesc": "มีการเขียนมากเกินไป กำลังรอก่อนลองใหม่…"
   },
   "export": {
     "complete": "ส่งออกเสร็จแล้ว",
     "completeDesc": "ส่งออกข้อมูลสมุดบันทึกสำเร็จ",
     "myJournal": "สมุดบันทึกส่วนตัว",
     "entries": "รายการ",
+    "entryCount_other": "{{count}} รายการ",
     "exportedOn": "ส่งออกเมื่อ",
     "mood": "อารมณ์",
     "tags": "แท็ก"
@@ -566,7 +566,7 @@
   "settings": {
     "title": "ตั้งค่า",
     "upgrade": "อัปเกรดเป็น Plus",
-    "upgradeDesc": "กำลังเปลี่ยนเส้นทางไปยังการจัดการสมาชิก...",
+    "upgradeDesc": "กำลังเปลี่ยนเส้นทางไปยังหน้าจัดการการสมัครสมาชิก…",
     "signedOut": "ออกจากระบบแล้ว",
     "signedOutDesc": "ออกจากระบบเรียบร้อยแล้ว",
     "resetComplete": "สำเร็จ",
@@ -603,7 +603,7 @@
       "sameEmail": "อีเมลใหม่ซ้ำกับอีเมลปัจจุบัน",
       "invalidEmail": "กรุณากรอกที่อยู่อีเมลที่ถูกต้อง",
       "notConfirmed": "ยังไม่ได้ยืนยันการเปลี่ยนอีเมล",
-      "notConfirmedDesc": "โปรดยืนยันที่อยู่อีเมลใหม่ของคุณโดยคลิกที่ลิงก์ที่เราส่งให้ก่อนที่การเปลี่ยนแปลงนี้จะเสร็จสมบูรณ์"
+      "notConfirmedDesc": "กรุณายืนยันที่อยู่อีเมลใหม่ของคุณโดยคลิกที่ลิงก์ที่เราส่งให้ก่อนที่การเปลี่ยนแปลงนี้จะเสร็จสมบูรณ์"
     },
     "deleteAccount": {
       "title": "ลบบัญชี",
@@ -615,8 +615,8 @@
       "successDesc": "ลบบัญชีอย่างถาวรแล้ว",
       "failed": "ลบบัญชีไม่สำเร็จ",
       "failedDesc": "กรุณาลองอีกครั้งในภายหลังหรือติดต่อฝ่ายสนับสนุน",
-      "deletingLocal": "กำลังลบข้อมูลในเครื่อง...",
-      "deletingCloud": "กำลังลบไฟล์บนคลาวด์ ({{current}}/{{total}})...",
+      "deletingLocal": "กำลังลบข้อมูลในเครื่อง…",
+      "deletingCloud": "กำลังลบไฟล์บนคลาวด์ ({{current}}/{{total}})…",
       "doNotClose": "กรุณาเปิดหน้านี้ไว้จนกว่าจะลบเสร็จ"
     },
     "journalName": {
@@ -642,7 +642,7 @@
       "cloudFeature1": "ซิงค์อัตโนมัติทุก 5 นาที",
       "cloudFeature2": "ใช้งานได้ทุกอุปกรณ์",
       "cloudFeature3": "แก้ไขความขัดแย้งอัตโนมัติ",
-      "cloudFeature4": "ข้อมูลและพื้นที่จัดเก็บเป็นของเราเอง ไม่มีใครเข้าถึงได้",
+      "cloudFeature4": "ข้อมูลและพื้นที่จัดเก็บเป็นของคุณเอง ไม่มีใครเข้าถึงได้",
       "backupFeature1": "สร้างข้อมูลสำรองด้วยตนเอง",
       "backupFeature2": "ถ่ายโอนข้อมูลครั้งเดียว",
       "backupFeature3": "เหมาะสำหรับการย้ายข้อมูลและกู้คืนฉุกเฉิน",
@@ -663,9 +663,9 @@
       "noDownloads": "ไม่ต้องดาวน์โหลด",
       "requiresInternet": "ต้องเชื่อมต่ออินเทอร์เน็ต",
       "privacyNote": "หมายเหตุเรื่องความเป็นส่วนตัว",
-      "privacyDesc": "เมื่อใช้ฟีเจอร์ AI เนื้อหาสมุดบันทึกจะถูกส่งอย่างปลอดภัยไปยังบริการ AI ของบุคคลที่สามเพื่อวิเคราะห์ เราไม่จัดเก็บข้อมูลนี้บนเซิร์ฟเวอร์ ผู้ให้บริการ AI อาจเก็บข้อมูลชั่วคราวเพื่อตรวจสอบการใช้งานที่ไม่เหมาะสม แต่ไม่ใช้เพื่อฝึกโมเดล",
+      "privacyDesc": "เมื่อใช้ฟีเจอร์ AI เนื้อหาสมุดบันทึกจะถูกส่งอย่างปลอดภัยไปยังบริการ AI ของบุคคลที่สามเพื่อวิเคราะห์ เราไม่จัดเก็บข้อมูลนี้บนเซิร์ฟเวอร์ ผู้ให้บริการ AI อาจเก็บข้อมูลชั่วคราวเพื่อตรวจสอบการใช้งานในทางที่ผิด แต่ไม่ใช้เพื่อฝึกโมเดล",
       "manageSubscription": "จัดการ",
-      "portalError": "ไม่สามารถเปิดตัวจัดการสมาชิกได้",
+      "portalError": "ไม่สามารถเปิดหน้าจัดการการสมัครสมาชิกได้",
       "portalErrorDesc": "กรุณาลองอีกครั้งในภายหลัง"
     },
     "appearance": {
@@ -690,12 +690,12 @@
     "connected": "เชื่อมต่อแล้ว",
     "serverUrl": "URL ของเซิร์ฟเวอร์",
     "username": "ชื่อผู้ใช้",
-    "appPassword": "รหัสผ่าน app",
+    "appPassword": "รหัสผ่านแอป",
     "connect": "เชื่อมต่อ",
     "disconnect": "ยกเลิกการเชื่อมต่อ",
     "update": "อัปเดตการเชื่อมต่อ",
     "cancel": "ยกเลิก",
-    "testing": "กำลังทดสอบการเชื่อมต่อ...",
+    "testing": "กำลังทดสอบการเชื่อมต่อ…",
     "setupHelp": "ช่วยเหลือการตั้งค่า",
     "connectionError": "เชื่อมต่อผิดพลาด",
     "authError": "ยืนยันตัวตนผิดพลาด",
@@ -706,7 +706,7 @@
     "serverUrlHelper": "ที่อยู่เซิร์ฟเวอร์ Nextcloud (ต้องขึ้นต้นด้วย https://)",
     "usernameLabel": "ชื่อผู้ใช้",
     "usernamePlaceholder": "ชื่อผู้ใช้ Nextcloud",
-    "appPasswordLabel": "รหัสผ่าน app",
+    "appPasswordLabel": "รหัสผ่านแอป",
     "appPasswordPlaceholder": "xxxx-xxxx-xxxx-xxxx",
     "syncingWith": "กำลังซิงค์กับ",
     "disconnectButton": "ยกเลิกการเชื่อมต่อ",
@@ -716,14 +716,14 @@
     "waitSeconds": "กรุณารอ {{seconds}} วินาทีก่อนลองอีกครั้ง",
     "notConnected": "ยังไม่ได้เชื่อมต่อ Nextcloud",
     "scanQrCode": "สแกน QR Code",
-    "scanQrCodeDesc": "สแกน QR Code จากหน้ารหัสผ่าน app ของ Nextcloud",
+    "scanQrCodeDesc": "สแกน QR Code จากหน้ารหัสผ่านแอปของ Nextcloud",
     "orEnterManually": "หรือกรอกเอง",
     "qrScanFailed": "สแกน QR ไม่สำเร็จ",
-    "qrInvalidFormat": "รูปแบบ QR Code ไม่ถูกต้อง กรุณาสแกน QR Code จากหน้ารหัสผ่าน app ของ Nextcloud",
+    "qrInvalidFormat": "รูปแบบ QR Code ไม่ถูกต้อง กรุณาสแกน QR Code จากหน้ารหัสผ่านแอปของ Nextcloud",
     "qrCameraPermission": "ต้องอนุญาตให้ใช้กล้องเพื่อสแกน QR Code",
     "qrCameraPermissionDenied": "สิทธิ์ใช้กล้องถูกปฏิเสธ กรุณาเปิดใช้งานกล้องในตั้งค่าอุปกรณ์",
     "openCameraToScan": "เปิดกล้องเพื่อสแกน",
-    "qrScanning": "กำลังสแกน...",
+    "qrScanning": "กำลังสแกน…",
     "qrSuccess": "สแกนข้อมูลรับรองแล้ว",
     "qrSuccessDesc": "กรอกรายละเอียดการเชื่อมต่อแล้ว แตะเชื่อมต่อเพื่อดำเนินการต่อ"
   },
@@ -734,7 +734,7 @@
     "thisMonth": "เดือนนี้",
     "backToTop": "กลับด้านบน",
     "newEntry": "รายการใหม่",
-    "searchPlaceholder": "ค้นหารายการ...",
+    "searchPlaceholder": "ค้นหารายการ…",
     "startDate": "วันที่เริ่มต้น",
     "endDate": "วันที่สิ้นสุด",
     "noEntries": "ไม่พบรายการที่ตรงกัน",
@@ -755,11 +755,14 @@
       "terrible": "แย่มาก"
     },
     "tags": "แท็ก",
-    "addTag": "เพิ่มแท็ก...",
+    "addTag": "เพิ่มแท็ก…",
     "addTagsPlaceholder": "เพิ่มแท็ก (กด Enter)",
-    "startWriting": "เริ่มเขียนความคิด...",
+    "startWriting": "เริ่มเขียนความคิด…",
     "maxTags": "ถึงจำนวนแท็กสูงสุดแล้ว",
     "maxTagsDesc": "เพิ่มแท็กได้สูงสุด 20 แท็กต่อรายการ",
+    "maxActivitiesReached": "ถึงจำนวนกิจกรรมสูงสุดแล้ว",
+    "maxActivitiesReachedDesc": "เพิ่มกิจกรรมได้สูงสุด 20 กิจกรรมต่อรายการ",
+    "maxActivitiesSkippedDesc": "เพิ่มกิจกรรมบางส่วนไม่ได้ เนื่องจากครบจำนวนสูงสุด 20 กิจกรรมแล้ว",
     "invalidTag": "แท็กไม่ถูกต้อง",
     "proFeature": "ฟีเจอร์ Plus",
     "imageUploadPro": "การอัปโหลดรูปภาพสำหรับสมาชิก Plus เท่านั้น",
@@ -779,12 +782,12 @@
     "wordExportedDesc": "บันทึกรายการเป็นเอกสาร Word แล้ว",
     "validationError": "ข้อผิดพลาดในการตรวจสอบ",
     "validationErrorDesc": "กรุณาตรวจสอบรายการ",
-    "titlePlaceholder": "ชื่อรายการ...",
+    "titlePlaceholder": "ชื่อรายการ…",
     "saveEntry": "บันทึกรายการ",
     "inlineTagBadgeHint": "เพิ่มจาก #แท็ก ในข้อความ"
   },
   "storage": {
-    "connecting": "กำลังเชื่อมต่อ...",
+    "connecting": "กำลังเชื่อมต่อ…",
     "connectionFailed": "เชื่อมต่อไม่สำเร็จ",
     "connectionError": "เชื่อมต่อผิดพลาด",
     "reconnectHint": "หากปัญหายังคงอยู่ ลองยกเลิกการเชื่อมต่อแล้วเชื่อมต่อพื้นที่จัดเก็บใหม่ในตั้งค่า",
@@ -792,17 +795,17 @@
     "syncInProgress": "กำลังซิงค์อยู่",
     "waitForSyncComplete": "กรุณารอให้การซิงค์เสร็จก่อนเปลี่ยนโหมดการเข้ารหัส",
     "pendingUploads": "การอัปโหลดที่รอดำเนินการ",
-    "pendingUploadsWarning": "{{count}} รายการยังอัปโหลดอยู่ การยกเลิกการเชื่อมต่อตอนนี้อาจทำให้ข้อมูลสูญหาย ดำเนินการต่อหรือไม่?",
+    "pendingUploadsWarning_other": "มี {{count}} รายการที่ยังอัปโหลดไม่เสร็จ การยกเลิกการเชื่อมต่อตอนนี้อาจทำให้ข้อมูลสูญหาย ดำเนินการต่อหรือไม่?",
     "encryptionPassword": "การเข้ารหัสและรหัสผ่าน",
     "encryptionMode": "โหมดการเข้ารหัส",
     "encryptionModeDesc": "เลือกวิธีป้องกันรายการสมุดบันทึกระหว่างซิงค์",
     "simpleMode": "ง่าย (ไม่ต้องใช้รหัสผ่าน)",
     "simpleModeDesc": "รายการซิงค์ไปคลาวด์เป็นไฟล์ JSON อ่านได้ ตั้งค่าง่าย ไม่ต้องใช้รหัสผ่าน",
     "e2eMode": "เข้ารหัสแบบต้นทางถึงปลายทาง",
-    "e2eModeDesc": "รายการถูกเข้ารหัสในเครื่องก่อนซิงค์ไปคลาวด์ มีเพียงเจ้าของเท่านั้นที่ถอดรหัสได้ด้วยรหัสผ่าน ความเป็นส่วนตัวสูงสุด",
+    "e2eModeDesc": "รายการถูกเข้ารหัสในเครื่องก่อนซิงค์ไปคลาวด์ มีเพียงคุณเท่านั้นที่ถอดรหัสได้ด้วยรหัสผ่าน ความเป็นส่วนตัวสูงสุด",
     "cannotSwitch": "ไม่สามารถเปลี่ยนโหมดการเข้ารหัส",
     "cannotSwitchDesc": "มีรายการอยู่แล้ว กรุณาลบข้อมูลทั้งหมดก่อนเปลี่ยนโหมดการเข้ารหัส",
-    "cannotSwitchFromE2E": "ไม่สามารถเปลี่ยนจากโหมด E2E ได้ - รีเซ็ตข้อมูลก่อนหากจำเป็น",
+    "cannotSwitchFromE2E": "ไม่สามารถเปลี่ยนจากโหมด E2E ได้ — รีเซ็ตข้อมูลก่อนหากจำเป็น",
     "cannotSwitchToE2E": "หากต้องการใช้การเข้ารหัส E2E ให้ยกเลิกการเชื่อมต่อคลาวด์ก่อนหรือรีเซ็ตข้อมูลทั้งหมด",
     "disconnectFirst": "กรุณายกเลิกการเชื่อมต่อคลาวด์หรือรีเซ็ตข้อมูลทั้งหมดเพื่อเปลี่ยนโหมดการเข้ารหัส",
     "cannotVerify": "ไม่สามารถตรวจสอบรายการ",
@@ -821,8 +824,8 @@
     "passwordStoredSecurely": "รหัสผ่านถูกจัดเก็บอย่างปลอดภัยบนอุปกรณ์นี้เพื่อเข้ารหัสอัตโนมัติ",
     "clearStoredPassword": "ล้างรหัสผ่านที่จัดเก็บ",
     "forgotPassword": "ลืมรหัสผ่าน?",
-    "forgotPasswordOption1": "ใช้ 'เปลี่ยนรหัสผ่าน' ด้านล่างหากทราบรหัสผ่านปัจจุบัน",
-    "forgotPasswordOption2": "ส่งออกข้อมูลสำรองก่อน จากนั้นใช้ 'ลบข้อมูลทั้งหมด' ในโซนอันตรายเพื่อเริ่มใหม่",
+    "forgotPasswordOption1": "ใช้ “เปลี่ยนรหัสผ่าน” ด้านล่างหากทราบรหัสผ่านปัจจุบัน",
+    "forgotPasswordOption2": "ส่งออกข้อมูลสำรองก่อน จากนั้นใช้ “รีเซ็ตข้อมูลทั้งหมด” ในโซนอันตรายเพื่อเริ่มใหม่",
     "changePassword": "เปลี่ยนรหัสผ่าน",
     "changePasswordDesc": "เปลี่ยนรหัสผ่านสมุดบันทึก รายการทั้งหมดจะถูกเข้ารหัสใหม่ด้วยรหัสผ่านใหม่",
     "dangerZone": "โซนอันตราย",
@@ -831,9 +834,9 @@
     "resetAllDataWarning": "การดำเนินการนี้จะลบรายการสมุดบันทึก คีย์การเข้ารหัส และรหัสผ่านที่แคชไว้ทั้งหมดอย่างถาวร หากใช้การเข้ารหัส E2E รายการจะไม่สามารถอ่านได้อีกเนื่องจากคีย์การเข้ารหัสจะถูกทำลาย",
     "resetAllDataConfirm": "การดำเนินการนี้ไม่สามารถยกเลิกได้ ดำเนินการต่อ?",
     "backupRecommendation": "แนะนำอย่างยิ่งให้สร้างข้อมูลสำรองก่อนดำเนินการ",
-    "backupInstructions": "สร้างข้อมูลสำรอง: คลิกไอคอนโปรไฟล์ (มุมขวาบน) → ส่งออกข้อมูล",
+    "backupInstructions": "สร้างข้อมูลสำรอง: กดไอคอนโปรไฟล์ (มุมขวาบน) → ส่งออกข้อมูล",
     "confirmReset": "พิมพ์ DELETE เพื่อยืนยัน",
-    "resetting": "กำลังรีเซ็ต...",
+    "resetting": "กำลังรีเซ็ต…",
     "resetButton": "ลบทุกอย่าง",
     "allDataDeleted": "ลบข้อมูลทั้งหมดแล้ว",
     "allDataDeletedDesc": "ล้างรายการ คีย์การเข้ารหัส และรหัสผ่านที่แคชไว้ทั้งหมดแล้ว ข้อมูลเข้ารหัสไม่สามารถเข้าถึงได้อีก สามารถเริ่มต้นใหม่ได้",
@@ -842,9 +845,9 @@
     "syncing": "กำลังซิงค์…",
     "syncingDesc": "กำลังเชื่อมต่อกับคลาวด์",
     "synced": "ซิงค์แล้ว",
-    "syncedDesc": "เชื่อมต่อและโหลดรายการแล้ว",
+    "syncedDesc_other": "เชื่อมต่อกับ {{provider}} และโหลด {{count}} รายการแล้ว",
     "syncFailed": "ซิงค์ไม่สำเร็จ",
-    "syncFailedDesc": "ซิงค์กับคลาวด์ไม่สำเร็จ",
+    "syncFailedDesc": "ซิงค์กับ {{provider}} ไม่สำเร็จ",
     "switchedToE2E": "เปลี่ยนเป็นโหมด E2E แล้ว",
     "switchedToE2EDesc": "กรุณากรอกรหัสผ่านเพื่อถอดรหัสรายการ",
     "disconnectedForE2E": "ยกเลิกการเชื่อมต่อพื้นที่จัดเก็บแล้ว",
@@ -859,7 +862,7 @@
     "cloudFeature1": "ซิงค์อัตโนมัติทุก 5 นาที",
     "cloudFeature2": "ใช้งานได้ทุกอุปกรณ์",
     "cloudFeature3": "แก้ไขความขัดแย้งอัตโนมัติ",
-    "cloudFeature4": "ข้อมูลและพื้นที่จัดเก็บเป็นของเราเอง ไม่มีใครเข้าถึงได้",
+    "cloudFeature4": "ข้อมูลและพื้นที่จัดเก็บเป็นของคุณเอง ไม่มีใครเข้าถึงได้",
     "cloudStorageIntro": "เชื่อมต่อผู้ให้บริการคลาวด์เพื่อซิงค์สมุดบันทึกข้ามอุปกรณ์ สามารถเชื่อมต่อหลายผู้ให้บริการเพื่อสำรองข้อมูล",
     "activeProvider": "ผู้ให้บริการพื้นที่จัดเก็บที่ใช้งาน",
     "activeProviderDesc": "เลือกผู้ให้บริการที่เชื่อมต่อเพื่อซิงค์ข้อมูล เฉพาะผู้ให้บริการที่ใช้งานเท่านั้นที่จะทำการซิงค์",
@@ -873,7 +876,7 @@
     "conflictResolution": "• แก้ไขความขัดแย้งอัตโนมัติสำหรับการแก้ไขพร้อมกัน",
     "offlineSupport": "• รองรับออฟไลน์เต็มรูปแบบพร้อมซิงค์เบื้องหลัง",
     "cannotSwitchMode": "ไม่สามารถเปลี่ยนโหมดการเข้ารหัส",
-    "cannotSwitchModeDesc": "มี {{count}} รายการอยู่แล้ว กรุณาลบข้อมูลทั้งหมดก่อนเปลี่ยนโหมดการเข้ารหัส",
+    "cannotSwitchModeDesc_other": "คุณมีรายการอยู่แล้ว {{count}} รายการ กรุณาลบข้อมูลทั้งหมดก่อนเปลี่ยนโหมดการเข้ารหัส",
     "cannotVerifyEntries": "ไม่สามารถตรวจสอบรายการ",
     "cannotVerifyEntriesDesc": "กรุณากรอกรหัสผ่านก่อนหรือรีเซ็ตข้อมูลทั้งหมด",
     "passwordSaved": "บันทึกรหัสผ่านแล้ว",
@@ -883,10 +886,10 @@
     "errorDesc": "ล้างข้อมูลคลาวด์ไม่สำเร็จ",
     "passwordNotSet": "ยังไม่ได้ตั้งรหัสผ่าน ตั้งรหัสผ่านเพื่อเปิดใช้การเข้ารหัส E2E",
     "passwordWillBeRequested": "จะถูกขอรหัสผ่านเมื่อเชื่อมต่อผู้ให้บริการคลาวด์",
-    "clearPasswordConfirm": "การดำเนินการนี้จะลบรหัสผ่านการเข้ารหัสที่จัดเก็บออกจากอุปกรณ์นี้ จะต้องกรอกรหัสผ่านอีกครั้งในครั้งถัดไปที่เปิด app\n\nข้อมูลเข้ารหัสจะไม่ได้รับผลกระทบ\n\nดำเนินการต่อ?",
+    "clearPasswordConfirm": "การดำเนินการนี้จะลบรหัสผ่านการเข้ารหัสที่จัดเก็บออกจากอุปกรณ์นี้ จะต้องกรอกรหัสผ่านอีกครั้งในครั้งถัดไปที่เปิดแอป\n\nข้อมูลเข้ารหัสจะไม่ได้รับผลกระทบ\n\nดำเนินการต่อ?",
     "changePasswordConfirm": "แน่ใจหรือไม่?\n\nการดำเนินการนี้จะถอดรหัสรายการทั้งหมดด้วยรหัสผ่านเดิมแล้วเข้ารหัสใหม่ด้วยรหัสผ่านใหม่\n\nต้องจำรหัสผ่านใหม่ให้ได้ ไม่สามารถกู้คืนได้หากลืม\n\nดำเนินการต่อ?",
-    "confirmationRequiredDesc": "กรุณาพิมพ์ \"DELETE\" เพื่อยืนยัน",
-    "finalConfirm": "การยืนยันขั้นสุดท้าย\n\nการดำเนินการนี้จะลบรายการสมุดบันทึกทั้งหมดจากอุปกรณ์และคลาวด์อย่างถาวร\n\n⚠️ แนะนำ: สร้างข้อมูลสำรองก่อนดำเนินการ!\nสร้างข้อมูลสำรอง: คลิกไอคอนโปรไฟล์ (มุมขวาบน) → ส่งออกข้อมูล\n\nแน่ใจว่าต้องการดำเนินการต่อ?",
+    "confirmationRequiredDesc": "กรุณาพิมพ์ “DELETE” เพื่อยืนยัน",
+    "finalConfirm": "การยืนยันขั้นสุดท้าย\n\nการดำเนินการนี้จะลบรายการสมุดบันทึกทั้งหมดจากอุปกรณ์และคลาวด์อย่างถาวร\n\n⚠️ แนะนำ: สร้างข้อมูลสำรองก่อนดำเนินการ!\nสร้างข้อมูลสำรอง: กดไอคอนโปรไฟล์ (มุมขวาบน) → ส่งออกข้อมูล\n\nแน่ใจว่าต้องการดำเนินการต่อ?",
     "passwordPersistenceChanged": "อัปเดตการจัดเก็บรหัสผ่านแล้ว",
     "passwordPersistenceError": "อัปเดตตั้งค่าการจัดเก็บรหัสผ่านไม่สำเร็จ",
     "passwordPersistence": {
@@ -949,28 +952,28 @@
     "to": "ไปยัง",
     "selectSource": "เลือกต้นทาง",
     "selectTarget": "เลือกปลายทาง",
-    "transferring": "กำลังถ่ายโอน...",
-    "cleaningUp": "กำลังทำความสะอาด...",
+    "transferring": "กำลังถ่ายโอน…",
+    "cleaningUp": "กำลังทำความสะอาด…",
     "startTransfer": "เริ่มถ่ายโอน",
     "connected": "เชื่อมต่อแล้ว",
     "disconnect": "ยกเลิกการเชื่อมต่อ",
     "disconnected": "ยกเลิกการเชื่อมต่อแล้ว",
     "multipleProvidersWarning": "เชื่อมต่อผู้ให้บริการหลายราย",
     "multipleProvidersWarningDesc": "เฉพาะผู้ให้บริการหลักเท่านั้นที่ซิงค์ข้อมูล ผู้ให้บริการรองใช้สำหรับย้ายข้อมูลเท่านั้น ใช้การย้ายข้อมูลเพื่อถ่ายโอนข้อมูล จากนั้นยกเลิกการเชื่อมต่อผู้ให้บริการที่ไม่ใช้งาน",
-    "migrationCompleteDisconnect": "ย้ายข้อมูลเสร็จแล้ว - ยกเลิกการเชื่อมต่อต้นทาง?",
+    "migrationCompleteDisconnect": "ย้ายข้อมูลเสร็จแล้ว — ยกเลิกการเชื่อมต่อต้นทาง?",
     "migrationCompleteDisconnectDesc": "คัดลอกรายการทั้งหมดไปยัง {{target}} แล้ว ต้องการยกเลิกการเชื่อมต่อ {{source}} หรือไม่?",
     "disconnectSource": "ยกเลิกการเชื่อมต่อ {{source}}",
     "keepBoth": "เชื่อมต่อทั้งสองไว้",
     "activeSync": "ใช้งาน",
     "activeSyncDesc": "พื้นที่จัดเก็บนี้กำลังซิงค์ข้อมูลอยู่",
     "inactiveSync": "ไม่ได้ใช้งาน",
-    "inactiveSyncDesc": "ไม่ได้ซิงค์ - ใช้การย้ายข้อมูลเพื่อถ่ายโอนข้อมูลมาที่นี่",
+    "inactiveSyncDesc": "ไม่ได้ซิงค์ — ใช้การย้ายข้อมูลเพื่อถ่ายโอนข้อมูลมาที่นี่",
     "primary": "หลัก",
     "primaryDesc": "พื้นที่จัดเก็บนี้ใช้สำหรับอ่านข้อมูล",
     "secondary": "สำรอง",
     "secondaryDesc": "ข้อมูลถูกซิงค์มาที่นี่ด้วย",
-    "verifyingProvider": "กำลังตรวจสอบผู้ให้บริการ...",
-    "checkingEncryptionKey": "กำลังตรวจสอบคีย์การเข้ารหัส...",
+    "verifyingProvider": "กำลังตรวจสอบผู้ให้บริการ…",
+    "checkingEncryptionKey": "กำลังตรวจสอบคีย์การเข้ารหัส…",
     "noKeyOnProvider": "ไม่พบคีย์การเข้ารหัส",
     "noKeyOnProviderDesc": "{{provider}} ไม่มีคีย์การเข้ารหัส ใช้การย้ายข้อมูลหรือคัดลอกคีย์ก่อน",
     "cannotVerifyProvider": "ไม่สามารถตรวจสอบผู้ให้บริการ",
@@ -978,15 +981,15 @@
     "copyEncryptionKey": "คัดลอกคีย์การเข้ารหัส",
     "copyKeyTo": "คัดลอกไปยัง {{provider}}",
     "copyKeyExplanation": "คัดลอกคีย์การเข้ารหัสจากผู้ให้บริการที่ใช้งานไปยังผู้ให้บริการอื่นที่เชื่อมต่ออยู่เพื่อสลับระหว่างกันได้",
-    "copyingKey": "กำลังคัดลอกคีย์การเข้ารหัส...",
-    "copyingKeyDesc": "กำลังคัดลอกจาก {{source}} ไปยัง {{target}}...",
+    "copyingKey": "กำลังคัดลอกคีย์การเข้ารหัส…",
+    "copyingKeyDesc": "กำลังคัดลอกจาก {{source}} ไปยัง {{target}}…",
     "keyCopied": "คัดลอกคีย์การเข้ารหัสแล้ว",
     "keyCopiedDesc": "คัดลอกคีย์การเข้ารหัสไปยัง {{provider}} แล้ว สามารถเปลี่ยนไปใช้ผู้ให้บริการนี้ได้",
     "copyKeyFailed": "คัดลอกคีย์ไม่สำเร็จ",
     "noKeyToCopy": "ไม่มีคีย์การเข้ารหัสให้คัดลอก",
     "noPrimaryProvider": "ไม่มีผู้ให้บริการหลักเชื่อมต่ออยู่",
     "noEncryptionKey": "ไม่พบคีย์การเข้ารหัส",
-    "copyKeyFirst": "ผู้ให้บริการนี้ไม่มีคีย์การเข้ารหัส ใช้ 'คัดลอกคีย์การเข้ารหัส' หรือถ่ายโอนข้อมูลก่อน",
+    "copyKeyFirst": "ผู้ให้บริการนี้ไม่มีคีย์การเข้ารหัส ใช้ “คัดลอกคีย์การเข้ารหัส” หรือถ่ายโอนข้อมูลก่อน",
     "idle": "พร้อมซิงค์",
     "connectProvider": "เชื่อมต่อผู้ให้บริการคลาวด์ในตั้งค่าเพื่อเปิดใช้การซิงค์อัตโนมัติ",
     "lastSync": "ซิงค์ล่าสุด: {{time}}"
@@ -1019,7 +1022,7 @@
     "newPasswordPlaceholder": "กรอกรหัสผ่านใหม่ (อย่างน้อย 12 ตัวอักษร)",
     "confirmNewPassword": "ยืนยันรหัสผ่านใหม่",
     "confirmNewPasswordPlaceholder": "กรอกรหัสผ่านใหม่อีกครั้ง",
-    "changing": "กำลังเปลี่ยน...",
+    "changing": "กำลังเปลี่ยน…",
     "changeButton": "เปลี่ยนรหัสผ่าน",
     "passwordChanged": "เปลี่ยนรหัสผ่านแล้ว",
     "passwordChangedDesc": "อัปเดตรหัสผ่านการเข้ารหัสแล้ว ใช้รหัสผ่านใหม่นี้บนทุกอุปกรณ์",
@@ -1029,11 +1032,11 @@
     "deleteAllEntriesDesc": "ลบรายการสมุดบันทึกทั้งหมดจากเครื่องและคลาวด์อย่างถาวร การดำเนินการนี้ไม่สามารถยกเลิกได้",
     "warningPermanent": "คำเตือน: การดำเนินการนี้ถาวร!",
     "warningPermanentDesc": "หากใช้การเข้ารหัส E2E รายการจะไม่สามารถอ่านได้อีกเนื่องจากคีย์การเข้ารหัสจะถูกทำลาย",
-    "typeToConfirm": "พิมพ์ \"DELETE ALL\" เพื่อยืนยัน",
-    "typeDeleteToConfirm": "พิมพ์ \"DELETE ALL\" เพื่อยืนยัน",
+    "typeToConfirm": "พิมพ์ “DELETE ALL” เพื่อยืนยัน",
+    "typeDeleteToConfirm": "พิมพ์ “DELETE ALL” เพื่อยืนยัน",
     "confirmationRequired": "ต้องยืนยัน",
-    "confirmationRequiredDesc": "กรุณาพิมพ์ \"DELETE ALL\" เพื่อยืนยัน",
-    "deleting": "กำลังลบ...",
+    "confirmationRequiredDesc": "กรุณาพิมพ์ “DELETE ALL” เพื่อยืนยัน",
+    "deleting": "กำลังลบ…",
     "deleteAllEntries": "ลบรายการทั้งหมด",
     "deleteAllButton": "ลบรายการทั้งหมด",
     "changePasswordButton": "เปลี่ยนรหัสผ่าน",
@@ -1074,30 +1077,30 @@
     "encryptedEntriesNeedCloudDesc": "มีรายการเข้ารหัสจากการซิงค์ก่อนหน้า เชื่อมต่อคลาวด์เดิมพร้อมรหัสผ่านการเข้ารหัสเพื่อเข้าถึง",
     "reconnectToAccessEntries": "เชื่อมต่อคลาวด์ใหม่เพื่อเข้าถึงรายการเข้ารหัส ข้อมูลถูกซิงค์ด้วยการเข้ารหัส E2E และต้องใช้การเชื่อมต่อคลาวด์เดิม",
     "migrateEntries": "ย้ายรายการที่ไม่ได้เข้ารหัส",
-    "migrateEntriesDesc": "{{count}} รายการยังไม่ได้เข้ารหัส ย้ายไปใช้การเข้ารหัส E2E เพื่อความปลอดภัยสูงสุด",
+    "migrateEntriesDesc_other": "{{count}} รายการยังไม่ได้เข้ารหัส ย้ายไปใช้การเข้ารหัส E2E เพื่อความปลอดภัยสูงสุด",
     "migrationComplete": "ย้ายข้อมูลเสร็จแล้ว",
     "migrationCompleteDesc": "เข้ารหัส {{migrated}} รายการแล้ว {{failed}} ไม่สำเร็จ",
     "migrated": "ย้ายแล้ว",
     "skipped": "เข้ารหัสแล้ว",
     "failed": "ไม่สำเร็จ",
-    "migrating": "กำลังย้ายรายการ...",
+    "migrating": "กำลังย้ายรายการ…",
     "migrateNow": "เข้ารหัสรายการทั้งหมด",
     "resetEncryption": "รีเซ็ตคีย์การเข้ารหัส",
     "resetToSimpleMode": "เปลี่ยนเป็นโหมดง่ายแล้ว ตั้งรหัสผ่านใหม่เพื่อเปิดใช้การเข้ารหัส E2E อีกครั้ง",
-    "resetting": "กำลังเปลี่ยนรหัสผ่าน..."
+    "resetting": "กำลังเปลี่ยนรหัสผ่าน…"
   },
   "providers": {
     "googleDrive": {
       "title": "พื้นที่จัดเก็บ Google Drive",
-      "description": "ซิงค์รายการสมุดบันทึกเข้ารหัสกับ Google Drive (เฉพาะโฟลเดอร์ app)",
+      "description": "ซิงค์รายการสมุดบันทึกเข้ารหัสกับ Google Drive (เฉพาะโฟลเดอร์แอป)",
       "connected": "เชื่อมต่อแล้ว",
-      "connecting": "กำลังเชื่อมต่อ...",
+      "connecting": "กำลังเชื่อมต่อ…",
       "connect": "เชื่อมต่อ Google Drive",
       "disconnect": "ยกเลิกการเชื่อมต่อ",
       "disconnected": "ยกเลิกการเชื่อมต่อแล้ว",
       "disconnectedDesc": "ยกเลิกการเชื่อมต่อพื้นที่จัดเก็บ Google Drive และเพิกถอนโทเคนแล้ว",
       "connectedSuccess": "เชื่อมต่อ Google Drive แล้ว",
-      "connectedSuccessDesc": "สมุดบันทึกจะซิงค์กับ Google Drive แล้ว (เฉพาะข้อมูล app)",
+      "connectedSuccessDesc": "สมุดบันทึกจะซิงค์กับ Google Drive แล้ว (เฉพาะข้อมูลแอป)",
       "connectionFailed": "เชื่อมต่อไม่สำเร็จ",
       "connectionFailedDesc": "ไม่สามารถอนุญาต Google Drive ได้",
       "oauthError": "OAuth ผิดพลาด",
@@ -1108,15 +1111,15 @@
       "devMode": "โหมดพัฒนา:",
       "devModeDesc": "ตั้งค่า VITE_GOOGLE_CLIENT_ID ในตัวแปรสภาพแวดล้อม",
       "simpleMode": "โหมดง่าย:",
-      "simpleModeDesc": "โทเคน OAuth ของ Google จะถูกจัดเก็บโดยไม่เข้ารหัสใน local storage ของอุปกรณ์ เพื่อความปลอดภัยที่ดีขึ้น เปิดใช้โหมดเข้ารหัส E2E ในตั้งค่าพื้นที่จัดเก็บ",
-      "syncing": "รายการสมุดบันทึกกำลังซิงค์กับโฟลเดอร์ app ของ Google Drive ข้อมูลรับรองเข้ารหัสในเครื่อง",
-      "refreshingToken": "กำลังรีเฟรชโทเคนการเข้าถึง..."
+      "simpleModeDesc": "โทเคน OAuth ของ Google จะถูกจัดเก็บโดยไม่เข้ารหัสในพื้นที่จัดเก็บภายในอุปกรณ์ เพื่อความปลอดภัยที่ดีขึ้น เปิดใช้โหมดเข้ารหัส E2E ในตั้งค่าพื้นที่จัดเก็บ",
+      "syncing": "รายการสมุดบันทึกกำลังซิงค์กับโฟลเดอร์แอปของ Google Drive ข้อมูลรับรองเข้ารหัสในเครื่อง",
+      "refreshingToken": "กำลังรีเฟรชโทเคนการเข้าถึง…"
     },
     "dropbox": {
       "title": "พื้นที่จัดเก็บ Dropbox",
       "description": "ซิงค์รายการสมุดบันทึกเข้ารหัสกับคลาวด์ Dropbox",
       "connected": "เชื่อมต่อแล้ว",
-      "connecting": "กำลังเชื่อมต่อ...",
+      "connecting": "กำลังเชื่อมต่อ…",
       "connect": "เชื่อมต่อ Dropbox",
       "disconnect": "ยกเลิกการเชื่อมต่อ",
       "disconnected": "ยกเลิกการเชื่อมต่อแล้ว",
@@ -1133,15 +1136,15 @@
       "devMode": "โหมดพัฒนา:",
       "devModeDesc": "ตั้งค่า VITE_DROPBOX_CLIENT_ID ในตัวแปรสภาพแวดล้อม",
       "simpleMode": "โหมดง่าย:",
-      "simpleModeDesc": "โทเคน OAuth ของ Dropbox จะถูกจัดเก็บโดยไม่เข้ารหัสใน local storage ของอุปกรณ์ เพื่อความปลอดภัยที่ดีขึ้น เปิดใช้โหมดเข้ารหัส E2E ในตั้งค่าพื้นที่จัดเก็บ",
+      "simpleModeDesc": "โทเคน OAuth ของ Dropbox จะถูกจัดเก็บโดยไม่เข้ารหัสในพื้นที่จัดเก็บภายในอุปกรณ์ เพื่อความปลอดภัยที่ดีขึ้น เปิดใช้โหมดเข้ารหัส E2E ในตั้งค่าพื้นที่จัดเก็บ",
       "syncing": "รายการสมุดบันทึกกำลังซิงค์กับ Dropbox ในโฟลเดอร์ /OwnJournal ข้อมูลรับรองเข้ารหัสในเครื่อง",
-      "refreshingToken": "กำลังรีเฟรชโทเคนการเข้าถึง..."
+      "refreshingToken": "กำลังรีเฟรชโทเคนการเข้าถึง…"
     },
     "nextcloud": {
       "title": "พื้นที่จัดเก็บ Nextcloud",
       "description": "คลาวด์ส่วนตัวที่โฮสต์เอง ควบคุมข้อมูลได้ทั้งหมด",
       "connected": "เชื่อมต่อแล้ว",
-      "connecting": "กำลังเชื่อมต่อ...",
+      "connecting": "กำลังเชื่อมต่อ…",
       "connect": "เชื่อมต่อ Nextcloud",
       "disconnect": "ยกเลิกการเชื่อมต่อ",
       "configure": "ตั้งค่า",
@@ -1151,8 +1154,8 @@
       "serverUrlPlaceholder": "https://cloud.example.com",
       "username": "ชื่อผู้ใช้",
       "usernamePlaceholder": "ชื่อผู้ใช้ Nextcloud",
-      "appPassword": "รหัสผ่าน app",
-      "appPasswordPlaceholder": "รหัสผ่าน app ที่สร้างขึ้น",
+      "appPassword": "รหัสผ่านแอป",
+      "appPasswordPlaceholder": "รหัสผ่านแอปที่สร้างขึ้น",
       "connectionSuccess": "ทดสอบการเชื่อมต่อสำเร็จ!",
       "connectionError": "ทดสอบการเชื่อมต่อไม่สำเร็จ",
       "disconnected": "ยกเลิกการเชื่อมต่อแล้ว",
@@ -1160,9 +1163,9 @@
       "connectedSuccess": "เชื่อมต่อ Nextcloud แล้ว",
       "connectedSuccessDesc": "สมุดบันทึกจะซิงค์กับเซิร์ฟเวอร์ Nextcloud แล้ว",
       "connectionFailed": "เชื่อมต่อไม่สำเร็จ",
-      "testingConnection": "กำลังทดสอบการเชื่อมต่อ...",
+      "testingConnection": "กำลังทดสอบการเชื่อมต่อ…",
       "simpleMode": "โหมดง่าย:",
-      "simpleModeDesc": "ข้อมูลรับรอง Nextcloud จะถูกจัดเก็บโดยไม่เข้ารหัสใน local storage ของอุปกรณ์ เพื่อความปลอดภัยที่ดีขึ้น เปิดใช้โหมดเข้ารหัส E2E ในตั้งค่าพื้นที่จัดเก็บ",
+      "simpleModeDesc": "ข้อมูลรับรอง Nextcloud จะถูกจัดเก็บโดยไม่เข้ารหัสในพื้นที่จัดเก็บภายในอุปกรณ์ เพื่อความปลอดภัยที่ดีขึ้น เปิดใช้โหมดเข้ารหัส E2E ในตั้งค่าพื้นที่จัดเก็บ",
       "server": "เซิร์ฟเวอร์:",
       "user": "ผู้ใช้:"
     },
@@ -1201,21 +1204,21 @@
       "connectButton": "เชื่อมต่อ iCloud",
       "containerIdDesc": "ตัวระบุ CloudKit container (เช่น iCloud.com.yourcompany.app)",
       "apiTokenDesc": "API token จาก Apple Developer Console → CloudKit Dashboard → API Access",
-      "environmentDesc": "ใช้ Development ขณะทดสอบ Production สำหรับ app ที่เผยแพร่แล้ว",
+      "environmentDesc": "ใช้ Development ขณะทดสอบ และใช้ Production สำหรับแอปที่เผยแพร่แล้ว",
       "syncDesc": "ซิงค์สมุดบันทึกเข้ารหัสกับ iCloud ข้อมูลยังเป็นส่วนตัวข้ามอุปกรณ์ Apple ทั้งหมด",
       "detailsLabel": "รายละเอียด",
-      "signInWithAppleDesc": "เข้าสู่ระบบด้วย Apple ID เพื่อเชื่อมต่อ iCloud คลิกปุ่มด้านล่างเพื่อเปิดหน้าต่างเข้าสู่ระบบ Apple",
-      "signInWithAppleButton": "เข้าสู่ระบบด้วย Apple ID",
+      "signInWithAppleDesc": "เข้าสู่ระบบด้วยบัญชี Apple ของคุณเพื่อเชื่อมต่อ iCloud คลิกปุ่มด้านล่างเพื่อเปิดหน้าต่างเข้าสู่ระบบ Apple",
+      "signInWithAppleButton": "ลงชื่อเข้าด้วย Apple",
       "afterSignedInDesc": "หลังจากเข้าสู่ระบบในป๊อปอัปเสร็จแล้ว คลิกด้านล่างเพื่อดำเนินการต่อ",
       "continueAfterSignIn": "เข้าสู่ระบบแล้ว — ดำเนินการต่อ",
       "signInRequired": "ไม่พบการเข้าสู่ระบบ",
       "signInRequiredDesc": "กรุณาเข้าสู่ระบบ Apple ก่อน จากนั้นคลิกดำเนินการต่อ",
       "popupBlocked": "หน้าต่างเข้าสู่ระบบอาจถูกบล็อก กรุณาอนุญาตป๊อปอัปสำหรับเว็บไซต์นี้แล้วลองอีกครั้ง",
       "signInLinkNotReady": "การเข้าสู่ระบบ Apple ยังกำลังโหลด กรุณารอสักครู่แล้วลองอีกครั้ง",
-      "originNotAllowed": "origin ของ app นี้ ({{origin}}) ยังไม่ได้ลงทะเบียนกับ iCloud",
-      "adpNotice": "ไม่สามารถใช้ iCloud จากเบราว์เซอร์ได้เมื่อ Apple ID ของคุณเปิดการปกป้องข้อมูลขั้นสูงไว้ เนื่องจาก Apple จะบล็อกการเข้าถึงข้อมูลแอปผ่านเว็บ โปรดใช้ iCloud ในแอป iPhone หรือ iPad หรือเลือก Google Drive, Dropbox หรือ Nextcloud เพื่อซิงค์ในเบราว์เซอร์นี้",
-      "signInWebAccessOff": "Apple แจ้งว่าการเข้าถึงข้อมูล iCloud ผ่านเว็บถูกปิดไว้สำหรับ Apple ID นี้ โปรดเปิดใช้งานบน iPhone ของคุณที่ การตั้งค่า > ชื่อของคุณ > iCloud > iCloud.com แล้วลองอีกครั้ง",
-      "signInFailedAdp": "Apple ไม่สามารถดำเนินการเข้าสู่ระบบ iCloud ให้เสร็จสิ้นได้ โดยปกติหมายความว่า Apple ID ของคุณเปิดการปกป้องข้อมูลขั้นสูงไว้ และ Apple ไม่อนุญาตให้บัญชีดังกล่าวใช้ iCloud จากเบราว์เซอร์ โปรดใช้ iCloud ในแอป iPhone หรือ iPad หรือเชื่อมต่อ Google Drive, Dropbox หรือ Nextcloud แทน"
+      "originNotAllowed": "origin ของแอปนี้ ({{origin}}) ยังไม่ได้ลงทะเบียนกับ iCloud",
+      "adpNotice": "ไม่สามารถใช้ iCloud จากเบราว์เซอร์ได้เมื่อบัญชี Apple ของคุณเปิดการปกป้องข้อมูลขั้นสูงไว้ เนื่องจาก Apple จะบล็อกการเข้าถึงข้อมูลแอปผ่านเว็บ กรุณาใช้ iCloud ในแอป iPhone หรือ iPad หรือเลือก Google Drive, Dropbox หรือ Nextcloud เพื่อซิงค์ในเบราว์เซอร์นี้",
+      "signInWebAccessOff": "Apple แจ้งว่าการเข้าถึงข้อมูล iCloud ผ่านเว็บถูกปิดไว้สำหรับบัญชี Apple นี้ กรุณาเปิดใช้งานบน iPhone ของคุณที่ การตั้งค่า → ชื่อของคุณ → iCloud → iCloud.com แล้วลองอีกครั้ง",
+      "signInFailedAdp": "Apple ไม่สามารถดำเนินการเข้าสู่ระบบ iCloud ให้เสร็จสิ้นได้ โดยปกติหมายความว่าบัญชี Apple ของคุณเปิดการปกป้องข้อมูลขั้นสูงไว้ และ Apple ไม่อนุญาตให้บัญชีดังกล่าวใช้ iCloud จากเบราว์เซอร์ กรุณาใช้ iCloud ในแอป iPhone หรือ iPad หรือเชื่อมต่อ Google Drive, Dropbox หรือ Nextcloud แทน"
     },
     "oauth": {
       "accessDenied": "การอนุญาตถูกยกเลิกหรือปฏิเสธ",
@@ -1226,7 +1229,7 @@
     }
   },
   "syncStatus": {
-    "syncing": "กำลังซิงค์...",
+    "syncing": "กำลังซิงค์…",
     "syncingProgress": "กำลังซิงค์ {{percent}}%",
     "synced": "ซิงค์แล้ว",
     "syncedTimeAgo": "ซิงค์เมื่อ {{time}}",
@@ -1243,7 +1246,7 @@
     "lastSync": "ซิงค์ล่าสุด: {{time}}",
     "lastSyncSuccess": "ซิงค์สำเร็จล่าสุด: {{time}}",
     "lastSyncFailed": "ซิงค์ล่าสุดไม่สำเร็จ: {{time}}",
-    "syncInProgress": "กำลังซิงค์...",
+    "syncInProgress": "กำลังซิงค์…",
     "highFailureRate": "อัตราซิงค์ล้มเหลวสูง",
     "highFailureRateDesc": "การซิงค์ล้มเหลว {{rate}}% อาจบ่งชี้ปัญหาการเชื่อมต่อหรือผู้ให้บริการ",
     "frequentConflicts": "ความขัดแย้งในการซิงค์บ่อย",
@@ -1253,7 +1256,7 @@
     "circuitBreakersActive": "ขีดจำกัดชั่วคราวทำงานอยู่",
     "circuitBreakersActiveDesc": "การดำเนินการจัดเก็บบางส่วนถูกบล็อกชั่วคราวเนื่องจากล้มเหลวซ้ำ ระบบจะกู้คืนอัตโนมัติ",
     "multipleRecentFailures": "ล้มเหลวหลายครั้งล่าสุด",
-    "multipleRecentFailuresDesc": "การซิงค์ล้มเหลว {{count}} ครั้งใน 5 นาทีที่ผ่านมา ตรวจสอบการเชื่อมต่อและผู้ให้บริการ",
+    "multipleRecentFailuresDesc_other": "การซิงค์ล้มเหลว {{count}} ครั้งใน 5 นาทีที่ผ่านมา กรุณาตรวจสอบการเชื่อมต่อและผู้ให้บริการพื้นที่จัดเก็บ",
     "reduceFailures": "ลดการซิงค์ล้มเหลว",
     "reduceFailuresDesc": "ตรวจสอบการเชื่อมต่ออินเทอร์เน็ตและข้อมูลรับรองผู้ให้บริการ พิจารณาเปลี่ยนผู้ให้บริการหากปัญหายังคงอยู่",
     "reduceFailuresAction": "ตรวจสอบการเชื่อมต่อ",
@@ -1265,23 +1268,23 @@
     "waitForCircuitBreakerAction": "ติดตามสถานะ"
   },
   "syncProgress": {
-    "preparing": "กำลังเตรียมซิงค์...",
-    "checkingCloud": "กำลังตรวจสอบไฟล์บนคลาวด์...",
-    "downloading": "กำลังดาวน์โหลดรายการ...",
-    "uploading": "กำลังอัปโหลดรายการ...",
-    "finalizing": "กำลังสรุปการซิงค์...",
-    "syncing": "กำลังซิงค์...",
-    "preparingSync": "กำลังเตรียมซิงค์...",
-    "downloadingEntries": "กำลังดาวน์โหลดรายการ...",
-    "uploadingEntries": "กำลังอัปโหลดรายการ...",
+    "preparing": "กำลังเตรียมซิงค์…",
+    "checkingCloud": "กำลังตรวจสอบไฟล์บนคลาวด์…",
+    "downloading": "กำลังดาวน์โหลดรายการ…",
+    "uploading": "กำลังอัปโหลดรายการ…",
+    "finalizing": "กำลังสรุปการซิงค์…",
+    "syncing": "กำลังซิงค์…",
+    "preparingSync": "กำลังเตรียมซิงค์…",
+    "downloadingEntries": "กำลังดาวน์โหลดรายการ…",
+    "uploadingEntries": "กำลังอัปโหลดรายการ…",
     "syncComplete": "ซิงค์เสร็จแล้ว!",
-    "verifyingEncryption": "กำลังตรวจสอบการเข้ารหัส...",
-    "settingUpStructure": "กำลังสร้างโครงสร้างคลาวด์...",
-    "gatheringData": "กำลังรวบรวมข้อมูลซิงค์...",
+    "verifyingEncryption": "กำลังตรวจสอบการเข้ารหัส…",
+    "settingUpStructure": "กำลังสร้างโครงสร้างคลาวด์…",
+    "gatheringData": "กำลังรวบรวมข้อมูลซิงค์…",
     "foundEntries": "พบรายการแล้ว",
-    "syncingOperations": "กำลังซิงค์การดำเนินการที่รอ...",
-    "reconcilingEntries": "กำลังเปรียบเทียบรายการ...",
-    "updatingSyncState": "กำลังอัปเดตสถานะซิงค์..."
+    "syncingOperations": "กำลังซิงค์การดำเนินการที่รอ…",
+    "reconcilingEntries": "กำลังเปรียบเทียบรายการ…",
+    "updatingSyncState": "กำลังอัปเดตสถานะซิงค์…"
   },
   "syncHealth": {
     "title": "ตัวตรวจสอบสุขภาพการซิงค์",
@@ -1292,7 +1295,7 @@
     "overallHealth": "สุขภาพโดยรวม",
     "healthScore": "คะแนนสุขภาพ",
     "allSystemsNormal": "✓ ระบบทั้งหมดปกติ",
-    "activeAlerts": "การแจ้งเตือนที่ใช้งานอยู่ ({{count}})",
+    "activeAlerts_other": "การแจ้งเตือนที่ใช้งานอยู่ ({{count}})",
     "excellent": "ดีเยี่ยม",
     "good": "ดี",
     "warning": "เตือน",
@@ -1326,11 +1329,11 @@
     "frequentConflicts": "ความขัดแย้งในการซิงค์บ่อย",
     "frequentConflictsDesc": "ตรวจพบ {{rate}} ความขัดแย้งต่อ 100 ครั้งซิงค์ อาจมีการแก้ไขพร้อมกันหลายอุปกรณ์",
     "recentConflictSpike": "ความขัดแย้งเพิ่มขึ้นเฉียบพลัน",
-    "recentConflictSpikeDesc": "ตรวจพบ {{count}} ความขัดแย้งในชั่วโมงที่ผ่านมา อาจกำลังใช้งานหลายอุปกรณ์",
+    "recentConflictSpikeDesc_other": "ตรวจพบความขัดแย้ง {{count}} รายการในชั่วโมงที่ผ่านมา คุณอาจกำลังใช้งานหลายอุปกรณ์พร้อมกัน",
     "circuitBreakersActive": "การป้องกันซิงค์ทำงานอยู่",
-    "circuitBreakersActiveDesc": "การหยุดพักเพื่อความปลอดภัย {{count}} รายการทำงานอยู่เนื่องจากล้มเหลวซ้ำ การซิงค์หยุดชั่วคราว",
+    "circuitBreakersActiveDesc_other": "มีการหยุดชั่วคราวเพื่อความปลอดภัย {{count}} รายการ เนื่องจากล้มเหลวซ้ำ ๆ การซิงค์จึงหยุดไว้ชั่วคราว",
     "multipleRecentFailures": "ล้มเหลวหลายครั้งล่าสุด",
-    "multipleRecentFailuresDesc": "{{count}} จาก 10 การดำเนินการล่าสุดล้มเหลว บ่งชี้ปัญหาต่อเนื่อง",
+    "multipleRecentFailuresDesc_other": "การดำเนินการ 10 ครั้งล่าสุดล้มเหลว {{count}} ครั้ง ซึ่งบ่งชี้ว่ามีปัญหาต่อเนื่อง",
     "reduceFailures": "ลดการซิงค์ล้มเหลว",
     "reduceFailuresDesc": "ตรวจสอบการเชื่อมต่ออินเทอร์เน็ตและการเข้าถึงคลาวด์ พิจารณาปิดซิงค์อัตโนมัติชั่วคราวเมื่อเครือข่ายไม่ดี",
     "reduceFailuresAction": "ตรวจสอบแท็บการวินิจฉัยสำหรับบันทึกข้อผิดพลาด",
@@ -1367,7 +1370,7 @@
     "circuitBreakers": "การป้องกันซิงค์",
     "open": "เปิด",
     "closed": "ปิด",
-    "failures_count": "{{count}} ครั้งที่ล้มเหลว",
+    "failures_count_other": "ล้มเหลว {{count}} ครั้ง",
     "reopens": "เปิดใหม่ {{time}}",
     "currentlyRetrying": "กำลังลองใหม่อยู่",
     "recentOperations": "การดำเนินการล่าสุด",
@@ -1400,10 +1403,10 @@
   },
   "aiAnalysis": {
     "title": "AI วิเคราะห์",
-    "analyzing": "กำลังวิเคราะห์...",
+    "analyzing": "กำลังวิเคราะห์…",
     "analyzeEntry": "วิเคราะห์รายการ",
     "proFeature": "ฟีเจอร์ Plus",
-    "proFeatureDesc": "การวิเคราะห์ AI ต้องมีสมาชิก Plus",
+    "proFeatureDesc": "ต้องสมัครสมาชิก Plus จึงจะใช้การวิเคราะห์ด้วย AI ได้",
     "analysisLoaded": "โหลดผลวิเคราะห์แล้ว",
     "analysisLoadedDesc": "แก้ไขรายการเพื่อวิเคราะห์ใหม่",
     "entryTooShort": "รายการสั้นเกินไป",
@@ -1448,18 +1451,18 @@
     "analyzeTrends": "วิเคราะห์แนวโน้ม",
     "proFeature": "ฟีเจอร์ Plus",
     "proRequired": "การวิเคราะห์แนวโน้มเป็นฟีเจอร์ Plus อัปเกรดเพื่อปลดล็อกข้อมูลเชิงลึกเกี่ยวกับรูปแบบการเขียนบันทึก",
-    "proFeatureDesc": "การวิเคราะห์แนวโน้มต้องมีสมาชิก Plus",
+    "proFeatureDesc": "ต้องสมัครสมาชิก Plus จึงจะใช้การวิเคราะห์แนวโน้มได้",
     "notEnoughEntries": "รายการไม่เพียงพอ",
     "need8Entries": "ต้องมีอย่างน้อย 8 รายการในช่วงเวลาที่เลือกเพื่อให้การวิเคราะห์มีความหมาย",
     "needMore": "ต้องมีอย่างน้อย 8 รายการ",
     "need8": "ต้องมีอย่างน้อย 8 รายการ",
-    "entriesInPeriod": "{{count}} รายการในช่วงเวลานี้",
-    "entriesAvailable": "{{count}} รายการพร้อมสำหรับการวิเคราะห์",
+    "entriesInPeriod_other": "{{count}} รายการในช่วงเวลานี้",
+    "entriesAvailable_other": "{{count}} รายการพร้อมสำหรับการวิเคราะห์",
     "limitReached": "ถึงขีดจำกัดแล้ว",
     "analyzingEntries": "กำลังวิเคราะห์รายการ",
-    "analyzingEntriesDesc": "กำลังวิเคราะห์ {{count}} รายการเพื่อสร้างข้อมูลเชิงลึก...",
-    "analyzing": "กำลังวิเคราะห์...",
-    "analyzingCount": "กำลังวิเคราะห์ {{count}} รายการก่อน...",
+    "analyzingEntriesDesc_other": "กำลังวิเคราะห์ {{count}} รายการเพื่อสร้างข้อมูลเชิงลึก…",
+    "analyzing": "กำลังวิเคราะห์…",
+    "analyzingCount_other": "กำลังวิเคราะห์ {{count}} รายการก่อน…",
     "authRequired": "ต้องเข้าสู่ระบบ",
     "authRequiredDesc": "กรุณาเข้าสู่ระบบเพื่อใช้ฟีเจอร์ AI",
     "signInRequired": "กรุณาเข้าสู่ระบบเพื่อใช้การวิเคราะห์แนวโน้มด้วย AI",
@@ -1488,7 +1491,7 @@
     "reflection": "บทสะท้อนส่งท้าย",
     "lastAnalyzed": "วิเคราะห์ล่าสุด {{date}}",
     "analyzedAt": "วิเคราะห์เมื่อ {{date}}",
-    "entriesAnalyzed": "วิเคราะห์แล้ว {{count}} รายการ",
+    "entriesAnalyzed_other": "วิเคราะห์แล้ว {{count}} รายการ",
     "reAnalyze": "วิเคราะห์ใหม่",
     "selectDifferentPeriod": "เลือกช่วงเวลาอื่น",
     "show": "แสดง",
@@ -1496,13 +1499,13 @@
     "summary": "สรุป",
     "progress": {
       "step": "ขั้นตอนที่ {{current}} จาก {{total}}",
-      "checkingEntries": "กำลังตรวจสอบรายการ...",
-      "analyzingEntry": "กำลังวิเคราะห์รายการที่ {{current}} จาก {{total}}...",
-      "aggregatingPatterns": "กำลังรวบรวมรูปแบบ...",
-      "generatingInsights": "กำลังสร้างข้อมูลเชิงลึก...",
-      "savingAnalysis": "กำลังบันทึกผลวิเคราะห์...",
+      "checkingEntries": "กำลังตรวจสอบรายการ…",
+      "analyzingEntry": "กำลังวิเคราะห์รายการที่ {{current}} จาก {{total}}…",
+      "aggregatingPatterns": "กำลังรวบรวมรูปแบบ…",
+      "generatingInsights": "กำลังสร้างข้อมูลเชิงลึก…",
+      "savingAnalysis": "กำลังบันทึกผลวิเคราะห์…",
       "entryProgress": "รายการที่ {{current}} จาก {{total}}",
-      "retrying": "กำลังลองรายการที่ล้มเหลวอีกครั้ง...",
+      "retrying": "กำลังลองรายการที่ล้มเหลวอีกครั้ง…",
       "doNotCloseApp": "กรุณาเปิดหน้านี้ไว้จนกว่าการวิเคราะห์จะเสร็จสิ้น"
     }
   },
@@ -1515,8 +1518,8 @@
     "wordDescription": "รูปแบบแก้ไขได้ ใช้ร่วมกับ Microsoft Word และ Google Docs ได้",
     "exportAsPDF": "ส่งออกเป็น PDF",
     "exportAsWord": "ส่งออกเป็น Word",
-    "generatingPDF": "กำลังสร้าง PDF...",
-    "generatingWord": "กำลังสร้าง Word...",
+    "generatingPDF": "กำลังสร้าง PDF…",
+    "generatingWord": "กำลังสร้าง Word…",
     "proOnly": "Plus เท่านั้น",
     "proFeature": "ฟีเจอร์ Plus",
     "proFeatureDesc": "การส่งออก PDF สำหรับสมาชิก Plus เท่านั้น",
@@ -1532,15 +1535,15 @@
     "share": "แชร์",
     "shareFile": "แชร์ไฟล์",
     "exportSuccess": "ส่งออกสำเร็จ",
-    "exportSuccessDesc": "ส่งออก {{count}} รายการเป็น {{format}}",
+    "exportSuccessDesc_other": "ส่งออก {{count}} รายการเป็น {{format}}",
     "exportError": "ส่งออกไม่สำเร็จ",
     "exportErrorDesc": "สร้าง {{format}} ไม่สำเร็จ กรุณาลองอีกครั้ง",
     "upgradePrompt": "อัปเกรดเป็น Plus เพื่อปลดล็อกฟีเจอร์ส่งออก",
-    "entriesReady": "{{count}} รายการพร้อมส่งออก",
+    "entriesReady_other": "{{count}} รายการพร้อมส่งออก",
     "unavailableNative": "การส่งออกเอกสารไม่สามารถใช้ได้ในแอปเวอร์ชันนี้"
   },
   "subscription": {
-    "title": "สมาชิก",
+    "title": "การสมัครสมาชิก",
     "currentPlan": "แพลนปัจจุบัน",
     "freePlan": "แพลนฟรี",
     "planRow": {
@@ -1550,7 +1553,7 @@
     },
     "proPlan": "แพลน Plus",
     "upgradeButton": "อัปเกรดเป็น Plus",
-    "manageButton": "จัดการสมาชิก",
+    "manageButton": "จัดการการสมัครสมาชิก",
     "proMember": "สมาชิก Plus",
     "enjoyingFeatures": "เพลิดเพลินกับ AI วิเคราะห์ คำแนะนำ และฟีเจอร์ทั้งหมด",
     "unlockInsights": "ปลดล็อกฟีเจอร์ Plus",
@@ -1561,21 +1564,20 @@
     "priceYearly": "{{yearlyPrice}}/ปี",
     "priceMonthly": "เพียง {{monthlyPrice}}/เดือน",
     "upgradeToPro": "อัปเกรดเป็น Plus",
-    "processing": "กำลังดำเนินการ...",
+    "processing": "กำลังดำเนินการ…",
     "cancelAnytime": "ยกเลิกได้ตลอดเวลา",
     "unlockAI": "ปลดล็อกฟีเจอร์ AI",
-    "upgrading": "กำลังอัปเกรด...",
+    "upgrading": "กำลังอัปเกรด…",
     "upgradeFailed": "อัปเกรดไม่สำเร็จ",
-    "upgradeFailedDesc": "เกิดข้อผิดพลาดขณะอัปเกรดสมาชิก กรุณาลองใหม่อีกครั้ง",
+    "upgradeFailedDesc": "เกิดข้อผิดพลาดขณะอัปเกรดการสมัครสมาชิก กรุณาลองใหม่อีกครั้ง",
     "features": {
       "title": "ฟีเจอร์ Plus",
       "aiAnalysis": "วิเคราะห์ด้วย AI",
       "titleSuggestions": "AI แนะนำชื่อเรื่อง",
       "tagSuggestions": "แนะนำแท็กอัจฉริยะ",
       "trendAnalysis": "ข้อมูลเชิงลึกอารมณ์และแนวโน้ม",
-      "pdfExport": "ส่งออก PDF",
-      "wordExport": "ส่งออกเอกสาร Word",
-      "imageUpload": "ความทรงจำภาพถ่าย"
+      "voiceEntry": "การป้อนด้วยเสียง",
+      "exports": "ส่งออก PDF/Word"
     },
     "trialCta": "เริ่มทดลองใช้ฟรี",
     "trialPricing": "ฟรี 14 วัน จากนั้น {{yearlyPrice}}/ปี",
@@ -1585,15 +1587,15 @@
     "trialStarted": "เริ่มช่วงทดลองใช้ฟรีแล้ว!",
     "trialStartedDesc": "เพลิดเพลินกับฟีเจอร์ Plus ฟรี 14 วัน",
     "upgradeSuccess": "ยินดีต้อนรับสู่ OwnJournal Plus!",
-    "upgradeSuccessDesc": "สมาชิกเปิดใช้งานแล้ว เพลิดเพลินกับฟีเจอร์ Plus ทั้งหมดได้เลย!",
+    "upgradeSuccessDesc": "การสมัครสมาชิกของคุณเปิดใช้งานแล้ว เพลิดเพลินกับฟีเจอร์ Plus ทั้งหมดได้เลย!",
     "checkoutCanceled": "ยกเลิกการชำระเงินแล้ว",
     "checkoutCanceledDesc": "สามารถอัปเกรดได้ทุกเมื่อจากตั้งค่า",
     "portalReturn": "ยินดีต้อนรับกลับ!",
-    "portalReturnDesc": "การตั้งค่าสมาชิกได้รับการอัปเดตแล้ว",
+    "portalReturnDesc": "อัปเดตการตั้งค่าการสมัครสมาชิกแล้ว",
     "purchasePending": "การซื้ออยู่ระหว่างดำเนินการ",
     "purchaseFailed": "การซื้อล้มเหลว",
     "purchasePendingDesc": "การซื้อของคุณกำลังรอการอนุมัติ เราจะปลดล็อก Plus ทันทีที่ได้รับการยืนยัน",
-    "purchaseFailedDesc": "เกิดข้อผิดพลาดและยังไม่มีการเรียกเก็บเงิน โปรดลองอีกครั้ง",
+    "purchaseFailedDesc": "เกิดข้อผิดพลาดและยังไม่มีการเรียกเก็บเงิน กรุณาลองอีกครั้ง",
     "restoreSuccess": "กู้คืนการซื้อแล้ว",
     "restoreNothing": "ไม่มีการซื้อให้กู้คืน",
     "restoreFailed": "การกู้คืนล้มเหลว",
@@ -1604,12 +1606,12 @@
     "appStore": "App Store",
     "googlePlay": "Google Play",
     "iapUnavailable": "ขณะนี้ไม่สามารถซื้อในแอปได้",
-    "iapUnavailableDesc": "เราไม่สามารถเชื่อมต่อกับสโตร์ได้ โปรดตรวจสอบการเชื่อมต่อของคุณแล้วลองอีกครั้ง",
+    "iapUnavailableDesc": "เราไม่สามารถเชื่อมต่อกับสโตร์ได้ กรุณาตรวจสอบการเชื่อมต่อของคุณแล้วลองอีกครั้ง",
     "tryAgain": "ลองอีกครั้ง",
-    "disclosureTitle": "OwnJournal Plus — สมาชิกรายปี",
-    "disclosureLength": "สมาชิกรายปีต่ออายุอัตโนมัติ",
+    "disclosureTitle": "OwnJournal Plus — การสมัครสมาชิกรายปี",
+    "disclosureLength": "การสมัครสมาชิกรายปีแบบต่ออายุอัตโนมัติ",
     "priceWithMonthly": "{{yearlyPrice}}/ปี (ประมาณ {{monthlyEquivalent}}/เดือน)",
-    "renewalApple": "ระบบจะเรียกเก็บเงินจาก Apple ID ของคุณเมื่อยืนยันการซื้อ การสมัครสมาชิกของคุณจะต่ออายุอัตโนมัติในราคาเดิม เว้นแต่จะปิดการต่ออายุอัตโนมัติอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดรอบปัจจุบัน คุณสามารถจัดการและยกเลิกการสมัครสมาชิกได้ในการตั้งค่าบัญชี App Store ของคุณหลังการซื้อ",
+    "renewalApple": "ระบบจะเรียกเก็บเงินจากบัญชี Apple ของคุณเมื่อยืนยันการซื้อ การสมัครสมาชิกของคุณจะต่ออายุอัตโนมัติในราคาเดิม เว้นแต่จะปิดการต่ออายุอัตโนมัติอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดรอบปัจจุบัน คุณสามารถจัดการและยกเลิกการสมัครสมาชิกได้ในการตั้งค่าบัญชี App Store ของคุณหลังการซื้อ",
     "renewalGoogle": "ระบบจะเรียกเก็บเงินจากบัญชี Google Play ของคุณเมื่อยืนยันการซื้อ การสมัครสมาชิกของคุณจะต่ออายุอัตโนมัติในราคาเดิม เว้นแต่จะยกเลิกในการสมัครสมาชิก Google Play อย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดรอบปัจจุบัน",
     "iapOnly": {
       "title": "ใช้งานได้ในแอป",
@@ -1635,7 +1637,7 @@
     "entryTooShort": "รายการสั้นเกินไป",
     "entryTooShortDesc": "เขียนอย่างน้อย 50 ตัวอักษรเพื่อให้ AI วิเคราะห์",
     "authRequiredDesc": "เข้าสู่ระบบเพื่อใช้ AI วิเคราะห์",
-    "proSubscriptionRequired": "การวิเคราะห์ AI ต้องมีสมาชิก Plus",
+    "proSubscriptionRequired": "ต้องสมัครสมาชิก Plus จึงจะใช้การวิเคราะห์ด้วย AI ได้",
     "analysisFailed": "วิเคราะห์ไม่สำเร็จ",
     "analysisFailedDesc": "บริการ AI ไม่สามารถประมวลผลคำขอได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง",
     "analysisComplete": "วิเคราะห์เสร็จสิ้น",
@@ -1646,7 +1648,7 @@
     "alreadyAnalyzedDesc": "รายการนี้ถูกวิเคราะห์ระหว่างการวิเคราะห์แนวโน้ม แก้ไขรายการเพื่อวิเคราะห์ใหม่",
     "veryPositive": "เชิงบวกมาก",
     "positive": "เชิงบวก",
-    "mixed": "ปนกัน",
+    "mixed": "ผสมกัน",
     "negative": "เชิงลบ",
     "veryNegative": "เชิงลบมาก",
     "morning": "เช้า",
@@ -1658,8 +1660,8 @@
     "medium": "กลาง",
     "long": "ยาว",
     "length": "ความยาว",
-    "analyzing": "กำลังวิเคราะห์...",
-    "loading": "กำลังโหลด...",
+    "analyzing": "กำลังวิเคราะห์…",
+    "loading": "กำลังโหลด…",
     "analyzeEntry": "วิเคราะห์รายการ",
     "proFeature": "ฟีเจอร์ Plus",
     "show": "แสดง",
@@ -1685,8 +1687,8 @@
     "contentTooShortDescTags": "กรุณาเขียนอย่างน้อยสองสามคำเพื่อให้ AI สร้างแท็ก",
     "contentTooShortDescTitle": "กรุณาเขียนอย่างน้อย 20 ตัวอักษรเพื่อให้ AI สร้างชื่อเรื่อง",
     "proFeature": "ฟีเจอร์ Plus",
-    "proFeatureDescPrivate": "ฟีเจอร์ AI ส่วนตัวต้องมีสมาชิก Plus",
-    "proFeatureDescCloud": "ฟีเจอร์นี้ต้องมีสมาชิก Plus",
+    "proFeatureDescPrivate": "ต้องสมัครสมาชิก Plus จึงจะใช้ฟีเจอร์ AI ส่วนตัวได้",
+    "proFeatureDescCloud": "ต้องสมัครสมาชิก Plus จึงจะใช้ฟีเจอร์นี้ได้",
     "aiModelsLoading": "กำลังโหลดโมเดล AI",
     "aiModelsLoadingDesc": "กรุณารอให้โมเดลดาวน์โหลดเสร็จก่อน",
     "plusFeature": "ฟีเจอร์ Plus",
@@ -1707,21 +1709,21 @@
     "monthlyLimitReachedDescTags": "ใช้โควตาสร้างแท็กครบแล้ว จะรีเซ็ตในเดือนถัดไป",
     "monthlyLimitReachedDescTitle": "ใช้โควตาสร้างชื่อเรื่องครบแล้ว จะรีเซ็ตในเดือนถัดไป",
     "tagsApplied": "เพิ่มแท็กแล้ว",
-    "tagsAppliedDesc": "เพิ่มแท็กจาก AI {{count}} แท็ก",
+    "tagsAppliedDesc_other": "เพิ่มแท็กจาก AI {{count}} แท็ก",
     "suggestedActivities": "กิจกรรมที่แนะนำ",
     "applyTags": "ใช้แท็ก",
     "applyActivities": "ใช้กิจกรรม",
     "activitiesApplied": "เพิ่มกิจกรรมแล้ว",
-    "activitiesAppliedDesc": "เพิ่มกิจกรรมที่แนะนำ {{count}} รายการ",
+    "activitiesAppliedDesc_other": "เพิ่มกิจกรรมที่แนะนำ {{count}} กิจกรรม",
     "removeActivity": "ลบออกจากคำแนะนำ",
     "titleApplied": "ใช้ชื่อเรื่องแล้ว",
     "titleAppliedDesc": "ชื่อเรื่องจาก AI ถูกนำไปใช้แล้ว",
     "applyAll": "ใช้ทั้งหมด",
     "apply": "ใช้",
-    "suggesting": "กำลังแนะนำ...",
+    "suggesting": "กำลังแนะนำ…",
     "suggestAnother": "แนะนำอีก",
     "dismiss": "ปิด",
-    "generating": "กำลังสร้าง...",
+    "generating": "กำลังสร้าง…",
     "suggestTagsPrivate": "แนะนำแท็ก (ส่วนตัว)",
     "suggestTagsEnhanced": "แนะนำแท็ก",
     "suggestTagsPro": "Plus: แนะนำแท็ก",
@@ -1737,13 +1739,13 @@
   "onboarding": {
     "welcome": {
       "title": "ยินดีต้อนรับสู่ OwnJournal",
-      "body": "พื้นที่ส่วนตัวสำหรับความคิด ข้อมูลถูกเข้ารหัสและเป็นของเราเท่านั้น",
-      "desc": "พื้นที่ส่วนตัวสำหรับความคิด ข้อมูลถูกเข้ารหัสและเป็นของเราเท่านั้น",
+      "body": "พื้นที่ส่วนตัวสำหรับความคิดของคุณ ข้อมูลถูกเข้ารหัสและเป็นของคุณเท่านั้น",
+      "desc": "พื้นที่ส่วนตัวสำหรับความคิดของคุณ ข้อมูลถูกเข้ารหัสและเป็นของคุณเท่านั้น",
       "action": "เริ่มตั้งค่า"
     },
     "storage": {
       "title": "ต้องการเก็บบันทึกไว้ที่ไหน?",
-      "subtitle": "เลือกที่จัดเก็บบันทึก",
+      "subtitle": "เลือกพื้นที่จัดเก็บบันทึก",
       "local": "อุปกรณ์เครื่องนี้",
       "localDesc": "เก็บบนอุปกรณ์เครื่องนี้เท่านั้น",
       "googleDrive": "Google Drive",
@@ -1751,7 +1753,7 @@
       "dropbox": "Dropbox",
       "dropboxDesc": "ซิงค์กับ Dropbox",
       "nextcloud": "Nextcloud",
-      "nextcloudDesc": "คลาวด์สตอเรจที่โฮสต์เอง",
+      "nextcloudDesc": "พื้นที่จัดเก็บคลาวด์ที่โฮสต์เอง",
       "active": "ใช้งานอยู่",
       "default": "ค่าเริ่มต้น",
       "continue": "ดำเนินการต่อ",
@@ -1759,26 +1761,26 @@
     },
     "sync": {
       "title": "ตรวจสอบการซิงค์",
-      "preparing": "กำลังเตรียม...",
-      "checking": "กำลังทดสอบการเชื่อมต่อ...",
+      "preparing": "กำลังเตรียม…",
+      "checking": "กำลังทดสอบการเชื่อมต่อ…",
       "success": "เชื่อมต่อสำเร็จแล้ว บันทึกพร้อมซิงค์",
       "localReady": "บันทึกพร้อมแล้ว รายการจะถูกบันทึกไว้ในเครื่อง",
       "usingProvider": "กำลังใช้ {{provider}}",
       "openJournal": "เปิดบันทึก",
-      "connectingProvider": "กำลังเชื่อมต่อคลาวด์สตอเรจ...",
-      "completeSignIn": "ลงชื่อเข้าใช้ให้เสร็จในหน้าต่างที่เปิดขึ้น",
-      "settingPassword": "กำลังตั้งค่าการเข้ารหัส...",
+      "connectingProvider": "กำลังเชื่อมต่อพื้นที่จัดเก็บคลาวด์…",
+      "completeSignIn": "เข้าสู่ระบบให้เสร็จในหน้าต่างที่เปิดขึ้น",
+      "settingPassword": "กำลังตั้งค่าการเข้ารหัส…",
       "enterPassword": "ป้อนรหัสผ่านบันทึกเพื่อดำเนินการต่อ"
     },
     "encryption": {
       "title": "เลือกระดับความปลอดภัย",
       "subtitle": "ต้องการปกป้องบันทึกอย่างไร?",
-      "simpleMode": "โหมดธรรมดา",
+      "simpleMode": "โหมดง่าย",
       "simpleModeDesc": "ตั้งค่าง่าย ไม่ต้องใช้รหัสผ่าน",
       "simpleWarning": "ผู้ให้บริการคลาวด์สามารถเข้าถึงข้อมูลได้",
-      "e2eMode": "เข้ารหัสแบบ E2E",
+      "e2eMode": "เข้ารหัสแบบต้นทางถึงปลายทาง",
       "e2eModeDesc": "ความเป็นส่วนตัวสูงสุดพร้อมรหัสผ่าน",
-      "e2eBenefit": "มีเพียงเจ้าของเท่านั้นที่อ่านบันทึกได้",
+      "e2eBenefit": "มีเพียงคุณเท่านั้นที่อ่านบันทึกได้",
       "recommended": "แนะนำ",
       "lessSecure": "ปลอดภัยน้อยกว่า"
     },
@@ -1800,7 +1802,7 @@
   "onboardingTour": {
     "welcome": {
       "title": "ยินดีต้อนรับสู่ OwnJournal!",
-      "content": "บันทึกส่วนตัวที่เข้ารหัส มาดูภาพรวมสั้นๆ 30 วินาทีกัน!"
+      "content": "บันทึกส่วนตัวที่เข้ารหัส มาดูภาพรวมสั้น ๆ 30 วินาทีกัน!"
     },
     "timeline": {
       "title": "ไทม์ไลน์บันทึก",
@@ -1808,15 +1810,15 @@
     },
     "syncStatus": {
       "title": "สถานะการซิงค์",
-      "content": "เมื่อเชื่อมต่อคลาวด์สตอเรจแล้ว ตัวบ่งชี้นี้จะแสดงสถานะการซิงค์ สีเขียวหมายถึงซิงค์แล้ว!"
+      "content": "เมื่อเชื่อมต่อพื้นที่จัดเก็บคลาวด์แล้ว ตัวบ่งชี้นี้จะแสดงสถานะการซิงค์ สีเขียวหมายถึงซิงค์แล้ว!"
     },
     "encryptionModes": {
       "title": "เลือกระดับความปลอดภัย",
-      "content": "มาตั้งค่าโหมดการเข้ารหัสกัน\n\n• โหมดธรรมดา: เริ่มต้นง่ายและรวดเร็ว\n\n• เข้ารหัส E2E: ปลอดภัยสูงสุดด้วยรหัสผ่านของตัวเอง\n\nเปิดตั้งค่าจากปุ่มนี้เพื่อเปลี่ยนโหมดการเข้ารหัส"
+      "content": "มาตั้งค่าโหมดการเข้ารหัสกัน\n\n• โหมดง่าย: เริ่มต้นได้ง่ายและรวดเร็ว\n\n• เข้ารหัสแบบต้นทางถึงปลายทาง: ปลอดภัยสูงสุดด้วยรหัสผ่านของคุณเอง\n\nเปิดตั้งค่าจากปุ่มนี้เพื่อเปลี่ยนโหมดการเข้ารหัส"
     },
     "settings": {
-      "title": "เชื่อมต่อคลาวด์สตอเรจ",
-      "content": "ประโยชน์ของการเชื่อมต่อคลาวด์:\n\n• ซิงค์ข้ามอุปกรณ์\n• สำรองข้อมูลอัตโนมัติ\n• เข้าถึงได้จากทุกที่\n\nเปิดตั้งค่าจากปุ่มนี้เพื่อเชื่อมต่อคลาวด์สตอเรจ"
+      "title": "เชื่อมต่อพื้นที่จัดเก็บคลาวด์",
+      "content": "ประโยชน์ของการเชื่อมต่อคลาวด์:\n\n• ซิงค์ข้ามอุปกรณ์\n• สำรองข้อมูลอัตโนมัติ\n• เข้าถึงได้จากทุกที่\n\nเปิดตั้งค่าจากปุ่มนี้เพื่อเชื่อมต่อพื้นที่จัดเก็บคลาวด์"
     },
     "help": {
       "title": "ช่วยเหลือและสนับสนุน",
@@ -1824,7 +1826,7 @@
     },
     "complete": {
       "title": "พร้อมแล้ว!",
-      "content": "เริ่มเขียนรายการแรกได้เลย หรือเปิดตั้งค่าเพื่อเชื่อมต่อคลาวด์สตอเรจสำหรับซิงค์ข้ามอุปกรณ์"
+      "content": "เริ่มเขียนรายการแรกได้เลย หรือเปิดตั้งค่าเพื่อเชื่อมต่อพื้นที่จัดเก็บคลาวด์สำหรับซิงค์ข้ามอุปกรณ์"
     },
     "buttons": {
       "next": "ถัดไป",
@@ -1846,7 +1848,7 @@
     "tabs": {
       "gettingStarted": "เริ่มต้นใช้งาน",
       "security": "ความปลอดภัย",
-      "storage": "คลาวด์สตอเรจ",
+      "storage": "พื้นที่จัดเก็บคลาวด์",
       "features": "ฟีเจอร์",
       "troubleshooting": "แก้ไขปัญหา",
       "faq": "คำถามที่พบบ่อย",
@@ -1871,17 +1873,17 @@
       },
       "syncSetup": {
         "title": "ตั้งค่าซิงค์คลาวด์",
-        "step1": "1. เปิดตั้งค่าและไปที่แท็บสตอเรจ",
+        "step1": "1. เปิดตั้งค่าและไปที่แท็บพื้นที่จัดเก็บ",
         "step2": "2. เลือกผู้ให้บริการคลาวด์ที่ต้องการ (Google Drive, Dropbox หรือ Nextcloud)",
         "step3": "3. ทำตามขั้นตอนการยืนยันตัวตนเพื่อเชื่อมต่อ"
       },
       "accountSetup": {
         "title": "สร้างบัญชี",
-        "desc": "สามารถสมัครด้วยอีเมล/รหัสผ่าน หรือลงชื่อเข้าใช้ผ่านบริการอื่น:",
+        "desc": "สามารถสมัครด้วยอีเมล/รหัสผ่าน หรือเข้าสู่ระบบผ่านบริการอื่น:",
         "emailOption": "อีเมลและรหัสผ่าน: ป้อนอีเมลและเลือกรหัสผ่าน",
-        "googleOption": "Google: กด 'ดำเนินการต่อด้วย Google' เพื่อสมัครอย่างรวดเร็ว",
-        "appleOption": "Apple: กด 'ดำเนินการต่อด้วย Apple' เพื่อสมัครแบบเน้นความเป็นส่วนตัว",
-        "tip": "เคล็ดลับ: สามารถรีเซ็ตรหัสผ่านได้ตลอดเวลาด้วยลิงก์ 'ลืมรหัสผ่าน?'"
+        "googleOption": "Google: กด “ดำเนินการต่อด้วย Google” เพื่อสมัครอย่างรวดเร็ว",
+        "appleOption": "Apple: กด “ดำเนินการต่อด้วย Apple” เพื่อสมัครแบบเน้นความเป็นส่วนตัว",
+        "tip": "เคล็ดลับ: สามารถรีเซ็ตรหัสผ่านได้ตลอดเวลาด้วยลิงก์ “ลืมรหัสผ่าน?”"
       }
     },
     "support": {
@@ -1893,7 +1895,7 @@
       },
       "email": {
         "title": "สนับสนุนทางอีเมล",
-        "desc": "สำหรับปัญหาที่ไม่ครอบคลุมในคู่มือช่วยเหลือ กรุณาส่งอีเมลมา ระบุประเภทอุปกรณ์และคำอธิบายปัญหาสั้นๆ เพื่อให้ช่วยเหลือได้รวดเร็วยิ่งขึ้น",
+        "desc": "สำหรับปัญหาที่ไม่ครอบคลุมในคู่มือช่วยเหลือ กรุณาส่งอีเมลมา ระบุประเภทอุปกรณ์และคำอธิบายปัญหาสั้น ๆ เพื่อให้ช่วยเหลือได้รวดเร็วยิ่งขึ้น",
         "address": "support@ownjournal.app"
       },
       "responseTime": "โดยปกติจะตอบกลับภายใน 24-48 ชั่วโมง",
@@ -1921,20 +1923,20 @@
           "step1": "1. รหัสผ่านสร้างคีย์เข้ารหัสเฉพาะ (ด้วย PBKDF2)",
           "step2": "2. มาสเตอร์คีย์แบบสุ่มเข้ารหัสแต่ละรายการบันทึก",
           "step3": "3. มาสเตอร์คีย์ถูกป้องกันด้วยคีย์ที่สร้างจากรหัสผ่าน",
-          "step4": "4. เฉพาะข้อมูลที่เข้ารหัสแล้วเท่านั้นที่จะซิงค์ไปยังคลาวด์สตอเรจ"
+          "step4": "4. เฉพาะข้อมูลที่เข้ารหัสแล้วเท่านั้นที่จะซิงค์ไปยังพื้นที่จัดเก็บคลาวด์"
         },
-        "summary": "แนวทางแบบหลายชั้นนี้หมายความว่าแม้มีคนเข้าถึงคลาวด์สตอเรจได้ ก็ไม่สามารถอ่านรายการบันทึกโดยไม่มีรหัสผ่าน"
+        "summary": "แนวทางแบบหลายชั้นนี้หมายความว่าแม้มีคนเข้าถึงพื้นที่จัดเก็บคลาวด์ได้ ก็ไม่สามารถอ่านรายการบันทึกโดยไม่มีรหัสผ่าน"
       },
       "encryptionModes": {
         "title": "ทำความเข้าใจโหมดการเข้ารหัส",
-        "simpleTitle": "โหมดธรรมดา",
-        "simpleDesc": "ข้อมูลถูกซิงค์ไปยังคลาวด์สตอเรจโดยไม่เข้ารหัส ตั้งค่าง่ายกว่า แต่ผู้ให้บริการคลาวด์สามารถเห็นข้อมูลได้",
-        "e2eTitle": "เข้ารหัสแบบ E2E (แนะนำ)",
-        "e2eDesc": "ข้อมูลถูกเข้ารหัสก่อนออกจากอุปกรณ์ มีเพียงเจ้าของเท่านั้นที่อ่านบันทึกได้ — แม้แต่ผู้ให้บริการคลาวด์ก็ไม่สามารถ"
+        "simpleTitle": "โหมดง่าย",
+        "simpleDesc": "ข้อมูลถูกซิงค์ไปยังพื้นที่จัดเก็บคลาวด์โดยไม่เข้ารหัส ตั้งค่าง่ายกว่า แต่ผู้ให้บริการคลาวด์สามารถเห็นข้อมูลได้",
+        "e2eTitle": "การเข้ารหัสแบบต้นทางถึงปลายทาง (แนะนำ)",
+        "e2eDesc": "ข้อมูลถูกเข้ารหัสก่อนออกจากอุปกรณ์ มีเพียงคุณเท่านั้นที่อ่านบันทึกได้ — แม้แต่ผู้ให้บริการคลาวด์ก็ไม่สามารถ"
       },
       "zeroKnowledge": {
-        "title": "สถาปัตยกรรม Zero Knowledge",
-        "desc": "เมื่อเปิดใช้การเข้ารหัส E2E คีย์เข้ารหัสจะไม่ออกจากอุปกรณ์ เราไม่สามารถเข้าถึงข้อมูลได้แม้ต้องการ — นั่นคือ Zero Knowledge"
+        "title": "สถาปัตยกรรม Zero-Knowledge",
+        "desc": "เมื่อเปิดใช้การเข้ารหัส E2E คีย์เข้ารหัสจะไม่ออกจากอุปกรณ์ เราไม่สามารถเข้าถึงข้อมูลได้แม้ต้องการ — นั่นคือ Zero-Knowledge"
       },
       "passwordTips": {
         "title": "เคล็ดลับรหัสผ่าน",
@@ -1947,14 +1949,14 @@
     "storage": {
       "googleDrive": {
         "title": "เชื่อมต่อ Google Drive",
-        "step1": "1. กด 'เชื่อมต่อ' ข้าง Google Drive ในตั้งค่า",
-        "step2": "2. ลงชื่อเข้าใช้ด้วยบัญชี Google และอนุญาตสิทธิ์",
+        "step1": "1. กด “เชื่อมต่อ” ข้าง Google Drive ในตั้งค่า",
+        "step2": "2. เข้าสู่ระบบด้วยบัญชี Google และอนุญาตสิทธิ์",
         "note": "หมายเหตุ: OwnJournal เก็บข้อมูลในโฟลเดอร์แอปที่ซ่อนอยู่ ไม่แสดงใน Drive ปกติ"
       },
       "dropbox": {
         "title": "เชื่อมต่อ Dropbox",
-        "step1": "1. กด 'เชื่อมต่อ' ข้าง Dropbox ในตั้งค่า",
-        "step2": "2. ลงชื่อเข้าใช้และอนุญาตแอป"
+        "step1": "1. กด “เชื่อมต่อ” ข้าง Dropbox ในตั้งค่า",
+        "step2": "2. เข้าสู่ระบบและอนุญาตแอป"
       },
       "nextcloud": {
         "title": "เชื่อมต่อ Nextcloud",
@@ -1964,8 +1966,8 @@
       },
       "transfer": {
         "title": "โอนย้ายระหว่างผู้ให้บริการ",
-        "desc": "สามารถโอนข้อมูลระหว่างผู้ให้บริการคลาวด์โดยไม่สูญเสียรายการใดๆ",
-        "steps": "หากต้องการโอนข้อมูล ให้เปิดตั้งค่า ไปที่สตอเรจ แล้วเลือกตัวเลือกโอนย้าย"
+        "desc": "สามารถโอนข้อมูลระหว่างผู้ให้บริการคลาวด์โดยไม่สูญเสียรายการใด ๆ",
+        "steps": "หากต้องการโอนข้อมูล ให้เปิดตั้งค่า ไปที่พื้นที่จัดเก็บ แล้วเลือกตัวเลือกโอนย้าย"
       }
     },
     "features": {
@@ -1981,6 +1983,11 @@
       "titleSuggestions": {
         "title": "AI แนะนำชื่อเรื่อง",
         "desc": "AI แนะนำชื่อเรื่องจากเนื้อหารายการ เลือกจากคำแนะนำหลายตัวเลือกเพื่อหาชื่อที่เหมาะสมที่สุด",
+        "proNote": "(ฟีเจอร์ Plus)"
+      },
+      "voiceEntry": {
+        "title": "การป้อนด้วยเสียง",
+        "desc": "กดไอคอนไมโครโฟนใต้ตัวแก้ไขแล้วพูดแทนการพิมพ์ เมื่อคุณหยุด คำพูดของคุณจะถูกแปลงเป็นข้อความที่เรียบร้อยพร้อมเครื่องหมายวรรคตอน แล้วแทรกตรงตำแหน่งเคอร์เซอร์ ใช้ได้กับภาษาที่คุณพูด แม้จะสลับภาษาไปมาระหว่างที่พูด การบันทึกเสียงแต่ละครั้งยาวได้สูงสุด 5 นาที และ Plus ให้ใช้ได้ 200 นาทีต่อเดือน",
         "proNote": "(ฟีเจอร์ Plus)"
       },
       "aiAnalysis": {
@@ -1999,7 +2006,7 @@
       },
       "activityTagging": {
         "title": "แท็กกิจกรรม",
-        "desc": "แท็กสิ่งที่กำลังทำเมื่อเขียนแต่ละรายการ เลือกจากกิจกรรมที่กำหนดไว้ เช่น ออกกำลังกาย สังคม งาน และสมาธิ — หรือสร้างกิจกรรมเองได้ กรองไทม์ไลน์ตามกิจกรรมเพื่อค้นพบว่าส่วนต่างๆ ของชีวิตส่งผลต่อความรู้สึกอย่างไร",
+        "desc": "แท็กสิ่งที่กำลังทำเมื่อเขียนแต่ละรายการ เลือกจากกิจกรรมที่กำหนดไว้ เช่น ออกกำลังกาย สังคม งาน และทำสมาธิ — หรือสร้างกิจกรรมเองได้ กรองไทม์ไลน์ตามกิจกรรมเพื่อค้นพบว่าส่วนต่าง ๆ ของชีวิตส่งผลต่อความรู้สึกอย่างไร",
         "plusHint": "อัปเกรดเป็น Plus เพื่อดูข้อมูลเชิงลึกกิจกรรม — ค้นพบว่ากิจกรรมใดช่วยเสริมอารมณ์"
       },
       "moodCalendar": {
@@ -2045,20 +2052,20 @@
         "importWeb": "เว็บเบราว์เซอร์: เลือกไฟล์สำรอง JSON จากตำแหน่งที่บันทึกไว้"
       },
       "selfHostedStorage": {
-        "title": "สตอเรจที่โฮสต์เอง",
-        "desc": "เชื่อมต่อเซิร์ฟเวอร์ Nextcloud ของตัวเองเพื่อควบคุมตำแหน่งจัดเก็บข้อมูลอย่างสมบูรณ์ เซิร์ฟเวอร์ของเรา กฎของเรา"
+        "title": "พื้นที่จัดเก็บที่โฮสต์เอง",
+        "desc": "เชื่อมต่อเซิร์ฟเวอร์ Nextcloud ของคุณเองเพื่อควบคุมตำแหน่งจัดเก็บข้อมูลได้อย่างสมบูรณ์ เซิร์ฟเวอร์ของคุณ กฎของคุณ"
       },
       "e2eEncryption": {
-        "title": "การเข้ารหัสแบบ E2E",
-        "desc": "รายการบันทึกจะถูกเข้ารหัสบนอุปกรณ์ก่อนซิงค์หรือจัดเก็บ มีเพียงเจ้าของเท่านั้นที่ถือคีย์เข้ารหัส ดังนั้นข้อมูลจะได้รับการปกป้องทั้งขณะจัดเก็บและระหว่างส่ง — ไม่มีใครอื่นสามารถอ่านได้"
+        "title": "การเข้ารหัสแบบต้นทางถึงปลายทาง",
+        "desc": "รายการบันทึกจะถูกเข้ารหัสบนอุปกรณ์ก่อนซิงค์หรือจัดเก็บ มีเพียงคุณเท่านั้นที่ถือคีย์เข้ารหัส ดังนั้นข้อมูลจะได้รับการปกป้องทั้งขณะจัดเก็บและระหว่างส่ง — ไม่มีใครอื่นสามารถอ่านได้"
       },
       "zeroKnowledge": {
         "title": "สถาปัตยกรรม Zero-Knowledge",
-        "desc": "OwnJournal ถูกออกแบบมาให้เราไม่สามารถเข้าถึงเนื้อหาบันทึกได้ เมื่อเปิดใช้การเข้ารหัส E2E มีเพียงเจ้าของเท่านั้นที่ถือรหัสผ่านสำหรับถอดรหัสข้อมูล ฟีเจอร์ AI เป็นตัวเลือกเสริมที่ส่งเนื้อหาเฉพาะเมื่อใช้งาน (ดูนโยบายความเป็นส่วนตัว)"
+        "desc": "OwnJournal ถูกออกแบบมาให้เราไม่สามารถเข้าถึงเนื้อหาบันทึกได้ เมื่อเปิดใช้การเข้ารหัส E2E มีเพียงคุณเท่านั้นที่ถือรหัสผ่านสำหรับถอดรหัสข้อมูล ฟีเจอร์ AI เป็นตัวเลือกเสริมที่ส่งเนื้อหาเฉพาะเมื่อใช้งาน (ดูนโยบายความเป็นส่วนตัว)"
       },
       "multiDeviceSync": {
         "title": "ซิงค์ข้ามอุปกรณ์",
-        "desc": "รักษาบันทึกให้ซิงค์กันทุกอุปกรณ์ ระบบแก้ไขความขัดแย้งอัตโนมัติทำให้ไม่สูญเสียรายการใดๆ แม้แก้ไขบนหลายอุปกรณ์พร้อมกัน"
+        "desc": "รักษาบันทึกให้ซิงค์กันทุกอุปกรณ์ ระบบแก้ไขความขัดแย้งอัตโนมัติทำให้ไม่สูญเสียรายการใด ๆ แม้แก้ไขบนหลายอุปกรณ์พร้อมกัน"
       }
     },
     "troubleshooting": {
@@ -2067,13 +2074,13 @@
         "intro": "กรุณาลองขั้นตอนต่อไปนี้:",
         "tip1": "ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต",
         "tip2": "ลองกดปุ่มซิงค์ด้วยตนเอง",
-        "tip3": "ยกเลิกการเชื่อมต่อและเชื่อมต่อคลาวด์สตอเรจใหม่"
+        "tip3": "ยกเลิกการเชื่อมต่อและเชื่อมต่อพื้นที่จัดเก็บคลาวด์ใหม่"
       },
       "nextcloudEncryption": {
         "title": "ความขัดแย้งการเข้ารหัส Nextcloud",
         "intro": "Nextcloud มีการเข้ารหัสฝั่งเซิร์ฟเวอร์ของตัวเองที่อาจรบกวน OwnJournal เมื่อเปิดใช้งาน Nextcloud จะเข้ารหัสไฟล์บนเซิร์ฟเวอร์ ทำให้ OwnJournal ได้รับข้อมูลที่สับสนแทนรายการบันทึก",
         "whyTitle": "ทำไมถึงเกิดปัญหานี้?",
-        "why": "ผู้ดูแลระบบ Nextcloud (หรือตัวเอง หากโฮสต์เอง) ได้เปิดใช้การเข้ารหัสฝั่งเซิร์ฟเวอร์ ซึ่งหมายความว่า Nextcloud เข้ารหัสไฟล์ก่อนจัดเก็บ เมื่อ OwnJournal พยายามอ่านผ่าน WebDAV จะได้รับข้อมูลที่เข้ารหัสซึ่งไม่สามารถเข้าใจได้",
+        "why": "ผู้ดูแลระบบ Nextcloud (หรือคุณเอง หากโฮสต์เอง) ได้เปิดใช้การเข้ารหัสฝั่งเซิร์ฟเวอร์ ซึ่งหมายความว่า Nextcloud เข้ารหัสไฟล์ก่อนจัดเก็บ เมื่อ OwnJournal พยายามอ่านผ่าน WebDAV จะได้รับข้อมูลที่เข้ารหัสซึ่งไม่สามารถเข้าใจได้",
         "fixTitle": "วิธีแก้ไข",
         "fixOption1Title": "ตัวเลือกที่ 1: ปิดการเข้ารหัสฝั่งเซิร์ฟเวอร์",
         "fixOption1Desc": "หากจัดการเซิร์ฟเวอร์ Nextcloud เอง จำเป็นต้องใช้เทอร์มินัล (SSH) เนื่องจากไม่สามารถยกเลิกเลือกช่องในหน้าผู้ดูแลระบบขณะที่ไฟล์ถูกเข้ารหัส:",
@@ -2085,39 +2092,39 @@
         "fixOption1Step6": "6. Nextcloud จะปิดโหมดบำรุงรักษาอัตโนมัติเมื่อเสร็จ",
         "fixOption1Note": "อาจใช้เวลานานขึ้นอยู่กับจำนวนไฟล์ หากไม่ใช่ผู้ดูแลระบบเซิร์ฟเวอร์ ให้ขอให้ผู้ดูแลรันคำสั่งเหล่านี้หรือยกเว้นโฟลเดอร์ OwnJournal จากการเข้ารหัส",
         "fixOption2Title": "ตัวเลือกที่ 2: ปิดแอปเข้ารหัส E2E",
-        "fixOption2Desc": "หาก Nextcloud มีแอป \"End-to-End Encryption\" เปิดใช้อยู่:",
-        "fixOption2Step1": "1. ใน Nextcloud ไปที่ Apps > Security",
-        "fixOption2Step2": "2. หา \"End-to-End Encryption\" แล้วปิดการใช้งาน",
+        "fixOption2Desc": "หาก Nextcloud มีแอป “End-to-End Encryption” เปิดใช้อยู่:",
+        "fixOption2Step1": "1. ใน Nextcloud ไปที่ Apps → Security",
+        "fixOption2Step2": "2. หา “End-to-End Encryption” แล้วปิดการใช้งาน",
         "fixOption2Step3": "3. หรือเพียงตรวจสอบว่าโฟลเดอร์ OwnJournal ไม่ได้ถูกตั้งค่าให้เข้ารหัส E2E",
         "importantNote": "OwnJournal มีการเข้ารหัส E2E ของตัวเองที่ทำงานแยกจากกัน ไม่จำเป็นต้องใช้การเข้ารหัสของ Nextcloud — ข้อมูลถูกเข้ารหัสโดย OwnJournal ก่อนออกจากอุปกรณ์แล้ว"
       },
       "passwordRecovery": {
         "title": "ลืมรหัสผ่าน E2E",
         "warning": "ข้อมูลที่เข้ารหัส E2E ไม่สามารถกู้คืนได้หากไม่มีรหัสผ่าน",
-        "desc": "นี่เป็นฟีเจอร์ความปลอดภัยหลักของการเข้ารหัสแบบ end-to-end — มีเพียงเจ้าของเท่านั้นที่ถือคีย์ ซึ่งหมายความว่าแม้แต่เราก็ไม่สามารถเข้าถึงข้อมูลได้ แม้จะปกป้องความเป็นส่วนตัว แต่ก็หมายความว่าไม่มีทางกู้คืนรายการที่เข้ารหัสโดยไม่มีรหัสผ่าน",
+        "desc": "นี่เป็นฟีเจอร์ความปลอดภัยหลักของการเข้ารหัสแบบต้นทางถึงปลายทาง — มีเพียงคุณเท่านั้นที่ถือคีย์ ซึ่งหมายความว่าแม้แต่เราก็ไม่สามารถเข้าถึงข้อมูลได้ แม้จะปกป้องความเป็นส่วนตัว แต่ก็หมายความว่าไม่มีทางกู้คืนรายการที่เข้ารหัสโดยไม่มีรหัสผ่าน",
         "actionTitle": "สิ่งที่ทำได้:",
         "action1": "หากมีข้อมูลสำรอง JSON ที่ไม่ได้เข้ารหัส สามารถกู้คืนรายการจากข้อมูลนั้นได้",
-        "action2": "หากต้องการเริ่มใหม่ ใช้ตัวเลือก 'ลบทั้งหมด' ในส่วน Danger Zone ของตั้งค่าเพื่อรีเซ็ตและสร้างบันทึกเข้ารหัสใหม่"
+        "action2": "หากต้องการเริ่มใหม่ ให้ใช้ “รีเซ็ตข้อมูลทั้งหมด” ในส่วนโซนอันตรายของตั้งค่า แล้วสร้างสมุดบันทึกเข้ารหัสใหม่"
       }
     },
     "faq": {
       "path": {
         "step1": "ตั้งค่า",
         "step2": "บัญชี",
-        "step3": "สมาชิก",
+        "step3": "การสมัครสมาชิก",
         "step4": "จัดการ"
       },
       "dataLocation": {
         "question": "ข้อมูลถูกจัดเก็บที่ไหน?",
-        "answer": "ข้อมูลบันทึกถูกจัดเก็บในผู้ให้บริการคลาวด์สตอเรจที่เลือก (Google Drive, Dropbox หรือ Nextcloud) OwnJournal ไม่จัดเก็บบันทึกบนเซิร์ฟเวอร์ของเรา เมื่อเปิดใช้การเข้ารหัส E2E ข้อมูลจะถูกเข้ารหัสบนอุปกรณ์ก่อนอัปโหลด"
+        "answer": "ข้อมูลบันทึกถูกจัดเก็บในผู้ให้บริการพื้นที่จัดเก็บคลาวด์ที่เลือก (Google Drive, Dropbox หรือ Nextcloud) OwnJournal ไม่จัดเก็บบันทึกบนเซิร์ฟเวอร์ของเรา เมื่อเปิดใช้การเข้ารหัส E2E ข้อมูลจะถูกเข้ารหัสบนอุปกรณ์ก่อนอัปโหลด"
       },
       "offline": {
         "question": "ใช้ OwnJournal แบบออฟไลน์ได้หรือไม่?",
-        "answer": "ได้! OwnJournal ทำงานแบบออฟไลน์ได้สมบูรณ์ รายการจะถูกจัดเก็บในอุปกรณ์และซิงค์ไปยังคลาวด์สตอเรจโดยอัตโนมัติเมื่อกลับมาออนไลน์"
+        "answer": "ได้! OwnJournal ทำงานแบบออฟไลน์ได้สมบูรณ์ รายการจะถูกจัดเก็บในอุปกรณ์และซิงค์ไปยังพื้นที่จัดเก็บคลาวด์โดยอัตโนมัติเมื่อกลับมาออนไลน์"
       },
       "devices": {
         "question": "ใช้ได้กี่อุปกรณ์?",
-        "answer": "ใช้ OwnJournal ได้บนอุปกรณ์กี่เครื่องก็ได้ บันทึกที่เข้ารหัสจะซิงค์กันทุกอุปกรณ์ผ่านผู้ให้บริการคลาวด์สตอเรจ"
+        "answer": "ใช้ OwnJournal ได้บนอุปกรณ์กี่เครื่องก็ได้ บันทึกที่เข้ารหัสจะซิงค์กันทุกอุปกรณ์ผ่านผู้ให้บริการพื้นที่จัดเก็บคลาวด์"
       },
       "free": {
         "question": "OwnJournal ฟรีหรือไม่?",
@@ -2125,25 +2132,25 @@
       },
       "pro": {
         "question": "Plus รวมอะไรบ้าง?",
-        "answer": "Plus รวม AI วิเคราะห์ แนะนำชื่อเรื่อง แนะนำแท็ก วิเคราะห์แนวโน้ม ข้อมูลเชิงลึกกิจกรรม และส่งออก PDF/Word"
+        "answer": "Plus รวม AI วิเคราะห์ แนะนำชื่อเรื่อง แนะนำแท็ก การป้อนด้วยเสียง วิเคราะห์แนวโน้ม ข้อมูลเชิงลึกกิจกรรม และส่งออก PDF/Word"
       },
       "manageSubscription": {
-        "question": "จัดการสมาชิกอย่างไร?",
-        "answer": "เปิดตั้งค่า ไปที่แท็บบัญชี เลื่อนไปที่ส่วนสมาชิก แล้วกด 'จัดการ' เพื่อเข้าถึงพอร์ทัลการเรียกเก็บเงิน จากที่นั่นสามารถอัปเดตวิธีการชำระเงิน ดูรายละเอียดแพลน และจัดการการตั้งค่าการเรียกเก็บเงิน"
+        "question": "จัดการการสมัครสมาชิกอย่างไร?",
+        "answer": "เปิดตั้งค่า ไปที่แท็บบัญชี เลื่อนไปที่ส่วนการสมัครสมาชิก แล้วกด “จัดการ” เพื่อเข้าสู่พอร์ทัลการเรียกเก็บเงิน ในพอร์ทัลนี้คุณสามารถอัปเดตวิธีการชำระเงิน ดูรายละเอียดแพลน และจัดการการตั้งค่าการเรียกเก็บเงินได้"
       },
       "invoices": {
         "question": "ดูใบแจ้งหนี้อย่างไร?",
-        "answer": "เปิดตั้งค่า ไปที่แท็บบัญชี เลื่อนไปที่ส่วนสมาชิก แล้วกด 'จัดการ' เพื่อเปิดพอร์ทัลการเรียกเก็บเงิน ประวัติใบแจ้งหนี้ทั้งหมดอยู่ที่นั่น และสามารถดาวน์โหลดใบแจ้งหนี้เป็น PDF เก็บไว้ได้"
+        "answer": "เปิดตั้งค่า ไปที่แท็บบัญชี เลื่อนไปที่ส่วนการสมัครสมาชิก แล้วกด “จัดการ” เพื่อเปิดพอร์ทัลการเรียกเก็บเงิน ประวัติใบแจ้งหนี้ทั้งหมดอยู่ที่นั่น และคุณดาวน์โหลดใบแจ้งหนี้เป็น PDF เก็บไว้ได้"
       },
       "cancelSubscription": {
-        "question": "ยกเลิกสมาชิกอย่างไร?",
-        "answer": "เปิดตั้งค่า ไปที่แท็บบัญชี เลื่อนไปที่ส่วนสมาชิก แล้วกด 'จัดการ' เพื่อเข้าถึงพอร์ทัลการเรียกเก็บเงิน กด 'Cancel plan' เพื่อหยุดสมาชิก จะยังคงเข้าถึง Plus ได้จนสิ้นสุดรอบบิลปัจจุบัน ฟีเจอร์การเขียนบันทึกหลักยังคงใช้ได้ฟรีตลอดไป"
+        "question": "ยกเลิกการสมัครสมาชิกอย่างไร?",
+        "answer": "เปิดตั้งค่า ไปที่แท็บบัญชี เลื่อนไปที่ส่วนการสมัครสมาชิก แล้วกด “จัดการ” เพื่อเปิดพอร์ทัลการเรียกเก็บเงิน ซึ่งคุณยกเลิกแพลนได้จากที่นั่น คุณจะยังใช้ Plus ได้จนสิ้นสุดรอบการเรียกเก็บเงินปัจจุบัน ฟีเจอร์การเขียนบันทึกหลักยังคงใช้ได้ฟรีตลอดไป"
       }
     }
   },
   "company": {
     "name": "Recsty AB",
-    "country": "Sweden",
+    "country": "สวีเดน",
     "email": "support@ownjournal.app",
     "supervisoryAuthority": "Integritetsskyddsmyndigheten (IMY)",
     "supervisoryAuthorityUrl": "imy.se"
@@ -2152,19 +2159,18 @@
     "backToApp": "กลับไปที่ OwnJournal",
     "backToHomepage": "กลับไปหน้าแรก",
     "openApp": "เปิดแอป",
-    "lastUpdated": "อัปเดตล่าสุด",
     "termsOfService": "ข้อกำหนดการใช้บริการ",
     "privacyPolicy": "นโยบายความเป็นส่วนตัว",
     "terms": {
       "title": "ข้อกำหนดการใช้บริการ",
-      "lastUpdatedDate": "เมษายน 2026",
+      "lastUpdatedDate": "เมษายน 2569",
       "acceptance": {
         "title": "1. การยอมรับข้อกำหนด",
-        "content": "เมื่อเข้าถึงหรือใช้ OwnJournal คุณตกลงที่จะผูกพันตามข้อกำหนดในการให้บริการเหล่านี้พร้อมกับนโยบายความเป็นส่วนตัวของเรา ซึ่งเป็นส่วนหนึ่งของข้อกำหนดเหล่านี้ คุณต้องมีอายุอย่างน้อย 13 ปี หรืออายุที่สูงกว่าของการยินยอมทางดิจิทัลที่ใช้บังคับในประเทศของคุณ (สูงสุด 16 ปีในประเทศสมาชิกสหภาพยุโรปบางประเทศ) เพื่อใช้ OwnJournal หากคุณไม่ยอมรับข้อกำหนดเหล่านี้ โปรดอย่าใช้บริการ"
+        "content": "เมื่อเข้าถึงหรือใช้ OwnJournal คุณตกลงที่จะผูกพันตามข้อกำหนดการใช้บริการเหล่านี้ รวมถึงนโยบายความเป็นส่วนตัวของเรา ซึ่งถือเป็นส่วนหนึ่งของข้อกำหนดเหล่านี้ คุณต้องมีอายุอย่างน้อย 13 ปี หรือไม่ต่ำกว่าอายุขั้นต่ำที่สูงกว่าสำหรับการให้ความยินยอมทางดิจิทัลตามกฎหมายของประเทศคุณ (สูงสุด 16 ปีในบางประเทศสมาชิกสหภาพยุโรป) จึงจะใช้ OwnJournal ได้ หากคุณไม่ยอมรับข้อกำหนดเหล่านี้ กรุณาอย่าใช้บริการ"
       },
       "description": {
         "title": "2. คำอธิบายบริการ",
-        "content": "OwnJournal เป็นแอปพลิเคชันบันทึกประจำวันส่วนบุคคลที่ดำเนินการโดย {{companyName}} ซึ่งเป็นบริษัทที่จดทะเบียนในประเทศ {{companyCountry}} ช่วยให้คุณสร้าง จัดเก็บ ค้นหา และวิเคราะห์รายการบันทึกประจำวันของคุณบนเว็บ iOS Android และเดสก์ท็อป คุณนำพื้นที่จัดเก็บคลาวด์ของคุณเอง (Google Drive, Dropbox, Nextcloud หรือ iCloud Drive) มาใช้สำหรับการซิงค์ระหว่างอุปกรณ์ หรือคุณสามารถใช้แอปพลิเคชันแบบออฟไลน์ทั้งหมดด้วยพื้นที่จัดเก็บในเครื่อง เรานำเสนอการเข้ารหัสแบบ End-to-End (E2E) และโหมด Simple ที่ไม่มีการเข้ารหัสแบบ End-to-End สมาชิก Plus มีสิทธิ์เข้าถึงคุณสมบัติที่ขับเคลื่อนด้วย AI ที่เป็นทางเลือก เช่น การวิเคราะห์อารมณ์และคำแนะนำ"
+        "content": "OwnJournal เป็นแอปพลิเคชันบันทึกประจำวันส่วนบุคคลที่ดำเนินการโดย {{companyName}} ซึ่งเป็นบริษัทที่จดทะเบียนในประเทศ{{companyCountry}} ช่วยให้คุณสร้าง จัดเก็บ ค้นหา และวิเคราะห์รายการบันทึกประจำวันของคุณได้บนเว็บ iOS Android และเดสก์ท็อป คุณใช้พื้นที่จัดเก็บคลาวด์ของคุณเอง (Google Drive, Dropbox, Nextcloud หรือ iCloud Drive) สำหรับการซิงค์ระหว่างอุปกรณ์ หรือจะใช้แอปพลิเคชันแบบออฟไลน์ทั้งหมดด้วยพื้นที่จัดเก็บในเครื่องก็ได้ เรามีการเข้ารหัสแบบต้นทางถึงปลายทาง (E2E) และโหมดง่ายที่ไม่มีการเข้ารหัสแบบต้นทางถึงปลายทาง สมาชิก Plus เข้าถึงฟีเจอร์เสริมที่ขับเคลื่อนด้วย AI ได้ เช่น การวิเคราะห์อารมณ์และคำแนะนำ"
       },
       "accounts": {
         "title": "3. บัญชีผู้ใช้",
@@ -2172,95 +2178,95 @@
       },
       "dataStorage": {
         "title": "8. การจัดเก็บข้อมูลและความเป็นส่วนตัว",
-        "content": "รายการบันทึกประจำวันของคุณถูกจัดเก็บไว้ในผู้ให้บริการคลาวด์ที่คุณเลือก (Google Drive, Dropbox, Nextcloud หรือ iCloud Drive) — ไม่ใช่บนเซิร์ฟเวอร์ของเรา เมื่อเปิดใช้การเข้ารหัส E2E ข้อมูลของคุณจะถูกเข้ารหัสบนอุปกรณ์ของคุณก่อนที่จะออกจากอุปกรณ์ เราไม่สามารถเข้าถึงเนื้อหาที่เข้ารหัสของคุณ ในโหมด Simple ข้อมูลของคุณจะถูกซิงค์โดยไม่มีการเข้ารหัสแบบ End-to-End การจัดการข้อมูลส่วนบุคคลของเราอธิบายไว้ในนโยบายความเป็นส่วนตัวของเรา"
+        "content": "รายการบันทึกประจำวันของคุณถูกจัดเก็บไว้ในผู้ให้บริการพื้นที่จัดเก็บคลาวด์ที่คุณเลือก (Google Drive, Dropbox, Nextcloud หรือ iCloud Drive) — ไม่ใช่บนเซิร์ฟเวอร์ของเรา เมื่อเปิดใช้การเข้ารหัส E2E ข้อมูลของคุณจะถูกเข้ารหัสบนอุปกรณ์ของคุณก่อนที่จะออกจากอุปกรณ์ และเราไม่สามารถเข้าถึงเนื้อหาที่เข้ารหัสของคุณได้ ในโหมดง่าย ข้อมูลของคุณจะถูกซิงค์โดยไม่มีการเข้ารหัสแบบต้นทางถึงปลายทาง การจัดการข้อมูลส่วนบุคคลของเราอธิบายไว้ในนโยบายความเป็นส่วนตัวของเรา"
       },
       "intellectualProperty": {
         "title": "7. ทรัพย์สินทางปัญญา",
-        "content": "คุณยังคงเก็บสิทธิ์ทั้งหมดในเนื้อหาบันทึกประจำวันที่คุณสร้าง ภายใต้การปฏิบัติตามข้อกำหนดเหล่านี้ของคุณ เราให้สิทธิ์การใช้งานที่จำกัด ไม่จำกัด ไม่สามารถโอนได้ ไม่สามารถให้สิทธิ์ช่วงได้ และเพิกถอนได้ ในการติดตั้งและใช้ OwnJournal สำหรับการใช้งานส่วนตัวของคุณ แอปพลิเคชัน OwnJournal — รวมถึงซอร์สโค้ด การออกแบบ และการสร้างแบรนด์ — เป็นของ {{companyName}} และได้รับการคุ้มครองโดยกฎหมายทรัพย์สินทางปัญญา คุณต้องไม่คัดลอก แก้ไข แจกจ่าย ขาย หรือสร้างผลงานที่ดัดแปลงจากแอปพลิเคชัน เว้นแต่จะได้รับอนุญาตอย่างชัดเจนภายใต้ข้อกำหนดเหล่านี้หรือกฎหมายที่ใช้บังคับ"
+        "content": "คุณยังคงมีสิทธิทั้งหมดในเนื้อหาบันทึกประจำวันที่คุณสร้าง ภายใต้เงื่อนไขว่าคุณปฏิบัติตามข้อกำหนดเหล่านี้ เราให้สิทธิการใช้งานแก่คุณแบบจำกัด ไม่ผูกขาด โอนไม่ได้ ให้สิทธิช่วงไม่ได้ และเพิกถอนได้ เพื่อติดตั้งและใช้ OwnJournal สำหรับการใช้งานส่วนตัวของคุณ แอปพลิเคชัน OwnJournal — รวมถึงซอร์สโค้ด การออกแบบ และแบรนด์ — เป็นของ {{companyName}} และได้รับความคุ้มครองตามกฎหมายทรัพย์สินทางปัญญา คุณต้องไม่คัดลอก แก้ไข แจกจ่าย ขาย หรือสร้างงานดัดแปลงจากแอปพลิเคชัน เว้นแต่ข้อกำหนดเหล่านี้หรือกฎหมายที่ใช้บังคับจะอนุญาตไว้อย่างชัดแจ้ง"
       },
       "limitation": {
         "title": "9. การจำกัดความรับผิด",
-        "content": "OwnJournal มีให้ \"ตามสภาพ\" และ \"ตามที่มีอยู่\" โดยไม่มีการรับประกันใด ๆ ทั้งโดยชัดแจ้งหรือโดยนัย เราไม่รับประกันว่าบริการจะไม่ขาดตอนหรือปราศจากข้อผิดพลาด หรือจะไม่เกิดการสูญเสียข้อมูล ในขอบเขตสูงสุดที่กฎหมายอนุญาต เราไม่รับผิดชอบต่อการสูญเสียข้อมูล การหยุดชะงักของบริการ หรือความเสียหายทางอ้อม โดยบังเอิญ พิเศษ ผลสืบเนื่อง หรือการลงโทษที่เกิดขึ้นจากการใช้บริการของคุณ ไม่มีสิ่งใดในข้อกำหนดเหล่านี้ที่ยกเว้นหรือจำกัดความรับผิดของเราสำหรับการเสียชีวิตหรือการบาดเจ็บส่วนบุคคลที่เกิดจากความประมาท การฉ้อโกง ความประมาทอย่างร้ายแรง การประพฤติมิชอบโดยเจตนา หรือความรับผิดอื่นใดที่ไม่สามารถยกเว้นได้ตามกฎหมาย หากคุณเป็นผู้บริโภค ข้อกำหนดนี้ไม่กระทบต่อสิทธิตามกฎหมายของคุณ"
+        "content": "OwnJournal ให้บริการ “ตามสภาพ” และ “ตามที่มีให้บริการ” โดยไม่มีการรับประกันใด ๆ ทั้งโดยชัดแจ้งหรือโดยปริยาย เราไม่รับประกันว่าบริการจะไม่หยุดชะงักหรือปราศจากข้อผิดพลาด หรือว่าจะไม่เกิดการสูญหายของข้อมูล ในขอบเขตสูงสุดที่กฎหมายอนุญาต เราไม่รับผิดต่อการสูญหายของข้อมูล การหยุดชะงักของบริการ หรือความเสียหายทางอ้อม ความเสียหายที่เกิดขึ้นโดยบังเอิญ ความเสียหายพิเศษ ความเสียหายต่อเนื่อง หรือค่าเสียหายเชิงลงโทษที่เกิดจากการใช้บริการของคุณ ไม่มีข้อความใดในข้อกำหนดเหล่านี้ที่ยกเว้นหรือจำกัดความรับผิดของเราต่อการเสียชีวิตหรือการบาดเจ็บต่อร่างกายที่เกิดจากความประมาทเลินเล่อ การฉ้อฉล ความประมาทเลินเล่ออย่างร้ายแรง การกระทำโดยจงใจ หรือความรับผิดอื่นใดที่ไม่อาจยกเว้นได้ตามกฎหมาย หากคุณเป็นผู้บริโภค ข้อนี้ไม่กระทบต่อสิทธิตามกฎหมายของคุณ"
       },
       "termination": {
         "title": "10. การยุติ",
-        "content": "คุณสามารถลบบัญชีของคุณได้ตลอดเวลาผ่านการตั้งค่าของแอปพลิเคชัน เมื่อลบ ข้อมูลบัญชีของคุณจะถูกลบตามที่อธิบายไว้ในนโยบายความเป็นส่วนตัว เราอาจระงับหรือยุติบัญชีของคุณหากคุณละเมิดข้อกำหนดเหล่านี้อย่างร้ายแรง — รวมถึงการละเมิดส่วนการใช้งานที่ยอมรับได้ — โดยมีเงื่อนไขว่าเราจะให้คุณแจ้งเตือนที่สมเหตุสมผลและโอกาสในการแก้ไขการละเมิด (ในกรณีที่สามารถแก้ไขได้) ก่อนการยุติ ยกเว้นในกรณีที่มีการละเมิดอย่างร้ายแรง กิจกรรมที่ผิดกฎหมาย หรือเมื่อกฎหมายกำหนด เราอาจยุติการให้บริการด้วยการแจ้งเตือนล่วงหน้าอย่างน้อย 30 วัน"
+        "content": "คุณสามารถลบบัญชีได้ทุกเมื่อผ่านการตั้งค่าของแอปพลิเคชัน เมื่อลบแล้ว ข้อมูลบัญชีของคุณจะถูกลบตามที่อธิบายไว้ในนโยบายความเป็นส่วนตัว เราอาจระงับหรือยุติบัญชีของคุณหากคุณละเมิดข้อกำหนดเหล่านี้อย่างมีนัยสำคัญ — รวมถึงการฝ่าฝืนหัวข้อการใช้งานที่ยอมรับได้ — โดยเราจะแจ้งให้คุณทราบล่วงหน้าตามสมควรและให้โอกาสคุณแก้ไขการละเมิดนั้น (ในกรณีที่แก้ไขได้) ก่อนการยุติ เว้นแต่ในกรณีที่มีการใช้งานในทางที่ผิดอย่างร้ายแรง มีกิจกรรมที่ผิดกฎหมาย หรือเมื่อกฎหมายกำหนด นอกจากนี้ เราอาจยุติการให้บริการโดยแจ้งล่วงหน้าอย่างน้อย 30 วัน"
       },
       "changes": {
         "title": "11. การเปลี่ยนแปลงข้อกำหนด",
-        "content": "เราอาจอัปเดตข้อกำหนดเหล่านี้เป็นครั้งคราว สำหรับการเปลี่ยนแปลงที่เป็นการชี้แจง ทางเทคนิค หรือที่กฎหมายกำหนด เราจะอัปเดตข้อกำหนดเหล่านี้และวันที่ \"อัปเดตล่าสุด\" โดยไม่ต้องแจ้งล่วงหน้า สำหรับการเปลี่ยนแปลงที่ส่งผลกระทบอย่างมีนัยสำคัญต่อสิทธิหรือภาระผูกพันของคุณในฐานะผู้บริโภค (เช่น การขึ้นราคา การเปลี่ยนแปลงที่สำคัญต่อบริการ หรือการจำกัดการใช้งานใหม่) เราจะให้การแจ้งเตือนล่วงหน้าอย่างน้อย 30 วันทางอีเมลและผ่านแอปพลิเคชัน หากคุณไม่ยอมรับการเปลี่ยนแปลงที่สำคัญ คุณสามารถยกเลิกการสมัครสมาชิกของคุณและหยุดใช้บริการก่อนที่การเปลี่ยนแปลงจะมีผลบังคับใช้ และคุณจะไม่ถูกเรียกเก็บเงินสำหรับช่วงการสมัครสมาชิกที่กำลังจะมาถึง"
+        "content": "เราอาจอัปเดตข้อกำหนดเหล่านี้เป็นครั้งคราว สำหรับการเปลี่ยนแปลงที่เป็นการชี้แจง เป็นเรื่องทางเทคนิค หรือเป็นไปตามที่กฎหมายกำหนด เราจะอัปเดตข้อกำหนดเหล่านี้และวันที่ “อัปเดตล่าสุด” โดยไม่แจ้งล่วงหน้า สำหรับการเปลี่ยนแปลงที่ส่งผลกระทบอย่างมีนัยสำคัญต่อสิทธิหรือหน้าที่ของคุณในฐานะผู้บริโภค (เช่น การขึ้นราคา การเปลี่ยนแปลงบริการอย่างมีนัยสำคัญ หรือข้อจำกัดการใช้งานใหม่) เราจะแจ้งให้คุณทราบล่วงหน้าอย่างน้อย 30 วันทางอีเมลและผ่านแอปพลิเคชัน หากคุณไม่ยอมรับการเปลี่ยนแปลงที่มีนัยสำคัญ คุณสามารถยกเลิกการสมัครสมาชิกและหยุดใช้บริการได้ก่อนที่การเปลี่ยนแปลงจะมีผล และคุณจะไม่ถูกเรียกเก็บเงินสำหรับรอบการสมัครสมาชิกถัดไป"
       },
       "contact": {
         "title": "14. ติดต่อ",
-        "content": "หากคุณมีคำถามเกี่ยวกับข้อกำหนดเหล่านี้ โปรดติดต่อเราที่ {{companyEmail}}"
+        "content": "หากคุณมีคำถามเกี่ยวกับข้อกำหนดเหล่านี้ กรุณาติดต่อเราที่ {{companyEmail}}"
       },
       "governingLaw": {
         "title": "15. กฎหมายที่ใช้บังคับ",
-        "content": "ข้อกำหนดเหล่านี้อยู่ภายใต้กฎหมายของ {{companyCountry}} ข้อพิพาทใด ๆ จะได้รับการแก้ไขในศาลสวีเดน สิ่งนี้ไม่กระทบต่อสิทธิคุ้มครองผู้บริโภคที่บังคับใช้ที่คุณอาจมีภายใต้กฎหมายของประเทศที่คุณพำนัก"
+        "content": "ข้อกำหนดเหล่านี้อยู่ภายใต้กฎหมายของประเทศ{{companyCountry}} ข้อพิพาทใด ๆ จะได้รับการพิจารณาโดยศาลสวีเดน ทั้งนี้ไม่กระทบต่อสิทธิคุ้มครองผู้บริโภคที่เป็นบทบังคับซึ่งคุณอาจมีตามกฎหมายของประเทศที่คุณพำนัก"
       },
       "subscriptions": {
         "title": "4. การสมัครสมาชิก การเรียกเก็บเงิน และการยกเลิก",
-        "content": "OwnJournal เสนอระดับชำระเงินทางเลือก (\"Plus\") ที่ขายเป็นการสมัครสมาชิกแบบต่ออายุอัตโนมัติ บน Apple App Store (iOS) การสมัครสมาชิกจะถูกเรียกเก็บเงินผ่าน Apple ID ของคุณและจัดการในการตั้งค่าบัญชี App Store ของคุณ การชำระเงินจะถูกเรียกเก็บไปยัง Apple ID ของคุณเมื่อยืนยันการซื้อ การสมัครสมาชิกของคุณต่ออายุโดยอัตโนมัติเว้นแต่จะปิดการต่ออายุอัตโนมัติอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดระยะเวลาปัจจุบัน บัญชีของคุณจะถูกเรียกเก็บเงินสำหรับการต่ออายุภายใน 24 ชั่วโมงก่อนสิ้นสุดระยะเวลาปัจจุบัน การยกเลิกมีผลเมื่อสิ้นสุดระยะเวลาที่ชำระเงินปัจจุบัน และส่วนที่ไม่ได้ใช้ของช่วงทดลองใช้ฟรีจะหมดอายุเมื่อคุณเริ่มต้นการสมัครสมาชิกแบบชำระเงิน บน Google Play (Android) การสมัครสมาชิกจะถูกเรียกเก็บเงินผ่านบัญชี Google Play ของคุณและจัดการในการตั้งค่าการสมัครสมาชิก Google Play; หลักการต่ออายุอัตโนมัติและการยกเลิกเดียวกันใช้บังคับ บนเว็บ การสมัครสมาชิกจะถูกเรียกเก็บเงินผ่าน Stripe และจัดการในการตั้งค่าบัญชีของคุณภายใน OwnJournal ราคาจะแสดงในสกุลเงินท้องถิ่นของคุณเมื่อรองรับและรวมภาษีที่ใช้บังคับ ช่วงทดลองใช้ฟรี เมื่อมีให้ จะเปลี่ยนเป็นการสมัครสมาชิกแบบชำระเงินโดยอัตโนมัติเมื่อสิ้นสุดช่วงทดลองใช้ เว้นแต่จะถูกยกเลิกก่อนสิ้นสุดช่วงทดลองใช้"
+        "content": "OwnJournal เสนอระดับแบบชำระเงินที่เป็นทางเลือก (“Plus”) ที่ขายเป็นการสมัครสมาชิกแบบต่ออายุอัตโนมัติ บน Apple App Store (iOS) การสมัครสมาชิกจะถูกเรียกเก็บเงินผ่านบัญชี Apple ของคุณและจัดการในการตั้งค่าบัญชี App Store ของคุณ การชำระเงินจะถูกเรียกเก็บไปยังบัญชี Apple ของคุณเมื่อยืนยันการซื้อ การสมัครสมาชิกของคุณต่ออายุโดยอัตโนมัติเว้นแต่จะปิดการต่ออายุอัตโนมัติอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดระยะเวลาปัจจุบัน บัญชีของคุณจะถูกเรียกเก็บเงินสำหรับการต่ออายุภายใน 24 ชั่วโมงก่อนสิ้นสุดระยะเวลาปัจจุบัน การยกเลิกมีผลเมื่อสิ้นสุดระยะเวลาที่ชำระเงินปัจจุบัน และส่วนที่ไม่ได้ใช้ของช่วงทดลองใช้ฟรีจะสิ้นสุดลงเมื่อคุณเริ่มการสมัครสมาชิกแบบชำระเงิน บน Google Play (Android) การสมัครสมาชิกจะถูกเรียกเก็บเงินผ่านบัญชี Google Play ของคุณและจัดการในการตั้งค่าการสมัครสมาชิก Google Play หลักการต่ออายุอัตโนมัติและการยกเลิกเดียวกันใช้บังคับ บนเว็บ การสมัครสมาชิกจะถูกเรียกเก็บเงินผ่าน Stripe และจัดการในการตั้งค่าบัญชีของคุณภายใน OwnJournal ราคาจะแสดงในสกุลเงินท้องถิ่นของคุณเมื่อรองรับและรวมภาษีที่ใช้บังคับ ช่วงทดลองใช้ฟรี เมื่อมีให้ จะเปลี่ยนเป็นการสมัครสมาชิกแบบชำระเงินโดยอัตโนมัติเมื่อสิ้นสุดช่วงทดลองใช้ เว้นแต่จะถูกยกเลิกก่อนสิ้นสุดช่วงทดลองใช้"
       },
       "withdrawal": {
-        "title": "5. สิทธิในการถอน (ผู้บริโภค EU/EEA)",
-        "content": "หากคุณเป็นผู้บริโภคในสหภาพยุโรป เขตเศรษฐกิจยุโรป หรือเขตอำนาจศาลอื่นที่ให้สิทธิเทียบเท่า คุณมีสิทธิในการถอนภายใน 14 วันเพื่อถอนตัวจากการสมัครสมาชิกแบบชำระเงินใด ๆ ที่ซื้อผ่านเว็บไซต์ของเรา (ผ่าน Stripe) โดยไม่ต้องให้เหตุผลใด ๆ ระยะเวลานี้เริ่มต้นในวันที่ทำสัญญา เพื่อใช้สิทธินี้ ติดต่อเราที่ {{companyEmail}} ภายใน 14 วัน และเราจะคืนเงินจำนวนเงินสมัครสมาชิก โดยการเลือกที่จะเริ่มใช้บริการแบบชำระเงินก่อนที่ระยะเวลาถอนตัว 14 วันจะหมดอายุ คุณขออย่างชัดเจนให้มีการดำเนินการทันทีและรับทราบว่าคุณสูญเสียสิทธิในการถอนตัวเมื่อบริการได้รับการจัดส่งอย่างสมบูรณ์ ในกรณีที่บริการได้รับการจัดส่งบางส่วน เราอาจหักจำนวนเงินที่สอดคล้องกับการใช้บริการของคุณ สำหรับการซื้อที่ทำผ่าน Apple App Store หรือ Google Play คำขอคืนเงินจะถูกจัดการโดย Apple หรือ Google ตามนโยบายของพวกเขา และสิทธิในการถอนตัวที่อธิบายข้างต้นไม่ได้ใช้กับการซื้อเหล่านั้น"
+        "title": "5. สิทธิในการถอนตัวจากสัญญา (ผู้บริโภคใน EU/EEA)",
+        "content": "หากคุณเป็นผู้บริโภคในสหภาพยุโรป เขตเศรษฐกิจยุโรป หรือเขตอำนาจศาลอื่นที่ให้สิทธิเทียบเท่า คุณมีสิทธิถอนตัวจากการสมัครสมาชิกแบบชำระเงินใด ๆ ที่ซื้อผ่านเว็บไซต์ของเรา (ผ่าน Stripe) ได้ภายใน 14 วันโดยไม่ต้องให้เหตุผล ระยะเวลานี้เริ่มนับตั้งแต่วันที่ทำสัญญา หากต้องการใช้สิทธินี้ กรุณาติดต่อเราที่ {{companyEmail}} ภายใน 14 วัน แล้วเราจะคืนค่าสมัครสมาชิกให้ หากคุณเลือกเริ่มใช้บริการแบบชำระเงินก่อนครบระยะเวลาถอนตัว 14 วัน ถือว่าคุณร้องขออย่างชัดแจ้งให้เริ่มให้บริการทันที และรับทราบว่าคุณจะสูญเสียสิทธิในการถอนตัวเมื่อได้รับบริการครบถ้วนแล้ว ในกรณีที่ได้รับบริการไปบางส่วน เราอาจหักเงินตามสัดส่วนการใช้บริการของคุณ สำหรับการซื้อผ่าน Apple App Store หรือ Google Play คำขอคืนเงินจะดำเนินการโดย Apple หรือ Google ตามนโยบายของแต่ละราย และสิทธิในการถอนตัวที่อธิบายข้างต้นไม่ใช้กับการซื้อดังกล่าว"
       },
       "acceptableUse": {
         "title": "6. การใช้งานที่ยอมรับได้",
-        "content": "คุณตกลงที่จะไม่ใช้ OwnJournal: (a) เพื่อละเมิดกฎหมายหรือกฎระเบียบที่ใช้บังคับ; (b) เพื่ออัปโหลด จัดเก็บ หรือประมวลผลเนื้อหาที่ผิดกฎหมาย รวมถึงเนื้อหาการล่วงละเมิดทางเพศเด็ก เนื้อหาที่บรรยายการกระทำที่ไม่ได้รับความยินยอม หรือเนื้อหาที่ละเมิดทรัพย์สินทางปัญญาของผู้อื่น; (c) เพื่อพยายามเข้าถึงระบบของเรา ระบบของผู้ให้บริการของเรา หรือบัญชีของผู้ใช้อื่นโดยไม่ได้รับอนุญาต; (d) เพื่อหลีกเลี่ยงขีดจำกัดการใช้งานที่เป็นธรรมของคุณสมบัติ AI หรือกลไกการซื้อที่กำหนดโดยแพลตฟอร์ม; (e) เพื่อทำวิศวกรรมย้อนกลับ ถอดรหัส หรือพยายามด้วยวิธีอื่นในการได้มาซึ่งซอร์สโค้ดของแอปพลิเคชันเกินกว่าสิทธิที่ได้รับอย่างชัดเจนตามกฎหมายที่ใช้บังคับ; หรือ (f) เพื่อใช้งานระบบอัตโนมัติที่ส่งคำขอจำนวนมากที่ไม่สมส่วนไปยังเซิร์ฟเวอร์ของเราหรือผู้ให้บริการ AI ของเรา"
+        "content": "คุณตกลงที่จะไม่ใช้ OwnJournal: (a) เพื่อละเมิดกฎหมายหรือกฎระเบียบที่ใช้บังคับ (b) เพื่ออัปโหลด จัดเก็บ หรือประมวลผลเนื้อหาที่ผิดกฎหมาย รวมถึงสื่อการล่วงละเมิดทางเพศเด็ก เนื้อหาที่แสดงการกระทำโดยไม่ได้รับความยินยอม หรือเนื้อหาที่ละเมิดสิทธิในทรัพย์สินทางปัญญาของผู้อื่น (c) เพื่อพยายามเข้าถึงระบบของเรา ระบบของผู้ให้บริการของเรา หรือบัญชีของผู้ใช้อื่นโดยไม่ได้รับอนุญาต (d) เพื่อหลีกเลี่ยงขีดจำกัดการใช้งานอย่างเป็นธรรมของฟีเจอร์ AI หรือกลไกการซื้อที่แพลตฟอร์มกำหนด (e) เพื่อทำวิศวกรรมย้อนกลับ ดีคอมไพล์ หรือพยายามด้วยวิธีอื่นใดเพื่อให้ได้มาซึ่งซอร์สโค้ดของแอปพลิเคชันเกินกว่าสิทธิที่กฎหมายที่ใช้บังคับให้ไว้อย่างชัดแจ้ง หรือ (f) เพื่อใช้งานระบบอัตโนมัติที่ส่งคำขอในปริมาณที่ไม่สมเหตุสมผลไปยังเซิร์ฟเวอร์ของเราหรือผู้ให้บริการ AI ของเรา"
       },
       "appleTerms": {
         "title": "12. ข้อกำหนดเพิ่มเติมสำหรับ Apple App Store",
-        "content": "หากคุณได้รับ OwnJournal จาก Apple App Store ข้อกำหนดเพิ่มเติมต่อไปนี้จะมีผลบังคับใช้: (a) ข้อกำหนดเหล่านี้สรุประหว่างคุณและ {{companyName}} เท่านั้น ไม่ใช่กับ Apple {{companyName}} (ไม่ใช่ Apple) เป็นผู้รับผิดชอบแต่เพียงผู้เดียวสำหรับ OwnJournal และเนื้อหา (b) {{companyName}} เป็นผู้รับผิดชอบแต่เพียงผู้เดียวในการให้บริการบำรุงรักษาและการสนับสนุนเกี่ยวกับ OwnJournal ตามที่ระบุไว้ในข้อกำหนดเหล่านี้หรือตามที่กฎหมายที่ใช้บังคับกำหนด Apple ไม่มีภาระผูกพันใด ๆ ในการให้บริการบำรุงรักษาและการสนับสนุนเกี่ยวกับ OwnJournal (c) ในกรณีที่ OwnJournal ไม่เป็นไปตามการรับประกันที่ใช้บังคับ คุณอาจแจ้ง Apple และ Apple จะคืนเงินราคาซื้อ (ถ้ามี) สำหรับแอปพลิเคชัน; ในขอบเขตสูงสุดที่กฎหมายที่ใช้บังคับอนุญาต Apple จะไม่มีภาระผูกพันการรับประกันอื่นใดเกี่ยวกับ OwnJournal (d) {{companyName}} เป็นผู้รับผิดชอบแต่เพียงผู้เดียวในการจัดการกับการเรียกร้องใด ๆ จากคุณหรือบุคคลที่สามเกี่ยวกับ OwnJournal หรือการครอบครองและการใช้ OwnJournal ของคุณ รวมถึงการเรียกร้องความรับผิดต่อผลิตภัณฑ์ การเรียกร้องที่ว่า OwnJournal ไม่เป็นไปตามข้อกำหนดทางกฎหมายหรือกฎระเบียบที่ใช้บังคับ และการเรียกร้องที่เกิดขึ้นภายใต้กฎหมายคุ้มครองผู้บริโภคหรือกฎหมายที่คล้ายกัน (e) ในกรณีที่บุคคลที่สามเรียกร้องว่า OwnJournal หรือการครอบครองและการใช้ OwnJournal ของคุณละเมิดสิทธิในทรัพย์สินทางปัญญาของบุคคลที่สามนั้น {{companyName}} (ไม่ใช่ Apple) จะเป็นผู้รับผิดชอบแต่เพียงผู้เดียวในการสอบสวน การป้องกัน การยุติ และการชำระล้างของการเรียกร้องดังกล่าว (f) คุณรับรองและรับประกันว่าคุณไม่ได้ตั้งอยู่ในประเทศที่อยู่ภายใต้การคว่ำบาตรของรัฐบาลสหรัฐฯ หรือถูกกำหนดให้เป็นประเทศที่ \"สนับสนุนการก่อการร้าย\" และคุณไม่ได้อยู่ในรายชื่อของรัฐบาลสหรัฐฯ ที่ห้ามหรือถูกจำกัด (g) Apple และบริษัทย่อยของ Apple เป็นผู้รับผลประโยชน์บุคคลที่สามของข้อกำหนดเหล่านี้ และเมื่อคุณยอมรับ Apple มีสิทธิ์ (และถือว่าได้ยอมรับสิทธิ์) ในการบังคับใช้ข้อกำหนดเหล่านี้กับคุณในฐานะผู้รับผลประโยชน์บุคคลที่สาม"
+        "content": "หากคุณได้รับ OwnJournal จาก Apple App Store ข้อกำหนดเพิ่มเติมต่อไปนี้จะมีผลบังคับใช้: (a) ข้อกำหนดเหล่านี้ทำขึ้นระหว่างคุณกับ {{companyName}} เท่านั้น ไม่ใช่กับ Apple {{companyName}} (ไม่ใช่ Apple) เป็นผู้รับผิดชอบแต่เพียงผู้เดียวต่อ OwnJournal และเนื้อหาของแอป (b) {{companyName}} เป็นผู้รับผิดชอบแต่เพียงผู้เดียวในการให้บริการบำรุงรักษาและสนับสนุนสำหรับ OwnJournal ตามที่ระบุไว้ในข้อกำหนดเหล่านี้หรือตามที่กฎหมายที่ใช้บังคับกำหนด Apple ไม่มีหน้าที่ใด ๆ ในการให้บริการบำรุงรักษาและสนับสนุนสำหรับ OwnJournal (c) ในกรณีที่ OwnJournal ไม่เป็นไปตามการรับประกันที่ใช้บังคับ คุณอาจแจ้ง Apple และ Apple จะคืนเงินค่าซื้อแอปพลิเคชัน (ถ้ามี) ในขอบเขตสูงสุดที่กฎหมายที่ใช้บังคับอนุญาต Apple ไม่มีภาระการรับประกันอื่นใดเกี่ยวกับ OwnJournal (d) {{companyName}} เป็นผู้รับผิดชอบแต่เพียงผู้เดียวในการจัดการข้อเรียกร้องใด ๆ จากคุณหรือบุคคลที่สามเกี่ยวกับ OwnJournal หรือการครอบครองและการใช้ OwnJournal ของคุณ รวมถึงข้อเรียกร้องเกี่ยวกับความรับผิดต่อผลิตภัณฑ์ ข้อเรียกร้องว่า OwnJournal ไม่เป็นไปตามข้อกำหนดทางกฎหมายหรือกฎระเบียบที่ใช้บังคับ และข้อเรียกร้องตามกฎหมายคุ้มครองผู้บริโภคหรือกฎหมายที่คล้ายกัน (e) ในกรณีที่บุคคลที่สามเรียกร้องว่า OwnJournal หรือการครอบครองและการใช้ OwnJournal ของคุณละเมิดสิทธิในทรัพย์สินทางปัญญาของบุคคลที่สามนั้น {{companyName}} (ไม่ใช่ Apple) จะเป็นผู้รับผิดชอบแต่เพียงผู้เดียวในการสอบสวน การต่อสู้คดี การประนีประนอมยอมความ และการระงับข้อเรียกร้องดังกล่าว (f) คุณรับรองและรับประกันว่าคุณไม่ได้อยู่ในประเทศที่ถูกรัฐบาลสหรัฐฯ คว่ำบาตร หรือถูกกำหนดให้เป็นประเทศที่ “สนับสนุนการก่อการร้าย” และคุณไม่ได้อยู่ในรายชื่อบุคคลต้องห้ามหรือบุคคลที่ถูกจำกัดของรัฐบาลสหรัฐฯ (g) Apple และบริษัทย่อยของ Apple เป็นผู้รับประโยชน์บุคคลที่สามตามข้อกำหนดเหล่านี้ และเมื่อคุณยอมรับข้อกำหนดเหล่านี้ Apple มีสิทธิ (และถือว่าได้ยอมรับสิทธินั้นแล้ว) ในการบังคับใช้ข้อกำหนดเหล่านี้กับคุณในฐานะผู้รับประโยชน์บุคคลที่สาม"
       },
       "severability": {
-        "title": "13. การแยกออกจากกัน",
-        "content": "หากบทบัญญัติใด ๆ ของข้อกำหนดเหล่านี้พบว่าไม่ถูกต้องหรือไม่สามารถบังคับใช้ได้โดยศาลที่มีเขตอำนาจ บทบัญญัตินั้นจะถูกปรับเปลี่ยนในขอบเขตขั้นต่ำที่จำเป็นเพื่อทำให้สามารถบังคับใช้ได้ หรือแยกออกจากข้อกำหนดเหล่านี้หากไม่สามารถทำให้สามารถบังคับใช้ได้ และบทบัญญัติที่เหลือจะยังคงมีผลบังคับใช้อย่างเต็มที่"
+        "title": "13. การแยกส่วนของข้อกำหนด",
+        "content": "หากศาลที่มีเขตอำนาจวินิจฉัยว่าบทบัญญัติใดของข้อกำหนดเหล่านี้เป็นโมฆะหรือใช้บังคับไม่ได้ บทบัญญัตินั้นจะได้รับการแก้ไขเพียงเท่าที่จำเป็นเพื่อให้ใช้บังคับได้ หรือจะถูกแยกออกจากข้อกำหนดเหล่านี้หากไม่สามารถทำให้ใช้บังคับได้ และบทบัญญัติที่เหลือยังคงมีผลใช้บังคับอย่างสมบูรณ์"
       }
     },
     "privacy": {
       "title": "นโยบายความเป็นส่วนตัว",
-      "lastUpdatedDate": "เมษายน 2026",
+      "lastUpdatedDate": "พฤศจิกายน 2569",
       "intro": {
         "title": "บทนำ",
-        "content": "ความเป็นส่วนตัวของคุณมีความสำคัญต่อเรา OwnJournal ดำเนินการโดย {{companyName}} ซึ่งเป็นบริษัทที่จดทะเบียนในประเทศ {{companyCountry}} นโยบายความเป็นส่วนตัวนี้อธิบายว่า OwnJournal เก็บรวบรวม ใช้ และปกป้องข้อมูลของคุณอย่างไร เราออกแบบ OwnJournal โดยถือความเป็นส่วนตัวเป็นหลักการสำคัญ"
+        "content": "ความเป็นส่วนตัวของคุณมีความสำคัญต่อเรา OwnJournal ดำเนินการโดย {{companyName}} ซึ่งเป็นบริษัทที่จดทะเบียนในประเทศ{{companyCountry}} นโยบายความเป็นส่วนตัวนี้อธิบายว่า OwnJournal เก็บรวบรวม ใช้ และปกป้องข้อมูลของคุณอย่างไร เราออกแบบ OwnJournal โดยถือความเป็นส่วนตัวเป็นหลักการสำคัญ"
       },
       "dataController": {
-        "title": "ผู้ควบคุมข้อมูล",
-        "content": "ผู้ควบคุมข้อมูลของ OwnJournal คือ {{companyName}} สำหรับการสอบถามด้านการคุ้มครองข้อมูล คุณสามารถติดต่อเราได้ที่ {{companyEmail}}"
+        "title": "ผู้ควบคุมข้อมูลส่วนบุคคล",
+        "content": "ผู้ควบคุมข้อมูลส่วนบุคคลของ OwnJournal คือ {{companyName}} หากมีคำถามเกี่ยวกับการคุ้มครองข้อมูลส่วนบุคคล คุณสามารถติดต่อเราได้ที่ {{companyEmail}}"
       },
       "collection": {
         "title": "ข้อมูลที่เราเก็บรวบรวม",
-        "content": "ข้อมูลส่วนบุคคลที่เราเก็บรวบรวมมีเพียงเล็กน้อย ในส่วนที่เกี่ยวข้องกับบัญชีของคุณ เราเก็บรวบรวม: ที่อยู่อีเมลของคุณ ชื่อที่แสดงของคุณ (หากผู้ให้บริการยืนยันตัวตนภายนอก เช่น Google หรือ Apple จัดเตรียมไว้) และ — เมื่อคุณเชื่อมต่อพื้นที่จัดเก็บคลาวด์ — บันทึกว่าผู้ให้บริการรายใดที่คุณเลือก เพื่อใช้งานบริการบันทึกประจำวัน เรารักษาข้อมูลสถานะจำนวนเล็กน้อยบนเซิร์ฟเวอร์ของเรา — การตั้งค่าการเข้ารหัสของคุณเสร็จสมบูรณ์หรือไม่ สถานะการสมัครสมาชิกของคุณ และตัวระบุที่ผู้ประมวลผลการชำระเงินของเรา (Stripe) ต้องการเพื่อจัดการการสมัครสมาชิกของคุณ เพื่อตรวจสอบการใช้งานที่เป็นธรรมของฟีเจอร์ AI เสริม เราบันทึกตัวนับการใช้งานต่อผู้ใช้ (ประเภทของการวิเคราะห์ที่ดำเนินการและการประทับเวลา ไม่เคยเก็บเนื้อหารายการของคุณ) ระบบหลังบ้านการยืนยันตัวตนของเรายังเก็บข้อมูลเมตาเซสชันมาตรฐาน เช่น การประทับเวลาการเข้าสู่ระบบ ชื่อที่แสดงใช้เพื่อปรับแต่งประสบการณ์ของคุณในแอปเท่านั้นและจะไม่ถูกเผยแพร่ต่อสาธารณะ เพื่อแสดงราคาการสมัครสมาชิกในสกุลเงินท้องถิ่นของคุณ เราอาจค้นหาประเทศที่เชื่อมโยงกับที่อยู่ IP ของคุณเป็นเวลาสั้น ๆ เราใช้เพียงรหัสประเทศที่ได้เท่านั้น ไม่เชื่อมโยงกับบัญชีของคุณ และเราไม่จัดเก็บที่อยู่ IP ของคุณ เราไม่ใช้บริการวิเคราะห์ของบุคคลที่สาม SDK โฆษณา หรือเครื่องมือติดตามข้ามแอป เมื่อคุณใช้การเข้ารหัสแบบ End-to-End (E2E) เนื้อหาบันทึกประจำวันของคุณจะถูกเข้ารหัสบนอุปกรณ์ของคุณและเราไม่สามารถอ่านได้ ในโหมด Simple ข้อมูลบันทึกประจำวันของคุณจะถูกซิงค์กับผู้ให้บริการคลาวด์ที่คุณเลือกโดยไม่มีการเข้ารหัสแบบ End-to-End โหมด Simple มีไว้เพื่อความสะดวกและอาจลดความเป็นส่วนตัวเมื่อเทียบกับโหมด E2E ข้อมูลของคุณยังคงได้รับการป้องกันโดยมาตรการรักษาความปลอดภัยมาตรฐานของผู้ให้บริการคลาวด์ของคุณ"
+        "content": "ข้อมูลส่วนบุคคลที่เราเก็บรวบรวมมีเพียงเล็กน้อย ในส่วนที่เกี่ยวข้องกับบัญชีของคุณ เราเก็บรวบรวม: ที่อยู่อีเมลของคุณ ชื่อที่แสดงของคุณ (หากผู้ให้บริการยืนยันตัวตนภายนอก เช่น Google หรือ Apple จัดเตรียมไว้) และ — เมื่อคุณเชื่อมต่อพื้นที่จัดเก็บคลาวด์ — บันทึกว่าผู้ให้บริการรายใดที่คุณเลือก เพื่อใช้งานบริการบันทึกประจำวัน เรารักษาข้อมูลสถานะจำนวนเล็กน้อยบนเซิร์ฟเวอร์ของเรา — การตั้งค่าการเข้ารหัสของคุณเสร็จสมบูรณ์หรือไม่ สถานะการสมัครสมาชิกของคุณ และตัวระบุที่ผู้ประมวลผลการชำระเงินของเรา (Stripe) ต้องการเพื่อจัดการการสมัครสมาชิกของคุณ เพื่อตรวจสอบการใช้งานอย่างเป็นธรรมของฟีเจอร์ AI เสริม เราบันทึกตัวนับการใช้งานต่อผู้ใช้ (ประเภทของการวิเคราะห์ที่ดำเนินการและการประทับเวลา โดยไม่จัดเก็บเนื้อหารายการของคุณเลย) สำหรับการป้อนด้วยเสียง ตัวนับจะบันทึกความยาวเป็นวินาทีของการบันทึกเสียงแต่ละครั้งที่ผ่านการถอดเสียงด้วย โดยไม่จัดเก็บตัวไฟล์เสียงเลย ระบบหลังบ้านการยืนยันตัวตนของเรายังเก็บข้อมูลเมตาเซสชันมาตรฐาน เช่น การประทับเวลาการเข้าสู่ระบบ ชื่อที่แสดงใช้เพื่อปรับแต่งประสบการณ์ของคุณในแอปเท่านั้นและจะไม่ถูกเผยแพร่ต่อสาธารณะ เพื่อแสดงราคาการสมัครสมาชิกในสกุลเงินท้องถิ่นของคุณ เราอาจค้นหาประเทศที่เชื่อมโยงกับที่อยู่ IP ของคุณเป็นเวลาสั้น ๆ เราใช้เพียงรหัสประเทศที่ได้เท่านั้น ไม่เชื่อมโยงกับบัญชีของคุณ และเราไม่จัดเก็บที่อยู่ IP ของคุณ เราไม่ใช้บริการวิเคราะห์ของบุคคลที่สาม SDK โฆษณา หรือเครื่องมือติดตามข้ามแอป เมื่อคุณใช้การเข้ารหัสแบบต้นทางถึงปลายทาง (E2E) เนื้อหาบันทึกประจำวันของคุณจะถูกเข้ารหัสบนอุปกรณ์ของคุณและเราไม่สามารถอ่านได้ ในโหมดง่าย ข้อมูลบันทึกประจำวันของคุณจะถูกซิงค์กับผู้ให้บริการคลาวด์ที่คุณเลือกโดยไม่มีการเข้ารหัสแบบต้นทางถึงปลายทาง โหมดง่ายมีไว้เพื่อความสะดวกและอาจลดความเป็นส่วนตัวเมื่อเทียบกับโหมด E2E ข้อมูลของคุณยังคงได้รับการป้องกันโดยมาตรการรักษาความปลอดภัยมาตรฐานของผู้ให้บริการคลาวด์ของคุณ"
       },
       "usage": {
         "title": "การใช้ข้อมูล",
-        "content": "เราใช้ข้อมูลที่เราเก็บรวบรวมเพื่อวัตถุประสงค์ดังต่อไปนี้: ที่อยู่อีเมลของคุณสำหรับการยืนยันบัญชีและการแจ้งเตือนบริการที่สำคัญ ชื่อที่แสดงของคุณเพื่อปรับแต่งประสบการณ์ของคุณในแอป ตัวเลือกผู้ให้บริการพื้นที่จัดเก็บและสถานะการตั้งค่าการเข้ารหัสของคุณเพื่อเชื่อมต่อคุณกลับไปยังบัญชีที่ถูกต้องและกลับมาซิงค์ข้อมูล สถานะการสมัครสมาชิกของคุณเพื่อให้หรือจำกัดการเข้าถึงฟีเจอร์ที่ต้องชำระเงิน ตัวระบุที่ใช้โดยผู้ประมวลผลการชำระเงินของเรา (Stripe) เพื่อจัดการการสมัครสมาชิกของคุณ และตัวนับการใช้งาน AI เพื่อบังคับใช้ขีดจำกัดการใช้งานที่เป็นธรรมสำหรับฟีเจอร์ AI เสริม เราไม่ขายข้อมูลส่วนบุคคลของคุณหรือแบ่งปันกับบุคคลที่สามเพื่อวัตถุประสงค์ทางการตลาด"
+        "content": "เราใช้ข้อมูลที่เราเก็บรวบรวมเพื่อวัตถุประสงค์ดังต่อไปนี้: ที่อยู่อีเมลของคุณสำหรับการยืนยันบัญชีและการแจ้งเตือนบริการที่สำคัญ ชื่อที่แสดงของคุณเพื่อปรับแต่งประสบการณ์ของคุณในแอป ตัวเลือกผู้ให้บริการพื้นที่จัดเก็บและสถานะการตั้งค่าการเข้ารหัสของคุณเพื่อเชื่อมต่อคุณกลับไปยังบัญชีที่ถูกต้องและกลับมาซิงค์ข้อมูล สถานะการสมัครสมาชิกของคุณเพื่อให้หรือจำกัดการเข้าถึงฟีเจอร์ที่ต้องชำระเงิน ตัวระบุที่ใช้โดยผู้ประมวลผลการชำระเงินของเรา (Stripe) เพื่อจัดการการสมัครสมาชิกของคุณ และตัวนับการใช้งาน AI เพื่อบังคับใช้ขีดจำกัดการใช้งานอย่างเป็นธรรมสำหรับฟีเจอร์ AI เสริม เราไม่ขายข้อมูลส่วนบุคคลของคุณหรือแบ่งปันกับบุคคลที่สามเพื่อวัตถุประสงค์ทางการตลาด"
       },
       "storage": {
         "title": "การจัดเก็บข้อมูล",
-        "content": "รายการบันทึกประจำวันของคุณถูกจัดเก็บไว้ในผู้ให้บริการคลาวด์ที่คุณเลือก (Google Drive, Dropbox, Nextcloud หรือ iCloud Drive) — ไม่ใช่บนเซิร์ฟเวอร์ของเรา คุณรักษาการควบคุมเต็มรูปแบบเหนือสถานที่จัดเก็บข้อมูลของคุณ บนเซิร์ฟเวอร์ของเรา (ดำเนินการผ่านระบบหลังบ้านการยืนยันตัวตนและฐานข้อมูลของเรา) เราจัดเก็บเฉพาะข้อมูลที่จำเป็นต่อการดำเนินงานของบริการ: รายละเอียดการยืนยันตัวตนของคุณ ชื่อที่แสดง ตัวเลือกผู้ให้บริการพื้นที่จัดเก็บ สถานะการตั้งค่าการเข้ารหัส สถานะการสมัครสมาชิก ตัวระบุที่ใช้โดยผู้ประมวลผลการชำระเงินของเรา (Stripe) เพื่อจัดการการสมัครสมาชิกของคุณ และตัวนับการใช้งานฟีเจอร์ AI ต่อผู้ใช้ การชำระเงินดำเนินการโดยผู้ให้บริการชำระเงินของเรา (Stripe สำหรับเว็บ, Apple In-App Purchase บน iOS, Google Play Billing บน Android) เราไม่จัดเก็บรายละเอียดบัตรชำระเงินทั้งหมดของคุณบนเซิร์ฟเวอร์ของเรา"
+        "content": "รายการบันทึกประจำวันของคุณถูกจัดเก็บไว้ในผู้ให้บริการคลาวด์ที่คุณเลือก (Google Drive, Dropbox, Nextcloud หรือ iCloud Drive) — ไม่ใช่บนเซิร์ฟเวอร์ของเรา คุณควบคุมได้อย่างเต็มที่ว่าข้อมูลของคุณจะจัดเก็บไว้ที่ใด บนเซิร์ฟเวอร์ของเรา (ดำเนินการผ่านระบบหลังบ้านการยืนยันตัวตนและฐานข้อมูลของเรา) เราจัดเก็บเฉพาะข้อมูลที่จำเป็นต่อการดำเนินงานของบริการ: รายละเอียดการยืนยันตัวตนของคุณ ชื่อที่แสดง ตัวเลือกผู้ให้บริการพื้นที่จัดเก็บ สถานะการตั้งค่าการเข้ารหัส สถานะการสมัครสมาชิก ตัวระบุที่ใช้โดยผู้ประมวลผลการชำระเงินของเรา (Stripe) เพื่อจัดการการสมัครสมาชิกของคุณ และตัวนับการใช้งานฟีเจอร์ AI ต่อผู้ใช้ การชำระเงินดำเนินการโดยผู้ให้บริการชำระเงินของเรา (Stripe สำหรับเว็บ, Apple In-App Purchase บน iOS, Google Play Billing บน Android) เราไม่จัดเก็บรายละเอียดบัตรชำระเงินแบบเต็มไว้บนเซิร์ฟเวอร์ของเรา"
       },
       "encryption": {
-        "title": "การเข้ารหัสแบบ E2E",
-        "content": "เมื่อเปิดใช้การเข้ารหัส E2E รายการบันทึกจะถูกเข้ารหัสบนอุปกรณ์ก่อนที่จะออกจากอุปกรณ์ มีเพียงผู้ใช้เท่านั้นที่ถือคีย์เข้ารหัส ข้อมูลได้รับการปกป้องทั้งระหว่างจัดเก็บและระหว่างส่ง และไม่มีใครสามารถอ่านได้โดยไม่มีรหัสผ่านเข้ารหัส"
+        "title": "การเข้ารหัสแบบต้นทางถึงปลายทาง",
+        "content": "เมื่อคุณเปิดใช้การเข้ารหัส E2E รายการบันทึกของคุณจะถูกเข้ารหัสบนอุปกรณ์ก่อนที่จะออกจากอุปกรณ์ มีเพียงคุณเท่านั้นที่ถือคีย์เข้ารหัส ข้อมูลของคุณได้รับการปกป้องทั้งระหว่างจัดเก็บและระหว่างส่ง และไม่มีใครอ่านได้หากไม่มีรหัสผ่านการเข้ารหัสของคุณ"
       },
       "zeroKnowledge": {
         "title": "สถาปัตยกรรม Zero-Knowledge",
-        "content": "สถาปัตยกรรม zero-knowledge ของเราใช้กับเนื้อหาบันทึกประจำวันที่เข้ารหัสแบบ End-to-End ของคุณ: เมื่อเปิดใช้การเข้ารหัส E2E มีเพียงคุณเท่านั้นที่ครอบครองรหัสผ่านที่จำเป็นในการถอดรหัสข้อมูลของคุณ และเราไม่สามารถเข้าถึงหรืออ่านได้ ข้อมูลบัญชีที่จำเป็นต่อการดำเนินงานของบริการ — เช่น ที่อยู่อีเมลของคุณ ชื่อที่แสดง ตัวเลือกผู้ให้บริการพื้นที่จัดเก็บ สถานะการสมัครสมาชิก และตัวนับการใช้งาน AI — ย่อมต้องอ่านได้สำหรับเรา หากคุณใช้ฟีเจอร์ AI เสริม ข้อความที่เกี่ยวข้องจะถูกถอดรหัสบนอุปกรณ์ของคุณและส่งตามที่อธิบายไว้ในส่วน \"ฟีเจอร์ AI และการประมวลผล\" ด้านล่าง"
+        "content": "สถาปัตยกรรม Zero-Knowledge ของเราใช้กับเนื้อหาบันทึกประจำวันที่เข้ารหัสแบบต้นทางถึงปลายทางของคุณ: เมื่อเปิดใช้การเข้ารหัส E2E มีเพียงคุณเท่านั้นที่ครอบครองรหัสผ่านที่จำเป็นในการถอดรหัสข้อมูลของคุณ และเราไม่สามารถเข้าถึงหรืออ่านได้ ข้อมูลบัญชีที่จำเป็นต่อการดำเนินงานของบริการ — เช่น ที่อยู่อีเมลของคุณ ชื่อที่แสดง ตัวเลือกผู้ให้บริการพื้นที่จัดเก็บ สถานะการสมัครสมาชิก และตัวนับการใช้งาน AI — ย่อมต้องอ่านได้สำหรับเรา หากคุณใช้ฟีเจอร์ AI เสริม ข้อความที่เกี่ยวข้องจะถูกถอดรหัสบนอุปกรณ์ของคุณและส่งตามที่อธิบายไว้ในส่วน “ฟีเจอร์ AI และการประมวลผล” ด้านล่าง"
       },
       "thirdParty": {
         "title": "บริการของบุคคลที่สาม",
-        "content": "เราเชื่อมต่อกับบริการของบุคคลที่สามต่อไปนี้ ซึ่งแต่ละรายดำเนินงานภายใต้ข้อกำหนดและแนวปฏิบัติด้านความเป็นส่วนตัวของตนเอง: ผู้ให้บริการคลาวด์ (Google Drive, Dropbox, Nextcloud, iCloud Drive) สำหรับการซิงค์กับบัญชีของคุณเอง บริการยืนยันตัวตน (Google, Apple) และระบบหลังบ้านยืนยันตัวตนของเราสำหรับการเข้าสู่ระบบที่ปลอดภัย ผู้ให้บริการชำระเงิน (Stripe สำหรับเว็บ, Apple In-App Purchase บน iOS, Google Play Billing บน Android) สำหรับจัดการการสมัครสมาชิก และผู้ให้บริการ AI (Google Gemini, OpenAI) เมื่อคุณเลือกใช้คุณสมบัติ AI ที่เป็นทางเลือก"
+        "content": "เราเชื่อมต่อกับบริการของบุคคลที่สามต่อไปนี้ ซึ่งแต่ละรายดำเนินงานภายใต้ข้อกำหนดและแนวปฏิบัติด้านความเป็นส่วนตัวของตนเอง: ผู้ให้บริการคลาวด์ (Google Drive, Dropbox, Nextcloud, iCloud Drive) สำหรับการซิงค์กับบัญชีของคุณเอง บริการยืนยันตัวตน (Google, Apple) และระบบหลังบ้านยืนยันตัวตนของเราสำหรับการเข้าสู่ระบบที่ปลอดภัย ผู้ให้บริการชำระเงิน (Stripe สำหรับเว็บ, Apple In-App Purchase บน iOS, Google Play Billing บน Android) สำหรับจัดการการสมัครสมาชิก และผู้ให้บริการ AI (Google Gemini) เมื่อคุณเลือกใช้ฟีเจอร์ AI เสริม"
       },
       "syncIdentifier": {
         "title": "ตัวระบุการซิงค์และอุปกรณ์",
-        "content": "สำหรับการซิงค์บันทึกข้ามอุปกรณ์และการแก้ไขความขัดแย้งในการแก้ไข แอปจะสร้างและใช้ตัวระบุการซิงค์ ตัวระบุนี้ถูกจัดเก็บบนอุปกรณ์และในคลาวด์สตอเรจ ไม่ถูกใช้เพื่อระบุตัวตนข้ามแอปอื่นหรือเพื่อการโฆษณา"
+        "content": "สำหรับการซิงค์บันทึกข้ามอุปกรณ์และการแก้ไขความขัดแย้งในการแก้ไข แอปจะสร้างและใช้ตัวระบุการซิงค์ ตัวระบุนี้ถูกจัดเก็บบนอุปกรณ์และในพื้นที่จัดเก็บคลาวด์ ไม่ถูกใช้เพื่อระบุตัวตนข้ามแอปอื่นหรือเพื่อการโฆษณา"
       },
       "aiProcessing": {
         "title": "ฟีเจอร์ AI และการประมวลผล",
-        "content": "OwnJournal นำเสนอฟีเจอร์ที่ขับเคลื่อนด้วย AI เสริม เช่น การวิเคราะห์อารมณ์และคำแนะนำ ซึ่งใช้ได้เฉพาะสำหรับสมาชิก Plus เท่านั้น การประมวลผล AI จะเกิดขึ้นเฉพาะเมื่อคุณในฐานะสมาชิก Plus ใช้ฟีเจอร์เหล่านี้อย่างชัดเจนเท่านั้น เมื่อคุณใช้ฟีเจอร์ AI ข้อความที่เกี่ยวข้องจะถูกถอดรหัสบนอุปกรณ์ของคุณก่อน จากนั้นจึงส่งไปยังบริการ AI ผ่านการกระทำที่ชัดเจนของคุณ เนื้อหาบันทึกประจำวันของคุณจะถูกส่งไปยังผู้ให้บริการ AI ของเรา — ปัจจุบันคือ Google (Gemini) โดยมี OpenAI เป็นทางเลือก — ผ่าน API แบบชำระเงินของพวกเขา เราไม่จัดเก็บอินพุตหรือเอาต์พุต AI บนเซิร์ฟเวอร์ของเรา เราเพียงบันทึกตัวนับต่อผู้ใช้ของการใช้งานฟีเจอร์ AI (ประเภทของการวิเคราะห์ที่ดำเนินการและการประทับเวลา ไม่เคยเก็บเนื้อหา) เพื่อบังคับใช้ขีดจำกัดการใช้งานที่เป็นธรรม ผู้ให้บริการเหล่านี้อาจเก็บคำสั่งและเอาต์พุตเป็นระยะเวลาจำกัดเพื่อตรวจสอบการละเมิดและบังคับใช้นโยบาย ตามนโยบายปัจจุบันของพวกเขา การประมวลผล AI อาจเกิดขึ้นนอก EEA ทั้ง Google และ OpenAI ต่างก็รักษาการป้องกันการถ่ายโอนข้อมูลที่เหมาะสม เช่น ข้อสัญญามาตรฐาน เราใช้ระดับชำระเงินของผู้ให้บริการ AI เหล่านี้ ซึ่งภายใต้นั้นคำสั่งและเอาต์พุตจะไม่ถูกใช้เพื่อฝึกหรือปรับปรุงโมเดลของผู้ให้บริการ คุณสามารถเลือกที่จะไม่ใช้ฟีเจอร์ AI และการทำเช่นนั้นจะไม่ส่งผลต่อฟังก์ชันการทำงานหลักของบันทึกประจำวัน"
+        "content": "OwnJournal มีฟีเจอร์เสริมที่ขับเคลื่อนด้วย AI เช่น การวิเคราะห์อารมณ์ คำแนะนำ และการป้อนด้วยเสียง ซึ่งให้บริการเฉพาะสมาชิก Plus เท่านั้น การประมวลผลด้วย AI จะเกิดขึ้นเฉพาะเมื่อคุณในฐานะสมาชิก Plus ใช้ฟีเจอร์เหล่านี้อย่างชัดแจ้งเท่านั้น เมื่อคุณใช้ฟีเจอร์ AI ที่ทำงานกับข้อความ ข้อความที่เกี่ยวข้องจะถูกถอดรหัสบนอุปกรณ์ของคุณก่อน แล้วจึงถูกส่งตามการกระทำที่ชัดแจ้งของคุณผ่านเซิร์ฟเวอร์ของเราไปยังผู้ให้บริการ AI ของเรา ซึ่งปัจจุบันคือ Google (Gemini) โดยใช้ API แบบชำระเงินของ Google เมื่อคุณใช้การป้อนด้วยเสียง ไมโครโฟนของอุปกรณ์จะถูกใช้เฉพาะขณะที่คุณกำลังบันทึกเสียงเท่านั้น เสียงที่บันทึกจะถูกส่งผ่านเซิร์ฟเวอร์ของเราไปยัง Google (Gemini) เพื่อแปลงเป็นข้อความ และข้อความที่ได้จะถูกเพิ่มลงในรายการของคุณบนอุปกรณ์ของคุณ เราไม่จัดเก็บข้อมูลนำเข้าหรือผลลัพธ์ของ AI ไว้บนเซิร์ฟเวอร์ของเรา ซึ่งรวมถึงไฟล์บันทึกเสียงและข้อความที่ถอดเสียงแล้ว เราบันทึกเพียงตัวนับการใช้งานฟีเจอร์ AI ต่อผู้ใช้ (ประเภทของการวิเคราะห์ที่ดำเนินการ การประทับเวลา และสำหรับการป้อนด้วยเสียง ความยาวของการบันทึกเสียงเป็นวินาที โดยไม่เก็บเนื้อหาใด ๆ) เพื่อจำกัดปริมาณการใช้งานตามหลักการใช้งานอย่างเป็นธรรม Google อาจเก็บพรอมต์และผลลัพธ์ไว้ในระยะเวลาจำกัดเพื่อตรวจสอบการใช้งานในทางที่ผิดและบังคับใช้นโยบาย ทั้งนี้เป็นไปตามนโยบายปัจจุบันของ Google การประมวลผลด้วย AI อาจเกิดขึ้นนอกเขตเศรษฐกิจยุโรป (EEA) โดย Google มีมาตรการคุ้มครองที่เหมาะสมสำหรับการโอนข้อมูล เช่น ข้อสัญญามาตรฐาน (SCC) เราใช้บริการ AI ของ Google ระดับแบบชำระเงิน ซึ่งพรอมต์และผลลัพธ์จะไม่ถูกนำไปใช้ฝึกหรือปรับปรุงโมเดลของ Google คุณสามารถเลือกไม่ใช้ฟีเจอร์ AI ได้ และการทำเช่นนั้นไม่ส่งผลต่อฟังก์ชันหลักของการบันทึกประจำวัน"
       },
       "diagnostics": {
         "title": "การวินิจฉัยและบันทึกข้อขัดข้อง",
@@ -2268,68 +2274,69 @@
       },
       "retention": {
         "title": "การเก็บรักษาข้อมูล",
-        "content": "ข้อมูลบันทึกประจำวันของคุณยังคงอยู่ในที่จัดเก็บคลาวด์ของคุณจนกว่าคุณจะลบ ข้อมูลบัญชีที่จัดเก็บบนเซิร์ฟเวอร์ของเราจะถูกเก็บไว้ตราบเท่าที่บัญชีของคุณยังใช้งานอยู่ เมื่อคุณลบบัญชี เราจะลบโปรไฟล์ บันทึกการสมัครสมาชิก ตัวนับการใช้งาน AI และข้อมูลการยืนยันตัวตนของคุณออกจากระบบของเราทันที บันทึกธุรกรรมที่อยู่ในความครอบครองของผู้ประมวลผลการชำระเงินของเรา (Stripe, Apple, Google) จะถูกเก็บโดยพวกเขาตามนโยบายของพวกเขาเองและกฎหมายที่ใช้บังคับ คุณสามารถขอเข้าถึงหรือลบบันทึกเหล่านั้นได้โดยตรงกับผู้ให้บริการที่เกี่ยวข้อง"
+        "content": "ข้อมูลบันทึกประจำวันของคุณยังคงอยู่ในพื้นที่จัดเก็บคลาวด์ของคุณจนกว่าคุณจะลบ ข้อมูลบัญชีที่จัดเก็บบนเซิร์ฟเวอร์ของเราจะถูกเก็บไว้ตราบเท่าที่บัญชีของคุณยังใช้งานอยู่ เมื่อคุณลบบัญชี เราจะลบโปรไฟล์ บันทึกการสมัครสมาชิก ตัวนับการใช้งาน AI และข้อมูลการยืนยันตัวตนของคุณออกจากระบบของเราทันที บันทึกธุรกรรมที่อยู่ในความครอบครองของผู้ประมวลผลการชำระเงินของเรา (Stripe, Apple, Google) จะถูกเก็บรักษาโดยผู้ให้บริการเหล่านั้นตามนโยบายของตนและกฎหมายที่ใช้บังคับ คุณสามารถขอเข้าถึงหรือลบบันทึกเหล่านั้นได้โดยตรงกับผู้ให้บริการที่เกี่ยวข้อง"
       },
       "accountDeletion": {
         "title": "การลบบัญชี",
-        "content": "คุณสามารถลบบัญชีของคุณได้ตลอดเวลาผ่านการตั้งค่าในแอปหรือโดยการติดต่อเราที่ {{companyEmail}} การลบบัญชีจะลบโปรไฟล์ การสมัครสมาชิก ตัวนับการใช้งาน AI และข้อมูลการยืนยันตัวตนของคุณออกจากระบบของเรา ข้อมูลบันทึกประจำวันในที่จัดเก็บคลาวด์ของคุณยังคงอยู่ภายใต้การควบคุมของคุณและสามารถลบได้ที่นั่นโดยคุณ"
+        "content": "คุณสามารถลบบัญชีของคุณได้ตลอดเวลาผ่านการตั้งค่าในแอปหรือโดยการติดต่อเราที่ {{companyEmail}} การลบบัญชีจะลบโปรไฟล์ การสมัครสมาชิก ตัวนับการใช้งาน AI และข้อมูลการยืนยันตัวตนของคุณออกจากระบบของเรา ข้อมูลบันทึกประจำวันในพื้นที่จัดเก็บคลาวด์ของคุณยังคงอยู่ภายใต้การควบคุมของคุณและสามารถลบได้ที่นั่นโดยคุณ"
       },
       "legalBasis": {
         "title": "ฐานทางกฎหมายในการประมวลผล",
-        "content": "เราประมวลผลข้อมูลของคุณตาม: (1) การปฏิบัติตามสัญญา — เพื่อให้บริการบันทึกประจำวันที่คุณสมัคร (2) ผลประโยชน์ที่ชอบด้วยกฎหมาย — เพื่อรักษาความปลอดภัยของบริการและป้องกันการละเมิด และเพื่อบังคับใช้ขีดจำกัดการใช้งานที่เป็นธรรมสำหรับฟีเจอร์ AI เสริม และ (3) ความยินยอม — สำหรับฟีเจอร์เสริม เช่น การวิเคราะห์ AI (คุณสามารถถอนความยินยอมได้ตลอดเวลา)"
+        "content": "เราประมวลผลข้อมูลของคุณบนฐานทางกฎหมายต่อไปนี้ (1) การปฏิบัติตามสัญญา — เพื่อให้บริการบันทึกประจำวันที่คุณสมัครใช้ (2) ประโยชน์โดยชอบด้วยกฎหมาย — เพื่อรักษาความปลอดภัยของบริการ ป้องกันการใช้งานในทางที่ผิด และบังคับใช้ขีดจำกัดการใช้งานอย่างเป็นธรรมสำหรับฟีเจอร์ AI เสริม และ (3) ความยินยอม — สำหรับฟีเจอร์เสริม เช่น การวิเคราะห์ด้วย AI (คุณสามารถถอนความยินยอมได้ทุกเมื่อ)"
       },
       "dpo": {
-        "title": "เจ้าหน้าที่คุ้มครองข้อมูล (DPO)",
-        "content": "เราไม่ได้แต่งตั้งเจ้าหน้าที่คุ้มครองข้อมูลเนื่องจากตามการดำเนินงานปัจจุบัน เราไม่จำเป็นต้องทำเช่นนั้นตามมาตรา 37 ของ GDPR OwnJournal ไม่ประมวลผลหรือจัดเก็บเนื้อหาบันทึกบนเซิร์ฟเวอร์ของเรา และการประมวลผลจำกัดอยู่เพียงข้อมูลบัญชี ยืนยันตัวตน และสมาชิกขั้นต่ำ เนื้อหาบันทึกยังคงถูกเข้ารหัสแบบ end-to-end และอยู่ภายใต้การควบคุมของผู้ใช้ เราจะทบทวนภาระหน้าที่นี้หากกิจกรรมการประมวลผลมีการเปลี่ยนแปลง"
+        "title": "เจ้าหน้าที่คุ้มครองข้อมูลส่วนบุคคล (DPO)",
+        "content": "เราไม่ได้แต่งตั้งเจ้าหน้าที่คุ้มครองข้อมูลส่วนบุคคล เนื่องจากการดำเนินงานในปัจจุบันของเราไม่เข้าข่ายที่ต้องแต่งตั้งตามมาตรา 37 ของ GDPR OwnJournal ไม่จัดเก็บเนื้อหาบันทึกบนเซิร์ฟเวอร์ของเรา เมื่อคุณใช้ฟีเจอร์ AI เสริม ข้อความหรือเสียงที่บันทึกซึ่งเกี่ยวข้องจะเพียงส่งผ่านเซิร์ฟเวอร์ของเราไปยังผู้ให้บริการ AI ของเราเท่านั้น โดยไม่มีการเก็บไว้ นอกเหนือจากนั้น การประมวลผลของเราจำกัดอยู่เพียงข้อมูลบัญชี ข้อมูลการยืนยันตัวตน และข้อมูลการสมัครสมาชิกในระดับขั้นต่ำ เนื้อหาบันทึกยังคงเข้ารหัสแบบต้นทางถึงปลายทางและอยู่ภายใต้การควบคุมของผู้ใช้ เราจะทบทวนหน้าที่นี้อีกครั้งหากกิจกรรมการประมวลผลของเราเปลี่ยนแปลง"
       },
       "rights": {
-        "title": "สิทธิ์ของผู้ใช้",
-        "content": "ภายใต้ GDPR และกฎหมายความเป็นส่วนตัวที่คล้ายคลึงกัน คุณมีสิทธิ์ที่จะ: เข้าถึงข้อมูลของคุณ ส่งออกข้อมูลของคุณ (ความสามารถในการเคลื่อนย้าย) แก้ไขข้อมูลที่ไม่ถูกต้อง ลบข้อมูลของคุณ (การลบ) จำกัดการประมวลผล คัดค้านการประมวลผล และยื่นข้อร้องเรียนต่อหน่วยงานคุ้มครองข้อมูลในท้องถิ่นของคุณ สำหรับผู้อยู่อาศัยในสหภาพยุโรป คุณสามารถติดต่อหน่วยงานกำกับดูแลแห่งชาติของคุณได้ ใน {{companyCountry}} นี่คือ {{supervisoryAuthority}} ที่ {{supervisoryAuthorityUrl}} เพื่อใช้สิทธิเหล่านี้ ติดต่อเราที่ {{companyEmail}}"
+        "title": "สิทธิของคุณ",
+        "content": "ภายใต้ GDPR และกฎหมายคุ้มครองข้อมูลส่วนบุคคลที่คล้ายคลึงกัน คุณมีสิทธิดังต่อไปนี้ สิทธิในการเข้าถึงข้อมูลของคุณ สิทธิในการส่งออกข้อมูลของคุณ (สิทธิในการโอนย้ายข้อมูล) สิทธิในการขอให้แก้ไขข้อมูลที่ไม่ถูกต้อง สิทธิในการขอให้ลบข้อมูลของคุณ สิทธิในการขอให้ระงับการประมวลผล สิทธิในการคัดค้านการประมวลผล และสิทธิในการร้องเรียนต่อหน่วยงานคุ้มครองข้อมูลส่วนบุคคลในท้องถิ่นของคุณ ผู้ที่อาศัยอยู่ในสหภาพยุโรปสามารถติดต่อหน่วยงานกำกับดูแลระดับประเทศของตนได้ ในประเทศ{{companyCountry}} หน่วยงานดังกล่าวคือ {{supervisoryAuthority}} ({{supervisoryAuthorityUrl}}) หากต้องการใช้สิทธิเหล่านี้ กรุณาติดต่อเราที่ {{companyEmail}}"
       },
       "children": {
         "title": "ความเป็นส่วนตัวของเด็ก",
-        "content": "OwnJournal ไม่ได้มีไว้สำหรับเด็กอายุต่ำกว่า 13 ปี หรืออายุที่สูงกว่าของการยินยอมทางดิจิทัลที่ใช้บังคับในประเทศของคุณ (สูงสุด 16 ปีในประเทศสมาชิกสหภาพยุโรปบางประเทศ) เราไม่จงใจรวบรวมข้อมูลส่วนบุคคลจากเด็กที่อายุต่ำกว่าที่ใช้บังคับ หากคุณเชื่อว่าเรารวบรวมข้อมูลดังกล่าวโดยไม่ได้ตั้งใจ โปรดติดต่อเรา"
+        "content": "OwnJournal ไม่ได้มีไว้สำหรับเด็กอายุต่ำกว่า 13 ปี หรือต่ำกว่าอายุขั้นต่ำที่สูงกว่าสำหรับการให้ความยินยอมทางดิจิทัลตามกฎหมายของประเทศคุณ (สูงสุด 16 ปีในบางประเทศสมาชิกสหภาพยุโรป) เราไม่เก็บรวบรวมข้อมูลส่วนบุคคลจากเด็กที่มีอายุต่ำกว่าเกณฑ์ดังกล่าวโดยเจตนา หากคุณเชื่อว่าเราเก็บรวบรวมข้อมูลดังกล่าวโดยไม่ได้ตั้งใจ กรุณาติดต่อเรา"
       },
       "changes": {
         "title": "การเปลี่ยนแปลงนโยบายนี้",
-        "content": "เราอาจอัปเดตนโยบายความเป็นส่วนตัวนี้เป็นครั้งคราว เราจะแจ้งเกี่ยวกับการเปลี่ยนแปลงที่สำคัญผ่านแอปพลิเคชัน การใช้งานต่อไปหลังจากมีการเปลี่ยนแปลงถือเป็นการยอมรับนโยบายที่อัปเดต"
+        "content": "เราอาจอัปเดตนโยบายความเป็นส่วนตัวนี้เป็นครั้งคราว เราจะแจ้งให้คุณทราบถึงการเปลี่ยนแปลงที่สำคัญผ่านแอปพลิเคชัน การใช้งานต่อไปหลังมีการเปลี่ยนแปลงถือเป็นการยอมรับนโยบายที่อัปเดตแล้ว"
       },
       "contact": {
         "title": "ติดต่อเรา",
-        "content": "หากคุณมีคำถามเกี่ยวกับนโยบายความเป็นส่วนตัวนี้ ต้องการใช้สิทธิข้อมูลของคุณ หรือมีข้อกังวล โปรดติดต่อเราที่ {{companyEmail}} เรามุ่งหวังที่จะตอบกลับภายใน 30 วัน"
+        "content": "หากคุณมีคำถามเกี่ยวกับนโยบายความเป็นส่วนตัวนี้ ต้องการใช้สิทธิเกี่ยวกับข้อมูลของคุณ หรือมีข้อกังวล กรุณาติดต่อเราที่ {{companyEmail}} เรามุ่งหวังที่จะตอบกลับภายใน 30 วัน"
       },
       "localStorage": {
-        "title": "คุกกี้และที่จัดเก็บข้อมูลในเครื่อง",
-        "content": "OwnJournal ไม่ใช้คุกกี้บุคคลที่สาม คุกกี้โฆษณา หรือเครื่องมือติดตามข้ามแอป แอปพลิเคชันใช้ที่จัดเก็บข้อมูลในเครื่องของอุปกรณ์ของคุณ (localStorage ของเบราว์เซอร์และ IndexedDB บนเว็บ ที่จัดเก็บข้อมูลในเครื่องที่เทียบเท่าบนมือถือและเดสก์ท็อป) เพื่อเก็บคีย์การเข้ารหัส รายการบันทึกประจำวัน สถานะการซิงค์ และการตั้งค่าของคุณบนอุปกรณ์ของคุณ ข้อมูลในเครื่องนี้แยกตามผู้ใช้และอยู่บนอุปกรณ์ของคุณเว้นแต่คุณจะส่งออกหรือซิงค์กับผู้ให้บริการคลาวด์ที่คุณเลือกอย่างชัดเจน การยืนยันตัวตนใช้โทเค็นเซสชันที่ออกโดยระบบหลังบ้านการยืนยันตัวตนของเราและจัดเก็บในเครื่องบนอุปกรณ์ของคุณ คุณสามารถล้างข้อมูลในเครื่องได้ตลอดเวลาจากการตั้งค่าหรือโดยการล้างที่จัดเก็บข้อมูลของเบราว์เซอร์"
+        "title": "คุกกี้และพื้นที่จัดเก็บในเครื่อง",
+        "content": "OwnJournal ไม่ใช้คุกกี้บุคคลที่สาม คุกกี้โฆษณา หรือเครื่องมือติดตามข้ามแอป แอปพลิเคชันใช้พื้นที่จัดเก็บในเครื่องของอุปกรณ์คุณ (localStorage ของเบราว์เซอร์และ IndexedDB บนเว็บ พื้นที่จัดเก็บในเครื่องที่เทียบเท่าบนมือถือและเดสก์ท็อป) เพื่อเก็บคีย์การเข้ารหัส รายการบันทึกประจำวัน สถานะการซิงค์ และการตั้งค่าของคุณบนอุปกรณ์ของคุณ ข้อมูลในเครื่องนี้แยกตามผู้ใช้และอยู่บนอุปกรณ์ของคุณเว้นแต่คุณจะส่งออกหรือซิงค์กับผู้ให้บริการคลาวด์ที่คุณเลือกอย่างชัดแจ้ง การยืนยันตัวตนใช้โทเคนเซสชันที่ออกโดยระบบหลังบ้านการยืนยันตัวตนของเราและจัดเก็บในเครื่องบนอุปกรณ์ของคุณ คุณสามารถล้างข้อมูลในเครื่องได้ตลอดเวลาจากการตั้งค่าหรือโดยการล้างพื้นที่จัดเก็บของเบราว์เซอร์"
       },
       "internationalTransfers": {
-        "title": "การถ่ายโอนข้อมูลระหว่างประเทศ",
-        "content": "ผู้ให้บริการบางรายของเราประมวลผลข้อมูลนอกเขตเศรษฐกิจยุโรป (EEA) ระบบหลังบ้านการยืนยันตัวตนและฐานข้อมูลของเรา ผู้ให้บริการชำระเงิน (Stripe, Apple, Google) ผู้ให้บริการ AI (Google, OpenAI) และผู้ให้บริการคลาวด์ที่คุณเลือกอาจถ่ายโอนหรือประมวลผลข้อมูลในประเทศที่ยังไม่ได้รับการตัดสินใจเรื่องความเพียงพอจากคณะกรรมาธิการยุโรป ในกรณีดังกล่าว เราและผู้ให้บริการอาศัยมาตรการป้องกันที่เหมาะสมตามมาตรา 46 ของ GDPR เช่น ข้อสัญญามาตรฐาน (SCC) ของคณะกรรมาธิการยุโรปร่วมกับมาตรการทางเทคนิคและองค์กรเสริม คุณสามารถขอข้อมูลเพิ่มเติมเกี่ยวกับมาตรการป้องกันที่ใช้อยู่ได้โดยติดต่อเรา"
+        "title": "การโอนข้อมูลส่วนบุคคลไปยังต่างประเทศ",
+        "content": "ผู้ให้บริการบางรายของเราประมวลผลข้อมูลนอกเขตเศรษฐกิจยุโรป (EEA) ระบบหลังบ้านการยืนยันตัวตนและฐานข้อมูลของเรา ผู้ให้บริการชำระเงิน (Stripe, Apple, Google) ผู้ให้บริการ AI (Google) และผู้ให้บริการพื้นที่จัดเก็บคลาวด์ที่คุณเลือก อาจโอนหรือประมวลผลข้อมูลในประเทศที่คณะกรรมาธิการยุโรปยังไม่ได้มีคำวินิจฉัยว่ามีมาตรฐานการคุ้มครองข้อมูลส่วนบุคคลที่เพียงพอ ในกรณีดังกล่าว เราและผู้ให้บริการอาศัยมาตรการคุ้มครองที่เหมาะสมตามมาตรา 46 ของ GDPR เช่น ข้อสัญญามาตรฐาน (SCC) ของคณะกรรมาธิการยุโรป ควบคู่กับมาตรการเสริมทางเทคนิคและเชิงองค์กร คุณสามารถขอข้อมูลเพิ่มเติมเกี่ยวกับมาตรการคุ้มครองที่ใช้อยู่ได้โดยติดต่อเรา"
       },
       "californiaRights": {
         "title": "สิทธิความเป็นส่วนตัวระดับรัฐของสหรัฐฯ",
-        "content": "หากคุณเป็นผู้อยู่อาศัยในแคลิฟอร์เนียหรือรัฐอื่น ๆ ของสหรัฐฯ ที่มีกฎหมายความเป็นส่วนตัวของผู้บริโภคที่ครอบคลุม (เช่น เวอร์จิเนีย โคโลราโด คอนเนตทิคัต ยูทาห์ เท็กซัส หรืออื่น ๆ ตามที่บัญญัติไว้) คุณมีสิทธิเกี่ยวกับข้อมูลส่วนบุคคลของคุณซึ่งอาจรวมถึง: สิทธิที่จะรู้ว่าเราเก็บข้อมูลส่วนบุคคลใดบ้าง สิทธิในการลบข้อมูลส่วนบุคคลของคุณ สิทธิในการแก้ไขข้อมูลส่วนบุคคลที่ไม่ถูกต้อง สิทธิในการเลือกไม่เข้าร่วมการใช้งานบางอย่าง (รวมถึงการขายหรือการแบ่งปันข้อมูลส่วนบุคคล) และสิทธิในการจำกัดการใช้ข้อมูลส่วนบุคคลที่ละเอียดอ่อน เราไม่ขายข้อมูลส่วนบุคคลของคุณและไม่แบ่งปันข้อมูลดังกล่าวเพื่อการโฆษณาตามพฤติกรรมข้ามบริบท เพื่อใช้สิทธิของคุณ โปรดติดต่อเราที่อยู่ในส่วน \"ติดต่อเรา\""
+        "content": "หากคุณเป็นผู้อยู่อาศัยในแคลิฟอร์เนียหรือรัฐอื่น ๆ ของสหรัฐฯ ที่มีกฎหมายความเป็นส่วนตัวของผู้บริโภคที่ครอบคลุม (เช่น เวอร์จิเนีย โคโลราโด คอนเนตทิคัต ยูทาห์ เท็กซัส หรืออื่น ๆ ตามที่บัญญัติไว้) คุณมีสิทธิเกี่ยวกับข้อมูลส่วนบุคคลของคุณซึ่งอาจรวมถึง: สิทธิที่จะรู้ว่าเราเก็บข้อมูลส่วนบุคคลใดบ้าง สิทธิในการลบข้อมูลส่วนบุคคลของคุณ สิทธิในการแก้ไขข้อมูลส่วนบุคคลที่ไม่ถูกต้อง สิทธิในการเลือกไม่เข้าร่วมการใช้งานบางอย่าง (รวมถึงการขายหรือการแบ่งปันข้อมูลส่วนบุคคล) และสิทธิในการจำกัดการใช้ข้อมูลส่วนบุคคลที่ละเอียดอ่อน เราไม่ขายข้อมูลส่วนบุคคลของคุณและไม่แบ่งปันข้อมูลดังกล่าวเพื่อการโฆษณาตามพฤติกรรมข้ามบริบท หากต้องการใช้สิทธิของคุณ กรุณาติดต่อเราตามช่องทางในหัวข้อ “ติดต่อเรา”"
       }
-    }
+    },
+    "lastUpdatedOn": "อัปเดตล่าสุด: {{date}}"
   },
   "recovery": {
     "title": "กู้คืนรายการเข้ารหัส",
     "description": "บางรายการไม่สามารถถอดรหัสได้",
     "decryptionFailures": "บางรายการไม่สามารถถอดรหัสได้",
-    "decryptionFailuresDesc": "{{count}} จาก {{total}} รายการถอดรหัสไม่สำเร็จ รหัสผ่านอาจถูกเปลี่ยน",
-    "failedEntries": "{{count}} จาก {{total}} รายการถอดรหัสไม่สำเร็จ",
+    "decryptionFailuresDesc_other": "ถอดรหัสไม่สำเร็จ {{count}} จาก {{total}} รายการ รหัสผ่านของคุณอาจมีการเปลี่ยนแปลง",
+    "failedEntries_other": "ถอดรหัสไม่สำเร็จ {{count}} จาก {{total}} รายการ",
     "explanation": "สาเหตุมักเกิดจากรหัสผ่านการเข้ารหัสถูกเปลี่ยน กรอกรหัสผ่านเดิมเพื่อกู้คืนรายการ",
     "originalPassword": "รหัสผ่านการเข้ารหัสเดิม",
-    "passwordPlaceholder": "กรอกรหัสผ่านเดิม...",
+    "passwordPlaceholder": "กรอกรหัสผ่านเดิม…",
     "passwordRequired": "กรุณากรอกรหัสผ่านเดิม",
     "hint1": "• นี่คือรหัสผ่านที่ใช้ตั้งค่าการเข้ารหัสครั้งแรก",
     "hint2": "• รายการเข้ารหัสไม่ได้สูญหาย เพียงต้องใช้รหัสผ่านที่ถูกต้อง",
     "hint3": "• หากจำรหัสผ่านไม่ได้ รายการอาจไม่สามารถกู้คืนได้",
     "recover": "กู้คืน",
     "recoverButton": "กู้คืนรายการ",
-    "recovering": "กำลังกู้คืน...",
+    "recovering": "กำลังกู้คืน…",
     "success": "กู้คืนสำเร็จ",
-    "successDesc": "กู้คืน {{count}} รายการ",
+    "successDesc_other": "กู้คืน {{count}} รายการแล้ว",
     "failed": "กู้คืนไม่สำเร็จ: {{error}}",
     "wrongPassword": "รหัสผ่านไม่ถูกต้อง กรุณาลองอีกครั้งด้วยรหัสผ่านการเข้ารหัสเดิม",
     "keyCorrupted": "คีย์การเข้ารหัสบนผู้ให้บริการที่เชื่อมต่อทั้งหมดไม่สามารถถอดรหัสรายการได้ หากใช้ Google Drive ตรวจสอบประวัติเวอร์ชันของ encryption-key.json ในโฟลเดอร์ OwnJournal",
@@ -2340,18 +2347,18 @@
     "networkError": "เครือข่ายขัดข้อง กรุณาตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง",
     "rateLimited": "คลาวด์กำลังจำกัดคำขอชั่วคราว กรุณารอ 30-60 วินาทีแล้วลองอีกครั้ง",
     "deleteLink": "หรือลบรายการที่กู้คืนไม่ได้อย่างถาวร",
-    "confirmDelete": "การดำเนินการนี้จะลบ {{count}} รายการที่ถอดรหัสไม่ได้อย่างถาวร ไม่สามารถยกเลิกได้",
+    "confirmDelete_other": "การดำเนินการนี้จะลบรายการที่ถอดรหัสไม่ได้ {{count}} รายการอย่างถาวร และไม่สามารถย้อนกลับได้",
     "confirmDeleteButton": "ลบอย่างถาวร",
     "deletedTitle": "ลบรายการแล้ว",
-    "deletedDesc": "ลบ {{count}} รายการที่กู้คืนไม่ได้แล้ว",
+    "deletedDesc_other": "ลบรายการที่กู้คืนไม่ได้ {{count}} รายการแล้ว",
     "deleteFailed": "ลบรายการไม่สำเร็จ กรุณาลองอีกครั้ง",
     "keyMismatchExplanation": "คีย์การเข้ารหัสที่ถอดรหัสรายการเหล่านี้ได้ไม่ตรงกับคีย์ที่ใช้อยู่ สามารถลองโหลดคีย์ใหม่จากคลาวด์",
-    "keyMismatchRecoveryHint": "อาจกู้คืนคีย์เดิมจากประวัติเวอร์ชันของคลาวด์ (เช่น Google Drive หรือ Nextcloud file versions สำหรับ encryption-key.json ในโฟลเดอร์ OwnJournal)",
+    "keyMismatchRecoveryHint": "คุณอาจกู้คืนคีย์เดิมได้จากประวัติเวอร์ชันในพื้นที่จัดเก็บคลาวด์ (เช่น ประวัติเวอร์ชันของไฟล์ encryption-key.json ในโฟลเดอร์ OwnJournal บน Google Drive หรือ Nextcloud)",
     "keyMismatchHint1": "• คีย์การเข้ารหัสในคลาวด์ไม่ตรงกับคีย์ที่ใช้เข้ารหัสรายการเหล่านี้",
     "keyMismatchHint2": "• ตรวจสอบประวัติเวอร์ชันของ Google Drive หรือ Nextcloud สำหรับ encryption-key.json เวอร์ชันเก่า",
     "keyMismatchHint3": "• หากอุปกรณ์อื่นยังมีคีย์ที่ถูกต้องแคชอยู่ เชื่อมต่อจากอุปกรณ์นั้นก่อน",
     "reloadKeyFromCloud": "โหลดคีย์ใหม่จากคลาวด์",
-    "reloadingKey": "กำลังโหลดใหม่...",
+    "reloadingKey": "กำลังโหลดใหม่…",
     "reloadKeySuccessDesc": "โหลดคีย์การเข้ารหัสจากคลาวด์ใหม่แล้ว รายการควรมองเห็นได้แล้ว",
     "reloadKeyFailed": "ไม่มีคลาวด์ที่เชื่อมต่ออยู่มีคีย์ที่ถอดรหัสรายการเหล่านี้ได้ ตรวจสอบประวัติเวอร์ชันของ encryption-key.json"
   },
@@ -2363,19 +2370,19 @@
     "usernameRequired": "ต้องระบุชื่อผู้ใช้",
     "usernameTooLong": "ชื่อผู้ใช้ต้องน้อยกว่า 200 ตัวอักษร",
     "usernameInvalidChars": "ชื่อผู้ใช้ใช้ได้เฉพาะตัวอักษร ตัวเลข และ ._@-",
-    "appPasswordRequired": "ต้องระบุรหัสผ่าน app",
-    "appPasswordTooLong": "รหัสผ่าน app ต้องน้อยกว่า 500 ตัวอักษร"
+    "appPasswordRequired": "ต้องระบุรหัสผ่านแอป",
+    "appPasswordTooLong": "รหัสผ่านแอปต้องน้อยกว่า 500 ตัวอักษร"
   },
   "cloudErrors": {
-    "notFound": "ไม่พบ - ตำแหน่งเป้าหมายไม่มีอยู่",
-    "notFoundWithFile": "ไม่พบ - ตำแหน่งเป้าหมายไม่มีอยู่ ไฟล์: {{file}}",
-    "permissionDenied": "ไม่มีสิทธิ์ - ไม่มีสิทธิ์เข้าถึงตำแหน่งนี้",
-    "authFailed": "ยืนยันตัวตนไม่สำเร็จ - กรุณาตรวจสอบข้อมูลรับรองหรือเชื่อมต่อใหม่",
-    "serverError": "ข้อผิดพลาดเซิร์ฟเวอร์ - เซิร์ฟเวอร์พบข้อผิดพลาดภายใน",
-    "serverUnavailable": "เซิร์ฟเวอร์ไม่พร้อมให้บริการ - กรุณาลองอีกครั้งในภายหลัง",
-    "storageFull": "พื้นที่จัดเก็บเต็ม - พื้นที่บนเซิร์ฟเวอร์ไม่เพียงพอ",
-    "rateLimited": "ถูกจำกัดอัตรา - คำขอมากเกินไป กรุณารอ",
-    "encryptionError": "ข้อผิดพลาดการเข้ารหัส - การเข้ารหัสฝั่งเซิร์ฟเวอร์กำลังขัดขวางการเข้าถึง",
+    "notFound": "ไม่พบ — ตำแหน่งเป้าหมายไม่มีอยู่",
+    "notFoundWithFile": "ไม่พบ — ตำแหน่งเป้าหมายไม่มีอยู่ ไฟล์: {{file}}",
+    "permissionDenied": "ไม่มีสิทธิ์ — ไม่มีสิทธิ์เข้าถึงตำแหน่งนี้",
+    "authFailed": "ยืนยันตัวตนไม่สำเร็จ — กรุณาตรวจสอบข้อมูลรับรองหรือเชื่อมต่อใหม่",
+    "serverError": "ข้อผิดพลาดเซิร์ฟเวอร์ — เซิร์ฟเวอร์พบข้อผิดพลาดภายใน",
+    "serverUnavailable": "เซิร์ฟเวอร์ไม่พร้อมให้บริการ — กรุณาลองอีกครั้งในภายหลัง",
+    "storageFull": "พื้นที่จัดเก็บเต็ม — พื้นที่บนเซิร์ฟเวอร์ไม่เพียงพอ",
+    "rateLimited": "ถูกจำกัดอัตรา — คำขอมากเกินไป กรุณารอ",
+    "encryptionError": "ข้อผิดพลาดการเข้ารหัส — การเข้ารหัสฝั่งเซิร์ฟเวอร์กำลังขัดขวางการเข้าถึง",
     "syncStateFailed": "อัปเดตสถานะซิงค์ไม่สำเร็จ",
     "uploadFailed": "อัปโหลดไม่สำเร็จ",
     "uploadFailedWithFile": "อัปโหลดไม่สำเร็จสำหรับไฟล์: {{file}}",
@@ -2383,8 +2390,8 @@
     "downloadFailedWithFile": "ดาวน์โหลดไม่สำเร็จสำหรับไฟล์: {{file}}",
     "deleteFailed": "ลบไม่สำเร็จ",
     "listFailed": "แสดงรายการไฟล์ไม่สำเร็จ",
-    "connectionFailed": "เชื่อมต่อไม่สำเร็จ - กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต",
-    "tokenRefreshFailed": "เซสชันหมดอายุ - กรุณาเชื่อมต่อคลาวด์ใหม่",
+    "connectionFailed": "เชื่อมต่อไม่สำเร็จ — กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต",
+    "tokenRefreshFailed": "เซสชันหมดอายุ — กรุณาเชื่อมต่อคลาวด์ใหม่",
     "networkErrorCheckingKey": "เครือข่ายขัดข้องชั่วคราว — กรุณาลองอีกครั้งในสักครู่"
   },
   "incompatibleKey": {
@@ -2443,16 +2450,15 @@
     "topNegative": "{{activity}} สัมพันธ์กับอารมณ์ที่ลดลง",
     "proFeature": "ฟีเจอร์ Plus",
     "proFeatureDesc": "เจาะลึกกิจกรรมใช้ได้กับสมาชิก Plus",
-    "tooltipAvg": "เฉลี่ย",
-    "tooltipEntries": "รายการ"
+    "tooltipDetail_other": "{{delta}} (เฉลี่ย {{emoji}} {{avg}} จาก {{count}} รายการ)"
   },
   "notes": {
-    "journalTab": "ไดอารี่",
+    "journalTab": "สมุดบันทึก",
     "title": "โน้ต",
     "newNote": "โน้ตใหม่",
-    "searchPlaceholder": "ค้นหาโน้ต...",
+    "searchPlaceholder": "ค้นหาโน้ต…",
     "titlePlaceholder": "ชื่อโน้ต (ไม่บังคับ)",
-    "startWriting": "เขียนโน้ตของคุณ...",
+    "startWriting": "เขียนโน้ตของคุณ…",
     "saveNote": "บันทึกโน้ต",
     "emptyTitle": "ยังไม่มีโน้ต",
     "emptyDesc": "เก็บไอเดีย รายการ และข้อมูลอ้างอิงที่ไม่ผูกกับวันใดวันหนึ่ง",
@@ -2460,13 +2466,13 @@
     "deleteConfirmTitle": "ลบโน้ตนี้หรือไม่?",
     "deleteConfirmDesc": "โน้ตนี้จะถูกลบออกจากพื้นที่จัดเก็บของคุณอย่างถาวร",
     "updated": "อัปเดตเมื่อ {{date}}",
-    "saving": "กำลังบันทึกโน้ต...",
+    "saving": "กำลังบันทึกโน้ต…",
     "savingDesc": "กำลังเข้ารหัสและซิงค์โน้ตของคุณ",
     "saved": "บันทึกโน้ตแล้ว",
     "savedDesc": "โน้ตที่เข้ารหัสของคุณถูกบันทึกและซิงค์แล้ว",
     "savedOfflineDesc": "บันทึกในเครื่องแล้ว จะซิงค์เมื่อกลับมาออนไลน์",
     "failedToSave": "บันทึกโน้ตไม่สำเร็จ",
-    "deleting": "กำลังลบโน้ต...",
+    "deleting": "กำลังลบโน้ต…",
     "deletingDesc": "กำลังลบโน้ตออกจากพื้นที่จัดเก็บและซิงค์กับคลาวด์",
     "deleted": "ลบโน้ตแล้ว",
     "deletedDesc": "โน้ตของคุณถูกลบและซิงค์แล้ว",
@@ -2482,5 +2488,35 @@
     "system": "ระบบ",
     "paperHint": "กระดาษเป็นสีขาวล้วนไม่มีการไล่เฉดสี — อ่านง่ายที่สุดบนหน้าจอ e-ink",
     "switchTo": "สลับไปที่ธีม{{theme}}"
+  },
+  "voice": {
+    "title": "การป้อนด้วยเสียง",
+    "dictate": "พิมพ์ด้วยเสียง",
+    "stop": "หยุด",
+    "cancel": "ยกเลิกการบันทึกเสียง",
+    "transcribing": "กำลังถอดเสียง…",
+    "retry": "ลองถอดเสียงอีกครั้ง",
+    "discard": "ลบเสียงที่บันทึกไว้",
+    "stopsIn": "หยุดในอีก {{seconds}} วินาที",
+    "minutesLeft": "เหลือ {{minutes}} นาทีในเดือนนี้",
+    "plusFeature": "การป้อนด้วยเสียงมีให้ใช้ใน Plus",
+    "consentTitle": "ให้ Google ถอดเสียงของคุณเป็นข้อความหรือไม่?",
+    "consentBody": "เสียงที่บันทึกจะถูกส่งไปยังบริการ Gemini ของ Google เพื่อแปลงเป็นข้อความ OwnJournal ไม่จัดเก็บไฟล์เสียงไว้เลย Google ไม่นำเสียงนี้ไปใช้ฝึกโมเดลของตน และอาจเก็บไว้เพียงช่วงสั้น ๆ เพื่อป้องกันการใช้งานในทางที่ผิด ข้อความที่ได้จะบันทึกไว้เหมือนเนื้อหาอื่นในรายการของคุณ",
+    "consentAccept": "ดำเนินการต่อ",
+    "consentDecline": "ไว้ทีหลัง",
+    "teaserBody": "พูดแทนการพิมพ์ แล้วคำพูดของคุณจะกลายเป็นข้อความที่เรียบร้อยพร้อมเครื่องหมายวรรคตอน ในภาษาที่คุณพูด ใช้ได้สูงสุด 200 นาทีต่อเดือน",
+    "errors": {
+      "notSupported": "อุปกรณ์นี้ไม่รองรับการบันทึกเสียง",
+      "permissionDenied": "การเข้าถึงไมโครโฟนถูกบล็อก กรุณาอนุญาตในการตั้งค่าอุปกรณ์หรือเบราว์เซอร์เพื่อใช้การพิมพ์ด้วยเสียง",
+      "noMicrophone": "ไม่พบไมโครโฟน",
+      "offline": "คุณออฟไลน์อยู่ การป้อนด้วยเสียงต้องใช้การเชื่อมต่ออินเทอร์เน็ต",
+      "authRequired": "กรุณาเข้าสู่ระบบเพื่อใช้การป้อนด้วยเสียง",
+      "plusRequired": "ต้องสมัครสมาชิก Plus จึงจะใช้การป้อนด้วยเสียงได้",
+      "limitReached": "คุณใช้การป้อนด้วยเสียงครบ {{minutes}} นาทีของเดือนนี้แล้ว ขีดจำกัดจะรีเซ็ตในเดือนหน้า",
+      "tooLarge": "ไฟล์บันทึกเสียงใหญ่เกินไป ลองบันทึกให้สั้นลง",
+      "unsupportedFormat": "ไม่รองรับรูปแบบไฟล์บันทึกเสียงนี้",
+      "noSpeech": "ไม่พบเสียงพูดในไฟล์บันทึกเสียงนี้",
+      "failed": "ถอดเสียงไม่สำเร็จ กรุณาลองอีกครั้ง"
+    }
   }
 }

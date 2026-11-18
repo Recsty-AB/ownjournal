@@ -1,5 +1,31 @@
 # Changelog
 
+## Unreleased
+
+### New Features
+- Voice entry (Plus): tap the microphone under the editor and speak; Gemini turns the recording into clean, punctuated text in the spoken language and inserts it at the cursor. Up to 5 minutes per recording, 200 minutes per month
+- Free users can tap the microphone to see what voice entry unlocks with Plus
+
+### Improvements
+- Plus feature lists (paywall, upgrade banner, Help, FAQ) include voice entry; PDF and Word export are shown as one item
+- Privacy policy describes voice recordings and no longer lists OpenAI as an AI provider
+- Native-speaker review of all 21 languages: Danish strings that were in Norwegian, European Portuguese strings that were in Brazilian Portuguese, and Mainland terms in Traditional Chinese are corrected; each language uses one form of address and consistent terminology; missing and mistranslated strings are fixed
+- The "Last updated" line on the privacy and terms pages follows each language's punctuation
+- Counts read correctly in every language ("1 entry", Polish few/many forms…): messages with a number use proper plural forms, and the export title page, mood-insight tooltips and sync toasts no longer glue a number to a fixed word
+- The sign-in screen's terms sentence can put the links before the verb (Korean, Japanese, Chinese)
+
+### Bug Fixes
+- Sync diagnostics showed a literal "{{time}}" instead of when a paused provider reopens
+- Adding activities past the limit of 20 showed the wrong message in some languages
+
+### Developer Notes
+- New `ai-transcribe` edge function (`gemini-3.5-transcribe` via the Interactions API with `store: false`); deploy it with `supabase functions deploy ai-transcribe`
+- Migration `20261116120000_add_transcription_usage.sql` adds `ai_usage_stats.audio_seconds` and a monthly transcription total to `get_ai_usage_summary`
+- `modelConfig.ts` moved to `supabase/functions/_shared/`
+- New native permissions: Android `RECORD_AUDIO`, iOS/macOS `NSMicrophoneUsageDescription`
+
+---
+
 ## v1.0.29 (Oct 16, 2026)
 
 ### Improvements

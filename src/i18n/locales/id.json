@@ -1,7 +1,7 @@
 {
   "activities": {
     "label": "Aktivitas",
-    "addCustom": "Tambah aktivitas...",
+    "addCustom": "Tambah aktivitas…",
     "exercise": "Olahraga",
     "social": "Sosial",
     "work": "Kerja",
@@ -15,12 +15,12 @@
     "family": "Keluarga",
     "cooking": "Memasak",
     "music": "Musik",
-    "gaming": "Gaming",
+    "gaming": "Bermain Gim",
     "learning": "Belajar"
   },
   "accessibility": {
     "close": "Tutup",
-    "toggleSidebar": "Buka/Tutup Sidebar",
+    "toggleSidebar": "Buka/Tutup Bilah Sisi",
     "previousSlide": "Slide sebelumnya",
     "nextSlide": "Slide berikutnya",
     "previous": "Sebelumnya",
@@ -41,7 +41,7 @@
     "cancel": "Batal",
     "delete": "Hapus",
     "edit": "Ubah",
-    "loading": "Memuat...",
+    "loading": "Memuat…",
     "error": "Kesalahan",
     "stop": "Berhenti",
     "copied": "Disalin",
@@ -58,23 +58,23 @@
     "copyEmail": "Salin Email"
   },
   "migration": {
-    "preparing": "Menyiapkan migrasi...",
-    "encryptingEntries": "Mengenkripsi catatan...",
-    "decryptingEntries": "Mendekripsi catatan...",
-    "migratingCredentials": "Memigrasikan kredensial...",
+    "preparing": "Menyiapkan migrasi…",
+    "encryptingEntries": "Mengenkripsi catatan…",
+    "decryptingEntries": "Mendekripsi catatan…",
+    "migratingCredentials": "Memigrasikan kredensial…",
     "complete": "Migrasi selesai!",
     "error": "Migrasi gagal",
     "toE2ETitle": "Mengaktifkan Enkripsi E2E",
     "toSimpleTitle": "Beralih ke Mode Sederhana",
-    "toE2EDesc": "Catatan kamu sedang dienkripsi dengan kata sandi.",
-    "toSimpleDesc": "Catatan kamu sedang didekripsi untuk penyimpanan sederhana.",
+    "toE2EDesc": "Catatanmu sedang dienkripsi dengan kata sandi.",
+    "toSimpleDesc": "Catatanmu sedang didekripsi untuk penyimpanan sederhana.",
     "processingEntry": "Memproses: {{title}}",
-    "migrated": "{{count}} catatan berhasil dimigrasikan",
-    "failed": "{{count}} catatan gagal",
+    "migrated_other": "{{count}} catatan berhasil dimigrasikan",
+    "failed_other": "{{count}} catatan gagal",
     "retry": "Coba Lagi yang Gagal",
     "connectionError": "Kesalahan Koneksi",
     "connectionErrorDesc": "Kedua penyedia harus terhubung",
-    "completeDesc": "Berhasil memigrasikan {{count}} file dari {{source}} ke {{target}}",
+    "completeDesc_other": "Berhasil memigrasikan {{count}} file dari {{source}} ke {{target}}",
     "completedWithErrors": "Migrasi Selesai dengan Kesalahan",
     "completedWithErrorsDesc": "{{migrated}} file berhasil dimigrasikan, {{failed}} gagal. Periksa konsol untuk detail.",
     "stopped": "Migrasi Dihentikan",
@@ -83,7 +83,7 @@
   "editor": {
     "edit": "Ubah",
     "preview": "Pratinjau",
-    "placeholder": "Tulis catatan jurnalmu... Gunakan markdown untuk format:\n\n# Judul\n**tebal** *miring*\n- poin",
+    "placeholder": "Tulis catatan jurnalmu… Gunakan markdown untuk format:\n\n# Judul\n**tebal** *miring*\n- poin",
     "markdownSupport": "Mendukung: **tebal**, *miring*, # judul, - daftar",
     "noContentPreview": "*Tidak ada konten untuk ditampilkan*",
     "inlineTagHint": "Ketik # di teks untuk menambahkan tag"
@@ -91,23 +91,23 @@
   "import": {
     "invalidFormat": "Format file impor tidak valid",
     "complete": "Impor selesai",
-    "completeDesc": "{{count}} catatan berhasil diimpor. Menyinkronkan ke penyimpanan...",
+    "completeDesc_other": "{{count}} catatan berhasil diimpor. Menyinkronkan ke penyimpanan…",
     "failed": "Impor gagal",
     "failedDesc": "Gagal mengimpor data. Silakan periksa format file.",
     "storageSyncFailed": "Sinkronisasi penyimpanan gagal",
     "storageSyncFailedDesc": "Beberapa catatan mungkin tidak tersimpan ke penyimpanan."
   },
   "nextcloudErrors": {
-    "connectionTestFailed": "Tes koneksi gagal. Silakan periksa kredensial kamu.",
-    "sslCertificateError": "Kesalahan sertifikat SSL terdeteksi. Sertifikat HTTPS server kamu tidak valid, kedaluwarsa, atau tidak dipercaya.",
-    "corsIssueDetected": "Pengaturan keamanan koneksi terdeteksi. Server Nextcloud kamu perlu dikonfigurasi untuk mengizinkan koneksi dari browser.",
-    "authFailed": "Autentikasi gagal. Silakan periksa nama pengguna dan kata sandi aplikasi kamu.",
-    "connectionFailed": "Koneksi gagal. Silakan periksa URL server dan kredensial kamu.",
+    "connectionTestFailed": "Uji koneksi gagal. Silakan periksa kredensialmu.",
+    "sslCertificateError": "Kesalahan sertifikat SSL terdeteksi. Sertifikat HTTPS servermu tidak valid, kedaluwarsa, atau tidak dipercaya.",
+    "corsIssueDetected": "Pengaturan keamanan koneksi terdeteksi. Server Nextcloud-mu perlu dikonfigurasi untuk mengizinkan koneksi dari browser.",
+    "authFailed": "Autentikasi gagal. Silakan periksa nama pengguna dan kata sandi aplikasimu.",
+    "connectionFailed": "Koneksi gagal. Silakan periksa URL server dan kredensialmu.",
     "connectionFailedShort": "Koneksi gagal",
     "masterKeyRequired": "Kunci utama diperlukan untuk menyimpan kredensial dalam mode E2E",
-    "clickSetupHelpCors": "Klik \"Bantuan Pengaturan\" di atas untuk petunjuk langkah demi langkah.",
-    "clickSetupHelpSsl": "Klik \"Bantuan Pengaturan\" di atas untuk petunjuk memperbaiki masalah sertifikat SSL.",
-    "credentialDecryptFailed": "Kredensial Nextcloud kamu tidak bisa didekripsi. Ini biasanya berarti kata sandi jurnal kamu salah. Silakan periksa kata sandi atau putuskan dan sambungkan kembali."
+    "clickSetupHelpCors": "Ketuk \"Bantuan Pengaturan\" di atas untuk petunjuk langkah demi langkah.",
+    "clickSetupHelpSsl": "Ketuk \"Bantuan Pengaturan\" di atas untuk petunjuk memperbaiki masalah sertifikat SSL.",
+    "credentialDecryptFailed": "Kredensial Nextcloud-mu tidak bisa didekripsi. Ini biasanya berarti kata sandi jurnalmu salah. Silakan periksa kata sandi atau putuskan dan sambungkan kembali."
   },
   "app": {
     "name": "OwnJournal",
@@ -142,27 +142,26 @@
     "continueWith": "Atau lanjutkan dengan",
     "continueWithGoogle": "Lanjutkan dengan Google",
     "continueWithApple": "Lanjutkan dengan Apple",
-    "termsAgreementPrefix": "Dengan melanjutkan, kamu menyetujui",
+    "termsAgreement": "Dengan melanjutkan, kamu menyetujui <terms>Ketentuan Layanan</terms> dan <privacy>Kebijakan Privasi</privacy> kami.",
     "termsLink": "Ketentuan Layanan",
-    "and": "dan",
     "privacyLink": "Kebijakan Privasi",
-    "dataEncrypted": "Data kamu dienkripsi dan tidak pernah disimpan di server kami",
+    "dataEncrypted": "Datamu dienkripsi dan tidak pernah disimpan di server kami",
     "accountCreated": "Akun berhasil dibuat!",
-    "accountCreatedDesc": "Silakan cek email kamu dan klik \"Verifikasi Alamat Email\" untuk mengaktifkan akun.",
+    "accountCreatedDesc": "Silakan cek emailmu dan klik \"Verifikasi Alamat Email\" untuk mengaktifkan akun.",
     "checkSpamHint": "Jika tidak melihatnya, periksa folder spam atau sampah.",
     "authError": "Kesalahan Autentikasi",
     "error": "Kesalahan",
-    "checkEmail": "Periksa email kamu",
+    "checkEmail": "Periksa emailmu",
     "resetLinkSent": "Kami sudah mengirimkan tautan reset kata sandi.",
     "emailRequired": "Email diperlukan",
     "emailRequiredDesc": "Masukkan alamat email untuk mereset kata sandi.",
     "appleNotAvailable": "Masuk dengan Apple Tidak Tersedia",
     "appleNotConfigured": "Autentikasi Apple belum dikonfigurasi. Silakan hubungi administrator aplikasi atau gunakan metode masuk lainnya.",
     "userAlreadyExists": "Akun sudah ada",
-    "userAlreadyExistsDesc": "Email ini sudah terdaftar. Coba masuk, atau gunakan 'Lanjutkan dengan Google' jika sebelumnya mendaftar dengan cara itu.",
-    "invalidCredentials": "Kredensial login tidak valid",
-    "invalidCredentialsDesc": "Email atau kata sandi salah. Jika mendaftar dengan Google, gunakan 'Lanjutkan dengan Google'.",
-    "oauthAccountHint": "Mendaftar dengan Google? Coba 'Lanjutkan dengan Google' di bawah.",
+    "userAlreadyExistsDesc": "Email ini sudah terdaftar. Coba masuk, atau gunakan \"Lanjutkan dengan Google\" jika sebelumnya kamu mendaftar dengan cara itu.",
+    "invalidCredentials": "Kredensial masuk tidak valid",
+    "invalidCredentialsDesc": "Email atau kata sandi salah. Jika kamu mendaftar dengan Google, gunakan \"Lanjutkan dengan Google\".",
+    "oauthAccountHint": "Mendaftar dengan Google? Coba \"Lanjutkan dengan Google\" di bawah.",
     "linkExpired": "Tautan kedaluwarsa atau tidak valid",
     "linkExpiredDesc": "Tautan masuk ini sudah kedaluwarsa atau sudah digunakan. Silakan masuk lagi atau minta tautan baru.",
     "inAppBrowserWarning": "Kamu membuka ini di {{appName}}",
@@ -200,13 +199,13 @@
     "callbackMissingTokens": "Masuk tidak selesai. Silakan coba lagi."
   },
   "features": {
-    "endToEnd": "End-to-End",
+    "endToEnd": "Ujung-ke-Ujung",
     "encryption": "Enkripsi",
-    "yourStorage": "Penyimpanan Kamu",
-    "yourControl": "Kendali Kamu",
+    "yourStorage": "Penyimpananmu",
+    "yourControl": "Kendalimu",
     "worksOffline": "Berfungsi Offline",
     "alwaysAvailable": "Selalu Tersedia",
-    "zeroKnowledge": "Tanpa Pengetahuan",
+    "zeroKnowledge": "Zero-Knowledge",
     "privacyFirst": "Tidak ada yang bisa membaca datamu, bahkan kami"
   },
   "journal": {
@@ -214,8 +213,8 @@
     "anotherEntryEditingDesc": "Simpan atau batalkan catatan lainnya terlebih dahulu.",
     "goToEditingEntry": "Ke catatan yang sedang diedit",
     "switchToEditMode": "Beralih ke mode edit untuk menerapkan tag",
-    "switchToEditModeDesc": "Klik tombol edit untuk menerapkan tag yang disarankan",
-    "entryTitlePlaceholder": "Judul catatan...",
+    "switchToEditModeDesc": "Ketuk tombol edit untuk menerapkan tag yang disarankan",
+    "entryTitlePlaceholder": "Judul catatan…",
     "finishEditingFirst": "Selesaikan edit catatan lainnya terlebih dahulu",
     "entrySaved": "Catatan tersimpan",
     "entrySavedDesc": "Catatan jurnal terenkripsi telah disimpan dan akan disinkronkan otomatis.",
@@ -235,23 +234,23 @@
   },
   "demo": {
     "mode": "Mode Demo",
-    "description": "Jelajahi aplikasi dengan contoh catatan jurnal. Data kamu sendiri akan bersifat privat dan terenkripsi.",
+    "description": "Jelajahi aplikasi dengan contoh catatan jurnal. Datamu sendiri akan bersifat privat dan terenkripsi.",
     "startJournal": "Mulai Jurnalmu",
-    "exportUnavailableTitle": "Ekspor tersedia di jurnal Anda sendiri",
-    "exportUnavailableDesc": "Mulai jurnal Anda untuk mengaktifkan ekspor data",
-    "importUnavailableTitle": "Impor tersedia di jurnal Anda sendiri",
-    "importUnavailableDesc": "Mulai jurnal Anda untuk mengaktifkan impor data"
+    "exportUnavailableTitle": "Ekspor tersedia di jurnalmu sendiri",
+    "exportUnavailableDesc": "Mulai jurnalmu untuk mengaktifkan ekspor data",
+    "importUnavailableTitle": "Impor tersedia di jurnalmu sendiri",
+    "importUnavailableDesc": "Mulai jurnalmu untuk mengaktifkan impor data"
   },
   "index": {
-    "loadingAuth": "Memeriksa autentikasi...",
-    "loadingEntries": "Memuat catatan...",
-    "loadingEntriesDesc": "Mendekripsi catatan terenkripsi kamu...",
-    "initializingStorage": "Menginisialisasi penyimpanan...",
-    "loadingCachedEntries": "Memuat catatan tersimpan...",
-    "decryptingEntries": "Mendekripsi catatan...",
-    "syncingWithCloud": "Menyinkronkan dengan cloud...",
+    "loadingAuth": "Memeriksa autentikasi…",
+    "loadingEntries": "Memuat catatan…",
+    "loadingEntriesDesc": "Mendekripsi catatan terenkripsimu…",
+    "initializingStorage": "Menginisialisasi penyimpanan…",
+    "loadingCachedEntries": "Memuat catatan tersimpan…",
+    "decryptingEntries": "Mendekripsi catatan…",
+    "syncingWithCloud": "Menyinkronkan dengan cloud…",
     "noCloudConnected": "Tidak ada penyimpanan cloud terhubung",
-    "noCloudConnectedDesc": "Catatan kamu disimpan secara lokal dan terenkripsi. Hubungkan penyimpanan di Pengaturan untuk menyinkronkan antar perangkat.",
+    "noCloudConnectedDesc": "Catatanmu disimpan secara lokal dan terenkripsi. Hubungkan penyimpanan di Pengaturan untuk menyinkronkan antar perangkat.",
     "connectStorage": "Hubungkan Penyimpanan",
     "storageInitError": "Kesalahan inisialisasi penyimpanan",
     "solution": "Solusi",
@@ -261,25 +260,25 @@
     "authFailedDesc": "Kata sandi tersimpan tidak valid. Silakan masukkan kata sandi.",
     "initError": "Kesalahan inisialisasi",
     "initErrorDesc": "Coba lagi",
-    "settingUpSync": "Menyiapkan sinkronisasi cloud...",
+    "settingUpSync": "Menyiapkan sinkronisasi cloud…",
     "settingUpSyncDesc": "Mengunggah kunci enkripsi dan menyiapkan sinkronisasi.",
     "initialSyncComplete": "Sinkronisasi awal selesai",
-    "initialSyncCompleteDesc": "{{count}} catatan tersinkronkan dengan {{provider}}.",
+    "initialSyncCompleteDesc_other": "{{count}} catatan tersinkronkan dengan {{provider}}.",
     "initialSyncFailed": "Sinkronisasi awal gagal",
     "initialSyncFailedDesc": "Tidak dapat menyelesaikan sinkronisasi awal.",
     "secondaryProviderConnected": "{{provider}} terhubung",
     "secondaryProviderConnectedDesc": "Terhubung sebagai cadangan sekunder. Penyedia utama menangani sinkronisasi.",
     "conflictDetected": "⚠️ Konflik Sinkronisasi Terdeteksi",
-    "conflictDetectedDesc": "Pengeditan bersamaan diselesaikan secara otomatis. {{count}} konflik tercatat.",
+    "conflictDetectedDesc_other": "Pengeditan bersamaan diselesaikan secara otomatis. {{count}} konflik tercatat.",
     "viewConflicts": "Lihat Konflik",
-    "savingEntry": "Menyimpan catatan...",
+    "savingEntry": "Menyimpan catatan…",
     "savingEntryDesc": "Mengenkripsi dan menyinkronkan catatan jurnal.",
     "entrySaved": "Catatan tersimpan",
     "entrySavedDesc": "Catatan jurnal terenkripsi telah disimpan dan disinkronkan.",
     "entrySavedOfflineDesc": "Tersimpan secara lokal. Akan disinkronkan saat kembali online.",
     "failedToSaveEntry": "Gagal menyimpan catatan",
     "pleaseTryAgain": "Coba lagi",
-    "deletingEntry": "Menghapus catatan...",
+    "deletingEntry": "Menghapus catatan…",
     "deletingEntryDesc": "Menghapus catatan dari penyimpanan dan menyinkronkan ke cloud.",
     "entryDeleted": "Catatan dihapus",
     "entryDeletedDesc": "Catatan jurnal telah dihapus dan disinkronkan.",
@@ -292,28 +291,28 @@
     "signedOut": "Sudah keluar",
     "signedOutDesc": "Kamu berhasil keluar",
     "backupExported": "Cadangan diekspor",
-    "backupExportedDesc": "{{count}} catatan diekspor ke file JSON",
-    "importCompleteDesc": "{{count}} catatan berhasil diimpor. Menyinkronkan ke penyimpanan...",
+    "backupExportedDesc_other": "{{count}} catatan diekspor ke file JSON",
+    "importCompleteDesc_other": "{{count}} catatan berhasil diimpor. Menyinkronkan ke penyimpanan…",
     "cloudSyncComplete": "Sinkronisasi cloud selesai",
     "cloudSyncCompleteDesc": "Catatan yang diimpor telah disinkronkan ke penyimpanan cloud.",
     "cloudSyncIncomplete": "Sinkronisasi cloud tidak lengkap",
     "cloudSyncIncompleteDesc": "Catatan tersimpan secara lokal tetapi ada masalah sinkronisasi ke cloud.",
     "passwordRequired": "Kata sandi jurnal diperlukan",
     "passwordRequiredDesc": "Atur kata sandi jurnal untuk mulai menyinkronkan.",
-    "syncFailedDesc": "Gagal menyinkronkan dengan penyimpanan cloud. Periksa koneksi kamu.",
+    "syncFailedDesc": "Gagal menyinkronkan dengan penyimpanan cloud. Periksa koneksimu.",
     "incorrectPassword": "Kata sandi jurnal salah",
     "serverError": "Kesalahan server",
     "serverErrorDesc": "Terjadi kesalahan pada server cloud. Biasanya ini bersifat sementara. Coba lagi dalam beberapa menit.",
     "serverUnavailable": "Server tidak tersedia",
     "serverUnavailableDesc": "Server cloud sementara tidak tersedia. Silakan coba lagi nanti.",
     "storageFull": "Penyimpanan penuh",
-    "storageFullDesc": "Penyimpanan cloud kamu penuh. Kosongkan ruang dan coba lagi.",
+    "storageFullDesc": "Penyimpanan cloud-mu penuh. Kosongkan ruang dan coba lagi.",
     "authenticationFailed": "Autentikasi gagal",
-    "authenticationFailedDesc": "Kredensial kamu mungkin sudah kedaluwarsa. Sambungkan kembali penyimpanan cloud di Pengaturan.",
+    "authenticationFailedDesc": "Kredensialmu mungkin sudah kedaluwarsa. Sambungkan kembali penyimpanan cloud di Pengaturan.",
     "permissionDenied": "Izin ditolak",
     "permissionDeniedDesc": "Kamu tidak memiliki izin untuk mengakses lokasi penyimpanan ini. Periksa izin penyimpanan cloud.",
     "signInRequired": "Perlu masuk",
-    "signInRequiredDesc": "Silakan masuk untuk Upgrade ke Plus",
+    "signInRequiredDesc": "Silakan masuk untuk upgrade ke Plus",
     "checkoutNotAvailable": "Checkout tidak tersedia",
     "upgradeFailed": "Upgrade gagal",
     "upgradeFailedDesc": "Tidak dapat memulai checkout. Silakan coba lagi.",
@@ -322,17 +321,17 @@
     "passwordSavedDesc": "Kata sandi enkripsi telah diatur.",
     "encryptionSetupFailed": "Pengaturan enkripsi gagal",
     "encryptionSetupFailedDesc": "Tidak dapat menginisialisasi enkripsi.",
-    "startingCloudSync": "Memulai sinkronisasi cloud...",
+    "startingCloudSync": "Memulai sinkronisasi cloud…",
     "startingCloudSyncDesc": "Menyinkronkan catatan jurnal di latar belakang.",
-    "syncCompleteDesc": "{{count}} catatan tersinkronkan dengan penyimpanan cloud.",
+    "syncCompleteDesc_other": "{{count}} catatan tersinkronkan dengan penyimpanan cloud.",
     "unableToStartSync": "Tidak dapat memulai sinkronisasi.",
     "nextcloudEncryptionError": "Tidak dapat menyinkronkan dengan folder Nextcloud ini",
     "nextcloudEncryptionErrorDesc": "Folder Nextcloud ini mengaktifkan enkripsi sisi server, sehingga OwnJournal tidak dapat membaca atau menulis file. Ketuk \"Pelajari Lebih Lanjut\" untuk petunjuk langkah demi langkah.",
     "nextcloudEncryptionLearnMore": "Pelajari Lebih Lanjut",
     "encryptedEntriesDetected": "Catatan terenkripsi ditemukan",
-    "encryptedEntriesInSimpleMode": "Ditemukan {{count}} catatan terenkripsi yang tidak dapat dibaca dalam mode Sederhana. Untuk mengaksesnya, putuskan dan sambungkan kembali dalam mode E2E.",
-    "encryptedEntriesInSimpleModeHint": "{{count}} catatan memerlukan enkripsi E2E untuk dilihat. Masukkan kata sandi untuk membuka.",
-    "syncCompleteWithEncrypted": "Sinkronisasi selesai, tetapi {{count}} catatan terenkripsi memerlukan mode E2E untuk dilihat.",
+    "encryptedEntriesInSimpleMode_other": "Ditemukan {{count}} catatan terenkripsi yang tidak dapat dibaca dalam mode Sederhana. Untuk mengaksesnya, putuskan dan sambungkan kembali dalam mode E2E.",
+    "encryptedEntriesInSimpleModeHint_other": "{{count}} catatan memerlukan enkripsi E2E untuk dilihat. Masukkan kata sandi untuk membuka.",
+    "syncCompleteWithEncrypted_other": "Sinkronisasi selesai, tetapi {{count}} catatan terenkripsi memerlukan mode E2E untuk dilihat.",
     "unlockNow": "Buka Sekarang",
     "viewStorageOptions": "Lihat Opsi"
   },
@@ -362,7 +361,7 @@
     "sslError": "Kesalahan Sertifikat SSL. Sertifikat HTTPS server tidak valid, kedaluwarsa, atau tidak dipercaya.",
     "howToFix": "Cara memperbaiki:",
     "copied": "Disalin!",
-    "copiedDesc": "Konfigurasi disalin ke clipboard",
+    "copiedDesc": "Konfigurasi disalin ke papan klip",
     "dialogTitle": "Cara Menghubungkan Nextcloud",
     "dialogDescription": "Ikuti langkah sederhana ini untuk mengaktifkan koneksi browser ke server Nextcloud",
     "apacheMethod": "Metode 1: Konfigurasi Apache",
@@ -380,7 +379,7 @@
     "testNginx": "Uji konfigurasi:",
     "expectedOutput": "Output yang diharapkan dari configtest:",
     "syntaxOkDesc": "Konfigurasi valid, lanjutkan ke restart",
-    "ah00558Desc": "Peringatan tentang ServerName - ini tidak berbahaya, bisa diabaikan",
+    "ah00558Desc": "Peringatan tentang ServerName — ini tidak berbahaya, bisa diabaikan",
     "invalidCommandDesc": "Modul belum diaktifkan, jalankan Langkah 1 lagi",
     "syntaxErrorDesc": "Periksa kesalahan ketik di konfigurasi",
     "troubleshooting": "Pemecahan Masalah",
@@ -394,15 +393,15 @@
     "copyConfig": "Salin konfigurasi",
     "nginxSyntaxOkDesc": "Konfigurasi valid, lanjutkan dengan muat ulang",
     "nginxTestOkDesc": "Semua tes berhasil, aman untuk dimuat ulang",
-    "nginxUnknownDirectiveDesc": "Periksa sintaks - mungkin ada kesalahan ketik atau titik koma hilang",
+    "nginxUnknownDirectiveDesc": "Periksa sintaks — mungkin ada kesalahan ketik atau titik koma hilang",
     "nginxOptions401Fix": "Pastikan blok OPTIONS mengembalikan 204 sebelum pemeriksaan autentikasi",
     "nginxCorsHeaderMissingFix": "Pastikan add_header menyertakan flag 'always'",
     "nginxFindFileInstruction": "Daftar file konfigurasi situs Nginx untuk menemukan yang sesuai dengan domain Nextcloud:",
     "nginxEditFileInstruction": "Edit file untuk domain Nextcloud:",
     "commonSslIssues": "Masalah sertifikat SSL yang umum:",
-    "expiredCert": "Sertifikat kedaluwarsa - perlu diperpanjang",
-    "selfSignedCert": "Sertifikat self-signed - tidak dipercaya browser",
-    "invalidCert": "Sertifikat tidak valid - domain tidak cocok atau kesalahan konfigurasi",
+    "expiredCert": "Sertifikat kedaluwarsa — perlu diperpanjang",
+    "selfSignedCert": "Sertifikat self-signed — tidak dipercaya browser",
+    "invalidCert": "Sertifikat tidak valid — domain tidak cocok atau kesalahan konfigurasi",
     "missingIntermediateCerts": "Sertifikat perantara hilang",
     "howToCheckSsl": "Cara memeriksa sertifikat SSL:",
     "openNextcloudUrl": "Buka URL Nextcloud di browser (misal, {{url}})",
@@ -447,7 +446,7 @@
     "mobileAppNoteDesc": "Aplikasi seluler mungkin punya pembatasan koneksi yang lebih ketat dari browser desktop. Jika koneksi berfungsi di komputer tapi tidak di ponsel:",
     "mobileAppTip1": "Pastikan server Nextcloud mengizinkan koneksi dari semua origin (Access-Control-Allow-Origin: *)",
     "mobileAppTip2": "Pastikan sertifikat SSL valid dan dipercaya (bukan self-signed)",
-    "mobileAppTip3": "Beberapa penyedia hosting memblokir koneksi aplikasi seluler secara default - hubungi hosting jika masalah berlanjut",
+    "mobileAppTip3": "Beberapa penyedia hosting memblokir koneksi aplikasi seluler secara default — hubungi hosting jika masalah berlanjut",
     "apacheEditConfig": "Edit konfigurasi SSL VirtualHost Apache:",
     "apacheAddInside": "Tambahkan konfigurasi DI DALAM blok {{tag}} (sebelum tag penutup {{closeTag}})",
     "subdirectoryInstalls": "Untuk instalasi subdirektori, sesuaikan path (misal, {{path}})",
@@ -466,12 +465,12 @@
     "replaceFilename": "Ganti YOUR_FILE.conf dengan nama file dari atas (misal, nextcloud-le-ssl.conf)",
     "recommended": "Disarankan",
     "simpleConfig": "Konfigurasi Sederhana (untuk server pribadi)",
-    "simpleConfigDesc": "Menggunakan wildcard origin (*) - berfungsi dengan semua browser web dan aplikasi seluler. Terbaik untuk server Nextcloud pribadi.",
-    "simpleConfigDescNginx": "Menggunakan wildcard origin (*) - berfungsi dengan semua browser web dan aplikasi seluler. Terbaik untuk server Nginx pribadi.",
+    "simpleConfigDesc": "Menggunakan wildcard origin (*) — berfungsi dengan semua browser web dan aplikasi seluler. Terbaik untuk server Nextcloud pribadi.",
+    "simpleConfigDescNginx": "Menggunakan wildcard origin (*) — berfungsi dengan semua browser web dan aplikasi seluler. Terbaik untuk server Nginx pribadi.",
     "advanced": "Lanjutan",
     "secureConfig": "Konfigurasi Aman (untuk server bersama)",
-    "secureConfigDesc": "Menggunakan refleksi origin - hanya mengizinkan domain aplikasi tertentu. Gunakan ini jika Nextcloud dipakai bersama orang lain.",
-    "secureConfigDescNginx": "Menggunakan refleksi origin - hanya mengizinkan domain aplikasi tertentu. Gunakan ini jika server Nginx dipakai bersama orang lain."
+    "secureConfigDesc": "Menggunakan refleksi origin — hanya mengizinkan domain aplikasi tertentu. Gunakan ini jika Nextcloud dipakai bersama orang lain.",
+    "secureConfigDescNginx": "Menggunakan refleksi origin — hanya mengizinkan domain aplikasi tertentu. Gunakan ini jika server Nginx dipakai bersama orang lain."
   },
   "modelDownload": {
     "title": "Unduh Model AI?",
@@ -479,7 +478,7 @@
     "modelsReadyDesc": "Model AI berhasil diunduh",
     "downloadFailed": "Unduhan gagal",
     "downloadFailedDesc": "Gagal mengunduh model AI. Silakan coba lagi.",
-    "downloading": "Mengunduh model AI untuk analisis privat di perangkat...",
+    "downloading": "Mengunduh model AI untuk analisis privat di perangkat…",
     "mayTakeMinutes": "Ini mungkin memakan beberapa menit. Biarkan aplikasi tetap terbuka.",
     "toUsePrivateAI": "Untuk menggunakan fitur AI Privat, kami perlu mengunduh model AI ({{size}}) ke perangkat.",
     "selected": "Terpilih: {{name}}",
@@ -488,23 +487,23 @@
     "multilingualDesc": "Mendukung Jepang, Mandarin, Spanyol, dan 100+ bahasa",
     "lightweightDesc": "Performa lebih cepat, unduhan lebih kecil, hanya Bahasa Inggris",
     "changeInSettings": "Untuk mengganti model, buka Pengaturan, masuk ke Mode AI, dan pilih Jenis Model yang diinginkan.",
-    "privateOnDevice": "100% privat - berjalan sepenuhnya di perangkat",
+    "privateOnDevice": "100% privat — berjalan sepenuhnya di perangkat",
     "worksOffline": "Berfungsi offline setelah diunduh",
     "oneTimeDownload": "Unduhan sekali ({{size}})",
     "cancel": "Batal",
     "notNow": "Nanti Saja",
     "downloadModels": "Unduh Model",
-    "downloadingBtn": "Mengunduh..."
+    "downloadingBtn": "Mengunduh…"
   },
   "transfer": {
     "connectionError": "Kesalahan Koneksi",
     "connectionErrorDesc": "Kedua penyedia harus terhubung",
     "transferStarted": "Transfer dimulai",
-    "transferStartedDesc": "Menyalin catatan dari {{source}} ke {{target}}...",
+    "transferStartedDesc": "Menyalin catatan dari {{source}} ke {{target}}…",
     "transferProgress": "Transfer sedang berlangsung",
     "transferProgressDesc": "{{current}} dari {{total}} catatan disalin",
     "complete": "Transfer selesai",
-    "completeDesc": "Berhasil mentransfer {{count}} file dari {{source}} ke {{target}}",
+    "completeDesc_other": "Berhasil mentransfer {{count}} file dari {{source}} ke {{target}}",
     "completedWithErrors": "Transfer selesai dengan kesalahan",
     "completedWithErrorsDesc": "{{transferred}} file ditransfer, {{failed}} gagal. Periksa konsol untuk detail.",
     "failed": "Transfer gagal",
@@ -512,10 +511,10 @@
     "stoppedDesc": "Transfer dihentikan",
     "cancelled": "Transfer dibatalkan",
     "cancelledDesc": "Transfer dibatalkan. {{transferred}} file sudah ditransfer sebelum pembatalan.",
-    "cleaningUp": "Membersihkan...",
+    "cleaningUp": "Membersihkan…",
     "mirrorComplete": "Sinkronisasi mirror selesai",
-    "mirrorCompleteDesc": "Berhasil menyalin {{count}} file dari {{source}} ke {{target}}. Tujuan sekarang identik dengan sumber.",
-    "transferCompleteDisconnect": "Transfer Selesai - Putuskan Sumber?",
+    "mirrorCompleteDesc_other": "Berhasil menyalin {{count}} file dari {{source}} ke {{target}}. Tujuan sekarang identik dengan sumber.",
+    "transferCompleteDisconnect": "Transfer Selesai — Putuskan Sumber?",
     "transferCompleteDisconnectDesc": "Semua catatan sudah dicerminkan ke {{target}}. Mau memutuskan {{source}} agar tidak membingungkan?",
     "passwordRequiredAfterTransfer": "Masukkan kata sandi untuk menyelesaikan pergantian penyedia penyimpanan dan memuat ulang kunci enkripsi.",
     "keyValidationFailed": "Kunci enkripsi tidak cocok",
@@ -532,33 +531,34 @@
     "settingUp": "Menyiapkan sinkronisasi cloud…",
     "settingUpDesc": "Mengunggah kunci enkripsi dan mempersiapkan sinkronisasi.",
     "initialComplete": "Sinkronisasi awal selesai",
-    "initialCompleteDesc": "{{count}} catatan tersinkron.",
+    "initialCompleteDesc_other": "{{count}} catatan tersinkronkan.",
     "initialFailed": "Sinkronisasi awal gagal",
     "initialFailedDesc": "Tidak bisa menyelesaikan sinkronisasi awal.",
-    "savingEntry": "Menyimpan catatan...",
+    "savingEntry": "Menyimpan catatan…",
     "savingEntryDesc": "Mengenkripsi dan menyinkronkan catatan jurnal.",
     "entrySaved": "Catatan tersimpan",
     "entrySavedDesc": "Catatan jurnal terenkripsi telah disimpan dan disinkronkan.",
     "failedToSave": "Gagal menyimpan catatan",
-    "deletingEntry": "Menghapus catatan...",
+    "deletingEntry": "Menghapus catatan…",
     "deletingEntryDesc": "Menghapus catatan dari penyimpanan dan menyinkronkan ke cloud.",
     "entryDeleted": "Catatan dihapus",
     "entryDeletedDesc": "Catatan jurnal telah dihapus dan disinkronkan.",
     "deletionFailed": "Penghapusan gagal",
-    "deletionFailedDesc": "Gagal menghapus catatan dari penyimpanan. Perubahan mungkin dibatalkan.",
+    "deletionFailedDesc": "Gagal menghapus catatan dari penyimpanan. Perubahan mungkin dikembalikan.",
     "conflictDetected": "⚠️ Konflik Sinkronisasi Terdeteksi",
-    "conflictDetectedDesc": "Pengeditan bersamaan diselesaikan secara otomatis. {{count}} konflik tercatat.",
+    "conflictDetectedDesc_other": "Pengeditan bersamaan diselesaikan secara otomatis. {{count}} konflik tercatat.",
     "viewConflicts": "Lihat Konflik",
     "tooManyRequests": "Terlalu Banyak Permintaan",
     "tooManyRequestsDesc": "Penyimpanan cloud menerima permintaan terlalu cepat. Sinkronisasi akan otomatis dicoba ulang.",
     "dropboxRateLimited": "Dropbox sedang sibuk",
-    "dropboxRateLimitedDesc": "Terlalu banyak operasi tulis. Menunggu sebelum mencoba ulang..."
+    "dropboxRateLimitedDesc": "Terlalu banyak operasi tulis. Menunggu sebelum mencoba ulang…"
   },
   "export": {
     "complete": "Ekspor selesai",
     "completeDesc": "Data jurnal berhasil diekspor.",
     "myJournal": "Jurnal Pribadiku",
     "entries": "catatan",
+    "entryCount_other": "{{count}} catatan",
     "exportedOn": "Diekspor pada",
     "mood": "Suasana Hati",
     "tags": "Tag"
@@ -566,7 +566,7 @@
   "settings": {
     "title": "Pengaturan",
     "upgrade": "Upgrade ke Plus",
-    "upgradeDesc": "Mengalihkan ke halaman langganan...",
+    "upgradeDesc": "Mengalihkan ke halaman langganan…",
     "signedOut": "Sudah keluar",
     "signedOutDesc": "Kamu berhasil keluar dari akun",
     "resetComplete": "Berhasil",
@@ -603,7 +603,7 @@
       "sameEmail": "Email baru sama dengan yang sekarang",
       "invalidEmail": "Masukkan alamat email yang valid",
       "notConfirmed": "Perubahan email belum dikonfirmasi",
-      "notConfirmedDesc": "Konfirmasikan alamat email baru Anda dengan mengklik tautan yang kami kirim sebelum perubahan ini dapat diselesaikan."
+      "notConfirmedDesc": "Konfirmasikan alamat email barumu dengan mengklik tautan yang kami kirim sebelum perubahan ini bisa diselesaikan."
     },
     "deleteAccount": {
       "title": "Hapus Akun",
@@ -615,8 +615,8 @@
       "successDesc": "Akun telah dihapus secara permanen.",
       "failed": "Gagal menghapus akun",
       "failedDesc": "Silakan coba lagi nanti atau hubungi dukungan.",
-      "deletingLocal": "Menghapus data lokal...",
-      "deletingCloud": "Menghapus file cloud ({{current}}/{{total}})...",
+      "deletingLocal": "Menghapus data lokal…",
+      "deletingCloud": "Menghapus file cloud ({{current}}/{{total}})…",
       "doNotClose": "Jangan tutup halaman ini sampai penghapusan selesai"
     },
     "journalName": {
@@ -663,7 +663,7 @@
       "noDownloads": "Tidak perlu unduhan",
       "requiresInternet": "Memerlukan koneksi internet",
       "privacyNote": "Catatan Privasi",
-      "privacyDesc": "Saat menggunakan fitur AI, konten jurnal dikirim secara aman ke layanan AI pihak ketiga untuk dianalisis. Kami tidak menyimpan data ini di server kami. Penyedia AI mungkin menyimpan data sementara untuk pemantauan penyalahgunaan, tapi tidak digunakan untuk pelatihan model.",
+      "privacyDesc": "Saat kamu menggunakan fitur AI, konten jurnal dikirim secara aman ke layanan AI pihak ketiga untuk dianalisis. Kami tidak menyimpan data ini di server kami. Penyedia AI kami mungkin menyimpan data sementara untuk pemantauan penyalahgunaan, tetapi tidak menggunakannya untuk pelatihan model.",
       "manageSubscription": "Kelola",
       "portalError": "Tidak bisa membuka pengelola langganan",
       "portalErrorDesc": "Silakan coba lagi nanti."
@@ -695,7 +695,7 @@
     "disconnect": "Putuskan",
     "update": "Perbarui Koneksi",
     "cancel": "Batal",
-    "testing": "Menguji koneksi...",
+    "testing": "Menguji koneksi…",
     "setupHelp": "Bantuan Pengaturan",
     "connectionError": "Kesalahan Koneksi",
     "authError": "Kesalahan Autentikasi",
@@ -723,7 +723,7 @@
     "qrCameraPermission": "Izin kamera diperlukan untuk memindai kode QR",
     "qrCameraPermissionDenied": "Izin kamera ditolak. Aktifkan akses kamera di pengaturan perangkat.",
     "openCameraToScan": "Buka Kamera untuk Memindai",
-    "qrScanning": "Memindai...",
+    "qrScanning": "Memindai…",
     "qrSuccess": "Kredensial dipindai",
     "qrSuccessDesc": "Detail koneksi sudah diisi. Ketuk Hubungkan untuk melanjutkan."
   },
@@ -734,7 +734,7 @@
     "thisMonth": "Bulan Ini",
     "backToTop": "Kembali ke atas",
     "newEntry": "Catatan Baru",
-    "searchPlaceholder": "Cari catatan...",
+    "searchPlaceholder": "Cari catatan…",
     "startDate": "Tanggal mulai",
     "endDate": "Tanggal akhir",
     "noEntries": "Tidak ada catatan yang cocok",
@@ -755,20 +755,23 @@
       "terrible": "Buruk"
     },
     "tags": "Tag",
-    "addTag": "Tambah tag...",
+    "addTag": "Tambah tag…",
     "addTagsPlaceholder": "Tambah tag (tekan Enter)",
-    "startWriting": "Mulai tulis pikiranmu...",
+    "startWriting": "Mulai tulis pikiranmu…",
     "maxTags": "Jumlah tag maksimum tercapai",
     "maxTagsDesc": "Kamu hanya bisa menambahkan hingga 20 tag per catatan",
+    "maxActivitiesReached": "Batas aktivitas tercapai",
+    "maxActivitiesReachedDesc": "Kamu hanya bisa menambahkan hingga 20 aktivitas per catatan.",
+    "maxActivitiesSkippedDesc": "Beberapa aktivitas tidak ditambahkan karena kamu sudah mencapai batas 20 aktivitas.",
     "invalidTag": "Tag Tidak Valid",
     "proFeature": "Fitur Plus",
     "imageUploadPro": "Unggah gambar hanya tersedia untuk pengguna Plus.",
     "pdfExportPro": "Ekspor PDF hanya tersedia untuk pengguna Plus.",
     "wordExportPro": "Ekspor Word hanya tersedia untuk pengguna Plus.",
     "fileTooLarge": "File terlalu besar",
-    "fileTooLargeDesc": "Ukuran gambar harus di bawah 5MB.",
+    "fileTooLargeDesc": "Ukuran setiap gambar harus di bawah 5 MB.",
     "totalSizeLimit": "Batas total ukuran tercapai",
-    "totalSizeLimitDesc": "Maksimal 20MB total untuk semua gambar per catatan.",
+    "totalSizeLimitDesc": "Maksimal total 20 MB untuk semua gambar per catatan.",
     "imageAdded": "Gambar ditambahkan",
     "imageAddedDesc": "Gambar dikompres dan ditambahkan ke catatan.",
     "compressionFailed": "Kompresi gagal",
@@ -778,13 +781,13 @@
     "wordExported": "Dokumen Word diekspor",
     "wordExportedDesc": "Catatan jurnal telah disimpan sebagai dokumen Word.",
     "validationError": "Kesalahan Validasi",
-    "validationErrorDesc": "Silakan periksa catatan kamu",
-    "titlePlaceholder": "Judul catatan...",
+    "validationErrorDesc": "Silakan periksa catatanmu",
+    "titlePlaceholder": "Judul catatan…",
     "saveEntry": "Simpan Catatan",
     "inlineTagBadgeHint": "Ditambahkan dari #tag di teks"
   },
   "storage": {
-    "connecting": "Menghubungkan...",
+    "connecting": "Menghubungkan…",
     "connectionFailed": "Koneksi Gagal",
     "connectionError": "Kesalahan Koneksi",
     "reconnectHint": "Jika masalah berlanjut, coba putuskan dan hubungkan kembali penyimpanan di Pengaturan.",
@@ -792,7 +795,7 @@
     "syncInProgress": "Sinkronisasi Berlangsung",
     "waitForSyncComplete": "Tunggu sinkronisasi selesai sebelum mengubah mode enkripsi.",
     "pendingUploads": "Unggahan Tertunda",
-    "pendingUploadsWarning": "{{count}} catatan masih diunggah. Memutuskan sekarang bisa menyebabkan data hilang. Lanjutkan?",
+    "pendingUploadsWarning_other": "{{count}} catatan masih diunggah. Memutuskan sekarang bisa menyebabkan data hilang. Lanjutkan?",
     "encryptionPassword": "Enkripsi & Kata Sandi",
     "encryptionMode": "Mode Enkripsi",
     "encryptionModeDesc": "Pilih cara melindungi catatan jurnal saat sinkronisasi",
@@ -802,7 +805,7 @@
     "e2eModeDesc": "Catatan dienkripsi secara lokal sebelum disinkronkan ke cloud. Hanya kamu yang bisa mendekripsi dengan kata sandi. Privasi maksimal.",
     "cannotSwitch": "Tidak Bisa Mengubah Mode Enkripsi",
     "cannotSwitchDesc": "Kamu punya catatan yang sudah ada. Hapus semua data sebelum mengubah mode enkripsi.",
-    "cannotSwitchFromE2E": "Tidak bisa beralih dari mode E2E - reset data dulu jika perlu",
+    "cannotSwitchFromE2E": "Tidak bisa beralih dari mode E2E — reset data dulu jika perlu",
     "cannotSwitchToE2E": "Untuk menggunakan enkripsi E2E, putuskan dari penyimpanan cloud dulu atau reset semua data.",
     "disconnectFirst": "Putuskan dari penyimpanan cloud atau reset semua data untuk mengubah mode enkripsi.",
     "cannotVerify": "Tidak Bisa Memverifikasi Catatan",
@@ -821,8 +824,8 @@
     "passwordStoredSecurely": "Kata sandi tersimpan secara aman di perangkat ini untuk enkripsi otomatis.",
     "clearStoredPassword": "Hapus Kata Sandi Tersimpan",
     "forgotPassword": "Lupa kata sandi?",
-    "forgotPasswordOption1": "Gunakan 'Ubah Kata Sandi' di bawah jika kamu tahu kata sandi saat ini",
-    "forgotPasswordOption2": "Ekspor cadangan dulu, lalu gunakan 'HAPUS Semua Data' di Zona Bahaya untuk mulai ulang",
+    "forgotPasswordOption1": "Gunakan \"Ubah Kata Sandi\" di bawah jika kamu tahu kata sandi saat ini",
+    "forgotPasswordOption2": "Ekspor cadangan dulu, lalu gunakan \"Reset Semua Data\" di Zona Bahaya untuk mulai dari awal",
     "changePassword": "Ubah Kata Sandi",
     "changePasswordDesc": "Ubah kata sandi jurnal. Semua catatan akan dienkripsi ulang dengan kata sandi baru.",
     "dangerZone": "Zona Bahaya",
@@ -831,9 +834,9 @@
     "resetAllDataWarning": "Ini akan menghapus semua catatan jurnal, kunci enkripsi, dan kata sandi tersimpan secara permanen. Jika menggunakan enkripsi E2E, catatan akan menjadi tidak bisa dibaca selamanya karena kunci enkripsi akan dihancurkan.",
     "resetAllDataConfirm": "Tindakan ini tidak bisa dibatalkan. Lanjutkan?",
     "backupRecommendation": "Kami sangat menyarankan untuk membuat cadangan sebelum melanjutkan.",
-    "backupInstructions": "Untuk membuat cadangan: Klik ikon profil (kanan atas) → Ekspor Data",
+    "backupInstructions": "Untuk membuat cadangan: Ketuk ikon profil (kanan atas) → Ekspor Data",
     "confirmReset": "Ketik DELETE untuk konfirmasi",
-    "resetting": "Mereset...",
+    "resetting": "Mereset…",
     "resetButton": "Hapus Semuanya",
     "allDataDeleted": "Semua Data Dihapus",
     "allDataDeletedDesc": "Semua catatan, kunci enkripsi, dan kata sandi tersimpan telah dihapus. Data terenkripsi sekarang tidak bisa diakses secara permanen. Kamu bisa mulai dari awal.",
@@ -842,9 +845,9 @@
     "syncing": "Menyinkronkan…",
     "syncingDesc": "Menghubungkan ke penyimpanan cloud",
     "synced": "Tersinkron",
-    "syncedDesc": "Terhubung dan catatan dimuat",
+    "syncedDesc_other": "Terhubung ke {{provider}} dan {{count}} catatan berhasil dimuat",
     "syncFailed": "Sinkronisasi gagal",
-    "syncFailedDesc": "Gagal menyinkronkan dengan penyimpanan cloud",
+    "syncFailedDesc": "Gagal menyinkronkan dengan {{provider}}",
     "switchedToE2E": "Beralih ke Mode E2E",
     "switchedToE2EDesc": "Masukkan kata sandi untuk mendekripsi catatan.",
     "disconnectedForE2E": "Penyimpanan Terputus",
@@ -873,7 +876,7 @@
     "conflictResolution": "• Resolusi konflik otomatis untuk pengeditan bersamaan",
     "offlineSupport": "• Dukungan offline penuh dengan sinkronisasi latar belakang",
     "cannotSwitchMode": "Tidak Bisa Mengubah Mode Enkripsi",
-    "cannotSwitchModeDesc": "Kamu punya {{count}} catatan yang sudah ada. Hapus semua data sebelum mengubah mode enkripsi.",
+    "cannotSwitchModeDesc_other": "Kamu punya {{count}} catatan yang sudah ada. Hapus semua data sebelum mengubah mode enkripsi.",
     "cannotVerifyEntries": "Tidak Bisa Memverifikasi Catatan",
     "cannotVerifyEntriesDesc": "Masukkan kata sandi dulu atau reset semua data.",
     "passwordSaved": "Kata sandi tersimpan",
@@ -884,9 +887,9 @@
     "passwordNotSet": "Belum ada kata sandi. Atur kata sandi untuk mengaktifkan enkripsi E2E.",
     "passwordWillBeRequested": "Kata sandi akan diminta saat menghubungkan ke penyedia cloud.",
     "clearPasswordConfirm": "Ini akan menghapus kata sandi enkripsi tersimpan dari perangkat ini. Kamu perlu memasukkan kata sandi lagi saat membuka aplikasi berikutnya.\n\nData terenkripsi tidak akan terpengaruh.\n\nLanjutkan?",
-    "changePasswordConfirm": "Yakin?\n\nIni akan mendekripsi semua catatan dengan kata sandi lama dan mengenkripsi ulang dengan kata sandi baru.\n\nPastikan kamu mengingat kata sandi baru - tidak bisa dipulihkan jika lupa.\n\nLanjutkan?",
+    "changePasswordConfirm": "Yakin?\n\nIni akan mendekripsi semua catatan dengan kata sandi lama dan mengenkripsi ulang dengan kata sandi baru.\n\nPastikan kamu mengingat kata sandi baru — tidak bisa dipulihkan jika lupa.\n\nLanjutkan?",
     "confirmationRequiredDesc": "Ketik \"DELETE\" untuk konfirmasi.",
-    "finalConfirm": "Konfirmasi Akhir\n\nIni akan menghapus SEMUA catatan jurnal secara permanen dari perangkat dan penyimpanan cloud.\n\n⚠️ DISARANKAN: Buat cadangan sebelum melanjutkan!\nUntuk membuat cadangan: Klik ikon profil (kanan atas) → Ekspor Data\n\nApakah kamu benar-benar yakin ingin melanjutkan?",
+    "finalConfirm": "Konfirmasi Akhir\n\nIni akan menghapus SEMUA catatan jurnal secara permanen dari perangkat dan penyimpanan cloud.\n\n⚠️ DISARANKAN: Buat cadangan sebelum melanjutkan!\nUntuk membuat cadangan: Ketuk ikon profil (kanan atas) → Ekspor Data\n\nApakah kamu benar-benar yakin ingin melanjutkan?",
     "passwordPersistenceChanged": "Pengaturan penyimpanan kata sandi diperbarui",
     "passwordPersistenceError": "Gagal memperbarui pengaturan penyimpanan kata sandi",
     "passwordPersistence": {
@@ -949,28 +952,28 @@
     "to": "Ke",
     "selectSource": "Pilih sumber",
     "selectTarget": "Pilih tujuan",
-    "transferring": "Mentransfer...",
-    "cleaningUp": "Membersihkan...",
+    "transferring": "Mentransfer…",
+    "cleaningUp": "Membersihkan…",
     "startTransfer": "Mulai Transfer",
     "connected": "Terhubung",
     "disconnect": "Putuskan",
     "disconnected": "Terputus",
     "multipleProvidersWarning": "Beberapa Penyedia Penyimpanan Terhubung",
     "multipleProvidersWarningDesc": "Hanya penyedia utama yang aktif menyinkronkan data. Penyedia sekunder hanya untuk keperluan migrasi. Gunakan migrasi untuk mentransfer data, lalu putuskan penyedia yang tidak aktif.",
-    "migrationCompleteDisconnect": "Migrasi Selesai - Putuskan Sumber?",
+    "migrationCompleteDisconnect": "Migrasi Selesai — Putuskan Sumber?",
     "migrationCompleteDisconnectDesc": "Semua catatan sudah disalin ke {{target}}. Mau memutuskan {{source}} agar tidak membingungkan?",
     "disconnectSource": "Putuskan {{source}}",
     "keepBoth": "Tetap Hubungkan Keduanya",
     "activeSync": "Aktif",
     "activeSyncDesc": "Penyimpanan ini aktif menyinkronkan data",
     "inactiveSync": "Tidak Aktif",
-    "inactiveSyncDesc": "Tidak menyinkronkan - gunakan migrasi untuk mentransfer data ke sini",
+    "inactiveSyncDesc": "Tidak menyinkronkan — gunakan migrasi untuk mentransfer data ke sini",
     "primary": "Utama",
     "primaryDesc": "Penyimpanan ini digunakan untuk membaca data",
     "secondary": "Sekunder",
     "secondaryDesc": "Data juga disinkronkan di sini",
-    "verifyingProvider": "Memverifikasi penyedia...",
-    "checkingEncryptionKey": "Memeriksa kunci enkripsi...",
+    "verifyingProvider": "Memverifikasi penyedia…",
+    "checkingEncryptionKey": "Memeriksa kunci enkripsi…",
     "noKeyOnProvider": "Kunci enkripsi tidak ditemukan",
     "noKeyOnProviderDesc": "{{provider}} tidak punya kunci enkripsi. Gunakan migrasi atau salin kunci terlebih dahulu.",
     "cannotVerifyProvider": "Tidak bisa memverifikasi penyedia",
@@ -978,15 +981,15 @@
     "copyEncryptionKey": "Salin Kunci Enkripsi",
     "copyKeyTo": "Salin ke {{provider}}",
     "copyKeyExplanation": "Salin kunci enkripsi dari penyedia aktif ke penyedia terhubung lainnya agar bisa beralih di antara keduanya.",
-    "copyingKey": "Menyalin kunci enkripsi...",
-    "copyingKeyDesc": "Menyalin dari {{source}} ke {{target}}...",
+    "copyingKey": "Menyalin kunci enkripsi…",
+    "copyingKeyDesc": "Menyalin dari {{source}} ke {{target}}…",
     "keyCopied": "Kunci enkripsi disalin",
     "keyCopiedDesc": "Kunci enkripsi telah disalin ke {{provider}}. Kamu sekarang bisa beralih ke penyedia ini.",
     "copyKeyFailed": "Gagal menyalin kunci",
     "noKeyToCopy": "Tidak ada kunci enkripsi yang bisa disalin",
     "noPrimaryProvider": "Tidak ada penyedia utama terhubung",
     "noEncryptionKey": "Kunci enkripsi tidak ditemukan",
-    "copyKeyFirst": "Penyedia ini tidak punya kunci enkripsi. Gunakan 'Salin Kunci Enkripsi' atau transfer data terlebih dahulu.",
+    "copyKeyFirst": "Penyedia ini tidak punya kunci enkripsi. Gunakan \"Salin Kunci Enkripsi\" atau transfer data terlebih dahulu.",
     "idle": "Siap menyinkronkan",
     "connectProvider": "Hubungkan penyedia penyimpanan cloud di Pengaturan untuk mengaktifkan sinkronisasi otomatis",
     "lastSync": "Sinkronisasi terakhir: {{time}}"
@@ -1019,7 +1022,7 @@
     "newPasswordPlaceholder": "Masukkan kata sandi baru (min 12 karakter)",
     "confirmNewPassword": "Konfirmasi Kata Sandi Baru",
     "confirmNewPasswordPlaceholder": "Masukkan ulang kata sandi baru",
-    "changing": "Mengubah...",
+    "changing": "Mengubah…",
     "changeButton": "Ubah Kata Sandi",
     "passwordChanged": "Kata sandi diubah",
     "passwordChangedDesc": "Kata sandi enkripsi telah diperbarui. Gunakan kata sandi baru ini di semua perangkat.",
@@ -1033,7 +1036,7 @@
     "typeDeleteToConfirm": "Ketik \"DELETE ALL\" untuk konfirmasi",
     "confirmationRequired": "Konfirmasi diperlukan",
     "confirmationRequiredDesc": "Ketik \"DELETE ALL\" untuk konfirmasi.",
-    "deleting": "Menghapus...",
+    "deleting": "Menghapus…",
     "deleteAllEntries": "Hapus Semua Catatan",
     "deleteAllButton": "Hapus Semua Catatan",
     "changePasswordButton": "Ubah Kata Sandi",
@@ -1042,7 +1045,7 @@
     "deletionFailed": "Penghapusan gagal",
     "deletionFailedDesc": "Gagal menghapus semua catatan.",
     "passwordCleared": "Kata Sandi Dihapus",
-    "passwordClearedDesc": "Kata sandi enkripsi tersimpan telah dihapus. Kamu perlu memasukkannya lagi saat login berikutnya.",
+    "passwordClearedDesc": "Kata sandi enkripsi tersimpan telah dihapus. Kamu perlu memasukkannya lagi saat masuk berikutnya.",
     "incorrectPassword": "Kata Sandi Salah",
     "incorrectPasswordDesc": "Kata sandi yang dimasukkan salah. Silakan coba lagi.",
     "e2eExplanation": "Catatan jurnal akan dienkripsi di perangkat sebelum disinkronkan ke cloud.",
@@ -1074,24 +1077,24 @@
     "encryptedEntriesNeedCloudDesc": "Kamu punya catatan terenkripsi dari sinkronisasi sebelumnya. Hubungkan kembali ke penyimpanan cloud yang sama dengan kata sandi enkripsi untuk mengaksesnya.",
     "reconnectToAccessEntries": "Hubungkan kembali ke penyimpanan cloud untuk mengakses catatan terenkripsi. Catatan disinkronkan dengan enkripsi E2E dan memerlukan koneksi penyimpanan yang sama.",
     "migrateEntries": "Migrasi Catatan Tidak Terenkripsi",
-    "migrateEntriesDesc": "{{count}} catatan belum terenkripsi. Migrasikan ke enkripsi E2E untuk keamanan penuh.",
+    "migrateEntriesDesc_other": "{{count}} catatan belum terenkripsi. Migrasikan ke enkripsi E2E untuk keamanan penuh.",
     "migrationComplete": "Migrasi Selesai",
     "migrationCompleteDesc": "{{migrated}} catatan terenkripsi. {{failed}} gagal.",
     "migrated": "Dimigrasi",
     "skipped": "Sudah terenkripsi",
     "failed": "Gagal",
-    "migrating": "Memigrasi catatan...",
+    "migrating": "Memigrasi catatan…",
     "migrateNow": "Enkripsi Semua Catatan",
     "resetEncryption": "Reset Kunci Enkripsi",
     "resetToSimpleMode": "Beralih ke mode Sederhana. Atur kata sandi baru untuk mengaktifkan kembali enkripsi E2E.",
-    "resetting": "Mengubah Kata Sandi..."
+    "resetting": "Mengubah Kata Sandi…"
   },
   "providers": {
     "googleDrive": {
       "title": "Penyimpanan Google Drive",
       "description": "Sinkronkan catatan jurnal terenkripsi dengan Google Drive (hanya folder aplikasi).",
       "connected": "Terhubung",
-      "connecting": "Menghubungkan...",
+      "connecting": "Menghubungkan…",
       "connect": "Hubungkan ke Google Drive",
       "disconnect": "Putuskan",
       "disconnected": "Terputus",
@@ -1110,13 +1113,13 @@
       "simpleMode": "Mode Sederhana:",
       "simpleModeDesc": "Token OAuth Google akan disimpan tanpa enkripsi di penyimpanan lokal perangkat. Untuk keamanan lebih baik, aktifkan Mode Enkripsi E2E di Pengaturan Penyimpanan.",
       "syncing": "Catatan jurnal sedang disinkronkan dengan folder aplikasi Google Drive. Kredensial dienkripsi secara lokal.",
-      "refreshingToken": "Memperbarui token akses..."
+      "refreshingToken": "Memperbarui token akses…"
     },
     "dropbox": {
       "title": "Penyimpanan Dropbox",
       "description": "Sinkronkan catatan jurnal terenkripsi dengan penyimpanan cloud Dropbox.",
       "connected": "Terhubung",
-      "connecting": "Menghubungkan...",
+      "connecting": "Menghubungkan…",
       "connect": "Hubungkan ke Dropbox",
       "disconnect": "Putuskan",
       "disconnected": "Terputus",
@@ -1135,13 +1138,13 @@
       "simpleMode": "Mode Sederhana:",
       "simpleModeDesc": "Token OAuth Dropbox akan disimpan tanpa enkripsi di penyimpanan lokal perangkat. Untuk keamanan lebih baik, aktifkan Mode Enkripsi E2E di Pengaturan Penyimpanan.",
       "syncing": "Catatan jurnal sedang disinkronkan dengan Dropbox di folder /OwnJournal. Kredensial dienkripsi secara lokal.",
-      "refreshingToken": "Memperbarui token akses..."
+      "refreshingToken": "Memperbarui token akses…"
     },
     "nextcloud": {
       "title": "Penyimpanan Nextcloud",
       "description": "Penyimpanan cloud self-hosted yang privat dengan kontrol penuh atas data.",
       "connected": "Terhubung",
-      "connecting": "Menghubungkan...",
+      "connecting": "Menghubungkan…",
       "connect": "Hubungkan ke Nextcloud",
       "disconnect": "Putuskan",
       "configure": "Konfigurasi",
@@ -1153,14 +1156,14 @@
       "usernamePlaceholder": "Nama pengguna Nextcloud",
       "appPassword": "Kata Sandi Aplikasi",
       "appPasswordPlaceholder": "Kata sandi aplikasi yang dibuat",
-      "connectionSuccess": "Tes koneksi berhasil!",
-      "connectionError": "Tes koneksi gagal",
+      "connectionSuccess": "Uji koneksi berhasil!",
+      "connectionError": "Uji koneksi gagal",
       "disconnected": "Terputus",
       "disconnectedDesc": "Penyimpanan Nextcloud telah diputus.",
       "connectedSuccess": "Terhubung ke Nextcloud",
       "connectedSuccessDesc": "Jurnal sekarang akan disinkronkan dengan server Nextcloud.",
       "connectionFailed": "Koneksi Gagal",
-      "testingConnection": "Menguji koneksi...",
+      "testingConnection": "Menguji koneksi…",
       "simpleMode": "Mode Sederhana:",
       "simpleModeDesc": "Kredensial Nextcloud akan disimpan tanpa enkripsi di penyimpanan lokal perangkat. Untuk keamanan lebih baik, aktifkan Mode Enkripsi E2E di Pengaturan Penyimpanan.",
       "server": "Server:",
@@ -1170,7 +1173,7 @@
       "title": "Penyimpanan iCloud",
       "credentialsRequired": "Harap berikan token API dan ID container",
       "connectionFailed": "Koneksi Gagal",
-      "connectionTestFailed": "Tes Koneksi Gagal",
+      "connectionTestFailed": "Uji Koneksi Gagal",
       "connectionTestFailed421Hint": "Jika menggunakan localhost atau domain kustom, tambahkan ke Allowed Origins token API CloudKit di CloudKit Dashboard.",
       "notAvailable": "Tidak Tersedia di Platform Ini",
       "notAvailableDesc": "iCloud hanya didukung di iOS, macOS, dan browser web. Gunakan Nextcloud, Google Drive, atau Dropbox untuk penyimpanan cloud di perangkat ini.",
@@ -1187,7 +1190,7 @@
       "connectionTestSuccessDesc": "Penyimpanan iCloud berfungsi dengan baik",
       "devSetupRequired": "Pengaturan Apple Developer Diperlukan",
       "devSetupRequiredDesc": "Klik untuk mengonfigurasi integrasi iCloud",
-      "requiresDevAccount": "Integrasi iCloud memerlukan akun Apple Developer ($99/tahun).",
+      "requiresDevAccount": "Integrasi iCloud memerlukan akun Apple Developer (US$99/tahun).",
       "learnMore": "Pelajari lebih lanjut",
       "simpleMode": "Mode Sederhana:",
       "simpleModeDesc": "Kredensial iCloud akan disimpan tanpa enkripsi.",
@@ -1199,13 +1202,13 @@
       "development": "Development",
       "production": "Production",
       "connectButton": "Hubungkan ke iCloud",
-      "containerIdDesc": "Identifier container CloudKit (misal iCloud.com.yourcompany.app)",
+      "containerIdDesc": "Identifier container CloudKit-mu (misalnya iCloud.com.yourcompany.app)",
       "apiTokenDesc": "Token API dari Apple Developer Console → CloudKit Dashboard → API Access",
       "environmentDesc": "Gunakan Development saat pengujian, Production untuk aplikasi yang dipublikasikan",
       "syncDesc": "Sinkronkan jurnal terenkripsi dengan iCloud. Data tetap privat di semua perangkat Apple.",
       "detailsLabel": "Detail",
-      "signInWithAppleDesc": "Masuk dengan Apple ID untuk menghubungkan iCloud. Klik tombol di bawah untuk membuka jendela masuk Apple.",
-      "signInWithAppleButton": "Masuk dengan Apple ID",
+      "signInWithAppleDesc": "Masuk dengan Akun Apple-mu untuk menghubungkan iCloud. Klik tombol di bawah untuk membuka jendela masuk Apple.",
+      "signInWithAppleButton": "Masuk dengan Apple",
       "afterSignedInDesc": "Setelah menyelesaikan proses masuk di popup, klik di bawah untuk melanjutkan.",
       "continueAfterSignIn": "Sudah masuk — Lanjutkan",
       "signInRequired": "Proses masuk tidak terdeteksi",
@@ -1213,9 +1216,9 @@
       "popupBlocked": "Jendela masuk mungkin diblokir. Izinkan popup untuk situs ini dan coba lagi.",
       "signInLinkNotReady": "Proses masuk Apple masih dimuat. Tunggu sebentar dan coba lagi.",
       "originNotAllowed": "Origin aplikasi ini ({{origin}}) tidak terdaftar di iCloud.",
-      "adpNotice": "iCloud tidak dapat digunakan dari browser saat Perlindungan Data Lanjutan aktif untuk Apple ID Anda, karena Apple memblokir akses web ke data aplikasi. Gunakan iCloud di aplikasi iPhone atau iPad, atau pilih Google Drive, Dropbox, atau Nextcloud untuk menyinkronkan di browser ini.",
-      "signInWebAccessOff": "Apple melaporkan bahwa akses web ke data iCloud dimatikan untuk Apple ID ini. Aktifkan di iPhone Anda melalui Pengaturan > nama Anda > iCloud > iCloud.com, lalu coba lagi.",
-      "signInFailedAdp": "Apple tidak dapat menyelesaikan proses masuk iCloud. Biasanya ini berarti Perlindungan Data Lanjutan aktif untuk Apple ID Anda, dan Apple tidak mengizinkan akun tersebut menggunakan iCloud dari browser. Gunakan iCloud di aplikasi iPhone atau iPad, atau hubungkan Google Drive, Dropbox, atau Nextcloud sebagai gantinya."
+      "adpNotice": "iCloud tidak bisa digunakan dari browser saat Perlindungan Data Lanjutan aktif untuk Akun Apple-mu, karena Apple memblokir akses web ke data aplikasi. Gunakan aplikasi iPhone atau iPad untuk iCloud, atau pilih Google Drive, Dropbox, atau Nextcloud untuk menyinkronkan di browser ini.",
+      "signInWebAccessOff": "Apple melaporkan bahwa akses web ke data iCloud dimatikan untuk Akun Apple ini. Aktifkan di iPhone-mu melalui Pengaturan → namamu → iCloud → iCloud.com, lalu coba lagi.",
+      "signInFailedAdp": "Apple tidak bisa menyelesaikan proses masuk iCloud. Biasanya ini berarti Perlindungan Data Lanjutan aktif untuk Akun Apple-mu, dan Apple tidak mengizinkan akun tersebut menggunakan iCloud dari browser. Gunakan aplikasi iPhone atau iPad untuk iCloud, atau hubungkan Google Drive, Dropbox, atau Nextcloud sebagai gantinya."
     },
     "oauth": {
       "accessDenied": "Otorisasi dibatalkan atau ditolak.",
@@ -1226,7 +1229,7 @@
     }
   },
   "syncStatus": {
-    "syncing": "Menyinkronkan...",
+    "syncing": "Menyinkronkan…",
     "syncingProgress": "Menyinkronkan {{percent}}%",
     "synced": "Tersinkron",
     "syncedTimeAgo": "Tersinkron {{time}}",
@@ -1243,7 +1246,7 @@
     "lastSync": "Sinkronisasi terakhir: {{time}}",
     "lastSyncSuccess": "Sinkronisasi terakhir berhasil: {{time}}",
     "lastSyncFailed": "Sinkronisasi terakhir gagal: {{time}}",
-    "syncInProgress": "Sinkronisasi berlangsung...",
+    "syncInProgress": "Sinkronisasi berlangsung…",
     "highFailureRate": "Tingkat Kegagalan Sinkronisasi Tinggi",
     "highFailureRateDesc": "{{rate}}% operasi sinkronisasi gagal. Ini mungkin menunjukkan masalah koneksi atau penyedia penyimpanan.",
     "frequentConflicts": "Konflik Sinkronisasi Sering Terjadi",
@@ -1253,7 +1256,7 @@
     "circuitBreakersActive": "Pembatasan Sementara Aktif",
     "circuitBreakersActiveDesc": "Beberapa operasi penyimpanan diblokir sementara karena kegagalan berulang. Sistem akan pulih secara otomatis.",
     "multipleRecentFailures": "Beberapa Kegagalan Terkini",
-    "multipleRecentFailuresDesc": "{{count}} percobaan sinkronisasi gagal dalam 5 menit terakhir. Periksa koneksi dan penyedia penyimpanan.",
+    "multipleRecentFailuresDesc_other": "{{count}} percobaan sinkronisasi gagal dalam 5 menit terakhir. Periksa koneksi dan penyedia penyimpanan.",
     "reduceFailures": "Kurangi Kegagalan Sinkronisasi",
     "reduceFailuresDesc": "Periksa koneksi internet dan kredensial penyedia penyimpanan. Pertimbangkan untuk berganti penyedia jika masalah berlanjut.",
     "reduceFailuresAction": "Periksa koneksi",
@@ -1265,23 +1268,23 @@
     "waitForCircuitBreakerAction": "Pantau status"
   },
   "syncProgress": {
-    "preparing": "Mempersiapkan sinkronisasi...",
-    "checkingCloud": "Memeriksa file cloud...",
-    "downloading": "Mengunduh catatan...",
-    "uploading": "Mengunggah catatan...",
-    "finalizing": "Menyelesaikan sinkronisasi...",
-    "syncing": "Menyinkronkan...",
-    "preparingSync": "Mempersiapkan sinkronisasi...",
-    "downloadingEntries": "Mengunduh catatan...",
-    "uploadingEntries": "Mengunggah catatan...",
+    "preparing": "Mempersiapkan sinkronisasi…",
+    "checkingCloud": "Memeriksa file cloud…",
+    "downloading": "Mengunduh catatan…",
+    "uploading": "Mengunggah catatan…",
+    "finalizing": "Menyelesaikan sinkronisasi…",
+    "syncing": "Menyinkronkan…",
+    "preparingSync": "Mempersiapkan sinkronisasi…",
+    "downloadingEntries": "Mengunduh catatan…",
+    "uploadingEntries": "Mengunggah catatan…",
     "syncComplete": "Sinkronisasi selesai!",
-    "verifyingEncryption": "Memverifikasi enkripsi...",
-    "settingUpStructure": "Menyiapkan struktur cloud...",
-    "gatheringData": "Mengumpulkan data sinkronisasi...",
+    "verifyingEncryption": "Memverifikasi enkripsi…",
+    "settingUpStructure": "Menyiapkan struktur cloud…",
+    "gatheringData": "Mengumpulkan data sinkronisasi…",
     "foundEntries": "Catatan ditemukan",
-    "syncingOperations": "Menyinkronkan operasi tertunda...",
-    "reconcilingEntries": "Merekonsiliasi catatan...",
-    "updatingSyncState": "Memperbarui status sinkronisasi..."
+    "syncingOperations": "Menyinkronkan operasi tertunda…",
+    "reconcilingEntries": "Merekonsiliasi catatan…",
+    "updatingSyncState": "Memperbarui status sinkronisasi…"
   },
   "syncHealth": {
     "title": "Monitor Kesehatan Sinkronisasi",
@@ -1292,7 +1295,7 @@
     "overallHealth": "Kesehatan Keseluruhan",
     "healthScore": "Skor Kesehatan",
     "allSystemsNormal": "✓ Semua Sistem Normal",
-    "activeAlerts": "Peringatan Aktif ({{count}})",
+    "activeAlerts_other": "Peringatan Aktif ({{count}})",
     "excellent": "Sangat Baik",
     "good": "Baik",
     "warning": "Peringatan",
@@ -1326,11 +1329,11 @@
     "frequentConflicts": "Konflik Sinkronisasi Sering Terjadi",
     "frequentConflictsDesc": "{{rate}} konflik per 100 sinkronisasi terdeteksi. Ini menunjukkan pengeditan bersamaan di beberapa perangkat.",
     "recentConflictSpike": "Lonjakan Konflik Terkini",
-    "recentConflictSpikeDesc": "{{count}} konflik terdeteksi dalam satu jam terakhir. Kamu mungkin sedang menggunakan beberapa perangkat secara bersamaan.",
+    "recentConflictSpikeDesc_other": "{{count}} konflik terdeteksi dalam satu jam terakhir. Kamu mungkin sedang menggunakan beberapa perangkat secara bersamaan.",
     "circuitBreakersActive": "Perlindungan Sinkronisasi Aktif",
-    "circuitBreakersActiveDesc": "{{count}} jeda keamanan aktif karena kegagalan berulang. Operasi sinkronisasi dijeda sementara.",
+    "circuitBreakersActiveDesc_other": "{{count}} jeda keamanan aktif karena kegagalan berulang. Operasi sinkronisasi dijeda sementara.",
     "multipleRecentFailures": "Beberapa Kegagalan Terkini",
-    "multipleRecentFailuresDesc": "{{count}} dari 10 operasi terakhir gagal. Ini menunjukkan masalah yang sedang berlangsung.",
+    "multipleRecentFailuresDesc_other": "{{count}} dari 10 operasi terakhir gagal. Ini menunjukkan masalah yang sedang berlangsung.",
     "reduceFailures": "Kurangi Kegagalan Sinkronisasi",
     "reduceFailuresDesc": "Periksa koneksi internet dan akses penyimpanan cloud. Pertimbangkan untuk menonaktifkan sinkronisasi otomatis sementara saat kondisi jaringan buruk.",
     "reduceFailuresAction": "Periksa tab Diagnostik untuk log kesalahan terperinci",
@@ -1367,14 +1370,14 @@
     "circuitBreakers": "Perlindungan Sinkronisasi",
     "open": "TERBUKA",
     "closed": "TERTUTUP",
-    "failures_count": "{{count}} kegagalan",
+    "failures_count_other": "{{count}} kegagalan",
     "reopens": "dibuka kembali {{time}}",
     "currentlyRetrying": "Sedang Dicoba Ulang",
     "recentOperations": "Operasi Terkini",
     "noOperationsYet": "Belum ada operasi yang tercatat",
     "operationSucceeded": "Operasi berhasil",
     "attempt": "Percobaan {{number}}",
-    "retryDelay": "Jeda percobaan ulang: {{ms}}md",
+    "retryDelay": "Jeda percobaan ulang: {{ms}} md",
     "details": "Detail",
     "diagnosticsNote": "Diagnostik disimpan di memori dan direset saat halaman dimuat ulang. Maksimal 200 catatan disimpan.",
     "noDiagnosticsYet": "Belum ada diagnostik. Lakukan sinkronisasi untuk melihat log.",
@@ -1400,7 +1403,7 @@
   },
   "aiAnalysis": {
     "title": "Analisis AI",
-    "analyzing": "Menganalisis...",
+    "analyzing": "Menganalisis…",
     "analyzeEntry": "Analisis Catatan",
     "proFeature": "Fitur Plus",
     "proFeatureDesc": "Analisis AI memerlukan langganan Plus",
@@ -1433,8 +1436,8 @@
   },
   "trendAnalysis": {
     "title": "Analisis Tren",
-    "description": "Temukan pola dalam kebiasaan journaling, tren emosi, dan pertumbuhan pribadimu dari waktu ke waktu.",
-    "discoverPatterns": "Temukan pola dalam kebiasaan journaling dan tren emosimu dari waktu ke waktu",
+    "description": "Temukan pola dalam kebiasaan menulis jurnal, tren emosi, dan pertumbuhan pribadimu dari waktu ke waktu.",
+    "discoverPatterns": "Temukan pola dalam kebiasaan menulis jurnal dan tren emosimu dari waktu ke waktu",
     "last30days": "30 hari terakhir",
     "last90days": "90 hari terakhir",
     "thisYear": "Tahun ini",
@@ -1447,19 +1450,19 @@
     "analyzePeriod": "Analisis Periode",
     "analyzeTrends": "Analisis Tren",
     "proFeature": "Fitur Plus",
-    "proRequired": "Analisis tren adalah fitur Plus. Upgrade untuk membuka wawasan mendalam tentang pola journaling-mu.",
+    "proRequired": "Analisis tren adalah fitur Plus. Upgrade untuk membuka wawasan mendalam tentang pola menulis jurnalmu.",
     "proFeatureDesc": "Analisis tren memerlukan langganan Plus",
     "notEnoughEntries": "Catatan tidak cukup",
     "need8Entries": "Butuh minimal 8 catatan dalam periode yang dipilih untuk analisis yang bermakna.",
     "needMore": "Butuh minimal 8 catatan",
     "need8": "Butuh minimal 8 catatan",
-    "entriesInPeriod": "{{count}} catatan dalam periode ini",
-    "entriesAvailable": "{{count}} catatan tersedia untuk dianalisis",
+    "entriesInPeriod_other": "{{count}} catatan dalam periode ini",
+    "entriesAvailable_other": "{{count}} catatan tersedia untuk dianalisis",
     "limitReached": "Batas tercapai",
     "analyzingEntries": "Menganalisis Catatan",
-    "analyzingEntriesDesc": "Menganalisis {{count}} catatan untuk menghasilkan wawasanmu...",
-    "analyzing": "Menganalisis...",
-    "analyzingCount": "Menganalisis {{count}} catatan terlebih dahulu...",
+    "analyzingEntriesDesc_other": "Menganalisis {{count}} catatan untuk menghasilkan wawasanmu…",
+    "analyzing": "Menganalisis…",
+    "analyzingCount_other": "Menganalisis {{count}} catatan terlebih dahulu…",
     "authRequired": "Perlu masuk",
     "authRequiredDesc": "Silakan masuk untuk menggunakan fitur AI",
     "signInRequired": "Silakan masuk untuk menggunakan analisis tren berbasis AI.",
@@ -1470,14 +1473,14 @@
     "analysisFailed": "Analisis gagal",
     "analysisFailedDesc": "Layanan AI tidak bisa memproses permintaanmu kali ini. Silakan coba lagi.",
     "analysisComplete": "Analisis selesai",
-    "analysisCompleteDesc": "Pola journaling-mu telah dianalisis dan disinkronkan",
+    "analysisCompleteDesc": "Pola menulis jurnalmu telah dianalisis dan disinkronkan",
     "weeklyLimitReached": "Batas mingguan tercapai",
     "weeklyLimitReachedDesc": "Kamu hanya bisa menjalankan analisis tren sekali seminggu. Coba lagi minggu depan.",
     "weeklyLimitDesc": "Kamu bisa melakukan satu analisis tren per minggu. Coba lagi minggu depan.",
     "nextWeek": "Tersedia minggu depan",
     "availableOnceWeek": "Tersedia sekali seminggu",
     "limitMessage": "Batas analisis mingguan tercapai — tersedia lagi minggu depan",
-    "yourInsights": "Wawasan Journaling-mu",
+    "yourInsights": "Wawasan Jurnalmu",
     "backToInsights": "Kembali ke Wawasan",
     "periodSummary": "Ringkasan Periode",
     "moodTrend": "Tren Suasana Hati",
@@ -1488,7 +1491,7 @@
     "reflection": "Refleksi Penutup",
     "lastAnalyzed": "Terakhir dianalisis {{date}}",
     "analyzedAt": "Dianalisis {{date}}",
-    "entriesAnalyzed": "{{count}} catatan dianalisis",
+    "entriesAnalyzed_other": "{{count}} catatan dianalisis",
     "reAnalyze": "Analisis ulang",
     "selectDifferentPeriod": "Pilih periode lain",
     "show": "Tampilkan",
@@ -1496,13 +1499,13 @@
     "summary": "Ringkasan",
     "progress": {
       "step": "Langkah {{current}} dari {{total}}",
-      "checkingEntries": "Memeriksa catatan...",
-      "analyzingEntry": "Menganalisis catatan {{current}} dari {{total}}...",
-      "aggregatingPatterns": "Menggabungkan pola...",
-      "generatingInsights": "Menghasilkan wawasan...",
-      "savingAnalysis": "Menyimpan analisis...",
+      "checkingEntries": "Memeriksa catatan…",
+      "analyzingEntry": "Menganalisis catatan {{current}} dari {{total}}…",
+      "aggregatingPatterns": "Menggabungkan pola…",
+      "generatingInsights": "Menghasilkan wawasan…",
+      "savingAnalysis": "Menyimpan analisis…",
       "entryProgress": "Catatan {{current}} dari {{total}}",
-      "retrying": "Mencoba ulang catatan yang gagal...",
+      "retrying": "Mencoba ulang catatan yang gagal…",
       "doNotCloseApp": "Jangan tutup halaman ini sampai analisis selesai"
     }
   },
@@ -1515,8 +1518,8 @@
     "wordDescription": "Format yang bisa diedit, kompatibel dengan Microsoft Word dan Google Docs",
     "exportAsPDF": "Ekspor sebagai PDF",
     "exportAsWord": "Ekspor sebagai Word",
-    "generatingPDF": "Membuat PDF...",
-    "generatingWord": "Membuat Word...",
+    "generatingPDF": "Membuat PDF…",
+    "generatingWord": "Membuat Word…",
     "proOnly": "Hanya Plus",
     "proFeature": "Fitur Plus",
     "proFeatureDesc": "Ekspor PDF hanya tersedia untuk pengguna Plus.",
@@ -1532,11 +1535,11 @@
     "share": "Bagikan",
     "shareFile": "Bagikan file",
     "exportSuccess": "Ekspor Berhasil",
-    "exportSuccessDesc": "{{count}} catatan diekspor sebagai {{format}}",
+    "exportSuccessDesc_other": "{{count}} catatan diekspor sebagai {{format}}",
     "exportError": "Ekspor Gagal",
     "exportErrorDesc": "Gagal membuat {{format}}. Silakan coba lagi.",
     "upgradePrompt": "Upgrade ke Plus untuk membuka fitur ekspor",
-    "entriesReady": "{{count}} catatan siap diekspor.",
+    "entriesReady_other": "{{count}} catatan siap diekspor.",
     "unavailableNative": "Ekspor dokumen tidak tersedia di versi aplikasi ini."
   },
   "subscription": {
@@ -1561,10 +1564,10 @@
     "priceYearly": "{{yearlyPrice}}/tahun",
     "priceMonthly": "Hanya {{monthlyPrice}}/bulan",
     "upgradeToPro": "Upgrade ke Plus",
-    "processing": "Memproses...",
+    "processing": "Memproses…",
     "cancelAnytime": "Batalkan kapan saja.",
     "unlockAI": "Buka fitur AI",
-    "upgrading": "Sedang upgrade...",
+    "upgrading": "Memproses upgrade…",
     "upgradeFailed": "Upgrade Gagal",
     "upgradeFailedDesc": "Terjadi kesalahan saat meng-upgrade langgananmu. Silakan coba lagi.",
     "features": {
@@ -1573,9 +1576,8 @@
       "titleSuggestions": "Saran Judul AI",
       "tagSuggestions": "Saran Tag Cerdas",
       "trendAnalysis": "Wawasan Suasana Hati & Tren",
-      "pdfExport": "Ekspor PDF",
-      "wordExport": "Ekspor Dokumen Word",
-      "imageUpload": "Kenangan Foto"
+      "voiceEntry": "Input Suara",
+      "exports": "Ekspor PDF & Word"
     },
     "trialCta": "Mulai Uji Coba Gratis",
     "trialPricing": "14 hari gratis, lalu {{yearlyPrice}}/tahun",
@@ -1592,28 +1594,28 @@
     "portalReturnDesc": "Pengaturan langgananmu telah diperbarui.",
     "purchasePending": "Pembelian tertunda",
     "purchaseFailed": "Pembelian gagal",
-    "purchasePendingDesc": "Pembelian Anda menunggu persetujuan. Kami akan membuka Plus segera setelah dikonfirmasi.",
-    "purchaseFailedDesc": "Terjadi kesalahan dan Anda tidak dikenai biaya. Silakan coba lagi.",
+    "purchasePendingDesc": "Pembelianmu menunggu persetujuan. Kami akan membuka Plus segera setelah pembelian dikonfirmasi.",
+    "purchaseFailedDesc": "Terjadi kesalahan dan kamu tidak dikenai biaya. Silakan coba lagi.",
     "restoreSuccess": "Pembelian dipulihkan",
     "restoreNothing": "Tidak ada pembelian untuk dipulihkan",
     "restoreFailed": "Gagal memulihkan",
     "restorePurchases": "Pulihkan pembelian",
-    "nativeSubWarningTitle": "Batalkan langganan toko Anda terlebih dahulu",
-    "nativeSubWarningDesc": "Langganan Plus Anda dibeli melalui {{store}}. Menghapus akun di sini TIDAK akan membatalkannya — Anda akan terus ditagih. Buka {{store}} untuk membatalkan, lalu kembali untuk menghapus akun Anda.",
+    "nativeSubWarningTitle": "Batalkan dulu langgananmu di toko",
+    "nativeSubWarningDesc": "Langganan Plus-mu dibeli melalui {{store}}. Menghapus akun di sini TIDAK akan membatalkannya — kamu akan terus ditagih. Buka {{store}} untuk membatalkan, lalu kembali untuk menghapus akunmu.",
     "nativeSubManageCta": "Buka {{store}}",
     "appStore": "App Store",
     "googlePlay": "Google Play",
     "iapUnavailable": "Pembelian dalam aplikasi sedang tidak tersedia",
-    "iapUnavailableDesc": "Kami tidak dapat menghubungi toko. Periksa koneksi Anda dan coba lagi.",
+    "iapUnavailableDesc": "Kami tidak bisa menghubungi toko. Periksa koneksimu dan coba lagi.",
     "tryAgain": "Coba lagi",
     "disclosureTitle": "OwnJournal Plus — Langganan Tahunan",
     "disclosureLength": "Langganan tahunan dengan perpanjangan otomatis.",
     "priceWithMonthly": "{{yearlyPrice}}/tahun (sekitar {{monthlyEquivalent}}/bulan)",
-    "renewalApple": "Pembayaran akan dibebankan ke Apple ID Anda saat konfirmasi pembelian. Langganan diperpanjang otomatis dengan harga yang sama kecuali perpanjangan otomatis dimatikan setidaknya 24 jam sebelum akhir periode saat ini. Anda dapat mengelola dan membatalkan langganan di pengaturan akun App Store Anda setelah pembelian.",
-    "renewalGoogle": "Pembayaran akan dibebankan ke akun Google Play Anda saat konfirmasi pembelian. Langganan diperpanjang otomatis dengan harga yang sama kecuali dibatalkan di langganan Google Play Anda setidaknya 24 jam sebelum akhir periode saat ini.",
+    "renewalApple": "Pembayaran akan dibebankan ke Akun Apple-mu saat konfirmasi pembelian. Langganan diperpanjang otomatis dengan harga yang sama kecuali perpanjangan otomatis dimatikan setidaknya 24 jam sebelum akhir periode saat ini. Kamu bisa mengelola dan membatalkan langganan di pengaturan akun App Store setelah pembelian.",
+    "renewalGoogle": "Pembayaran akan dibebankan ke akun Google Play-mu saat konfirmasi pembelian. Langganan diperpanjang otomatis dengan harga yang sama kecuali dibatalkan di langganan Google Play setidaknya 24 jam sebelum akhir periode saat ini.",
     "iapOnly": {
       "title": "Tersedia di aplikasi",
-      "description": "Di wilayah Anda, OwnJournal Plus tersedia melalui aplikasi seluler. Dapatkan dari toko untuk berlangganan.",
+      "description": "Di wilayahmu, OwnJournal Plus tersedia melalui aplikasi seluler. Unduh aplikasinya dari toko untuk berlangganan.",
       "getOnPlay": "Dapatkan di Google Play"
     }
   },
@@ -1658,8 +1660,8 @@
     "medium": "sedang",
     "long": "panjang",
     "length": "panjang",
-    "analyzing": "Menganalisis...",
-    "loading": "Memuat...",
+    "analyzing": "Menganalisis…",
+    "loading": "Memuat…",
     "analyzeEntry": "Analisis Catatan",
     "proFeature": "Fitur Plus",
     "show": "Tampilkan",
@@ -1707,21 +1709,21 @@
     "monthlyLimitReachedDescTags": "Kamu sudah mencapai batas pembuatan tag. Batas akan direset bulan depan.",
     "monthlyLimitReachedDescTitle": "Kamu sudah mencapai batas pembuatan judul. Batas akan direset bulan depan.",
     "tagsApplied": "Tag diterapkan",
-    "tagsAppliedDesc": "Menambahkan {{count}} tag dari AI",
+    "tagsAppliedDesc_other": "Menambahkan {{count}} tag dari AI",
     "suggestedActivities": "Aktivitas yang disarankan",
     "applyTags": "Terapkan tag",
     "applyActivities": "Terapkan aktivitas",
     "activitiesApplied": "Aktivitas ditambahkan",
-    "activitiesAppliedDesc": "Menambahkan {{count}} aktivitas yang disarankan",
+    "activitiesAppliedDesc_other": "Menambahkan {{count}} aktivitas yang disarankan",
     "removeActivity": "Hapus dari saran",
     "titleApplied": "Judul diterapkan",
     "titleAppliedDesc": "Judul dari AI telah diterapkan",
     "applyAll": "Terapkan Semua",
     "apply": "Terapkan",
-    "suggesting": "Menyarankan...",
+    "suggesting": "Menyarankan…",
     "suggestAnother": "Sarankan lagi",
     "dismiss": "Lewati",
-    "generating": "Membuat...",
+    "generating": "Membuat…",
     "suggestTagsPrivate": "Sarankan Tag (Privat)",
     "suggestTagsEnhanced": "Sarankan Tag",
     "suggestTagsPro": "Plus: Sarankan Tag",
@@ -1759,15 +1761,15 @@
     },
     "sync": {
       "title": "Pemeriksaan Sinkronisasi",
-      "preparing": "Mempersiapkan...",
-      "checking": "Menguji koneksi...",
+      "preparing": "Mempersiapkan…",
+      "checking": "Menguji koneksi…",
       "success": "Koneksi berhasil. Jurnalmu siap disinkronkan.",
       "localReady": "Jurnalmu sudah siap. Catatan akan disimpan secara lokal.",
       "usingProvider": "Menggunakan {{provider}}",
       "openJournal": "Buka Jurnal",
-      "connectingProvider": "Menghubungkan ke penyimpanan cloud...",
+      "connectingProvider": "Menghubungkan ke penyimpanan cloud…",
       "completeSignIn": "Selesaikan proses masuk di jendela popup",
-      "settingPassword": "Menyiapkan enkripsi...",
+      "settingPassword": "Menyiapkan enkripsi…",
       "enterPassword": "Masukkan kata sandi jurnalmu untuk melanjutkan"
     },
     "encryption": {
@@ -1859,7 +1861,7 @@
       "firstEntry": {
         "title": "Membuat Catatan Pertamamu",
         "step1": "1. Ketuk tombol + di bagian atas timeline",
-        "step2": "2. Tulis catatan jurnalmu di editor—format Markdown didukung",
+        "step2": "2. Tulis catatan jurnalmu di editor — format Markdown didukung",
         "step3": "3. Tambahkan tag dan suasana hati, lalu ketuk Simpan"
       },
       "markdown": {
@@ -1877,11 +1879,11 @@
       },
       "accountSetup": {
         "title": "Membuat Akunmu",
-        "desc": "Kamu bisa mendaftar menggunakan email/kata sandi atau login media sosial:",
+        "desc": "Kamu bisa mendaftar menggunakan email/kata sandi atau akun media sosial:",
         "emailOption": "Email & Kata Sandi: Masukkan email dan pilih kata sandi",
-        "googleOption": "Google: Klik 'Lanjutkan dengan Google' untuk pendaftaran cepat",
-        "appleOption": "Apple: Klik 'Lanjutkan dengan Apple' untuk pendaftaran yang fokus pada privasi",
-        "tip": "Tips: Kamu bisa mereset kata sandi kapan saja melalui tautan 'Lupa kata sandi?'"
+        "googleOption": "Google: Ketuk \"Lanjutkan dengan Google\" untuk pendaftaran cepat",
+        "appleOption": "Apple: Ketuk \"Lanjutkan dengan Apple\" untuk pendaftaran yang fokus pada privasi",
+        "tip": "Tips: Kamu bisa mereset kata sandi kapan saja melalui tautan \"Lupa kata sandi?\""
       }
     },
     "support": {
@@ -1896,7 +1898,7 @@
         "desc": "Untuk masalah yang tidak tercakup di panduan bantuan, silakan kirim email ke kami. Sertakan jenis perangkatmu dan deskripsi singkat masalahnya agar kami bisa membantu lebih cepat.",
         "address": "support@ownjournal.app"
       },
-      "responseTime": "Kami biasanya merespons dalam 24-48 jam.",
+      "responseTime": "Kami biasanya merespons dalam 24–48 jam.",
       "links": {
         "title": "Hukum & Kebijakan",
         "terms": "Ketentuan Layanan",
@@ -1914,7 +1916,7 @@
         },
         "keyDerivation": {
           "title": "Perlindungan Kata Sandi",
-          "desc": "Kata sandimu tidak pernah disimpan langsung. Sebaliknya, kata sandimu diubah menjadi kunci enkripsi menggunakan PBKDF2 dengan 100.000 iterasi—proses yang dirancang untuk membuat serangan brute-force tidak praktis."
+          "desc": "Kata sandimu tidak pernah disimpan langsung. Sebaliknya, kata sandimu diubah menjadi kunci enkripsi menggunakan PBKDF2 dengan 100.000 iterasi — proses yang dirancang untuk membuat serangan brute-force tidak praktis."
         },
         "howItWorks": {
           "title": "Cara Kerjanya",
@@ -1933,34 +1935,34 @@
         "e2eDesc": "Datamu dienkripsi sebelum meninggalkan perangkatmu. Hanya kamu yang bisa membaca jurnalmu — bahkan penyedia cloud-mu pun tidak bisa."
       },
       "zeroKnowledge": {
-        "title": "Arsitektur Zero Knowledge",
-        "desc": "Dengan enkripsi E2E diaktifkan, kunci enkripsimu tidak pernah meninggalkan perangkatmu. Kami tidak bisa mengakses datamu meskipun kami mau — itulah Zero Knowledge."
+        "title": "Arsitektur Zero-Knowledge",
+        "desc": "Dengan enkripsi E2E diaktifkan, kunci enkripsimu tidak pernah meninggalkan perangkatmu. Kami tidak bisa mengakses datamu meskipun kami mau — itulah zero-knowledge."
       },
       "passwordTips": {
         "title": "Tips Kata Sandi",
         "tip1": "Pilih kata sandi yang kuat dan mudah diingat",
-        "tip2": "Pertimbangkan menggunakan passphrase—beberapa kata lebih mudah diingat dan lebih aman",
-        "tip3": "Kami menyarankan untuk menyimpan kata sandimu di password manager untuk keamanan",
+        "tip2": "Pertimbangkan menggunakan passphrase — beberapa kata lebih mudah diingat dan lebih aman",
+        "tip3": "Kami menyarankan untuk menyimpan kata sandimu di pengelola kata sandi demi keamanan",
         "warning": "Penting: Jika kamu lupa kata sandi E2E, data terenkripsimu tidak bisa dipulihkan. Kami menyarankan untuk menyimpan cadangannya di tempat yang aman."
       }
     },
     "storage": {
       "googleDrive": {
         "title": "Menghubungkan Google Drive",
-        "step1": "1. Ketuk 'Hubungkan' di samping Google Drive di Pengaturan",
+        "step1": "1. Ketuk \"Hubungkan\" di samping Google Drive di Pengaturan",
         "step2": "2. Masuk dengan akun Google-mu dan berikan izin",
         "note": "Catatan: OwnJournal menyimpan data di folder aplikasi tersembunyi, tidak terlihat di Drive biasa"
       },
       "dropbox": {
         "title": "Menghubungkan Dropbox",
-        "step1": "1. Ketuk 'Hubungkan' di samping Dropbox di Pengaturan",
+        "step1": "1. Ketuk \"Hubungkan\" di samping Dropbox di Pengaturan",
         "step2": "2. Masuk dan otorisasi aplikasi"
       },
       "nextcloud": {
         "title": "Menghubungkan Nextcloud",
         "step1": "1. Masukkan URL server Nextcloud-mu",
         "step2": "2. Buat kata sandi aplikasi di pengaturan Nextcloud",
-        "step3": "3. Masukkan username dan kata sandi aplikasimu"
+        "step3": "3. Masukkan nama pengguna dan kata sandi aplikasimu"
       },
       "transfer": {
         "title": "Transfer Antar Penyedia",
@@ -1983,6 +1985,11 @@
         "desc": "AI menyarankan opsi judul berdasarkan konten catatanmu. Pilih dari beberapa saran untuk menemukan yang paling cocok.",
         "proNote": "(Fitur Plus)"
       },
+      "voiceEntry": {
+        "title": "Input Suara",
+        "desc": "Ketuk mikrofon di bawah editor, lalu bicaralah alih-alih mengetik. Begitu kamu berhenti, ucapanmu diubah menjadi teks rapi lengkap dengan tanda baca dan disisipkan di posisi kursor. Fitur ini mengikuti bahasa yang kamu ucapkan, bahkan jika kamu berganti bahasa di tengah jalan. Setiap rekaman bisa berdurasi hingga 5 menit, dan Plus mencakup 200 menit per bulan.",
+        "proNote": "(Fitur Plus)"
+      },
       "aiAnalysis": {
         "title": "Analisis AI",
         "desc": "Dapatkan wawasan berbasis AI tentang catatan jurnalmu, termasuk analisis suasana hati, deteksi topik, dan saran personal untuk memperdalam refleksi diri.",
@@ -1990,7 +1997,7 @@
       },
       "trends": {
         "title": "Analisis Tren",
-        "desc": "Temukan pola dalam journaling-mu dari waktu ke waktu. Lacak tren suasana hati, frekuensi menulis, dan tema umum untuk lebih memahami kebiasaanmu.",
+        "desc": "Temukan pola dalam kebiasaan menulis jurnalmu dari waktu ke waktu. Lacak tren suasana hati, frekuensi menulis, dan tema umum untuk lebih memahami kebiasaanmu.",
         "proNote": "(Fitur Plus)"
       },
       "moodTracking": {
@@ -2012,7 +2019,7 @@
         "distribution": "Grafik donat distribusi suasana hati yang menunjukkan persentase",
         "overTime": "Grafik garis tren suasana hati dengan rata-rata bergerak 7 hari",
         "dayOfWeek": "Grafik batang berdasarkan hari dalam seminggu yang menunjukkan hari terbaik dan terburukmu",
-        "streaks": "Streak suasana hati yang melacak hari berturut-turut dengan suasana hati positif"
+        "streaks": "Rangkaian suasana hati yang melacak hari berturut-turut dengan suasana hati positif"
       },
       "activityInsights": {
         "title": "Wawasan Aktivitas",
@@ -2033,7 +2040,7 @@
       },
       "offlineBackup": {
         "title": "Cadangan Offline",
-        "desc": "Simpan jurnalmu sebagai file JSON langsung ke perangkatmu. Ini bekerja sepenuhnya offline, sempurna untuk membuat cadangan tanpa cloud atau mentransfer datamu."
+        "desc": "Simpan jurnalmu sebagai file JSON langsung ke perangkatmu. Ini berfungsi sepenuhnya offline, sempurna untuk membuat cadangan tanpa cloud atau mentransfer datamu."
       },
       "backupImportExport": {
         "title": "Cadangan & Pemulihan",
@@ -2050,7 +2057,7 @@
       },
       "e2eEncryption": {
         "title": "Enkripsi Ujung-ke-Ujung",
-        "desc": "Catatan jurnalmu dienkripsi di perangkatmu sebelum disinkronkan atau disimpan. Hanya kamu yang memegang kunci enkripsi, sehingga datamu tetap terlindungi saat diam maupun saat transit—tidak ada orang lain yang bisa membacanya."
+        "desc": "Catatan jurnalmu dienkripsi di perangkatmu sebelum disinkronkan atau disimpan. Hanya kamu yang memegang kunci enkripsi, sehingga datamu tetap terlindungi saat diam maupun saat transit — tidak ada orang lain yang bisa membacanya."
       },
       "zeroKnowledge": {
         "title": "Arsitektur Zero-Knowledge",
@@ -2066,7 +2073,7 @@
         "title": "Sinkronisasi Tidak Berfungsi",
         "intro": "Silakan coba langkah-langkah berikut:",
         "tip1": "Periksa koneksi internetmu",
-        "tip2": "Coba klik tombol sinkronisasi secara manual",
+        "tip2": "Coba ketuk tombol sinkronisasi secara manual",
         "tip3": "Putuskan dan hubungkan kembali penyimpanan cloud-mu"
       },
       "nextcloudEncryption": {
@@ -2078,7 +2085,7 @@
         "fixOption1Title": "Opsi 1: Nonaktifkan enkripsi sisi server",
         "fixOption1Desc": "Jika kamu mengelola server Nextcloud sendiri, kamu perlu menggunakan terminal (SSH) karena checkbox di panel admin tidak bisa di-uncheck selama file terenkripsi:",
         "fixOption1Step1": "1. Buka terminal di server Nextcloud-mu",
-        "fixOption1Step2": "2. Masuk ke folder Nextcloud-mu (misal: cd /var/www/nextcloud)",
+        "fixOption1Step2": "2. Masuk ke folder Nextcloud-mu (misalnya cd /var/www/nextcloud)",
         "fixOption1Step3": "3. Pastikan mode maintenance nonaktif. Jika aktif, jalankan: sudo -u www-data php occ maintenance:mode --off",
         "fixOption1Step4": "4. Dekripsi semua file: sudo -u www-data php occ encryption:decrypt-all (Nextcloud akan masuk ke mode maintenance selama dekripsi dan mematikan enkripsi setelah selesai.)",
         "fixOption1Step5": "5. Enkripsi otomatis dinonaktifkan saat dekripsi selesai.",
@@ -2086,7 +2093,7 @@
         "fixOption1Note": "Ini bisa memakan waktu tergantung jumlah file-mu. Jika kamu bukan admin server, minta mereka menjalankan perintah ini atau mengecualikan folder OwnJournal dari enkripsi.",
         "fixOption2Title": "Opsi 2: Nonaktifkan aplikasi enkripsi E2E",
         "fixOption2Desc": "Jika Nextcloud-mu memiliki aplikasi \"End-to-End Encryption\" yang diaktifkan:",
-        "fixOption2Step1": "1. Di Nextcloud, buka Apps > Security",
+        "fixOption2Step1": "1. Di Nextcloud, buka Apps → Security",
         "fixOption2Step2": "2. Cari \"End-to-End Encryption\" dan nonaktifkan",
         "fixOption2Step3": "3. Atau cukup pastikan folder OwnJournal tidak ditandai untuk enkripsi E2E",
         "importantNote": "OwnJournal memiliki enkripsi E2E sendiri yang bekerja secara independen. Kamu tidak memerlukan enkripsi Nextcloud — datamu sudah dienkripsi oleh OwnJournal sebelum meninggalkan perangkatmu."
@@ -2094,10 +2101,10 @@
       "passwordRecovery": {
         "title": "Lupa Kata Sandi E2E",
         "warning": "Sayangnya, data terenkripsi E2E tidak bisa dipulihkan tanpa kata sandi.",
-        "desc": "Ini adalah fitur keamanan inti dari enkripsi ujung-ke-ujung yang sesungguhnya—hanya kamu yang memegang kuncinya, yang berarti bahkan kami tidak bisa mengakses datamu. Meskipun ini melindungi privasimu, ini juga berarti tidak ada cara untuk memulihkan catatan terenkripsi tanpa kata sandi.",
+        "desc": "Ini adalah fitur keamanan inti dari enkripsi ujung-ke-ujung yang sesungguhnya — hanya kamu yang memegang kuncinya, yang berarti bahkan kami tidak bisa mengakses datamu. Meskipun ini melindungi privasimu, ini juga berarti tidak ada cara untuk memulihkan catatan terenkripsi tanpa kata sandi.",
         "actionTitle": "Yang bisa kamu lakukan:",
         "action1": "Jika kamu memiliki cadangan JSON yang tidak terenkripsi, kamu bisa memulihkan catatanmu dari sana.",
-        "action2": "Untuk memulai dari awal, gunakan opsi 'Hapus Semua' di bagian Zona Bahaya di Pengaturan untuk mereset dan membuat jurnal terenkripsi baru."
+        "action2": "Untuk memulai dari awal, gunakan \"Reset Semua Data\" di bagian Zona Bahaya di Pengaturan, lalu buat jurnal terenkripsi baru."
       }
     },
     "faq": {
@@ -2113,7 +2120,7 @@
       },
       "offline": {
         "question": "Bisa menggunakan OwnJournal secara offline?",
-        "answer": "Bisa! OwnJournal bekerja sepenuhnya offline. Catatanmu disimpan secara lokal di perangkatmu dan otomatis disinkronkan ke penyimpanan cloud saat kamu kembali online."
+        "answer": "Bisa! OwnJournal berfungsi sepenuhnya offline. Catatanmu disimpan secara lokal di perangkatmu dan otomatis disinkronkan ke penyimpanan cloud saat kamu kembali online."
       },
       "devices": {
         "question": "Berapa banyak perangkat yang bisa digunakan?",
@@ -2121,23 +2128,23 @@
       },
       "free": {
         "question": "Apakah OwnJournal gratis?",
-        "answer": "Ya, fitur journaling inti gratis. Plus membuka fitur AI dan analisis tren."
+        "answer": "Ya, fitur inti jurnal gratis. Plus membuka fitur AI dan analisis tren."
       },
       "pro": {
         "question": "Apa saja yang termasuk Plus?",
-        "answer": "Plus mencakup analisis AI, saran judul, saran tag, analisis tren, Wawasan Aktivitas, dan ekspor PDF/Word."
+        "answer": "Plus mencakup analisis AI, saran judul, saran tag, input suara, analisis tren, Wawasan Aktivitas, dan ekspor PDF/Word."
       },
       "manageSubscription": {
         "question": "Bagaimana cara mengelola langganan?",
-        "answer": "Buka Pengaturan, masuk ke tab Akun, gulir ke bagian Langganan, dan klik 'Kelola' untuk mengakses portal tagihan. Dari sana kamu bisa memperbarui metode pembayaran, melihat detail paket, dan mengelola pengaturan tagihan."
+        "answer": "Buka Pengaturan, masuk ke tab Akun, gulir ke bagian Langganan, lalu klik \"Kelola\" untuk mengakses portal tagihan. Dari sana kamu bisa memperbarui metode pembayaran, melihat detail paket, dan mengelola pengaturan tagihan."
       },
       "invoices": {
         "question": "Bagaimana cara melihat invoice?",
-        "answer": "Buka Pengaturan, masuk ke tab Akun, gulir ke bagian Langganan, dan klik 'Kelola' untuk membuka portal tagihan. Riwayat invoice lengkapmu tersedia di sana, dan kamu bisa mengunduh invoice sebagai PDF."
+        "answer": "Buka Pengaturan, masuk ke tab Akun, gulir ke bagian Langganan, lalu klik \"Kelola\" untuk membuka portal tagihan. Riwayat invoice lengkapmu tersedia di sana, dan kamu bisa mengunduh invoice sebagai PDF untuk arsipmu."
       },
       "cancelSubscription": {
         "question": "Bagaimana cara membatalkan langganan?",
-        "answer": "Buka Pengaturan, masuk ke tab Akun, gulir ke bagian Langganan, dan klik 'Kelola' untuk mengakses portal tagihan. Klik 'Batalkan paket' untuk menghentikan langgananmu. Kamu tetap memiliki akses Plus sampai akhir periode tagihan saat ini. Fitur journaling inti tetap gratis selamanya."
+        "answer": "Buka Pengaturan, masuk ke tab Akun, gulir ke bagian Langganan, lalu klik \"Kelola\" untuk membuka portal tagihan. Di sana kamu bisa membatalkan paketmu. Kamu tetap memiliki akses Plus sampai akhir periode tagihan saat ini. Fitur inti jurnal tetap gratis selamanya."
       }
     }
   },
@@ -2152,7 +2159,6 @@
     "backToApp": "Kembali ke OwnJournal",
     "backToHomepage": "Kembali ke Beranda",
     "openApp": "Buka Aplikasi",
-    "lastUpdated": "Terakhir Diperbarui",
     "termsOfService": "Ketentuan Layanan",
     "privacyPolicy": "Kebijakan Privasi",
     "terms": {
@@ -2164,7 +2170,7 @@
       },
       "description": {
         "title": "2. Deskripsi Layanan",
-        "content": "OwnJournal adalah aplikasi jurnal pribadi yang dioperasikan oleh {{companyName}}, perusahaan yang terdaftar di {{companyCountry}}. Ini memungkinkan Anda untuk membuat, menyimpan, mencari, dan menganalisis entri jurnal Anda di web, iOS, Android, dan desktop. Anda membawa penyimpanan cloud Anda sendiri (Google Drive, Dropbox, Nextcloud, atau iCloud Drive) untuk sinkronisasi antar perangkat, atau Anda dapat menggunakan aplikasi sepenuhnya offline dengan penyimpanan lokal. Kami menawarkan enkripsi ujung ke ujung (E2E) dan mode Simple tanpa enkripsi ujung ke ujung. Pelanggan Plus memiliki akses ke fitur AI opsional seperti analisis suasana hati dan saran."
+        "content": "OwnJournal adalah aplikasi jurnal pribadi yang dioperasikan oleh {{companyName}}, perusahaan yang terdaftar di {{companyCountry}}. Aplikasi ini memungkinkan Anda membuat, menyimpan, mencari, dan menganalisis catatan jurnal Anda di web, iOS, Android, dan desktop. Anda membawa penyimpanan cloud Anda sendiri (Google Drive, Dropbox, Nextcloud, atau iCloud Drive) untuk sinkronisasi antar perangkat, atau Anda dapat menggunakan aplikasi sepenuhnya offline dengan penyimpanan lokal. Kami menawarkan enkripsi ujung-ke-ujung (E2E) dan mode Sederhana tanpa enkripsi ujung-ke-ujung. Pelanggan Plus memiliki akses ke fitur AI opsional seperti analisis suasana hati dan saran."
       },
       "accounts": {
         "title": "3. Akun Pengguna",
@@ -2172,7 +2178,7 @@
       },
       "dataStorage": {
         "title": "8. Penyimpanan Data dan Privasi",
-        "content": "Entri jurnal Anda disimpan di penyedia penyimpanan cloud yang Anda pilih (Google Drive, Dropbox, Nextcloud, atau iCloud Drive) — bukan di server kami. Dengan enkripsi E2E aktif, data Anda dienkripsi di perangkat Anda sebelum meninggalkannya; kami tidak dapat mengakses konten terenkripsi Anda. Dalam mode Simple, data Anda disinkronkan tanpa enkripsi ujung ke ujung. Penanganan informasi pribadi kami dijelaskan dalam Kebijakan Privasi kami."
+        "content": "Catatan jurnal Anda disimpan di penyedia penyimpanan cloud yang Anda pilih (Google Drive, Dropbox, Nextcloud, atau iCloud Drive) — bukan di server kami. Dengan enkripsi E2E aktif, data Anda dienkripsi di perangkat Anda sebelum meninggalkannya; kami tidak dapat mengakses konten terenkripsi Anda. Dalam mode Sederhana, data Anda disinkronkan tanpa enkripsi ujung-ke-ujung. Penanganan informasi pribadi kami dijelaskan dalam Kebijakan Privasi kami."
       },
       "intellectualProperty": {
         "title": "7. Kekayaan Intelektual",
@@ -2188,19 +2194,19 @@
       },
       "changes": {
         "title": "11. Perubahan Ketentuan",
-        "content": "Kami dapat memperbarui Ketentuan ini dari waktu ke waktu. Untuk perubahan yang bersifat klarifikasi, teknis, atau diwajibkan oleh hukum, kami akan memperbarui Ketentuan ini dan tanggal \"Terakhir Diperbarui\" tanpa pemberitahuan sebelumnya. Untuk perubahan yang secara material memengaruhi hak atau kewajiban Anda sebagai konsumen (seperti kenaikan harga, perubahan signifikan pada layanan, atau pembatasan penggunaan baru), kami akan memberikan pemberitahuan setidaknya 30 hari sebelumnya melalui email dan melalui aplikasi. Jika Anda tidak menerima perubahan material, Anda dapat membatalkan langganan dan berhenti menggunakan layanan sebelum perubahan berlaku, dan Anda tidak akan ditagih untuk periode langganan berikutnya."
+        "content": "Kami dapat memperbarui Ketentuan ini dari waktu ke waktu. Untuk perubahan yang bersifat klarifikasi, teknis, atau diwajibkan oleh hukum, kami akan memperbarui Ketentuan ini dan tanggal \"Terakhir diperbarui\" tanpa pemberitahuan sebelumnya. Untuk perubahan yang secara material memengaruhi hak atau kewajiban Anda sebagai konsumen (seperti kenaikan harga, perubahan signifikan pada layanan, atau pembatasan penggunaan baru), kami akan memberikan pemberitahuan setidaknya 30 hari sebelumnya melalui email dan melalui aplikasi. Jika Anda tidak menerima perubahan material, Anda dapat membatalkan langganan dan berhenti menggunakan layanan sebelum perubahan berlaku, dan Anda tidak akan ditagih untuk periode langganan berikutnya."
       },
       "contact": {
         "title": "14. Kontak",
         "content": "Jika Anda memiliki pertanyaan tentang Ketentuan ini, harap hubungi kami di {{companyEmail}}."
       },
       "governingLaw": {
-        "title": "15. Hukum yang Mengatur",
-        "content": "Ketentuan ini diatur oleh hukum {{companyCountry}}. Setiap perselisihan akan diselesaikan di pengadilan Swedia. Hal ini tidak memengaruhi hak perlindungan konsumen wajib yang mungkin Anda miliki di bawah hukum negara tempat tinggal Anda."
+        "title": "15. Hukum yang Berlaku",
+        "content": "Ketentuan ini diatur oleh hukum {{companyCountry}}. Setiap perselisihan akan diselesaikan di pengadilan Swedia. Hal ini tidak memengaruhi hak perlindungan konsumen wajib yang mungkin Anda miliki berdasarkan hukum negara tempat tinggal Anda."
       },
       "subscriptions": {
         "title": "4. Langganan, Penagihan, dan Pembatalan",
-        "content": "OwnJournal menawarkan tingkat berbayar opsional (\"Plus\") yang dijual sebagai langganan dengan perpanjangan otomatis. Di Apple App Store (iOS), langganan ditagih melalui Apple ID Anda dan dikelola di pengaturan akun App Store Anda. Pembayaran dibebankan ke Apple ID Anda saat konfirmasi pembelian. Langganan Anda secara otomatis diperpanjang kecuali perpanjangan otomatis dimatikan setidaknya 24 jam sebelum akhir periode saat ini. Akun Anda ditagih untuk perpanjangan dalam waktu 24 jam sebelum akhir periode saat ini. Pembatalan berlaku pada akhir periode berbayar saat ini, dan setiap bagian yang tidak terpakai dari masa uji coba gratis akan hangus saat Anda memulai langganan berbayar. Di Google Play (Android), langganan ditagih melalui akun Google Play Anda dan dikelola di pengaturan langganan Google Play; prinsip perpanjangan otomatis dan pembatalan yang sama berlaku. Di web, langganan ditagih melalui Stripe dan dikelola di pengaturan akun Anda dalam OwnJournal. Harga ditampilkan dalam mata uang lokal Anda jika didukung dan termasuk pajak yang berlaku. Masa uji coba gratis, jika ditawarkan, secara otomatis berubah menjadi langganan berbayar pada akhir uji coba kecuali dibatalkan sebelum uji coba berakhir."
+        "content": "OwnJournal menawarkan paket berbayar opsional (\"Plus\") yang dijual sebagai langganan dengan perpanjangan otomatis. Di Apple App Store (iOS), langganan ditagih melalui Akun Apple Anda dan dikelola di pengaturan akun App Store Anda. Pembayaran dibebankan ke Akun Apple Anda saat konfirmasi pembelian. Langganan Anda secara otomatis diperpanjang kecuali perpanjangan otomatis dimatikan setidaknya 24 jam sebelum akhir periode saat ini. Akun Anda ditagih untuk perpanjangan dalam waktu 24 jam sebelum akhir periode saat ini. Pembatalan berlaku pada akhir periode berbayar saat ini, dan setiap bagian yang tidak terpakai dari masa uji coba gratis akan hangus saat Anda memulai langganan berbayar. Di Google Play (Android), langganan ditagih melalui akun Google Play Anda dan dikelola di pengaturan langganan Google Play; prinsip perpanjangan otomatis dan pembatalan yang sama berlaku. Di web, langganan ditagih melalui Stripe dan dikelola di pengaturan akun Anda dalam OwnJournal. Harga ditampilkan dalam mata uang lokal Anda jika didukung dan termasuk pajak yang berlaku. Masa uji coba gratis, jika ditawarkan, secara otomatis berubah menjadi langganan berbayar pada akhir uji coba kecuali dibatalkan sebelum uji coba berakhir."
       },
       "withdrawal": {
         "title": "5. Hak Penarikan (Konsumen UE/EEA)",
@@ -2208,11 +2214,11 @@
       },
       "acceptableUse": {
         "title": "6. Penggunaan yang Dapat Diterima",
-        "content": "Anda setuju untuk tidak menggunakan OwnJournal: (a) untuk melanggar hukum atau peraturan yang berlaku; (b) untuk mengunggah, menyimpan, atau memproses konten yang ilegal, termasuk materi pelecehan seksual anak, konten yang menggambarkan tindakan tanpa persetujuan, atau konten yang melanggar hak kekayaan intelektual orang lain; (c) untuk mencoba mendapatkan akses tidak sah ke sistem kami, sistem penyedia layanan kami, atau akun pengguna lain; (d) untuk menghindari batas penggunaan yang adil pada fitur AI atau mekanisme pembelian yang diwajibkan platform; (e) untuk merekayasa balik, mendekompilasi, atau mencoba dengan cara lain untuk menurunkan kode sumber aplikasi di luar hak yang secara eksplisit diberikan oleh hukum yang berlaku; atau (f) untuk mengoperasikan sistem otomatis yang mengirim volume permintaan yang tidak proporsional ke server kami atau ke penyedia AI kami."
+        "content": "Anda setuju untuk tidak menggunakan OwnJournal: (a) untuk melanggar hukum atau peraturan yang berlaku; (b) untuk mengunggah, menyimpan, atau memproses konten yang ilegal, termasuk materi pelecehan seksual anak, konten yang menggambarkan tindakan tanpa persetujuan, atau konten yang melanggar hak kekayaan intelektual orang lain; (c) untuk mencoba mendapatkan akses tidak sah ke sistem kami, sistem penyedia layanan kami, atau akun pengguna lain; (d) untuk menghindari batas penggunaan wajar pada fitur AI atau mekanisme pembelian yang diwajibkan platform; (e) untuk merekayasa balik, mendekompilasi, atau mencoba dengan cara lain untuk menurunkan kode sumber aplikasi di luar hak yang secara eksplisit diberikan oleh hukum yang berlaku; atau (f) untuk mengoperasikan sistem otomatis yang mengirim volume permintaan yang tidak proporsional ke server kami atau ke penyedia AI kami."
       },
       "appleTerms": {
         "title": "12. Ketentuan Tambahan untuk Apple App Store",
-        "content": "Jika Anda mendapatkan OwnJournal dari Apple App Store, ketentuan tambahan berikut berlaku: (a) Ketentuan ini disepakati hanya antara Anda dan {{companyName}}, bukan dengan Apple. {{companyName}} (bukan Apple) sepenuhnya bertanggung jawab atas OwnJournal dan kontennya. (b) {{companyName}} sepenuhnya bertanggung jawab untuk menyediakan layanan pemeliharaan dan dukungan terkait OwnJournal sebagaimana ditentukan dalam Ketentuan ini atau sebagaimana diwajibkan oleh hukum yang berlaku. Apple tidak memiliki kewajiban apa pun untuk menyediakan layanan pemeliharaan dan dukungan terkait OwnJournal. (c) Dalam hal kegagalan OwnJournal untuk memenuhi jaminan apa pun yang berlaku, Anda dapat memberitahu Apple, dan Apple akan mengembalikan harga pembelian (jika ada) untuk aplikasi; sejauh diizinkan oleh hukum yang berlaku, Apple tidak memiliki kewajiban jaminan lain apa pun terkait OwnJournal. (d) {{companyName}} sepenuhnya bertanggung jawab untuk menangani klaim apa pun dari Anda atau pihak ketiga terkait OwnJournal atau kepemilikan dan penggunaan OwnJournal Anda, termasuk klaim tanggung jawab produk, klaim bahwa OwnJournal tidak sesuai dengan persyaratan hukum atau peraturan yang berlaku, dan klaim yang timbul berdasarkan undang-undang perlindungan konsumen atau yang serupa. (e) Dalam hal klaim pihak ketiga bahwa OwnJournal atau kepemilikan dan penggunaan OwnJournal Anda melanggar hak kekayaan intelektual pihak ketiga tersebut, {{companyName}} (bukan Apple) sepenuhnya bertanggung jawab atas penyelidikan, pembelaan, penyelesaian, dan pelepasan klaim tersebut. (f) Anda menyatakan dan menjamin bahwa Anda tidak berada di negara yang dikenai embargo Pemerintah AS atau ditetapkan sebagai negara yang \"mendukung terorisme\", dan bahwa Anda tidak berada di daftar Pemerintah AS untuk pihak yang dilarang atau dibatasi. (g) Apple dan anak perusahaan Apple adalah penerima manfaat pihak ketiga dari Ketentuan ini, dan setelah penerimaan Anda, Apple memiliki hak (dan dianggap telah menerima hak tersebut) untuk menegakkan Ketentuan ini terhadap Anda sebagai penerima manfaat pihak ketiga."
+        "content": "Jika Anda mendapatkan OwnJournal dari Apple App Store, ketentuan tambahan berikut berlaku: (a) Ketentuan ini disepakati hanya antara Anda dan {{companyName}}, bukan dengan Apple. {{companyName}} (bukan Apple) sepenuhnya bertanggung jawab atas OwnJournal dan kontennya. (b) {{companyName}} sepenuhnya bertanggung jawab untuk menyediakan layanan pemeliharaan dan dukungan terkait OwnJournal sebagaimana ditentukan dalam Ketentuan ini atau sebagaimana diwajibkan oleh hukum yang berlaku. Apple tidak memiliki kewajiban apa pun untuk menyediakan layanan pemeliharaan dan dukungan terkait OwnJournal. (c) Dalam hal kegagalan OwnJournal untuk memenuhi jaminan apa pun yang berlaku, Anda dapat memberi tahu Apple, dan Apple akan mengembalikan harga pembelian (jika ada) untuk aplikasi; sejauh diizinkan oleh hukum yang berlaku, Apple tidak memiliki kewajiban jaminan lain apa pun terkait OwnJournal. (d) {{companyName}} sepenuhnya bertanggung jawab untuk menangani klaim apa pun dari Anda atau pihak ketiga terkait OwnJournal atau kepemilikan dan penggunaan OwnJournal Anda, termasuk klaim tanggung jawab produk, klaim bahwa OwnJournal tidak sesuai dengan persyaratan hukum atau peraturan yang berlaku, dan klaim yang timbul berdasarkan undang-undang perlindungan konsumen atau yang serupa. (e) Dalam hal klaim pihak ketiga bahwa OwnJournal atau kepemilikan dan penggunaan OwnJournal Anda melanggar hak kekayaan intelektual pihak ketiga tersebut, {{companyName}} (bukan Apple) sepenuhnya bertanggung jawab atas penyelidikan, pembelaan, penyelesaian, dan pelepasan klaim tersebut. (f) Anda menyatakan dan menjamin bahwa Anda tidak berada di negara yang dikenai embargo Pemerintah AS atau ditetapkan sebagai negara yang \"mendukung terorisme\", dan bahwa Anda tidak berada di daftar Pemerintah AS untuk pihak yang dilarang atau dibatasi. (g) Apple dan anak perusahaan Apple adalah penerima manfaat pihak ketiga dari Ketentuan ini, dan setelah penerimaan Anda, Apple memiliki hak (dan dianggap telah menerima hak tersebut) untuk menegakkan Ketentuan ini terhadap Anda sebagai penerima manfaat pihak ketiga."
       },
       "severability": {
         "title": "13. Keterpisahan",
@@ -2221,53 +2227,53 @@
     },
     "privacy": {
       "title": "Kebijakan Privasi",
-      "lastUpdatedDate": "April 2026",
+      "lastUpdatedDate": "November 2026",
       "intro": {
         "title": "Pendahuluan",
         "content": "Privasi Anda penting bagi kami. OwnJournal dioperasikan oleh {{companyName}}, perusahaan yang terdaftar di {{companyCountry}}. Kebijakan Privasi ini menjelaskan bagaimana OwnJournal mengumpulkan, menggunakan, dan melindungi informasi Anda. Kami merancang OwnJournal dengan privasi sebagai prinsip inti."
       },
       "dataController": {
         "title": "Pengendali Data",
-        "content": "Pengendali data untuk OwnJournal adalah {{companyName}}. Untuk pertanyaan terkait perlindungan data, Anda dapat menghubungi kami di {{companyEmail}}."
+        "content": "Pengendali data untuk OwnJournal adalah {{companyName}}. Untuk pertanyaan terkait pelindungan data, Anda dapat menghubungi kami di {{companyEmail}}."
       },
       "collection": {
         "title": "Informasi yang Kami Kumpulkan",
-        "content": "Informasi pribadi yang kami kumpulkan minimal. Sehubungan dengan akun Anda, kami mengumpulkan: alamat email Anda, nama tampilan Anda (jika disediakan oleh penyedia autentikasi eksternal seperti Google atau Apple), dan — setelah Anda menghubungkan penyimpanan cloud — catatan tentang penyedia mana yang Anda pilih. Untuk menjalankan layanan jurnal, kami menyimpan sedikit data status di server kami — apakah pengaturan enkripsi Anda telah selesai, status langganan Anda, dan pengenal yang dibutuhkan oleh pemroses pembayaran kami (Stripe) untuk mengelola langganan Anda. Untuk memantau penggunaan yang adil dari fitur AI opsional, kami mencatat penghitung penggunaan per pengguna (jenis analisis yang dilakukan dan stempel waktu; tidak pernah konten entri Anda). Backend autentikasi kami juga menyimpan metadata sesi standar seperti stempel waktu masuk. Nama tampilan hanya digunakan untuk mempersonalisasi pengalaman Anda dalam aplikasi dan tidak pernah dipublikasikan. Untuk menampilkan harga langganan dalam mata uang lokal Anda, kami dapat sebentar mencari negara yang terkait dengan alamat IP Anda; hanya kode negara yang dihasilkan yang digunakan, tidak ditautkan ke akun Anda, dan kami tidak menyimpan alamat IP Anda. Kami tidak menggunakan analitik pihak ketiga, SDK iklan, atau pelacak antar aplikasi. Saat Anda menggunakan enkripsi ujung ke ujung (E2E), konten jurnal Anda dienkripsi di perangkat Anda dan kami tidak dapat membacanya. Dalam mode Simple, data jurnal Anda disinkronkan dengan penyedia cloud pilihan Anda tanpa enkripsi ujung ke ujung. Mode Simple ditujukan untuk kenyamanan dan dapat mengurangi privasi dibandingkan dengan mode E2E; data Anda tetap dilindungi oleh langkah-langkah keamanan standar penyedia cloud Anda."
+        "content": "Informasi pribadi yang kami kumpulkan minimal. Sehubungan dengan akun Anda, kami mengumpulkan: alamat email Anda, nama tampilan Anda (jika disediakan oleh penyedia autentikasi eksternal seperti Google atau Apple), dan — setelah Anda menghubungkan penyimpanan cloud — catatan tentang penyedia mana yang Anda pilih. Untuk menjalankan layanan jurnal, kami menyimpan sedikit data status di server kami — apakah pengaturan enkripsi Anda telah selesai, status langganan Anda, dan pengenal yang dibutuhkan oleh pemroses pembayaran kami (Stripe) untuk mengelola langganan Anda. Untuk memantau penggunaan wajar dari fitur AI opsional, kami mencatat penghitung penggunaan per pengguna (jenis analisis yang dilakukan dan stempel waktu; tidak pernah konten catatan Anda). Untuk input suara, penghitung juga mencatat durasi (dalam detik) setiap rekaman yang ditranskripsikan; rekamannya sendiri tidak pernah disimpan. Backend autentikasi kami juga menyimpan metadata sesi standar seperti stempel waktu masuk. Nama tampilan hanya digunakan untuk mempersonalisasi pengalaman Anda dalam aplikasi dan tidak pernah dipublikasikan. Untuk menampilkan harga langganan dalam mata uang lokal Anda, kami dapat sebentar mencari negara yang terkait dengan alamat IP Anda; hanya kode negara yang dihasilkan yang digunakan, tidak ditautkan ke akun Anda, dan kami tidak menyimpan alamat IP Anda. Kami tidak menggunakan analitik pihak ketiga, SDK iklan, atau pelacak antar aplikasi. Saat Anda menggunakan enkripsi ujung-ke-ujung (E2E), konten jurnal Anda dienkripsi di perangkat Anda dan kami tidak dapat membacanya. Dalam mode Sederhana, data jurnal Anda disinkronkan dengan penyedia cloud pilihan Anda tanpa enkripsi ujung-ke-ujung. Mode Sederhana ditujukan untuk kenyamanan dan dapat mengurangi privasi dibandingkan dengan mode E2E; data Anda tetap dilindungi oleh langkah-langkah keamanan standar penyedia cloud Anda."
       },
       "usage": {
         "title": "Bagaimana Kami Menggunakan Informasi",
-        "content": "Kami menggunakan informasi yang kami kumpulkan untuk tujuan berikut: alamat email Anda untuk autentikasi akun dan pemberitahuan layanan penting; nama tampilan Anda untuk mempersonalisasi pengalaman Anda dalam aplikasi; pilihan penyedia penyimpanan dan status pengaturan enkripsi Anda untuk menghubungkan Anda kembali ke akun yang benar dan melanjutkan sinkronisasi; status langganan Anda untuk memberikan atau membatasi akses ke fitur berbayar; pengenal yang digunakan oleh pemroses pembayaran kami (Stripe) untuk mengelola langganan Anda; dan penghitung penggunaan AI untuk memberlakukan batas penggunaan yang adil pada fitur AI opsional. Kami tidak menjual informasi pribadi Anda atau membagikannya dengan pihak ketiga untuk tujuan pemasaran."
+        "content": "Kami menggunakan informasi yang kami kumpulkan untuk tujuan berikut: alamat email Anda untuk autentikasi akun dan pemberitahuan layanan penting; nama tampilan Anda untuk mempersonalisasi pengalaman Anda dalam aplikasi; pilihan penyedia penyimpanan dan status pengaturan enkripsi Anda untuk menghubungkan Anda kembali ke akun yang benar dan melanjutkan sinkronisasi; status langganan Anda untuk memberikan atau membatasi akses ke fitur berbayar; pengenal yang digunakan oleh pemroses pembayaran kami (Stripe) untuk mengelola langganan Anda; dan penghitung penggunaan AI untuk memberlakukan batas penggunaan wajar pada fitur AI opsional. Kami tidak menjual informasi pribadi Anda atau membagikannya dengan pihak ketiga untuk tujuan pemasaran."
       },
       "storage": {
         "title": "Penyimpanan Data",
-        "content": "Entri jurnal Anda disimpan di penyedia penyimpanan cloud pilihan Anda (Google Drive, Dropbox, Nextcloud, atau iCloud Drive) — bukan di server kami. Anda tetap memiliki kendali penuh atas tempat data Anda disimpan. Di server kami (dioperasikan melalui backend autentikasi dan basis data kami), kami hanya menyimpan informasi yang dibutuhkan untuk menjalankan layanan: detail autentikasi Anda, nama tampilan, pilihan penyedia penyimpanan, status pengaturan enkripsi, status langganan, pengenal yang digunakan oleh pemroses pembayaran kami (Stripe) untuk mengelola langganan Anda, dan penghitung penggunaan fitur AI per pengguna. Pembayaran diproses oleh penyedia pembayaran kami (Stripe untuk web, Apple In-App Purchase di iOS, Google Play Billing di Android); kami tidak menyimpan detail lengkap kartu pembayaran Anda di server kami."
+        "content": "Catatan jurnal Anda disimpan di penyedia penyimpanan cloud pilihan Anda (Google Drive, Dropbox, Nextcloud, atau iCloud Drive) — bukan di server kami. Anda tetap memiliki kendali penuh atas tempat data Anda disimpan. Di server kami (dioperasikan melalui backend autentikasi dan basis data kami), kami hanya menyimpan informasi yang dibutuhkan untuk menjalankan layanan: detail autentikasi Anda, nama tampilan, pilihan penyedia penyimpanan, status pengaturan enkripsi, status langganan, pengenal yang digunakan oleh pemroses pembayaran kami (Stripe) untuk mengelola langganan Anda, dan penghitung penggunaan fitur AI per pengguna. Pembayaran diproses oleh penyedia pembayaran kami (Stripe untuk web, Apple In-App Purchase di iOS, Google Play Billing di Android); kami tidak menyimpan detail lengkap kartu pembayaran Anda di server kami."
       },
       "encryption": {
         "title": "Enkripsi Ujung-ke-Ujung",
-        "content": "Saat kamu mengaktifkan enkripsi E2E, catatan jurnalmu dienkripsi di perangkatmu sebelum meninggalkannya. Hanya kamu yang memegang kunci enkripsi. Datamu tetap terlindungi selama penyimpanan dan transfer, dan tidak bisa dibaca oleh siapa pun tanpa kata sandi enkripsimu."
+        "content": "Saat Anda mengaktifkan enkripsi E2E, catatan jurnal Anda dienkripsi di perangkat Anda sebelum meninggalkannya. Hanya Anda yang memegang kunci enkripsi. Data Anda tetap terlindungi selama penyimpanan dan transfer, dan tidak dapat dibaca oleh siapa pun tanpa kata sandi enkripsi Anda."
       },
       "zeroKnowledge": {
         "title": "Arsitektur Zero-Knowledge",
-        "content": "Arsitektur zero-knowledge kami berlaku untuk konten jurnal Anda yang dienkripsi ujung ke ujung: dengan enkripsi E2E aktif, hanya Anda yang memiliki kata sandi yang diperlukan untuk mendekripsi data Anda, dan kami tidak dapat mengakses atau membacanya. Informasi akun yang diperlukan untuk menjalankan layanan — seperti alamat email Anda, nama tampilan, pilihan penyedia penyimpanan, status langganan, dan penghitung penggunaan AI — secara wajar dapat kami baca. Jika Anda menggunakan fitur AI opsional, teks yang relevan didekripsi di perangkat Anda dan dikirim seperti yang dijelaskan dalam bagian \"Fitur AI dan Pemrosesan\" kami di bawah ini."
+        "content": "Arsitektur zero-knowledge kami berlaku untuk konten jurnal Anda yang dienkripsi ujung-ke-ujung: dengan enkripsi E2E aktif, hanya Anda yang memiliki kata sandi yang diperlukan untuk mendekripsi data Anda, dan kami tidak dapat mengakses atau membacanya. Informasi akun yang diperlukan untuk menjalankan layanan — seperti alamat email Anda, nama tampilan, pilihan penyedia penyimpanan, status langganan, dan penghitung penggunaan AI — secara wajar dapat kami baca. Jika Anda menggunakan fitur AI opsional, teks yang relevan didekripsi di perangkat Anda dan dikirim seperti yang dijelaskan dalam bagian \"Fitur AI dan Pemrosesan\" kami di bawah ini."
       },
       "thirdParty": {
         "title": "Layanan Pihak Ketiga",
-        "content": "Kami berintegrasi dengan layanan pihak ketiga berikut, masing-masing beroperasi berdasarkan ketentuan dan praktik privasinya sendiri: penyedia penyimpanan cloud (Google Drive, Dropbox, Nextcloud, iCloud Drive) untuk sinkronisasi dengan akun Anda sendiri; layanan autentikasi (Google, Apple) dan backend autentikasi kami untuk login yang aman; penyedia pembayaran (Stripe untuk web, Apple In-App Purchase di iOS, Google Play Billing di Android) untuk menangani langganan; dan penyedia layanan AI (Google Gemini, OpenAI) ketika Anda memilih untuk menggunakan fitur AI opsional."
+        "content": "Kami berintegrasi dengan layanan pihak ketiga berikut, masing-masing beroperasi berdasarkan ketentuan dan praktik privasinya sendiri: penyedia penyimpanan cloud (Google Drive, Dropbox, Nextcloud, iCloud Drive) untuk sinkronisasi dengan akun Anda sendiri; layanan autentikasi (Google, Apple) dan backend autentikasi kami untuk proses masuk yang aman; penyedia pembayaran (Stripe untuk web, Apple In-App Purchase di iOS, Google Play Billing di Android) untuk menangani langganan; dan penyedia layanan AI (Google Gemini) ketika Anda memilih untuk menggunakan fitur AI opsional."
       },
       "syncIdentifier": {
-        "title": "Identifikasi sinkronisasi dan perangkat",
-        "content": "Untuk menyinkronkan jurnalmu antar perangkat dan menyelesaikan konflik edit, aplikasi membuat dan menggunakan pengenal sinkronisasi. Pengenal ini disimpan di perangkatmu dan di penyimpanan cloud-mu; tidak digunakan untuk mengidentifikasimu di aplikasi lain atau untuk iklan."
+        "title": "Pengenal Sinkronisasi dan Perangkat",
+        "content": "Untuk menyinkronkan jurnal Anda antar perangkat dan menyelesaikan konflik edit, aplikasi membuat dan menggunakan pengenal sinkronisasi. Pengenal ini disimpan di perangkat Anda dan di penyimpanan cloud Anda; pengenal ini tidak digunakan untuk mengidentifikasi Anda di aplikasi lain atau untuk iklan."
       },
       "aiProcessing": {
         "title": "Fitur AI dan Pemrosesan",
-        "content": "OwnJournal menawarkan fitur AI opsional seperti analisis suasana hati dan saran, yang tersedia secara eksklusif untuk pelanggan Plus. Pemrosesan AI hanya terjadi ketika Anda, sebagai pelanggan Plus, secara eksplisit menggunakan fitur ini. Saat Anda menggunakan fitur AI, teks yang relevan didekripsi terlebih dahulu di perangkat Anda, lalu dikirim ke layanan AI melalui tindakan eksplisit Anda; konten jurnal Anda dikirim ke penyedia AI kami — saat ini Google (Gemini), dengan OpenAI sebagai alternatif — melalui API berbayar mereka. Kami tidak menyimpan input atau output AI di server kami; kami hanya mencatat penghitung per pengguna dari penggunaan fitur AI (jenis analisis yang dilakukan dan stempel waktu, tidak pernah kontennya) untuk memberlakukan batas penggunaan yang adil. Penyedia ini dapat menyimpan prompt dan output untuk jangka waktu terbatas untuk pemantauan penyalahgunaan dan penegakan kebijakan, sesuai kebijakan mereka saat ini. Pemrosesan AI dapat terjadi di luar EEA; baik Google maupun OpenAI mempertahankan perlindungan transfer data yang sesuai seperti Klausul Kontrak Standar. Kami menggunakan tingkat berbayar dari penyedia AI ini, di mana prompt dan output tidak digunakan untuk melatih atau meningkatkan model penyedia. Anda dapat memilih untuk tidak menggunakan fitur AI, dan melakukannya tidak memengaruhi fungsi inti jurnal."
+        "content": "OwnJournal menawarkan fitur opsional berbasis AI seperti analisis suasana hati, saran, dan input suara, yang tersedia khusus untuk pelanggan Plus. Pemrosesan AI hanya terjadi saat Anda, sebagai pelanggan Plus, secara eksplisit menggunakan fitur-fitur ini. Saat Anda menggunakan fitur AI berbasis teks, teks yang relevan didekripsi terlebih dahulu di perangkat Anda, lalu dikirim atas tindakan eksplisit Anda dan melalui server kami ke penyedia AI kami, saat ini Google (Gemini), menggunakan API berbayarnya. Saat Anda menggunakan input suara, mikrofon perangkat Anda hanya digunakan selama Anda merekam; rekaman dikirim melalui server kami ke Google (Gemini) untuk diubah menjadi teks, dan teks yang dihasilkan ditambahkan ke catatan Anda di perangkat Anda. Kami tidak menyimpan input atau output AI, termasuk rekaman suara dan transkrip, di server kami; kami hanya mencatat penghitung penggunaan fitur AI per pengguna (jenis analisis yang dilakukan, stempel waktu, dan untuk input suara, durasi rekaman dalam detik; tidak pernah kontennya) untuk pembatasan penggunaan wajar. Google dapat menyimpan prompt dan output untuk jangka waktu terbatas guna pemantauan penyalahgunaan dan penegakan kebijakan, sesuai kebijakannya yang berlaku. Pemrosesan AI dapat terjadi di luar EEA; Google menerapkan perlindungan transfer data yang sesuai seperti Klausul Kontrak Standar. Kami menggunakan paket berbayar layanan AI Google; dalam paket ini, prompt dan output tidak digunakan untuk melatih atau meningkatkan model Google. Anda dapat memilih untuk tidak menggunakan fitur AI, dan hal itu tidak memengaruhi fungsi inti jurnal."
       },
       "diagnostics": {
         "title": "Diagnostik dan Log Crash",
-        "content": "Kami saat ini tidak mengumpulkan log crash atau mengirim data diagnostik ke server kami. Diagnostik Sinkronisasi dalam aplikasi hanya disimpan di memori perangkatmu dan tidak dikirimkan ke kami. Jika kami memperkenalkan pelaporan crash atau diagnostik sisi server di masa depan, kami akan memperbarui kebijakan ini."
+        "content": "Saat ini kami tidak mengumpulkan log crash atau mengirim data diagnostik ke server kami. Diagnostik Sinkronisasi di dalam aplikasi hanya disimpan di memori perangkat Anda dan tidak dikirimkan kepada kami. Jika di masa mendatang kami memperkenalkan pelaporan crash atau diagnostik sisi server, kami akan memperbarui kebijakan ini."
       },
       "retention": {
-        "title": "Penyimpanan Data",
+        "title": "Retensi Data",
         "content": "Data jurnal Anda tetap di penyimpanan cloud Anda hingga Anda menghapusnya. Informasi akun yang disimpan di server kami dipertahankan selama akun Anda aktif. Saat Anda menghapus akun Anda, kami segera menghapus profil Anda, catatan langganan, penghitung penggunaan AI, dan data autentikasi dari sistem kami. Catatan transaksi yang dimiliki oleh pemroses pembayaran kami (Stripe, Apple, Google) disimpan oleh mereka berdasarkan kebijakan mereka sendiri dan hukum yang berlaku; Anda dapat meminta akses atau penghapusan catatan tersebut langsung dengan penyedia yang relevan."
       },
       "accountDeletion": {
@@ -2276,15 +2282,15 @@
       },
       "legalBasis": {
         "title": "Dasar Hukum Pemrosesan",
-        "content": "Kami memproses data Anda berdasarkan: (1) Pelaksanaan kontrak — untuk menyediakan layanan jurnal yang Anda daftarkan; (2) Kepentingan sah — untuk menjaga keamanan layanan dan mencegah penyalahgunaan, serta untuk memberlakukan batas penggunaan yang adil pada fitur AI opsional; dan (3) Persetujuan — untuk fitur opsional seperti analisis AI (Anda dapat menarik persetujuan kapan saja)."
+        "content": "Kami memproses data Anda berdasarkan: (1) Pelaksanaan kontrak — untuk menyediakan layanan jurnal yang Anda daftarkan; (2) Kepentingan yang sah — untuk menjaga keamanan layanan dan mencegah penyalahgunaan, serta untuk memberlakukan batas penggunaan wajar pada fitur AI opsional; dan (3) Persetujuan — untuk fitur opsional seperti analisis AI (Anda dapat menarik persetujuan kapan saja)."
       },
       "dpo": {
-        "title": "Petugas Perlindungan Data (DPO)",
-        "content": "Kami belum menunjuk Petugas Perlindungan Data karena, berdasarkan operasi kami saat ini, kami tidak diwajibkan untuk melakukannya berdasarkan Pasal 37 GDPR. OwnJournal tidak memproses atau menyimpan konten jurnal di server kami, dan pemrosesan kami terbatas pada informasi akun, autentikasi, dan langganan yang minimal. Konten jurnal tetap terenkripsi ujung-ke-ujung dan di bawah kendali pengguna. Kami akan meninjau kembali kewajiban ini jika aktivitas pemrosesan kami berubah."
+        "title": "Petugas Pelindungan Data (DPO)",
+        "content": "Kami belum menunjuk Petugas Pelindungan Data karena, berdasarkan kegiatan kami saat ini, kami tidak diwajibkan untuk melakukannya berdasarkan Pasal 37 GDPR. OwnJournal tidak menyimpan konten jurnal di server kami. Saat Anda menggunakan fitur AI opsional, teks atau rekaman yang relevan hanya transit melalui server kami menuju penyedia AI kami dan tidak disimpan. Di luar itu, pemrosesan kami terbatas pada informasi akun, autentikasi, dan langganan yang minimal. Konten jurnal tetap terenkripsi ujung-ke-ujung dan di bawah kendali pengguna. Kami akan meninjau kembali kewajiban ini jika aktivitas pemrosesan kami berubah."
       },
       "rights": {
-        "title": "Hak-Hakmu",
-        "content": "Berdasarkan GDPR dan undang-undang privasi serupa, Anda memiliki hak untuk: mengakses data Anda, mengekspor data Anda (portabilitas), memperbaiki data yang tidak akurat, menghapus data Anda (penghapusan), membatasi pemrosesan, menolak pemrosesan, dan mengajukan keluhan ke otoritas perlindungan data setempat. Untuk penduduk UE, Anda dapat menghubungi otoritas pengawasan nasional Anda. Di {{companyCountry}}, ini adalah {{supervisoryAuthority}} di {{supervisoryAuthorityUrl}}. Untuk menggunakan hak-hak ini, hubungi kami di {{companyEmail}}."
+        "title": "Hak-Hak Anda",
+        "content": "Berdasarkan GDPR dan undang-undang privasi serupa, Anda memiliki hak untuk: mengakses data Anda, mengekspor data Anda (portabilitas), memperbaiki data yang tidak akurat, menghapus data Anda (penghapusan), membatasi pemrosesan, menolak pemrosesan, dan mengajukan keluhan ke otoritas pelindungan data setempat. Untuk penduduk UE, Anda dapat menghubungi otoritas pengawas nasional Anda. Di {{companyCountry}}, ini adalah {{supervisoryAuthority}} di {{supervisoryAuthorityUrl}}. Untuk menggunakan hak-hak ini, hubungi kami di {{companyEmail}}."
       },
       "children": {
         "title": "Privasi Anak-Anak",
@@ -2292,7 +2298,7 @@
       },
       "changes": {
         "title": "Perubahan Kebijakan Ini",
-        "content": "Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu. Kami akan memberitahumu tentang perubahan signifikan melalui aplikasi. Penggunaan berkelanjutan setelah perubahan merupakan penerimaan atas kebijakan yang diperbarui."
+        "content": "Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu. Kami akan memberi tahu Anda tentang perubahan signifikan melalui aplikasi. Penggunaan berkelanjutan setelah perubahan merupakan penerimaan atas kebijakan yang diperbarui."
       },
       "contact": {
         "title": "Hubungi Kami",
@@ -2300,36 +2306,37 @@
       },
       "localStorage": {
         "title": "Cookie dan Penyimpanan Lokal",
-        "content": "OwnJournal tidak menggunakan cookie pihak ketiga, cookie iklan, atau pelacak antar aplikasi. Aplikasi menggunakan penyimpanan lokal perangkat Anda (localStorage browser dan IndexedDB di web; penyimpanan lokal yang setara di perangkat seluler dan desktop) untuk menyimpan kunci enkripsi, entri jurnal, status sinkronisasi, dan preferensi Anda di perangkat Anda. Data lokal ini per pengguna dan tetap berada di perangkat Anda kecuali Anda secara eksplisit mengekspornya atau menyinkronkannya dengan penyedia penyimpanan cloud pilihan Anda. Autentikasi menggunakan token sesi yang diterbitkan oleh backend autentikasi kami dan disimpan secara lokal di perangkat Anda. Anda dapat menghapus data lokal kapan saja dari Pengaturan atau dengan menghapus penyimpanan browser Anda."
+        "content": "OwnJournal tidak menggunakan cookie pihak ketiga, cookie iklan, atau pelacak antar aplikasi. Aplikasi menggunakan penyimpanan lokal perangkat Anda (localStorage browser dan IndexedDB di web; penyimpanan lokal yang setara di perangkat seluler dan desktop) untuk menyimpan kunci enkripsi, catatan jurnal, status sinkronisasi, dan preferensi Anda di perangkat Anda. Data lokal ini per pengguna dan tetap berada di perangkat Anda kecuali Anda secara eksplisit mengekspornya atau menyinkronkannya dengan penyedia penyimpanan cloud pilihan Anda. Autentikasi menggunakan token sesi yang diterbitkan oleh backend autentikasi kami dan disimpan secara lokal di perangkat Anda. Anda dapat menghapus data lokal kapan saja dari Pengaturan atau dengan menghapus penyimpanan browser Anda."
       },
       "internationalTransfers": {
         "title": "Transfer Data Internasional",
-        "content": "Beberapa penyedia layanan kami memproses data di luar Wilayah Ekonomi Eropa (EEA). Backend autentikasi dan basis data kami, penyedia pembayaran (Stripe, Apple, Google), penyedia AI (Google, OpenAI), dan penyedia penyimpanan cloud pilihan Anda dapat mentransfer atau memproses data di negara-negara yang belum menerima keputusan kecukupan dari Komisi Eropa. Dalam kasus tersebut, kami dan penyedia mengandalkan perlindungan yang sesuai berdasarkan Pasal 46 GDPR, seperti Klausul Kontrak Standar (SCC) Komisi Eropa bersama dengan langkah-langkah teknis dan organisasi tambahan. Anda dapat meminta informasi lebih lanjut tentang perlindungan yang berlaku dengan menghubungi kami."
+        "content": "Beberapa penyedia layanan kami memproses data di luar Wilayah Ekonomi Eropa (EEA). Backend autentikasi dan basis data kami, penyedia pembayaran (Stripe, Apple, Google), penyedia AI (Google), dan penyedia penyimpanan cloud pilihan Anda dapat mentransfer atau memproses data di negara-negara yang belum menerima keputusan kecukupan dari Komisi Eropa. Dalam kasus tersebut, kami dan penyedia mengandalkan perlindungan yang sesuai berdasarkan Pasal 46 GDPR, seperti Klausul Kontrak Standar (SCC) Komisi Eropa bersama dengan langkah-langkah teknis dan organisasi tambahan. Anda dapat meminta informasi lebih lanjut tentang perlindungan yang berlaku dengan menghubungi kami."
       },
       "californiaRights": {
         "title": "Hak Privasi Negara Bagian AS",
         "content": "Jika Anda adalah penduduk California atau negara bagian AS lainnya dengan undang-undang privasi konsumen yang komprehensif (seperti Virginia, Colorado, Connecticut, Utah, Texas, atau lainnya yang diberlakukan), Anda memiliki hak terkait informasi pribadi Anda yang dapat mencakup: hak untuk mengetahui informasi pribadi apa yang kami kumpulkan, hak untuk menghapus informasi pribadi Anda, hak untuk mengoreksi informasi pribadi yang tidak akurat, hak untuk menolak penggunaan tertentu (termasuk penjualan atau pembagian informasi pribadi), dan hak untuk membatasi penggunaan informasi pribadi yang sensitif. Kami tidak menjual informasi pribadi Anda dan tidak membagikannya untuk iklan perilaku lintas konteks. Untuk menggunakan hak Anda, hubungi kami di alamat yang tertera di bagian \"Hubungi Kami\"."
       }
-    }
+    },
+    "lastUpdatedOn": "Terakhir diperbarui: {{date}}"
   },
   "recovery": {
     "title": "Pulihkan catatan terenkripsi",
     "description": "Beberapa catatan tidak bisa didekripsi.",
     "decryptionFailures": "Beberapa catatan tidak bisa didekripsi",
-    "decryptionFailuresDesc": "{{count}} dari {{total}} catatan gagal didekripsi. Kata sandi mungkin sudah berubah.",
-    "failedEntries": "{{count}} dari {{total}} catatan gagal didekripsi",
+    "decryptionFailuresDesc_other": "{{count}} dari {{total}} catatan gagal didekripsi. Kata sandi mungkin sudah berubah.",
+    "failedEntries_other": "{{count}} dari {{total}} catatan gagal didekripsi",
     "explanation": "Ini biasanya terjadi saat kata sandi enkripsi diubah. Masukkan kata sandi asli untuk memulihkan catatan.",
     "originalPassword": "Kata sandi enkripsi asli",
-    "passwordPlaceholder": "Masukkan kata sandi asli...",
+    "passwordPlaceholder": "Masukkan kata sandi asli…",
     "passwordRequired": "Masukkan kata sandi asli",
     "hint1": "• Ini adalah kata sandi yang pertama kali digunakan saat mengatur enkripsi",
-    "hint2": "• Catatan terenkripsi TIDAK hilang - hanya butuh kata sandi yang benar",
+    "hint2": "• Catatan terenkripsi TIDAK hilang — hanya butuh kata sandi yang benar",
     "hint3": "• Jika tidak bisa mengingat kata sandi, catatan mungkin tidak bisa dipulihkan",
     "recover": "Pulihkan",
     "recoverButton": "Pulihkan catatan",
-    "recovering": "Memulihkan...",
+    "recovering": "Memulihkan…",
     "success": "Pemulihan berhasil",
-    "successDesc": "{{count}} catatan dipulihkan",
+    "successDesc_other": "{{count}} catatan dipulihkan",
     "failed": "Pemulihan gagal: {{error}}",
     "wrongPassword": "Kata sandi salah. Coba lagi dengan kata sandi enkripsi asli.",
     "keyCorrupted": "Kunci enkripsi di semua penyedia yang terhubung tidak bisa mendekripsi catatan. Jika menggunakan Google Drive, periksa riwayat versi untuk versi sebelumnya dari encryption-key.json di folder OwnJournal.",
@@ -2338,20 +2345,20 @@
     "entriesWithoutKey": "Penyimpanan cloud memiliki catatan terenkripsi tapi kunci enkripsi hilang. Gunakan opsi pemulihan untuk memulihkan akses.",
     "noCachedKey": "Data enkripsi lokal tidak ditemukan. Hubungkan ke penyimpanan cloud untuk memulihkan catatan.",
     "networkError": "Kesalahan jaringan. Periksa koneksi dan coba lagi.",
-    "rateLimited": "Penyimpanan cloud sementara membatasi permintaan. Tunggu 30-60 detik dan coba lagi.",
+    "rateLimited": "Penyimpanan cloud sementara membatasi permintaan. Tunggu 30–60 detik dan coba lagi.",
     "deleteLink": "Atau hapus catatan yang tidak bisa dipulihkan secara permanen",
-    "confirmDelete": "Ini akan menghapus {{count}} catatan yang tidak bisa didekripsi secara permanen. Ini tidak bisa dibatalkan.",
+    "confirmDelete_other": "Ini akan menghapus secara permanen {{count}} catatan yang tidak bisa didekripsi. Tindakan ini tidak bisa dibatalkan.",
     "confirmDeleteButton": "Hapus secara permanen",
     "deletedTitle": "Catatan dihapus",
-    "deletedDesc": "{{count}} catatan yang tidak bisa dipulihkan telah dihapus",
+    "deletedDesc_other": "{{count}} catatan yang tidak bisa dipulihkan telah dihapus",
     "deleteFailed": "Gagal menghapus catatan. Silakan coba lagi.",
     "keyMismatchExplanation": "Kunci enkripsi yang bisa mendekripsi catatan ini tidak cocok dengan yang sedang digunakan. Kamu bisa coba memuat ulang kunci dari penyimpanan cloud.",
-    "keyMismatchRecoveryHint": "Kamu mungkin bisa memulihkan kunci asli dari riwayat versi penyimpanan cloud (misal riwayat versi Google Drive atau Nextcloud untuk encryption-key.json di folder OwnJournal).",
+    "keyMismatchRecoveryHint": "Kamu mungkin bisa memulihkan kunci asli dari riwayat versi penyimpanan cloud (misalnya riwayat versi Google Drive atau Nextcloud untuk encryption-key.json di folder OwnJournal).",
     "keyMismatchHint1": "• Kunci enkripsi di penyimpanan cloud tidak cocok dengan kunci yang digunakan untuk mengenkripsi catatan ini",
     "keyMismatchHint2": "• Periksa riwayat versi Google Drive atau Nextcloud untuk encryption-key.json yang lebih lama",
     "keyMismatchHint3": "• Jika perangkat lain masih menyimpan kunci yang benar, hubungkan dari perangkat itu terlebih dahulu",
     "reloadKeyFromCloud": "Muat ulang kunci dari cloud",
-    "reloadingKey": "Memuat ulang...",
+    "reloadingKey": "Memuat ulang…",
     "reloadKeySuccessDesc": "Kunci enkripsi dimuat ulang dari cloud. Catatan seharusnya sekarang bisa dilihat.",
     "reloadKeyFailed": "Tidak ada penyimpanan cloud terhubung yang punya kunci untuk mendekripsi catatan ini. Periksa riwayat versi untuk encryption-key.json."
   },
@@ -2367,15 +2374,15 @@
     "appPasswordTooLong": "Kata sandi aplikasi harus kurang dari 500 karakter"
   },
   "cloudErrors": {
-    "notFound": "Tidak ditemukan - Lokasi tujuan tidak ada",
-    "notFoundWithFile": "Tidak ditemukan - Lokasi tujuan tidak ada. File: {{file}}",
-    "permissionDenied": "Izin ditolak - Kamu tidak punya izin untuk mengakses lokasi ini",
-    "authFailed": "Autentikasi gagal - Periksa kredensial atau hubungkan ulang",
-    "serverError": "Kesalahan server - Server mengalami kesalahan internal",
-    "serverUnavailable": "Server tidak tersedia - Silakan coba lagi nanti",
-    "storageFull": "Penyimpanan penuh - Ruang di server tidak cukup",
-    "rateLimited": "Dibatasi - Terlalu banyak permintaan, silakan tunggu",
-    "encryptionError": "Kesalahan enkripsi - Enkripsi sisi server menghalangi akses",
+    "notFound": "Tidak ditemukan — lokasi tujuan tidak ada",
+    "notFoundWithFile": "Tidak ditemukan — lokasi tujuan tidak ada. File: {{file}}",
+    "permissionDenied": "Izin ditolak — kamu tidak punya izin untuk mengakses lokasi ini",
+    "authFailed": "Autentikasi gagal — periksa kredensial atau hubungkan ulang",
+    "serverError": "Kesalahan server — server mengalami kesalahan internal",
+    "serverUnavailable": "Server tidak tersedia — silakan coba lagi nanti",
+    "storageFull": "Penyimpanan penuh — ruang di server tidak cukup",
+    "rateLimited": "Dibatasi — terlalu banyak permintaan, silakan tunggu",
+    "encryptionError": "Kesalahan enkripsi — enkripsi sisi server menghalangi akses",
     "syncStateFailed": "Gagal memperbarui status sinkronisasi",
     "uploadFailed": "Unggahan gagal",
     "uploadFailedWithFile": "Unggahan gagal untuk file: {{file}}",
@@ -2383,8 +2390,8 @@
     "downloadFailedWithFile": "Unduhan gagal untuk file: {{file}}",
     "deleteFailed": "Penghapusan gagal",
     "listFailed": "Gagal menampilkan daftar file",
-    "connectionFailed": "Koneksi gagal - Periksa koneksi internet",
-    "tokenRefreshFailed": "Sesi kedaluwarsa - Hubungkan ulang penyimpanan cloud",
+    "connectionFailed": "Koneksi gagal — periksa koneksi internet",
+    "tokenRefreshFailed": "Sesi kedaluwarsa — hubungkan ulang penyimpanan cloud",
     "networkErrorCheckingKey": "Gangguan jaringan sementara — coba lagi sebentar"
   },
   "incompatibleKey": {
@@ -2442,34 +2449,33 @@
     "topPositive": "{{activity}} berhubungan dengan suasana hati yang lebih baik",
     "topNegative": "{{activity}} berhubungan dengan suasana hati yang lebih rendah",
     "proFeature": "Fitur Plus",
-    "proFeatureDesc": "Wawasan aktivitas tersedia dengan langganan Plus",
-    "tooltipAvg": "rata-rata",
-    "tooltipEntries": "catatan"
+    "proFeatureDesc": "Wawasan Aktivitas tersedia untuk pelanggan Plus",
+    "tooltipDetail_other": "{{delta}} (rata-rata: {{emoji}} {{avg}}, {{count}} catatan)"
   },
   "notes": {
     "journalTab": "Jurnal",
     "title": "Memo",
     "newNote": "Memo Baru",
-    "searchPlaceholder": "Cari memo...",
+    "searchPlaceholder": "Cari memo…",
     "titlePlaceholder": "Judul memo (opsional)",
-    "startWriting": "Tulis memo Anda...",
+    "startWriting": "Tulis memomu…",
     "saveNote": "Simpan Memo",
     "emptyTitle": "Belum ada memo",
     "emptyDesc": "Simpan ide, daftar, dan materi referensi yang tidak terikat pada hari tertentu.",
-    "noSearchResults": "Tidak ada memo yang cocok dengan pencarian Anda.",
+    "noSearchResults": "Tidak ada memo yang cocok dengan pencarianmu.",
     "deleteConfirmTitle": "Hapus memo ini?",
-    "deleteConfirmDesc": "Memo ini akan dihapus secara permanen dari penyimpanan Anda.",
+    "deleteConfirmDesc": "Memo ini akan dihapus secara permanen dari penyimpananmu.",
     "updated": "Diperbarui {{date}}",
-    "saving": "Menyimpan memo...",
-    "savingDesc": "Mengenkripsi dan menyinkronkan memo Anda.",
+    "saving": "Menyimpan memo…",
+    "savingDesc": "Mengenkripsi dan menyinkronkan memomu.",
     "saved": "Memo tersimpan",
-    "savedDesc": "Memo terenkripsi Anda telah disimpan dan disinkronkan.",
+    "savedDesc": "Memo terenkripsimu telah disimpan dan disinkronkan.",
     "savedOfflineDesc": "Tersimpan secara lokal. Akan disinkronkan saat kembali online.",
     "failedToSave": "Gagal menyimpan memo",
-    "deleting": "Menghapus memo...",
+    "deleting": "Menghapus memo…",
     "deletingDesc": "Menghapus memo dari penyimpanan dan menyinkronkan ke cloud.",
     "deleted": "Memo dihapus",
-    "deletedDesc": "Memo Anda telah dihapus dan disinkronkan.",
+    "deletedDesc": "Memomu telah dihapus dan disinkronkan.",
     "deletedOfflineDesc": "Dihapus secara lokal. Akan disinkronkan saat kembali online.",
     "deleteFailed": "Gagal menghapus memo",
     "deleteFailedDesc": "Gagal menghapus memo dari penyimpanan. Perubahan mungkin dikembalikan."
@@ -2482,5 +2488,35 @@
     "system": "Sistem",
     "paperHint": "Kertas berwarna putih polos tanpa gradien — paling mudah dibaca di layar e-ink.",
     "switchTo": "Beralih ke tema {{theme}}"
+  },
+  "voice": {
+    "title": "Input suara",
+    "dictate": "Dikte",
+    "stop": "Berhenti",
+    "cancel": "Batalkan rekaman",
+    "transcribing": "Mentranskripsikan…",
+    "retry": "Coba transkripsi lagi",
+    "discard": "Buang rekaman",
+    "stopsIn": "Berhenti {{seconds}} dtk lagi",
+    "minutesLeft": "Sisa {{minutes}} mnt bulan ini",
+    "plusFeature": "Input suara tersedia di Plus",
+    "consentTitle": "Transkripsikan suaramu dengan Google?",
+    "consentBody": "Rekamanmu dikirim ke layanan Gemini milik Google untuk diubah menjadi teks. OwnJournal tidak pernah menyimpan audionya. Google tidak menggunakannya untuk melatih modelnya dan mungkin menyimpannya hanya sebentar untuk mencegah penyalahgunaan. Teksnya disimpan seperti bagian lain catatanmu.",
+    "consentAccept": "Lanjutkan",
+    "consentDecline": "Nanti saja",
+    "teaserBody": "Cukup bicara, tak perlu mengetik. Ucapanmu menjadi teks rapi lengkap dengan tanda baca, dalam bahasa apa pun yang kamu gunakan — hingga 200 menit per bulan.",
+    "errors": {
+      "notSupported": "Perekaman suara tidak didukung di perangkat ini.",
+      "permissionDenied": "Akses mikrofon diblokir. Izinkan di pengaturan perangkat atau browser untuk mendikte.",
+      "noMicrophone": "Mikrofon tidak ditemukan.",
+      "offline": "Kamu sedang offline. Input suara memerlukan koneksi internet.",
+      "authRequired": "Silakan masuk untuk menggunakan input suara.",
+      "plusRequired": "Input suara memerlukan langganan Plus.",
+      "limitReached": "Kamu sudah memakai seluruh {{minutes}} menit input suara bulan ini. Batas akan direset bulan depan.",
+      "tooLarge": "Rekaman ini terlalu besar. Coba yang lebih pendek.",
+      "unsupportedFormat": "Format rekaman ini tidak didukung.",
+      "noSpeech": "Tidak ada ucapan yang terdeteksi dalam rekaman.",
+      "failed": "Transkripsi gagal. Silakan coba lagi."
+    }
   }
 }

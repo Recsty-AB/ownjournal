@@ -17,6 +17,7 @@ export type Database = {
       ai_usage_stats: {
         Row: {
           analysis_type: string
+          audio_seconds: number | null
           created_at: string
           entry_id: string | null
           id: string
@@ -27,6 +28,7 @@ export type Database = {
         }
         Insert: {
           analysis_type: string
+          audio_seconds?: number | null
           created_at?: string
           entry_id?: string | null
           id?: string
@@ -37,6 +39,7 @@ export type Database = {
         }
         Update: {
           analysis_type?: string
+          audio_seconds?: number | null
           created_at?: string
           entry_id?: string | null
           id?: string
@@ -166,6 +169,7 @@ export type Database = {
           monthly_entry_count: number
           monthly_tags_count: number
           monthly_title_count: number
+          monthly_transcription_seconds: number
           weekly_trend_count: number
           yearly_entry_count: number
           yearly_trend_count: number

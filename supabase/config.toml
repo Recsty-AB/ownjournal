@@ -3,6 +3,9 @@ project_id = "mbftigtdxkkzcqoepwke"
 [functions.ai-analyze]
 verify_jwt = false
 
+[functions.ai-transcribe]
+verify_jwt = false
+
 [functions.create-checkout]
 verify_jwt = false
 

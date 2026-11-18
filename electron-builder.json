@@ -11,6 +11,9 @@
   ],
   "mac": {
     "category": "public.app-category.productivity",
+    "extendInfo": {
+      "NSMicrophoneUsageDescription": "OwnJournal uses the microphone only while you dictate, to turn your speech into text. It never stores your recordings."
+    },
     "icon": "resources/icon.png",
     "target": [
       {

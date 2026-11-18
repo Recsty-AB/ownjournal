@@ -1,7 +1,7 @@
 {
   "activities": {
     "label": "Aktiviteter",
-    "addCustom": "Lägg till egen aktivitet …",
+    "addCustom": "Lägg till egen aktivitet…",
     "exercise": "Träning",
     "social": "Socialt",
     "work": "Arbete",
@@ -41,7 +41,7 @@
     "cancel": "Avbryt",
     "delete": "Ta bort",
     "edit": "Redigera",
-    "loading": "Laddar...",
+    "loading": "Laddar…",
     "error": "Fel",
     "stop": "Stopp",
     "copied": "Kopierad",
@@ -58,10 +58,10 @@
     "copyEmail": "Kopiera e-post"
   },
   "migration": {
-    "preparing": "Förbereder migrering...",
-    "encryptingEntries": "Krypterar inlägg...",
-    "decryptingEntries": "Dekrypterar inlägg...",
-    "migratingCredentials": "Migrerar inloggningsuppgifter...",
+    "preparing": "Förbereder migrering…",
+    "encryptingEntries": "Krypterar inlägg…",
+    "decryptingEntries": "Dekrypterar inlägg…",
+    "migratingCredentials": "Migrerar inloggningsuppgifter…",
     "complete": "Migrering klar!",
     "error": "Migrering misslyckades",
     "toE2ETitle": "Aktiverar E2E-kryptering",
@@ -69,12 +69,15 @@
     "toE2EDesc": "Dina inlägg krypteras med ditt lösenord.",
     "toSimpleDesc": "Dina inlägg dekrypteras för enkel lagring.",
     "processingEntry": "Bearbetar: {{title}}",
-    "migrated": "{{count}} inlägg migrerade",
-    "failed": "{{count}} inlägg misslyckades",
+    "migrated_one": "{{count}} inlägg migrerat",
+    "migrated_other": "{{count}} inlägg migrerade",
+    "failed_one": "{{count}} inlägg misslyckades",
+    "failed_other": "{{count}} inlägg misslyckades",
     "retry": "Försök misslyckade igen",
     "connectionError": "Anslutningsfel",
     "connectionErrorDesc": "Båda leverantörerna måste vara anslutna",
-    "completeDesc": "{{count}} filer har migrerats från {{source}} till {{target}}",
+    "completeDesc_one": "{{count}} fil har migrerats från {{source}} till {{target}}",
+    "completeDesc_other": "{{count}} filer har migrerats från {{source}} till {{target}}",
     "completedWithErrors": "Migrering slutförd med fel",
     "completedWithErrorsDesc": "{{migrated}} filer migrerade, {{failed}} misslyckades. Se konsolen för detaljer.",
     "stopped": "Migrering stoppad",
@@ -83,7 +86,7 @@
   "editor": {
     "edit": "Redigera",
     "preview": "Förhandsgranska",
-    "placeholder": "Skriv ditt dagboksinlägg... Använd markdown för formatering:\n\n# Rubrik\n**fet** *kursiv*\n- punkt",
+    "placeholder": "Skriv ditt dagboksinlägg… Använd Markdown för formatering:\n\n# Rubrik\n**fet** *kursiv*\n- punkt",
     "markdownSupport": "Stöder: **fet**, *kursiv*, # rubriker, - listor",
     "noContentPreview": "*Inget innehåll att förhandsgranska*",
     "inlineTagHint": "Skriv # i texten för att lägga till taggar"
@@ -91,7 +94,8 @@
   "import": {
     "invalidFormat": "Ogiltigt importfilformat",
     "complete": "Import klar",
-    "completeDesc": "Importerade {{count}} inlägg. Synkroniserar till lagring...",
+    "completeDesc_one": "Importerade {{count}} inlägg. Synkroniserar till lagring…",
+    "completeDesc_other": "Importerade {{count}} inlägg. Synkroniserar till lagring…",
     "failed": "Import misslyckades",
     "failedDesc": "Kunde inte importera data. Kontrollera filformatet.",
     "storageSyncFailed": "Lagringssynkronisering misslyckades",
@@ -105,8 +109,8 @@
     "connectionFailed": "Anslutning misslyckades. Kontrollera din server-URL och inloggningsuppgifter.",
     "connectionFailedShort": "Anslutning misslyckades",
     "masterKeyRequired": "Huvudnyckel krävs för att spara inloggningsuppgifter i E2E-läge",
-    "clickSetupHelpCors": "Klicka på \"Installationshjälp\" ovan för steg-för-steg-instruktioner.",
-    "clickSetupHelpSsl": "Klicka på \"Installationshjälp\" ovan för instruktioner om hur du åtgärdar SSL-certifikatproblem.",
+    "clickSetupHelpCors": "Tryck på \"Installationshjälp\" ovan för steg-för-steg-instruktioner.",
+    "clickSetupHelpSsl": "Tryck på \"Installationshjälp\" ovan för instruktioner om hur du åtgärdar SSL-certifikatproblem.",
     "credentialDecryptFailed": "Dina Nextcloud-inloggningsuppgifter kunde inte dekrypteras. Detta betyder vanligtvis att ditt dagbokslösenord är felaktigt. Kontrollera ditt lösenord eller koppla från och återanslut."
   },
   "app": {
@@ -142,9 +146,8 @@
     "continueWith": "Eller fortsätt med",
     "continueWithGoogle": "Fortsätt med Google",
     "continueWithApple": "Fortsätt med Apple",
-    "termsAgreementPrefix": "Genom att fortsätta godkänner du våra",
+    "termsAgreement": "Genom att fortsätta godkänner du våra <terms>Användarvillkor</terms> och vår <privacy>Integritetspolicy</privacy>.",
     "termsLink": "Användarvillkor",
-    "and": "och",
     "privacyLink": "Integritetspolicy",
     "dataEncrypted": "Din data är krypterad och lagras aldrig på våra servrar",
     "accountCreated": "Konto skapat!",
@@ -159,10 +162,10 @@
     "appleNotAvailable": "Apple-inloggning inte tillgänglig",
     "appleNotConfigured": "Apple-autentisering är inte konfigurerad ännu. Kontakta appadministratören eller använd en annan inloggningsmetod.",
     "userAlreadyExists": "Kontot finns redan",
-    "userAlreadyExistsDesc": "Denna e-post är redan registrerad. Försök logga in istället, eller använd 'Fortsätt med Google' om du tidigare registrerade dig på det sättet.",
+    "userAlreadyExistsDesc": "Den här e-postadressen är redan registrerad. Försök logga in i stället, eller använd \"Fortsätt med Google\" om du tidigare registrerade dig på det sättet.",
     "invalidCredentials": "Ogiltiga inloggningsuppgifter",
-    "invalidCredentialsDesc": "E-postadressen eller lösenordet är felaktigt. Om du registrerade dig med Google, använd 'Fortsätt med Google' istället.",
-    "oauthAccountHint": "Registrerade du dig med Google? Prova 'Fortsätt med Google' nedan.",
+    "invalidCredentialsDesc": "E-postadressen eller lösenordet är felaktigt. Om du registrerade dig med Google, använd \"Fortsätt med Google\" i stället.",
+    "oauthAccountHint": "Registrerade du dig med Google? Prova \"Fortsätt med Google\" nedan.",
     "linkExpired": "Länken har gått ut eller är ogiltig",
     "linkExpiredDesc": "Denna inloggningslänk har gått ut eller har redan använts. Logga in igen eller begär en ny länk.",
     "inAppBrowserWarning": "Du visar detta i {{appName}}",
@@ -206,7 +209,7 @@
     "yourControl": "Din kontroll",
     "worksOffline": "Fungerar offline",
     "alwaysAvailable": "Alltid tillgänglig",
-    "zeroKnowledge": "Zero Knowledge",
+    "zeroKnowledge": "Nollkunskap",
     "privacyFirst": "Ingen kan läsa din data, inte ens vi"
   },
   "journal": {
@@ -214,8 +217,8 @@
     "anotherEntryEditingDesc": "Spara eller avbryt det andra inlägget först.",
     "goToEditingEntry": "Gå till det inlägg som redigeras",
     "switchToEditMode": "Byt till redigeringsläge för att lägga till taggar",
-    "switchToEditModeDesc": "Klicka på redigeringsknappen för att lägga till föreslagna taggar",
-    "entryTitlePlaceholder": "Inläggets titel...",
+    "switchToEditModeDesc": "Tryck på redigeringsknappen för att lägga till föreslagna taggar",
+    "entryTitlePlaceholder": "Inläggets titel…",
     "finishEditingFirst": "Avsluta redigeringen av det andra inlägget först",
     "entrySaved": "Inlägg sparat",
     "entrySavedDesc": "Ditt krypterade dagboksinlägg har sparats och synkroniseras automatiskt.",
@@ -243,13 +246,13 @@
     "importUnavailableDesc": "Starta din dagbok för att aktivera dataimport"
   },
   "index": {
-    "loadingAuth": "Kontrollerar autentisering...",
-    "loadingEntries": "Laddar inlägg...",
-    "loadingEntriesDesc": "Dekrypterar dina krypterade inlägg...",
-    "initializingStorage": "Initierar lagring...",
-    "loadingCachedEntries": "Laddar cachade inlägg...",
-    "decryptingEntries": "Dekrypterar inlägg...",
-    "syncingWithCloud": "Synkroniserar med molnet...",
+    "loadingAuth": "Kontrollerar autentisering…",
+    "loadingEntries": "Laddar inlägg…",
+    "loadingEntriesDesc": "Dekrypterar dina krypterade inlägg…",
+    "initializingStorage": "Initierar lagring…",
+    "loadingCachedEntries": "Laddar cachade inlägg…",
+    "decryptingEntries": "Dekrypterar inlägg…",
+    "syncingWithCloud": "Synkroniserar med molnet…",
     "noCloudConnected": "Ingen molnlagring ansluten",
     "noCloudConnectedDesc": "Dina inlägg lagras lokalt och krypteras. Anslut lagring i Inställningar för att synkronisera mellan enheter.",
     "connectStorage": "Anslut lagring",
@@ -261,25 +264,27 @@
     "authFailedDesc": "Sparat lösenord är ogiltigt. Ange ditt lösenord.",
     "initError": "Initieringsfel",
     "initErrorDesc": "Försök igen",
-    "settingUpSync": "Konfigurerar molnsynkronisering...",
+    "settingUpSync": "Konfigurerar molnsynkronisering…",
     "settingUpSyncDesc": "Laddar upp krypteringsnyckel och förbereder synkronisering.",
     "initialSyncComplete": "Initial synkronisering klar",
-    "initialSyncCompleteDesc": "{{count}} inlägg synkroniserade med {{provider}}.",
+    "initialSyncCompleteDesc_one": "{{count}} inlägg synkroniserat med {{provider}}.",
+    "initialSyncCompleteDesc_other": "{{count}} inlägg synkroniserade med {{provider}}.",
     "initialSyncFailed": "Initial synkronisering misslyckades",
     "initialSyncFailedDesc": "Kunde inte slutföra initial synkronisering.",
     "secondaryProviderConnected": "{{provider}} ansluten",
     "secondaryProviderConnectedDesc": "Ansluten som sekundär säkerhetskopia. Din primära leverantör hanterar synkroniseringen.",
     "conflictDetected": "⚠️ Synkroniseringskonflikt upptäckt",
-    "conflictDetectedDesc": "Samtidiga redigeringar löstes automatiskt. {{count}} konflikt(er) loggade.",
+    "conflictDetectedDesc_one": "Samtidiga redigeringar löstes automatiskt. {{count}} konflikt loggades.",
+    "conflictDetectedDesc_other": "Samtidiga redigeringar löstes automatiskt. {{count}} konflikter loggades.",
     "viewConflicts": "Visa konflikter",
-    "savingEntry": "Sparar inlägg...",
+    "savingEntry": "Sparar inlägg…",
     "savingEntryDesc": "Krypterar och synkroniserar ditt dagboksinlägg.",
     "entrySaved": "Inlägg sparat",
     "entrySavedDesc": "Ditt krypterade dagboksinlägg har sparats och synkroniserats.",
     "entrySavedOfflineDesc": "Sparat lokalt. Synkroniseras när du är online igen.",
     "failedToSaveEntry": "Kunde inte spara inlägg",
     "pleaseTryAgain": "Försök igen",
-    "deletingEntry": "Tar bort inlägg...",
+    "deletingEntry": "Tar bort inlägg…",
     "deletingEntryDesc": "Tar bort inlägg från lagring och synkroniserar till molnet.",
     "entryDeleted": "Inlägg borttaget",
     "entryDeletedDesc": "Ditt dagboksinlägg har tagits bort och synkroniserats.",
@@ -292,8 +297,10 @@
     "signedOut": "Utloggad",
     "signedOutDesc": "Du har loggats ut",
     "backupExported": "Säkerhetskopia exporterad",
-    "backupExportedDesc": "{{count}} inlägg exporterade till JSON-fil",
-    "importCompleteDesc": "Importerade {{count}} inlägg. Synkroniserar till lagring...",
+    "backupExportedDesc_one": "{{count}} inlägg exporterat till JSON-fil",
+    "backupExportedDesc_other": "{{count}} inlägg exporterade till JSON-fil",
+    "importCompleteDesc_one": "Importerade {{count}} inlägg. Synkroniserar till lagring…",
+    "importCompleteDesc_other": "Importerade {{count}} inlägg. Synkroniserar till lagring…",
     "cloudSyncComplete": "Molnsynkronisering klar",
     "cloudSyncCompleteDesc": "Importerade inlägg har synkroniserats till molnlagringen.",
     "cloudSyncIncomplete": "Molnsynkronisering ofullständig",
@@ -322,26 +329,30 @@
     "passwordSavedDesc": "Krypteringslösenordet har angetts.",
     "encryptionSetupFailed": "Krypteringsinställning misslyckades",
     "encryptionSetupFailedDesc": "Kunde inte initiera kryptering.",
-    "startingCloudSync": "Startar molnsynkronisering...",
+    "startingCloudSync": "Startar molnsynkronisering…",
     "startingCloudSyncDesc": "Synkroniserar dina dagboksinlägg i bakgrunden.",
-    "syncCompleteDesc": "{{count}} inlägg synkroniserade med molnlagringen.",
+    "syncCompleteDesc_one": "{{count}} inlägg synkroniserat med molnlagringen.",
+    "syncCompleteDesc_other": "{{count}} inlägg synkroniserade med molnlagringen.",
     "unableToStartSync": "Kunde inte starta synkronisering.",
     "nextcloudEncryptionError": "Kan inte synkronisera med denna Nextcloud-mapp",
     "nextcloudEncryptionErrorDesc": "Den här Nextcloud-mappen har serverkryptering aktiverat, vilket hindrar OwnJournal från att läsa eller skriva dina filer. Tryck på \"Läs mer\" för steg-för-steg-instruktioner.",
     "nextcloudEncryptionLearnMore": "Läs mer",
     "encryptedEntriesDetected": "Krypterade inlägg hittades",
-    "encryptedEntriesInSimpleMode": "Hittade {{count}} krypterade inlägg som inte kan läsas i Enkelt läge. För att komma åt dem, koppla från och återanslut i E2E-läge.",
-    "encryptedEntriesInSimpleModeHint": "{{count}} inlägg kräver E2E-kryptering för att visas. Ange ditt lösenord för att låsa upp.",
-    "syncCompleteWithEncrypted": "Synkronisering klar, men {{count}} krypterade poster kräver E2E-läge för att visas.",
+    "encryptedEntriesInSimpleMode_one": "Hittade {{count}} krypterat inlägg som inte kan läsas i Enkelt läge. Om du vill komma åt det kopplar du från och ansluter igen i E2E-läge.",
+    "encryptedEntriesInSimpleMode_other": "Hittade {{count}} krypterade inlägg som inte kan läsas i Enkelt läge. Om du vill komma åt dem kopplar du från och ansluter igen i E2E-läge.",
+    "encryptedEntriesInSimpleModeHint_one": "{{count}} inlägg kräver E2E-kryptering för att visas. Ange ditt lösenord för att låsa upp.",
+    "encryptedEntriesInSimpleModeHint_other": "{{count}} inlägg kräver E2E-kryptering för att visas. Ange ditt lösenord för att låsa upp.",
+    "syncCompleteWithEncrypted_one": "Synkroniseringen är klar, men {{count}} krypterat inlägg kräver E2E-läge för att visas.",
+    "syncCompleteWithEncrypted_other": "Synkroniseringen är klar, men {{count}} krypterade inlägg kräver E2E-läge för att visas.",
     "unlockNow": "Lås upp nu",
     "viewStorageOptions": "Visa alternativ"
   },
   "nextcloudHelp": {
-    "title": "Nextcloud installationshjälp",
+    "title": "Installationshjälp för Nextcloud",
     "description": "Följ dessa steg för att konfigurera din Nextcloud-server för webbläsaråtkomst",
     "setupHelp": "Installationshjälp",
     "whyNeeded": "Varför behövs detta?",
-    "whyNeededDesc": "Webbläsare har säkerhetsregler som hindrar webbplatser från att ansluta direkt till andra servrar. Din Nextcloud behöver ge tillåtelse för denna app att ansluta.",
+    "whyNeededDesc": "Webbläsare har säkerhetsregler som hindrar webbplatser från att ansluta direkt till andra servrar. Din Nextcloud behöver tillåta att den här appen ansluter.",
     "apacheUsers": "För Apache-användare",
     "apacheConfig": "Apache-konfiguration",
     "apacheDesc": "Om din Nextcloud körs på Apache-webbserver behöver du lägga till CORS-headers i konfigurationen.",
@@ -370,7 +381,7 @@
     "sslMethod": "Metod 3: Åtgärda SSL-certifikatfel",
     "enableModulesFirst": "Steg 1: Aktivera nödvändiga Apache-moduler (kör en gång):",
     "apacheInstructions": "Steg 2: Lägg till detta inuti ditt <VirtualHost *:443>-block:",
-    "nginxInstructions": "Lägg till dessa rader i ditt Nginx server-block:",
+    "nginxInstructions": "Lägg till dessa rader i server-blocket i din Nginx-konfiguration:",
     "sslInstructions": "Alternativ för att åtgärda SSL-certifikatfel:",
     "restartApache": "Starta sedan om Apache:",
     "restartNginx": "Starta sedan om Nginx:",
@@ -380,7 +391,7 @@
     "testNginx": "Testa konfiguration:",
     "expectedOutput": "Förväntat resultat från configtest:",
     "syntaxOkDesc": "Konfigurationen är giltig, fortsätt med omstart",
-    "ah00558Desc": "Varning om ServerName - detta är ofarligt, du kan ignorera det",
+    "ah00558Desc": "Varning om ServerName – detta är ofarligt, du kan ignorera det",
     "invalidCommandDesc": "Modul inte aktiverad, kör steg 1 igen",
     "syntaxErrorDesc": "Kontrollera stavfel i konfigurationen",
     "troubleshooting": "Felsökning",
@@ -396,13 +407,13 @@
     "nginxTestOkDesc": "Alla tester godkända, säkert att ladda om",
     "nginxUnknownDirectiveDesc": "Kontrollera syntaxen – kan vara stavfel eller saknat semikolon",
     "nginxOptions401Fix": "Se till att OPTIONS-blocket returnerar 204 före eventuella auth-kontroller",
-    "nginxCorsHeaderMissingFix": "Se till att add_header inkluderar flaggan 'always'",
+    "nginxCorsHeaderMissingFix": "Se till att add_header inkluderar flaggan \"always\"",
     "nginxFindFileInstruction": "Lista Nginx-konfigurationsfilerna för att hitta den för din Nextcloud-domän:",
     "nginxEditFileInstruction": "Redigera filen för din Nextcloud-domän:",
     "commonSslIssues": "Vanliga SSL-certifikatproblem:",
-    "expiredCert": "Utgånget certifikat - behöver förnyas",
-    "selfSignedCert": "Självsignerat certifikat - inte betrott av webbläsare",
-    "invalidCert": "Ogiltigt certifikat - domänfel eller konfigurationsfel",
+    "expiredCert": "Utgånget certifikat – behöver förnyas",
+    "selfSignedCert": "Självsignerat certifikat – inte betrott av webbläsare",
+    "invalidCert": "Ogiltigt certifikat – domänfel eller konfigurationsfel",
     "missingIntermediateCerts": "Saknade mellanliggande certifikat",
     "howToCheckSsl": "Så här kontrollerar du ditt SSL-certifikat:",
     "openNextcloudUrl": "Öppna din Nextcloud-URL i en webbläsare (t.ex. {{url}})",
@@ -441,13 +452,13 @@
     "generateAppPassword": "Generera ett applösenord i dina Nextcloud-säkerhetsinställningar",
     "corsTitle": "🌐 Serverkonfiguration krävs",
     "corsDescriptionPart1": "Din Nextcloud-server behöver konfigureras för att tillåta webbläsaranslutningar. Detta är ett ",
-    "corsDescriptionBold": "serverside-konfigurationsproblem",
+    "corsDescriptionBold": "konfigurationsproblem på serversidan",
     "corsDescriptionPart2": ", inte ett lösenordsproblem.",
     "mobileAppNote": "📱 Användare av mobilapp",
     "mobileAppNoteDesc": "Mobilapper kan ha strängare anslutningsbegränsningar än webbläsare. Om anslutningen fungerar på PC men inte på telefonen:",
     "mobileAppTip1": "Se till att Nextcloud-servern tillåter anslutningar från alla källor (Access-Control-Allow-Origin: *)",
     "mobileAppTip2": "Kontrollera att SSL-certifikatet är giltigt och betrott (inte självsignerat)",
-    "mobileAppTip3": "Vissa leverantörer blockera mobilapp-anslutningar som standard – kontakta värd om problemen kvarstår",
+    "mobileAppTip3": "Vissa webbhotell blockerar anslutningar från mobilappar som standard – kontakta ditt webbhotell om problemen kvarstår",
     "apacheEditConfig": "Redigera din Apache SSL VirtualHost-konfiguration:",
     "apacheAddInside": "Lägg till konfigurationen INUTI {{tag}}-blocket (före den avslutande {{closeTag}}-taggen)",
     "subdirectoryInstalls": "För underkatalogsinstallationer, justera sökvägen (t.ex. {{path}})",
@@ -455,7 +466,7 @@
     "whichFileToEdit": "Vilken fil ska jag redigera?",
     "letsEncryptSetup": "Let's Encrypt / Certbot",
     "letsEncryptFile": "Redigera din SSL-konfigurationsfil som slutar på",
-    "standardSetup": "Standard SSL-inställning",
+    "standardSetup": "Standardinställning för SSL",
     "standardFile": "Vanligtvis",
     "singleFileSetup": "Enskild konfigurationsfil",
     "singleFileDesc": "Leta efter <VirtualHost *:443>-sektionen",
@@ -479,7 +490,7 @@
     "modelsReadyDesc": "AI-modeller har laddats ner",
     "downloadFailed": "Nedladdning misslyckades",
     "downloadFailedDesc": "Kunde inte ladda ner AI-modeller. Försök igen.",
-    "downloading": "Laddar ner AI-modeller för privat, enhetsbaserad analys...",
+    "downloading": "Laddar ner AI-modeller för privat, enhetsbaserad analys…",
     "mayTakeMinutes": "Detta kan ta några minuter. Håll appen öppen.",
     "toUsePrivateAI": "För att använda privata AI-funktioner behöver vi ladda ner AI-modeller ({{size}}) till din enhet.",
     "selected": "Vald: {{name}}",
@@ -487,24 +498,25 @@
     "lightweightName": "Lättviktig (endast engelska)",
     "multilingualDesc": "Stöder japanska, kinesiska, spanska och 100+ språk",
     "lightweightDesc": "Snabbare prestanda, mindre nedladdning, endast engelska",
-    "changeInSettings": "För att ändra modell, öppna Inställningar, gå till AI-läge och välj din föredragna Modelltyp.",
-    "privateOnDevice": "100% privat - körs helt på din enhet",
+    "changeInSettings": "Om du vill byta modell öppnar du Inställningar, går till AI-läge och väljer önskad modelltyp.",
+    "privateOnDevice": "100 % privat – körs helt på din enhet",
     "worksOffline": "Fungerar offline efter nedladdning",
     "oneTimeDownload": "Engångsnedladdning ({{size}})",
     "cancel": "Avbryt",
     "notNow": "Inte nu",
     "downloadModels": "Ladda ner modeller",
-    "downloadingBtn": "Laddar ner..."
+    "downloadingBtn": "Laddar ner…"
   },
   "transfer": {
     "connectionError": "Anslutningsfel",
     "connectionErrorDesc": "Båda leverantörerna måste vara anslutna",
     "transferStarted": "Överföring startad",
-    "transferStartedDesc": "Kopierar inlägg från {{source}} till {{target}}...",
+    "transferStartedDesc": "Kopierar inlägg från {{source}} till {{target}}…",
     "transferProgress": "Överföring pågår",
     "transferProgressDesc": "{{current}} av {{total}} inlägg kopierade",
     "complete": "Överföring klar",
-    "completeDesc": "{{count}} filer har överförts från {{source}} till {{target}}",
+    "completeDesc_one": "{{count}} fil har överförts från {{source}} till {{target}}",
+    "completeDesc_other": "{{count}} filer har överförts från {{source}} till {{target}}",
     "completedWithErrors": "Överföring slutförd med fel",
     "completedWithErrorsDesc": "{{transferred}} filer överförda, {{failed}} misslyckades. Se konsolen för detaljer.",
     "failed": "Överföring misslyckades",
@@ -512,14 +524,15 @@
     "stoppedDesc": "Överföringen stoppades av användaren",
     "cancelled": "Överföring avbruten",
     "cancelledDesc": "Överföringen avbröts. {{transferred}} filer överfördes före avbrottet.",
-    "cleaningUp": "Rensar upp...",
+    "cleaningUp": "Rensar upp…",
     "mirrorComplete": "Spegling klar",
-    "mirrorCompleteDesc": "{{count}} filer har speglats från {{source}} till {{target}}. Destinationen är nu identisk med källan.",
-    "transferCompleteDisconnect": "Överföring klar - Koppla från källan?",
+    "mirrorCompleteDesc_one": "{{count}} fil har speglats från {{source}} till {{target}}. Destinationen är nu identisk med källan.",
+    "mirrorCompleteDesc_other": "{{count}} filer har speglats från {{source}} till {{target}}. Destinationen är nu identisk med källan.",
+    "transferCompleteDisconnect": "Överföringen är klar – vill du koppla från källan?",
     "transferCompleteDisconnectDesc": "Alla inlägg har speglats till {{target}}. Vill du koppla från {{source}} för att undvika förvirring?",
     "passwordRequiredAfterTransfer": "Ange ditt lösenord för att slutföra bytet av lagringsleverantör och ladda om din krypteringsnyckel.",
     "keyValidationFailed": "Krypteringsnyckeln matchar inte",
-    "keyValidationFailedDesc": "Den överförda nyckeln kan inte dekryptera dina anteckningar. Anslut från enheten som har rätt nyckel och synkronisera, eller återställ nyckeln från versionshistoriken."
+    "keyValidationFailedDesc": "Den överförda krypteringsnyckeln kan inte dekryptera dina inlägg. Anslut från enheten som har rätt nyckel och synkronisera, eller återställ nyckeln från versionshistoriken."
   },
   "sync": {
     "title": "Synkronisering klar",
@@ -532,33 +545,37 @@
     "settingUp": "Konfigurerar molnsynkronisering…",
     "settingUpDesc": "Laddar upp krypteringsnyckel och förbereder synkronisering.",
     "initialComplete": "Initial synkronisering klar",
-    "initialCompleteDesc": "{{count}} inlägg synkroniserade.",
+    "initialCompleteDesc_one": "{{count}} inlägg synkroniserat.",
+    "initialCompleteDesc_other": "{{count}} inlägg synkroniserade.",
     "initialFailed": "Initial synkronisering misslyckades",
     "initialFailedDesc": "Kunde inte slutföra initial synkronisering.",
-    "savingEntry": "Sparar inlägg...",
+    "savingEntry": "Sparar inlägg…",
     "savingEntryDesc": "Krypterar och synkroniserar ditt dagboksinlägg.",
     "entrySaved": "Inlägg sparat",
     "entrySavedDesc": "Ditt krypterade dagboksinlägg har sparats och synkroniserats.",
     "failedToSave": "Kunde inte spara inlägg",
-    "deletingEntry": "Tar bort inlägg...",
+    "deletingEntry": "Tar bort inlägg…",
     "deletingEntryDesc": "Tar bort inlägg från lagring och synkroniserar till molnet.",
     "entryDeleted": "Inlägg borttaget",
     "entryDeletedDesc": "Ditt dagboksinlägg har tagits bort och synkroniserats.",
     "deletionFailed": "Borttagning misslyckades",
     "deletionFailedDesc": "Kunde inte ta bort inlägg från lagringen. Ändringar kan återställas.",
     "conflictDetected": "⚠️ Synkroniseringskonflikt upptäckt",
-    "conflictDetectedDesc": "Samtidiga redigeringar löstes automatiskt. {{count}} konflikt(er) loggade.",
+    "conflictDetectedDesc_one": "Samtidiga redigeringar löstes automatiskt. {{count}} konflikt loggades.",
+    "conflictDetectedDesc_other": "Samtidiga redigeringar löstes automatiskt. {{count}} konflikter loggades.",
     "viewConflicts": "Visa konflikter",
     "tooManyRequests": "För många förfrågningar",
     "tooManyRequestsDesc": "Molnlagringen tar emot förfrågningar för snabbt. Synkronisering försöker automatiskt igen.",
     "dropboxRateLimited": "Dropbox är upptagen",
-    "dropboxRateLimitedDesc": "För många skrivoperationer. Väntar innan nytt försök..."
+    "dropboxRateLimitedDesc": "För många skrivoperationer. Väntar innan nytt försök…"
   },
   "export": {
     "complete": "Export klar",
     "completeDesc": "Din dagboksdata har exporterats.",
     "myJournal": "Min personliga dagbok",
     "entries": "inlägg",
+    "entryCount_one": "{{count}} inlägg",
+    "entryCount_other": "{{count}} inlägg",
     "exportedOn": "Exporterad",
     "mood": "Humör",
     "tags": "Taggar"
@@ -566,7 +583,7 @@
   "settings": {
     "title": "Inställningar",
     "upgrade": "Uppgradera till Plus",
-    "upgradeDesc": "Omdirigerar till prenumerationshantering...",
+    "upgradeDesc": "Omdirigerar till prenumerationshantering…",
     "signedOut": "Utloggad",
     "signedOutDesc": "Du har loggats ut",
     "resetComplete": "Klart",
@@ -592,9 +609,9 @@
       "current": "Nuvarande e-post",
       "new": "Ny e-postadress",
       "change": "Ändra e-post",
-      "verificationSent": "Verifieringsmail skickat",
-      "verificationSentDesc": "Verifieringsmail har skickats till både din nuvarande och din nya e-postadress. Kontrollera båda inkorgen (och skräppostmappar) och klicka på bekräftelselänken i varje e-post för att slutföra ändringen.",
-      "verificationNote": "Ett verifieringsmail skickas till din nuvarande e-postadress för att bekräfta ändringen.",
+      "verificationSent": "Verifieringsmejl skickat",
+      "verificationSentDesc": "Verifieringsmejl har skickats till både din nuvarande och din nya e-postadress. Kontrollera båda inkorgarna (och skräppostmapparna) och klicka på bekräftelselänken i båda mejlen för att slutföra ändringen.",
+      "verificationNote": "Ett verifieringsmejl skickas till din nuvarande e-postadress för att bekräfta ändringen.",
       "changeSuccess": "E-post uppdaterad",
       "changeSuccessDesc": "Din e-postadress har ändrats.",
       "changeFailed": "Kunde inte ändra e-post",
@@ -607,7 +624,7 @@
     },
     "deleteAccount": {
       "title": "Radera konto",
-      "description": "Radera permanent ditt konto och alla tillhörande data från våra servrar.",
+      "description": "Radera ditt konto och all tillhörande data permanent från våra servrar.",
       "warning": "Detta kommer att avbryta din prenumeration, radera din profil och ta bort alla dina data. Denna åtgärd kan inte ångras.",
       "confirmLabel": "Skriv DELETE ACCOUNT för att bekräfta:",
       "button": "Radera mitt konto",
@@ -615,9 +632,9 @@
       "successDesc": "Ditt konto har raderats permanent.",
       "failed": "Kunde inte radera konto",
       "failedDesc": "Försök igen senare eller kontakta support.",
-      "deletingLocal": "Raderar lokal data...",
-      "deletingCloud": "Raderar molnfiler ({{current}}/{{total}})...",
-      "doNotClose": "Vänligen håll denna sida öppen tills raderingen är klar"
+      "deletingLocal": "Raderar lokal data…",
+      "deletingCloud": "Raderar molnfiler ({{current}}/{{total}})…",
+      "doNotClose": "Håll den här sidan öppen tills raderingen är klar"
     },
     "journalName": {
       "title": "Dagboksnamn",
@@ -634,7 +651,7 @@
     "dataManagement": {
       "cloudSyncTitle": "Molnlagringssynkronisering (rekommenderad)",
       "cloudSyncDesc": "Håller automatiskt dina dagböcker synkroniserade mellan enheter med krypterad molnlagring. Din data förblir privat och säker.",
-      "backupTitle": "Säkerhetskopiering & återställning",
+      "backupTitle": "Säkerhetskopiering och återställning",
       "backupDesc": "Skapa JSON-säkerhetskopior av din dagboksdata för förvaring eller migrering.",
       "exportBackup": "Exportera säkerhetskopia",
       "importBackup": "Importera säkerhetskopia",
@@ -663,7 +680,7 @@
       "noDownloads": "Ingen nedladdning krävs",
       "requiresInternet": "Kräver internetanslutning",
       "privacyNote": "Integritetsmeddelande",
-      "privacyDesc": "När du använder AI-funktioner skickas ditt dagboksinnehåll säkert till tredjepartstjänster för AI-analys. Vi lagrar inte denna data på våra servrar. Våra AI-leverantörer kan tillfälligt behålla data för missbruksövervakning men använder den inte för modellträning.",
+      "privacyDesc": "När du använder AI-funktioner skickas ditt dagboksinnehåll säkert till en AI-tjänst från tredje part för analys. Vi lagrar inte dessa data på våra servrar. Vår AI-leverantör kan tillfälligt spara data för att övervaka missbruk men använder dem inte för att träna modeller.",
       "manageSubscription": "Hantera",
       "portalError": "Kunde inte öppna prenumerationshanteraren",
       "portalErrorDesc": "Försök igen senare."
@@ -678,8 +695,8 @@
   },
   "password": {
     "encryptionKeyError": "Krypteringsnyckelfel",
-    "cloudConnected": "Moln anslutet",
-    "cloudConnectedDesc": "Din krypteringsnyckel och inlägg börjar synkroniseras.",
+    "cloudConnected": "Molnlagring ansluten",
+    "cloudConnectedDesc": "Din krypteringsnyckel och dina inlägg börjar synkroniseras.",
     "cloudSetupFailed": "Molninställning misslyckades",
     "cloudSetupFailedDesc": "Kunde inte spara krypteringsnyckel till molnet."
   },
@@ -695,7 +712,7 @@
     "disconnect": "Koppla från",
     "update": "Uppdatera anslutning",
     "cancel": "Avbryt",
-    "testing": "Testar anslutning...",
+    "testing": "Testar anslutning…",
     "setupHelp": "Installationshjälp",
     "connectionError": "Anslutningsfel",
     "authError": "Autentiseringsfel",
@@ -716,25 +733,25 @@
     "waitSeconds": "Vänta {{seconds}} sekunder innan du försöker igen.",
     "notConnected": "Nextcloud inte ansluten",
     "scanQrCode": "Skanna QR-kod",
-    "scanQrCodeDesc": "Skanna QR-koden från Nextclouds app-lösenordsskärm",
+    "scanQrCodeDesc": "Skanna QR-koden på skärmen för applösenord i Nextcloud",
     "orEnterManually": "eller ange manuellt",
     "qrScanFailed": "QR-skanning misslyckades",
-    "qrInvalidFormat": "Ogiltigt QR-kodformat. Skanna QR-koden från Nextclouds app-lösenordsskärm.",
+    "qrInvalidFormat": "Ogiltigt QR-kodformat. Skanna QR-koden på skärmen för applösenord i Nextcloud.",
     "qrCameraPermission": "Kamerabehörighet krävs för att skanna QR-koder",
     "qrCameraPermissionDenied": "Kamerabehörighet nekades. Aktivera kameraåtkomst i enhetsinställningarna.",
     "openCameraToScan": "Öppna kamera för att skanna",
-    "qrScanning": "Skannar...",
+    "qrScanning": "Skannar…",
     "qrSuccess": "Inloggningsuppgifter skannade",
     "qrSuccessDesc": "Anslutningsuppgifterna har fyllts i. Tryck på Anslut för att fortsätta."
   },
   "timeline": {
-    "today": "Idag",
-    "yesterday": "Igår",
+    "today": "I dag",
+    "yesterday": "I går",
     "thisWeek": "Denna vecka",
     "thisMonth": "Denna månad",
     "backToTop": "Tillbaka till toppen",
     "newEntry": "Nytt inlägg",
-    "searchPlaceholder": "Sök inlägg...",
+    "searchPlaceholder": "Sök inlägg…",
     "startDate": "Startdatum",
     "endDate": "Slutdatum",
     "noEntries": "Inga matchande inlägg",
@@ -755,20 +772,23 @@
       "terrible": "Fruktansvärt"
     },
     "tags": "Taggar",
-    "addTag": "Lägg till tagg...",
+    "addTag": "Lägg till tagg…",
     "addTagsPlaceholder": "Lägg till taggar (tryck Enter)",
-    "startWriting": "Börja skriva dina tankar...",
+    "startWriting": "Börja skriva dina tankar…",
     "maxTags": "Maximalt antal taggar nått",
     "maxTagsDesc": "Du kan bara lägga till upp till 20 taggar per inlägg",
+    "maxActivitiesReached": "Gränsen för aktiviteter är nådd",
+    "maxActivitiesReachedDesc": "Du kan ha högst 20 aktiviteter per inlägg.",
+    "maxActivitiesSkippedDesc": "Vissa aktiviteter lades inte till eftersom du har nått gränsen på 20.",
     "invalidTag": "Ogiltig tagg",
     "proFeature": "Plus-funktion",
     "imageUploadPro": "Bilduppladdningar är endast tillgängliga för Plus-användare.",
     "pdfExportPro": "PDF-export är endast tillgänglig för Plus-användare.",
     "wordExportPro": "Word-export är endast tillgänglig för Plus-användare.",
     "fileTooLarge": "Filen är för stor",
-    "fileTooLargeDesc": "Enskilda bilder måste vara under 5MB.",
+    "fileTooLargeDesc": "Varje bild måste vara mindre än 5 MB.",
     "totalSizeLimit": "Total storleksgräns nådd",
-    "totalSizeLimitDesc": "Maximalt 20MB totalt för alla bilder per inlägg.",
+    "totalSizeLimitDesc": "Maximalt 20 MB totalt för alla bilder per inlägg.",
     "imageAdded": "Bild tillagd",
     "imageAddedDesc": "Bilden komprimerades och lades till i inlägget.",
     "compressionFailed": "Komprimering misslyckades",
@@ -779,12 +799,12 @@
     "wordExportedDesc": "Ditt dagboksinlägg har sparats som Word-dokument.",
     "validationError": "Valideringsfel",
     "validationErrorDesc": "Kontrollera ditt inlägg",
-    "titlePlaceholder": "Inläggets titel...",
+    "titlePlaceholder": "Inläggets titel…",
     "saveEntry": "Spara inlägg",
     "inlineTagBadgeHint": "Tillagda från #taggar i texten"
   },
   "storage": {
-    "connecting": "Ansluter...",
+    "connecting": "Ansluter…",
     "connectionFailed": "Anslutning misslyckades",
     "connectionError": "Anslutningsfel",
     "reconnectHint": "Om problemet kvarstår, försök koppla från och återansluta din lagring i Inställningar.",
@@ -792,17 +812,18 @@
     "syncInProgress": "Synkronisering pågår",
     "waitForSyncComplete": "Vänta tills nuvarande synkronisering är klar innan du byter krypteringsläge.",
     "pendingUploads": "Väntande uppladdningar",
-    "pendingUploadsWarning": "{{count}} inlägg laddas fortfarande upp. Att koppla från nu kan orsaka dataförlust. Fortsätta ändå?",
-    "encryptionPassword": "Kryptering & lösenord",
+    "pendingUploadsWarning_one": "{{count}} inlägg laddas fortfarande upp. Om du kopplar från nu kan du förlora data. Vill du fortsätta ändå?",
+    "pendingUploadsWarning_other": "{{count}} inlägg laddas fortfarande upp. Om du kopplar från nu kan du förlora data. Vill du fortsätta ändå?",
+    "encryptionPassword": "Kryptering och lösenord",
     "encryptionMode": "Krypteringsläge",
     "encryptionModeDesc": "Välj hur dina dagboksinlägg skyddas under synkronisering",
     "simpleMode": "Enkelt (inget lösenord)",
     "simpleModeDesc": "Inlägg synkroniseras till molnet som läsbara JSON-filer. Enklare inställning, inget lösenord behövs.",
-    "e2eMode": "End-to-End-krypterad",
+    "e2eMode": "End-to-end-krypterad",
     "e2eModeDesc": "Inlägg krypteras lokalt innan molnsynkronisering. Endast du kan dekryptera med ditt lösenord. Maximal integritet.",
     "cannotSwitch": "Kan inte byta krypteringsläge",
     "cannotSwitchDesc": "Du har befintliga inlägg. Ta bort all data innan du byter krypteringsläge.",
-    "cannotSwitchFromE2E": "Kan inte byta från E2E-läge - återställ data först vid behov",
+    "cannotSwitchFromE2E": "Det går inte att byta från E2E-läge – återställ data först vid behov",
     "cannotSwitchToE2E": "För att använda E2E-kryptering, koppla från molnlagringen först eller återställ all data.",
     "disconnectFirst": "Koppla från molnlagringen eller återställ all data för att ändra krypteringsläge.",
     "cannotVerify": "Kan inte verifiera inlägg",
@@ -821,19 +842,19 @@
     "passwordStoredSecurely": "Ditt lösenord är säkert lagrat på denna enhet för automatisk kryptering.",
     "clearStoredPassword": "Rensa sparat lösenord",
     "forgotPassword": "Glömt ditt lösenord?",
-    "forgotPasswordOption1": "Använd 'Byt lösenord' nedan om du vet ditt nuvarande lösenord",
-    "forgotPasswordOption2": "Exportera en säkerhetskopia först, använd sedan 'TA BORT all data' i Farozonen för att börja om",
+    "forgotPasswordOption1": "Använd \"Byt lösenord\" nedan om du vet ditt nuvarande lösenord",
+    "forgotPasswordOption2": "Exportera en säkerhetskopia först och använd sedan \"Återställ all data\" i Farozonen för att börja om",
     "changePassword": "Byt lösenord",
     "changePasswordDesc": "Byt ditt dagbokslösenord. Alla inlägg krypteras om med det nya lösenordet.",
     "dangerZone": "Farozon",
     "resetAllData": "Återställ all data",
-    "resetAllDataDesc": "Ta bort permanent alla inlägg, krypteringsnycklar och cachat lösenord",
+    "resetAllDataDesc": "Ta bort alla inlägg, krypteringsnycklar och det cachade lösenordet permanent",
     "resetAllDataWarning": "Detta kommer permanent att radera alla dina dagboksinlägg, krypteringsnycklar och cachat lösenord. Om du använder E2E-kryptering blir dina inlägg permanent oläsbara eftersom krypteringsnyckeln förstörs.",
     "resetAllDataConfirm": "Denna åtgärd kan inte ångras. Fortsätta?",
     "backupRecommendation": "Vi rekommenderar starkt att du skapar en säkerhetskopia innan du fortsätter.",
-    "backupInstructions": "Exportera en säkerhetskopia av dina data innan du fortsätter.",
+    "backupInstructions": "Så skapar du en säkerhetskopia: Tryck på din profilikon (uppe till höger) → Exportera data",
     "confirmReset": "Skriv DELETE för att bekräfta",
-    "resetting": "Återställer...",
+    "resetting": "Återställer…",
     "resetButton": "Radera allt",
     "allDataDeleted": "All data borttagen",
     "allDataDeletedDesc": "Alla inlägg, krypteringsnycklar och cachat lösenord har rensats. Krypterad data är nu permanent otillgänglig. Du kan börja om.",
@@ -842,9 +863,10 @@
     "syncing": "Synkroniserar…",
     "syncingDesc": "Ansluter till molnlagring",
     "synced": "Synkroniserad",
-    "syncedDesc": "Ansluten och inlägg laddade",
+    "syncedDesc_one": "Anslöt till {{provider}} och läste in {{count}} inlägg",
+    "syncedDesc_other": "Anslöt till {{provider}} och läste in {{count}} inlägg",
     "syncFailed": "Synkronisering misslyckades",
-    "syncFailedDesc": "Kunde inte synkronisera med molnlagring",
+    "syncFailedDesc": "Det gick inte att synkronisera med {{provider}}",
     "switchedToE2E": "Bytte till E2E-kryptering",
     "switchedToE2EDesc": "Ange ditt lösenord för att dekryptera dina inlägg.",
     "disconnectedForE2E": "Lagring frånkopplad",
@@ -873,7 +895,8 @@
     "conflictResolution": "• Automatisk konfliktlösning för samtidiga redigeringar",
     "offlineSupport": "• Fullt offline-stöd med bakgrundssynkronisering",
     "cannotSwitchMode": "Kan inte byta krypteringsläge",
-    "cannotSwitchModeDesc": "Du har {{count}} befintliga inlägg. Ta bort all data innan du byter krypteringsläge.",
+    "cannotSwitchModeDesc_one": "Du har {{count}} befintligt inlägg. Ta bort all data innan du byter krypteringsläge.",
+    "cannotSwitchModeDesc_other": "Du har {{count}} befintliga inlägg. Ta bort all data innan du byter krypteringsläge.",
     "cannotVerifyEntries": "Kan inte verifiera inlägg",
     "cannotVerifyEntriesDesc": "Ange ditt lösenord först eller återställ all data.",
     "passwordSaved": "Lösenord sparat",
@@ -884,9 +907,9 @@
     "passwordNotSet": "Inget lösenord är för närvarande angivet. Ange ett lösenord för att aktivera E2E-kryptering.",
     "passwordWillBeRequested": "Lösenord kommer att efterfrågas vid anslutning till molnleverantörer.",
     "clearPasswordConfirm": "Detta kommer att ta bort det sparade krypteringslösenordet från denna enhet. Du behöver ange ditt lösenord igen nästa gång du öppnar appen.\n\nDin krypterade data påverkas inte.\n\nFortsätta?",
-    "changePasswordConfirm": "Är du säker?\n\nDetta kommer att dekryptera alla dina inlägg med det gamla lösenordet och kryptera om dem med det nya lösenordet.\n\nKom ihåg ditt nya lösenord - det kan inte återställas om du glömmer det.\n\nFortsätta?",
+    "changePasswordConfirm": "Är du säker?\n\nDetta kommer att dekryptera alla dina inlägg med det gamla lösenordet och kryptera om dem med det nya lösenordet.\n\nKom ihåg ditt nya lösenord – det kan inte återställas om du glömmer det.\n\nFortsätta?",
     "confirmationRequiredDesc": "Skriv \"DELETE\" för att bekräfta.",
-    "finalConfirm": "Slutlig bekräftelse\n\nDetta kommer permanent att ta bort alla dina dagboksinlägg från din enhet och molnlagring.\n\n⚠️ Rekommenderas: Skapa en säkerhetskopia innan du fortsätter!\nFör att skapa en säkerhetskopia: Klicka på din profilikon (uppe till höger) → Exportera data\n\nÄr du helt säker på att du vill fortsätta?",
+    "finalConfirm": "Slutlig bekräftelse\n\nDetta kommer permanent att ta bort alla dina dagboksinlägg från din enhet och din molnlagring.\n\n⚠️ Rekommendation: Skapa en säkerhetskopia innan du fortsätter!\nSå skapar du en säkerhetskopia: Tryck på din profilikon (uppe till höger) → Exportera data\n\nÄr du helt säker på att du vill fortsätta?",
     "passwordPersistenceChanged": "Lösenordslagring uppdaterad",
     "passwordPersistenceError": "Kunde inte uppdatera lösenordslagringsinställning",
     "passwordPersistence": {
@@ -908,7 +931,7 @@
     "cloudStorageDesc": "Anslut till din föredragna molnlagringsleverantör. All data är {{mode}}.",
     "e2eEncrypted": "end-to-end-krypterad",
     "storedWithoutEncryption": "lagrad utan kryptering",
-    "dangerZoneDesc": "Ta bort permanent alla dagboksinlägg, krypteringsnycklar och cachat lösenord. Denna åtgärd kan inte ångras.",
+    "dangerZoneDesc": "Ta bort alla dagboksinlägg, krypteringsnycklar och det cachade lösenordet permanent. Denna åtgärd kan inte ångras.",
     "googleDrive": "Google Drive",
     "googleDriveDesc": "Synkronisera dina krypterade dagboksinlägg med Google Drive.",
     "connectGoogleDrive": "Anslut Google Drive",
@@ -940,6 +963,7 @@
     "connectedAsSecondary": "{{provider}} ansluten",
     "switchToPrimaryToSync": "Byt till denna leverantör i rullgardinsmenyn ovan för att börja synkronisera",
     "icloud": "iCloud",
+    "icloudConnected": "Ansluten till iCloud",
     "providerTransfer": "Överföring mellan leverantörer",
     "providerTransferDesc": "Anslut minst 2 molnleverantörer för att överföra data mellan dem.",
     "transferBetweenProviders": "Överför mellan leverantörer",
@@ -948,28 +972,28 @@
     "to": "Till",
     "selectSource": "Välj källa",
     "selectTarget": "Välj mål",
-    "transferring": "Överför...",
-    "cleaningUp": "Rensar upp...",
+    "transferring": "Överför…",
+    "cleaningUp": "Rensar upp…",
     "startTransfer": "Starta överföring",
     "connected": "Ansluten",
     "disconnect": "Koppla från",
     "disconnected": "Frånkopplad",
     "multipleProvidersWarning": "Flera lagringsleverantörer anslutna",
     "multipleProvidersWarningDesc": "Endast den primära leverantören synkroniserar aktivt data. Sekundära leverantörer är endast för migrering. Använd migrering för att överföra data, koppla sedan från inaktiva leverantörer.",
-    "migrationCompleteDisconnect": "Migrering klar - Koppla från källan?",
+    "migrationCompleteDisconnect": "Migreringen är klar – vill du koppla från källan?",
     "migrationCompleteDisconnectDesc": "Alla inlägg har kopierats till {{target}}. Vill du koppla från {{source}} för att undvika förvirring?",
     "disconnectSource": "Koppla från {{source}}",
     "keepBoth": "Behåll båda anslutna",
     "activeSync": "Aktiv",
     "activeSyncDesc": "Denna lagring synkroniserar aktivt din data",
     "inactiveSync": "Inaktiv",
-    "inactiveSyncDesc": "Synkroniserar inte - använd migrering för att överföra data hit",
+    "inactiveSyncDesc": "Synkroniserar inte – använd migrering för att överföra data hit",
     "primary": "Primär",
     "primaryDesc": "Denna lagring används för att läsa data",
     "secondary": "Sekundär",
     "secondaryDesc": "Data synkroniseras även hit",
-    "verifyingProvider": "Verifierar leverantör...",
-    "checkingEncryptionKey": "Letar efter krypteringsnyckel...",
+    "verifyingProvider": "Verifierar leverantör…",
+    "checkingEncryptionKey": "Letar efter krypteringsnyckel…",
     "noKeyOnProvider": "Ingen krypteringsnyckel hittades",
     "noKeyOnProviderDesc": "{{provider}} har inte din krypteringsnyckel. Använd migrering eller kopiera nyckeln först.",
     "cannotVerifyProvider": "Kan inte verifiera leverantör",
@@ -977,15 +1001,15 @@
     "copyEncryptionKey": "Kopiera krypteringsnyckel",
     "copyKeyTo": "Kopiera till {{provider}}",
     "copyKeyExplanation": "Kopiera din krypteringsnyckel från den aktiva leverantören till en annan ansluten leverantör så att du kan växla mellan dem.",
-    "copyingKey": "Kopierar krypteringsnyckel...",
-    "copyingKeyDesc": "Kopierar från {{source}} till {{target}}...",
+    "copyingKey": "Kopierar krypteringsnyckel…",
+    "copyingKeyDesc": "Kopierar från {{source}} till {{target}}…",
     "keyCopied": "Krypteringsnyckel kopierad",
     "keyCopiedDesc": "Din krypteringsnyckel har kopierats till {{provider}}. Du kan nu byta till denna leverantör.",
     "copyKeyFailed": "Kunde inte kopiera nyckel",
     "noKeyToCopy": "Ingen krypteringsnyckel tillgänglig att kopiera",
     "noPrimaryProvider": "Ingen primär leverantör ansluten",
     "noEncryptionKey": "Ingen krypteringsnyckel hittades",
-    "copyKeyFirst": "Denna leverantör har inte din krypteringsnyckel. Använd 'Kopiera krypteringsnyckel' eller överför data först.",
+    "copyKeyFirst": "Denna leverantör har inte din krypteringsnyckel. Använd \"Kopiera krypteringsnyckel\" eller överför data först.",
     "idle": "Redo att synkronisera",
     "connectProvider": "Anslut en molnlagringsleverantör i Inställningar för att aktivera automatisk synkronisering",
     "lastSync": "Senaste synkronisering: {{time}}"
@@ -1018,21 +1042,21 @@
     "newPasswordPlaceholder": "Ange nytt lösenord (minst 12 tecken)",
     "confirmNewPassword": "Bekräfta nytt lösenord",
     "confirmNewPasswordPlaceholder": "Ange nytt lösenord igen",
-    "changing": "Ändrar...",
+    "changing": "Ändrar…",
     "changeButton": "Byt lösenord",
     "passwordChanged": "Lösenord ändrat",
     "passwordChangedDesc": "Ditt krypteringslösenord har uppdaterats. Använd detta nya lösenord på alla dina enheter.",
     "changeFailed": "Lösenordsändring misslyckades",
     "changeFailedDesc": "Kunde inte ändra lösenord. Kontrollera ditt nuvarande lösenord.",
     "dangerZone": "Farozon",
-    "deleteAllEntriesDesc": "Ta bort permanent alla dagboksinlägg från lokal lagring och moln. Denna åtgärd kan inte ångras.",
+    "deleteAllEntriesDesc": "Ta bort alla dagboksinlägg från lokal lagring och molnet permanent. Denna åtgärd kan inte ångras.",
     "warningPermanent": "Varning: Detta är permanent!",
     "warningPermanentDesc": "Om du använder E2E-kryptering blir dina inlägg permanent oläsliga eftersom krypteringsnyckeln förstörs.",
     "typeToConfirm": "Skriv \"DELETE ALL\" för att bekräfta",
     "typeDeleteToConfirm": "Skriv \"DELETE ALL\" för att bekräfta",
     "confirmationRequired": "Bekräftelse krävs",
     "confirmationRequiredDesc": "Skriv \"DELETE ALL\" för att bekräfta.",
-    "deleting": "Tar bort...",
+    "deleting": "Tar bort…",
     "deleteAllEntries": "Ta bort alla inlägg",
     "deleteAllButton": "Ta bort alla inlägg",
     "changePasswordButton": "Byt lösenord",
@@ -1045,8 +1069,8 @@
     "incorrectPassword": "Felaktigt lösenord",
     "incorrectPasswordDesc": "Lösenordet du angav är felaktigt. Försök igen.",
     "e2eExplanation": "Dina dagboksinlägg krypteras på din enhet innan de synkroniseras till molnet.",
-    "chooseStrongPassword": "Välj ett starkt lösenord. Det kan inte återställas om det förloras — se till att du kommer ihåg det eller lagrar det säkert.",
-    "howE2EWorks": "Hur End-to-End-kryptering fungerar",
+    "chooseStrongPassword": "Välj ett starkt lösenord. Det kan inte återställas om det förloras – se till att du kommer ihåg det eller lagrar det säkert.",
+    "howE2EWorks": "Så fungerar end-to-end-kryptering",
     "criticalSavePassword": "Kritiskt: Spara ditt lösenord",
     "setPasswordContinue": "Ange lösenord och fortsätt",
     "saltNotFound": "Krypteringsinställning hittades inte",
@@ -1073,24 +1097,25 @@
     "encryptedEntriesNeedCloudDesc": "Du har krypterade inlägg från en tidigare synkronisering. Anslut till samma molnlagring med ditt krypteringslösenord för att få åtkomst.",
     "reconnectToAccessEntries": "Anslut till molnlagringen igen för att få åtkomst till de krypterade inläggen. De synkroniserades med E2E-kryptering och kräver samma lagringsanslutning.",
     "migrateEntries": "Migrera okrypterade inlägg",
-    "migrateEntriesDesc": "{{count}} inlägg är inte krypterade. Migrera dem till E2E-kryptering för full säkerhet.",
+    "migrateEntriesDesc_one": "{{count}} inlägg är inte krypterat. Migrera det till E2E-kryptering för full säkerhet.",
+    "migrateEntriesDesc_other": "{{count}} inlägg är inte krypterade. Migrera dem till E2E-kryptering för full säkerhet.",
     "migrationComplete": "Migrering klar",
     "migrationCompleteDesc": "{{migrated}} inlägg krypterade. {{failed}} misslyckades.",
     "migrated": "Migrerade",
     "skipped": "Redan krypterade",
     "failed": "Misslyckades",
-    "migrating": "Migrerar inlägg...",
+    "migrating": "Migrerar inlägg…",
     "migrateNow": "Kryptera alla inlägg",
     "resetEncryption": "Återställ krypteringsnyckel",
     "resetToSimpleMode": "Bytte till Enkelt läge. Ange ett nytt lösenord för att återaktivera E2E-kryptering.",
-    "resetting": "Ändrar lösenord..."
+    "resetting": "Ändrar lösenord…"
   },
   "providers": {
     "googleDrive": {
       "title": "Google Drive-lagring",
       "description": "Synkronisera dina krypterade dagboksinlägg med Google Drive (endast appmapp).",
       "connected": "Ansluten",
-      "connecting": "Ansluter...",
+      "connecting": "Ansluter…",
       "connect": "Anslut till Google Drive",
       "disconnect": "Koppla från",
       "disconnected": "Frånkopplad",
@@ -1109,13 +1134,13 @@
       "simpleMode": "Enkelt läge:",
       "simpleModeDesc": "Dina Google OAuth-tokens lagras okrypterade i enhetens lokala lagring. För bättre säkerhet, aktivera E2E-krypterat läge i Lagringsinställningar.",
       "syncing": "Dina dagboksinlägg synkroniseras med Google Drive-appmappen. Inloggningsuppgifter är krypterade lokalt.",
-      "refreshingToken": "Uppdaterar åtkomsttoken..."
+      "refreshingToken": "Uppdaterar åtkomsttoken…"
     },
     "dropbox": {
       "title": "Dropbox-lagring",
       "description": "Synkronisera dina krypterade dagboksinlägg med Dropbox molnlagring.",
       "connected": "Ansluten",
-      "connecting": "Ansluter...",
+      "connecting": "Ansluter…",
       "connect": "Anslut till Dropbox",
       "disconnect": "Koppla från",
       "disconnected": "Frånkopplad",
@@ -1134,13 +1159,13 @@
       "simpleMode": "Enkelt läge:",
       "simpleModeDesc": "Dina Dropbox OAuth-tokens lagras okrypterade i enhetens lokala lagring. För bättre säkerhet, aktivera E2E-krypterat läge i Lagringsinställningar.",
       "syncing": "Dina dagboksinlägg synkroniseras med Dropbox i /OwnJournal-mappen. Inloggningsuppgifter är krypterade lokalt.",
-      "refreshingToken": "Uppdaterar åtkomsttoken..."
+      "refreshingToken": "Uppdaterar åtkomsttoken…"
     },
     "nextcloud": {
       "title": "Nextcloud-lagring",
       "description": "Självhostad, privat molnlagring med full kontroll över din data.",
       "connected": "Ansluten",
-      "connecting": "Ansluter...",
+      "connecting": "Ansluter…",
       "connect": "Anslut till Nextcloud",
       "disconnect": "Koppla från",
       "configure": "Konfigurera",
@@ -1159,7 +1184,7 @@
       "connectedSuccess": "Ansluten till Nextcloud",
       "connectedSuccessDesc": "Din dagbok synkroniseras nu med din Nextcloud-server.",
       "connectionFailed": "Anslutning misslyckades",
-      "testingConnection": "Testar anslutning...",
+      "testingConnection": "Testar anslutning…",
       "simpleMode": "Enkelt läge:",
       "simpleModeDesc": "Dina Nextcloud-inloggningsuppgifter lagras okrypterade i enhetens lokala lagring. För bättre säkerhet, aktivera E2E-krypterat läge i Lagringsinställningar.",
       "server": "Server:",
@@ -1170,6 +1195,7 @@
       "credentialsRequired": "Ange API-token och container-ID",
       "connectionFailed": "Anslutning misslyckades",
       "connectionTestFailed": "Anslutningstestet misslyckades",
+      "connectionTestFailed421Hint": "Om du använder localhost eller en egen domän lägger du till den under Allowed Origins för din CloudKit API-token i CloudKit Dashboard.",
       "notAvailable": "Inte tillgänglig på denna plattform",
       "notAvailableDesc": "iCloud stöds endast på iOS, macOS och webbläsare. Använd Nextcloud, Google Drive eller Dropbox för molnlagring på denna enhet.",
       "connected": "Ansluten",
@@ -1185,7 +1211,7 @@
       "connectionTestSuccessDesc": "iCloud-lagring fungerar korrekt",
       "devSetupRequired": "Apple Developer-inställning krävs",
       "devSetupRequiredDesc": "Klicka för att konfigurera iCloud-integration",
-      "requiresDevAccount": "iCloud-integration kräver ett Apple Developer-konto (99$/år).",
+      "requiresDevAccount": "iCloud-integration kräver ett Apple Developer-konto (99 USD/år).",
       "learnMore": "Läs mer",
       "simpleMode": "Enkelt läge:",
       "simpleModeDesc": "Dina iCloud-inloggningsuppgifter lagras okrypterade.",
@@ -1201,18 +1227,19 @@
       "apiTokenDesc": "API-token från Apple Developer Console → CloudKit Dashboard → API-åtkomst",
       "environmentDesc": "Använd Utveckling vid testning, Produktion för publicerade appar",
       "syncDesc": "Synkronisera din krypterade dagbok med iCloud. Dina data förblir privata på alla dina Apple-enheter.",
-      "signInWithAppleDesc": "Logga in med ditt Apple-ID för att ansluta iCloud. Klicka på knappen nedan för att öppna Apple-inloggningsfönstret.",
-      "signInWithAppleButton": "Logga in med Apple ID",
+      "detailsLabel": "Detaljer",
+      "signInWithAppleDesc": "Logga in med ditt Apple-konto för att ansluta iCloud. Klicka på knappen nedan för att öppna Apple-inloggningsfönstret.",
+      "signInWithAppleButton": "Logga in med Apple",
       "afterSignedInDesc": "Efter inloggning i popup-fönstret, klicka nedan för att fortsätta.",
-      "continueAfterSignIn": "Jag har loggat in — Fortsätt",
+      "continueAfterSignIn": "Jag har loggat in – fortsätt",
       "signInRequired": "Inloggning inte detekterad",
       "signInRequiredDesc": "Slutför Apple-inloggningen först och klicka sedan på Fortsätt.",
       "popupBlocked": "Inloggningsfönstret kan ha blockerats. Tillåt popup-fönster för denna webbplats och försök igen.",
       "signInLinkNotReady": "Apple-inloggningen laddas fortfarande. Vänta en stund och försök igen.",
-      "originNotAllowed": "Denna appens ursprung ({{origin}}) är inte registrerat med iCloud.",
-      "adpNotice": "iCloud kan inte användas i en webbläsare när Avancerat dataskydd är aktiverat för ditt Apple ID, eftersom Apple då blockerar webbåtkomst till appdata. Använd iPhone- eller iPad-appen för iCloud, eller välj Google Drive, Dropbox eller Nextcloud för att synka i den här webbläsaren.",
-      "signInWebAccessOff": "Apple rapporterar att webbåtkomst till iCloud-data är avstängd för detta Apple ID. Slå på den på din iPhone under Inställningar > ditt namn > iCloud > iCloud.com och försök igen.",
-      "signInFailedAdp": "Apple kunde inte slutföra iCloud-inloggningen. Det beror oftast på att Avancerat dataskydd är aktiverat för ditt Apple ID, och Apple tillåter inte att sådana konton använder iCloud i en webbläsare. Använd iPhone- eller iPad-appen för iCloud, eller anslut Google Drive, Dropbox eller Nextcloud i stället."
+      "originNotAllowed": "Den här appens ursprung ({{origin}}) är inte registrerat hos iCloud.",
+      "adpNotice": "iCloud kan inte användas i en webbläsare när Avancerat dataskydd är aktiverat för ditt Apple-konto, eftersom Apple då blockerar webbåtkomst till appdata. Använd iPhone- eller iPad-appen för iCloud, eller välj Google Drive, Dropbox eller Nextcloud för att synkronisera i den här webbläsaren.",
+      "signInWebAccessOff": "Apple rapporterar att webbåtkomst till iCloud-data är avstängd för det här Apple-kontot. Slå på den på din iPhone under Inställningar → ditt namn → iCloud → iCloud.com och försök igen.",
+      "signInFailedAdp": "Apple kunde inte slutföra iCloud-inloggningen. Det beror oftast på att Avancerat dataskydd är aktiverat för ditt Apple-konto, och Apple tillåter inte att sådana konton använder iCloud i en webbläsare. Använd iPhone- eller iPad-appen för iCloud, eller anslut Google Drive, Dropbox eller Nextcloud i stället."
     },
     "oauth": {
       "accessDenied": "Auktorisering avbröts eller nekades.",
@@ -1223,8 +1250,8 @@
     }
   },
   "syncStatus": {
-    "syncing": "Synkroniserar...",
-    "syncingProgress": "Synkroniserar {{percent}}%",
+    "syncing": "Synkroniserar…",
+    "syncingProgress": "Synkroniserar {{percent}} %",
     "synced": "Synkroniserad",
     "syncedTimeAgo": "Synkroniserad {{time}}",
     "syncFailed": "Synkronisering misslyckades",
@@ -1232,25 +1259,26 @@
     "readyToSync": "Redo att synkronisera",
     "noCloudConnected": "Ingen molnlagring ansluten",
     "justNow": "nyss",
-    "minutesAgo": "{{minutes}}m sedan",
-    "hoursAgo": "{{hours}}h sedan",
-    "daysAgo": "{{days}}d sedan",
+    "minutesAgo": "{{minutes}} min sedan",
+    "hoursAgo": "{{hours}} tim sedan",
+    "daysAgo": "{{days}} d sedan",
     "connectedProviders": "Anslutna: {{providers}}",
     "connectProvider": "Anslut en molnlagringsleverantör i Inställningar för att aktivera automatisk synkronisering",
     "lastSync": "Senaste synkronisering: {{time}}",
     "lastSyncSuccess": "Senaste lyckade synkronisering: {{time}}",
     "lastSyncFailed": "Senaste misslyckade synkronisering: {{time}}",
-    "syncInProgress": "Synkronisering pågår...",
+    "syncInProgress": "Synkronisering pågår…",
     "highFailureRate": "Hög felfrekvens vid synkronisering",
-    "highFailureRateDesc": "{{rate}}% av synkroniseringsoperationerna misslyckas. Detta kan indikera anslutningsproblem eller problem med lagringsleverantören.",
+    "highFailureRateDesc": "{{rate}} % av synkroniseringsoperationerna misslyckas. Detta kan indikera anslutningsproblem eller problem med lagringsleverantören.",
     "frequentConflicts": "Frekventa synkroniseringskonflikter",
     "frequentConflictsDesc": "{{rate}} konflikter per 100 synkroniseringar upptäckta. Överväg att minska samtidig redigering mellan enheter.",
-    "recentConflictSpike": "Nylig konfliktökning",
+    "recentConflictSpike": "Plötslig ökning av konflikter",
     "recentConflictSpikeDesc": "Konfliktfrekvensen ökade betydligt den senaste timmen. Flera enheter kan redigera samtidigt.",
     "circuitBreakersActive": "Tillfälliga begränsningar aktiva",
     "circuitBreakersActiveDesc": "Vissa lagringsoperationer är tillfälligt blockerade på grund av upprepade fel. Systemet återhämtar sig automatiskt.",
-    "multipleRecentFailures": "Flera nyliga fel",
-    "multipleRecentFailuresDesc": "{{count}} synkroniseringsförsök misslyckades under de senaste 5 minuterna. Kontrollera din anslutning och lagringsleverantör.",
+    "multipleRecentFailures": "Flera fel nyligen",
+    "multipleRecentFailuresDesc_one": "{{count}} synkroniseringsförsök misslyckades under de senaste 5 minuterna. Kontrollera din anslutning och lagringsleverantör.",
+    "multipleRecentFailuresDesc_other": "{{count}} synkroniseringsförsök misslyckades under de senaste 5 minuterna. Kontrollera din anslutning och lagringsleverantör.",
     "reduceFailures": "Minska synkroniseringsfel",
     "reduceFailuresDesc": "Kontrollera din internetanslutning och lagringsleverantörens inloggningsuppgifter. Överväg att byta leverantör om problemen kvarstår.",
     "reduceFailuresAction": "Kontrollera anslutning",
@@ -1262,34 +1290,35 @@
     "waitForCircuitBreakerAction": "Övervaka status"
   },
   "syncProgress": {
-    "preparing": "Förbereder synkronisering...",
-    "checkingCloud": "Kontrollerar molnfiler...",
-    "downloading": "Laddar ner inlägg...",
-    "uploading": "Laddar upp inlägg...",
-    "finalizing": "Slutför synkronisering...",
-    "syncing": "Synkroniserar...",
-    "preparingSync": "Förbereder synkronisering...",
-    "downloadingEntries": "Laddar ner inlägg...",
-    "uploadingEntries": "Laddar upp inlägg...",
+    "preparing": "Förbereder synkronisering…",
+    "checkingCloud": "Kontrollerar molnfiler…",
+    "downloading": "Laddar ner inlägg…",
+    "uploading": "Laddar upp inlägg…",
+    "finalizing": "Slutför synkronisering…",
+    "syncing": "Synkroniserar…",
+    "preparingSync": "Förbereder synkronisering…",
+    "downloadingEntries": "Laddar ner inlägg…",
+    "uploadingEntries": "Laddar upp inlägg…",
     "syncComplete": "Synkronisering klar!",
-    "verifyingEncryption": "Verifierar kryptering...",
-    "settingUpStructure": "Skapar molnstruktur...",
-    "gatheringData": "Samlar synkroniseringsdata...",
+    "verifyingEncryption": "Verifierar kryptering…",
+    "settingUpStructure": "Skapar molnstruktur…",
+    "gatheringData": "Samlar synkroniseringsdata…",
     "foundEntries": "Hittade inlägg",
-    "syncingOperations": "Synkroniserar väntande operationer...",
-    "reconcilingEntries": "Avstämmer inlägg...",
-    "updatingSyncState": "Uppdaterar synkroniseringsstatus..."
+    "syncingOperations": "Synkroniserar väntande operationer…",
+    "reconcilingEntries": "Stämmer av inlägg…",
+    "updatingSyncState": "Uppdaterar synkroniseringsstatus…"
   },
   "syncHealth": {
-    "title": "Synkroniseringshälsoövervakning",
+    "title": "Övervakning av synkroniseringens hälsa",
     "description": "Realtidsövervakning och varningar för ditt synkroniseringssystem",
     "refresh": "Uppdatera",
-    "auto": "Auto (15s)",
+    "auto": "Auto (15 s)",
     "manual": "Manuell",
     "overallHealth": "Övergripande hälsa",
     "healthScore": "Hälsopoäng",
     "allSystemsNormal": "✓ Alla system normala",
-    "activeAlerts": "Aktiva varningar ({{count}})",
+    "activeAlerts_one": "Aktiva varningar ({{count}})",
+    "activeAlerts_other": "Aktiva varningar ({{count}})",
     "excellent": "Utmärkt",
     "good": "Bra",
     "warning": "Varning",
@@ -1297,11 +1326,11 @@
     "failureRate": "Felfrekvens",
     "conflictRate": "Konfliktfrekvens",
     "circuitBreakers": "Synkskydd",
-    "recentConflicts": "Nyliga konflikter",
-    "recentFailures": "Nyliga fel",
+    "recentConflicts": "Senaste konflikter",
+    "recentFailures": "Senaste fel",
     "avgLatency": "Genomsnittlig latens",
     "target": "Mål",
-    "lessThan10": "<10%",
+    "lessThan10": "<10 %",
     "per100Syncs": "Per 100 synk",
     "noneActive": "Ingen aktiv",
     "active": "Aktiv",
@@ -1319,15 +1348,18 @@
     "circuitBreakersReset": "• Synkskydd återställs automatiskt efter 5 minuter",
     "checkDiagnostics": "• Kontrollera Diagnostikfliken för detaljerade operationsloggar",
     "highFailureRate": "Hög synkroniseringsfelfrekvens",
-    "highFailureRateDesc": "{{rate}}% av synkroniseringsoperationerna misslyckas. Detta kan indikera nätverksproblem eller problem med molnlagringen.",
+    "highFailureRateDesc": "{{rate}} % av synkroniseringsoperationerna misslyckas. Detta kan indikera nätverksproblem eller problem med molnlagringen.",
     "frequentConflicts": "Frekventa synkroniseringskonflikter",
     "frequentConflictsDesc": "{{rate}} konflikter per 100 synkroniseringar upptäckta. Detta antyder samtidig redigering på flera enheter.",
-    "recentConflictSpike": "Nylig konfliktökning",
-    "recentConflictSpikeDesc": "{{count}} konflikter upptäckta den senaste timmen. Du kanske aktivt använder flera enheter.",
+    "recentConflictSpike": "Plötslig ökning av konflikter",
+    "recentConflictSpikeDesc_one": "{{count}} konflikt upptäcktes den senaste timmen. Du använder kanske flera enheter samtidigt.",
+    "recentConflictSpikeDesc_other": "{{count}} konflikter upptäcktes den senaste timmen. Du använder kanske flera enheter samtidigt.",
     "circuitBreakersActive": "Synkskydd aktivt",
-    "circuitBreakersActiveDesc": "{{count}} säkerhetspaus(er) är aktiva på grund av upprepade fel. Synkoperationer är tillfälligt pausade.",
-    "multipleRecentFailures": "Flera nyliga fel",
-    "multipleRecentFailuresDesc": "{{count}} av de senaste 10 operationerna misslyckades. Detta indikerar ett pågående problem.",
+    "circuitBreakersActiveDesc_one": "{{count}} säkerhetspaus är aktiv på grund av upprepade fel. Synkroniseringen är tillfälligt pausad.",
+    "circuitBreakersActiveDesc_other": "{{count}} säkerhetspauser är aktiva på grund av upprepade fel. Synkroniseringen är tillfälligt pausad.",
+    "multipleRecentFailures": "Flera fel nyligen",
+    "multipleRecentFailuresDesc_one": "{{count}} av de senaste 10 åtgärderna misslyckades. Det tyder på ett pågående problem.",
+    "multipleRecentFailuresDesc_other": "{{count}} av de senaste 10 åtgärderna misslyckades. Det tyder på ett pågående problem.",
     "reduceFailures": "Minska synkroniseringsfel",
     "reduceFailuresDesc": "Kontrollera din internetanslutning och åtkomst till molnlagring. Överväg att tillfälligt inaktivera automatisk synkronisering vid dåliga nätverksförhållanden.",
     "reduceFailuresAction": "Kontrollera Diagnostikfliken för detaljerade felloggar",
@@ -1352,10 +1384,10 @@
     "refresh": "Uppdatera",
     "clear": "Rensa",
     "downloadLogs": "Ladda ner loggar",
-    "auto": "Auto (10s)",
+    "auto": "Auto (10 s)",
     "manual": "Manuell",
-    "successRate": "Lyckandefrekvens",
-    "retries": "Försök igen",
+    "successRate": "Andel lyckade",
+    "retries": "Omförsök",
     "failures": "Fel",
     "activeRetries": "Aktiva omförsök",
     "totalAttempts": "Totalt antal försök",
@@ -1364,21 +1396,22 @@
     "circuitBreakers": "Synkskydd",
     "open": "ÖPPEN",
     "closed": "STÄNGD",
-    "failures_count": "{{count}} fel",
+    "failures_count_one": "{{count}} fel",
+    "failures_count_other": "{{count}} fel",
     "reopens": "öppnas igen {{time}}",
     "currentlyRetrying": "Försöker igen just nu",
     "recentOperations": "Senaste operationer",
     "noOperationsYet": "Inga operationer registrerade ännu",
     "operationSucceeded": "Operationen lyckades",
     "attempt": "Försök {{number}}",
-    "retryDelay": "Fördröjning: {{ms}}ms",
+    "retryDelay": "Fördröjning: {{ms}} ms",
     "details": "Detaljer",
     "diagnosticsNote": "Diagnostik lagras i minnet och återställs vid sidladdning. Max 200 poster sparas.",
     "noDiagnosticsYet": "Ingen diagnostik ännu. Utför en synkronisering för att se loggar.",
     "types": {
       "success": "Lyckades",
       "error": "Fel",
-      "retry": "Försök igen",
+      "retry": "Omförsök",
       "operation": "Operation",
       "circuit_breaker": "Synkskydd"
     }
@@ -1387,7 +1420,7 @@
     "title": "Krypterad data upptäckt",
     "description": "Din molnlagring innehåller krypterade dagboksinlägg från en tidigare E2E-inställning.",
     "cannotAccessInSimple": "Dessa inlägg skapades med end-to-end-kryptering och kan inte läsas i Enkelt läge.",
-    "reconnectE2E": "Koppla från & återanslut i E2E-läge",
+    "reconnectE2E": "Koppla från och återanslut i E2E-läge",
     "reconnectE2EDesc": "Koppla från din lagring nu, återanslut sedan med E2E-krypterat läge för att komma åt dina krypterade inlägg.",
     "startFresh": "Fortsätt i Enkelt läge",
     "startFreshDesc": "Ta bort krypterad data från molnet och fortsätt med Enkelt läge. Krypterade inlägg kommer att förloras.",
@@ -1397,7 +1430,7 @@
   },
   "aiAnalysis": {
     "title": "AI-analys",
-    "analyzing": "Analyserar...",
+    "analyzing": "Analyserar…",
     "analyzeEntry": "Analysera inlägg",
     "proFeature": "Plus-funktion",
     "proFeatureDesc": "AI-analys kräver en Plus-prenumeration",
@@ -1418,10 +1451,10 @@
     "alreadyAnalyzed": "Inlägg redan analyserat",
     "alreadyAnalyzedDesc": "Detta inlägg analyserades under trendanalys. Redigera inlägget för att analysera om.",
     "summary": "Sammanfattning",
-    "moodSnapshot": "Humörögonblicksbild",
+    "moodSnapshot": "Humöröversikt",
     "overallTone": "Övergripande ton:",
     "dominantEmotion": "Dominerande känsla:",
-    "emotionsPresent": "Känslor som finns",
+    "emotionsPresent": "Känslor som förekommer",
     "keyThemes": "Nyckelteman",
     "peopleMentioned": "Personer som nämns",
     "show": "Visa",
@@ -1447,16 +1480,20 @@
     "proRequired": "Trendanalys är en Plus-funktion. Uppgradera för att låsa upp detaljerade insikter om dina dagboksmönster.",
     "proFeatureDesc": "Trendanalys kräver en Plus-prenumeration",
     "notEnoughEntries": "Inte tillräckligt med inlägg",
-    "need8Entries": "Behöver minst 8 inlägg i den valda perioden för meningsfull analys.",
-    "needMore": "Behöver minst 8 inlägg",
-    "need8": "Behöver minst 8 inlägg",
-    "entriesInPeriod": "{{count}} inlägg i denna period",
-    "entriesAvailable": "{{count}} inlägg tillgängliga för analys",
+    "need8Entries": "Minst 8 inlägg krävs i den valda perioden för en meningsfull analys.",
+    "needMore": "Minst 8 inlägg krävs",
+    "need8": "Minst 8 inlägg krävs",
+    "entriesInPeriod_one": "{{count}} inlägg under den här perioden",
+    "entriesInPeriod_other": "{{count}} inlägg under den här perioden",
+    "entriesAvailable_one": "{{count}} inlägg tillgängligt för analys",
+    "entriesAvailable_other": "{{count}} inlägg tillgängliga för analys",
     "limitReached": "Gräns nådd",
     "analyzingEntries": "Analyserar inlägg",
-    "analyzingEntriesDesc": "Analyserar {{count}} inlägg för att generera dina insikter...",
-    "analyzing": "Analyserar...",
-    "analyzingCount": "Analyserar {{count}} inlägg först...",
+    "analyzingEntriesDesc_one": "Analyserar {{count}} inlägg för att generera dina insikter…",
+    "analyzingEntriesDesc_other": "Analyserar {{count}} inlägg för att generera dina insikter…",
+    "analyzing": "Analyserar…",
+    "analyzingCount_one": "Analyserar {{count}} inlägg först…",
+    "analyzingCount_other": "Analyserar {{count}} inlägg först…",
     "authRequired": "Autentisering krävs",
     "authRequiredDesc": "Logga in för att använda AI-funktioner",
     "signInRequired": "Logga in för att använda AI-driven trendanalys.",
@@ -1473,7 +1510,7 @@
     "weeklyLimitDesc": "Du kan utföra en trendanalys per vecka. Försök igen nästa vecka.",
     "nextWeek": "Tillgänglig nästa vecka",
     "availableOnceWeek": "Tillgänglig en gång per vecka",
-    "limitMessage": "Veckoanalysgräns nådd - tillgänglig igen nästa vecka",
+    "limitMessage": "Gränsen för veckoanalys är nådd – tillgänglig igen nästa vecka",
     "yourInsights": "Dina dagboksinsikter",
     "backToInsights": "Tillbaka till insikter",
     "periodSummary": "Periodsammanfattning",
@@ -1485,7 +1522,8 @@
     "reflection": "Avslutande reflektion",
     "lastAnalyzed": "Senast analyserad {{date}}",
     "analyzedAt": "Analyserad {{date}}",
-    "entriesAnalyzed": "{{count}} inlägg analyserade",
+    "entriesAnalyzed_one": "{{count}} inlägg analyserat",
+    "entriesAnalyzed_other": "{{count}} inlägg analyserade",
     "reAnalyze": "Analysera igen",
     "selectDifferentPeriod": "Välj en annan period",
     "show": "Visa",
@@ -1493,13 +1531,13 @@
     "summary": "Sammanfattning",
     "progress": {
       "step": "Steg {{current}} av {{total}}",
-      "checkingEntries": "Kontrollerar inlägg...",
-      "analyzingEntry": "Analyserar inlägg {{current}} av {{total}}...",
-      "aggregatingPatterns": "Sammanställer mönster...",
-      "generatingInsights": "Genererar insikter...",
-      "savingAnalysis": "Sparar analys...",
+      "checkingEntries": "Kontrollerar inlägg…",
+      "analyzingEntry": "Analyserar inlägg {{current}} av {{total}}…",
+      "aggregatingPatterns": "Sammanställer mönster…",
+      "generatingInsights": "Genererar insikter…",
+      "savingAnalysis": "Sparar analys…",
       "entryProgress": "Inlägg {{current}} av {{total}}",
-      "retrying": "Försöker misslyckade inlägg igen...",
+      "retrying": "Försöker misslyckade inlägg igen…",
       "doNotCloseApp": "Håll denna sida öppen tills analysen är klar"
     }
   },
@@ -1512,8 +1550,8 @@
     "wordDescription": "Redigerbart format, kompatibelt med Microsoft Word och Google Docs",
     "exportAsPDF": "Exportera som PDF",
     "exportAsWord": "Exportera som Word",
-    "generatingPDF": "Genererar PDF...",
-    "generatingWord": "Genererar Word...",
+    "generatingPDF": "Genererar PDF…",
+    "generatingWord": "Genererar Word…",
     "proOnly": "Endast Plus",
     "proFeature": "Plus-funktion",
     "proFeatureDesc": "PDF-export är endast tillgänglig för Plus-användare.",
@@ -1523,17 +1561,19 @@
     "noEntriesToExportDesc": "Du har inga dagboksinlägg att exportera.",
     "exportSuccessful": "Export lyckades",
     "exportFailed": "Export misslyckades",
-    "exportFailedDesc": "Kunde inte generera PDF. Försök igen.",
+    "exportFailedDesc": "Det gick inte att skapa {{format}}. Försök igen.",
     "savedToPath": "Sparad i {{path}}",
     "savedToDownloads": "Sparad i Documents/",
     "share": "Dela",
     "shareFile": "Dela fil",
     "exportSuccess": "Export lyckades",
-    "exportSuccessDesc": "{{count}} inlägg exporterade som {{format}}",
+    "exportSuccessDesc_one": "{{count}} inlägg exporterat som {{format}}",
+    "exportSuccessDesc_other": "{{count}} inlägg exporterade som {{format}}",
     "exportError": "Export misslyckades",
     "exportErrorDesc": "Kunde inte generera {{format}}. Försök igen.",
     "upgradePrompt": "Uppgradera till Plus för att låsa upp exportfunktioner",
-    "entriesReady": "{{count}} inlägg redo att exportera.",
+    "entriesReady_one": "{{count}} inlägg är redo att exporteras.",
+    "entriesReady_other": "{{count}} inlägg är redo att exporteras.",
     "unavailableNative": "Dokumentexport är inte tillgängligt i den här appversionen."
   },
   "subscription": {
@@ -1549,7 +1589,7 @@
     "upgradeButton": "Uppgradera till Plus",
     "manageButton": "Hantera prenumeration",
     "proMember": "Plus-medlem",
-    "enjoyingFeatures": "Njuter av AI-analys, förslag och alla funktioner",
+    "enjoyingFeatures": "Du har tillgång till AI-analys, förslag och alla funktioner",
     "unlockInsights": "Lås upp Plus-funktioner",
     "description": "Få AI-drivna sammanfattningar, humöranalys och smarta taggförslag för varje inlägg.",
     "smartSummaries": "Smarta sammanfattningar",
@@ -1558,10 +1598,10 @@
     "priceYearly": "{{yearlyPrice}}/år",
     "priceMonthly": "Det är bara {{monthlyPrice}}/månad",
     "upgradeToPro": "Uppgradera till Plus",
-    "processing": "Bearbetar...",
-    "cancelAnytime": "Avsluta när som helst.",
+    "processing": "Bearbetar…",
+    "cancelAnytime": "Säg upp när som helst.",
     "unlockAI": "Lås upp AI-funktioner",
-    "upgrading": "Uppgraderar...",
+    "upgrading": "Uppgraderar…",
     "upgradeFailed": "Uppgradering misslyckades",
     "upgradeFailedDesc": "Ett fel uppstod vid uppgradering av din prenumeration. Försök igen.",
     "features": {
@@ -1570,9 +1610,8 @@
       "titleSuggestions": "AI-titelförslag",
       "tagSuggestions": "Smarta taggförslag",
       "trendAnalysis": "Humör- och trendinsikter",
-      "pdfExport": "PDF-export",
-      "wordExport": "Word-dokumentexport",
-      "imageUpload": "Fotominnen"
+      "voiceEntry": "Röstinmatning",
+      "exports": "PDF- och Word-export"
     },
     "trialCta": "Starta gratis provperiod",
     "trialPricing": "14 dagar gratis, sedan {{yearlyPrice}}/år",
@@ -1596,17 +1635,17 @@
     "restoreFailed": "Återställningen misslyckades",
     "restorePurchases": "Återställ köp",
     "nativeSubWarningTitle": "Avsluta din butiksprenumeration först",
-    "nativeSubWarningDesc": "Din Plus-prenumeration köptes via {{store}}. Att ta bort ditt konto här avslutar den INTE — du kommer fortfarande att debiteras. Öppna {{store}} för att avsluta, och kom sedan tillbaka för att ta bort ditt konto.",
+    "nativeSubWarningDesc": "Din Plus-prenumeration köptes via {{store}}. Att ta bort ditt konto här avslutar den INTE – du kommer fortfarande att debiteras. Öppna {{store}} för att avsluta, och kom sedan tillbaka för att ta bort ditt konto.",
     "nativeSubManageCta": "Öppna {{store}}",
     "appStore": "App Store",
     "googlePlay": "Google Play",
     "iapUnavailable": "Köp i appen är inte tillgängliga just nu",
     "iapUnavailableDesc": "Vi kunde inte nå butiken. Kontrollera din anslutning och försök igen.",
     "tryAgain": "Försök igen",
-    "disclosureTitle": "OwnJournal Plus — Årsprenumeration",
+    "disclosureTitle": "OwnJournal Plus – årsprenumeration",
     "disclosureLength": "Årsprenumeration som förnyas automatiskt.",
     "priceWithMonthly": "{{yearlyPrice}}/år (ca {{monthlyEquivalent}}/månad)",
-    "renewalApple": "Betalningen dras från ditt Apple-ID vid köpbekräftelse. Prenumerationen förnyas automatiskt till samma pris om automatisk förnyelse inte stängs av senast 24 timmar före slutet av den aktuella perioden. Du kan hantera och säga upp din prenumeration i App Store-kontoinställningarna efter köpet.",
+    "renewalApple": "Betalningen dras från ditt Apple-konto vid köpbekräftelse. Prenumerationen förnyas automatiskt till samma pris om automatisk förnyelse inte stängs av senast 24 timmar före slutet av den aktuella perioden. Du kan hantera och säga upp din prenumeration i App Store-kontoinställningarna efter köpet.",
     "renewalGoogle": "Betalningen dras från ditt Google Play-konto vid köpbekräftelse. Prenumerationen förnyas automatiskt till samma pris om den inte sägs upp i dina Google Play-prenumerationer senast 24 timmar före slutet av den aktuella perioden.",
     "iapOnly": {
       "title": "Tillgänglig i appen",
@@ -1655,18 +1694,18 @@
     "medium": "medel",
     "long": "lång",
     "length": "längd",
-    "analyzing": "Analyserar...",
-    "loading": "Laddar...",
+    "analyzing": "Analyserar…",
+    "loading": "Laddar…",
     "analyzeEntry": "Analysera inlägg",
     "proFeature": "Plus-funktion",
     "show": "Visa",
     "hide": "Dölj",
     "reanalyzeWithChanges": "Analysera om med dina ändringar",
     "summary": "Sammanfattning",
-    "moodSnapshot": "Humörögonblicksbild",
+    "moodSnapshot": "Humöröversikt",
     "overallTone": "Övergripande ton",
     "dominantEmotion": "Dominerande känsla",
-    "emotionsPresent": "Känslor som finns",
+    "emotionsPresent": "Känslor som förekommer",
     "keyThemes": "Nyckelteman",
     "peopleMentioned": "Personer som nämns",
     "retryAnalysis": "Försök igen"
@@ -1679,8 +1718,8 @@
     "tooFast": "För snabbt",
     "tooFastDesc": "Vänta ett ögonblick innan du genererar igen",
     "contentTooShort": "Innehållet är för kort",
-    "contentTooShortDescTags": "Skriv åtminstone några ord för AI-taggenerering",
-    "contentTooShortDescTitle": "Skriv minst 20 tecken för AI-titelgenerering",
+    "contentTooShortDescTags": "Skriv åtminstone några ord för att få AI-förslag på taggar",
+    "contentTooShortDescTitle": "Skriv minst 20 tecken för att få AI-förslag på titel",
     "proFeature": "Plus-funktion",
     "proFeatureDescPrivate": "Privata AI-funktioner kräver en Plus-prenumeration",
     "proFeatureDescCloud": "Denna funktion kräver en Plus-prenumeration",
@@ -1701,24 +1740,26 @@
     "noTagsGenerated": "Inga taggar genererade",
     "noTagsGeneratedDesc": "AI:n kunde inte föreslå taggar för detta inlägg. Prova att skriva mer innehåll.",
     "monthlyLimitReached": "Månadsgräns nådd",
-    "monthlyLimitReachedDescTags": "Du har nått din tagggenereringsgräns. Den återställs nästa månad.",
-    "monthlyLimitReachedDescTitle": "Du har nått din titelgenereringsgräns. Den återställs nästa månad.",
+    "monthlyLimitReachedDescTags": "Du har nått gränsen för taggförslag. Den återställs nästa månad.",
+    "monthlyLimitReachedDescTitle": "Du har nått gränsen för titelförslag. Den återställs nästa månad.",
     "tagsApplied": "Taggar tillämpade",
-    "tagsAppliedDesc": "Lade till {{count}} AI-genererade taggar",
+    "tagsAppliedDesc_one": "Lade till {{count}} AI-genererad tagg",
+    "tagsAppliedDesc_other": "Lade till {{count}} AI-genererade taggar",
     "suggestedActivities": "Föreslagna aktiviteter",
     "applyTags": "Tillämpa taggar",
     "applyActivities": "Tillämpa aktiviteter",
     "activitiesApplied": "Aktiviteter tillagda",
-    "activitiesAppliedDesc": "Lade till {{count}} föreslagna aktiviteter",
+    "activitiesAppliedDesc_one": "Lade till {{count}} föreslagen aktivitet",
+    "activitiesAppliedDesc_other": "Lade till {{count}} föreslagna aktiviteter",
     "removeActivity": "Ta bort från förslag",
     "titleApplied": "Titel tillämpad",
     "titleAppliedDesc": "Den AI-genererade titeln har tillämpats",
     "applyAll": "Tillämpa alla",
     "apply": "Tillämpa",
-    "suggesting": "Föreslår...",
+    "suggesting": "Föreslår…",
     "suggestAnother": "Föreslå en annan",
     "dismiss": "Avfärda",
-    "generating": "Genererar...",
+    "generating": "Genererar…",
     "suggestTagsPrivate": "Föreslå taggar (privat)",
     "suggestTagsEnhanced": "Föreslå taggar",
     "suggestTagsPro": "Plus: Föreslå taggar",
@@ -1756,15 +1797,15 @@
     },
     "sync": {
       "title": "Synkroniseringskontroll",
-      "preparing": "Förbereder...",
-      "checking": "Testar anslutning...",
+      "preparing": "Förbereder…",
+      "checking": "Testar anslutning…",
       "success": "Anslutning etablerad. Din dagbok är redo att synkronisera.",
       "localReady": "Din dagbok är redo. Inlägg sparas lokalt.",
       "usingProvider": "Använder {{provider}}",
       "openJournal": "Öppna dagboken",
-      "connectingProvider": "Ansluter till molnlagring...",
+      "connectingProvider": "Ansluter till molnlagring…",
       "completeSignIn": "Slutför inloggning i popup-fönstret",
-      "settingPassword": "Konfigurerar kryptering...",
+      "settingPassword": "Konfigurerar kryptering…",
       "enterPassword": "Ange ditt dagbokslösenord för att fortsätta"
     },
     "encryption": {
@@ -1773,7 +1814,7 @@
       "simpleMode": "Enkelt läge",
       "simpleModeDesc": "Snabb inställning, inget lösenord krävs",
       "simpleWarning": "Din molnleverantör kan komma åt din data",
-      "e2eMode": "End-to-End-krypterad",
+      "e2eMode": "End-to-end-krypterad",
       "e2eModeDesc": "Maximal integritet med lösenordsskydd",
       "e2eBenefit": "Endast du kan läsa din dagbok",
       "recommended": "Rekommenderad",
@@ -1797,11 +1838,11 @@
   "onboardingTour": {
     "welcome": {
       "title": "Välkommen!",
-      "content": "Välkommen till OwnJournal - din privata, krypterade dagbok.\nLåt oss ta en snabb 30-sekunders rundtur!"
+      "content": "Välkommen till OwnJournal – din privata, krypterade dagbok.\nFölj med på en snabb rundtur på 30 sekunder!"
     },
     "timeline": {
       "title": "Din dagbokstidslinje",
-      "content": "Dina dagboksinlägg visas här, organiserade efter datum.\nKlicka på +-knappen för att skapa ditt första inlägg."
+      "content": "Dina dagboksinlägg visas här, ordnade efter datum.\nTryck på +-knappen för att skapa ditt första inlägg."
     },
     "syncStatus": {
       "title": "Synkroniseringsstatus",
@@ -1816,8 +1857,8 @@
       "content": "Förlora aldrig dina inlägg! Anslut molnlagring för att:\n\n• Få åtkomst från vilken enhet som helst\n• Automatisk säkerhetskopiering av alla inlägg\n\nGå till Inställningar → Lagring."
     },
     "help": {
-      "title": "Hjälp & support",
-      "content": "Behöver du hjälp när som helst? Klicka här för att komma åt guider, tips och starta om denna rundtur."
+      "title": "Hjälp och support",
+      "content": "Behöver du hjälp? Tryck här när som helst för att hitta guider och tips eller starta om rundturen."
     },
     "complete": {
       "title": "Redo att skriva dagbok!",
@@ -1855,9 +1896,9 @@
       "startTour": "Starta rundtur",
       "firstEntry": {
         "title": "Skapa ditt första inlägg",
-        "step1": "1. Klicka på +-knappen högst upp på tidslinjen",
-        "step2": "2. Skriv ditt dagboksinlägg i redigeraren—Markdown-formatering stöds",
-        "step3": "3. Lägg till taggar och humör, klicka sedan på Spara"
+        "step1": "1. Tryck på +-knappen högst upp på tidslinjen",
+        "step2": "2. Skriv ditt dagboksinlägg i redigeraren – Markdown-formatering stöds",
+        "step3": "3. Lägg till taggar och humör och tryck sedan på Spara"
       },
       "markdown": {
         "title": "Använda Markdown",
@@ -1875,10 +1916,10 @@
       "accountSetup": {
         "title": "Skapa ditt konto",
         "desc": "Du kan registrera dig med e-post/lösenord eller social inloggning:",
-        "emailOption": "E-post & lösenord: Ange din e-post och välj ett säkert lösenord",
-        "googleOption": "Google: Klicka på 'Fortsätt med Google' för snabb registrering",
-        "appleOption": "Apple: Klicka på 'Fortsätt med Apple' för integritetsfokuserad registrering",
-        "tip": "Tips: Du kan återställa ditt lösenord när som helst med länken 'Glömt lösenordet?'"
+        "emailOption": "E-post och lösenord: Ange din e-post och välj ett säkert lösenord",
+        "googleOption": "Google: Tryck på \"Fortsätt med Google\" för snabb registrering",
+        "appleOption": "Apple: Tryck på \"Fortsätt med Apple\" för integritetsfokuserad registrering",
+        "tip": "Tips: Du kan återställa ditt lösenord när som helst med länken \"Glömt lösenordet?\""
       }
     },
     "support": {
@@ -1889,13 +1930,13 @@
         "desc": "Kanske hittar du snabba svar i FAQ eller felsökning. Många vanliga frågor är redan besvarade där."
       },
       "email": {
-        "title": "Maila oss",
+        "title": "Mejla oss",
         "desc": "Skicka ett e-postmeddelande så återkommer vi så snart som möjligt.",
         "address": "support@ownjournal.app"
       },
-      "responseTime": "Vi svarar vanligtvis inom 24-48 timmar.",
+      "responseTime": "Vi svarar vanligtvis inom 24–48 timmar.",
       "links": {
-        "title": "Juridik & policyer",
+        "title": "Juridik och policyer",
         "terms": "Användarvillkor",
         "privacy": "Integritetspolicy"
       },
@@ -1926,31 +1967,31 @@
         "title": "Förstå krypteringslägen",
         "simpleTitle": "Enkelt läge",
         "simpleDesc": "Din data synkroniseras till molnlagring utan kryptering. Enklare att konfigurera, men din molnleverantör kan se din data.",
-        "e2eTitle": "End-to-End-kryptering (rekommenderas)",
-        "e2eDesc": "Din data krypteras innan den lämnar din enhet. Endast du kan läsa din dagbok - inte ens din molnleverantör."
+        "e2eTitle": "End-to-end-kryptering (rekommenderas)",
+        "e2eDesc": "Din data krypteras innan den lämnar din enhet. Endast du kan läsa din dagbok – inte ens din molnleverantör kan det."
       },
       "zeroKnowledge": {
-        "title": "Noll-kunskapsarkitektur",
-        "desc": "Med E2E-kryptering aktiverad lämnar din krypteringsnyckel aldrig din enhet. Vi kan inte komma åt din data även om vi ville - det är noll kunskap."
+        "title": "Nollkunskapsarkitektur",
+        "desc": "Med E2E-kryptering aktiverad lämnar din krypteringsnyckel aldrig din enhet. Vi kan inte komma åt din data ens om vi ville – det är det som är nollkunskap."
       },
       "passwordTips": {
-        "title": "Lösenordssäkerhetstips",
+        "title": "Tips för lösenordssäkerhet",
         "tip1": "Använd ett starkt, unikt lösenord som du kan komma ihåg",
-        "tip2": "Överväg att använda en lösenfras (flera ord) för bättre säkerhet",
-        "tip3": "Lagra ditt lösenord i en lösenordshanterare som backup",
+        "tip2": "Överväg att använda en lösenfras – flera ord är lättare att komma ihåg och säkrare",
+        "tip3": "Spara ditt lösenord i en lösenordshanterare som säkerhetskopia",
         "warning": "⚠️ Varning: Om du glömmer ditt E2E-lösenord kan din data inte återställas!"
       }
     },
     "storage": {
       "googleDrive": {
         "title": "Ansluta Google Drive",
-        "step1": "1. Klicka på 'Anslut' bredvid Google Drive i Inställningar",
+        "step1": "1. Tryck på \"Anslut\" bredvid Google Drive i Inställningar",
         "step2": "2. Logga in med ditt Google-konto och bevilja behörigheter",
         "note": "Obs: OwnJournal lagrar data i en dold appmapp, inte synlig i din vanliga Drive"
       },
       "dropbox": {
         "title": "Ansluta Dropbox",
-        "step1": "1. Klicka på 'Anslut' bredvid Dropbox i Inställningar",
+        "step1": "1. Tryck på \"Anslut\" bredvid Dropbox i Inställningar",
         "step2": "2. Logga in och auktorisera appen"
       },
       "nextcloud": {
@@ -1967,7 +2008,7 @@
     },
     "features": {
       "tags": {
-        "title": "Taggar & organisation",
+        "title": "Taggar och organisation",
         "desc": "Lägg till taggar för att organisera inlägg efter ämne."
       },
       "tagSuggestions": {
@@ -1978,6 +2019,11 @@
       "titleSuggestions": {
         "title": "AI-titelförslag",
         "desc": "Få intelligenta titelförslag baserade på ditt inläggsinnehåll. Flera alternativ att välja mellan.",
+        "proNote": "(Plus-funktion)"
+      },
+      "voiceEntry": {
+        "title": "Röstinmatning",
+        "desc": "Tryck på mikrofonen under redigeraren och prata i stället för att skriva. När du stoppar omvandlas dina ord till ren text med skiljetecken och infogas där markören står. Det fungerar på det språk du talar, även om du byter språk medan du pratar. Varje inspelning kan vara upp till 5 minuter lång, och i Plus ingår 200 minuter i månaden.",
         "proNote": "(Plus-funktion)"
       },
       "aiAnalysis": {
@@ -2020,12 +2066,12 @@
         "desc": "Anslut till din egen Nextcloud-server för fullständig kontroll över var din data lagras. Din server, dina regler."
       },
       "e2eEncryption": {
-        "title": "End-to-End-kryptering",
-        "desc": "Dina dagboksinlägg krypteras på din enhet innan de synkroniseras eller lagras. Endast du har krypteringsnycklarna, vilket säkerställer att din data förblir skyddad under lagring och överföring."
+        "title": "End-to-end-kryptering",
+        "desc": "Dina dagboksinlägg krypteras på din enhet innan de synkroniseras eller lagras. Endast du har krypteringsnycklarna, så din data förblir skyddad både vid lagring och under överföring – ingen annan kan läsa den."
       },
       "zeroKnowledge": {
-        "title": "Noll-kunskapsarkitektur",
-        "desc": "OwnJournal är utformat så att vi inte kan komma åt ditt dagboksinnehåll. Med E2E-kryptering aktiverad är det bara du som har lösenordet för att dekryptera dina data. Valfria AI-funktioner skickar bara innehåll när du använder dem (se sekretesspolicyn)."
+        "title": "Nollkunskapsarkitektur",
+        "desc": "OwnJournal är utformat så att vi inte kan komma åt ditt dagboksinnehåll. Med E2E-kryptering aktiverad är det bara du som har lösenordet för att dekryptera dina data. Valfria AI-funktioner skickar bara innehåll när du använder dem (se integritetspolicyn)."
       },
       "multiDeviceSync": {
         "title": "Synkronisering mellan enheter",
@@ -2033,11 +2079,11 @@
       },
       "moodTracking": {
         "title": "Humörlogg",
-        "desc": "Ange hur du mår vid varje inlägg och följ dina känslomässiga mönster över tid. Välj bland fem emoji-nivåer — ditt humör visas direkt bredvid dina inlägg."
+        "desc": "Ange hur du mår vid varje inlägg och följ dina känslomässiga mönster över tid. Välj bland fem emoji-nivåer – ditt humör visas direkt bredvid dina inlägg."
       },
       "activityTagging": {
         "title": "Aktivitetstaggar",
-        "desc": "Ange vad du gjorde när du skrev. Välj bland färdiga aktiviteter som träning, umgänge, arbete och meditation — eller skapa egna. Filtrera din tidslinje efter aktivitet för att se hur olika delar av din vardag påverkar hur du mår.",
+        "desc": "Ange vad du gjorde när du skrev. Välj bland färdiga aktiviteter som träning, umgänge, arbete och meditation – eller skapa egna. Filtrera din tidslinje efter aktivitet för att se hur olika delar av din vardag påverkar hur du mår.",
         "plusHint": "Uppgradera till Plus och se vilka aktiviteter som lyfter ditt humör."
       },
       "moodCalendar": {
@@ -2049,11 +2095,11 @@
         "desc": "Utforska dina humördata i interaktiva diagram:",
         "distribution": "Ringdiagram som visar fördelningen av ditt humör i procent",
         "overTime": "Trendlinje med glidande medelvärde över 7 dagar",
-        "dayOfWeek": "Stapeldiagram per veckodag — se vilka dagar du mår bäst och sämst",
+        "dayOfWeek": "Stapeldiagram per veckodag – se vilka dagar du mår bäst och sämst",
         "streaks": "Sviter: hur många dagar i rad har du haft ett positivt humör?"
       },
       "activityInsights": {
-        "title": "Insikter per aktivitet",
+        "title": "Aktivitetsinsikter",
         "desc": "Se vilka aktiviteter som hänger ihop med bättre eller sämre humör. Ett överskådligt diagram visar varje aktivitets påverkan, med en sammanfattning av vad som lyfter och sänker ditt humör mest.",
         "proNote": "(Plus-funktion)"
       }
@@ -2061,7 +2107,7 @@
     "troubleshooting": {
       "nextcloudEncryption": {
         "title": "Krypteringskonflikt med Nextcloud",
-        "intro": "Nextcloud har en egen serverkryptering som kan störa OwnJournal. När den är aktiverad krypterar Nextcloud dina filer på servern, och OwnJournal får förvrängd data istället för dina dagboksinlägg.",
+        "intro": "Nextcloud har en egen serverkryptering som kan störa OwnJournal. När den är aktiverad krypterar Nextcloud dina filer på servern, och OwnJournal får förvrängd data i stället för dina dagboksinlägg.",
         "whyTitle": "Varför händer detta?",
         "why": "Din Nextcloud-administratör (eller du själv om du driftar servern) har aktiverat serverkryptering. Det innebär att Nextcloud krypterar filer innan de sparas. När OwnJournal försöker läsa dem via WebDAV får den krypterad data som den inte kan tolka.",
         "fixTitle": "Så här löser du det",
@@ -2076,25 +2122,25 @@
         "fixOption1Note": "Detta kan ta en stund beroende på hur många filer du har. Om du inte är serveradministratör, be hen köra dessa kommandon eller exkludera OwnJournal-mappen från kryptering.",
         "fixOption2Title": "Alternativ 2: Inaktivera E2E-krypteringsappen",
         "fixOption2Desc": "Om din Nextcloud har appen \"End-to-End Encryption\" aktiverad:",
-        "fixOption2Step1": "1. I Nextcloud, gå till Appar > Säkerhet",
+        "fixOption2Step1": "1. I Nextcloud, gå till Appar → Säkerhet",
         "fixOption2Step2": "2. Hitta \"End-to-End Encryption\" och inaktivera den",
         "fixOption2Step3": "3. Eller se helt enkelt till att OwnJournal-mappen inte är markerad för E2E-kryptering",
-        "importantNote": "OwnJournal har sin egen E2E-kryptering som fungerar helt oberoende. Du behöver inte Nextclouds kryptering — din data krypteras redan av OwnJournal innan den lämnar din enhet."
+        "importantNote": "OwnJournal har sin egen E2E-kryptering som fungerar helt oberoende. Du behöver inte Nextclouds kryptering – din data krypteras redan av OwnJournal innan den lämnar din enhet."
       },
       "syncIssues": {
         "title": "Synkronisering fungerar inte",
-        "intro": "Vänligen prova följande steg:",
+        "intro": "Prova följande steg:",
         "tip1": "Kontrollera din internetanslutning",
-        "tip2": "Prova att klicka på synkroniseringsknappen manuellt",
+        "tip2": "Prova att trycka på synkroniseringsknappen manuellt",
         "tip3": "Koppla från och återanslut din molnlagring"
       },
       "passwordRecovery": {
         "title": "Glömt E2E-lösenord",
         "warning": "Tyvärr kan E2E-krypterad data inte återställas utan lösenordet.",
-        "desc": "Detta är en grundläggande säkerhetsfunktion i äkta end-to-end-kryptering. Endast du har nyckeln, vilket innebär att inte ens vi kan komma åt din data. Även om detta skyddar din integritet innebär det också att det inte finns något sätt att återställa krypterade poster utan lösenordet.",
+        "desc": "Detta är en grundläggande säkerhetsfunktion i äkta end-to-end-kryptering. Endast du har nyckeln, vilket innebär att inte ens vi kan komma åt din data. Även om detta skyddar din integritet innebär det också att det inte finns något sätt att återställa krypterade inlägg utan lösenordet.",
         "actionTitle": "Vad du kan göra:",
-        "action1": "Om du har en okrypterad JSON-säkerhetskopia kan du återställa dina poster från den.",
-        "action2": "För att börja om, använd alternativet 'Ta bort allt' i Farozonen i Inställningar för att återställa och skapa en ny krypterad dagbok."
+        "action1": "Om du har en okrypterad JSON-säkerhetskopia kan du återställa dina inlägg från den.",
+        "action2": "Om du vill börja om använder du \"Återställ all data\" i avsnittet Farozon i Inställningar och skapar sedan en ny krypterad dagbok."
       }
     },
     "faq": {
@@ -2118,23 +2164,23 @@
       },
       "free": {
         "question": "Är OwnJournal gratis?",
-        "answer": "Ja, kärnfunktionerna för dagboksskrivning är gratis. Plus låser upp AI-funktioner och trendanalys."
+        "answer": "Ja, dagbokens grundfunktioner är gratis. Plus låser upp AI-funktioner och trendanalys."
       },
       "pro": {
         "question": "Vad ingår i Plus?",
-        "answer": "Plus inkluderar AI-driven analys, humörinsikter, taggförslag, Aktivitetsinsikter och avancerad trendvisualisering."
+        "answer": "I Plus ingår AI-analys, titelförslag, taggförslag, röstinmatning, trendanalys, Aktivitetsinsikter samt PDF- och Word-export."
       },
       "manageSubscription": {
-        "question": "Hur hanterar jag mitt abonnemang?",
-        "answer": "Öppna Inställningar, gå till fliken Konto, scrolla till avsnittet Abonnemang och klicka på 'Hantera' för att komma till faktureringsportalen. Därifrån kan du uppdatera din betalningsmetod, se dina plandetaljer och hantera faktureringsinställningar."
+        "question": "Hur hanterar jag min prenumeration?",
+        "answer": "Öppna Inställningar, gå till fliken Konto, scrolla till avsnittet Prenumeration och klicka på \"Hantera\" för att komma till faktureringsportalen. Där kan du uppdatera din betalningsmetod, se information om din plan och hantera faktureringsinställningar."
       },
       "invoices": {
         "question": "Hur ser jag mina fakturor?",
-        "answer": "Öppna Inställningar, gå till fliken Konto, scrolla till avsnittet Abonnemang och klicka på 'Hantera' för att öppna faktureringsportalen. Din fullständiga fakturahistorik finns tillgänglig där, och du kan ladda ner fakturor som PDF."
+        "answer": "Öppna Inställningar, gå till fliken Konto, scrolla till avsnittet Prenumeration och klicka på \"Hantera\" för att öppna faktureringsportalen. Där finns hela din fakturahistorik, och du kan ladda ner fakturor som PDF."
       },
       "cancelSubscription": {
-        "question": "Hur avbryter jag mitt abonnemang?",
-        "answer": "Öppna Inställningar, gå till fliken Konto, scrolla till avsnittet Abonnemang och klicka på 'Hantera' för att komma till faktureringsportalen. Klicka på 'Avbryt plan' för att stoppa ditt abonnemang. Du behåller Plus-åtkomst till slutet av din nuvarande faktureringsperiod. Kärnfunktionerna för dagboksskrivning förblir gratis för alltid."
+        "question": "Hur säger jag upp min prenumeration?",
+        "answer": "Öppna Inställningar, gå till fliken Konto, scrolla till avsnittet Prenumeration och klicka på \"Hantera\" för att öppna faktureringsportalen, där du kan säga upp din prenumeration. Du behåller tillgången till Plus till slutet av din nuvarande faktureringsperiod. Dagbokens grundfunktioner förblir gratis för alltid."
       }
     }
   },
@@ -2149,39 +2195,38 @@
     "backToApp": "Tillbaka till OwnJournal",
     "backToHomepage": "Tillbaka till startsidan",
     "openApp": "Öppna appen",
-    "lastUpdated": "Senast uppdaterad",
     "termsOfService": "Användarvillkor",
     "privacyPolicy": "Integritetspolicy",
     "terms": {
       "title": "Användarvillkor",
-      "lastUpdatedDate": "April 2026",
+      "lastUpdatedDate": "april 2026",
       "acceptance": {
         "title": "1. Godkännande av villkoren",
-        "content": "Genom att få åtkomst till eller använda OwnJournal samtycker du till att vara bunden av dessa Användarvillkor tillsammans med vår Integritetspolicy, som utgör en del av dessa Villkor. Du måste vara minst 13 år gammal, eller den högre åldern för digitalt samtycke som gäller i ditt land (upp till 16 år i vissa EU-medlemsstater), för att använda OwnJournal. Om du inte godkänner dessa Villkor, vänligen använd inte tjänsten."
+        "content": "Genom att få åtkomst till eller använda OwnJournal samtycker du till att vara bunden av dessa Användarvillkor tillsammans med vår Integritetspolicy, som utgör en del av dessa Villkor. Du måste vara minst 13 år gammal, eller den högre åldern för digitalt samtycke som gäller i ditt land (upp till 16 år i vissa EU-medlemsstater), för att använda OwnJournal. Om du inte godkänner dessa Villkor ska du inte använda tjänsten."
       },
       "description": {
         "title": "2. Beskrivning av tjänsten",
-        "content": "OwnJournal är en personlig dagboksapplikation som drivs av {{companyName}}, ett företag registrerat i {{companyCountry}}. Den låter dig skapa, lagra, söka i och analysera dina dagboksanteckningar på webb, iOS, Android och skrivbord. Du tar med din egen molnlagring (Google Drive, Dropbox, Nextcloud eller iCloud Drive) för synkronisering mellan enheter, eller så kan du använda applikationen helt offline med lokal lagring. Vi erbjuder änd-till-änd-kryptering (E2E) och ett Simple-läge utan änd-till-änd-kryptering. Plus-prenumeranter har tillgång till valfria AI-drivna funktioner såsom humöranalys och förslag."
+        "content": "OwnJournal är en personlig dagboksapplikation som drivs av {{companyName}}, ett företag registrerat i {{companyCountry}}. Den låter dig skapa, lagra, söka i och analysera dina dagboksinlägg på webb, iOS, Android och skrivbord. Du tar med din egen molnlagring (Google Drive, Dropbox, Nextcloud eller iCloud Drive) för synkronisering mellan enheter, eller så kan du använda applikationen helt offline med lokal lagring. Vi erbjuder end-to-end-kryptering (E2E) och ett Enkelt läge utan end-to-end-kryptering. Plus-prenumeranter har tillgång till valfria AI-drivna funktioner såsom humöranalys och förslag."
       },
       "accounts": {
         "title": "3. Användarkonton",
-        "content": "Du är ansvarig för att upprätthålla sekretessen för dina inloggningsuppgifter och eventuellt krypteringslösenord du anger. Du samtycker till att ta ansvar för all aktivitet som sker under ditt konto och att inte dela dina inloggningsuppgifter med andra. Om du använder E2E-kryptering är du ensam ansvarig för att komma ihåg ditt krypteringslösenord — vi kan inte återställa krypterade data om de förloras. Du får inte utge dig för att vara en annan person eller felaktigt framställa din identitet när du skapar eller använder ett konto."
+        "content": "Du är ansvarig för att upprätthålla sekretessen för dina inloggningsuppgifter och eventuellt krypteringslösenord du anger. Du samtycker till att ta ansvar för all aktivitet som sker under ditt konto och att inte dela dina inloggningsuppgifter med andra. Om du använder E2E-kryptering är du ensam ansvarig för att komma ihåg ditt krypteringslösenord – vi kan inte återställa krypterade data om de förloras. Du får inte utge dig för att vara en annan person eller felaktigt framställa din identitet när du skapar eller använder ett konto."
       },
       "dataStorage": {
         "title": "8. Datalagring och integritet",
-        "content": "Dina dagboksanteckningar lagras hos den molnlagringsleverantör du väljer (Google Drive, Dropbox, Nextcloud eller iCloud Drive) — inte på våra servrar. Med E2E-kryptering aktiverad krypteras dina data på din enhet innan de lämnar den; vi kan inte komma åt ditt krypterade innehåll. I Simple-läge synkroniseras dina data utan änd-till-änd-kryptering. Vår hantering av personlig information beskrivs i vår Integritetspolicy."
+        "content": "Dina dagboksinlägg lagras hos den molnlagringsleverantör du väljer (Google Drive, Dropbox, Nextcloud eller iCloud Drive) – inte på våra servrar. Med E2E-kryptering aktiverad krypteras dina data på din enhet innan de lämnar den; vi kan inte komma åt ditt krypterade innehåll. I Enkelt läge synkroniseras dina data utan end-to-end-kryptering. Hur vi behandlar personuppgifter beskrivs i vår Integritetspolicy."
       },
       "intellectualProperty": {
         "title": "7. Immateriella rättigheter",
-        "content": "Du behåller alla rättigheter till det dagboksinnehåll du skapar. Med förbehåll för din efterlevnad av dessa Villkor beviljar vi dig en begränsad, icke-exklusiv, icke-överlåtbar, icke-underlicensierbar, återkallelig licens att installera och använda OwnJournal för din personliga användning. OwnJournal-applikationen — inklusive dess källkod, design och varumärke — ägs av {{companyName}} och skyddas av lagar om immateriella rättigheter. Du får inte kopiera, modifiera, distribuera, sälja eller skapa härledda verk av applikationen, förutom som uttryckligen tillåts enligt dessa Villkor eller tillämplig lag."
+        "content": "Du behåller alla rättigheter till det dagboksinnehåll du skapar. Med förbehåll för din efterlevnad av dessa Villkor beviljar vi dig en begränsad, icke-exklusiv, icke-överlåtbar, icke-underlicensierbar, återkallelig licens att installera och använda OwnJournal för din personliga användning. OwnJournal-applikationen – inklusive dess källkod, design och varumärke – ägs av {{companyName}} och skyddas av lagar om immateriella rättigheter. Du får inte kopiera, modifiera, distribuera, sälja eller skapa härledda verk av applikationen, förutom som uttryckligen tillåts enligt dessa Villkor eller tillämplig lag."
       },
       "limitation": {
         "title": "9. Ansvarsbegränsning",
-        "content": "OwnJournal tillhandahålls \"i befintligt skick\" och \"som tillgängligt\" utan garantier av något slag, vare sig uttryckliga eller underförstådda. Vi garanterar inte att tjänsten kommer att vara oavbruten eller felfri, eller att dataförlust inte kommer att inträffa. I största möjliga utsträckning som lagen tillåter ansvarar vi inte för dataförlust, tjänsteavbrott eller indirekta, oförutsedda, särskilda, följdskador eller straffskador som uppstår från din användning av tjänsten. Inget i dessa Villkor utesluter eller begränsar vårt ansvar för dödsfall eller personskada orsakad av oaktsamhet, bedrägeri, grov oaktsamhet, uppsåtlig misskötsel eller annat ansvar som inte lagligen kan uteslutas. Om du är konsument påverkar denna klausul inte dina lagstadgade rättigheter."
+        "content": "OwnJournal tillhandahålls \"i befintligt skick\" och \"i mån av tillgänglighet\" utan garantier av något slag, vare sig uttryckliga eller underförstådda. Vi garanterar inte att tjänsten kommer att vara oavbruten eller felfri, eller att dataförlust inte kommer att inträffa. I största möjliga utsträckning som lagen tillåter ansvarar vi inte för dataförlust, tjänsteavbrott eller indirekta skador, oförutsedda skador, särskilda skador, följdskador eller skadestånd i bestraffningssyfte som uppstår till följd av din användning av tjänsten. Inget i dessa Villkor utesluter eller begränsar vårt ansvar för dödsfall eller personskada orsakad av oaktsamhet, bedrägeri, grov oaktsamhet, uppsåt eller annat ansvar som inte lagligen kan uteslutas. Om du är konsument påverkar denna klausul inte dina lagstadgade rättigheter."
       },
       "termination": {
         "title": "10. Uppsägning",
-        "content": "Du kan radera ditt konto när som helst via applikationens Inställningar. Vid radering tas dina kontouppgifter bort enligt beskrivningen i Integritetspolicyn. Vi kan avbryta eller säga upp ditt konto om du väsentligen bryter mot dessa Villkor — inklusive överträdelser av avsnittet Acceptabel användning — förutsatt att vi ger dig skäligt meddelande och möjlighet att åtgärda överträdelsen (där den är åtgärdbar) före uppsägning, utom i fall av allvarligt missbruk, olaglig verksamhet eller där lagen kräver det. Vi kan också avveckla tjänsten med minst 30 dagars varsel."
+        "content": "Du kan radera ditt konto när som helst via Inställningar i applikationen. Vid radering tas dina kontouppgifter bort enligt beskrivningen i Integritetspolicyn. Vi kan avbryta eller säga upp ditt konto om du väsentligen bryter mot dessa Villkor – inklusive överträdelser av avsnittet Acceptabel användning – förutsatt att vi underrättar dig inom skälig tid och ger dig möjlighet att åtgärda överträdelsen (där den är åtgärdbar) före uppsägning, utom i fall av allvarligt missbruk, olaglig verksamhet eller där lagen kräver det. Vi kan också avveckla tjänsten med minst 30 dagars varsel."
       },
       "changes": {
         "title": "11. Ändringar av villkoren",
@@ -2189,7 +2234,7 @@
       },
       "contact": {
         "title": "14. Kontakt",
-        "content": "Om du har frågor om dessa Villkor, vänligen kontakta oss på {{companyEmail}}."
+        "content": "Om du har frågor om dessa Villkor kan du kontakta oss på {{companyEmail}}."
       },
       "governingLaw": {
         "title": "15. Tillämplig lag",
@@ -2197,11 +2242,11 @@
       },
       "subscriptions": {
         "title": "4. Prenumerationer, fakturering och uppsägning",
-        "content": "OwnJournal erbjuder en valfri betald nivå (\"Plus\") som säljs som en automatiskt förnyande prenumeration. På Apple App Store (iOS) faktureras prenumerationer via ditt Apple-ID och hanteras i inställningarna för ditt App Store-konto. Betalningen debiteras ditt Apple-ID vid bekräftelse av köpet. Din prenumeration förnyas automatiskt om inte automatisk förnyelse stängs av minst 24 timmar före slutet av den aktuella perioden. Ditt konto debiteras för förnyelse inom 24 timmar före slutet av den aktuella perioden. Uppsägning träder i kraft vid slutet av den aktuella betalda perioden, och eventuell oanvänd del av en gratis provperiod förverkas när du startar en betald prenumeration. På Google Play (Android) faktureras prenumerationer via ditt Google Play-konto och hanteras i Google Plays prenumerationsinställningar; samma principer för automatisk förnyelse och uppsägning gäller. På webben faktureras prenumerationer via Stripe och hanteras i dina kontoinställningar inom OwnJournal. Priser visas i din lokala valuta där det stöds och inkluderar tillämpliga skatter. Gratis provperioder, där sådana erbjuds, omvandlas automatiskt till en betald prenumeration vid slutet av provperioden om de inte avbryts före provperiodens slut."
+        "content": "OwnJournal erbjuder en valfri betald nivå (\"Plus\") som säljs som en automatiskt förnyande prenumeration. På Apple App Store (iOS) faktureras prenumerationer via ditt Apple-konto och hanteras i inställningarna för ditt App Store-konto. Betalningen debiteras ditt Apple-konto vid bekräftelse av köpet. Din prenumeration förnyas automatiskt om inte automatisk förnyelse stängs av minst 24 timmar före slutet av den aktuella perioden. Ditt konto debiteras för förnyelse inom 24 timmar före slutet av den aktuella perioden. Uppsägning träder i kraft vid slutet av den aktuella betalda perioden, och eventuell oanvänd del av en gratis provperiod förverkas när du startar en betald prenumeration. På Google Play (Android) faktureras prenumerationer via ditt Google Play-konto och hanteras i Google Plays prenumerationsinställningar; samma principer för automatisk förnyelse och uppsägning gäller. På webben faktureras prenumerationer via Stripe och hanteras i dina kontoinställningar inom OwnJournal. Priser visas i din lokala valuta där det stöds och inkluderar tillämpliga skatter. Gratis provperioder, där sådana erbjuds, omvandlas automatiskt till en betald prenumeration vid slutet av provperioden om de inte avbryts före provperiodens slut."
       },
       "withdrawal": {
         "title": "5. Ångerrätt (EU/EES-konsumenter)",
-        "content": "Om du är konsument i Europeiska unionen, Europeiska ekonomiska samarbetsområdet eller en annan jurisdiktion som beviljar likvärdiga rättigheter, har du en 14-dagars ångerrätt att frånträda en betald prenumeration som köpts via vår webbplats (via Stripe), utan att behöva ange någon anledning. Denna period börjar den dag avtalet ingås. För att utöva denna rätt, kontakta oss på {{companyEmail}} inom 14 dagar, så återbetalar vi prenumerationsbeloppet. Genom att välja att börja använda den betalda tjänsten innan den 14-dagars ångerfristen löper ut begär du uttryckligen omedelbart utförande och erkänner att du förlorar ångerrätten när tjänsten har utförts fullt ut. Där tjänsten har utförts delvis kan vi behålla ett belopp som är proportionellt mot den användning du har haft av tjänsten. För köp som görs via Apple App Store eller Google Play hanteras återbetalningsbegäranden av Apple eller Google enligt deras respektive policyer, och ångerrätten som beskrivs ovan gäller inte för dessa köp."
+        "content": "Om du är konsument i Europeiska unionen, Europeiska ekonomiska samarbetsområdet eller en annan jurisdiktion som ger motsvarande rättigheter har du en ångerrätt på 14 dagar för en betald prenumeration som köpts via vår webbplats (via Stripe), utan att behöva ange något skäl. Ångerfristen börjar den dag avtalet ingås. För att utöva denna rätt kontaktar du oss på {{companyEmail}} inom 14 dagar, så återbetalar vi prenumerationsbeloppet. Genom att välja att börja använda den betalda tjänsten innan ångerfristen på 14 dagar har löpt ut begär du uttryckligen att tjänsten ska börja tillhandahållas omedelbart och bekräftar att du förlorar ångerrätten när tjänsten har tillhandahållits helt. Om tjänsten har tillhandahållits delvis kan vi behålla ett belopp som står i proportion till den användning du har haft av tjänsten. För köp via Apple App Store eller Google Play hanteras begäranden om återbetalning av Apple eller Google enligt deras respektive policyer, och ångerrätten som beskrivs ovan gäller inte för dessa köp."
       },
       "acceptableUse": {
         "title": "6. Acceptabel användning",
@@ -2209,7 +2254,7 @@
       },
       "appleTerms": {
         "title": "12. Ytterligare villkor för Apple App Store",
-        "content": "Om du har skaffat OwnJournal från Apple App Store gäller följande ytterligare villkor: (a) Dessa Villkor ingås endast mellan dig och {{companyName}}, inte med Apple. {{companyName}} (inte Apple) är ensamt ansvarigt för OwnJournal och dess innehåll. (b) {{companyName}} är ensamt ansvarigt för att tillhandahålla underhålls- och supporttjänster med avseende på OwnJournal, enligt vad som anges i dessa Villkor eller enligt vad som krävs enligt tillämplig lag. Apple har ingen som helst skyldighet att tillhandahålla underhålls- och supporttjänster med avseende på OwnJournal. (c) I händelse av att OwnJournal inte uppfyller någon tillämplig garanti kan du meddela Apple, och Apple kommer att återbetala inköpspriset (om något) för applikationen; i största möjliga utsträckning som tillämplig lag tillåter har Apple ingen annan garantiskyldighet med avseende på OwnJournal. (d) {{companyName}} är ensamt ansvarigt för att hantera alla anspråk från dig eller tredje part avseende OwnJournal eller ditt innehav och din användning av OwnJournal, inklusive produktansvarsanspråk, anspråk på att OwnJournal inte uppfyller något tillämpligt lagligt eller regulatoriskt krav, och anspråk som uppstår under konsumentskydds- eller liknande lagstiftning. (e) Vid ett tredjepartsanspråk om att OwnJournal eller ditt innehav och din användning av OwnJournal gör intrång i den tredje partens immateriella rättigheter, kommer {{companyName}} (inte Apple) att vara ensamt ansvarigt för utredning, försvar, förlikning och fullgörande av sådant anspråk. (f) Du intygar och garanterar att du inte befinner dig i ett land som är föremål för en embargo av USA:s regering eller är utsett som ett land som \"stöder terrorism\", och att du inte finns med på någon amerikansk regeringslista över förbjudna eller begränsade parter. (g) Apple och Apples dotterbolag är tredjepartsförmånstagare av dessa Villkor, och vid ditt godkännande har Apple rätten (och anses ha accepterat rätten) att verkställa dessa Villkor mot dig som tredjepartsförmånstagare."
+        "content": "Om du har skaffat OwnJournal från Apple App Store gäller följande ytterligare villkor: (a) Dessa Villkor ingås endast mellan dig och {{companyName}}, inte med Apple. {{companyName}} (inte Apple) är ensamt ansvarigt för OwnJournal och dess innehåll. (b) {{companyName}} är ensamt ansvarigt för att tillhandahålla underhålls- och supporttjänster med avseende på OwnJournal, enligt vad som anges i dessa Villkor eller enligt vad som krävs enligt tillämplig lag. Apple har ingen som helst skyldighet att tillhandahålla underhålls- och supporttjänster med avseende på OwnJournal. (c) I händelse av att OwnJournal inte uppfyller någon tillämplig garanti kan du meddela Apple, och Apple kommer att återbetala inköpspriset (om något) för applikationen; i största möjliga utsträckning som tillämplig lag tillåter har Apple ingen annan garantiskyldighet med avseende på OwnJournal. (d) {{companyName}} är ensamt ansvarigt för att hantera alla anspråk från dig eller tredje part avseende OwnJournal eller ditt innehav och din användning av OwnJournal, inklusive produktansvarsanspråk, anspråk på att OwnJournal inte uppfyller något tillämpligt lagligt eller regulatoriskt krav, och anspråk som uppstår enligt konsumentskyddslagstiftning eller liknande lagstiftning. (e) Vid ett tredjepartsanspråk om att OwnJournal eller ditt innehav och din användning av OwnJournal gör intrång i den tredje partens immateriella rättigheter, kommer {{companyName}} (inte Apple) att vara ensamt ansvarigt för utredning, försvar, förlikning och fullgörande av sådant anspråk. (f) Du intygar och garanterar att du inte befinner dig i ett land som är föremål för ett embargo från USA:s regering eller är utsett som ett land som \"stöder terrorism\", och att du inte finns med på någon amerikansk regeringslista över förbjudna eller begränsade parter. (g) Apple och Apples dotterbolag är tredjepartsförmånstagare enligt dessa Villkor, och vid ditt godkännande har Apple rätten (och anses ha accepterat rätten) att verkställa dessa Villkor mot dig som tredjepartsförmånstagare."
       },
       "severability": {
         "title": "13. Avskiljbarhet",
@@ -2218,10 +2263,10 @@
     },
     "privacy": {
       "title": "Integritetspolicy",
-      "lastUpdatedDate": "April 2026",
+      "lastUpdatedDate": "november 2026",
       "intro": {
         "title": "Introduktion",
-        "content": "Din integritet är viktig för oss. OwnJournal drivs av {{companyName}}, ett företag registrerat i {{companyCountry}}. Denna integritetspolicy förklarar hur OwnJournal samlar in, använder och skyddar din information. Vi designade OwnJournal med integritet som en kärnprincip."
+        "content": "Din integritet är viktig för oss. OwnJournal drivs av {{companyName}}, ett företag registrerat i {{companyCountry}}. Denna integritetspolicy förklarar hur OwnJournal samlar in, använder och skyddar dina uppgifter. Vi har utformat OwnJournal med integritet som grundprincip."
       },
       "dataController": {
         "title": "Personuppgiftsansvarig",
@@ -2229,35 +2274,35 @@
       },
       "collection": {
         "title": "Information vi samlar in",
-        "content": "Den personliga information vi samlar in är minimal. I samband med ditt konto samlar vi in: din e-postadress, ditt visningsnamn (om det tillhandahålls av en extern autentiseringsleverantör såsom Google eller Apple) och — när du ansluter molnlagring — en notering om vilken leverantör du valt. För att driva dagbokstjänsten lagrar vi en liten mängd tillståndsdata på våra servrar — om din krypteringskonfiguration är slutförd, ditt prenumerationsstatus och de identifierare som vår betalningsleverantör (Stripe) behöver för att hantera din prenumeration. För att övervaka rättvis användning av valfria AI-funktioner registrerar vi användningsräknare per användare (typen av utförd analys och en tidsstämpel; aldrig innehållet i dina anteckningar). Vår autentiseringsbackend lagrar också standardmetadata för sessioner såsom tidsstämplar för inloggning. Visningsnamn används endast för att personalisera din upplevelse i appen och görs aldrig offentliga. För att visa prenumerationspriser i din lokala valuta kan vi kort slå upp landet som är kopplat till din IP-adress; endast den resulterande landskoden används, den kopplas inte till ditt konto och vi lagrar inte din IP-adress. Vi använder inte tredjepartsanalys, reklam-SDK:er eller spårare mellan appar. När du använder änd-till-änd-kryptering (E2E) krypteras ditt dagboksinnehåll på din enhet och vi kan inte läsa det. I Simple-läge synkroniseras dina dagboksdata med din valda molnleverantör utan änd-till-änd-kryptering. Simple-läge är avsett för bekvämlighet och kan minska integriteten jämfört med E2E-läge; dina data förblir skyddade av din molnleverantörs standardsäkerhetsåtgärder."
+        "content": "Vi samlar bara in ett minimum av personuppgifter. I samband med ditt konto samlar vi in: din e-postadress, ditt visningsnamn (om det tillhandahålls av en extern autentiseringsleverantör såsom Google eller Apple) och – när du ansluter molnlagring – en uppgift om vilken leverantör du har valt. För att driva dagbokstjänsten lagrar vi en liten mängd tillståndsdata på våra servrar: om din krypteringskonfiguration är slutförd, din prenumerationsstatus och de identifierare som vår betalningsleverantör (Stripe) behöver för att hantera din prenumeration. För att övervaka skälig användning av valfria AI-funktioner registrerar vi användningsräknare per användare (typen av utförd analys och en tidsstämpel; aldrig innehållet i dina inlägg). För röstinmatning registrerar räknaren även längden på varje transkriberad inspelning i sekunder; själva inspelningen sparas aldrig. Vår autentiseringsbackend lagrar också standardmetadata för sessioner såsom tidsstämplar för inloggning. Visningsnamn används endast för att personalisera din upplevelse i appen och görs aldrig offentliga. För att visa prenumerationspriser i din lokala valuta kan vi kort slå upp landet som är kopplat till din IP-adress; endast den resulterande landskoden används, den kopplas inte till ditt konto och vi lagrar inte din IP-adress. Vi använder inte tredjepartsanalys, reklam-SDK:er eller spårare mellan appar. När du använder end-to-end-kryptering (E2E) krypteras ditt dagboksinnehåll på din enhet och vi kan inte läsa det. I Enkelt läge synkroniseras dina dagboksdata med din valda molnleverantör utan end-to-end-kryptering. Enkelt läge är avsett för bekvämlighet och kan minska integriteten jämfört med E2E-läge; dina data förblir skyddade av din molnleverantörs standardsäkerhetsåtgärder."
       },
       "usage": {
         "title": "Hur vi använder information",
-        "content": "Vi använder den information vi samlar in för följande ändamål: din e-postadress för kontoautentisering och viktiga tjänstemeddelanden; ditt visningsnamn för att personalisera din upplevelse i appen; ditt val av lagringsleverantör och status för krypteringskonfiguration för att återansluta dig till rätt konto och återuppta synkronisering; ditt prenumerationsstatus för att bevilja eller begränsa åtkomst till betalda funktioner; de identifierare som vår betalningsleverantör (Stripe) använder för att hantera din prenumeration; och AI-användningsräknare för att tillämpa gränser för rättvis användning av valfria AI-funktioner. Vi säljer inte din personliga information och delar den inte med tredje parter för marknadsföringsändamål."
+        "content": "Vi använder den information vi samlar in för följande ändamål: din e-postadress för kontoautentisering och viktiga tjänstemeddelanden; ditt visningsnamn för att personalisera din upplevelse i appen; ditt val av lagringsleverantör och status för krypteringskonfiguration för att återansluta dig till rätt konto och återuppta synkronisering; din prenumerationsstatus för att bevilja eller begränsa åtkomst till betalda funktioner; de identifierare som vår betalningsleverantör (Stripe) använder för att hantera din prenumeration; och AI-användningsräknare för att upprätthålla gränserna för skälig användning av valfria AI-funktioner. Vi säljer inte dina personuppgifter och delar dem inte med tredje parter för marknadsföringsändamål."
       },
       "storage": {
         "title": "Datalagring",
-        "content": "Dina dagboksanteckningar lagras hos den molnlagringsleverantör du väljer (Google Drive, Dropbox, Nextcloud eller iCloud Drive) — inte på våra servrar. Du behåller full kontroll över var dina data lagras. På våra servrar (drivna via vår autentiserings- och databasbackend) lagrar vi endast den information som behövs för att driva tjänsten: dina autentiseringsuppgifter, visningsnamn, val av lagringsleverantör, status för krypteringskonfiguration, prenumerationsstatus, de identifierare som vår betalningsleverantör (Stripe) använder för att hantera din prenumeration samt användningsräknare för AI-funktioner per användare. Betalningar hanteras av våra betalningsleverantörer (Stripe för webb, Apple In-App Purchase på iOS, Google Play Billing på Android); vi lagrar inte fullständiga betalkortsuppgifter på våra servrar."
+        "content": "Dina dagboksinlägg lagras hos den molnlagringsleverantör du väljer (Google Drive, Dropbox, Nextcloud eller iCloud Drive) – inte på våra servrar. Du behåller full kontroll över var dina data lagras. På våra servrar (drivna via vår autentiserings- och databasbackend) lagrar vi endast den information som behövs för att driva tjänsten: dina autentiseringsuppgifter, visningsnamn, val av lagringsleverantör, status för krypteringskonfiguration, prenumerationsstatus, de identifierare som vår betalningsleverantör (Stripe) använder för att hantera din prenumeration samt användningsräknare för AI-funktioner per användare. Betalningar hanteras av våra betalningsleverantörer (Stripe för webb, Apple In-App Purchase på iOS, Google Play Billing på Android); vi lagrar inte fullständiga betalkortsuppgifter på våra servrar."
       },
       "encryption": {
-        "title": "End-to-End-kryptering",
-        "content": "När du aktiverar E2E-kryptering krypteras dina dagboksinlägg på din enhet innan de lämnar den. Endast du har krypteringsnycklarna. Din data förblir skyddad under lagring och överföring och kan inte läsas av någon utan ditt krypteringslösenord."
+        "title": "End-to-end-kryptering",
+        "content": "När du aktiverar E2E-kryptering krypteras dina dagboksinlägg på din enhet innan de lämnar den. Endast du har krypteringsnycklarna. Dina data förblir skyddade under lagring och överföring och kan inte läsas av någon utan ditt krypteringslösenord."
       },
       "zeroKnowledge": {
-        "title": "Noll-kunskapsarkitektur",
-        "content": "Vår zero-knowledge-arkitektur gäller för ditt änd-till-änd-krypterade dagboksinnehåll: med E2E-kryptering aktiverad är det bara du som har lösenordet som krävs för att dekryptera dina data, och vi kan inte komma åt eller läsa dem. Kontoinformation som krävs för att driva tjänsten — såsom din e-postadress, visningsnamn, val av lagringsleverantör, prenumerationsstatus och AI-användningsräknare — är nödvändigtvis läsbar för oss. Om du använder valfria AI-funktioner dekrypteras den relevanta texten på din enhet och skickas enligt beskrivningen i vårt avsnitt \"AI-funktioner och behandling\" nedan."
+        "title": "Nollkunskapsarkitektur",
+        "content": "Vår nollkunskapsarkitektur gäller för ditt end-to-end-krypterade dagboksinnehåll: med E2E-kryptering aktiverad är det bara du som har lösenordet som krävs för att dekryptera dina data, och vi kan inte komma åt eller läsa dem. Kontoinformation som krävs för att driva tjänsten – såsom din e-postadress, visningsnamn, val av lagringsleverantör, prenumerationsstatus och AI-användningsräknare – är nödvändigtvis läsbar för oss. Om du använder valfria AI-funktioner dekrypteras den relevanta texten på din enhet och skickas enligt beskrivningen i vårt avsnitt \"AI-funktioner och behandling\" nedan."
       },
       "thirdParty": {
         "title": "Tredjepartstjänster",
-        "content": "Vi integrerar med följande tredjepartstjänster, som var och en arbetar enligt sina egna villkor och integritetsrutiner: molnlagringsleverantörer (Google Drive, Dropbox, Nextcloud, iCloud Drive) för synkronisering till ditt eget konto; autentiseringstjänster (Google, Apple) och vår autentiseringsbackend för säker inloggning; betalningsleverantörer (Stripe för webb, Apple In-App Purchase på iOS, Google Play Billing på Android) för hantering av prenumerationer; och AI-tjänsteleverantörer (Google Gemini, OpenAI) när du väljer att använda valfria AI-funktioner."
+        "content": "Vi integrerar med följande tredjepartstjänster, som var och en arbetar enligt sina egna villkor och integritetsrutiner: molnlagringsleverantörer (Google Drive, Dropbox, Nextcloud, iCloud Drive) för synkronisering till ditt eget konto; autentiseringstjänster (Google, Apple) och vår autentiseringsbackend för säker inloggning; betalningsleverantörer (Stripe för webb, Apple In-App Purchase på iOS, Google Play Billing på Android) för hantering av prenumerationer; och en AI-tjänsteleverantör (Google Gemini) när du väljer att använda valfria AI-funktioner."
       },
       "syncIdentifier": {
         "title": "Synkronisering och enhets-ID",
-        "content": "För att synkronisera din dagbok mellan enheter och lösa redigeringskonflikter skapar och använder appen en synk-ID. Denna ID lagras på din enhet och i din molnlagring; den används inte för att identifiera dig i andra appar eller för reklam."
+        "content": "För att synkronisera din dagbok mellan enheter och lösa redigeringskonflikter skapar och använder appen ett synk-ID. Detta ID lagras på din enhet och i din molnlagring; det används inte för att identifiera dig i andra appar eller för reklam."
       },
       "aiProcessing": {
-        "title": "AI-funktioner och bearbetning",
-        "content": "OwnJournal erbjuder valfria AI-drivna funktioner såsom humöranalys och förslag, som är exklusivt tillgängliga för Plus-prenumeranter. AI-behandling sker endast när du som Plus-prenumerant uttryckligen använder dessa funktioner. När du använder AI-funktioner dekrypteras den relevanta texten först på din enhet och skickas sedan till AI-tjänsten genom din uttryckliga åtgärd; ditt dagboksinnehåll skickas till vår AI-leverantör — för närvarande Google (Gemini), med OpenAI som alternativ — via deras betalda API:er. Vi lagrar inte AI-indata eller -utdata på våra servrar; vi registrerar endast användningsräknare per användare av AI-funktionsanvändning (typen av utförd analys och en tidsstämpel, aldrig innehållet) för att tillämpa gränser för rättvis användning. Dessa leverantörer kan behålla prompter och utdata under en begränsad tid för missbruksövervakning och tillämpning av riktlinjer enligt sina aktuella riktlinjer. AI-behandling kan ske utanför EES; både Google och OpenAI upprätthåller lämpliga skyddsåtgärder för dataöverföring såsom standardavtalsklausuler. Vi använder de betalda nivåerna hos dessa AI-leverantörer, under vilka prompter och utdata inte används för att träna eller förbättra leverantörens modeller. Du kan välja att inte använda AI-funktioner, och det påverkar inte kärnfunktionaliteten i dagboken."
+        "title": "AI-funktioner och behandling",
+        "content": "OwnJournal erbjuder valfria AI-drivna funktioner, till exempel humöranalys, förslag och röstinmatning, som endast är tillgängliga för Plus-prenumeranter. AI-behandling sker bara när du som Plus-prenumerant uttryckligen använder dessa funktioner. När du använder textbaserade AI-funktioner dekrypteras den berörda texten först på din enhet och skickas sedan, på din uttryckliga begäran och via våra servrar, till vår AI-leverantör, för närvarande Google (Gemini), genom dess betalda API. När du använder röstinmatning används enhetens mikrofon bara medan du spelar in; inspelningen skickas via våra servrar till Google (Gemini) för att omvandlas till text, och den resulterande texten läggs till i ditt inlägg på din enhet. Vi lagrar inte AI-indata eller -utdata, inklusive röstinspelningar och transkriptioner, på våra servrar; vi registrerar endast räknare för användning av AI-funktioner per användare (typen av utförd analys, en tidsstämpel och, för röstinmatning, inspelningens längd i sekunder; aldrig innehållet) för att upprätthålla gränserna för skälig användning. Google kan spara förfrågningar och utdata under en begränsad tid för att övervaka missbruk och upprätthålla sina regler, enligt sina gällande policyer. AI-behandling kan ske utanför EES; Google upprätthåller lämpliga skyddsåtgärder för dataöverföring, såsom standardavtalsklausuler. Vi använder den betalda nivån av Googles AI-tjänst, där förfrågningar och utdata inte används för att träna eller förbättra Googles modeller. Du kan välja att inte använda AI-funktioner, och det påverkar inte dagbokens grundläggande funktioner."
       },
       "diagnostics": {
         "title": "Diagnostik och kraschloggar",
@@ -2269,82 +2314,88 @@
       },
       "accountDeletion": {
         "title": "Radering av konto",
-        "content": "Du kan radera ditt konto när som helst via Inställningar i appen eller genom att kontakta oss på {{companyEmail}}. Borttagning av kontot tar bort din profil, prenumeration, AI-användningsräknare och autentiseringsdata från våra system. Dagboksdata i din molnlagring förblir under din kontroll och kan raderas där av dig."
+        "content": "Du kan radera ditt konto när som helst via Inställningar i appen eller genom att kontakta oss på {{companyEmail}}. När kontot raderas tas din profil, prenumeration, AI-användningsräknare och autentiseringsdata bort från våra system. Dagboksdata i din molnlagring förblir under din kontroll och kan raderas där av dig."
       },
       "legalBasis": {
         "title": "Rättslig grund för behandling",
-        "content": "Vi behandlar dina data baserat på: (1) Avtalsuppfyllelse — för att tillhandahålla dagbokstjänsten du har anmält dig till; (2) Berättigade intressen — för att upprätthålla tjänstens säkerhet och förhindra missbruk, och för att tillämpa gränser för rättvis användning av valfria AI-funktioner; och (3) Samtycke — för valfria funktioner såsom AI-analys (du kan när som helst återkalla ditt samtycke)."
+        "content": "Vi behandlar dina data på följande rättsliga grunder: (1) Fullgörande av avtal – för att tillhandahålla dagbokstjänsten som du har registrerat dig för; (2) Berättigade intressen – för att upprätthålla tjänstens säkerhet och förhindra missbruk samt för att se till att gränserna för skälig användning av valfria AI-funktioner följs; och (3) Samtycke – för valfria funktioner såsom AI-analys (du kan när som helst återkalla ditt samtycke)."
       },
       "dpo": {
         "title": "Dataskyddsombud (DPO)",
-        "content": "Vi har inte utsett ett dataskyddsombud eftersom vi, baserat på vår nuvarande verksamhet, inte är skyldiga att göra det enligt artikel 37 i GDPR. OwnJournal behandlar eller lagrar inte dagboksinnehåll på våra servrar, och vår behandling är begränsad till minimal konto-, autentiserings- och prenumerationsinformation. Dagboksinnehåll förblir end-to-end-krypterat och under användarens kontroll. Vi kommer att ompröva denna skyldighet om vår behandlingsverksamhet förändras."
+        "content": "Vi har inte utsett ett dataskyddsombud eftersom vi, baserat på vår nuvarande verksamhet, inte är skyldiga att göra det enligt artikel 37 i GDPR. OwnJournal lagrar inte dagboksinnehåll på sina servrar. När du använder valfria AI-funktioner passerar den berörda texten eller inspelningen våra servrar enbart under överföringen till vår AI-leverantör och sparas inte. I övrigt är vår behandling begränsad till minimal konto-, autentiserings- och prenumerationsinformation. Dagboksinnehåll förblir end-to-end-krypterat och under användarens kontroll. Vi kommer att ompröva denna skyldighet om vår behandlingsverksamhet förändras."
       },
       "rights": {
         "title": "Dina rättigheter",
-        "content": "Enligt GDPR och liknande integritetslagar har du rätt att: få tillgång till dina uppgifter, exportera dina uppgifter (dataportabilitet), korrigera felaktiga uppgifter, radera dina uppgifter (rätten att bli bortglömd), begränsa behandling, invända mot behandling och lämna in ett klagomål till din lokala dataskyddsmyndighet. För EU-medborgare kan du kontakta din nationella tillsynsmyndighet. I {{companyCountry}} är detta {{supervisoryAuthority}} på {{supervisoryAuthorityUrl}}. För att utöva dessa rättigheter, kontakta oss på {{companyEmail}}."
+        "content": "Enligt GDPR och liknande integritetslagar har du rätt att: få tillgång till dina uppgifter, exportera dina uppgifter (dataportabilitet), korrigera felaktiga uppgifter, radera dina uppgifter (rätten att bli bortglömd), begränsa behandlingen, invända mot behandlingen och lämna in ett klagomål till din lokala tillsynsmyndighet för dataskydd. Om du bor i EU kan du kontakta din nationella tillsynsmyndighet. I {{companyCountry}} är detta {{supervisoryAuthority}} på {{supervisoryAuthorityUrl}}. Om du vill utöva dessa rättigheter kontaktar du oss på {{companyEmail}}."
       },
       "children": {
         "title": "Barns integritet",
-        "content": "OwnJournal är inte avsett för barn under 13 år, eller den högre åldern för digitalt samtycke som gäller i ditt land (upp till 16 år i vissa EU-medlemsstater). Vi samlar inte medvetet in personuppgifter från barn under den tillämpliga åldern. Om du tror att vi oavsiktligt har samlat in sådan information, vänligen kontakta oss."
+        "content": "OwnJournal är inte avsett för barn under 13 år, eller den högre åldern för digitalt samtycke som gäller i ditt land (upp till 16 år i vissa EU-medlemsstater). Vi samlar inte medvetet in personuppgifter från barn under den tillämpliga åldern. Om du tror att vi oavsiktligt har samlat in sådana uppgifter ber vi dig kontakta oss."
       },
       "changes": {
         "title": "Ändringar av denna policy",
-        "content": "Vi kan uppdatera denna integritetspolicy från tid till annan. Vi meddelar dig om väsentliga ändringar via applikationen. Fortsatt användning efter ändringar innebär godkännande av den uppdaterade policyn."
+        "content": "Vi kan uppdatera denna integritetspolicy från tid till annan. Vi informerar dig om väsentliga ändringar via applikationen. Fortsatt användning efter ändringar innebär godkännande av den uppdaterade policyn."
       },
       "contact": {
         "title": "Kontakta oss",
-        "content": "Om du har frågor om denna integritetspolicy, vill utöva dina datarättigheter eller har några funderingar, vänligen kontakta oss på {{companyEmail}}. Vi strävar efter att svara inom 30 dagar."
+        "content": "Om du har frågor om denna integritetspolicy, vill utöva dina rättigheter eller har andra funderingar kan du kontakta oss på {{companyEmail}}. Vi strävar efter att svara inom 30 dagar."
       },
       "localStorage": {
         "title": "Cookies och lokal lagring",
-        "content": "OwnJournal använder inte tredjepartscookies, reklamcookies eller spårare mellan appar. Applikationen använder din enhets lokala lagring (webbläsarens localStorage och IndexedDB på webben; motsvarande lokal lagring på mobil och dator) för att lagra dina krypteringsnycklar, dagboksanteckningar, synkroniseringsstatus och inställningar på din enhet. Dessa lokala data är per användare och stannar på din enhet om du inte uttryckligen exporterar dem eller synkroniserar dem till din valda molnlagringsleverantör. Autentisering använder sessionsmärken som utfärdas av vår autentiseringsbackend och lagras lokalt på din enhet. Du kan rensa lokala data när som helst från Inställningar eller genom att rensa din webbläsares lagring."
+        "content": "OwnJournal använder inte tredjepartscookies, reklamcookies eller spårare mellan appar. Applikationen använder din enhets lokala lagring (webbläsarens localStorage och IndexedDB på webben; motsvarande lokal lagring på mobil och dator) för att lagra dina krypteringsnycklar, dagboksinlägg, synkroniseringsstatus och inställningar på din enhet. Dessa lokala data är knutna till respektive användare och stannar på din enhet om du inte uttryckligen exporterar dem eller synkroniserar dem till din valda molnlagringsleverantör. Autentiseringen använder sessionstokens som utfärdas av vår autentiseringsbackend och lagras lokalt på din enhet. Du kan rensa lokala data när som helst från Inställningar eller genom att rensa din webbläsares lagring."
       },
       "internationalTransfers": {
         "title": "Internationella dataöverföringar",
-        "content": "Vissa av våra tjänsteleverantörer behandlar data utanför Europeiska ekonomiska samarbetsområdet (EES). Vår autentiserings- och databasbackend, betalningsleverantörer (Stripe, Apple, Google), AI-leverantörer (Google, OpenAI) och din valda molnlagringsleverantör kan överföra eller behandla data i länder som inte har fått ett beslut om adekvat skyddsnivå från Europeiska kommissionen. I sådana fall förlitar vi oss och leverantörerna på lämpliga skyddsåtgärder enligt artikel 46 i GDPR, såsom Europeiska kommissionens standardavtalsklausuler (SCC) tillsammans med kompletterande tekniska och organisatoriska åtgärder. Du kan begära mer information om de gällande skyddsåtgärderna genom att kontakta oss."
+        "content": "Vissa av våra tjänsteleverantörer behandlar data utanför Europeiska ekonomiska samarbetsområdet (EES). Vår autentiserings- och databasbackend, betalningsleverantörer (Stripe, Apple, Google), AI-leverantör (Google) och din valda molnlagringsleverantör kan överföra eller behandla data i länder som inte har fått ett beslut om adekvat skyddsnivå från Europeiska kommissionen. I sådana fall förlitar vi oss och leverantörerna på lämpliga skyddsåtgärder enligt artikel 46 i GDPR, såsom Europeiska kommissionens standardavtalsklausuler (SCC) tillsammans med kompletterande tekniska och organisatoriska åtgärder. Du kan begära mer information om de gällande skyddsåtgärderna genom att kontakta oss."
       },
       "californiaRights": {
         "title": "Integritetsrättigheter i amerikanska delstater",
-        "content": "Om du är bosatt i Kalifornien eller en annan amerikansk delstat med en omfattande konsumentintegritetslag (såsom Virginia, Colorado, Connecticut, Utah, Texas eller andra som antagits), har du rättigheter avseende dina personuppgifter som kan inkludera: rätten att veta vilka personuppgifter vi samlar in, rätten att radera dina personuppgifter, rätten att korrigera felaktiga personuppgifter, rätten att tacka nej till vissa användningar (inklusive försäljning eller delning av personuppgifter) och rätten att begränsa användningen av känsliga personuppgifter. Vi säljer inte dina personuppgifter och delar dem inte för kontextuell beteendebaserad reklam. För att utöva dina rättigheter, kontakta oss på adressen i avsnittet \"Kontakta oss\"."
+        "content": "Om du är bosatt i Kalifornien eller en annan amerikansk delstat med en heltäckande lag om konsumenters integritet (såsom Virginia, Colorado, Connecticut, Utah, Texas eller andra delstater som har antagit sådana lagar) har du rättigheter avseende dina personuppgifter som kan inkludera: rätten att veta vilka personuppgifter vi samlar in, rätten att radera dina personuppgifter, rätten att korrigera felaktiga personuppgifter, rätten att tacka nej till vissa användningar (inklusive försäljning eller delning av personuppgifter) och rätten att begränsa användningen av känsliga personuppgifter. Vi säljer inte dina personuppgifter och delar dem inte för kontextöverskridande beteendebaserad reklam. Om du vill utöva dina rättigheter kontaktar du oss på adressen i avsnittet \"Kontakta oss\"."
       }
-    }
+    },
+    "lastUpdatedOn": "Senast uppdaterad: {{date}}"
   },
   "recovery": {
     "title": "Återställ krypterade inlägg",
     "description": "Vissa inlägg kunde inte dekrypteras.",
     "decryptionFailures": "Vissa inlägg kunde inte dekrypteras",
-    "decryptionFailuresDesc": "{{count}} av {{total}} inlägg kunde inte dekrypteras. Ditt lösenord kan ha ändrats.",
-    "failedEntries": "{{count}} av {{total}} inlägg kunde inte dekrypteras",
+    "decryptionFailuresDesc_one": "{{count}} av {{total}} inlägg kunde inte dekrypteras. Ditt lösenord kan ha ändrats.",
+    "decryptionFailuresDesc_other": "{{count}} av {{total}} inlägg kunde inte dekrypteras. Ditt lösenord kan ha ändrats.",
+    "failedEntries_one": "{{count}} av {{total}} inlägg kunde inte dekrypteras",
+    "failedEntries_other": "{{count}} av {{total}} inlägg kunde inte dekrypteras",
     "explanation": "Detta händer vanligtvis när krypteringslösenordet ändrades. Ange ditt ursprungliga lösenord för att återställa inläggen.",
     "originalPassword": "Ursprungligt krypteringslösenord",
-    "passwordPlaceholder": "Ange ditt ursprungliga lösenord...",
+    "passwordPlaceholder": "Ange ditt ursprungliga lösenord…",
     "passwordRequired": "Ange ditt ursprungliga lösenord",
     "hint1": "• Detta är lösenordet du först använde för att konfigurera kryptering",
-    "hint2": "• Dina krypterade inlägg är INTE förlorade - de behöver bara rätt lösenord",
+    "hint2": "• Dina krypterade inlägg är INTE förlorade – de behöver bara rätt lösenord",
     "hint3": "• Om du inte kan komma ihåg lösenordet kan det bli omöjligt att återställa inläggen",
     "recover": "Återställ",
     "recoverButton": "Återställ inlägg",
-    "recovering": "Återställer...",
+    "recovering": "Återställer…",
     "success": "Återställning lyckades",
-    "successDesc": "Återställde {{count}} inlägg",
+    "successDesc_one": "Återställde {{count}} inlägg",
+    "successDesc_other": "Återställde {{count}} inlägg",
     "failed": "Återställning misslyckades: {{error}}",
     "wrongPassword": "Felaktigt lösenord. Försök igen med ditt ursprungliga krypteringslösenord.",
-    "keyCorrupted": "Krypteringsnyckeln på alla anslutna leverantörer kan inte dekryptera dina anteckningar. Om du använde Google Drive, kontrollera versionshistoriken efter en tidigare version av encryption-key.json i OwnJournal-mappen.",
-    "noCloudKey": "Ingen krypteringsnyckel hittades i molnlagringen. Datan kan ha raderats.",
+    "keyCorrupted": "Krypteringsnyckeln hos de anslutna leverantörerna kan inte dekryptera dina inlägg. Om du använde Google Drive kan du leta efter en tidigare version av encryption-key.json i OwnJournal-mappen i versionshistoriken.",
+    "noCloudKey": "Ingen krypteringsnyckel hittades i molnlagringen. Uppgifterna kan ha raderats.",
     "unknownError": "Ett okänt fel uppstod",
     "entriesWithoutKey": "Molnlagring har krypterade inlägg men krypteringsnyckeln saknas. Använd återställningsalternativet för att återfå åtkomst.",
     "noCachedKey": "Ingen krypteringsdata hittades lokalt. Anslut till molnlagring för att återställa dina inlägg.",
     "networkError": "Nätverksfel. Kontrollera din anslutning och försök igen.",
-    "rateLimited": "Molnlagringen begränsar förfrågningar tillfälligt. Vänta 30-60 sekunder och försök igen.",
+    "rateLimited": "Molnlagringen begränsar förfrågningar tillfälligt. Vänta 30–60 sekunder och försök igen.",
     "deleteLink": "Eller ta bort inlägg som inte kan återställas",
-    "confirmDelete": "Detta tar permanent bort {{count}} inlägg som inte kan dekrypteras. Det går inte att ångra.",
+    "confirmDelete_one": "Detta tar permanent bort {{count}} inlägg som inte kan dekrypteras. Det går inte att ångra.",
+    "confirmDelete_other": "Detta tar permanent bort {{count}} inlägg som inte kan dekrypteras. Det går inte att ångra.",
     "confirmDeleteButton": "Ta bort permanent",
     "deletedTitle": "Inlägg borttagna",
-    "deletedDesc": "Tog bort {{count}} inlägg som inte kunde återställas",
+    "deletedDesc_one": "Tog bort {{count}} inlägg som inte kunde återställas",
+    "deletedDesc_other": "Tog bort {{count}} inlägg som inte kunde återställas",
     "deleteFailed": "Kunde inte ta bort inlägg. Försök igen.",
     "keyMismatchExplanation": "Krypteringsnyckeln som kan dekryptera dessa inlägg matchar inte den som används. Du kan ladda om nyckeln från molnlagringen.",
     "keyMismatchRecoveryHint": "Du kan eventuellt återställa den ursprungliga nyckeln via versionshistoriken i din molnlagring (t.ex. Google Drive eller Nextclouds filversioner för encryption-key.json i mappen OwnJournal).",
-    "keyMismatchHint1": "• Krypteringsnyckeln i molnlagringen matchar inte den nyckel som användes för att kryptera dessa poster",
+    "keyMismatchHint1": "• Krypteringsnyckeln i molnlagringen matchar inte den nyckel som användes för att kryptera dessa inlägg",
     "keyMismatchHint2": "• Kontrollera versionshistoriken i Google Drive eller Nextcloud för att hitta en äldre encryption-key.json",
     "keyMismatchHint3": "• Om en annan enhet fortfarande har rätt nyckel i cacheminnet, anslut från den enheten först",
     "reloadKeyFromCloud": "Ladda om nyckel från molnet",
@@ -2364,15 +2415,15 @@
     "appPasswordTooLong": "Applösenord måste vara kortare än 500 tecken"
   },
   "cloudErrors": {
-    "notFound": "Hittades inte - Målplatsen finns inte",
-    "notFoundWithFile": "Hittades inte - Målplatsen finns inte. Fil: {{file}}",
-    "permissionDenied": "Åtkomst nekad - Du har inte behörighet att komma åt denna plats",
-    "authFailed": "Autentisering misslyckades - Kontrollera dina inloggningsuppgifter eller återanslut",
-    "serverError": "Serverfel - Servern stötte på ett internt fel",
-    "serverUnavailable": "Server otillgänglig - Försök igen senare",
-    "storageFull": "Lagring full - Otillräckligt utrymme på servern",
-    "rateLimited": "Hastighetsbegränsad - För många förfrågningar, vänta",
-    "encryptionError": "Krypteringsfel - Serversidans kryptering förhindrar åtkomst",
+    "notFound": "Hittades inte – målplatsen finns inte",
+    "notFoundWithFile": "Hittades inte – målplatsen finns inte. Fil: {{file}}",
+    "permissionDenied": "Åtkomst nekad – du har inte behörighet till den här platsen",
+    "authFailed": "Autentiseringen misslyckades – kontrollera dina inloggningsuppgifter eller anslut igen",
+    "serverError": "Serverfel – ett internt fel uppstod på servern",
+    "serverUnavailable": "Servern är inte tillgänglig – försök igen senare",
+    "storageFull": "Lagringen är full – det finns inte tillräckligt med utrymme på servern",
+    "rateLimited": "För många förfrågningar – vänta en stund",
+    "encryptionError": "Krypteringsfel – kryptering på serversidan förhindrar åtkomst",
     "syncStateFailed": "Kunde inte uppdatera synkroniseringsstatus",
     "uploadFailed": "Uppladdning misslyckades",
     "uploadFailedWithFile": "Uppladdning misslyckades för fil: {{file}}",
@@ -2380,9 +2431,9 @@
     "downloadFailedWithFile": "Nedladdning misslyckades för fil: {{file}}",
     "deleteFailed": "Borttagning misslyckades",
     "listFailed": "Kunde inte lista filer",
-    "connectionFailed": "Anslutning misslyckades - Kontrollera din internetanslutning",
-    "tokenRefreshFailed": "Session utgången - Återanslut din molnlagring",
-    "networkErrorCheckingKey": "Tillfälligt nätverksfel — försök igen om en stund"
+    "connectionFailed": "Anslutningen misslyckades – kontrollera din internetanslutning",
+    "tokenRefreshFailed": "Sessionen har gått ut – anslut din molnlagring igen",
+    "networkErrorCheckingKey": "Tillfälligt nätverksfel – försök igen om en stund"
   },
   "incompatibleKey": {
     "title": "Krypteringsnyckel inkompatibel",
@@ -2415,11 +2466,11 @@
     "distribution": "Fördelning",
     "overTime": "Utveckling",
     "dayOfWeek": "Veckodag",
-    "streaks": "Serier",
-    "currentStreak": "Pågående serie",
-    "longestStreak": "Längsta serie",
+    "streaks": "Sviter",
+    "currentStreak": "Pågående svit",
+    "longestStreak": "Längsta svit",
     "days": "dagar",
-    "positivePercent": "{{percent}} % positivt",
+    "positivePercent": "{{percent}} % positivt",
     "bestDay": "Bästa dag: {{day}}",
     "worstDay": "Tyngsta dag: {{day}}",
     "noData": "Inte tillräckligt med inlägg för statistik",
@@ -2440,16 +2491,16 @@
     "topNegative": "{{activity}} sänker ditt humör",
     "proFeature": "Plus-funktion",
     "proFeatureDesc": "Aktivitetsinsikter ingår i Plus-prenumerationen",
-    "tooltipAvg": "snitt",
-    "tooltipEntries": "inlägg"
+    "tooltipDetail_one": "{{delta}} (snitt: {{emoji}} {{avg}}, {{count}} inlägg)",
+    "tooltipDetail_other": "{{delta}} (snitt: {{emoji}} {{avg}}, {{count}} inlägg)"
   },
   "notes": {
     "journalTab": "Dagbok",
     "title": "Anteckningar",
     "newNote": "Ny anteckning",
-    "searchPlaceholder": "Sök anteckningar...",
+    "searchPlaceholder": "Sök anteckningar…",
     "titlePlaceholder": "Anteckningens titel (valfritt)",
-    "startWriting": "Skriv din anteckning...",
+    "startWriting": "Skriv din anteckning…",
     "saveNote": "Spara anteckning",
     "emptyTitle": "Inga anteckningar ännu",
     "emptyDesc": "Spara idéer, listor och referensmaterial som inte hör till en viss dag.",
@@ -2457,13 +2508,13 @@
     "deleteConfirmTitle": "Ta bort denna anteckning?",
     "deleteConfirmDesc": "Anteckningen tas bort permanent från din lagring.",
     "updated": "Uppdaterad {{date}}",
-    "saving": "Sparar anteckning...",
+    "saving": "Sparar anteckning…",
     "savingDesc": "Krypterar och synkroniserar din anteckning.",
     "saved": "Anteckning sparad",
     "savedDesc": "Din krypterade anteckning har sparats och synkroniserats.",
     "savedOfflineDesc": "Sparat lokalt. Synkroniseras när du är online igen.",
     "failedToSave": "Det gick inte att spara anteckningen",
-    "deleting": "Tar bort anteckning...",
+    "deleting": "Tar bort anteckning…",
     "deletingDesc": "Tar bort anteckningen från lagringen och synkroniserar till molnet.",
     "deleted": "Anteckning borttagen",
     "deletedDesc": "Din anteckning har tagits bort och synkroniserats.",
@@ -2479,5 +2530,35 @@
     "system": "System",
     "paperHint": "Papper är helvitt utan toningar – lättast att läsa på e-bläckskärmar.",
     "switchTo": "Byt till temat {{theme}}"
+  },
+  "voice": {
+    "title": "Röstinmatning",
+    "dictate": "Diktera",
+    "stop": "Stoppa",
+    "cancel": "Avbryt inspelningen",
+    "transcribing": "Transkriberar…",
+    "retry": "Försök transkribera igen",
+    "discard": "Släng inspelningen",
+    "stopsIn": "Stoppar om {{seconds}} s",
+    "minutesLeft": "{{minutes}} min kvar den här månaden",
+    "plusFeature": "Röstinmatning ingår i Plus",
+    "consentTitle": "Vill du att Google transkriberar din inspelning?",
+    "consentBody": "Din inspelning skickas till Googles Gemini-tjänst för att omvandlas till text. OwnJournal sparar aldrig ljudet. Google använder det inte för att träna sina modeller och kan spara det bara under en kort tid för att förhindra missbruk. Texten sparas på samma sätt som resten av ditt inlägg.",
+    "consentAccept": "Fortsätt",
+    "consentDecline": "Inte nu",
+    "teaserBody": "Prata i stället för att skriva. Dina ord blir ren text med skiljetecken på det språk du talar – upp till 200 minuter i månaden.",
+    "errors": {
+      "notSupported": "Röstinspelning stöds inte på den här enheten.",
+      "permissionDenied": "Mikrofonåtkomst är blockerad. Tillåt den i enhetens eller webbläsarens inställningar för att kunna diktera.",
+      "noMicrophone": "Ingen mikrofon hittades.",
+      "offline": "Du är offline. Röstinmatning kräver en internetanslutning.",
+      "authRequired": "Logga in för att använda röstinmatning.",
+      "plusRequired": "Röstinmatning kräver en Plus-prenumeration.",
+      "limitReached": "Du har använt alla {{minutes}} minuter röstinmatning den här månaden. Gränsen återställs nästa månad.",
+      "tooLarge": "Inspelningen är för stor. Prova en kortare.",
+      "unsupportedFormat": "Inspelningsformatet stöds inte.",
+      "noSpeech": "Inget tal hittades i inspelningen.",
+      "failed": "Transkriberingen misslyckades. Försök igen."
+    }
   }
 }

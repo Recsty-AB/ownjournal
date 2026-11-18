@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { callGoogleAI } from '../googleAIProvider';
-import { getModelForType } from '../modelConfig';
+import { getModelForType } from '../../_shared/modelConfig';
 
 const messages = [
   { role: 'system' as const, content: 'Return journal metadata in the entry language.' },

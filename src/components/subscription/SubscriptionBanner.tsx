@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Crown, Sparkles, Brain, Lightbulb, Tag, TrendingUp, FileText, FileType, Loader2, ExternalLink, Smartphone } from "lucide-react";
+import { Crown, Sparkles, Brain, Lightbulb, Tag, TrendingUp, FileText, Mic, Loader2, ExternalLink, Smartphone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedPricing } from "@/hooks/useLocalizedPricing";
 import { useIapOnlyRegion } from "@/hooks/useIapOnlyRegion";
@@ -25,8 +25,8 @@ const proFeatures = [
   { key: "titleSuggestions", icon: Lightbulb },
   { key: "tagSuggestions", icon: Tag },
   { key: "trendAnalysis", icon: TrendingUp },
-  { key: "pdfExport", icon: FileText },
-  { key: "wordExport", icon: FileType },
+  { key: "voiceEntry", icon: Mic },
+  { key: "exports", icon: FileText },
 ];
 
 export const SubscriptionBanner = ({

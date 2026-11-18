@@ -47,7 +47,7 @@ const PrivacyPolicy = () => {
             {t("legal.privacy.title")}
           </h1>
           <p className="text-muted-foreground text-sm">
-            {t("legal.lastUpdated")}: {t("legal.privacy.lastUpdatedDate")}
+            {t("legal.lastUpdatedOn", { date: t("legal.privacy.lastUpdatedDate") })}
           </p>
         </div>
 

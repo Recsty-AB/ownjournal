@@ -302,7 +302,7 @@ export const StorageSettings = () => {
           
           await storageServiceV2.onCloudProviderConnected(storedPassword);
           const entryCount = await storageServiceV2.getAllEntries().then(e => e.length).catch(() => 0);
-          toast({ title: t('storage.synced'), description: `${displayName} - ${entryCount} ${t('export.entries')}` });
+          toast({ title: t('storage.synced'), description: t('storage.syncedDesc', { provider: displayName, count: entryCount }) });
         } catch (error) {
           syncedInSession.current.delete(providerKey);
           const desc = error instanceof Error ? translateCloudError(error, t) : t('common.error');
@@ -475,7 +475,7 @@ export const StorageSettings = () => {
             
             toast({ 
               title: t('storage.synced'), 
-              description: `${displayName} - ${entryCount} ${t('export.entries')}`,
+              description: t('storage.syncedDesc', { provider: displayName, count: entryCount }),
             });
           } catch (error) {
             syncedInSession.current.delete(providerName);
