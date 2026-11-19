@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { CheckCircle, ExternalLink, AlertCircle, Star } from "lucide-react";
 import { GoogleDriveIcon } from "./ProviderIcons";
@@ -1130,39 +1129,41 @@ export const GoogleDriveSync = ({ onConfigChange, masterKey, onRequirePassword, 
 
   if (!isConnected) {
     return (
-      <Card className="p-6">
-        <div className="flex items-center gap-3 mb-4">
-          <GoogleDriveIcon className="w-5 h-5 text-blue-600" />
-          <h3 className="text-lg font-semibold">{t('storage.googleDrive')}</h3>
+      <Card className="rounded-2xl border-border bg-card p-5 shadow-soft sm:p-6 space-y-4">
+        <div className="flex items-center gap-3">
+          <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-muted" aria-hidden="true">
+            <GoogleDriveIcon className="text-foreground" />
+          </span>
+          <h3 className="min-w-0 text-base font-medium leading-snug">{t('storage.googleDrive')}</h3>
         </div>
-        <p className="text-muted-foreground mb-4">
+        <p className="text-sm text-muted-foreground">
           {t('storage.googleDriveDesc')}
         </p>
-        
+
         {import.meta.env.DEV && !isGoogleDriveConfigured() && (
-          <Alert className="mb-4">
-            <AlertCircle className="h-4 w-4" />
-            <AlertDescription className="text-sm">
-              <strong>{t('storage.devMode')}:</strong> {t('storage.googleDevInstructions')}
-            </AlertDescription>
-          </Alert>
+          <div role="alert" className="notice">
+            <AlertCircle aria-hidden="true" />
+            <div className="min-w-0">
+              <strong className="font-medium">{t('storage.devMode')}:</strong> {t('storage.googleDevInstructions')}
+            </div>
+          </div>
         )}
-        
+
         {getEncryptionMode() === 'simple' && (
-          <Alert className="mb-4 border-amber-200 bg-amber-50 dark:bg-amber-950/20">
-            <AlertCircle className="h-4 w-4 text-amber-600" />
-            <AlertDescription className="text-amber-800 dark:text-amber-400 text-xs">
-              <strong>{t('storage.simpleMode')}:</strong> {t('storage.googleSimpleModeWarning')}
-            </AlertDescription>
-          </Alert>
+          <div role="alert" className="notice notice-warning">
+            <AlertCircle aria-hidden="true" />
+            <div className="min-w-0">
+              <strong className="font-medium">{t('storage.simpleMode')}:</strong> {t('storage.googleSimpleModeWarning')}
+            </div>
+          </div>
         )}
-        
-        <Button 
-          onClick={handleConnect} 
+
+        <Button
+          onClick={handleConnect}
           disabled={isConnecting}
-          className="w-full bg-blue-600 hover:bg-blue-700"
+          className="w-full sm:w-auto"
         >
-          <ExternalLink className="w-4 h-4 mr-2" />
+          <ExternalLink className="mr-2 h-4 w-4" aria-hidden="true" />
           {isConnecting ? t('storage.connecting') : t('storage.connectGoogleDrive')}
         </Button>
       </Card>
@@ -1170,64 +1171,66 @@ export const GoogleDriveSync = ({ onConfigChange, masterKey, onRequirePassword, 
   }
 
   return (
-    <Card className="p-6">
-      {/* Header - stack on mobile */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-        {/* Provider info with wrapping badges */}
-        <div className="flex flex-wrap items-center gap-2">
-          <GoogleDriveIcon className="w-5 h-5 text-blue-600" />
-          <h3 className="text-lg font-semibold whitespace-nowrap">{t('storage.googleDrive')}</h3>
-          <Badge variant="secondary" className="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
-            <CheckCircle className="w-3 h-3 mr-1" />
-            {t('storage.connected')}
-          </Badge>
-          {isPrimaryLocal && (
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Badge 
-                  variant="default"
-                  className="bg-green-600 hover:bg-green-700 text-white"
-                >
-                  <Star className="w-3 h-3 mr-1" />
-                  {t('storage.activeSync')}
-                </Badge>
-              </TooltipTrigger>
-              <TooltipContent>
-                {t('storage.activeSyncDesc')}
-              </TooltipContent>
-            </Tooltip>
-          )}
-          {!isPrimaryLocal && connectionStateManager.getConnectedProviderNames().length > 1 && (
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Badge 
-                  variant="outline"
-                  className="bg-muted text-muted-foreground border-dashed"
-                >
-                  {t('storage.inactiveSync')}
-                </Badge>
-              </TooltipTrigger>
-              <TooltipContent>
-                {t('storage.inactiveSyncDesc')}
-              </TooltipContent>
-            </Tooltip>
-          )}
+    <Card className="rounded-2xl border-border bg-card p-5 shadow-soft sm:p-6 space-y-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex min-w-0 items-center gap-3">
+          <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-muted" aria-hidden="true">
+            <GoogleDriveIcon className="text-foreground" />
+          </span>
+          <div className="min-w-0 space-y-1">
+            <h3 className="text-base font-medium leading-snug">{t('storage.googleDrive')}</h3>
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
+              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-diagnostic-success">
+                <CheckCircle className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                {t('storage.connected')}
+              </span>
+              {isPrimaryLocal && (
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Badge className="gap-1 font-medium">
+                      <Star className="h-3 w-3" aria-hidden="true" />
+                      {t('storage.activeSync')}
+                    </Badge>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    {t('storage.activeSyncDesc')}
+                  </TooltipContent>
+                </Tooltip>
+              )}
+              {!isPrimaryLocal && connectionStateManager.getConnectedProviderNames().length > 1 && (
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Badge variant="outline" className="border-dashed font-medium text-muted-foreground">
+                      {t('storage.inactiveSync')}
+                    </Badge>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    {t('storage.inactiveSyncDesc')}
+                  </TooltipContent>
+                </Tooltip>
+              )}
+            </div>
+          </div>
         </div>
-        {/* Disconnect button */}
-        <Button variant="outline" size="sm" onClick={handleDisconnect} className="self-start sm:self-auto">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={handleDisconnect}
+          className="-ml-3 min-h-10 self-start text-destructive hover:bg-destructive/10 hover:text-destructive sm:ml-0 sm:min-h-9"
+        >
           {t('storage.disconnect')}
         </Button>
       </div>
       {needsRefresh && (
-        <Alert className="mb-4">
-          <AlertCircle className="h-4 w-4" />
-          <AlertDescription className="text-sm">
+        <div role="alert" className="notice">
+          <AlertCircle aria-hidden="true" />
+          <div className="min-w-0">
             {t('storage.refreshingToken')}
-          </AlertDescription>
-        </Alert>
+          </div>
+        </div>
       )}
       <p className="text-sm text-muted-foreground">
-        {isPrimaryLocal 
+        {isPrimaryLocal
           ? t('storage.googleSyncActive')
           : t('storage.providerConnectedInactive')
         }

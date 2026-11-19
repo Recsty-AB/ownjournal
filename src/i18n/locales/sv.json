@@ -754,6 +754,8 @@
     "searchPlaceholder": "Sök inlägg…",
     "startDate": "Startdatum",
     "endDate": "Slutdatum",
+    "filters": "Filter",
+    "clearFilters": "Rensa filter",
     "noEntries": "Inga matchande inlägg",
     "startJourney": "Börja din resa",
     "tryAdjusting": "Prova att justera din sökning eller filter",

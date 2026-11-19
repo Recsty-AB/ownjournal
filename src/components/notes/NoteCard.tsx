@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Edit3, Save, StickyNote, Tag, Trash2 } from "lucide-react";
+import { Edit3, Tag, Trash2 } from "lucide-react";
 import { format } from "date-fns";
 import { getDateLocale } from "@/utils/dateLocale";
 import { MarkdownEditor } from "@/components/editor/MarkdownEditor";
@@ -160,12 +160,13 @@ export const NoteCard = ({ note, allTags = [], onSave, onDelete, onCancel, isEdi
 
   if (isEditMode) {
     return (
-      <Card className="p-4 sm:p-6 space-y-4">
+      <Card className="space-y-5 rounded-2xl border-border bg-card p-5 shadow-medium sm:p-6">
         <Input
           placeholder={t('notes.titlePlaceholder')}
+          aria-label={t('notes.titlePlaceholder')}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="text-lg font-semibold border-0 bg-transparent p-0 focus-visible:ring-0"
+          className="h-auto border-0 bg-transparent p-0 text-2xl font-semibold leading-tight focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-muted-foreground/70 md:text-2xl"
         />
 
         <MarkdownEditor
@@ -176,8 +177,8 @@ export const NoteCard = ({ note, allTags = [], onSave, onDelete, onCancel, isEdi
         />
 
         <div className="flex items-center gap-3">
-          <Tag className="w-4 h-4 text-muted-foreground" />
-          <div className="flex-1 relative">
+          <Tag aria-hidden="true" className="h-4 w-4 flex-shrink-0 text-muted-foreground" />
+          <div className="relative min-w-0 flex-1">
             <Input
               placeholder={t('journalEntry.addTagsPlaceholder')}
               value={tagInput}
@@ -189,10 +190,11 @@ export const NoteCard = ({ note, allTags = [], onSave, onDelete, onCancel, isEdi
               onKeyDown={handleTagKeyDown}
               onFocus={() => setShowTagSuggestions(tagInput.length > 0)}
               onBlur={() => setTimeout(() => setShowTagSuggestions(false), 200)}
-              className="border-0 bg-transparent p-0 focus-visible:ring-0"
+              aria-label={t('journalEntry.addTagsPlaceholder')}
+              className="border-0 bg-transparent p-0 focus-visible:ring-0 focus-visible:ring-offset-0"
             />
             {showTagSuggestions && filteredTagSuggestions.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-popover border border-border rounded-md shadow-lg z-50 max-h-48 overflow-y-auto">
+              <div className="absolute left-0 right-0 top-full z-50 mt-1 max-h-48 overflow-y-auto rounded-xl border border-border bg-popover shadow-medium">
                 {filteredTagSuggestions.map((tag, index) => (
                   <button
                     key={tag}
@@ -218,7 +220,7 @@ export const NoteCard = ({ note, allTags = [], onSave, onDelete, onCancel, isEdi
               <Badge
                 key={tag}
                 variant="secondary"
-                className="cursor-pointer hover:bg-destructive hover:text-destructive-foreground transition-colors"
+                className="cursor-pointer rounded-full font-normal transition-colors hover:bg-destructive hover:text-destructive-foreground"
                 onClick={() => setTags(tags.filter(t2 => t2 !== tag))}
               >
                 {tag} ×
@@ -228,6 +230,7 @@ export const NoteCard = ({ note, allTags = [], onSave, onDelete, onCancel, isEdi
               <Badge
                 key={`inline-${tag}`}
                 variant="outline"
+                className="rounded-full font-normal text-muted-foreground"
                 title={t('journalEntry.inlineTagBadgeHint')}
               >
                 #{tag}
@@ -236,12 +239,11 @@ export const NoteCard = ({ note, allTags = [], onSave, onDelete, onCancel, isEdi
           </div>
         )}
 
-        <div className="flex justify-end gap-2">
-          <Button variant="outline" onClick={handleCancel}>
+        <div className="flex flex-wrap justify-end gap-2 border-t border-border pt-4">
+          <Button variant="ghost" onClick={handleCancel} className="rounded-full">
             {t('common.cancel')}
           </Button>
-          <Button onClick={handleSave}>
-            <Save className="w-4 h-4 mr-2" />
+          <Button onClick={handleSave} className="rounded-full px-5">
             {t('notes.saveNote')}
           </Button>
         </div>
@@ -252,25 +254,24 @@ export const NoteCard = ({ note, allTags = [], onSave, onDelete, onCancel, isEdi
   if (!note) return null;
 
   return (
-    <Card className="p-4 sm:p-6 space-y-3">
-      <div className="flex items-start justify-between gap-2">
-        <div className="flex items-center gap-2 min-w-0">
-          <StickyNote className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-          {note.title ? (
-            <h3 className="text-lg font-semibold truncate">{note.title}</h3>
-          ) : (
-            <h3 className="text-lg font-semibold text-muted-foreground italic truncate">{t('notes.title')}</h3>
-          )}
-        </div>
-        <div className="flex gap-1 flex-shrink-0">
-          <Button variant="ghost" size="sm" onClick={() => setIsEditMode(true)} aria-label={t('common.edit')}>
-            <Edit3 className="w-4 h-4" />
+    <Card className="group/note rounded-2xl border-border bg-card p-5 shadow-soft transition-shadow duration-300 hover:shadow-medium sm:p-6">
+      <div className="mb-2 flex items-center justify-between gap-3">
+        <p className="eyebrow min-w-0">
+          {t('notes.updated', {
+            date: format(note.updatedAt, 'PPp', { locale: getDateLocale(i18n.language) }),
+          })}
+        </p>
+
+        {/* Actions stay quiet until the note has attention; always visible on touch. */}
+        <div className="-mr-2 flex flex-shrink-0 gap-0.5 text-muted-foreground transition-opacity sm:opacity-60 sm:group-hover/note:opacity-100 sm:group-focus-within/note:opacity-100">
+          <Button variant="ghost" size="icon" className="h-10 w-10 sm:h-9 sm:w-9" onClick={() => setIsEditMode(true)} aria-label={t('common.edit')}>
+            <Edit3 aria-hidden="true" className="h-5 w-5" />
           </Button>
           {onDelete && (
             <AlertDialog>
               <AlertDialogTrigger asChild>
-                <Button variant="ghost" size="sm" aria-label={t('common.delete')}>
-                  <Trash2 className="w-4 h-4" />
+                <Button variant="ghost" size="icon" className="h-10 w-10 sm:h-9 sm:w-9" aria-label={t('common.delete')}>
+                  <Trash2 aria-hidden="true" className="h-5 w-5" />
                 </Button>
               </AlertDialogTrigger>
               <AlertDialogContent>
@@ -280,7 +281,10 @@ export const NoteCard = ({ note, allTags = [], onSave, onDelete, onCancel, isEdi
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                   <AlertDialogCancel>{t('common.cancel')}</AlertDialogCancel>
-                  <AlertDialogAction onClick={() => onDelete(note.id)}>
+                  <AlertDialogAction
+                    onClick={() => onDelete(note.id)}
+                    className="bg-destructive hover:bg-destructive/90"
+                  >
                     {t('common.delete')}
                   </AlertDialogAction>
                 </AlertDialogFooter>
@@ -290,25 +294,25 @@ export const NoteCard = ({ note, allTags = [], onSave, onDelete, onCancel, isEdi
         </div>
       </div>
 
-      <div className="prose prose-sm max-w-none dark:prose-invert">
+      {note.title ? (
+        <h3 className="mb-3 text-2xl font-semibold leading-tight text-foreground [overflow-wrap:anywhere]">{note.title}</h3>
+      ) : (
+        <h3 className="mb-3 text-2xl font-semibold italic leading-tight text-muted-foreground">{t('notes.title')}</h3>
+      )}
+
+      <div className="reading prose text-foreground dark:prose-invert">
         <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
           {note.body}
         </ReactMarkdown>
       </div>
 
       {note.tags.length > 0 && (
-        <div className="flex flex-wrap gap-2">
+        <div className="mt-4 flex flex-wrap gap-2 text-sm text-muted-foreground">
           {note.tags.map(tag => (
-            <Badge key={tag} variant="secondary">{tag}</Badge>
+            <span key={tag} className="rounded-full border border-border px-3 py-1">{tag}</span>
           ))}
         </div>
       )}
-
-      <p className="text-xs text-muted-foreground">
-        {t('notes.updated', {
-          date: format(note.updatedAt, 'PPp', { locale: getDateLocale(i18n.language) }),
-        })}
-      </p>
     </Card>
   );
 };

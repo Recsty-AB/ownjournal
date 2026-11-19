@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2 } from "lucide-react";
+import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 /** Parse tokens, PKCE code, and OAuth error from current URL (hash first, then query). */
 function parseTokensFromUrl(): {
@@ -160,40 +161,33 @@ const OAuthCallbackWeb = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center space-y-4">
+    <main className="flex min-h-screen items-center justify-center bg-background p-4" style={{ paddingTop: 'calc(var(--safe-area-inset-top) + 1rem)' }}>
+      <div className="w-full max-w-sm text-center">
+        <img src={logo} alt="" className="mx-auto mb-8 h-12 w-12 object-contain dark:invert" />
         {status === "processing" && (
           <>
-            <Loader2 className="h-12 w-12 animate-spin mx-auto text-primary" />
-            <p className="text-lg text-muted-foreground">Completing sign in...</p>
+            <Loader2 aria-hidden="true" className="mx-auto mb-4 h-6 w-6 animate-spin text-muted-foreground" />
+            <p className="text-2xl font-semibold text-foreground">Completing sign in...</p>
           </>
         )}
         {status === "success" && (
           <>
-            <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center mx-auto">
-              <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <p className="text-lg text-foreground">Signed in successfully!</p>
+            <CheckCircle2 aria-hidden="true" className="mx-auto mb-4 h-6 w-6 text-diagnostic-success" />
+            <p className="text-2xl font-semibold text-foreground">Signed in successfully!</p>
           </>
         )}
         {status === "error" && (
           <>
-            <div className="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center mx-auto">
-              <svg className="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </div>
-            <p className="text-lg text-foreground">Sign in failed</p>
+            <AlertCircle aria-hidden="true" className="mx-auto mb-4 h-6 w-6 text-diagnostic-error" />
+            <p className="text-2xl font-semibold text-foreground">Sign in failed</p>
             {errorMessage && (
-              <p className="text-sm text-muted-foreground">{errorMessage}</p>
+              <p className="mt-3 text-sm text-foreground [overflow-wrap:anywhere]">{errorMessage}</p>
             )}
-            <p className="text-sm text-muted-foreground">Redirecting...</p>
+            <p className="mt-3 text-sm text-muted-foreground">Redirecting...</p>
           </>
         )}
       </div>
-    </div>
+    </main>
   );
 };
 

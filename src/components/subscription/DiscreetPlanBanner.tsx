@@ -21,7 +21,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, X } from "lucide-react";
+import { ChevronRight, Crown, X } from "lucide-react";
 import { scopedKey } from "@/utils/userScope";
 
 /**
@@ -90,16 +90,17 @@ export const DiscreetPlanBanner = ({
       <button
         type="button"
         onClick={() => setExpanded(true)}
-        className="w-full rounded-lg border border-border bg-muted/40 px-4 py-2.5 flex items-center justify-between gap-2 text-left transition-colors hover:bg-muted/70"
+        className="flex min-h-11 w-full flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-2xl border border-border bg-card px-4 py-2.5 text-left transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
-        <span className="text-sm text-muted-foreground">
+        <span className="eyebrow">
           {t("subscription.freePlan")}
         </span>
-        <span className="flex items-center gap-1 text-sm font-medium text-primary">
+        <span className="flex min-w-0 items-center gap-1.5 text-sm font-medium text-foreground">
+          <Crown aria-hidden="true" className="h-4 w-4 flex-shrink-0 text-seal" />
           {showTrialHint
             ? t("subscription.planRow.trialHint")
             : t("subscription.planRow.unlockHint")}
-          <ChevronRight className="w-4 h-4" />
+          <ChevronRight aria-hidden="true" className="h-4 w-4 flex-shrink-0 text-muted-foreground" />
         </span>
       </button>
     );
@@ -112,9 +113,9 @@ export const DiscreetPlanBanner = ({
         size="icon"
         onClick={() => setExpanded(false)}
         aria-label={t("subscription.planRow.collapse")}
-        className="absolute right-1 top-1 z-10 h-7 w-7 text-muted-foreground hover:text-foreground"
+        className="absolute right-2 top-2 z-10 h-10 w-10 rounded-full text-muted-foreground hover:text-foreground"
       >
-        <X className="w-4 h-4" />
+        <X aria-hidden="true" className="w-4 h-4" />
       </Button>
       {children}
     </div>

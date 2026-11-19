@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { Download, Shield, Loader2, AlertCircle, Languages, Gauge } from "lucide-react";
+import { Download, Shield, Loader2, AlertCircle, Languages, Gauge, WifiOff } from "lucide-react";
 import { localAI } from "@/services/localAI";
 import { aiPreloader } from "@/services/aiPreloader";
 import { useToast } from "@/hooks/use-toast";
@@ -104,78 +104,80 @@ export const ModelDownloadDialog = ({ open, onOpenChange, onDownloadComplete }: 
     }}>
       <DialogContent aria-describedby="model-download-description">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <Download className="w-5 h-5 text-primary" />
+          <DialogTitle className="text-xl font-medium leading-snug">
             {t('modelDownload.title')}
           </DialogTitle>
-          <DialogDescription id="model-download-description" className="space-y-3 pt-2">
-            {downloading ? (
-              <>
-                <p>{t('modelDownload.downloading')}</p>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs text-muted-foreground">
-                    <span>{status}</span>
-                    <span>{progress}%</span>
-                  </div>
-                  <Progress value={progress} className="h-2" />
-                </div>
-                <div className="flex items-start gap-2 text-xs text-muted-foreground">
-                  <AlertCircle className="w-3 h-3 mt-0.5 flex-shrink-0" />
-                  <span>{t('modelDownload.mayTakeMinutes')}</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <p>{t('modelDownload.toUsePrivateAI', { size: modelSize })}</p>
-                <div className="p-3 bg-muted/50 rounded-lg mb-2">
-                  <div className="flex items-center gap-2 text-sm font-medium mb-1">
-                    {modelType === 'multilingual' ? (
-                      <Languages className="w-4 h-4 text-primary" />
-                    ) : (
-                      <Gauge className="w-4 h-4 text-primary" />
-                    )}
-                    <span>{t('modelDownload.selected', { name: modelName })}</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    {modelType === 'multilingual' 
-                      ? t('modelDownload.multilingualDesc')
-                      : t('modelDownload.lightweightDesc')}
-                  </p>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {t('modelDownload.changeInSettings')}
-                  </p>
-                </div>
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-start gap-2">
-                    <Shield className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>{t('modelDownload.privateOnDevice')}</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <Shield className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>{t('modelDownload.worksOffline')}</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <Download className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>{t('modelDownload.oneTimeDownload', { size: modelSize })}</span>
-                  </div>
-                </div>
-              </>
-            )}
+          <DialogDescription id="model-download-description">
+            {downloading
+              ? t('modelDownload.downloading')
+              : t('modelDownload.toUsePrivateAI', { size: modelSize })}
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter>
-          <Button variant="outline" onClick={() => onOpenChange(false)} disabled={downloading}>
+
+        {downloading ? (
+          <div className="space-y-3">
+            <div className="space-y-2">
+              <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
+                <span className="min-w-0 break-words">{status}</span>
+                <span className="tabular-nums">{progress}%</span>
+              </div>
+              <Progress value={progress} className="h-2" />
+            </div>
+            <div className="flex items-start gap-2 text-xs text-muted-foreground">
+              <AlertCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" aria-hidden="true" />
+              <span>{t('modelDownload.mayTakeMinutes')}</span>
+            </div>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            <div className="notice">
+              {modelType === 'multilingual' ? (
+                <Languages aria-hidden="true" />
+              ) : (
+                <Gauge aria-hidden="true" />
+              )}
+              <div className="min-w-0 space-y-1">
+                <p className="font-medium">{t('modelDownload.selected', { name: modelName })}</p>
+                <p className="text-xs text-muted-foreground">
+                  {modelType === 'multilingual'
+                    ? t('modelDownload.multilingualDesc')
+                    : t('modelDownload.lightweightDesc')}
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  {t('modelDownload.changeInSettings')}
+                </p>
+              </div>
+            </div>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-start gap-2">
+                <Shield className="w-4 h-4 text-seal mt-0.5 flex-shrink-0" aria-hidden="true" />
+                <span>{t('modelDownload.privateOnDevice')}</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <WifiOff className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" aria-hidden="true" />
+                <span>{t('modelDownload.worksOffline')}</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Download className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" aria-hidden="true" />
+                <span>{t('modelDownload.oneTimeDownload', { size: modelSize })}</span>
+              </li>
+            </ul>
+          </div>
+        )}
+
+        <DialogFooter className="gap-2 sm:gap-0">
+          <Button variant="ghost" onClick={() => onOpenChange(false)} disabled={downloading}>
             {downloading ? t('modelDownload.cancel') : t('modelDownload.notNow')}
           </Button>
           <Button onClick={handleDownload} disabled={downloading}>
             {downloading ? (
               <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" aria-hidden="true" />
                 {t('modelDownload.downloadingBtn')}
               </>
             ) : (
               <>
-                <Download className="w-4 h-4 mr-2" />
+                <Download className="w-4 h-4 mr-2" aria-hidden="true" />
                 {t('modelDownload.downloadModels')}
               </>
             )}

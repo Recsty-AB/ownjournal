@@ -737,6 +737,8 @@
     "searchPlaceholder": "Cari catatan…",
     "startDate": "Tanggal mulai",
     "endDate": "Tanggal akhir",
+    "filters": "Filter",
+    "clearFilters": "Hapus filter",
     "noEntries": "Tidak ada catatan yang cocok",
     "startJourney": "Mulai Perjalananmu",
     "tryAdjusting": "Coba sesuaikan pencarian atau filter",

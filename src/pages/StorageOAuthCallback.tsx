@@ -12,7 +12,9 @@
 
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Loader2 } from 'lucide-react';
+import { AlertCircle, Loader2 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import logo from '@/assets/logo.png';
 import { getProviderFromState } from '@/utils/oauth';
 import { buildDeepLink } from '@/config/app';
 
@@ -97,40 +99,41 @@ const StorageOAuthCallback = () => {
   }, [searchParams, navigate]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center space-y-4 max-w-sm px-4">
+    <main className="flex min-h-screen items-center justify-center bg-background p-4" style={{ paddingTop: 'calc(var(--safe-area-inset-top) + 1rem)' }}>
+      <div className="w-full max-w-sm text-center">
+        <img src={logo} alt="" className="mx-auto mb-8 h-12 w-12 object-contain dark:invert" />
         {status === 'processing' ? (
           <>
-            <Loader2 className="h-8 w-8 animate-spin mx-auto text-primary" />
-            <p className="text-muted-foreground">Completing authentication...</p>
+            <Loader2 aria-hidden="true" className="mx-auto mb-4 h-6 w-6 animate-spin text-muted-foreground" />
+            <p className="text-2xl font-semibold text-foreground">Completing authentication...</p>
           </>
         ) : status === 'redirect-failed' ? (
           <>
-            <p className="font-medium">This page completes mobile app authentication.</p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-2xl font-semibold leading-snug text-foreground">This page completes mobile app authentication.</p>
+            <p className="mt-3 text-sm text-muted-foreground">
               If you're on a mobile device, tap the button below to return to the app.
             </p>
             {deepLinkUrl && (
-              <a
-                href={deepLinkUrl}
-                className="inline-block mt-2 px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium"
-              >
-                Open in App
-              </a>
+              <Button asChild className="mt-6 h-11 rounded-full px-6 bg-gradient-primary shadow-glow">
+                <a href={deepLinkUrl}>
+                  Open in App
+                </a>
+              </Button>
             )}
-            <p className="text-xs text-muted-foreground mt-4">
+            <p className="mt-6 text-xs text-muted-foreground">
               If you're on a desktop browser, you can close this tab.
             </p>
           </>
         ) : (
           <>
-            <p className="text-destructive font-medium">Authentication Error</p>
-            <p className="text-sm text-muted-foreground">{errorMessage}</p>
-            <p className="text-xs text-muted-foreground">Redirecting...</p>
+            <AlertCircle aria-hidden="true" className="mx-auto mb-4 h-6 w-6 text-diagnostic-error" />
+            <p className="text-2xl font-semibold text-foreground">Authentication Error</p>
+            <p className="mt-3 text-sm text-foreground [overflow-wrap:anywhere]">{errorMessage}</p>
+            <p className="mt-3 text-sm text-muted-foreground">Redirecting...</p>
           </>
         )}
       </div>
-    </div>
+    </main>
   );
 };
 

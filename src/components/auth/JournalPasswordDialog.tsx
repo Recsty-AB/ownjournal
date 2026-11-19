@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Key, Lock, AlertTriangle, Eye, EyeOff, ChevronDown, Settings2 } from "lucide-react";
+import { Lock, AlertTriangle, Eye, EyeOff, ChevronDown, Settings2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import { getPasswordPersistenceMode, setPasswordPersistenceMode, type PasswordPersistenceMode } from "@/utils/passwordPersistenceSettings";
@@ -106,29 +106,34 @@ export const JournalPasswordDialog = ({
           }
         }}
       >
-        <DialogHeader>
-          <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-primary flex items-center justify-center shadow-glow">
-            <Key className="w-6 h-6 text-primary-foreground" />
+        <DialogHeader className="items-center space-y-3 sm:text-center">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card shadow-soft">
+            <Lock className="h-5 w-5 text-seal" aria-hidden="true" />
           </div>
-          <DialogTitle className="text-center">{t('encryption.setPassword')}</DialogTitle>
-          <DialogDescription id="password-dialog-description" className="text-center space-y-2">
-            <p className="text-sm">
-              <span className="font-medium text-primary">{t('storage.e2eMode')}:</span> {t('encryption.e2eExplanation')}
-            </p>
-            <p className="text-xs text-muted-foreground">
-              {t('encryption.chooseStrongPassword')}
-            </p>
+          <DialogTitle className="text-xl font-medium leading-snug">{t('encryption.setPassword')}</DialogTitle>
+          <DialogDescription asChild>
+            <div id="password-dialog-description" className="space-y-2 text-center text-sm text-muted-foreground">
+              <p>
+                <span className="font-medium text-foreground">{t('storage.e2eMode')}:</span> {t('encryption.e2eExplanation')}
+              </p>
+              <p className="text-xs">
+                {t('encryption.chooseStrongPassword')}
+              </p>
+            </div>
           </DialogDescription>
         </DialogHeader>
 
         {errorMessage && (
-          <div className="bg-destructive/10 border border-destructive text-destructive rounded-md p-3 text-sm">
-            <div className="font-semibold mb-1">{t('password.encryptionKeyError')}</div>
-            <p>{translateCloudError(new Error(errorMessage), t)}</p>
+          <div className="notice notice-error" role="alert">
+            <AlertTriangle aria-hidden="true" />
+            <div className="min-w-0 space-y-1">
+              <p className="font-medium">{t('password.encryptionKeyError')}</p>
+              <p>{translateCloudError(new Error(errorMessage), t)}</p>
+            </div>
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="journal-password">{t('encryption.journalPassword')}</Label>
             <div className="relative">
@@ -147,14 +152,12 @@ export const JournalPasswordDialog = ({
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                className="absolute inset-y-0 right-0 flex w-10 items-center justify-center rounded-r-md text-muted-foreground transition-colors hover:text-foreground"
                 tabIndex={-1}
+                aria-label={showPassword ? t('ai.hide') : t('ai.show')}
+                aria-pressed={showPassword}
               >
-                {showPassword ? (
-                  <EyeOff className="w-4 h-4" />
-                ) : (
-                  <Eye className="w-4 h-4" />
-                )}
+                {showPassword ? <EyeOff className="h-4 w-4" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
               </button>
             </div>
           </div>
@@ -176,65 +179,61 @@ export const JournalPasswordDialog = ({
               <button
                 type="button"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                className="absolute inset-y-0 right-0 flex w-10 items-center justify-center rounded-r-md text-muted-foreground transition-colors hover:text-foreground"
                 tabIndex={-1}
+                aria-label={showConfirmPassword ? t('ai.hide') : t('ai.show')}
+                aria-pressed={showConfirmPassword}
               >
-                {showConfirmPassword ? (
-                  <EyeOff className="w-4 h-4" />
-                ) : (
-                  <Eye className="w-4 h-4" />
-                )}
+                {showConfirmPassword ? <EyeOff className="h-4 w-4" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
               </button>
             </div>
           </div>
 
-          <div className="bg-muted p-4 rounded-lg space-y-3">
-            <div className="flex items-start gap-2">
-              <Lock className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-              <div className="text-xs space-y-1">
-                <p className="font-semibold">{t('encryption.howE2EWorks')}:</p>
-                <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                  <li>{t('encryption.e2eExplanation')}</li>
-                </ul>
-              </div>
+          <div className="flex items-start gap-3 text-xs text-muted-foreground">
+            <Lock className="mt-0.5 h-4 w-4 flex-shrink-0" aria-hidden="true" />
+            <div className="space-y-1">
+              <p className="font-medium text-foreground">{t('encryption.howE2EWorks')}:</p>
+              <ul className="list-disc list-inside space-y-1">
+                <li>{t('encryption.e2eExplanation')}</li>
+              </ul>
             </div>
-            
-            <div className="flex items-start gap-2 bg-destructive/10 border border-destructive/20 rounded p-2">
-              <AlertTriangle className="w-4 h-4 mt-0.5 text-destructive flex-shrink-0" />
-              <div className="text-xs">
-                <p className="font-semibold text-destructive">{t('encryption.criticalSavePassword')}!</p>
-                <p className="text-destructive/90 mt-1">
-                  {t('encryption.chooseStrongPassword')}
-                </p>
-              </div>
+          </div>
+
+          {/* Losing this password loses the journal, so it is the one callout here; a caution, not an error. */}
+          <div className="notice notice-warning">
+            <AlertTriangle aria-hidden="true" />
+            <div className="min-w-0 space-y-1 text-xs">
+              <p className="font-medium">{t('encryption.criticalSavePassword')}!</p>
+              <p>{t('encryption.chooseStrongPassword')}</p>
             </div>
           </div>
 
           {/* Password Storage Options */}
-          <Collapsible open={showAdvanced} onOpenChange={setShowAdvanced}>
+          <Collapsible open={showAdvanced} onOpenChange={setShowAdvanced} className="border-t border-border pt-2">
             <CollapsibleTrigger asChild>
-              <Button 
+              <Button
                 type="button"
-                variant="ghost" 
-                size="sm" 
-                className="w-full justify-between text-xs text-muted-foreground hover:text-foreground"
+                variant="ghost"
+                size="sm"
+                className="h-10 w-full justify-between px-2 text-xs text-muted-foreground hover:text-foreground"
               >
-                <span className="flex items-center gap-2">
-                  <Settings2 className="w-3 h-3" />
+                <span className="flex min-w-0 items-center gap-2">
+                  <Settings2 className="h-3.5 w-3.5" aria-hidden="true" />
                   {t('storage.passwordPersistence.title', 'Password Storage')}
                 </span>
-                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${showAdvanced ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${showAdvanced ? 'rotate-180' : ''}`} aria-hidden="true" />
               </Button>
             </CollapsibleTrigger>
-            <CollapsibleContent className="pt-3 space-y-3">
+            <CollapsibleContent className="space-y-3 px-2 pt-2">
               <p className="text-xs text-muted-foreground">
                 {t('storage.passwordPersistence.description', 'Choose how your password is remembered on this device.')}
               </p>
-              
+
               {!!(window as any).Capacitor?.isNativePlatform?.() && (window as any).Capacitor?.getPlatform?.() === 'ios' ? (
                 <select
                   value={persistenceMode}
                   onChange={(e) => handlePersistenceChange(e.target.value as any)}
+                  aria-label={t('storage.passwordPersistence.title', 'Password Storage')}
                   className="w-full h-10 px-3 py-2 rounded-md border border-input bg-background text-sm"
                 >
                   <option value="localStorage">{t('storage.passwordPersistence.localStorage', 'Remember across sessions')}</option>
@@ -243,7 +242,7 @@ export const JournalPasswordDialog = ({
                 </select>
               ) : (
                 <Select value={persistenceMode} onValueChange={handlePersistenceChange}>
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="w-full" aria-label={t('storage.passwordPersistence.title', 'Password Storage')}>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -259,8 +258,8 @@ export const JournalPasswordDialog = ({
                   </SelectContent>
                 </Select>
               )}
-              
-              <p className="text-xs text-muted-foreground/80 italic">
+
+              <p className="text-xs text-muted-foreground">
                 {persistenceMode === 'localStorage' && t('storage.passwordPersistence.localStorageHint', 'Password will be securely encrypted and saved locally. You won\'t need to re-enter it.')}
                 {persistenceMode === 'sessionStorage' && t('storage.passwordPersistence.sessionStorageHint', 'Password will be cleared when you close your browser. Good for shared computers.')}
                 {persistenceMode === 'none' && t('storage.passwordPersistence.noneHint', 'You\'ll need to enter your password each time you access your journal.')}
@@ -268,29 +267,28 @@ export const JournalPasswordDialog = ({
             </CollapsibleContent>
           </Collapsible>
 
-          <Button
-            type="submit"
-            disabled={isLoading}
-            className="w-full"
-          >
-            {isLoading ? (
-              <>
-                <div className="w-4 h-4 mr-2 animate-spin rounded-full border-2 border-primary-foreground/30 border-t-primary-foreground" />
-                {t('common.loading')}
-              </>
-            ) : (
-              t('encryption.setPasswordContinue')
-            )}
-          </Button>
-
-          <Button
-            type="button"
-            variant="ghost"
-            className="w-full"
-            onClick={onDismiss}
-          >
-            {t('common.cancel')}
-          </Button>
+          <DialogFooter className="gap-2 pt-2 sm:gap-0">
+            <Button
+              type="button"
+              variant="ghost"
+              onClick={onDismiss}
+            >
+              {t('common.cancel')}
+            </Button>
+            <Button
+              type="submit"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <>
+                  <div className="w-4 h-4 mr-2 animate-spin rounded-full border-2 border-primary-foreground/30 border-t-primary-foreground" />
+                  {t('common.loading')}
+                </>
+              ) : (
+                t('encryption.setPasswordContinue')
+              )}
+            </Button>
+          </DialogFooter>
         </form>
       </DialogContent>
     </Dialog>

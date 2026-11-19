@@ -98,7 +98,7 @@ export const ProviderTransfer = ({ connectedProviderCount = 0, onDisconnectProvi
   };
 
   if (providers.length < 2) {
-    return (<Card className="p-4 border-dashed"><div className="flex items-start gap-2"><AlertCircle className="w-4 h-4 mt-0.5 text-muted-foreground" /><div><p className="text-sm font-medium">{t('storage.providerTransfer')}</p><p className="text-xs text-muted-foreground mt-1">{t('storage.providerTransferDesc')}</p></div></div></Card>);
+    return (<div className="notice"><AlertCircle className="text-muted-foreground" aria-hidden="true" /><div className="min-w-0"><p className="font-medium">{t('storage.providerTransfer')}</p><p className="text-xs text-muted-foreground mt-1">{t('storage.providerTransferDesc')}</p></div></div>);
   }
 
   return (
@@ -106,28 +106,28 @@ export const ProviderTransfer = ({ connectedProviderCount = 0, onDisconnectProvi
       <Dialog open={showDisconnectDialog && !!transferSource && !!transferTarget} onOpenChange={(open) => { if (!open && dialogOpenedAt && Date.now() - dialogOpenedAt < 500) return; if (!open) setShowDisconnectDialog(false); }} modal={true}>
         <DialogContent className="sm:max-w-md" aria-describedby="transfer-complete-description" onInteractOutside={(e) => e.preventDefault()} onEscapeKeyDown={(e) => e.preventDefault()}>
           <DialogHeader><DialogTitle>{t('transfer.transferCompleteDisconnect')}</DialogTitle><DialogDescription id="transfer-complete-description">{t('transfer.transferCompleteDisconnectDesc', { source: transferSource, target: transferTarget })}</DialogDescription></DialogHeader>
-          <DialogFooter><Button variant="outline" onClick={handleKeepBoth}>{t('storage.keepBoth')}</Button><Button onClick={handleDisconnectSource}>{t('storage.disconnectSource', { source: transferSource })}</Button></DialogFooter>
+          <DialogFooter className="gap-2"><Button variant="outline" onClick={handleKeepBoth}>{t('storage.keepBoth')}</Button><Button onClick={handleDisconnectSource}>{t('storage.disconnectSource', { source: transferSource })}</Button></DialogFooter>
         </DialogContent>
       </Dialog>
-      <Card className="p-4">
+      <Card className="rounded-2xl border-border bg-card p-5 shadow-soft sm:p-6">
         <div className="space-y-4">
-          {providers.length >= 2 && !isTransferring && (<Alert className="border-amber-200 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-900/50"><AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-500" /><AlertDescription className="text-amber-800 dark:text-amber-400 text-xs"><p className="font-medium mb-1">{t('storage.multipleProvidersWarning')}</p><p>{t('storage.multipleProvidersWarningDesc')}</p></AlertDescription></Alert>)}
-          <div><h4 className="text-sm font-medium mb-2">{t('storage.transferBetweenProviders')}</h4><p className="text-xs text-muted-foreground">{t('storage.transferBetweenProvidersDesc')}</p></div>
+          {providers.length >= 2 && !isTransferring && (<Alert className="rounded-xl border-diagnostic-warning/45 bg-diagnostic-warning/10 text-foreground"><AlertTriangle className="h-4 w-4 !text-diagnostic-warning" aria-hidden="true" /><AlertDescription className="text-xs"><p className="font-medium mb-1">{t('storage.multipleProvidersWarning')}</p><p>{t('storage.multipleProvidersWarningDesc')}</p></AlertDescription></Alert>)}
+          <div><h4 className="text-xl font-semibold mb-1">{t('storage.transferBetweenProviders')}</h4><p className="text-sm text-muted-foreground">{t('storage.transferBetweenProvidersDesc')}</p></div>
           <div className="flex items-center gap-2">
-            <div className="flex-1 space-y-2"><Label htmlFor="source">{t('storage.from')}</Label>{!!(window as any).Capacitor?.isNativePlatform?.() && (window as any).Capacitor?.getPlatform?.() === 'ios' ? (
-              <select id="source" value={selectedSource} onChange={(e) => setSelectedSource(e.target.value)} disabled={isTransferring} className="w-full h-10 px-3 py-2 rounded-md border border-input bg-background text-sm disabled:opacity-50">{providers.map((p) => (<option key={p.name} value={p.name}>{p.name}</option>))}</select>
+            <div className="min-w-0 flex-1 space-y-2"><Label htmlFor="source">{t('storage.from')}</Label>{!!(window as any).Capacitor?.isNativePlatform?.() && (window as any).Capacitor?.getPlatform?.() === 'ios' ? (
+              <select id="source" value={selectedSource} onChange={(e) => setSelectedSource(e.target.value)} disabled={isTransferring} className="w-full h-10 px-3 py-2 rounded-md border border-input bg-background text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50">{providers.map((p) => (<option key={p.name} value={p.name}>{p.name}</option>))}</select>
             ) : (
               <Select value={selectedSource} onValueChange={setSelectedSource} disabled={isTransferring}><SelectTrigger id="source"><SelectValue placeholder={t('storage.selectSource')} /></SelectTrigger><SelectContent>{providers.map((p) => (<SelectItem key={p.name} value={p.name}>{p.name}</SelectItem>))}</SelectContent></Select>
             )}</div>
-            <ArrowRight className="w-4 h-4 mt-6 text-muted-foreground" />
-            <div className="flex-1 space-y-2"><Label htmlFor="target">{t('storage.to')}</Label>{!!(window as any).Capacitor?.isNativePlatform?.() && (window as any).Capacitor?.getPlatform?.() === 'ios' ? (
-              <select id="target" value={selectedTarget} onChange={(e) => setSelectedTarget(e.target.value)} disabled={isTransferring} className="w-full h-10 px-3 py-2 rounded-md border border-input bg-background text-sm disabled:opacity-50">{providers.filter((p) => p.name !== selectedSource).map((p) => (<option key={p.name} value={p.name}>{p.name}</option>))}</select>
+            <ArrowRight className="w-4 h-4 mt-6 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
+            <div className="min-w-0 flex-1 space-y-2"><Label htmlFor="target">{t('storage.to')}</Label>{!!(window as any).Capacitor?.isNativePlatform?.() && (window as any).Capacitor?.getPlatform?.() === 'ios' ? (
+              <select id="target" value={selectedTarget} onChange={(e) => setSelectedTarget(e.target.value)} disabled={isTransferring} className="w-full h-10 px-3 py-2 rounded-md border border-input bg-background text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50">{providers.filter((p) => p.name !== selectedSource).map((p) => (<option key={p.name} value={p.name}>{p.name}</option>))}</select>
             ) : (
               <Select value={selectedTarget} onValueChange={setSelectedTarget} disabled={isTransferring}><SelectTrigger id="target"><SelectValue placeholder={t('storage.selectTarget')} /></SelectTrigger><SelectContent>{providers.filter((p) => p.name !== selectedSource).map((p) => (<SelectItem key={p.name} value={p.name}>{p.name}</SelectItem>))}</SelectContent></Select>
             )}</div>
           </div>
-          {isTransferring && (<div className="space-y-2"><Progress value={phase === 'copying' ? progress : cleanupProgress} /><div className="space-y-1"><p className="text-xs text-center text-muted-foreground">{phase === 'copying' ? `${t('storage.transferring')} ${Math.round(progress)}%` : `${t('storage.cleaningUp')} ${Math.round(cleanupProgress)}%`}</p>{phase === 'copying' && currentFile && (<p className="text-xs text-center text-muted-foreground truncate">{currentFile}</p>)}</div></div>)}
-          <div className="flex gap-2"><Button onClick={handleTransfer} disabled={isTransferring || !selectedSource || !selectedTarget} className="flex-1">{isTransferring ? t('storage.transferring') : t('storage.startTransfer')}</Button>{isTransferring && (<Button onClick={stop} variant="outline" className="flex-1">{t('common.stop')}</Button>)}</div>
+          {isTransferring && (<div className="space-y-2"><Progress value={phase === 'copying' ? progress : cleanupProgress} /><div className="space-y-1"><p className="text-xs text-center text-muted-foreground tabular-nums">{phase === 'copying' ? `${t('storage.transferring')} ${Math.round(progress)}%` : `${t('storage.cleaningUp')} ${Math.round(cleanupProgress)}%`}</p>{phase === 'copying' && currentFile && (<p className="text-xs text-center text-muted-foreground truncate">{currentFile}</p>)}</div></div>)}
+          <div className="flex flex-wrap gap-2"><Button onClick={handleTransfer} disabled={isTransferring || !selectedSource || !selectedTarget} className="flex-1">{isTransferring ? t('storage.transferring') : t('storage.startTransfer')}</Button>{isTransferring && (<Button onClick={stop} variant="outline" className="flex-1">{t('common.stop')}</Button>)}</div>
         </div>
       </Card>
     </>

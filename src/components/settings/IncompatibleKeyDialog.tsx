@@ -33,10 +33,10 @@ export const IncompatibleKeyDialog = ({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[550px]" aria-describedby="incompatible-key-dialog-description">
+      <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-[550px]" aria-describedby="incompatible-key-dialog-description">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-destructive">
-            <AlertTriangle className="h-5 w-5" />
+            <AlertTriangle className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
             {t('incompatibleKey.title')}
           </DialogTitle>
           <DialogDescription id="incompatible-key-dialog-description">
@@ -44,10 +44,10 @@ export const IncompatibleKeyDialog = ({
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-4 py-4">
+        <div className="py-4">
           {/* Why this happened */}
-          <Alert>
-            <Info className="h-4 w-4" />
+          <Alert className="rounded-xl border-diagnostic-info/35 bg-diagnostic-info/10">
+            <Info className="h-4 w-4 !text-diagnostic-info" aria-hidden="true" />
             <AlertDescription>
               <p className="font-medium mb-2">{t('incompatibleKey.possibleCauses')}</p>
               <ul className="list-disc list-inside space-y-1 text-sm">
@@ -60,10 +60,10 @@ export const IncompatibleKeyDialog = ({
           </Alert>
 
           {/* Option 1: Start Fresh (Recommended) */}
-          <div className="p-4 border rounded-lg bg-muted/50 space-y-3">
+          <div className="space-y-3 py-5">
             <div className="flex items-center gap-2">
-              <Trash2 className="h-4 w-4 text-primary" />
-              <span className="font-semibold text-sm">{t('incompatibleKey.option1Title')}</span>
+              <Trash2 className="h-4 w-4 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
+              <span className="text-sm font-medium">{t('incompatibleKey.option1Title')}</span>
             </div>
             <p className="text-sm text-muted-foreground">
               {t('incompatibleKey.option1Desc', { provider: providerName || 'cloud storage' })}
@@ -74,21 +74,21 @@ export const IncompatibleKeyDialog = ({
               onClick={handleDisconnectAndReset}
               className="w-full"
             >
-              <Trash2 className="h-3 w-3 mr-2" />
+              <Trash2 className="h-3 w-3 mr-2" aria-hidden="true" />
               {t('incompatibleKey.disconnectAndReset')}
             </Button>
           </div>
 
           {/* Option 2: After Migration */}
-          <div className="p-4 border rounded-lg bg-accent/30 space-y-3">
+          <div className="space-y-3 border-t border-border py-5">
             <div className="flex items-center gap-2">
-              <FolderSync className="h-4 w-4 text-accent-foreground" />
-              <span className="font-semibold text-sm">{t('incompatibleKey.option3Title')}</span>
+              <FolderSync className="h-4 w-4 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
+              <span className="text-sm font-medium">{t('incompatibleKey.option3Title')}</span>
             </div>
             <p className="text-sm text-muted-foreground">
               {t('incompatibleKey.option3Desc')}
             </p>
-            <div className="text-xs bg-muted p-2 rounded font-mono space-y-1">
+            <div className="space-y-1 break-all rounded-lg bg-muted p-2.5 font-mono text-xs">
               <p className="text-muted-foreground">{t('incompatibleKey.moveFrom')}:</p>
               <code>/encryption-key.json</code>
               <p className="text-muted-foreground mt-1">{t('incompatibleKey.moveTo')}:</p>
@@ -97,21 +97,21 @@ export const IncompatibleKeyDialog = ({
           </div>
 
           {/* Option 3: Check the File */}
-          <div className="p-4 border rounded-lg bg-muted/30 space-y-3">
+          <div className="space-y-3 border-t border-border pt-5">
             <div className="flex items-center gap-2">
-              <FileSearch className="h-4 w-4 text-muted-foreground" />
-              <span className="font-semibold text-sm">{t('incompatibleKey.option2Title')}</span>
+              <FileSearch className="h-4 w-4 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
+              <span className="text-sm font-medium">{t('incompatibleKey.option2Title')}</span>
             </div>
             <p className="text-sm text-muted-foreground">
               {t('incompatibleKey.option2Desc')}
             </p>
-            <div className="text-xs bg-muted p-2 rounded font-mono">
+            <div className="break-all rounded-lg bg-muted p-2.5 font-mono text-xs">
               OwnJournal/encryption-key.json
             </div>
             <p className="text-xs text-muted-foreground">
               {t('incompatibleKey.requiredFields')}
             </p>
-            <code className="text-xs bg-muted px-2 py-1 rounded block">
+            <code className="block rounded-lg bg-muted p-2.5 text-xs">
               {`{ encryptedKey, iv, salt }`}
             </code>
           </div>

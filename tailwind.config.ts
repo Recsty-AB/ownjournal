@@ -33,6 +33,7 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				raised: 'hsl(var(--raised))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
@@ -41,6 +42,10 @@ export default {
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
+				},
+				seal: {
+					DEFAULT: 'hsl(var(--seal))',
+					foreground: 'hsl(var(--seal-foreground))'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -74,9 +79,7 @@ export default {
 				}
 			},
 			backgroundImage: {
-				'gradient-primary': 'var(--gradient-primary)',
-				'gradient-paper': 'var(--gradient-paper)',
-				'gradient-subtle': 'var(--gradient-subtle)'
+				'gradient-primary': 'var(--gradient-primary)'
 			},
 			boxShadow: {
 				'soft': 'var(--shadow-soft)',

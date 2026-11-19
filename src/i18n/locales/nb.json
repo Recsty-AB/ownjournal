@@ -754,6 +754,8 @@
     "searchPlaceholder": "Søk i innlegg…",
     "startDate": "Startdato",
     "endDate": "Sluttdato",
+    "filters": "Filtre",
+    "clearFilters": "Fjern filtre",
     "noEntries": "Ingen matchende innlegg",
     "startJourney": "Start reisen din",
     "tryAdjusting": "Prøv å justere søket eller filtrene",

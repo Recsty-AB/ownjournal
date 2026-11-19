@@ -122,7 +122,7 @@ export const Header = ({
   };
 
   return (
-    <header className="sticky top-0 z-[100] w-full border-b border-border bg-background/80 backdrop-blur-md" style={{ paddingTop: 'var(--safe-area-inset-top)' }}>
+    <header className="sticky top-0 z-[100] w-full border-b border-border/70 bg-background/85 backdrop-blur-md" style={{ paddingTop: 'var(--safe-area-inset-top)' }}>
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo / Back Button */}
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
@@ -133,9 +133,10 @@ export const Header = ({
             </Button>
           ) : (
             <>
-              <img src={logo} alt="OwnJournal" className="w-8 h-8 object-contain flex-shrink-0" />
+              {/* The mark is drawn in ink; invert it so it reads on the night theme. */}
+              <img src={logo} alt="" className="w-8 h-8 object-contain flex-shrink-0 dark:invert" />
               <div className="min-w-0">
-                <h1 className="text-lg sm:text-xl font-bold text-foreground truncate">{t("app.name")}</h1>
+                <h1 className="text-lg sm:text-xl font-semibold leading-tight text-foreground truncate">{t("app.name")}</h1>
                 <p className="text-xs text-muted-foreground hidden sm:block">{t("app.tagline")}</p>
               </div>
             </>
@@ -223,14 +224,14 @@ export const Header = ({
                 <Button variant="ghost" className="relative h-11 w-11 rounded-full">
                   <Avatar className="h-9 w-9">
                     <AvatarImage src={user.avatar} alt={user.name} />
-                    <AvatarFallback className="bg-gradient-primary text-primary-foreground">
+                    <AvatarFallback className="bg-primary text-primary-foreground">
                       {user.name
                         .split(" ")
                         .map((n) => n[0])
                         .join("")}
                     </AvatarFallback>
                   </Avatar>
-                  {user.isPro && <Crown className="absolute -top-1 -right-1 w-4 h-4 text-yellow-500" />}
+                  {user.isPro && <Crown aria-hidden="true" className="absolute -top-1 -right-1 w-4 h-4 text-seal" />}
                 </Button>
               </DropdownMenuTrigger>
 
@@ -246,7 +247,7 @@ export const Header = ({
                     <p className="font-medium text-sm">{user.name}</p>
                     <p className="text-xs text-muted-foreground">{user.email}</p>
                     {user.isPro ? (
-                      <div className="flex items-center gap-1 text-yellow-600">
+                      <div className="flex items-center gap-1 text-seal">
                         <Crown className="w-3 h-3" />
                         <span className="text-xs">{t("header.proMember")}</span>
                       </div>
@@ -303,8 +304,8 @@ export const Header = ({
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            <Button className="bg-gradient-primary">
-              <User className="w-4 h-4 mr-2" />
+            <Button variant="outline" className="rounded-full border-border bg-card">
+              <User aria-hidden="true" className="w-4 h-4" />
               {t("header.signIn")}
             </Button>
           )}

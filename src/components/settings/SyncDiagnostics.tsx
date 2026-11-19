@@ -75,20 +75,20 @@ export const SyncDiagnostics = () => {
 
   if (!diagnostics) {
     return (
-      <Card className="p-4">
-        <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold">{t('syncDiagnostics.title')}</h3>
-          <div className="flex gap-2">
+      <Card className="rounded-2xl border-border bg-card p-5 shadow-soft sm:p-6">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h3 className="text-xl font-semibold">{t('syncDiagnostics.title')}</h3>
+          <div className="flex flex-wrap gap-2">
             <Button
               variant="outline"
               size="sm"
               onClick={() => setAutoRefresh(!autoRefresh)}
             >
-              <Activity className={`h-4 w-4 mr-2 ${autoRefresh ? 'animate-pulse' : ''}`} />
+              <Activity className={`h-4 w-4 mr-2 ${autoRefresh ? 'animate-pulse' : ''}`} aria-hidden="true" />
               {autoRefresh ? t('syncDiagnostics.auto') : t('syncDiagnostics.manual')}
             </Button>
             <Button variant="outline" size="sm" onClick={refreshDiagnostics}>
-              <RefreshCw className="h-4 w-4 mr-2" />
+              <RefreshCw className="h-4 w-4 mr-2" aria-hidden="true" />
               {t('syncDiagnostics.refresh')}
             </Button>
           </div>
@@ -101,15 +101,15 @@ export const SyncDiagnostics = () => {
   const getTypeIcon = (type: DiagnosticEntry['type']) => {
     switch (type) {
       case 'success':
-        return <CheckCircle2 className="w-4 h-4 text-diagnostic-success" />;
+        return <CheckCircle2 className="w-4 h-4 text-diagnostic-success" aria-hidden="true" />;
       case 'error':
-        return <XCircle className="w-4 h-4 text-diagnostic-error" />;
+        return <XCircle className="w-4 h-4 text-diagnostic-error" aria-hidden="true" />;
       case 'retry':
-        return <RefreshCw className="w-4 h-4 text-diagnostic-warning" />;
+        return <RefreshCw className="w-4 h-4 text-diagnostic-warning" aria-hidden="true" />;
       case 'circuit_breaker':
-        return <Zap className="w-4 h-4 text-destructive" />;
+        return <Zap className="w-4 h-4 text-diagnostic-error" aria-hidden="true" />;
       case 'operation':
-        return <Activity className="w-4 h-4 text-diagnostic-info" />;
+        return <Activity className="w-4 h-4 text-diagnostic-info" aria-hidden="true" />;
     }
   };
 
@@ -140,14 +140,16 @@ export const SyncDiagnostics = () => {
     <div className="space-y-4">
       {/* Header with controls - responsive for mobile */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-        <h3 className="text-lg font-semibold whitespace-nowrap">{t('syncDiagnostics.title')}</h3>
+        <h3 className="text-xl font-semibold">{t('syncDiagnostics.title')}</h3>
         <div className="flex flex-wrap gap-2">
           <Button
             variant="outline"
             size="sm"
             onClick={() => setAutoRefresh(!autoRefresh)}
+            aria-label={autoRefresh ? t('syncDiagnostics.auto') : t('syncDiagnostics.manual')}
+            className="h-10 sm:h-9"
           >
-            <Activity className={`w-4 h-4 ${autoRefresh ? 'animate-pulse' : ''}`} />
+            <Activity className={`w-4 h-4 ${autoRefresh ? 'animate-pulse' : ''}`} aria-hidden="true" />
             <span className="hidden sm:inline ml-2">
               {autoRefresh ? t('syncDiagnostics.auto') : t('syncDiagnostics.manual')}
             </span>
@@ -157,80 +159,86 @@ export const SyncDiagnostics = () => {
             size="sm"
             onClick={refreshDiagnostics}
             disabled={autoRefresh}
+            aria-label={t('syncDiagnostics.refresh')}
+            className="h-10 sm:h-9"
           >
-            <RefreshCw className="w-4 h-4" />
+            <RefreshCw className="w-4 h-4" aria-hidden="true" />
             <span className="hidden sm:inline ml-2">{t('syncDiagnostics.refresh')}</span>
           </Button>
           <Button
             variant="outline"
             size="sm"
             onClick={handleClear}
+            aria-label={t('syncDiagnostics.clear')}
+            className="h-10 sm:h-9"
           >
-            <Trash2 className="w-4 h-4" />
+            <Trash2 className="w-4 h-4" aria-hidden="true" />
             <span className="hidden sm:inline ml-2">{t('syncDiagnostics.clear')}</span>
           </Button>
           <Button
             variant="outline"
             size="sm"
             onClick={handleExport}
+            aria-label={t('syncDiagnostics.downloadLogs')}
+            className="h-10 sm:h-9"
           >
-            <Download className="w-4 h-4" />
+            <Download className="w-4 h-4" aria-hidden="true" />
             <span className="hidden sm:inline ml-2">{t('syncDiagnostics.downloadLogs')}</span>
           </Button>
         </div>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="p-4">
+      <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border shadow-soft lg:grid-cols-4">
+        <div className="bg-card p-4">
           <div className="space-y-1">
             <div className="text-xs text-muted-foreground">{t('syncDiagnostics.successRate')}</div>
-            <div className="text-2xl font-bold text-diagnostic-success">{successRate}%</div>
+            <div className="text-2xl font-semibold tabular-nums text-diagnostic-success">{successRate}%</div>
             <div className="text-xs text-muted-foreground">
               {diagnostics.successCount} / {diagnostics.successCount + diagnostics.failureCount}
             </div>
           </div>
-        </Card>
+        </div>
 
-        <Card className="p-4">
+        <div className="bg-card p-4">
           <div className="space-y-1">
             <div className="text-xs text-muted-foreground">{t('syncDiagnostics.retries')}</div>
-            <div className="text-2xl font-bold text-diagnostic-warning">{diagnostics.retryCount}</div>
+            <div className="text-2xl font-semibold tabular-nums text-diagnostic-warning">{diagnostics.retryCount}</div>
             <div className="text-xs text-muted-foreground">{t('syncDiagnostics.totalAttempts')}</div>
           </div>
-        </Card>
+        </div>
 
-        <Card className="p-4">
+        <div className="bg-card p-4">
           <div className="space-y-1">
             <div className="text-xs text-muted-foreground">{t('syncDiagnostics.failures')}</div>
-            <div className="text-2xl font-bold text-diagnostic-error">{diagnostics.failureCount}</div>
+            <div className="text-2xl font-semibold tabular-nums text-diagnostic-error">{diagnostics.failureCount}</div>
             <div className="text-xs text-muted-foreground">{t('syncDiagnostics.totalErrors')}</div>
           </div>
-        </Card>
+        </div>
 
-        <Card className="p-4">
+        <div className="bg-card p-4">
           <div className="space-y-1">
             <div className="text-xs text-muted-foreground">{t('syncDiagnostics.activeRetries')}</div>
-            <div className="text-2xl font-bold text-diagnostic-info">{activeRetries.length}</div>
+            <div className="text-2xl font-semibold tabular-nums text-diagnostic-info">{activeRetries.length}</div>
             <div className="text-xs text-muted-foreground">{t('syncDiagnostics.inProgress')}</div>
           </div>
-        </Card>
+        </div>
       </div>
 
       {/* Circuit Breakers */}
       {circuitBreakers.length > 0 && (
-        <Card className="p-4">
-          <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
-            <Zap className="w-4 h-4 text-destructive" />
+        <Card className="rounded-2xl border-border bg-card p-5 shadow-soft sm:p-6">
+          <h4 className="eyebrow mb-3 flex items-center gap-2">
+            <Zap className="w-4 h-4 text-diagnostic-error" aria-hidden="true" />
             {t('syncDiagnostics.circuitBreakers')}
           </h4>
           <div className="space-y-2">
             {circuitBreakers.map(([name, status]) => {
               const isOpen = Date.now() < status.openUntil;
               return (
-                <div key={name} className="flex items-center justify-between text-sm">
-                  <span className="font-mono text-xs">{name}</span>
-                  <div className="flex items-center gap-2">
+                <div key={name} className="flex flex-wrap items-center justify-between gap-2 text-sm">
+                  <span className="min-w-0 break-all font-mono text-xs">{name}</span>
+                  <div className="flex flex-wrap items-center gap-2">
                     <Badge variant={isOpen ? "destructive" : "outline"}>
                       {isOpen ? t('syncDiagnostics.open') : t('syncDiagnostics.closed')}
                     </Badge>
@@ -248,14 +256,14 @@ export const SyncDiagnostics = () => {
 
       {/* Active Retries */}
       {activeRetries.length > 0 && (
-        <Card className="p-4">
-          <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
-            <RefreshCw className="w-4 h-4 text-diagnostic-warning animate-spin" />
+        <Card className="rounded-2xl border-border bg-card p-5 shadow-soft sm:p-6">
+          <h4 className="eyebrow mb-3 flex items-center gap-2">
+            <RefreshCw className="w-4 h-4 text-diagnostic-warning animate-spin" aria-hidden="true" />
             {t('syncDiagnostics.currentlyRetrying')}
           </h4>
           <div className="space-y-1">
             {activeRetries.map((operation) => (
-              <div key={operation} className="text-xs font-mono text-muted-foreground">
+              <div key={operation} className="break-all text-xs font-mono text-muted-foreground">
                 {operation}
               </div>
             ))}
@@ -264,10 +272,10 @@ export const SyncDiagnostics = () => {
       )}
 
       {/* Recent Operations */}
-      <Card className="p-4">
-        <h4 className="text-sm font-semibold mb-3">{t('syncDiagnostics.recentOperations')}</h4>
+      <Card className="rounded-2xl border-border bg-card p-5 shadow-soft sm:p-6">
+        <h4 className="eyebrow mb-1">{t('syncDiagnostics.recentOperations')}</h4>
         <ScrollArea className="h-[400px]">
-          <div className="space-y-2">
+          <div className="divide-y divide-border">
             {diagnostics.recentEntries.length === 0 ? (
               <div className="text-sm text-muted-foreground text-center py-8">
                 {t('syncDiagnostics.noOperationsYet')}
@@ -276,7 +284,7 @@ export const SyncDiagnostics = () => {
               diagnostics.recentEntries.map((entry) => (
                 <div
                   key={entry.id}
-                  className="flex items-start gap-3 p-3 rounded-lg border bg-card hover:bg-accent/50 transition-colors"
+                  className="flex items-start gap-3 py-3"
                 >
                   <div className="flex-shrink-0 mt-0.5">
                     {getTypeIcon(entry.type)}
@@ -284,7 +292,7 @@ export const SyncDiagnostics = () => {
                   <div className="flex-1 min-w-0 space-y-1">
                     <div className="flex items-center gap-2 flex-wrap">
                       {getTypeBadge(entry.type)}
-                      <span className="text-xs font-mono text-muted-foreground truncate max-w-[200px]">
+                      <span className="min-w-0 max-w-full truncate text-xs font-mono text-muted-foreground">
                         {entry.operationName}
                       </span>
                       {entry.attemptNumber && (
@@ -304,13 +312,13 @@ export const SyncDiagnostics = () => {
                         <summary className="cursor-pointer hover:text-foreground">
                           {t('syncDiagnostics.details')}
                         </summary>
-                        <pre className="mt-1 p-2 bg-muted rounded text-xs overflow-x-auto">
+                        <pre className="mt-1 overflow-x-auto rounded-lg bg-muted p-2.5 text-xs text-foreground">
                           {JSON.stringify(entry.details, null, 2)}
                         </pre>
                       </details>
                     )}
                   </div>
-                  <div className="text-xs text-muted-foreground flex-shrink-0 text-right min-w-[80px]">
+                  <div className="max-w-[35%] flex-shrink-0 text-right text-xs text-muted-foreground">
                     {formatDistanceToNow(new Date(entry.timestamp), { addSuffix: true, locale: dateLocale })}
                   </div>
                 </div>
@@ -321,7 +329,7 @@ export const SyncDiagnostics = () => {
       </Card>
 
       <div className="text-xs text-muted-foreground">
-        <AlertCircle className="w-3 h-3 inline mr-1" />
+        <AlertCircle className="w-3 h-3 inline mr-1" aria-hidden="true" />
         {t('syncDiagnostics.diagnosticsNote')}
       </div>
     </div>

@@ -88,11 +88,11 @@ export const SyncStatusIndicator = ({
   const getStatusColor = () => {
     switch (status) {
       case 'syncing':
-        return 'text-blue-500';
+        return 'text-foreground';
       case 'success':
-        return 'text-green-500';
+        return 'text-diagnostic-success';
       case 'error':
-        return 'text-red-500';
+        return 'text-diagnostic-error';
       case 'offline':
         return 'text-muted-foreground';
       default:
@@ -140,8 +140,9 @@ export const SyncStatusIndicator = ({
       size="sm"
       onClick={handleClick}
       disabled={connectedProviders.length === 0 && status !== 'success' && status !== 'syncing'}
+      aria-label={getStatusText()}
       className={cn(
-        "gap-2 transition-all duration-300 relative",
+        "relative h-10 gap-2 transition-colors sm:h-9",
         getStatusColor(),
         showNudge && "ring-1 ring-primary/50 sm:ring-2 sm:ring-offset-2 ring-offset-background animate-pulse"
       )}
@@ -176,11 +177,11 @@ export const SyncStatusIndicator = ({
       {/* Post-onboarding nudge tooltip */}
       {showNudge && (
         <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 animate-fade-in">
-          <div className="bg-popover text-popover-foreground px-3 py-2 rounded-lg shadow-lg text-sm whitespace-nowrap border">
+          <div className="whitespace-nowrap rounded-xl border border-border bg-popover px-3 py-2 text-sm text-popover-foreground shadow-medium">
             {t('onboarding.nudge.syncHint')}
           </div>
           {/* Arrow */}
-          <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-popover border-l border-t rotate-45" />
+          <div className="absolute -top-1 left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 border-l border-t border-border bg-popover" />
         </div>
       )}
     </div>

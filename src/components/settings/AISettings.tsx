@@ -1,9 +1,8 @@
 import { buildAppLink } from "@/config/app";
 import { useState, useEffect } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Brain, Cloud, AlertCircle, Lock, Crown, CheckCircle2, ExternalLink, Loader2 } from "lucide-react";
+import { Cloud, AlertCircle, Lock, Crown, CheckCircle2, ExternalLink, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import { aiPermissions } from "@/utils/aiPermissions";
@@ -88,132 +87,108 @@ export const AISettings = ({ onUpgrade, isUpgrading = false }: AISettingsProps) 
   };
 
   return (
-    <>
-      <div className="space-y-6">
-        {/* Pro Status Card */}
-        {isPro ? (
-          <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-transparent">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-primary/10">
-                  <Crown className="w-5 h-5 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <h4 className="font-semibold flex items-center gap-2">
-                    {t('settings.ai.proMember')}
-                    <Badge variant="default" className="text-xs">{t('settings.ai.active')}</Badge>
-                  </h4>
-                  <p className="text-sm text-muted-foreground">
-                    {t('settings.ai.allFeaturesUnlocked')}
-                  </p>
-                </div>
-                {canShowStripeCheckout() && stripeCustomerId && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={handleManageSubscription}
-                    disabled={isLoadingPortal}
-                    className="gap-2"
-                  >
-                    {isLoadingPortal ? (
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                    ) : (
-                      <ExternalLink className="w-4 h-4" />
-                    )}
-                    {t('settings.ai.manageSubscription', 'Manage')}
-                  </Button>
-                )}
-              </div>
-            </CardContent>
-          </Card>
-        ) : (
-          <Card className="border-dashed border-2">
-            <CardContent className="p-6 text-center space-y-4">
-              <div className="inline-flex p-3 rounded-full bg-primary/10">
-                <Lock className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-lg mb-2">{t('settings.ai.unlockFeatures')}</h4>
-                <p className="text-sm text-muted-foreground">
-                  {t('settings.ai.description')}
-                </p>
-              </div>
-              <Button onClick={onUpgrade} disabled={isUpgrading} className="gap-2">
-                {isUpgrading ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    {t('subscription.processing')}
-                  </>
-                ) : (
-                  <>
-                    <Crown className="w-4 h-4" />
-                    {t('settings.upgrade')}
-                  </>
-                )}
-              </Button>
-            </CardContent>
-          </Card>
-        )}
+    <div className="divide-y divide-border">
+      {isPro ? (
+        <section className="flex flex-wrap items-center gap-3 pb-6">
+          <Crown className="h-5 w-5 shrink-0 text-seal" aria-hidden="true" />
+          <div className="min-w-0 flex-1">
+            <h4 className="flex flex-wrap items-center gap-2 font-medium">
+              {t('settings.ai.proMember')}
+              <Badge variant="secondary" className="text-xs">{t('settings.ai.active')}</Badge>
+            </h4>
+            <p className="text-sm text-muted-foreground">
+              {t('settings.ai.allFeaturesUnlocked')}
+            </p>
+          </div>
+          {canShowStripeCheckout() && stripeCustomerId && (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleManageSubscription}
+              disabled={isLoadingPortal}
+              className="gap-2"
+            >
+              {isLoadingPortal ? (
+                <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
+              ) : (
+                <ExternalLink className="w-4 h-4" aria-hidden="true" />
+              )}
+              {t('settings.ai.manageSubscription', 'Manage')}
+            </Button>
+          )}
+        </section>
+      ) : (
+        <section className="surface space-y-4 p-5 text-center sm:p-6">
+          <Lock className="mx-auto h-5 w-5 text-seal" aria-hidden="true" />
+          <div className="space-y-2">
+            <h4 className="text-xl font-semibold">{t('settings.ai.unlockFeatures')}</h4>
+            <p className="text-sm text-muted-foreground">
+              {t('settings.ai.description')}
+            </p>
+          </div>
+          <Button onClick={onUpgrade} disabled={isUpgrading} className="gap-2">
+            {isUpgrading ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
+                {t('subscription.processing')}
+              </>
+            ) : (
+              <>
+                <Crown className="w-4 h-4" aria-hidden="true" />
+                {t('settings.upgrade')}
+              </>
+            )}
+          </Button>
+        </section>
+      )}
 
-        {/* AI Features Info */}
-        {isPro && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Brain className="w-5 h-5" />
-                {t('settings.ai.title')}
-              </CardTitle>
-              <CardDescription>
-                {t('settings.ai.description')}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="border-2 border-primary bg-primary/5 rounded-lg p-4">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-primary/10">
-                    <Cloud className="w-5 h-5 text-primary" />
-                  </div>
-                  <div className="flex-1 space-y-3">
-                    <div>
-                      <h4 className="font-semibold mb-1">{t('settings.ai.analysisEnabled')}</h4>
-                      <p className="text-sm text-muted-foreground">
-                        {t('settings.ai.description')}
-                      </p>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 gap-2 text-sm">
-                      <div className="flex items-center gap-2 text-primary">
-                        <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
-                        <span>{t('settings.ai.supportsAllLanguages')}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-primary">
-                        <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
-                        <span>{t('settings.ai.advancedModels')}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-primary">
-                        <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
-                        <span>{t('settings.ai.noDownloads')}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                        <span>{t('settings.ai.requiresInternet')}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      {isPro && (
+        <section className="space-y-4 pt-6">
+          <div className="space-y-1">
+            <h3 className="text-xl font-semibold text-foreground">
+              {t('settings.ai.title')}
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              {t('settings.ai.description')}
+            </p>
+          </div>
 
-              {/* Privacy Notice */}
-              <div className="flex items-start gap-2 p-3 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-lg">
-                <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 mt-0.5 flex-shrink-0" />
-                <p className="text-xs text-amber-800 dark:text-amber-200">
-                  <strong>{t('settings.ai.privacyNote')}:</strong> {t('settings.ai.privacyDesc')}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-      </div>
-    </>
+          <div className="space-y-2">
+            <h4 className="flex items-center gap-2 text-sm font-medium">
+              <Cloud className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+              {t('settings.ai.analysisEnabled')}
+            </h4>
+            <p className="text-sm text-muted-foreground">
+              {t('settings.ai.description')}
+            </p>
+            <ul className="space-y-2 pt-1 text-sm">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-diagnostic-success" aria-hidden="true" />
+                <span>{t('settings.ai.supportsAllLanguages')}</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-diagnostic-success" aria-hidden="true" />
+                <span>{t('settings.ai.advancedModels')}</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-diagnostic-success" aria-hidden="true" />
+                <span>{t('settings.ai.noDownloads')}</span>
+              </li>
+              <li className="flex items-center gap-2 text-muted-foreground">
+                <AlertCircle className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                <span>{t('settings.ai.requiresInternet')}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="notice notice-warning">
+            <AlertCircle aria-hidden="true" />
+            <p className="text-xs">
+              <strong>{t('settings.ai.privacyNote')}:</strong> {t('settings.ai.privacyDesc')}
+            </p>
+          </div>
+        </section>
+      )}
+    </div>
   );
 };

@@ -1,41 +1,27 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription } from "@/components/ui/drawer";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
-  Activity,
-  ArrowRight,
-  BarChart3,
-  BookOpen,
   Shield,
   Cloud,
+  Crown,
   Sparkles,
   AlertTriangle,
   HelpCircle,
   Play,
-  Key,
-  Lock,
-  Database,
-  RefreshCw,
-  FileText,
   Tag,
-  TrendingUp,
-  Download,
   ChevronRight,
   ChevronLeft,
-  Heart,
   Lightbulb,
-  Mic,
-  Calendar as CalendarIcon,
-  Server,
   Smartphone,
   HardDrive,
   Mail,
-  ExternalLink,
+  ArrowRight,
   Copy,
   Check,
   X,
@@ -54,6 +40,40 @@ interface HelpDialogProps {
   initialTab?: string;
   initialAccordion?: string;
 }
+
+// Topic question, set like a handbook entry heading.
+const TOPIC = "gap-4 py-4 text-left text-base font-medium";
+// Long-form answer in the reading face and measure.
+const ANSWER = "reading space-y-3 pb-6 text-[1.0625rem] text-foreground sm:text-[1.125rem]";
+// A sub-section inside an answer: a ruled margin instead of a box.
+const ASIDE = "space-y-1.5 border-l-2 border-border pl-4";
+const FOOTNOTE = "font-sans text-sm text-muted-foreground";
+const COMMAND = "overflow-x-auto rounded-md bg-muted px-3 py-2 font-mono text-sm";
+const BADGE = "rounded-full border border-border px-2 py-0.5 font-sans text-[11px] font-medium leading-4 text-muted-foreground";
+
+const PlusBadge = ({ children }: { children: ReactNode }) => (
+  <span className={cn(BADGE, "border-seal/40 text-seal")}>{children}</span>
+);
+
+const PlusNote = ({ children }: { children: ReactNode }) => (
+  <p className={cn(FOOTNOTE, "flex items-start gap-2")}>
+    <Crown aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-seal" />
+    <span>{children}</span>
+  </p>
+);
+
+// Where to find subscription management: Settings > … as a breadcrumb.
+const SettingsPath = ({ t }: { t: (key: string) => string }) => (
+  <div className="flex flex-wrap items-center gap-1.5 font-sans text-sm font-medium">
+    <span>{t("help.faq.path.step1")}</span>
+    <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0 text-muted-foreground" />
+    <span>{t("help.faq.path.step2")}</span>
+    <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0 text-muted-foreground" />
+    <span>{t("help.faq.path.step3")}</span>
+    <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0 text-muted-foreground" />
+    <span>{t("help.faq.path.step4")}</span>
+  </div>
+);
 
 // Category definitions for reuse
 const getCategoryDefinitions = (t: (key: string) => string) => [
@@ -136,14 +156,10 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
     <TabsTrigger
       value={value}
       onClick={() => setActiveTab(value)}
-      className={cn(
-        "w-full justify-start gap-3 px-4 py-3 h-auto text-sm font-medium transition-all relative overflow-hidden",
-        "data-[state=active]:bg-primary/5 data-[state=active]:text-primary border-r-2 border-transparent data-[state=active]:border-primary rounded-none hover:bg-muted/50",
-      )}
+      className="h-auto w-full justify-start gap-3 whitespace-normal rounded-lg px-3 py-2.5 text-left text-sm font-normal text-muted-foreground transition-colors hover:bg-accent hover:text-foreground data-[state=active]:bg-accent data-[state=active]:font-medium data-[state=active]:text-foreground data-[state=active]:shadow-none"
     >
-      <Icon className="w-4 h-4" />
-      <span className="truncate">{label}</span>
-      {activeTab === value && <ChevronRight className="w-3 h-3 ml-auto opacity-50" />}
+      <Icon aria-hidden="true" className="h-4 w-4 shrink-0" />
+      <span className="min-w-0">{label}</span>
     </TabsTrigger>
   );
 
@@ -151,11 +167,11 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
   const MobileCategoryListItem = ({ value, icon: Icon, label }: { value: string; icon: any; label: string }) => (
     <button
       onClick={() => handleMobileCategorySelect(value)}
-      className="w-full flex items-center gap-4 px-4 py-4 hover:bg-muted/50 active:bg-muted transition-colors border-b border-border last:border-b-0 text-left"
+      className="flex min-h-14 w-full items-center gap-4 border-b border-border px-5 py-4 text-left transition-colors last:border-b-0 hover:bg-accent active:bg-accent"
     >
-      <Icon className="w-5 h-5 text-primary shrink-0" />
-      <span className="flex-1 font-medium text-sm">{label}</span>
-      <ChevronRight className="w-5 h-5 text-muted-foreground shrink-0" />
+      <Icon aria-hidden="true" className="h-5 w-5 shrink-0 text-muted-foreground" />
+      <span className="min-w-0 flex-1 text-lg font-semibold">{label}</span>
+      <ChevronRight aria-hidden="true" className="h-5 w-5 shrink-0 text-muted-foreground" />
     </button>
   );
 
@@ -166,28 +182,23 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
         return (
           <div className="space-y-4">
             {/* Tour Section */}
-            <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 mb-6">
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <h3 className="font-semibold text-sm">{t("help.gettingStarted.tourTitle")}</h3>
-                  <p className="text-sm text-muted-foreground">{t("help.gettingStarted.tourDesc")}</p>
-                </div>
-                <Button size="sm" onClick={handleStartTour} className="gap-2 shrink-0">
-                  <Play className="w-4 h-4" />
-                  {t("help.gettingStarted.startTour")}
-                </Button>
+            <div className="notice flex-wrap items-center justify-between gap-x-4 p-4">
+              <div className="min-w-0">
+                <h3 className="font-medium">{t("help.gettingStarted.tourTitle")}</h3>
+                <p className="text-muted-foreground">{t("help.gettingStarted.tourDesc")}</p>
               </div>
+              <Button size="sm" onClick={handleStartTour} className="shrink-0 gap-2 rounded-full px-4">
+                <Play aria-hidden="true" className="h-4 w-4" />
+                {t("help.gettingStarted.startTour")}
+              </Button>
             </div>
 
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="first-entry">
-                <AccordionTrigger className="text-sm">
-                  <span className="flex items-center gap-2">
-                    <FileText className="w-4 h-4 text-primary" />
-                    {t("help.gettingStarted.firstEntry.title")}
-                  </span>
+                <AccordionTrigger className={TOPIC}>
+                  {t("help.gettingStarted.firstEntry.title")}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                <AccordionContent className={ANSWER}>
                   <p>{t("help.gettingStarted.firstEntry.step1")}</p>
                   <p>{t("help.gettingStarted.firstEntry.step2")}</p>
                   <p>{t("help.gettingStarted.firstEntry.step3")}</p>
@@ -195,14 +206,11 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
               </AccordionItem>
 
               <AccordionItem value="markdown">
-                <AccordionTrigger className="text-sm">
-                  <span className="flex items-center gap-2">
-                    <FileText className="w-4 h-4 text-primary" />
-                    {t("help.gettingStarted.markdown.title")}
-                  </span>
+                <AccordionTrigger className={TOPIC}>
+                  {t("help.gettingStarted.markdown.title")}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground">
-                  <div className="bg-muted/50 rounded-lg p-3 font-mono text-xs space-y-1">
+                <AccordionContent className={ANSWER}>
+                  <div className={cn(COMMAND, "space-y-1")}>
                     <p># {t("help.gettingStarted.markdown.heading")}</p>
                     <p>**{t("help.gettingStarted.markdown.bold")}**</p>
                     <p>*{t("help.gettingStarted.markdown.italic")}*</p>
@@ -212,13 +220,10 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
               </AccordionItem>
 
               <AccordionItem value="sync-setup">
-                <AccordionTrigger className="text-sm">
-                  <span className="flex items-center gap-2">
-                    <RefreshCw className="w-4 h-4 text-primary" />
-                    {t("help.gettingStarted.syncSetup.title")}
-                  </span>
+                <AccordionTrigger className={TOPIC}>
+                  {t("help.gettingStarted.syncSetup.title")}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                <AccordionContent className={ANSWER}>
                   <p>{t("help.gettingStarted.syncSetup.step1")}</p>
                   <p>{t("help.gettingStarted.syncSetup.step2")}</p>
                   <p>{t("help.gettingStarted.syncSetup.step3")}</p>
@@ -226,19 +231,16 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
               </AccordionItem>
 
               <AccordionItem value="account-setup">
-                <AccordionTrigger className="text-sm">
-                  <span className="flex items-center gap-2">
-                    <Key className="w-4 h-4 text-primary" />
-                    {t("help.gettingStarted.accountSetup.title")}
-                  </span>
+                <AccordionTrigger className={TOPIC}>
+                  {t("help.gettingStarted.accountSetup.title")}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                <AccordionContent className={ANSWER}>
                   <p>{t("help.gettingStarted.accountSetup.desc")}</p>
-                  <ul className="list-disc list-inside space-y-1 ml-2">
+                  <ul className="list-disc space-y-1 pl-5">
                     <li>{t("help.gettingStarted.accountSetup.emailOption")}</li>
                     <li>{t("help.gettingStarted.accountSetup.googleOption")}</li>
                   </ul>
-                  <p className="text-xs italic mt-2">{t("help.gettingStarted.accountSetup.tip")}</p>
+                  <p className={FOOTNOTE}>{t("help.gettingStarted.accountSetup.tip")}</p>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -249,32 +251,29 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
         return (
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="encryption-architecture">
-              <AccordionTrigger className="text-sm">
-                <span className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-primary" />
-                  {t("help.security.encryptionArchitecture.title")}
-                </span>
+              <AccordionTrigger className={TOPIC}>
+                {t("help.security.encryptionArchitecture.title")}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground space-y-4">
+              <AccordionContent className={ANSWER}>
                 <p>{t("help.security.encryptionArchitecture.desc")}</p>
                 
                 <div className="space-y-3">
-                  <div className="bg-muted/50 rounded-lg p-3">
-                    <h4 className="font-medium text-foreground mb-1">
+                  <div className={ASIDE}>
+                    <h4>
                       {t("help.security.encryptionArchitecture.algorithm.title")}
                     </h4>
                     <p>{t("help.security.encryptionArchitecture.algorithm.desc")}</p>
                   </div>
                   
-                  <div className="bg-muted/50 rounded-lg p-3">
-                    <h4 className="font-medium text-foreground mb-1">
+                  <div className={ASIDE}>
+                    <h4>
                       {t("help.security.encryptionArchitecture.keyDerivation.title")}
                     </h4>
                     <p>{t("help.security.encryptionArchitecture.keyDerivation.desc")}</p>
                   </div>
                   
-                  <div className="bg-primary/5 border border-primary/20 rounded-lg p-3">
-                    <h4 className="font-medium text-foreground mb-2">
+                  <div className={ASIDE}>
+                    <h4>
                       {t("help.security.encryptionArchitecture.howItWorks.title")}
                     </h4>
                     <div className="space-y-1">
@@ -286,40 +285,34 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
                   </div>
                 </div>
                 
-                <p className="font-medium text-foreground">
+                <p className="font-medium">
                   {t("help.security.encryptionArchitecture.summary")}
                 </p>
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="zero-knowledge">
-              <AccordionTrigger className="text-sm">
-                <span className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-primary" />
-                  {t("help.security.zeroKnowledge.title")}
-                </span>
+              <AccordionTrigger className={TOPIC}>
+                {t("help.security.zeroKnowledge.title")}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground">
+              <AccordionContent className={ANSWER}>
                 <p>{t("help.security.zeroKnowledge.desc")}</p>
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="encryption-modes">
-              <AccordionTrigger className="text-sm">
-                <span className="flex items-center gap-2">
-                  <Lock className="w-4 h-4 text-primary" />
-                  {t("help.security.encryptionModes.title")}
-                </span>
+              <AccordionTrigger className={TOPIC}>
+                {t("help.security.encryptionModes.title")}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground space-y-3">
-                <div className="bg-muted/50 rounded-lg p-3">
-                  <h4 className="font-medium text-foreground mb-1">
+              <AccordionContent className={ANSWER}>
+                <div className={ASIDE}>
+                  <h4>
                     {t("help.security.encryptionModes.simpleTitle")}
                   </h4>
                   <p>{t("help.security.encryptionModes.simpleDesc")}</p>
                 </div>
-                <div className="bg-primary/5 border border-primary/20 rounded-lg p-3">
-                  <h4 className="font-medium text-foreground mb-1">
+                <div className={ASIDE}>
+                  <h4>
                     {t("help.security.encryptionModes.e2eTitle")}
                   </h4>
                   <p>{t("help.security.encryptionModes.e2eDesc")}</p>
@@ -328,21 +321,19 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
             </AccordionItem>
 
             <AccordionItem value="password-tips">
-              <AccordionTrigger className="text-sm">
-                <span className="flex items-center gap-2">
-                  <Key className="w-4 h-4 text-primary" />
-                  {t("help.security.passwordTips.title")}
-                </span>
+              <AccordionTrigger className={TOPIC}>
+                {t("help.security.passwordTips.title")}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground space-y-2">
-                <ul className="list-disc list-inside space-y-1">
+              <AccordionContent className={ANSWER}>
+                <ul className="list-disc space-y-1 pl-5">
                   <li>{t("help.security.passwordTips.tip1")}</li>
                   <li>{t("help.security.passwordTips.tip2")}</li>
                   <li>{t("help.security.passwordTips.tip3")}</li>
                 </ul>
-                <p className="text-destructive font-medium mt-2 bg-destructive/10 p-2 rounded">
-                  {t("help.security.passwordTips.warning")}
-                </p>
+                <div className="notice notice-error font-sans">
+                  <AlertTriangle aria-hidden="true" />
+                  <p className="font-medium">{t("help.security.passwordTips.warning")}</p>
+                </div>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -352,40 +343,31 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
         return (
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="google-drive">
-              <AccordionTrigger className="text-sm">
-                <span className="flex items-center gap-2">
-                  <Database className="w-4 h-4 text-primary" />
-                  {t("help.storage.googleDrive.title")}
-                </span>
+              <AccordionTrigger className={TOPIC}>
+                {t("help.storage.googleDrive.title")}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground space-y-2">
+              <AccordionContent className={ANSWER}>
                 <p>{t("help.storage.googleDrive.step1")}</p>
                 <p>{t("help.storage.googleDrive.step2")}</p>
-                <p className="italic text-xs">{t("help.storage.googleDrive.note")}</p>
+                <p className={FOOTNOTE}>{t("help.storage.googleDrive.note")}</p>
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="dropbox">
-              <AccordionTrigger className="text-sm">
-                <span className="flex items-center gap-2">
-                  <Database className="w-4 h-4 text-primary" />
-                  {t("help.storage.dropbox.title")}
-                </span>
+              <AccordionTrigger className={TOPIC}>
+                {t("help.storage.dropbox.title")}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground space-y-2">
+              <AccordionContent className={ANSWER}>
                 <p>{t("help.storage.dropbox.step1")}</p>
                 <p>{t("help.storage.dropbox.step2")}</p>
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="nextcloud">
-              <AccordionTrigger className="text-sm">
-                <span className="flex items-center gap-2">
-                  <Database className="w-4 h-4 text-primary" />
-                  {t("help.storage.nextcloud.title")}
-                </span>
+              <AccordionTrigger className={TOPIC}>
+                {t("help.storage.nextcloud.title")}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground space-y-2">
+              <AccordionContent className={ANSWER}>
                 <p>{t("help.storage.nextcloud.step1")}</p>
                 <p>{t("help.storage.nextcloud.step2")}</p>
                 <p>{t("help.storage.nextcloud.step3")}</p>
@@ -393,13 +375,10 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
             </AccordionItem>
 
             <AccordionItem value="transfer">
-              <AccordionTrigger className="text-sm">
-                <span className="flex items-center gap-2">
-                  <RefreshCw className="w-4 h-4 text-primary" />
-                  {t("help.storage.transfer.title")}
-                </span>
+              <AccordionTrigger className={TOPIC}>
+                {t("help.storage.transfer.title")}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground space-y-2">
+              <AccordionContent className={ANSWER}>
                 <p>{t("help.storage.transfer.desc")}</p>
                 <p>{t("help.storage.transfer.steps")}</p>
               </AccordionContent>
@@ -412,158 +391,123 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
           <div className="space-y-6">
             {/* Pro Features */}
             <div>
-              <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
-                <span className="text-[10px] bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 px-1.5 py-0.5 rounded font-medium">{t('help.sections.proBadge')}</span>
+              <h3 className="eyebrow mb-1 flex items-center gap-2.5">
+                <PlusBadge>{t('help.sections.proBadge')}</PlusBadge>
                 {t('help.sections.aiPoweredFeatures')}
               </h3>
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="tag-suggestions">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Tag className="w-4 h-4 text-primary" />
+                  <AccordionTrigger className={TOPIC}>
+                    <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                       {t("help.features.tagSuggestions.title")}
-                      <span className="ml-1 text-[10px] bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 px-1.5 py-0.5 rounded font-medium">
-                        {t('help.sections.proBadge')}
-                      </span>
+                      <PlusBadge>{t('help.sections.proBadge')}</PlusBadge>
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.tagSuggestions.desc")}</p>
-                    <p className="text-xs text-amber-600 dark:text-amber-400">
-                      {t("help.features.tagSuggestions.proNote")}
-                    </p>
+                    <PlusNote>{t("help.features.tagSuggestions.proNote")}</PlusNote>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="title-suggestions">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Lightbulb className="w-4 h-4 text-primary" />
+                  <AccordionTrigger className={TOPIC}>
+                    <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                       {t("help.features.titleSuggestions.title")}
-                      <span className="ml-1 text-[10px] bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 px-1.5 py-0.5 rounded font-medium">
-                        {t('help.sections.proBadge')}
-                      </span>
+                      <PlusBadge>{t('help.sections.proBadge')}</PlusBadge>
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.titleSuggestions.desc")}</p>
-                    <p className="text-xs text-amber-600 dark:text-amber-400">
-                      {t("help.features.titleSuggestions.proNote")}
-                    </p>
+                    <PlusNote>{t("help.features.titleSuggestions.proNote")}</PlusNote>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="voice-entry">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Mic className="w-4 h-4 text-primary" />
+                  <AccordionTrigger className={TOPIC}>
+                    <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                       {t("help.features.voiceEntry.title")}
-                      <span className="ml-1 text-[10px] bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 px-1.5 py-0.5 rounded font-medium">
-                        {t('help.sections.proBadge')}
-                      </span>
+                      <PlusBadge>{t('help.sections.proBadge')}</PlusBadge>
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.voiceEntry.desc")}</p>
-                    <p className="text-xs text-amber-600 dark:text-amber-400">
-                      {t("help.features.voiceEntry.proNote")}
-                    </p>
+                    <PlusNote>{t("help.features.voiceEntry.proNote")}</PlusNote>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="ai-analysis">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-primary" />
+                  <AccordionTrigger className={TOPIC}>
+                    <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                       {t("help.features.aiAnalysis.title")}
-                      <span className="ml-1 text-[10px] bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 px-1.5 py-0.5 rounded font-medium">
-                        {t('help.sections.proBadge')}
-                      </span>
+                      <PlusBadge>{t('help.sections.proBadge')}</PlusBadge>
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.aiAnalysis.desc")}</p>
-                    <p className="text-xs text-amber-600 dark:text-amber-400">
-                      {t("help.features.aiAnalysis.proNote")}
-                    </p>
+                    <PlusNote>{t("help.features.aiAnalysis.proNote")}</PlusNote>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="trends">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <TrendingUp className="w-4 h-4 text-primary" />
+                  <AccordionTrigger className={TOPIC}>
+                    <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                       {t("help.features.trends.title")}
-                      <span className="ml-1 text-[10px] bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 px-1.5 py-0.5 rounded font-medium">
-                        {t('help.sections.proBadge')}
-                      </span>
+                      <PlusBadge>{t('help.sections.proBadge')}</PlusBadge>
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.trends.desc")}</p>
-                    <p className="text-xs text-amber-600 dark:text-amber-400">
-                      {t("help.features.trends.proNote")}
-                    </p>
+                    <PlusNote>{t("help.features.trends.proNote")}</PlusNote>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="activity-insights">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Activity className="w-4 h-4 text-primary" />
+                  <AccordionTrigger className={TOPIC}>
+                    <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                       {t("help.features.activityInsights.title")}
-                      <span className="ml-1 text-[10px] bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 px-1.5 py-0.5 rounded font-medium">
-                        {t('help.sections.proBadge')}
-                      </span>
+                      <PlusBadge>{t('help.sections.proBadge')}</PlusBadge>
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.activityInsights.desc")}</p>
-                    <p className="text-xs text-amber-600 dark:text-amber-400">
-                      {t("help.features.activityInsights.proNote")}
-                    </p>
+                    <PlusNote>{t("help.features.activityInsights.proNote")}</PlusNote>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="export">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Download className="w-4 h-4 text-primary" />
+                  <AccordionTrigger className={TOPIC}>
+                    <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                       {t("help.features.export.title")}
-                      <span className="ml-1 text-[10px] bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 px-1.5 py-0.5 rounded font-medium">
-                        {t('help.sections.proBadge')}
-                      </span>
+                      <PlusBadge>{t('help.sections.proBadge')}</PlusBadge>
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.export.desc")}</p>
-                    <ul className="list-disc list-inside space-y-1 pl-2">
+                    <ul className="list-disc space-y-1 pl-5">
                       <li>{t("help.features.export.pdf")}</li>
                       <li>{t("help.features.export.word")}</li>
                       <li>{t("help.features.export.json")}</li>
                     </ul>
                     
                     {/* Save location section */}
-                    <div className="mt-3 pt-3 border-t border-border/50">
-                      <h4 className="font-medium text-foreground text-sm mb-2">
+                    <div className="space-y-2 border-t border-border pt-4">
+                      <h4>
                         {t("help.features.export.saveLocationTitle")}
                       </h4>
-                      <ul className="space-y-2 text-xs">
+                      <ul className={`space-y-2 ${FOOTNOTE}`}>
                         <li className="flex items-start gap-2">
-                          <Smartphone className="w-3 h-3 mt-0.5 shrink-0" />
+                          <Smartphone aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />
                           <span>{t("help.features.export.saveLocationMobile")}</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <HardDrive className="w-3 h-3 mt-0.5 shrink-0" />
+                          <HardDrive aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />
                           <span>{t("help.features.export.saveLocationWeb")}</span>
                         </li>
                       </ul>
-                      <p className="text-xs italic mt-2">{t("help.features.export.shareHint")}</p>
+                      <p className={FOOTNOTE}>{t("help.features.export.shareHint")}</p>
                     </div>
                     
-                    <p className="text-xs text-amber-600 dark:text-amber-400 mt-2">
-                      {t("help.features.export.proNote")}
-                    </p>
+                    <PlusNote>{t("help.features.export.proNote")}</PlusNote>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -571,21 +515,18 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
 
             {/* Free Features */}
             <div>
-              <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
-                <span className="text-[10px] bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 px-1.5 py-0.5 rounded font-medium">{t('help.sections.freeBadge')}</span>
+              <h3 className="eyebrow mb-1 flex items-center gap-2.5">
+                <span className={BADGE}>{t('help.sections.freeBadge')}</span>
                 {t('help.sections.coreFeatures')}
               </h3>
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="mood-tracking">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Heart className="w-4 h-4 text-primary" />
-                      {t("help.features.moodTracking.title")}
-                    </span>
+                  <AccordionTrigger className={TOPIC}>
+                    {t("help.features.moodTracking.title")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.moodTracking.desc")}</p>
-                    <div className="flex flex-wrap gap-3 text-xs" aria-hidden="true">
+                    <div className={`flex flex-wrap gap-x-4 gap-y-1 ${FOOTNOTE}`} aria-hidden="true">
                       {(['great', 'good', 'okay', 'poor', 'terrible'] as const).map(mood => (
                         <span key={mood}>{MOOD_EMOJI[mood]} {t(`journalEntry.moods.${mood}`)}</span>
                       ))}
@@ -594,48 +535,37 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
                 </AccordionItem>
 
                 <AccordionItem value="activity-tagging">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Activity className="w-4 h-4 text-primary" />
-                      {t("help.features.activityTagging.title")}
-                    </span>
+                  <AccordionTrigger className={TOPIC}>
+                    {t("help.features.activityTagging.title")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.activityTagging.desc")}</p>
-                    <div className="flex flex-wrap gap-2 text-xs" aria-hidden="true">
+                    <div className={`flex flex-wrap gap-x-4 gap-y-1 ${FOOTNOTE}`} aria-hidden="true">
                       {PREDEFINED_ACTIVITIES.slice(0, 6).map(a => (
                         <span key={a.key}>{a.emoji} {t(`activities.${a.key}`)}</span>
                       ))}
-                      <span className="text-muted-foreground">...</span>
+                      <span>...</span>
                     </div>
-                    <p className="text-xs text-amber-600 dark:text-amber-400">
-                      {t("help.features.activityTagging.plusHint")}
-                    </p>
+                    <PlusNote>{t("help.features.activityTagging.plusHint")}</PlusNote>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="mood-calendar">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <CalendarIcon className="w-4 h-4 text-primary" />
-                      {t("help.features.moodCalendar.title")}
-                    </span>
+                  <AccordionTrigger className={TOPIC}>
+                    {t("help.features.moodCalendar.title")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.moodCalendar.desc")}</p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="mood-stats">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <BarChart3 className="w-4 h-4 text-primary" />
-                      {t("help.features.moodStats.title")}
-                    </span>
+                  <AccordionTrigger className={TOPIC}>
+                    {t("help.features.moodStats.title")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.moodStats.desc")}</p>
-                    <ul className="list-disc list-inside space-y-1 pl-2 text-xs">
+                    <ul className="list-disc space-y-1 pl-5">
                       <li>{t("help.features.moodStats.distribution")}</li>
                       <li>{t("help.features.moodStats.overTime")}</li>
                       <li>{t("help.features.moodStats.dayOfWeek")}</li>
@@ -645,107 +575,86 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
                 </AccordionItem>
 
                 <AccordionItem value="tags">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Tag className="w-4 h-4 text-primary" />
-                      {t("help.features.tags.title")}
-                    </span>
+                  <AccordionTrigger className={TOPIC}>
+                    {t("help.features.tags.title")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.tags.desc")}</p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="e2e-encryption">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Lock className="w-4 h-4 text-primary" />
-                      {t("help.features.e2eEncryption.title")}
-                    </span>
+                  <AccordionTrigger className={TOPIC}>
+                    {t("help.features.e2eEncryption.title")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.e2eEncryption.desc")}</p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="zero-knowledge">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Shield className="w-4 h-4 text-primary" />
-                      {t("help.features.zeroKnowledge.title")}
-                    </span>
+                  <AccordionTrigger className={TOPIC}>
+                    {t("help.features.zeroKnowledge.title")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.zeroKnowledge.desc")}</p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="self-hosted">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Server className="w-4 h-4 text-primary" />
-                      {t("help.features.selfHostedStorage.title")}
-                    </span>
+                  <AccordionTrigger className={TOPIC}>
+                    {t("help.features.selfHostedStorage.title")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.selfHostedStorage.desc")}</p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="multi-device">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Smartphone className="w-4 h-4 text-primary" />
-                      {t("help.features.multiDeviceSync.title")}
-                    </span>
+                  <AccordionTrigger className={TOPIC}>
+                    {t("help.features.multiDeviceSync.title")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.multiDeviceSync.desc")}</p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="offline-backup">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <HardDrive className="w-4 h-4 text-primary" />
-                      {t("help.features.offlineBackup.title")}
-                    </span>
+                  <AccordionTrigger className={TOPIC}>
+                    {t("help.features.offlineBackup.title")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.offlineBackup.desc")}</p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="backup-import-export">
-                  <AccordionTrigger className="text-sm">
-                    <span className="flex items-center gap-2">
-                      <Download className="w-4 h-4 text-primary" />
-                      {t("help.features.backupImportExport.title")}
-                    </span>
+                  <AccordionTrigger className={TOPIC}>
+                    {t("help.features.backupImportExport.title")}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground space-y-2">
+                  <AccordionContent className={ANSWER}>
                     <p>{t("help.features.backupImportExport.desc")}</p>
                     
                     {/* Export location section */}
-                    <div className="mt-3 pt-3 border-t border-border/50">
-                      <h4 className="font-medium text-foreground text-sm mb-2">
+                    <div className="space-y-2 border-t border-border pt-4">
+                      <h4>
                         {t("help.features.backupImportExport.exportTitle")}
                       </h4>
-                      <p className="text-xs">{t("help.features.backupImportExport.exportDesc")}</p>
+                      <p>{t("help.features.backupImportExport.exportDesc")}</p>
                     </div>
                     
                     {/* Import location section */}
-                    <div className="mt-3 pt-3 border-t border-border/50">
-                      <h4 className="font-medium text-foreground text-sm mb-2">
+                    <div className="space-y-2 border-t border-border pt-4">
+                      <h4>
                         {t("help.features.backupImportExport.importTitle")}
                       </h4>
-                      <ul className="space-y-2 text-xs">
+                      <ul className={`space-y-2 ${FOOTNOTE}`}>
                         <li className="flex items-start gap-2">
-                          <Smartphone className="w-3 h-3 mt-0.5 shrink-0" />
+                          <Smartphone aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />
                           <span>{t("help.features.backupImportExport.importMobile")}</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <HardDrive className="w-3 h-3 mt-0.5 shrink-0" />
+                          <HardDrive aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />
                           <span>{t("help.features.backupImportExport.importWeb")}</span>
                         </li>
                       </ul>
@@ -761,38 +670,35 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
         return (
           <Accordion type="single" collapsible className="w-full" value={openAccordionValue} onValueChange={(v) => setOpenAccordionValue(v)}>
             <AccordionItem value="nextcloud-encryption">
-              <AccordionTrigger className="text-sm">
-                <span className="flex items-center gap-2">
-                  <Server className="w-4 h-4 text-destructive" />
-                  {t("help.troubleshooting.nextcloudEncryption.title")}
-                </span>
+              <AccordionTrigger className={TOPIC}>
+                {t("help.troubleshooting.nextcloudEncryption.title")}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground space-y-4">
+              <AccordionContent className={ANSWER}>
                 <p>{t("help.troubleshooting.nextcloudEncryption.intro")}</p>
                 
-                <div className="bg-muted/50 rounded-lg p-3 space-y-2">
-                  <h4 className="font-medium text-foreground">{t("help.troubleshooting.nextcloudEncryption.whyTitle")}</h4>
+                <div className={ASIDE}>
+                  <h4>{t("help.troubleshooting.nextcloudEncryption.whyTitle")}</h4>
                   <p>{t("help.troubleshooting.nextcloudEncryption.why")}</p>
                 </div>
 
-                <h4 className="font-semibold text-foreground">{t("help.troubleshooting.nextcloudEncryption.fixTitle")}</h4>
+                <h4>{t("help.troubleshooting.nextcloudEncryption.fixTitle")}</h4>
                 
-                <div className="bg-primary/5 border border-primary/20 rounded-lg p-3 space-y-2">
-                  <h4 className="font-medium text-foreground">{t("help.troubleshooting.nextcloudEncryption.fixOption1Title")}</h4>
+                <div className={ASIDE}>
+                  <h4>{t("help.troubleshooting.nextcloudEncryption.fixOption1Title")}</h4>
                   <p>{t("help.troubleshooting.nextcloudEncryption.fixOption1Desc")}</p>
                   <div className="space-y-1">
                     <p>{t("help.troubleshooting.nextcloudEncryption.fixOption1Step1")}</p>
                     <p>{t("help.troubleshooting.nextcloudEncryption.fixOption1Step2")}</p>
-                    <p className="font-mono text-xs bg-muted rounded px-2 py-1">{t("help.troubleshooting.nextcloudEncryption.fixOption1Step3")}</p>
-                    <p className="font-mono text-xs bg-muted rounded px-2 py-1">{t("help.troubleshooting.nextcloudEncryption.fixOption1Step4")}</p>
-                    <p className="font-mono text-xs bg-muted rounded px-2 py-1">{t("help.troubleshooting.nextcloudEncryption.fixOption1Step5")}</p>
-                    <p className="font-mono text-xs bg-muted rounded px-2 py-1">{t("help.troubleshooting.nextcloudEncryption.fixOption1Step6")}</p>
+                    <p className={COMMAND}>{t("help.troubleshooting.nextcloudEncryption.fixOption1Step3")}</p>
+                    <p className={COMMAND}>{t("help.troubleshooting.nextcloudEncryption.fixOption1Step4")}</p>
+                    <p className={COMMAND}>{t("help.troubleshooting.nextcloudEncryption.fixOption1Step5")}</p>
+                    <p className={COMMAND}>{t("help.troubleshooting.nextcloudEncryption.fixOption1Step6")}</p>
                   </div>
-                  <p className="text-xs italic">{t("help.troubleshooting.nextcloudEncryption.fixOption1Note")}</p>
+                  <p className={FOOTNOTE}>{t("help.troubleshooting.nextcloudEncryption.fixOption1Note")}</p>
                 </div>
 
-                <div className="bg-muted/50 rounded-lg p-3 space-y-2">
-                  <h4 className="font-medium text-foreground">{t("help.troubleshooting.nextcloudEncryption.fixOption2Title")}</h4>
+                <div className={ASIDE}>
+                  <h4>{t("help.troubleshooting.nextcloudEncryption.fixOption2Title")}</h4>
                   <p>{t("help.troubleshooting.nextcloudEncryption.fixOption2Desc")}</p>
                   <div className="space-y-1">
                     <p>{t("help.troubleshooting.nextcloudEncryption.fixOption2Step1")}</p>
@@ -801,22 +707,20 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
                   </div>
                 </div>
 
-                <div className="bg-primary/5 border border-primary/20 rounded-lg p-3">
-                  <p className="font-medium text-foreground">{t("help.troubleshooting.nextcloudEncryption.importantNote")}</p>
+                <div className="notice notice-warning font-sans">
+                  <AlertTriangle aria-hidden="true" />
+                  <p className="font-medium">{t("help.troubleshooting.nextcloudEncryption.importantNote")}</p>
                 </div>
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="sync-issues">
-              <AccordionTrigger className="text-sm">
-                <span className="flex items-center gap-2">
-                  <RefreshCw className="w-4 h-4 text-destructive" />
-                  {t("help.troubleshooting.syncIssues.title")}
-                </span>
+              <AccordionTrigger className={TOPIC}>
+                {t("help.troubleshooting.syncIssues.title")}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground space-y-2">
+              <AccordionContent className={ANSWER}>
                 <p>{t("help.troubleshooting.syncIssues.intro")}</p>
-                <ul className="list-disc list-inside space-y-1">
+                <ul className="list-disc space-y-1 pl-5">
                   <li>{t("help.troubleshooting.syncIssues.tip1")}</li>
                   <li>{t("help.troubleshooting.syncIssues.tip2")}</li>
                   <li>{t("help.troubleshooting.syncIssues.tip3")}</li>
@@ -825,20 +729,18 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
             </AccordionItem>
 
             <AccordionItem value="password-recovery">
-              <AccordionTrigger className="text-sm">
-                <span className="flex items-center gap-2">
-                  <Key className="w-4 h-4 text-destructive" />
-                  {t("help.troubleshooting.passwordRecovery.title")}
-                </span>
+              <AccordionTrigger className={TOPIC}>
+                {t("help.troubleshooting.passwordRecovery.title")}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground space-y-3">
-                <p className="text-destructive font-medium bg-destructive/10 p-2 rounded">
-                  {t("help.troubleshooting.passwordRecovery.warning")}
-                </p>
+              <AccordionContent className={ANSWER}>
+                <div className="notice notice-error font-sans">
+                  <AlertTriangle aria-hidden="true" />
+                  <p className="font-medium">{t("help.troubleshooting.passwordRecovery.warning")}</p>
+                </div>
                 <p>{t("help.troubleshooting.passwordRecovery.desc")}</p>
-                <div className="bg-muted/50 rounded-lg p-3 space-y-2">
-                  <h4 className="font-medium text-foreground">{t("help.troubleshooting.passwordRecovery.actionTitle")}</h4>
-                  <ul className="list-disc list-inside space-y-1">
+                <div className={ASIDE}>
+                  <h4>{t("help.troubleshooting.passwordRecovery.actionTitle")}</h4>
+                  <ul className="list-disc space-y-1 pl-5">
                     <li>{t("help.troubleshooting.passwordRecovery.action1")}</li>
                     <li>{t("help.troubleshooting.passwordRecovery.action2")}</li>
                   </ul>
@@ -852,84 +754,60 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
         return (
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="data-location">
-              <AccordionTrigger className="text-sm">{t("help.faq.dataLocation.question")}</AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground">
+              <AccordionTrigger className={TOPIC}>{t("help.faq.dataLocation.question")}</AccordionTrigger>
+              <AccordionContent className={ANSWER}>
                 {t("help.faq.dataLocation.answer")}
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="offline">
-              <AccordionTrigger className="text-sm">{t("help.faq.offline.question")}</AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground">
+              <AccordionTrigger className={TOPIC}>{t("help.faq.offline.question")}</AccordionTrigger>
+              <AccordionContent className={ANSWER}>
                 {t("help.faq.offline.answer")}
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="devices">
-              <AccordionTrigger className="text-sm">{t("help.faq.devices.question")}</AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground">
+              <AccordionTrigger className={TOPIC}>{t("help.faq.devices.question")}</AccordionTrigger>
+              <AccordionContent className={ANSWER}>
                 {t("help.faq.devices.answer")}
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="free">
-              <AccordionTrigger className="text-sm">{t("help.faq.free.question")}</AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground">
+              <AccordionTrigger className={TOPIC}>{t("help.faq.free.question")}</AccordionTrigger>
+              <AccordionContent className={ANSWER}>
                 {t("help.faq.free.answer")}
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="pro">
-              <AccordionTrigger className="text-sm">{t("help.faq.pro.question")}</AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground">
+              <AccordionTrigger className={TOPIC}>{t("help.faq.pro.question")}</AccordionTrigger>
+              <AccordionContent className={ANSWER}>
                 {t("help.faq.pro.answer")}
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="manage-subscription">
-              <AccordionTrigger className="text-sm">{t("help.faq.manageSubscription.question")}</AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground space-y-3">
-                <div className="flex flex-wrap items-center gap-1.5 py-2 px-3 rounded-md bg-muted/50 border border-border/50">
-                  <span className="font-medium text-foreground">{t("help.faq.path.step1")}</span>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground shrink-0" />
-                  <span className="font-medium text-foreground">{t("help.faq.path.step2")}</span>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground shrink-0" />
-                  <span className="font-medium text-foreground">{t("help.faq.path.step3")}</span>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground shrink-0" />
-                  <span className="font-medium text-foreground">{t("help.faq.path.step4")}</span>
-                </div>
+              <AccordionTrigger className={TOPIC}>{t("help.faq.manageSubscription.question")}</AccordionTrigger>
+              <AccordionContent className={ANSWER}>
+                <SettingsPath t={t} />
                 <p>{t("help.faq.manageSubscription.answer")}</p>
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="invoices">
-              <AccordionTrigger className="text-sm">{t("help.faq.invoices.question")}</AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground space-y-3">
-                <div className="flex flex-wrap items-center gap-1.5 py-2 px-3 rounded-md bg-muted/50 border border-border/50">
-                  <span className="font-medium text-foreground">{t("help.faq.path.step1")}</span>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground shrink-0" />
-                  <span className="font-medium text-foreground">{t("help.faq.path.step2")}</span>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground shrink-0" />
-                  <span className="font-medium text-foreground">{t("help.faq.path.step3")}</span>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground shrink-0" />
-                  <span className="font-medium text-foreground">{t("help.faq.path.step4")}</span>
-                </div>
+              <AccordionTrigger className={TOPIC}>{t("help.faq.invoices.question")}</AccordionTrigger>
+              <AccordionContent className={ANSWER}>
+                <SettingsPath t={t} />
                 <p>{t("help.faq.invoices.answer")}</p>
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="cancel-subscription">
-              <AccordionTrigger className="text-sm">{t("help.faq.cancelSubscription.question")}</AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground space-y-3">
-                <div className="flex flex-wrap items-center gap-1.5 py-2 px-3 rounded-md bg-muted/50 border border-border/50">
-                  <span className="font-medium text-foreground">{t("help.faq.path.step1")}</span>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground shrink-0" />
-                  <span className="font-medium text-foreground">{t("help.faq.path.step2")}</span>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground shrink-0" />
-                  <span className="font-medium text-foreground">{t("help.faq.path.step3")}</span>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground shrink-0" />
-                  <span className="font-medium text-foreground">{t("help.faq.path.step4")}</span>
-                </div>
+              <AccordionTrigger className={TOPIC}>{t("help.faq.cancelSubscription.question")}</AccordionTrigger>
+              <AccordionContent className={ANSWER}>
+                <SettingsPath t={t} />
                 <p>{t("help.faq.cancelSubscription.answer")}</p>
               </AccordionContent>
             </AccordionItem>
@@ -939,82 +817,69 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
       case "support":
         return (
           <div className="space-y-6">
-            {/* Before Contacting Tip */}
-            <div className="bg-muted/50 rounded-lg p-4 space-y-2">
-              <div className="flex items-center gap-2">
-                <Lightbulb className="w-5 h-5 text-amber-500" />
-                <h3 className="font-semibold text-sm">{t("help.support.beforeContacting.title")}</h3>
+            <div className="notice">
+              <Lightbulb aria-hidden="true" />
+              <div className="min-w-0 space-y-1">
+                <h3 className="font-medium">{t("help.support.beforeContacting.title")}</h3>
+                <p className="text-muted-foreground">
+                  {t("help.support.beforeContacting.desc")}
+                </p>
               </div>
-              <p className="text-sm text-muted-foreground">
-                {t("help.support.beforeContacting.desc")}
-              </p>
             </div>
 
-            {/* Contact Card */}
-            <div className="bg-primary/5 border border-primary/20 rounded-lg p-5 space-y-4">
-              <div className="flex items-center gap-2">
-                <Mail className="w-5 h-5 text-primary" />
-                <h3 className="font-semibold">{t("help.support.email.title")}</h3>
-              </div>
-              <p className="text-sm text-muted-foreground">
+            <section className="space-y-3">
+              <h3 className="text-xl font-semibold">{t("help.support.email.title")}</h3>
+              <p className="reading">
                 {t("help.support.email.desc")}
               </p>
-              <div className="flex flex-col sm:flex-row items-center gap-3">
-                <code className="bg-muted px-3 py-2 rounded-md text-sm font-mono text-center sm:text-left sm:flex-1">
+              <div className="flex flex-wrap items-center gap-3">
+                <code className="min-w-0 break-all rounded-md bg-muted px-3 py-2 font-mono text-sm">
                   {t("help.support.email.address")}
                 </code>
                 <Button
                   size="sm"
                   variant="outline"
                   onClick={handleCopyEmail}
-                  className="gap-2 w-full sm:w-auto"
+                  className="gap-2"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-4 h-4" />
+                      <Check aria-hidden="true" className="h-4 w-4 text-diagnostic-success" />
                       {t("common.copied")}
                     </>
                   ) : (
                     <>
-                      <Copy className="w-4 h-4" />
+                      <Copy aria-hidden="true" className="h-4 w-4" />
                       {t("common.copyEmail")}
                     </>
                   )}
                 </Button>
               </div>
-              <p className="text-xs text-muted-foreground italic">
+              <p className={FOOTNOTE}>
                 {t("help.support.responseTime")}
               </p>
-            </div>
+            </section>
 
-            {/* Legal Links */}
-            <div className="bg-muted/50 rounded-lg p-5 space-y-3">
-              <div className="flex items-center gap-2">
-                <FileText className="w-5 h-5 text-primary" />
-                <h3 className="font-semibold text-sm">{t("help.support.links.title")}</h3>
-              </div>
-              <div className="space-y-2">
+            <section className="space-y-2 border-t border-border pt-6">
+              <h3 className="eyebrow">{t("help.support.links.title")}</h3>
+              <div className="flex flex-wrap gap-x-6 gap-y-1">
                 <Link
                   to="/terms"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="inline-flex min-h-10 items-center text-sm underline underline-offset-4 transition-colors hover:text-muted-foreground"
                 >
-                  <ExternalLink className="w-4 h-4" />
                   {t("help.support.links.terms")}
                 </Link>
                 <Link
                   to="/privacy"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="inline-flex min-h-10 items-center text-sm underline underline-offset-4 transition-colors hover:text-muted-foreground"
                 >
-                  <ExternalLink className="w-4 h-4" />
                   {t("help.support.links.privacy")}
                 </Link>
               </div>
-            </div>
+            </section>
 
             {/* App Version */}
-            <div className="text-center text-xs text-muted-foreground pt-4 border-t border-border/50">
-              <p>{t("help.support.version")}: {__APP_VERSION__}</p>
-            </div>
+            <p className="text-xs tabular-nums text-muted-foreground">{t("help.support.version")}: {__APP_VERSION__}</p>
           </div>
         );
 
@@ -1027,9 +892,9 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
   const desktopHelpContent = (
     <Tabs value={activeTab} onValueChange={setActiveTab} orientation="vertical" className="flex flex-row w-full h-full">
       {/* Desktop Sidebar (Vertical TabsList) */}
-      <div className="w-[240px] border-r border-border bg-muted/10 shrink-0">
-        <ScrollArea className="h-full py-2">
-          <TabsList className="flex flex-col h-auto bg-transparent p-0 w-full space-y-1">
+      <div className="w-60 shrink-0 border-r border-border">
+        <ScrollArea className="h-full">
+          <TabsList className="flex h-auto w-full flex-col items-stretch gap-0.5 bg-transparent p-3">
             {categories.map((cat) => (
               <SidebarItem key={cat.value} value={cat.value} icon={cat.icon} label={cat.label} />
             ))}
@@ -1038,10 +903,11 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
       </div>
 
       {/* Content Panel */}
-      <ScrollArea className="flex-1 bg-background">
-        <div className="p-8 max-w-2xl mx-auto space-y-8 pb-20">
+      <ScrollArea className="min-w-0 flex-1">
+        <div className="mx-auto max-w-2xl px-8 pb-16 pt-8">
           {categories.map((cat) => (
-            <TabsContent key={cat.value} value={cat.value} className="mt-0 space-y-4 outline-none">
+            <TabsContent key={cat.value} value={cat.value} className="mt-0 space-y-5 outline-none focus-visible:ring-0 focus-visible:ring-offset-0">
+              <h2 className="text-2xl font-semibold leading-tight">{cat.label}</h2>
               {renderContentSection(cat.value)}
             </TabsContent>
           ))}
@@ -1057,7 +923,7 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
     return (
       <Drawer open={open} onOpenChange={onOpenChange} modal dismissible={false}>
         <DrawerContent fullHeight hideHandle>
-          <DrawerHeader className="text-left flex items-center justify-between pr-4 border-b border-border">
+          <DrawerHeader className="flex items-center justify-between gap-2 border-b border-border py-3 pl-5 pr-3 text-left">
             <div className="flex items-center gap-2 min-w-0">
               {mobileSelectedCategory ? (
                 // Back button + Category title when viewing content
@@ -1066,26 +932,22 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
                     variant="ghost"
                     size="sm"
                     onClick={handleMobileBack}
-                    className="gap-1 px-2 shrink-0 -ml-2"
+                    className="-ml-3 h-10 shrink-0 gap-1 px-2 text-muted-foreground"
                   >
-                    <ChevronLeft className="w-4 h-4" />
+                    <ChevronLeft aria-hidden="true" className="h-4 w-4" />
                     {t("common.back")}
                   </Button>
                   {selectedCategory && (
-                    <div className="flex items-center gap-2 min-w-0">
-                      <selectedCategory.icon className="w-4 h-4 text-primary shrink-0" />
-                      <span className="font-medium truncate">{selectedCategory.label}</span>
-                    </div>
+                    <span className="min-w-0 truncate text-lg font-semibold">{selectedCategory.label}</span>
                   )}
                 </>
               ) : (
                 // Main header when viewing category list
                 <div>
-                  <DrawerTitle className="flex items-center gap-2">
-                    <BookOpen className="w-5 h-5 text-primary/80" />
+                  <DrawerTitle className="text-2xl font-semibold">
                     {t("help.title")}
                   </DrawerTitle>
-                  <DrawerDescription className="text-sm text-muted-foreground">
+                  <DrawerDescription className="mt-0.5 text-sm text-muted-foreground">
                     {t("help.description")}
                   </DrawerDescription>
                 </div>
@@ -1095,9 +957,9 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
               variant="ghost" 
               size="icon" 
               onClick={() => onOpenChange(false)}
-              className="h-8 w-8 shrink-0"
+              className="h-10 w-10 shrink-0 text-muted-foreground"
             >
-              <X className="h-4 w-4" />
+              <X aria-hidden="true" className="h-5 w-5" />
               <span className="sr-only">{t("common.close")}</span>
             </Button>
           </DrawerHeader>
@@ -1133,7 +995,7 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
               )}
             >
               <ScrollArea className="h-full" ref={contentRef}>
-                <div className="p-4 pb-20">
+                <div className="px-5 pb-20 pt-5">
                   {mobileSelectedCategory && renderContentSection(mobileSelectedCategory)}
                 </div>
               </ScrollArea>
@@ -1148,20 +1010,17 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
-        className="max-w-4xl max-h-[85vh] p-0 overflow-hidden gap-0 bg-background"
+        className="max-w-4xl max-h-[85vh] gap-0 overflow-hidden rounded-2xl border-border bg-background p-0"
         aria-describedby="help-dialog-description"
       >
         {/* Header */}
-        <div className="px-6 py-4 border-b border-border flex items-center justify-between bg-muted/10">
-          <div>
-            <DialogTitle className="flex items-center gap-2 text-xl font-medium tracking-tight">
-              <BookOpen className="w-5 h-5 text-primary/80" />
-              {t("help.title")}
-            </DialogTitle>
-            <p id="help-dialog-description" className="text-sm text-muted-foreground mt-1">
-              {t("help.description")}
-            </p>
-          </div>
+        <div className="border-b border-border px-6 py-5 pr-12">
+          <DialogTitle className="text-2xl font-semibold">
+            {t("help.title")}
+          </DialogTitle>
+          <p id="help-dialog-description" className="mt-1 text-sm text-muted-foreground">
+            {t("help.description")}
+          </p>
         </div>
 
         {/* Main Content Area */}

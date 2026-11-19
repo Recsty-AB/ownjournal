@@ -11,13 +11,9 @@ import {
   AlertTriangle,
   CheckCircle2,
   XCircle,
-  Zap,
   RefreshCw,
-  TrendingUp,
   TrendingDown,
-  Activity,
-  Clock,
-  Shield
+  Activity
 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { useTranslation } from "react-i18next";
@@ -231,20 +227,20 @@ export const SyncHealthMonitor = () => {
 
   const getHealthColor = (health: string) => {
     switch (health) {
-      case 'excellent': return 'text-green-500';
-      case 'good': return 'text-blue-500';
-      case 'warning': return 'text-yellow-500';
-      case 'critical': return 'text-red-500';
+      case 'excellent': return 'text-diagnostic-success';
+      case 'good': return 'text-diagnostic-info';
+      case 'warning': return 'text-diagnostic-warning';
+      case 'critical': return 'text-diagnostic-error';
       default: return 'text-muted-foreground';
     }
   };
 
   const getHealthIcon = (health: string) => {
     switch (health) {
-      case 'excellent': return <CheckCircle2 className="w-6 h-6 text-green-500" />;
-      case 'good': return <CheckCircle2 className="w-6 h-6 text-blue-500" />;
-      case 'warning': return <AlertTriangle className="w-6 h-6 text-yellow-500" />;
-      case 'critical': return <XCircle className="w-6 h-6 text-red-500" />;
+      case 'excellent': return <CheckCircle2 className="w-6 h-6 flex-shrink-0 text-diagnostic-success" aria-hidden="true" />;
+      case 'good': return <CheckCircle2 className="w-6 h-6 flex-shrink-0 text-diagnostic-info" aria-hidden="true" />;
+      case 'warning': return <AlertTriangle className="w-6 h-6 flex-shrink-0 text-diagnostic-warning" aria-hidden="true" />;
+      case 'critical': return <XCircle className="w-6 h-6 flex-shrink-0 text-diagnostic-error" aria-hidden="true" />;
     }
   };
 
@@ -277,8 +273,7 @@ export const SyncHealthMonitor = () => {
       {/* Header - stack on mobile */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
-          <h3 className="text-lg font-semibold flex items-center gap-2">
-            <Shield className="w-5 h-5" />
+          <h3 className="text-xl font-semibold">
             {t('syncHealth.title')}
           </h3>
           <p className="text-sm text-muted-foreground">
@@ -290,8 +285,10 @@ export const SyncHealthMonitor = () => {
             variant="outline"
             size="sm"
             onClick={() => setAutoRefresh(!autoRefresh)}
+            aria-label={autoRefresh ? t('syncHealth.auto') : t('syncHealth.manual')}
+            className="h-10 sm:h-9"
           >
-            <Activity className={`w-4 h-4 ${autoRefresh ? 'animate-pulse' : ''}`} />
+            <Activity className={`w-4 h-4 ${autoRefresh ? 'animate-pulse' : ''}`} aria-hidden="true" />
             <span className="hidden sm:inline ml-2">
               {autoRefresh ? t('syncHealth.auto') : t('syncHealth.manual')}
             </span>
@@ -301,20 +298,22 @@ export const SyncHealthMonitor = () => {
             size="sm"
             onClick={refreshMetrics}
             disabled={autoRefresh}
+            aria-label={t('syncHealth.refresh')}
+            className="h-10 sm:h-9"
           >
-            <RefreshCw className="w-4 h-4" />
+            <RefreshCw className="w-4 h-4" aria-hidden="true" />
             <span className="hidden sm:inline ml-2">{t('syncHealth.refresh')}</span>
           </Button>
         </div>
       </div>
 
       {/* Overall Health Score */}
-      <Card className="p-6">
+      <Card className="rounded-2xl border-border bg-card p-5 shadow-soft sm:p-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
           <div className="flex items-start sm:items-center gap-3">
             {getHealthIcon(metrics.overallHealth)}
             <div className="min-w-0">
-              <h4 className="text-xl sm:text-2xl font-bold">
+              <h4 className="text-xl font-semibold sm:text-2xl">
                 {t('syncHealth.overallHealth')}: <span className={getHealthColor(metrics.overallHealth)}>
                   {t(`syncHealth.${metrics.overallHealth}`)}
                 </span>
@@ -325,7 +324,7 @@ export const SyncHealthMonitor = () => {
             </div>
           </div>
           {metrics.overallHealth === 'excellent' && (
-            <Badge variant="outline" className="whitespace-nowrap shrink-0 self-start sm:self-center text-green-500 border-green-500">
+            <Badge variant="outline" className="whitespace-nowrap shrink-0 self-start sm:self-center border-diagnostic-success/40 font-medium text-diagnostic-success">
               {t('syncHealth.allSystemsNormal')}
             </Badge>
           )}
@@ -336,17 +335,16 @@ export const SyncHealthMonitor = () => {
       {/* Alerts */}
       {metrics.alerts.length > 0 && (
         <div className="space-y-2">
-          <h4 className="text-sm font-semibold flex items-center gap-2">
-            <AlertTriangle className="w-4 h-4" />
+          <h4 className="eyebrow">
             {t('syncHealth.activeAlerts', { count: metrics.alerts.length })}
           </h4>
           <div className="space-y-2">
             {metrics.alerts.map(alert => (
-              <Alert key={alert.id} variant={getAlertVariant(alert.severity)}>
-                <AlertTriangle className="h-4 w-4" />
-                <AlertTitle className="flex items-center justify-between">
+              <Alert key={alert.id} variant={getAlertVariant(alert.severity)} className="rounded-xl">
+                <AlertTriangle className="h-4 w-4" aria-hidden="true" />
+                <AlertTitle className="flex flex-wrap items-center justify-between gap-2">
                   {alert.title}
-                  <Badge variant={getBadgeVariant(alert.severity)} className="ml-2">
+                  <Badge variant={getBadgeVariant(alert.severity)}>
                     {t(`syncHealth.severity.${alert.severity}`)}
                   </Badge>
                 </AlertTitle>
@@ -360,113 +358,106 @@ export const SyncHealthMonitor = () => {
       )}
 
       {/* Key Metrics */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <Card className="p-4">
+      <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border shadow-soft md:grid-cols-3">
+        <div className="bg-card p-4">
           <div className="space-y-1">
-            <div className="text-xs text-muted-foreground flex items-center gap-1">
-              <TrendingUp className="w-3 h-3" />
+            <div className="text-xs text-muted-foreground">
               {t('syncHealth.failureRate')}
             </div>
-            <div className={`text-2xl font-bold ${metrics.failureRate > 20 ? 'text-red-500' : 'text-green-500'}`}>
+            <div className={`text-2xl font-semibold tabular-nums ${metrics.failureRate > 20 ? 'text-diagnostic-error' : 'text-diagnostic-success'}`}>
               {metrics.failureRate.toFixed(1)}%
             </div>
             <div className="text-xs text-muted-foreground">
               {t('syncHealth.target')}: {t('syncHealth.lessThan10')}
             </div>
           </div>
-        </Card>
+        </div>
 
-        <Card className="p-4">
+        <div className="bg-card p-4">
           <div className="space-y-1">
-            <div className="text-xs text-muted-foreground flex items-center gap-1">
-              <AlertTriangle className="w-3 h-3" />
+            <div className="text-xs text-muted-foreground">
               {t('syncHealth.conflictRate')}
             </div>
-            <div className={`text-2xl font-bold ${metrics.conflictRate > 5 ? 'text-yellow-500' : 'text-green-500'}`}>
+            <div className={`text-2xl font-semibold tabular-nums ${metrics.conflictRate > 5 ? 'text-diagnostic-warning' : 'text-diagnostic-success'}`}>
               {metrics.conflictRate.toFixed(1)}
             </div>
             <div className="text-xs text-muted-foreground">
               {t('syncHealth.per100Syncs')}
             </div>
           </div>
-        </Card>
+        </div>
 
-        <Card className="p-4">
+        <div className="bg-card p-4">
           <div className="space-y-1">
-            <div className="text-xs text-muted-foreground flex items-center gap-1">
-              <Zap className="w-3 h-3" />
+            <div className="text-xs text-muted-foreground">
               {t('syncHealth.circuitBreakers')}
             </div>
-            <div className={`text-2xl font-bold ${metrics.circuitBreakersActive > 0 ? 'text-red-500' : 'text-green-500'}`}>
+            <div className={`text-2xl font-semibold tabular-nums ${metrics.circuitBreakersActive > 0 ? 'text-diagnostic-error' : 'text-diagnostic-success'}`}>
               {metrics.circuitBreakersActive}
             </div>
             <div className="text-xs text-muted-foreground">
               {metrics.circuitBreakersActive > 0 ? t('syncHealth.active') : t('syncHealth.noneActive')}
             </div>
           </div>
-        </Card>
+        </div>
 
-        <Card className="p-4">
+        <div className="bg-card p-4">
           <div className="space-y-1">
-            <div className="text-xs text-muted-foreground flex items-center gap-1">
-              <AlertTriangle className="w-3 h-3" />
+            <div className="text-xs text-muted-foreground">
               {t('syncHealth.recentConflicts')}
             </div>
-            <div className={`text-2xl font-bold ${metrics.recentConflicts > 3 ? 'text-yellow-500' : 'text-green-500'}`}>
+            <div className={`text-2xl font-semibold tabular-nums ${metrics.recentConflicts > 3 ? 'text-diagnostic-warning' : 'text-diagnostic-success'}`}>
               {metrics.recentConflicts}
             </div>
             <div className="text-xs text-muted-foreground">
               {t('syncHealth.lastHour')}
             </div>
           </div>
-        </Card>
+        </div>
 
-        <Card className="p-4">
+        <div className="bg-card p-4">
           <div className="space-y-1">
-            <div className="text-xs text-muted-foreground flex items-center gap-1">
-              <XCircle className="w-3 h-3" />
+            <div className="text-xs text-muted-foreground">
               {t('syncHealth.recentFailures')}
             </div>
-            <div className={`text-2xl font-bold ${metrics.recentFailures > 5 ? 'text-red-500' : 'text-green-500'}`}>
+            <div className={`text-2xl font-semibold tabular-nums ${metrics.recentFailures > 5 ? 'text-diagnostic-error' : 'text-diagnostic-success'}`}>
               {metrics.recentFailures}
             </div>
             <div className="text-xs text-muted-foreground">
               {t('syncHealth.last10Ops')}
             </div>
           </div>
-        </Card>
+        </div>
 
-        <Card className="p-4">
+        <div className="bg-card p-4">
           <div className="space-y-1">
-            <div className="text-xs text-muted-foreground flex items-center gap-1">
-              <Clock className="w-3 h-3" />
+            <div className="text-xs text-muted-foreground">
               {t('syncHealth.avgLatency')}
             </div>
-            <div className="text-2xl font-bold text-blue-500">
+            <div className="text-2xl font-semibold tabular-nums text-foreground">
               {metrics.avgSyncLatency}ms
             </div>
             <div className="text-xs text-muted-foreground">
               {t('syncHealth.estimated')}
             </div>
           </div>
-        </Card>
+        </div>
       </div>
 
       {/* Recommendations */}
-      <Card className="p-4">
-        <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
-          <TrendingUp className="w-4 h-4" />
+      <Card className="rounded-2xl border-border bg-card p-5 shadow-soft sm:p-6">
+        <h4 className="eyebrow mb-1">
           {t('syncHealth.recommendations')}
         </h4>
         <ScrollArea className="h-[300px]">
-          <div className="space-y-3">
+          <div className="divide-y divide-border">
             {metrics.recommendations.map(rec => (
-              <div key={rec.id} className="p-3 rounded-lg border bg-card">
-                <div className="flex items-start justify-between mb-2">
-                  <h5 className="font-semibold text-sm">{rec.title}</h5>
+              <div key={rec.id} className="py-3">
+                <div className="mb-1 flex items-start justify-between gap-2">
+                  <h5 className="min-w-0 text-sm font-medium">{rec.title}</h5>
                   <Badge 
                     variant={rec.priority === 'high' ? 'destructive' : rec.priority === 'medium' ? 'default' : 'secondary'}
-                    className="text-xs"
+                    className="flex-shrink-0 text-xs"
                   >
                     {t(`syncHealth.${rec.priority}`)}
                   </Badge>
@@ -475,7 +466,7 @@ export const SyncHealthMonitor = () => {
                   {rec.description}
                 </p>
                 {rec.action && (
-                  <div className="text-xs text-primary font-medium">
+                  <div className="text-xs font-medium text-foreground">
                     → {rec.action}
                   </div>
                 )}
@@ -486,9 +477,9 @@ export const SyncHealthMonitor = () => {
       </Card>
 
       {/* Info Footer */}
-      <div className="text-xs text-muted-foreground bg-muted/50 p-3 rounded-lg">
-        <strong>{t('syncHealth.healthTips')}</strong>
-        <ul className="mt-2 space-y-1 ml-4">
+      <div className="rounded-xl bg-muted/50 p-4 text-xs text-muted-foreground">
+        <strong className="font-medium text-foreground">{t('syncHealth.healthTips')}</strong>
+        <ul className="mt-2 space-y-1">
           <li>{t('syncHealth.greenMetrics')}</li>
           <li>{t('syncHealth.yellowWarnings')}</li>
           <li>{t('syncHealth.redAlerts')}</li>

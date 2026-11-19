@@ -737,6 +737,8 @@
     "searchPlaceholder": "搜索条目…",
     "startDate": "开始日期",
     "endDate": "结束日期",
+    "filters": "筛选",
+    "clearFilters": "清除筛选",
     "noEntries": "没有匹配的条目",
     "startJourney": "开始您的旅程",
     "tryAdjusting": "尝试调整您的搜索或过滤器",

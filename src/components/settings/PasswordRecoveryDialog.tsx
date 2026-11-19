@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { AlertTriangle, Key, Loader2, Eye, EyeOff, Trash2, CloudDownload } from "lucide-react";
+import { AlertTriangle, Loader2, Eye, EyeOff, Trash2, CloudDownload } from "lucide-react";
 import { storageServiceV2 } from "@/services/storageServiceV2";
 import { storePassword } from "@/utils/passwordStorage";
 import { setEncryptionMode } from "@/utils/encryptionModeStorage";
@@ -170,8 +170,7 @@ export const PasswordRecoveryDialog = ({
         aria-describedby="recovery-dialog-description"
       >
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <AlertTriangle className="h-5 w-5 text-destructive" />
+          <DialogTitle className="text-xl font-medium leading-snug">
             {t('recovery.title', 'Recover encrypted entries')}
           </DialogTitle>
           <DialogDescription id="recovery-dialog-description">
@@ -179,40 +178,42 @@ export const PasswordRecoveryDialog = ({
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-4 py-4">
-          <div className="rounded-lg bg-destructive/10 p-4 text-sm">
-            <p className="font-medium text-destructive">
-              {t('recovery.failedEntries', '{{count}} of {{total}} entries failed to decrypt', {
-                count: failedCount,
-                total: totalCount,
-              })}
-            </p>
-            {isKeyMismatch ? (
-              <div className="mt-2 space-y-2 text-muted-foreground">
-                <p>
-                  {t('recovery.keyMismatchExplanation',
-                    'The encryption key that can decrypt these entries does not match the one currently in use. You can try reloading the key from cloud storage.'
-                  )}
-                </p>
-                <p className="font-medium">
-                  {t('recovery.keyMismatchRecoveryHint',
-                    'You may be able to recover the original key from your cloud storage version history (e.g. Google Drive or Nextcloud file versions for encryption-key.json in the OwnJournal folder).'
-                  )}
-                </p>
-              </div>
-            ) : (
-              <p className="mt-2 text-muted-foreground">
-                {t('recovery.explanation', 
-                  'This usually happens when the encryption password was changed. Enter your original password to recover the entries.'
-                )}
+        <div className="space-y-4">
+          <div className="notice notice-warning">
+            <AlertTriangle aria-hidden="true" />
+            <div className="min-w-0 space-y-2">
+              <p className="font-medium">
+                {t('recovery.failedEntries', '{{count}} of {{total}} entries failed to decrypt', {
+                  count: failedCount,
+                  total: totalCount,
+                })}
               </p>
-            )}
+              {isKeyMismatch ? (
+                <>
+                  <p>
+                    {t('recovery.keyMismatchExplanation',
+                      'The encryption key that can decrypt these entries does not match the one currently in use. You can try reloading the key from cloud storage.'
+                    )}
+                  </p>
+                  <p className="font-medium">
+                    {t('recovery.keyMismatchRecoveryHint',
+                      'You may be able to recover the original key from your cloud storage version history (e.g. Google Drive or Nextcloud file versions for encryption-key.json in the OwnJournal folder).'
+                    )}
+                  </p>
+                </>
+              ) : (
+                <p>
+                  {t('recovery.explanation',
+                    'This usually happens when the encryption password was changed. Enter your original password to recover the entries.'
+                  )}
+                </p>
+              )}
+            </div>
           </div>
 
           {!isKeyMismatch && (
             <div className="space-y-2">
-              <Label htmlFor="original-password" className="flex items-center gap-2">
-                <Key className="h-4 w-4" />
+              <Label htmlFor="original-password">
                 {t('recovery.originalPassword', 'Original encryption password')}
               </Label>
               <div className="relative">
@@ -229,20 +230,22 @@ export const PasswordRecoveryDialog = ({
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                  className="absolute inset-y-0 right-0 flex w-10 items-center justify-center rounded-r-md text-muted-foreground transition-colors hover:text-foreground"
                   tabIndex={-1}
+                  aria-label={showPassword ? t('ai.hide') : t('ai.show')}
+                  aria-pressed={showPassword}
                 >
-                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  {showPassword ? <EyeOff className="h-4 w-4" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
                 </button>
               </div>
               {error && (
-                <p className="text-sm text-destructive">{error}</p>
+                <p className="text-sm text-destructive" role="alert">{error}</p>
               )}
             </div>
           )}
 
           {isKeyMismatch && error && (
-            <p className="text-sm text-destructive">{error}</p>
+            <p className="text-sm text-destructive" role="alert">{error}</p>
           )}
           {isKeyMismatch ? (
             <div className="text-xs text-muted-foreground space-y-1">
@@ -264,47 +267,49 @@ export const PasswordRecoveryDialog = ({
               type="button"
               onClick={() => setConfirmDelete(true)}
               disabled={busy}
-              className="text-xs text-muted-foreground hover:text-destructive transition-colors underline underline-offset-2 cursor-pointer"
+              className="min-h-10 rounded-sm text-left text-xs text-muted-foreground underline underline-offset-2 transition-colors hover:text-destructive focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
             >
               {t('recovery.deleteLink', 'Or remove the unrecoverable entries permanently')}
             </button>
           ) : (
-            <div className="rounded-lg border border-destructive/30 p-3 space-y-2">
-              <p className="text-sm font-medium text-destructive">
-                {t('recovery.confirmDelete', 'This will permanently delete {{count}} entries that cannot be decrypted. This cannot be undone.', {
-                  count: failedCount,
-                })}
-              </p>
-              <div className="flex gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setConfirmDelete(false)}
-                  disabled={busy}
-                >
-                  {t('common.cancel', 'Cancel')}
-                </Button>
-                <Button
-                  variant="destructive"
-                  size="sm"
-                  onClick={handleDeleteUnrecoverable}
-                  disabled={busy}
-                >
-                  {isDeleting ? (
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  ) : (
-                    <Trash2 className="mr-2 h-4 w-4" />
-                  )}
-                  {t('recovery.confirmDeleteButton', 'Delete permanently')}
-                </Button>
+            <div className="notice notice-error">
+              <Trash2 aria-hidden="true" />
+              <div className="min-w-0 flex-1 space-y-3">
+                <p className="font-medium">
+                  {t('recovery.confirmDelete', 'This will permanently delete {{count}} entries that cannot be decrypted. This cannot be undone.', {
+                    count: failedCount,
+                  })}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setConfirmDelete(false)}
+                    disabled={busy}
+                  >
+                    {t('common.cancel', 'Cancel')}
+                  </Button>
+                  <Button
+                    variant="destructive"
+                    size="sm"
+                    onClick={handleDeleteUnrecoverable}
+                    disabled={busy}
+                    className="h-auto min-h-9 whitespace-normal"
+                  >
+                    {isDeleting && (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
+                    )}
+                    {t('recovery.confirmDeleteButton', 'Delete permanently')}
+                  </Button>
+                </div>
               </div>
             </div>
           )}
         </div>
 
-        <div className="flex justify-end gap-2">
+        <DialogFooter className="gap-2 sm:gap-0">
           <Button
-            variant="outline"
+            variant="ghost"
             onClick={() => onOpenChange(false)}
             disabled={busy}
           >
@@ -317,12 +322,12 @@ export const PasswordRecoveryDialog = ({
             >
               {isReloadingKey ? (
                 <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
                   {t('recovery.reloadingKey', 'Reloading...')}
                 </>
               ) : (
                 <>
-                  <CloudDownload className="mr-2 h-4 w-4" />
+                  <CloudDownload className="mr-2 h-4 w-4" aria-hidden="true" />
                   {t('recovery.reloadKeyFromCloud', 'Reload key from cloud')}
                 </>
               )}
@@ -334,7 +339,7 @@ export const PasswordRecoveryDialog = ({
             >
               {isRecovering ? (
                 <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
                   {t('recovery.recovering', 'Recovering...')}
                 </>
               ) : (
@@ -342,7 +347,7 @@ export const PasswordRecoveryDialog = ({
               )}
             </Button>
           )}
-        </div>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

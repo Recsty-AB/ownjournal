@@ -85,9 +85,9 @@ export const LanguageSwitcher = () => {
 
   return (
     <div className="flex items-center gap-2">
-      <Languages className="w-4 h-4 text-muted-foreground" />
+      <Languages className="w-4 h-4 shrink-0 text-muted-foreground" aria-hidden="true" />
       <Select value={currentLanguage} onValueChange={changeLanguage}>
-        <SelectTrigger className="w-[140px]">
+        <SelectTrigger className="min-w-0 flex-1 max-w-[240px]" aria-label={t('settings.sections.language')}>
           <SelectValue />
         </SelectTrigger>
         <SelectContent>

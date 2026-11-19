@@ -754,6 +754,8 @@
     "searchPlaceholder": "Søg i indlæg…",
     "startDate": "Startdato",
     "endDate": "Slutdato",
+    "filters": "Filtre",
+    "clearFilters": "Ryd filtre",
     "noEntries": "Ingen matchende indlæg",
     "startJourney": "Start din rejse",
     "tryAdjusting": "Prøv at justere din søgning eller filtre",

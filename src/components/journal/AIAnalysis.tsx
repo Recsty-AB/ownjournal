@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect, useMemo } from "react";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, Loader2, Crown, RefreshCw } from "lucide-react";
@@ -381,14 +380,6 @@ export const AIAnalysis = ({ entryId, content, createdAt, tags, mood, isPro, isD
     return t('ai.veryNegative');
   };
 
-  const getSentimentColor = (score: number) => {
-    if (score > 0.5) return 'bg-emerald-100 text-emerald-800 border-emerald-200';
-    if (score > 0.15) return 'bg-green-100 text-green-800 border-green-200';
-    if (score >= -0.15) return 'bg-amber-100 text-amber-800 border-amber-200';
-    if (score >= -0.5) return 'bg-orange-100 text-orange-800 border-orange-200';
-    return 'bg-red-100 text-red-800 border-red-200';
-  };
-
   const formatMetaLine = (timeOfDay: string, lengthCategory: string, t: (key: string) => string): string => {
     const timeLabel = t(`ai.${timeOfDay}`);
     return `${timeLabel} ${t('ai.entry')} · ${t(`ai.${lengthCategory}`)} ${t('ai.length')}`;
@@ -405,92 +396,91 @@ export const AIAnalysis = ({ entryId, content, createdAt, tags, mood, isPro, isD
 
   if (!metadata) {
     return (
-      <Card className="p-3 sm:p-4 bg-gradient-subtle border-primary/20 space-y-3">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-primary flex-shrink-0" />
-            <span className="text-sm font-medium whitespace-nowrap">{t('ai.analysis')}</span>
-            {!isPro && <Crown className="w-4 h-4 text-primary flex-shrink-0" />}
-          </div>
-          <Button
-            onClick={handleAnalyze}
-            disabled={loading || !isPro || initialLoading}
-            size="sm"
-            variant={isPro ? "default" : "outline"}
-            className="w-full sm:w-auto xl:h-11 xl:text-base"
-          >
-            {initialLoading ? (
-              <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                {t('ai.loading')}
-              </>
-            ) : loading ? (
-              <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                {t('ai.analyzing')}
-              </>
-            ) : !isPro ? (
-              <>
-                <Crown className="w-4 h-4 mr-2" />
-                {t('ai.analyzeEntry')}
-              </>
-            ) : (
-              <>
-                <Sparkles className="w-4 h-4 mr-2" />
-                {t('ai.analyzeEntry')}
-              </>
-            )}
-          </Button>
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 border-t border-border pt-4">
+        <div className="flex items-center gap-2">
+          <Sparkles aria-hidden="true" className="h-3.5 w-3.5 flex-shrink-0 text-muted-foreground" />
+          <span className="eyebrow whitespace-nowrap">{t('ai.analysis')}</span>
+          {!isPro && <Crown aria-hidden="true" className="h-3.5 w-3.5 flex-shrink-0 text-seal" />}
         </div>
-      </Card>
+        <Button
+          onClick={handleAnalyze}
+          disabled={loading || !isPro || initialLoading}
+          size="sm"
+          variant="outline"
+          className="min-h-10 h-auto rounded-full sm:min-h-9"
+        >
+          {initialLoading ? (
+            <>
+              <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 animate-spin" />
+              {t('ai.loading')}
+            </>
+          ) : loading ? (
+            <>
+              <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 animate-spin" />
+              {t('ai.analyzing')}
+            </>
+          ) : !isPro ? (
+            <>
+              <Crown aria-hidden="true" className="w-4 h-4 mr-2 text-seal" />
+              {t('ai.analyzeEntry')}
+            </>
+          ) : (
+            <>
+              <Sparkles aria-hidden="true" className="w-4 h-4 mr-2" />
+              {t('ai.analyzeEntry')}
+            </>
+          )}
+        </Button>
+      </div>
     );
   }
 
   const sentiment = getSentimentLabel(metadata.sentimentScore, t);
 
   return (
-    <Card className="p-3 sm:p-4 space-y-4 bg-gradient-subtle">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+    <div className="space-y-5 border-t border-border pt-4">
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
         <div className="flex items-center gap-2 flex-wrap">
-          <Sparkles className="w-5 h-5 text-primary flex-shrink-0" />
-          <h4 className="font-semibold whitespace-nowrap">{t('ai.analysis')}</h4>
-          <Badge variant="outline" className="text-xs">
+          <Sparkles aria-hidden="true" className="h-3.5 w-3.5 flex-shrink-0 text-muted-foreground" />
+          <h4 className="eyebrow whitespace-nowrap">{t('ai.analysis')}</h4>
+          <span className="text-xs tabular-nums text-muted-foreground">
             {new Date(metadata.analyzedAt).toLocaleDateString()}
-          </Badge>
+          </span>
         </div>
-        <div className="flex items-center gap-2">
-          <Button
-            onClick={() => setIsCollapsed(!isCollapsed)}
-            size="sm"
-            variant="ghost"
-            className="flex-1 sm:flex-none"
-          >
-            {isCollapsed ? t('ai.show') : t('ai.hide')}
-          </Button>
+        <div className="-mr-2 ml-auto flex items-center gap-1">
           <Button
             onClick={handleAnalyze}
             disabled={loading || (!hasContentChanged && !canRetry)}
             size="sm"
-            variant={hasContentChanged || canRetry ? "default" : "outline"}
+            variant="ghost"
             title={canRetry ? t('ai.retryAnalysis') : !hasContentChanged ? t('ai.editToReanalyze') : t('ai.reanalyzeWithChanges')}
-            className="flex-1 sm:flex-none"
+            className="min-h-10 h-auto text-muted-foreground sm:min-h-9"
           >
             {loading ? (
               <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 animate-spin" />
                 <span className="truncate">{t('ai.analyzing')}</span>
               </>
             ) : canRetry ? (
               <>
-                <RefreshCw className="w-4 h-4 mr-2 flex-shrink-0" />
+                <RefreshCw aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
                 <span className="truncate">{t('ai.retryAnalysis')}</span>
               </>
             ) : (
               <>
-                <Sparkles className="w-4 h-4 mr-2 flex-shrink-0" />
+                <Sparkles aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
                 <span className="truncate">{t('ai.analyzeEntry')}</span>
               </>
             )}
+          </Button>
+          <Button
+            onClick={() => setIsCollapsed(!isCollapsed)}
+            size="sm"
+            variant="ghost"
+            aria-expanded={!isCollapsed}
+            className="min-h-10 h-auto sm:min-h-9"
+          >
+            {isCollapsed ? t('ai.show') : t('ai.hide')}
           </Button>
         </div>
       </div>
@@ -498,11 +488,10 @@ export const AIAnalysis = ({ entryId, content, createdAt, tags, mood, isPro, isD
       {!isCollapsed && (
         <>
           <div className="space-y-2">
-            <div className="flex items-center gap-2 text-sm font-medium">
-              <Sparkles className="w-4 h-4" />
+            <div className="text-sm font-medium">
               {t('ai.summary')}
             </div>
-            <p className="text-sm text-muted-foreground bg-background/50 p-3 rounded-md">
+            <p className="reading text-base leading-7 text-foreground">
               {metadata.shortSummary}
             </p>
           </div>
@@ -511,13 +500,13 @@ export const AIAnalysis = ({ entryId, content, createdAt, tags, mood, isPro, isD
             <div className="text-sm font-medium">
               {t('ai.moodSnapshot')}
             </div>
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <div className="text-sm text-muted-foreground">
                 {t('ai.overallTone')}: <span className="font-medium text-foreground">{sentiment}</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="text-sm text-muted-foreground">{t('ai.dominantEmotion')}:</span>
-                <Badge variant="secondary">{metadata.dominantEmotion}</Badge>
+                <Badge variant="outline" className="font-medium">{metadata.dominantEmotion}</Badge>
               </div>
             </div>
           </div>
@@ -529,7 +518,7 @@ export const AIAnalysis = ({ entryId, content, createdAt, tags, mood, isPro, isD
               </div>
               <div className="flex flex-wrap gap-2">
                 {metadata.emotions.slice(0, 5).map((emotion, i) => (
-                  <Badge key={i} variant="outline">{emotion}</Badge>
+                  <Badge key={i} variant="outline" className="font-normal">{emotion}</Badge>
                 ))}
               </div>
             </div>
@@ -542,7 +531,7 @@ export const AIAnalysis = ({ entryId, content, createdAt, tags, mood, isPro, isD
               </div>
               <div className="flex flex-wrap gap-2">
                 {metadata.topics.slice(0, 5).map((topic, index) => (
-                  <Badge key={index} variant="outline">
+                  <Badge key={index} variant="outline" className="font-normal">
                     {topic}
                   </Badge>
                 ))}
@@ -557,7 +546,7 @@ export const AIAnalysis = ({ entryId, content, createdAt, tags, mood, isPro, isD
               </div>
               <div className="flex flex-wrap gap-2">
                 {metadata.peopleMentioned.map((person, index) => (
-                  <Badge key={index} variant="secondary">
+                  <Badge key={index} variant="outline" className="font-normal">
                     {person}
                   </Badge>
                 ))}
@@ -565,11 +554,11 @@ export const AIAnalysis = ({ entryId, content, createdAt, tags, mood, isPro, isD
             </div>
           )}
 
-          <div className="text-xs text-muted-foreground pt-2 border-t">
+          <div className="text-xs text-muted-foreground">
             {formatMetaLine(metadata.timeOfDay, metadata.lengthCategory, t)}
           </div>
         </>
       )}
-    </Card>
+    </div>
   );
 };

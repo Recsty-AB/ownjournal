@@ -4,21 +4,15 @@ import { Badge } from "@/components/ui/badge";
 import { BarChart3, ChevronDown, Flame } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart";
-import { PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, CartesianGrid, BarChart, Bar } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 import { useTranslation } from "react-i18next";
 import { getDateLocale } from "@/utils/dateLocale";
 import { format, subDays, startOfYear, addDays } from "date-fns";
 import { MOOD_EMOJI } from "@/utils/moodEmoji";
+import { MOOD_CELL_COLORS } from "@/utils/moodColors";
+import { cn } from "@/lib/utils";
 import { computeMoodDistribution, computeRollingAverage, computeDayOfWeekAverages, computeStreaks, MOOD_SCORE, SCORE_TO_MOOD } from "@/utils/moodAnalytics";
 import type { JournalEntryData } from "./JournalEntry";
-
-const MOOD_CHART_COLORS: Record<string, string> = {
-  great: "#34d399",   // emerald-400
-  good: "#60a5fa",    // blue-400
-  okay: "#facc15",    // yellow-400
-  poor: "#fb923c",    // orange-400
-  terrible: "#f87171", // red-400
-};
 
 type DateRange = "last30days" | "last90days" | "thisYear" | "allTime";
 
@@ -77,21 +71,8 @@ export const MoodStats = ({ entries }: MoodStatsProps) => {
     };
   }, [dayOfWeekAvg]);
 
-  // Chart configs for shadcn chart wrapper
-  const pieConfig: ChartConfig = {
-    great: { label: t('journalEntry.moods.great'), color: MOOD_CHART_COLORS.great },
-    good: { label: t('journalEntry.moods.good'), color: MOOD_CHART_COLORS.good },
-    okay: { label: t('journalEntry.moods.okay'), color: MOOD_CHART_COLORS.okay },
-    poor: { label: t('journalEntry.moods.poor'), color: MOOD_CHART_COLORS.poor },
-    terrible: { label: t('journalEntry.moods.terrible'), color: MOOD_CHART_COLORS.terrible },
-  };
-
   const lineConfig: ChartConfig = {
     score: { label: t('moodStats.overTime'), color: "hsl(var(--primary))" },
-  };
-
-  const barConfig: ChartConfig = {
-    avgScore: { label: t('moodStats.dayOfWeek'), color: "hsl(var(--primary))" },
   };
 
   const hasAnyMoodData = useMemo(
@@ -107,29 +88,27 @@ export const MoodStats = ({ entries }: MoodStatsProps) => {
 
   return (
     <Collapsible open={!isCollapsed} onOpenChange={(open) => setIsCollapsed(!open)}>
-      <Card className="bg-gradient-paper border border-border shadow-soft overflow-hidden">
+      <Card className="overflow-hidden rounded-2xl border-border bg-card shadow-soft">
         <CollapsibleTrigger asChild>
-          <button className="w-full p-3 sm:p-4 flex items-center justify-between hover:bg-accent/50 transition-colors">
-            <div className="flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-primary" />
-              <h3 className="font-semibold text-sm sm:text-base">{t('moodStats.title')}</h3>
+          <button type="button" className="flex w-full items-center justify-between gap-2 p-3 text-left transition-colors hover:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring sm:p-4">
+            <div className="flex min-w-0 items-center gap-2">
+              <BarChart3 aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-primary" />
+              <h3 className="text-sm font-medium sm:text-base">{t('moodStats.title')}</h3>
             </div>
-            <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${!isCollapsed ? 'rotate-180' : ''}`} />
+            <ChevronDown aria-hidden="true" className={cn("h-4 w-4 flex-shrink-0 text-muted-foreground transition-transform duration-200", !isCollapsed && "rotate-180")} />
           </button>
         </CollapsibleTrigger>
         <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
-          <div className="px-3 sm:px-4 pb-3 sm:pb-4 space-y-4">
+          <div className="space-y-6 px-3 pb-4 sm:px-4 sm:pb-5">
             {/* Date range selector */}
             <div className="flex flex-wrap gap-2">
               {(["last30days", "last90days", "thisYear", "allTime"] as const).map(range => (
                 <button
                   key={range}
+                  type="button"
                   onClick={() => setDateRange(range)}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                    dateRange === range
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted text-muted-foreground hover:bg-accent'
-                  }`}
+                  className="chip"
+                  aria-pressed={dateRange === range}
                 >
                   {t(`moodStats.${range}`)}
                 </button>
@@ -144,52 +123,40 @@ export const MoodStats = ({ entries }: MoodStatsProps) => {
             {/* Summary badges */}
             <div className="flex flex-wrap gap-2">
               {positivePercent > 0 && (
-                <Badge variant="secondary" className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
+                <Badge variant="outline" className="font-normal tabular-nums">
                   {t('moodStats.positivePercent', { percent: positivePercent })}
                 </Badge>
               )}
               {bestDay && (
-                <Badge variant="secondary">
+                <Badge variant="outline" className="font-normal">
                   {t('moodStats.bestDay', { day: bestDay.dayName })}
                 </Badge>
               )}
               {worstDay && (
-                <Badge variant="secondary">
+                <Badge variant="outline" className="font-normal">
                   {t('moodStats.worstDay', { day: worstDay.dayName })}
                 </Badge>
               )}
             </div>
 
-            {/* Mood Distribution - Donut Chart */}
+            {/* Mood distribution: one bar split by share, so the five moods
+                compare along a common length. */}
             <div>
-              <h4 className="text-sm font-medium mb-2">{t('moodStats.distribution')}</h4>
-              <ChartContainer config={pieConfig} className="h-[200px]">
-                <PieChart>
-                  <Pie
-                    data={distribution}
-                    dataKey="count"
-                    nameKey="mood"
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={50}
-                    outerRadius={80}
-                    paddingAngle={2}
-                  >
-                    {distribution.map((entry) => (
-                      <Cell key={entry.mood} fill={MOOD_CHART_COLORS[entry.mood]} />
-                    ))}
-                  </Pie>
-                  <ChartTooltip content={<ChartTooltipContent formatter={(value, name) => {
-                    const mood = name as string;
-                    return `${MOOD_EMOJI[mood] || ''} ${value} (${distribution.find(d => d.mood === mood)?.percentage || 0}%)`;
-                  }} />} />
-                </PieChart>
-              </ChartContainer>
-              {/* Legend below chart */}
-              <div className="flex flex-wrap justify-center gap-3 mt-2">
+              <h4 className="eyebrow mb-3">{t('moodStats.distribution')}</h4>
+              <div className="flex h-3 w-full gap-0.5 overflow-hidden rounded-full">
                 {distribution.map(d => (
-                  <div key={d.mood} className="flex items-center gap-1 text-xs">
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: MOOD_CHART_COLORS[d.mood] }} />
+                  <div
+                    key={d.mood}
+                    className={cn("h-full min-w-1 basis-0", MOOD_CELL_COLORS[d.mood])}
+                    style={{ flexGrow: d.count }}
+                    title={`${MOOD_EMOJI[d.mood] || ''} ${d.count} (${d.percentage}%)`}
+                  />
+                ))}
+              </div>
+              <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
+                {distribution.map(d => (
+                  <div key={d.mood} className="flex items-center gap-1.5 text-xs tabular-nums">
+                    <div aria-hidden="true" className={cn("h-2.5 w-2.5 rounded-full", MOOD_CELL_COLORS[d.mood])} />
                     <span>{MOOD_EMOJI[d.mood]} {t(`journalEntry.moods.${d.mood}`)}: {d.percentage}%</span>
                   </div>
                 ))}
@@ -199,21 +166,26 @@ export const MoodStats = ({ entries }: MoodStatsProps) => {
             {/* Mood Over Time - Line Chart */}
             {rollingAvg.length > 1 && (
               <div>
-                <h4 className="text-sm font-medium mb-2">{t('moodStats.overTime')}</h4>
-                <ChartContainer config={lineConfig} className="h-[200px]">
-                  <LineChart data={rollingAvg}>
-                    <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
+                <h4 className="eyebrow mb-3">{t('moodStats.overTime')}</h4>
+                <ChartContainer config={lineConfig} className="aspect-auto h-[200px] w-full">
+                  <LineChart data={rollingAvg} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
+                    <CartesianGrid vertical={false} className="stroke-border" />
                     <XAxis
                       dataKey="date"
                       tickFormatter={(val) => format(new Date(val), 'MMM d', { locale: dateLocale })}
-                      className="text-xs"
                       tick={{ fontSize: 10 }}
+                      tickLine={false}
+                      axisLine={false}
+                      tickMargin={8}
+                      minTickGap={24}
                     />
                     <YAxis
                       domain={[1, 5]}
                       ticks={[1, 2, 3, 4, 5]}
                       tickFormatter={(val) => MOOD_EMOJI[SCORE_TO_MOOD[val] || ''] || String(val)}
                       tick={{ fontSize: 12 }}
+                      tickLine={false}
+                      axisLine={false}
                       width={30}
                     />
                     <ChartTooltip content={<ChartTooltipContent formatter={(value) => {
@@ -233,47 +205,45 @@ export const MoodStats = ({ entries }: MoodStatsProps) => {
               </div>
             )}
 
-            {/* Day of Week - Bar Chart */}
+            {/* Day of week: each bar carries its own value, so no axis is needed. */}
             {dayOfWeekAvg.length > 0 && (
               <div>
-                <h4 className="text-sm font-medium mb-2">{t('moodStats.dayOfWeek')}</h4>
-                <ChartContainer config={barConfig} className="h-[200px]">
-                  <BarChart data={dayOfWeekAvg}>
-                    <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
-                    <XAxis dataKey="dayName" tick={{ fontSize: 10 }} />
-                    <YAxis domain={[1, 5]} ticks={[1, 2, 3, 4, 5]} tick={{ fontSize: 10 }} width={30} />
-                    <ChartTooltip content={<ChartTooltipContent formatter={(value) => {
-                      const score = Number(value);
-                      const mood = SCORE_TO_MOOD[Math.round(score)];
-                      return `${MOOD_EMOJI[mood] || ''} ${score.toFixed(1)}`;
-                    }} />} />
-                    <Bar dataKey="avgScore" radius={[4, 4, 0, 0]}>
-                      {dayOfWeekAvg.map((entry) => (
-                        <Cell
-                          key={entry.dayIndex}
-                          fill={MOOD_CHART_COLORS[SCORE_TO_MOOD[Math.round(entry.avgScore)] || 'okay']}
-                        />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ChartContainer>
+                <h4 className="eyebrow mb-3">{t('moodStats.dayOfWeek')}</h4>
+                <div className="flex h-40 max-w-2xl items-stretch">
+                  {dayOfWeekAvg.map((entry) => {
+                    const mood = SCORE_TO_MOOD[Math.round(entry.avgScore)];
+                    return (
+                      <div key={entry.dayIndex} className="flex min-w-0 flex-1 flex-col items-center gap-1.5">
+                        <div className="flex w-full flex-1 flex-col items-center justify-end gap-1 px-0.5 sm:px-2">
+                          <span className="text-xs tabular-nums">{entry.avgScore.toFixed(1)}</span>
+                          <div
+                            className={cn("w-full max-w-12 rounded-t-md", MOOD_CELL_COLORS[mood || 'okay'])}
+                            style={{ height: `${(entry.avgScore / 5) * 80}%` }}
+                            title={`${MOOD_EMOJI[mood] || ''} ${entry.avgScore.toFixed(1)}`}
+                          />
+                        </div>
+                        <span className="w-full truncate border-t border-border pt-1.5 text-center text-xs text-muted-foreground">{entry.dayName}</span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             )}
 
             {/* Streaks */}
             <div>
-              <h4 className="text-sm font-medium mb-2 flex items-center gap-2">
-                <Flame className="w-4 h-4 text-orange-500" />
+              <h4 className="eyebrow mb-3 flex items-center gap-2">
+                <Flame aria-hidden="true" className="h-3.5 w-3.5" />
                 {t('moodStats.streaks')}
               </h4>
-              <div className="flex gap-4">
-                <div className="text-center p-3 rounded-lg bg-muted/50 flex-1">
-                  <div className="text-2xl font-bold">{streaks.currentStreak}</div>
+              <div className="grid max-w-md grid-cols-2 divide-x divide-border">
+                <div className="pr-4">
+                  <div className="text-3xl font-semibold tabular-nums">{streaks.currentStreak}</div>
                   <div className="text-xs text-muted-foreground">{t('moodStats.currentStreak')}</div>
                   <div className="text-xs text-muted-foreground">{t('moodStats.days')}</div>
                 </div>
-                <div className="text-center p-3 rounded-lg bg-muted/50 flex-1">
-                  <div className="text-2xl font-bold">{streaks.longestStreak}</div>
+                <div className="pl-4">
+                  <div className="text-3xl font-semibold tabular-nums">{streaks.longestStreak}</div>
                   <div className="text-xs text-muted-foreground">{t('moodStats.longestStreak')}</div>
                   <div className="text-xs text-muted-foreground">{t('moodStats.days')}</div>
                 </div>

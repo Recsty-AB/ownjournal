@@ -141,22 +141,21 @@ export const VoiceInputButton = ({ isPro, onTranscript }: VoiceInputButtonProps)
             type="button"
             size="icon"
             variant="outline"
-            className="relative h-9 w-9"
+            className="relative h-10 w-10 sm:h-9 sm:w-9"
             aria-label={t("voice.plusFeature")}
             title={t("voice.plusFeature")}
           >
-            <Mic className="w-4 h-4 text-muted-foreground" />
-            <Crown className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 text-amber-500" aria-hidden="true" />
+            <Mic className="w-4 h-4 text-muted-foreground" aria-hidden="true" />
+            <Crown className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 text-seal" aria-hidden="true" />
           </Button>
         </PopoverTrigger>
         <PopoverContent align="end" className="w-72 space-y-2">
           <div className="flex items-center gap-2">
-            <Mic className="w-4 h-4 text-primary" />
-            <p className="text-sm font-semibold">{t("voice.title")}</p>
-            <Crown className="w-4 h-4 text-amber-500" aria-hidden="true" />
+            <p className="text-sm font-medium">{t("voice.title")}</p>
+            <Crown className="w-4 h-4 text-seal" aria-hidden="true" />
           </div>
           <p className="text-sm text-muted-foreground">{t("voice.teaserBody")}</p>
-          <p className="text-xs font-medium text-amber-600 dark:text-amber-400">{t("voice.plusFeature")}</p>
+          <p className="border-t border-border pt-2 text-xs font-medium text-foreground">{t("voice.plusFeature")}</p>
         </PopoverContent>
       </Popover>
     );
@@ -177,11 +176,11 @@ export const VoiceInputButton = ({ isPro, onTranscript }: VoiceInputButtonProps)
             : `${formatClock(recorder.elapsedSeconds)} / ${formatClock(recorder.clipLimitSeconds)}`}
         </span>
         <Button type="button" size="sm" onClick={recorder.stop}>
-          <Square className="w-3.5 h-3.5 mr-1.5 fill-current" />
+          <Square className="w-3.5 h-3.5 mr-1.5 fill-current" aria-hidden="true" />
           {t("voice.stop")}
         </Button>
         <Button type="button" size="sm" variant="ghost" onClick={recorder.cancel} aria-label={t("voice.cancel")} title={t("voice.cancel")}>
-          <X className="w-4 h-4" />
+          <X className="w-4 h-4" aria-hidden="true" />
         </Button>
       </div>
     );
@@ -189,8 +188,8 @@ export const VoiceInputButton = ({ isPro, onTranscript }: VoiceInputButtonProps)
 
   if (transcribing) {
     return (
-      <div className="flex items-center gap-2 text-sm text-muted-foreground" role="status" aria-live="polite">
-        <Loader2 className="w-4 h-4 animate-spin" />
+      <div className="flex min-h-10 items-center gap-2 text-sm text-muted-foreground sm:min-h-9" role="status" aria-live="polite">
+        <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
         {t("voice.transcribing")}
       </div>
     );
@@ -200,7 +199,7 @@ export const VoiceInputButton = ({ isPro, onTranscript }: VoiceInputButtonProps)
     return (
       <div className="flex flex-wrap items-center gap-2">
         <Button type="button" size="sm" variant="outline" onClick={() => void transcribe(failedRecording)}>
-          <RotateCcw className="w-4 h-4 mr-1.5" />
+          <RotateCcw className="w-4 h-4 mr-1.5" aria-hidden="true" />
           {t("voice.retry")}
         </Button>
         <Button type="button" size="sm" variant="ghost" onClick={() => setFailedRecording(null)}>
@@ -224,13 +223,13 @@ export const VoiceInputButton = ({ isPro, onTranscript }: VoiceInputButtonProps)
           type="button"
           size="icon"
           variant="outline"
-          className="h-9 w-9"
+          className="h-10 w-10 sm:h-9 sm:w-9"
           onClick={handleStartClick}
           disabled={busy}
           aria-label={t("voice.dictate")}
           title={t("voice.dictate")}
         >
-          {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mic className="w-4 h-4" />}
+          {busy ? <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> : <Mic className="w-4 h-4" aria-hidden="true" />}
         </Button>
       </div>
 

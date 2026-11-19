@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { TrendingUp, Loader2, Lightbulb, Heart, Target, Clock, Crown, ChevronDown, Calendar as CalendarIcon, AlertTriangle, FileText } from "lucide-react";
+import { TrendingUp, Loader2, Crown, ChevronDown, Calendar as CalendarIcon, AlertTriangle, FileText } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -925,23 +925,44 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
   // tier without a corresponding in-app purchase.
   if (!isPro && !canShowAnyPurchaseCTA()) return null;
 
+  // Shown in both the setup and the results state while an analysis runs.
+  const progressPanel = loading && (
+    <div className="max-w-2xl space-y-3">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 text-sm">
+        <span className="font-medium text-foreground">{progress.currentAction}</span>
+        <span className="text-xs tabular-nums text-muted-foreground">
+          {t('trendAnalysis.progress.step', { current: progress.step, total: progress.totalSteps })}
+        </span>
+      </div>
+      <Progress value={(progress.step / progress.totalSteps) * 100} className="h-1.5" />
+      {progress.totalEntries > 0 && (
+        <div className="text-center text-xs tabular-nums text-muted-foreground">
+          {t('trendAnalysis.progress.entryProgress', { current: progress.currentEntry, total: progress.totalEntries })}
+        </div>
+      )}
+      <div className="notice notice-warning">
+        <AlertTriangle aria-hidden="true" />
+        <span>{t('trendAnalysis.progress.doNotCloseApp')}</span>
+      </div>
+    </div>
+  );
+
   if (!analysis || isSelectingPeriod) {
     return (
-      <Card className="bg-gradient-subtle border-primary/20 overflow-hidden">
+      <Card className="overflow-hidden rounded-2xl border-border bg-card shadow-soft">
         <Collapsible open={!isSetupCollapsed} onOpenChange={(open) => setIsSetupCollapsed(!open)}>
           {/* Compact header matching the sibling insight cards (MoodCalendar /
               MoodStats / MoodCorrelations). A clickable div rather than a
               CollapsibleTrigger button because it hosts the nested
-              "Back to insights" button (same pattern as the results header
-              below). */}
+              "Back to insights" button. */}
           <div
             className="w-full p-3 sm:p-4 flex items-center justify-between gap-2 cursor-pointer hover:bg-accent/50 transition-colors"
             onClick={() => setIsSetupCollapsed(!isSetupCollapsed)}
           >
             <div className="flex items-center gap-2 min-w-0">
               <TrendingUp aria-hidden="true" className="w-5 h-5 text-primary flex-shrink-0" />
-              <h3 className="font-semibold text-sm sm:text-base">{t('trendAnalysis.title')}</h3>
-              {!isPro && <Crown aria-hidden="true" className="w-4 h-4 text-amber-500 flex-shrink-0" />}
+              <h3 className="text-sm font-medium sm:text-base">{t('trendAnalysis.title')}</h3>
+              {!isPro && <Crown aria-hidden="true" className="w-4 h-4 text-seal flex-shrink-0" />}
             </div>
             <div className="flex items-center gap-2 flex-shrink-0">
               {analysis && (
@@ -956,7 +977,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
                   {t('trendAnalysis.backToInsights')}
                 </Button>
               )}
-              <ChevronDown className={cn(
+              <ChevronDown aria-hidden="true" className={cn(
                 "w-4 h-4 text-muted-foreground transition-transform duration-200 flex-shrink-0",
                 !isSetupCollapsed && "rotate-180"
               )} />
@@ -964,27 +985,23 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
           </div>
 
           <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
-            <div className="px-3 sm:px-4 pb-3 sm:pb-4 space-y-4">
-              {/* Two-column layout on lg+: left = description, right = action bar.
-                  Below lg: stacks to single column. The meta row lives outside this
-                  container at full card width — its status text can get long (e.g.
-                  weekly-limit message) and must wrap instead of widening the right
-                  column and squeezing the description. */}
-              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-6">
-                {/* Left column: description */}
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm text-muted-foreground">
-                    {t('trendAnalysis.description')}
-                  </p>
-                </div>
+            <div className="space-y-4 px-3 pb-4 sm:px-4 sm:pb-5">
+              {/* Description above the action bar at every width. A side-by-side
+                  split keyed to the viewport broke when the card sat in a narrow
+                  column on a wide screen: the fixed-width controls crushed the
+                  description to one word per line. */}
+              <div className="flex flex-col gap-4">
+                <p className="text-sm text-muted-foreground">
+                  {t('trendAnalysis.description')}
+                </p>
 
-                {/* Right column: action bar — dropdown and Analyze button */}
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 lg:flex-shrink-0">
+                {/* Action bar — dropdown and Analyze button; wraps when the card is narrow */}
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                   {isNativeIOS ? (
                     <select
                       value={dateRangePreset}
                       onChange={(e) => setDateRangePreset(e.target.value as DateRangePreset)}
-                      className="w-full sm:w-[200px] min-h-11 px-3 py-2 rounded-md border border-input bg-background text-sm"
+                      className="min-h-11 min-w-[11rem] flex-1 px-3 py-2 rounded-md border border-input bg-background text-sm"
                     >
                       {DATE_RANGE_OPTIONS.map(option => (
                         <option key={option.value} value={option.value}>{t(option.label)}</option>
@@ -992,7 +1009,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
                     </select>
                   ) : (
                     <Select value={dateRangePreset} onValueChange={(value) => setDateRangePreset(value as DateRangePreset)}>
-                      <SelectTrigger className="w-full sm:w-[200px] min-h-11">
+                      <SelectTrigger className="min-h-11 min-w-[11rem] flex-1">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -1009,10 +1026,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
                     onClick={handleAnalyze}
                     disabled={loading || !canAnalyze() || !isPro || filteredEntries.length < 8}
                     size="sm"
-                    className={cn(
-                      "w-full sm:w-auto sm:min-w-[160px] min-h-11 h-auto",
-                      isPro && "bg-gradient-primary"
-                    )}
+                    className="min-h-11 h-auto min-w-[10rem] flex-1"
                     variant={isPro ? "default" : "outline"}
                   >
                     {loading ? (
@@ -1027,7 +1041,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
                       </>
                     ) : (
                       <>
-                        <Crown aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
+                        <Crown aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0 text-seal" />
                         <span>{t('trendAnalysis.analyzePeriod')}</span>
                       </>
                     )}
@@ -1037,7 +1051,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
 
               {/* Meta row — entries count, need-8 hint, and weekly availability.
                   Full card width so long status text wraps under the header. */}
-              <div role="list" className="flex items-center flex-wrap gap-x-2 gap-y-1 text-xs text-muted-foreground">
+              <div role="list" className="flex items-center flex-wrap gap-x-2 gap-y-1 text-xs tabular-nums text-muted-foreground">
                 <span role="listitem" className="inline-flex items-center gap-2">
                   <FileText aria-hidden="true" className="w-3.5 h-3.5 flex-shrink-0" />
                   <span>{t('trendAnalysis.entriesInPeriod', { count: filteredEntries.length })}</span>
@@ -1050,7 +1064,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
                 )}
                 <span aria-hidden="true">·</span>
                 {!canAnalyze() ? (
-                  <span role="listitem" className="text-amber-600 dark:text-amber-400 font-medium">{t('trendAnalysis.limitMessage')}</span>
+                  <span role="listitem" className="font-medium text-diagnostic-warning">{t('trendAnalysis.limitMessage')}</span>
                 ) : (
                   <span role="listitem">{t('trendAnalysis.availableOnceWeek')}</span>
                 )}
@@ -1120,27 +1134,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
                 </div>
               )}
 
-              {/* Progress bar during analysis */}
-              {loading && (
-                <div className="space-y-3 bg-background/50 p-4 rounded-lg border border-primary/20 max-w-2xl">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="font-medium text-foreground">{progress.currentAction}</span>
-                    <span className="text-muted-foreground">
-                      {t('trendAnalysis.progress.step', { current: progress.step, total: progress.totalSteps })}
-                    </span>
-                  </div>
-                  <Progress value={(progress.step / progress.totalSteps) * 100} className="h-2" />
-                  {progress.totalEntries > 0 && (
-                    <div className="text-xs text-muted-foreground text-center">
-                      {t('trendAnalysis.progress.entryProgress', { current: progress.currentEntry, total: progress.totalEntries })}
-                    </div>
-                  )}
-                  <div className="flex items-center gap-2 text-xs text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 p-2 rounded-md">
-                    <AlertTriangle aria-hidden="true" className="w-4 h-4 flex-shrink-0" />
-                    <span>{t('trendAnalysis.progress.doNotCloseApp')}</span>
-                  </div>
-                </div>
-              )}
+              {progressPanel}
             </div>
           </CollapsibleContent>
         </Collapsible>
@@ -1149,199 +1143,159 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
   }
 
   return (
-    <Card className="p-4 sm:p-6 space-y-6 bg-gradient-subtle">
+    <Card className="overflow-hidden rounded-2xl border-border bg-card shadow-soft">
       <Collapsible open={!isCollapsed} onOpenChange={(open) => setIsCollapsed(!open)}>
-        <div 
-          className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 cursor-pointer min-h-[44px]"
+        {/* Same header as the setup state and the sibling insight cards. */}
+        <div
+          className="w-full p-3 sm:p-4 flex items-center justify-between gap-2 cursor-pointer hover:bg-accent/50 transition-colors"
           onClick={() => setIsCollapsed(!isCollapsed)}
         >
-          <div className="flex items-center gap-2">
-            <TrendingUp className="w-6 h-6 text-primary flex-shrink-0" />
-            <h3 className="text-lg sm:text-xl font-semibold">{t('trendAnalysis.yourInsights')}</h3>
+          <div className="flex items-center gap-2 min-w-0">
+            <TrendingUp aria-hidden="true" className="w-5 h-5 text-primary flex-shrink-0" />
+            <h3 className="text-sm font-medium sm:text-base">{t('trendAnalysis.yourInsights')}</h3>
           </div>
-          <div className="flex items-center gap-2">
-            <Button
-              onClick={(e) => {
-                e.stopPropagation();
-                handleAnalyze();
-              }}
-              disabled={loading || !canAnalyze() || !isPro}
-              size="sm"
-              variant={canAnalyze() && isPro ? "default" : "outline"}
-              title={!isPro ? t('trendAnalysis.proRequired') : !canAnalyze() ? t('trendAnalysis.availableOnceWeek') : t('trendAnalysis.reAnalyze')}
-              className="flex-1 sm:flex-none"
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="w-4 h-4 sm:mr-2 animate-spin" />
-                  <span className="hidden sm:inline">{t('trendAnalysis.analyzing', { count: filteredEntries.length })}</span>
-                </>
-              ) : !isPro ? (
-                <>
-                  <Crown className="w-4 h-4 sm:mr-2" />
-                  <span className="hidden sm:inline">{t('trendAnalysis.analyzePeriod')}</span>
-                </>
-              ) : (
-                <>
-                  <TrendingUp className="w-4 h-4 sm:mr-2" />
-                  <span className="hidden sm:inline">{t('trendAnalysis.analyzePeriod')}</span>
-                </>
-              )}
-            </Button>
-            <Button
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsSelectingPeriod(true);
-              }}
-              size="sm"
-              variant="outline"
-              title={t('trendAnalysis.selectDifferentPeriod')}
-              className="flex-1 sm:flex-none"
-            >
-              <CalendarIcon className="w-4 h-4 sm:mr-2" />
-              <span className="hidden sm:inline">{t('trendAnalysis.changePeriod')}</span>
-            </Button>
-            <ChevronDown className={cn(
-              "w-5 h-5 text-muted-foreground transition-transform duration-200 flex-shrink-0",
-              !isCollapsed && "rotate-180"
-            )} />
-          </div>
+          <ChevronDown aria-hidden="true" className={cn(
+            "w-4 h-4 text-muted-foreground transition-transform duration-200 flex-shrink-0",
+            !isCollapsed && "rotate-180"
+          )} />
         </div>
 
         <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
-          {!canAnalyze() && (
-            <div className="flex items-center gap-2 text-xs text-muted-foreground pb-2 pt-4 border-b">
-              <Clock className="w-3 h-3" />
-              <span>{t('trendAnalysis.limitMessage')}</span>
-            </div>
-          )}
-
-          {/* Progress bar during re-analysis */}
-          {loading && (
-            <div className="space-y-3 bg-background/50 p-4 rounded-lg border border-primary/20 mt-4">
-              <div className="flex items-center justify-between text-sm">
-                <span className="font-medium text-foreground">{progress.currentAction}</span>
-                <span className="text-muted-foreground">
-                  {t('trendAnalysis.progress.step', { current: progress.step, total: progress.totalSteps })}
+          <div className="space-y-4 px-3 pb-5 sm:px-4 sm:pb-6">
+            {/* The period that was actually analysed, not the current selection. */}
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs tabular-nums text-muted-foreground">
+              <span className="inline-flex items-center gap-2">
+                <CalendarIcon aria-hidden="true" className="w-3.5 h-3.5 flex-shrink-0" />
+                <span>
+                  {format(analyzedPeriodStart || startDate, "MMM d, yyyy", { locale: dateLocale })} – {format(analyzedPeriodEnd || endDate, "MMM d, yyyy", { locale: dateLocale })}
                 </span>
-              </div>
-              <Progress value={(progress.step / progress.totalSteps) * 100} className="h-2" />
-              {progress.totalEntries > 0 && (
-                <div className="text-xs text-muted-foreground text-center">
-                  {t('trendAnalysis.progress.entryProgress', { current: progress.currentEntry, total: progress.totalEntries })}
-                </div>
-              )}
-              <div className="flex items-center gap-2 text-xs text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 p-2 rounded-md">
-                <AlertTriangle className="w-4 h-4 flex-shrink-0" />
-                <span>{t('trendAnalysis.progress.doNotCloseApp')}</span>
-              </div>
-            </div>
-          )}
-
-          {/* Analysis Period Summary - show the actual period that was analyzed */}
-          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-2 sm:gap-3 text-xs text-muted-foreground pt-4 pb-2 border-b">
-            <div className="flex items-center gap-1.5">
-              <CalendarIcon className="w-3.5 h-3.5 flex-shrink-0" />
-              <span>
-                {format(analyzedPeriodStart || startDate, "MMM d, yyyy", { locale: dateLocale })} – {format(analyzedPeriodEnd || endDate, "MMM d, yyyy", { locale: dateLocale })}
               </span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <Target className="w-3.5 h-3.5 flex-shrink-0" />
+              <span aria-hidden="true">·</span>
               <span>{t('trendAnalysis.entriesAnalyzed', { count: filteredEntries.length })}</span>
-            </div>
-            {lastAnalyzed && (
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 flex-shrink-0" />
-                <span>{t('trendAnalysis.analyzedAt', { date: format(lastAnalyzed, "PPp", { locale: dateLocale }) })}</span>
-              </div>
-            )}
-          </div>
-
-          <div className="space-y-4 pt-4">
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-sm font-medium">
-                <Heart className="w-4 h-4 text-primary" />
-                {t('trendAnalysis.periodSummary')}
-              </div>
-              <p className="text-sm bg-background/50 p-3 rounded-md">
-                {analysis.periodSummary}
-              </p>
+              {lastAnalyzed && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <span>{t('trendAnalysis.analyzedAt', { date: format(lastAnalyzed, "PPp", { locale: dateLocale }) })}</span>
+                </>
+              )}
+              {!canAnalyze() && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <span className="font-medium text-diagnostic-warning">{t('trendAnalysis.limitMessage')}</span>
+                </>
+              )}
             </div>
 
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-sm font-medium">
-                <TrendingUp className="w-4 h-4 text-primary" />
-                {t('trendAnalysis.moodTrend')}
-              </div>
-              <p className="text-sm bg-background/50 p-3 rounded-md">
-                {analysis.moodTrend}
-              </p>
+            {/* Action bar; wraps when the card sits in a narrow column. */}
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+              <Button
+                onClick={handleAnalyze}
+                disabled={loading || !canAnalyze() || !isPro}
+                size="sm"
+                variant="outline"
+                title={!isPro ? t('trendAnalysis.proRequired') : !canAnalyze() ? t('trendAnalysis.availableOnceWeek') : t('trendAnalysis.reAnalyze')}
+                className="min-h-10 h-auto min-w-[9rem] flex-1 sm:flex-none"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 animate-spin flex-shrink-0" />
+                    <span>{t('trendAnalysis.analyzing', { count: filteredEntries.length })}</span>
+                  </>
+                ) : !isPro ? (
+                  <>
+                    <Crown aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0 text-seal" />
+                    <span>{t('trendAnalysis.analyzePeriod')}</span>
+                  </>
+                ) : (
+                  <>
+                    <TrendingUp aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
+                    <span>{t('trendAnalysis.analyzePeriod')}</span>
+                  </>
+                )}
+              </Button>
+              <Button
+                onClick={() => setIsSelectingPeriod(true)}
+                size="sm"
+                variant="ghost"
+                title={t('trendAnalysis.selectDifferentPeriod')}
+                className="min-h-10 h-auto min-w-[9rem] flex-1 sm:flex-none"
+              >
+                <CalendarIcon aria-hidden="true" className="w-4 h-4 mr-2 flex-shrink-0" />
+                <span>{t('trendAnalysis.changePeriod')}</span>
+              </Button>
             </div>
 
-            {analysis.insights.length > 0 && (
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm font-medium">
-                  <Lightbulb className="w-4 h-4 text-primary" />
-                  {t('trendAnalysis.keyInsights')}
-                </div>
-                <ul className="space-y-2">
-                  {analysis.insights.map((insight, index) => (
-                    <li key={index} className="text-sm bg-background/50 p-3 rounded-md">
-                      • {insight}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            {progressPanel}
 
-            {analysis.focusAreas.length > 0 && (
-              <Collapsible open={focusAreasOpen} onOpenChange={setFocusAreasOpen}>
-                <CollapsibleTrigger asChild>
-                  <div className="flex items-center justify-between cursor-pointer min-h-[44px] hover:bg-muted/50 rounded-md px-2 -mx-2 transition-colors">
-                    <div className="flex items-center gap-2 text-sm font-medium">
-                      <Target className="w-4 h-4 text-primary" />
-                      {t('trendAnalysis.suggestedFocusAreas')}
-                    </div>
-                    <ChevronDown className={cn(
-                      "w-4 h-4 text-muted-foreground transition-transform duration-200",
-                      focusAreasOpen && "rotate-180"
-                    )} />
-                  </div>
-                </CollapsibleTrigger>
-                <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {analysis.focusAreas.map((area, index) => (
-                      <Badge key={index} variant="secondary">
-                        {area}
-                      </Badge>
+            {/* The report reads as one piece of writing: titled sections
+                separated by hairlines, no boxes. */}
+            <article className="divide-y divide-border border-t border-border">
+              <section className="space-y-2 py-5">
+                <h4 className="text-xl font-semibold">{t('trendAnalysis.periodSummary')}</h4>
+                <p className="reading">{analysis.periodSummary}</p>
+              </section>
+
+              <section className="space-y-2 py-5">
+                <h4 className="text-xl font-semibold">{t('trendAnalysis.moodTrend')}</h4>
+                <p className="reading">{analysis.moodTrend}</p>
+              </section>
+
+              {analysis.insights.length > 0 && (
+                <section className="space-y-3 py-5">
+                  <h4 className="text-xl font-semibold">{t('trendAnalysis.keyInsights')}</h4>
+                  <ul className="reading space-y-3">
+                    {analysis.insights.map((insight, index) => (
+                      <li key={index} className="flex gap-3">
+                        <span aria-hidden="true" className="text-muted-foreground">•</span>
+                        <span className="min-w-0">{insight}</span>
+                      </li>
                     ))}
-                  </div>
-                </CollapsibleContent>
-              </Collapsible>
-            )}
+                  </ul>
+                </section>
+              )}
 
-            {analysis.closingReflection && (
-              <Collapsible open={reflectionOpen} onOpenChange={setReflectionOpen}>
-                <CollapsibleTrigger asChild>
-                  <div className="flex items-center justify-between cursor-pointer min-h-[44px] hover:bg-muted/50 rounded-md px-2 -mx-2 transition-colors pt-2 border-t border-border/50">
-                    <div className="flex items-center gap-2 text-sm font-medium">
-                      <Heart className="w-4 h-4 text-primary" />
-                      {t('trendAnalysis.reflection')}
+              {analysis.focusAreas.length > 0 && (
+                <Collapsible open={focusAreasOpen} onOpenChange={setFocusAreasOpen}>
+                  <CollapsibleTrigger asChild>
+                    <button type="button" className="flex min-h-[52px] w-full items-center justify-between gap-2 text-left transition-colors hover:text-foreground/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                      <span className="text-xl font-semibold">{t('trendAnalysis.suggestedFocusAreas')}</span>
+                      <ChevronDown aria-hidden="true" className={cn(
+                        "w-4 h-4 text-muted-foreground transition-transform duration-200 flex-shrink-0",
+                        focusAreasOpen && "rotate-180"
+                      )} />
+                    </button>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
+                    <div className="flex flex-wrap gap-2 pb-5">
+                      {analysis.focusAreas.map((area, index) => (
+                        <Badge key={index} variant="outline" className="px-3 py-1 text-sm font-normal">
+                          {area}
+                        </Badge>
+                      ))}
                     </div>
-                    <ChevronDown className={cn(
-                      "w-4 h-4 text-muted-foreground transition-transform duration-200",
-                      reflectionOpen && "rotate-180"
-                    )} />
-                  </div>
-                </CollapsibleTrigger>
-                <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
-                  <p className="text-sm bg-background/50 p-4 rounded-md italic leading-relaxed mt-2">
-                    {analysis.closingReflection}
-                  </p>
-                </CollapsibleContent>
-              </Collapsible>
-            )}
+                  </CollapsibleContent>
+                </Collapsible>
+              )}
+
+              {analysis.closingReflection && (
+                <Collapsible open={reflectionOpen} onOpenChange={setReflectionOpen}>
+                  <CollapsibleTrigger asChild>
+                    <button type="button" className="flex min-h-[52px] w-full items-center justify-between gap-2 text-left transition-colors hover:text-foreground/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                      <span className="text-xl font-semibold">{t('trendAnalysis.reflection')}</span>
+                      <ChevronDown aria-hidden="true" className={cn(
+                        "w-4 h-4 text-muted-foreground transition-transform duration-200 flex-shrink-0",
+                        reflectionOpen && "rotate-180"
+                      )} />
+                    </button>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
+                    <p className="reading mb-5 border-l-2 border-seal/60 pl-4 italic">
+                      {analysis.closingReflection}
+                    </p>
+                  </CollapsibleContent>
+                </Collapsible>
+              )}
+            </article>
           </div>
         </CollapsibleContent>
       </Collapsible>

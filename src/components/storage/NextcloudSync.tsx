@@ -6,7 +6,6 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { AlertCircle, CheckCircle, Settings, HelpCircle, Copy, ExternalLink, Star, QrCode, Loader2, Eye, EyeOff } from "lucide-react";
 import { NextcloudIcon } from "./ProviderIcons";
@@ -30,23 +29,27 @@ const CopyableCode = ({
 }: { 
   code: string; 
   onCopy: () => void;
-}) => (
+}) => {
+  const { t } = useTranslation();
+  return (
   <span className="inline-flex items-center gap-1">
-    <code className="bg-muted px-2 py-0.5 rounded text-xs">{code}</code>
+    <code className="rounded bg-muted px-2 py-0.5 text-xs">{code}</code>
     <Button
       size="sm"
       variant="ghost"
-      className="h-5 w-5 p-0 hover:bg-muted"
+      className="h-7 w-7 p-0"
+      aria-label={t('nextcloudHelp.copyConfig')}
       onClick={(e) => {
         e.stopPropagation();
         navigator.clipboard.writeText(code);
         onCopy();
       }}
     >
-      <Copy className="w-3 h-3" />
+      <Copy className="h-3 w-3" aria-hidden="true" />
     </Button>
   </span>
-);
+  );
+};
 
 interface NextcloudConfig {
   serverUrl: string;
@@ -904,16 +907,18 @@ export const NextcloudSync = ({ onConfigChange, masterKey, onRequirePassword, is
 
   if (!showConfig && !isConnected) {
     return (
-      <Card className="p-6">
-        <div className="flex items-center gap-3 mb-4">
-          <NextcloudIcon className="w-5 h-5 text-primary" />
-          <h3 className="text-lg font-semibold">{t('providers.nextcloud.title')}</h3>
+      <Card className="rounded-2xl border-border bg-card p-5 shadow-soft sm:p-6 space-y-4">
+        <div className="flex items-center gap-3">
+          <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-muted" aria-hidden="true">
+            <NextcloudIcon className="text-foreground" />
+          </span>
+          <h3 className="min-w-0 text-base font-medium leading-snug">{t('providers.nextcloud.title')}</h3>
         </div>
-        <p className="text-muted-foreground mb-4">
+        <p className="text-sm text-muted-foreground">
           {t('providers.nextcloud.description')}
         </p>
-        <Button onClick={() => setShowConfig(true)} className="w-full">
-          <Settings className="w-4 h-4 mr-2" />
+        <Button onClick={() => setShowConfig(true)} className="w-full sm:w-auto">
+          <Settings className="mr-2 h-4 w-4" aria-hidden="true" />
           {t('providers.nextcloud.configure')}
         </Button>
       </Card>
@@ -922,115 +927,115 @@ export const NextcloudSync = ({ onConfigChange, masterKey, onRequirePassword, is
 
   if (isConnected && !showConfig) {
     return (
-      <Card className="p-6">
-        {/* Header - stack on mobile */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-          {/* Provider info with wrapping badges */}
-          <div className="flex flex-wrap items-center gap-2">
-            <NextcloudIcon className="w-5 h-5 text-primary" />
-            <h3 className="text-lg font-semibold whitespace-nowrap">{t('providers.nextcloud.title')}</h3>
-            <Badge variant="secondary" className="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
-              <CheckCircle className="w-3 h-3 mr-1" />
-              {t('providers.nextcloud.connected')}
-            </Badge>
-            {isPrimaryLocal && (
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Badge 
-                    variant="default"
-                    className="bg-green-600 hover:bg-green-700 text-white"
-                  >
-                    <Star className="w-3 h-3 mr-1" />
-                    {t('storage.activeSync')}
-                  </Badge>
-                </TooltipTrigger>
-                <TooltipContent>
-                  {t('storage.activeSyncDesc')}
-                </TooltipContent>
-              </Tooltip>
-            )}
-            {!isPrimaryLocal && connectionStateManager.getConnectedProviderNames().length > 1 && (
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Badge 
-                    variant="outline"
-                    className="bg-muted text-muted-foreground border-dashed"
-                  >
-                    {t('storage.inactiveSync')}
-                  </Badge>
-                </TooltipTrigger>
-                <TooltipContent>
-                  {t('storage.inactiveSyncDesc')}
-                </TooltipContent>
-              </Tooltip>
-            )}
+      <Card className="rounded-2xl border-border bg-card p-5 shadow-soft sm:p-6 space-y-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+          <div className="flex min-w-0 items-center gap-3">
+            <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-muted" aria-hidden="true">
+              <NextcloudIcon className="text-foreground" />
+            </span>
+            <div className="min-w-0 space-y-1">
+              <h3 className="text-base font-medium leading-snug">{t('providers.nextcloud.title')}</h3>
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-diagnostic-success">
+                  <CheckCircle className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                  {t('providers.nextcloud.connected')}
+                </span>
+                {isPrimaryLocal && (
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Badge className="gap-1 font-medium">
+                        <Star className="h-3 w-3" aria-hidden="true" />
+                        {t('storage.activeSync')}
+                      </Badge>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      {t('storage.activeSyncDesc')}
+                    </TooltipContent>
+                  </Tooltip>
+                )}
+                {!isPrimaryLocal && connectionStateManager.getConnectedProviderNames().length > 1 && (
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Badge variant="outline" className="border-dashed font-medium text-muted-foreground">
+                        {t('storage.inactiveSync')}
+                      </Badge>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      {t('storage.inactiveSyncDesc')}
+                    </TooltipContent>
+                  </Tooltip>
+                )}
+              </div>
+            </div>
           </div>
-          {/* Disconnect button */}
-          <Button variant="outline" size="sm" onClick={handleDisconnect} className="self-start sm:self-auto">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleDisconnect}
+            className="-ml-3 min-h-10 self-start text-destructive hover:bg-destructive/10 hover:text-destructive sm:ml-0 sm:min-h-9"
+          >
             {t('storage.disconnect')}
           </Button>
         </div>
-        <p className="text-sm text-muted-foreground mb-2">
-          {t('providers.nextcloud.server')} {config.serverUrl}
-        </p>
-        <p className="text-sm text-muted-foreground">
-          {t('providers.nextcloud.user')} {config.username}
-        </p>
+        <div className="space-y-1 break-words text-sm text-muted-foreground">
+          <p>
+            {t('providers.nextcloud.server')} {config.serverUrl}
+          </p>
+          <p>
+            {t('providers.nextcloud.user')} {config.username}
+          </p>
+        </div>
       </Card>
     );
   }
 
   return (
-      <Card className="p-6">
-      {/* Header - stack on mobile */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-        {/* Provider info with wrapping badges */}
-        <div className="flex flex-wrap items-center gap-2">
-          <NextcloudIcon className="w-5 h-5 text-primary" />
-          <h3 className="text-lg font-semibold whitespace-nowrap">{t('providers.nextcloud.title')}</h3>
-          {isConnected && (
-            <>
-              <Badge variant="secondary" className="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
-                <CheckCircle className="w-3 h-3 mr-1" />
-                {t('providers.nextcloud.connected')}
-              </Badge>
-              {isPrimaryLocal && (
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Badge 
-                      variant="default"
-                      className="bg-green-600 hover:bg-green-700 text-white"
-                    >
-                      <Star className="w-3 h-3 mr-1" />
-                      {t('storage.activeSync')}
-                    </Badge>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    {t('storage.activeSyncDesc')}
-                  </TooltipContent>
-                </Tooltip>
-              )}
-              {!isPrimaryLocal && connectionStateManager.getConnectedProviderNames().length > 1 && (
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Badge 
-                      variant="outline"
-                      className="bg-muted text-muted-foreground border-dashed"
-                    >
-                      {t('storage.inactiveSync')}
-                    </Badge>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    {t('storage.inactiveSyncDesc')}
-                  </TooltipContent>
-                </Tooltip>
-              )}
-            </>
-          )}
+    <Card className="rounded-2xl border-border bg-card p-5 shadow-soft sm:p-6 space-y-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex min-w-0 items-center gap-3">
+          <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-muted" aria-hidden="true">
+            <NextcloudIcon className="text-foreground" />
+          </span>
+          <div className="min-w-0 space-y-1">
+            <h3 className="text-base font-medium leading-snug">{t('providers.nextcloud.title')}</h3>
+            {isConnected && (
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-diagnostic-success">
+                  <CheckCircle className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                  {t('providers.nextcloud.connected')}
+                </span>
+                {isPrimaryLocal && (
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Badge className="gap-1 font-medium">
+                        <Star className="h-3 w-3" aria-hidden="true" />
+                        {t('storage.activeSync')}
+                      </Badge>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      {t('storage.activeSyncDesc')}
+                    </TooltipContent>
+                  </Tooltip>
+                )}
+                {!isPrimaryLocal && connectionStateManager.getConnectedProviderNames().length > 1 && (
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Badge variant="outline" className="border-dashed font-medium text-muted-foreground">
+                        {t('storage.inactiveSync')}
+                      </Badge>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      {t('storage.inactiveSyncDesc')}
+                    </TooltipContent>
+                  </Tooltip>
+                )}
+              </div>
+            )}
+          </div>
         </div>
-        
-        <Button variant="outline" size="sm" onClick={() => setShowCorsHelp(true)}>
-          <HelpCircle className="w-4 h-4 mr-2" />
+
+        <Button variant="outline" size="sm" onClick={() => setShowCorsHelp(true)} className="min-h-10 self-start sm:min-h-9">
+          <HelpCircle className="mr-2 h-4 w-4" aria-hidden="true" />
           {t('nextcloudHelp.setupHelp')}
         </Button>
         <Dialog open={showCorsHelp} onOpenChange={setShowCorsHelp}>
@@ -1042,20 +1047,20 @@ export const NextcloudSync = ({ onConfigChange, masterKey, onRequirePassword, is
               </DialogDescription>
             </DialogHeader>
             
-            <div className="space-y-4 py-4">
-              <Alert>
-                <AlertCircle className="h-4 w-4" />
-                <AlertDescription>
+            <div className="min-w-0 space-y-4 py-4">
+              <div role="alert" className="notice">
+                <AlertCircle aria-hidden="true" />
+                <div className="min-w-0">
                   <strong>{t('nextcloudHelp.whyNeeded')}</strong> {t('nextcloudHelp.whyNeededDesc')}
-                </AlertDescription>
-              </Alert>
+                </div>
+              </div>
 
 
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="method-1">
                   <AccordionTrigger className="text-left">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="secondary">{t('nextcloudHelp.apacheUsers')}</Badge>
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                      <Badge variant="secondary" className="whitespace-nowrap">{t('nextcloudHelp.apacheUsers')}</Badge>
                       <span>{t('nextcloudHelp.apacheMethod')}</span>
                     </div>
                   </AccordionTrigger>
@@ -1069,19 +1074,20 @@ export const NextcloudSync = ({ onConfigChange, masterKey, onRequirePassword, is
                       <div className="space-y-2">
                         <p className="text-sm font-medium">{t('nextcloudHelp.enableModulesFirst')}</p>
                         <div className="relative">
-                          <code className="block bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
+                          <code className="block overflow-x-auto rounded-lg bg-muted p-3 pr-14 font-mono text-xs">
                             sudo a2enmod headers rewrite setenvif && sudo systemctl restart apache2
                           </code>
                           <Button
                             size="sm"
                             variant="outline"
-                            className="absolute top-1.5 right-2"
+                            className="absolute right-2 top-1.5"
+                            aria-label={t('nextcloudHelp.copyConfig')}
                             onClick={() => {
                               navigator.clipboard.writeText('sudo a2enmod headers rewrite setenvif && sudo systemctl restart apache2');
                               toast({ title: t('nextcloudHelp.copied'), description: t('nextcloudHelp.copiedDesc') });
                             }}
                           >
-                            <Copy className="w-4 h-4" />
+                            <Copy className="h-4 w-4" aria-hidden="true" />
                           </Button>
                         </div>
                       </div>
@@ -1091,7 +1097,7 @@ export const NextcloudSync = ({ onConfigChange, masterKey, onRequirePassword, is
                         <p className="text-sm font-medium">{t('nextcloudHelp.apacheInstructions')}</p>
                         
                         {/* Which file to edit? - now part of Step 2 */}
-                        <div className="bg-muted/50 p-3 rounded-lg space-y-2">
+                        <div className="space-y-2 rounded-xl bg-muted/50 p-3.5">
                           <p className="font-medium text-sm">{t('nextcloudHelp.whichFileToEdit')}</p>
                           <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
                             <li>
@@ -1113,23 +1119,24 @@ export const NextcloudSync = ({ onConfigChange, masterKey, onRequirePassword, is
                         </div>
                         
                         {/* Step 2b: Edit the file */}
-                        <div className="bg-muted/50 p-3 rounded-lg space-y-2">
+                        <div className="space-y-2 rounded-xl bg-muted/50 p-3.5">
                           <p className="font-medium text-sm">{t('nextcloudHelp.step2bEditFile')}</p>
                           <p className="text-sm text-muted-foreground">{t('nextcloudHelp.editFileInstruction')}</p>
                           <div className="relative">
-                            <code className="block bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
+                            <code className="block overflow-x-auto rounded-lg bg-muted p-3 pr-14 font-mono text-xs">
                               sudo nano /etc/apache2/sites-enabled/YOUR_FILE.conf
                             </code>
                             <Button
                               size="sm"
                               variant="outline"
-                              className="absolute top-1.5 right-2"
+                              className="absolute right-2 top-1.5"
+                              aria-label={t('nextcloudHelp.copyConfig')}
                               onClick={() => {
                                 navigator.clipboard.writeText('sudo nano /etc/apache2/sites-enabled/YOUR_FILE.conf');
                                 toast({ title: t('nextcloudHelp.copied'), description: t('nextcloudHelp.copiedDesc') });
                               }}
                             >
-                              <Copy className="w-4 h-4" />
+                              <Copy className="h-4 w-4" aria-hidden="true" />
                             </Button>
                           </div>
                           <p className="text-xs text-muted-foreground italic">
@@ -1138,12 +1145,12 @@ export const NextcloudSync = ({ onConfigChange, masterKey, onRequirePassword, is
                         </div>
                         
                         {/* Where to paste visual guide */}
-                        <div className="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg space-y-2">
+                        <div className="space-y-2 rounded-xl border border-diagnostic-info/30 bg-diagnostic-info/10 p-3.5">
                           <p className="font-medium text-sm flex items-center gap-2">
-                            <AlertCircle className="h-4 w-4 text-blue-500" />
+                            <AlertCircle className="h-4 w-4 flex-shrink-0 text-diagnostic-info" aria-hidden="true" />
                             {t('nextcloudHelp.whereToPaste')}
                           </p>
-                          <pre className="text-xs bg-muted p-2 rounded overflow-x-auto">
+                          <pre className="overflow-x-auto rounded-lg bg-card p-3 text-xs">
 {`<VirtualHost *:443>
     ServerName your-domain.com
     DocumentRoot /var/www/...
@@ -1164,7 +1171,7 @@ export const NextcloudSync = ({ onConfigChange, masterKey, onRequirePassword, is
                         <div className="space-y-2">
                           <div className="flex items-center justify-between gap-2 flex-wrap">
                             <div className="flex items-center gap-2">
-                              <Badge variant="secondary" className="bg-green-500/10 text-green-700 dark:text-green-400">
+                              <Badge variant="outline" className="border-diagnostic-success/30 bg-diagnostic-success/10 font-medium text-diagnostic-success">
                                 {t('nextcloudHelp.recommended')}
                               </Badge>
                               <span className="font-medium text-sm">{t('nextcloudHelp.simpleConfig')}</span>
@@ -1191,12 +1198,12 @@ export const NextcloudSync = ({ onConfigChange, masterKey, onRequirePassword, is
                                 toast({ title: t('nextcloudHelp.copied'), description: t('nextcloudHelp.copiedDesc') });
                               }}
                             >
-                              <Copy className="w-4 h-4 mr-1" />
+                              <Copy className="mr-1 h-4 w-4" aria-hidden="true" />
                               {t('nextcloudHelp.copyConfig')}
                             </Button>
                           </div>
                           <p className="text-xs text-muted-foreground">{t('nextcloudHelp.simpleConfigDesc')}</p>
-                          <pre className="bg-muted p-4 rounded text-xs overflow-x-auto">
+                          <pre className="overflow-x-auto rounded-lg bg-muted p-4 text-xs">
 {`# Simple CORS config (works with web + mobile apps)
 <IfModule mod_headers.c>
     Header always set Access-Control-Allow-Origin "*"
@@ -1215,7 +1222,7 @@ export const NextcloudSync = ({ onConfigChange, masterKey, onRequirePassword, is
                         </div>
                         
                         {/* Advanced config (for shared servers) */}
-                        <Accordion type="single" collapsible className="border rounded-lg">
+                        <Accordion type="single" collapsible className="rounded-xl border border-border">
                           <AccordionItem value="advanced" className="border-none">
                             <AccordionTrigger className="px-3 py-2 text-sm hover:no-underline">
                               <div className="flex items-center justify-between gap-2 w-full">
@@ -1255,11 +1262,11 @@ RewriteRule ^(.*)$ $1 [R=200,L]`;
                                     toast({ title: t('nextcloudHelp.copied'), description: t('nextcloudHelp.copiedDesc') });
                                   }}
                                 >
-                                  <Copy className="w-4 h-4 mr-1" />
+                                  <Copy className="mr-1 h-4 w-4" aria-hidden="true" />
                                   {t('nextcloudHelp.copyConfig')}
                                 </Button>
                               </div>
-                              <pre className="bg-muted p-4 rounded text-xs overflow-x-auto">
+                              <pre className="overflow-x-auto rounded-lg bg-muted p-4 text-xs">
 {`# Step A: Allow both web and mobile app origins
 SetEnvIf Origin "^${window.location.origin.replace(/[.*+?^${}()|[\]\\]/g, '\\\\$&')}$" CORS_ALLOW=1
 SetEnvIf Origin "^https?://localhost" CORS_ALLOW=1
@@ -1285,7 +1292,7 @@ RewriteRule ^(.*)$ $1 [R=200,L]`}
                       </div>
                       
                       <div className="space-y-2 text-sm mt-4">
-                        <p className="font-semibold">{t('nextcloudHelp.afterConfig')}</p>
+                        <p className="font-medium">{t('nextcloudHelp.afterConfig')}</p>
                         <ol className="list-decimal list-inside space-y-2 ml-2">
                           <li>{t('nextcloudHelp.saveFile')}</li>
                           <li className="flex items-center flex-wrap gap-1">
@@ -1304,32 +1311,32 @@ RewriteRule ^(.*)$ $1 [R=200,L]`}
                         </ol>
                       </div>
                       
-                      <div className="space-y-2 text-sm mt-4 p-3 bg-muted/50 rounded-lg">
-                        <p className="font-semibold">{t('nextcloudHelp.expectedOutput')}</p>
+                      <div className="mt-4 space-y-2 rounded-xl bg-muted/50 p-3.5 text-sm">
+                        <p className="font-medium">{t('nextcloudHelp.expectedOutput')}</p>
                         <div className="space-y-2 text-xs">
                           <div className="flex items-start gap-2">
-                            <span className="text-green-600 dark:text-green-400">✓</span>
+                            <span className="text-diagnostic-success" aria-hidden="true">✓</span>
                             <div>
                               <code className="bg-muted px-1.5 py-0.5 rounded">Syntax OK</code>
                               <span className="text-muted-foreground ml-2">— {t('nextcloudHelp.syntaxOkDesc')}</span>
                             </div>
                           </div>
                           <div className="flex items-start gap-2">
-                            <span className="text-green-600 dark:text-green-400">✓</span>
+                            <span className="text-diagnostic-success" aria-hidden="true">✓</span>
                             <div>
                               <code className="bg-muted px-1.5 py-0.5 rounded">AH00558</code>
                               <span className="text-muted-foreground ml-2">— {t('nextcloudHelp.ah00558Desc')}</span>
                             </div>
                           </div>
                           <div className="flex items-start gap-2">
-                            <span className="text-red-600 dark:text-red-400">✗</span>
+                            <span className="text-diagnostic-error" aria-hidden="true">✗</span>
                             <div>
                               <code className="bg-muted px-1.5 py-0.5 rounded">Invalid command</code>
                               <span className="text-muted-foreground ml-2">— {t('nextcloudHelp.invalidCommandDesc')}</span>
                             </div>
                           </div>
                           <div className="flex items-start gap-2">
-                            <span className="text-red-600 dark:text-red-400">✗</span>
+                            <span className="text-diagnostic-error" aria-hidden="true">✗</span>
                             <div>
                               <code className="bg-muted px-1.5 py-0.5 rounded">Syntax error</code>
                               <span className="text-muted-foreground ml-2">— {t('nextcloudHelp.syntaxErrorDesc')}</span>
@@ -1338,9 +1345,9 @@ RewriteRule ^(.*)$ $1 [R=200,L]`}
                         </div>
                       </div>
                       
-                      <div className="space-y-2 text-sm mt-4 p-3 border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 rounded-lg">
-                        <p className="font-semibold flex items-center gap-2">
-                          <AlertCircle className="h-4 w-4 text-amber-600" />
+                      <div className="mt-4 space-y-2 rounded-xl border border-diagnostic-warning/40 bg-diagnostic-warning/10 p-3.5 text-sm">
+                        <p className="font-medium flex items-center gap-2">
+                          <AlertCircle className="h-4 w-4 flex-shrink-0 text-diagnostic-warning" aria-hidden="true" />
                           {t('nextcloudHelp.troubleshooting')}
                         </p>
                         <div className="space-y-3 text-xs">
@@ -1364,8 +1371,8 @@ RewriteRule ^(.*)$ $1 [R=200,L]`}
 
                 <AccordionItem value="method-2">
                   <AccordionTrigger className="text-left">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="outline">{t('nextcloudHelp.nginxUsers')}</Badge>
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                      <Badge variant="outline" className="whitespace-nowrap">{t('nextcloudHelp.nginxUsers')}</Badge>
                       <span>{t('nextcloudHelp.nginxMethod')}</span>
                     </div>
                   </AccordionTrigger>
@@ -1376,45 +1383,47 @@ RewriteRule ^(.*)$ $1 [R=200,L]`}
                     
                     <div className="space-y-4">
                       {/* Step 1: Find and edit config file */}
-                      <div className="bg-muted/50 p-3 rounded-lg space-y-2">
+                      <div className="space-y-2 rounded-xl bg-muted/50 p-3.5">
                         <p className="font-medium text-sm">{t('nextcloudHelp.step1FindFile')}</p>
                         <p className="text-sm text-muted-foreground">{t('nextcloudHelp.nginxFindFileInstruction')}</p>
                         <div className="relative">
-                          <code className="block bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
+                          <code className="block overflow-x-auto rounded-lg bg-muted p-3 pr-14 font-mono text-xs">
                             ls /etc/nginx/sites-enabled/
                           </code>
                           <Button
                             size="sm"
                             variant="outline"
-                            className="absolute top-1.5 right-2"
+                            className="absolute right-2 top-1.5"
+                            aria-label={t('nextcloudHelp.copyConfig')}
                             onClick={() => {
                               navigator.clipboard.writeText('ls /etc/nginx/sites-enabled/');
                               toast({ title: t('nextcloudHelp.copied'), description: t('nextcloudHelp.copiedDesc') });
                             }}
                           >
-                            <Copy className="w-4 h-4" />
+                            <Copy className="h-4 w-4" aria-hidden="true" />
                           </Button>
                         </div>
                       </div>
                       
                       {/* Step 2: Edit the file */}
-                      <div className="bg-muted/50 p-3 rounded-lg space-y-2">
+                      <div className="space-y-2 rounded-xl bg-muted/50 p-3.5">
                         <p className="font-medium text-sm">{t('nextcloudHelp.step2bEditFile')}</p>
                         <p className="text-sm text-muted-foreground">{t('nextcloudHelp.nginxEditFileInstruction')}</p>
                         <div className="relative">
-                          <code className="block bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
+                          <code className="block overflow-x-auto rounded-lg bg-muted p-3 pr-14 font-mono text-xs">
                             sudo nano /etc/nginx/sites-enabled/YOUR_FILE
                           </code>
                           <Button
                             size="sm"
                             variant="outline"
-                            className="absolute top-1.5 right-2"
+                            className="absolute right-2 top-1.5"
+                            aria-label={t('nextcloudHelp.copyConfig')}
                             onClick={() => {
                               navigator.clipboard.writeText('sudo nano /etc/nginx/sites-enabled/YOUR_FILE');
                               toast({ title: t('nextcloudHelp.copied'), description: t('nextcloudHelp.copiedDesc') });
                             }}
                           >
-                            <Copy className="w-4 h-4" />
+                            <Copy className="h-4 w-4" aria-hidden="true" />
                           </Button>
                         </div>
                         <p className="text-xs text-muted-foreground italic">
@@ -1423,12 +1432,12 @@ RewriteRule ^(.*)$ $1 [R=200,L]`}
                       </div>
                       
                       {/* Where to paste visual guide */}
-                      <div className="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg space-y-2">
+                      <div className="space-y-2 rounded-xl border border-diagnostic-info/30 bg-diagnostic-info/10 p-3.5">
                         <p className="font-medium text-sm flex items-center gap-2">
-                          <AlertCircle className="h-4 w-4 text-blue-500" />
+                          <AlertCircle className="h-4 w-4 flex-shrink-0 text-diagnostic-info" aria-hidden="true" />
                           {t('nextcloudHelp.whereToPaste')}
                         </p>
-                        <pre className="text-xs bg-muted p-2 rounded overflow-x-auto">
+                        <pre className="overflow-x-auto rounded-lg bg-card p-3 text-xs">
 {`server {
     listen 443 ssl;
     server_name your-domain.com;
@@ -1452,7 +1461,7 @@ RewriteRule ^(.*)$ $1 [R=200,L]`}
                       <div className="space-y-2">
                         <div className="flex items-center justify-between gap-2 flex-wrap">
                           <div className="flex items-center gap-2">
-                            <Badge variant="secondary" className="bg-green-500/10 text-green-700 dark:text-green-400">
+                            <Badge variant="outline" className="border-diagnostic-success/30 bg-diagnostic-success/10 font-medium text-diagnostic-success">
                               {t('nextcloudHelp.recommended')}
                             </Badge>
                             <span className="font-medium text-sm">{t('nextcloudHelp.simpleConfig')}</span>
@@ -1475,12 +1484,12 @@ if ($request_method = 'OPTIONS') {
                               toast({ title: t('nextcloudHelp.copied'), description: t('nextcloudHelp.copiedDesc') });
                             }}
                           >
-                            <Copy className="w-4 h-4 mr-1" />
+                            <Copy className="mr-1 h-4 w-4" aria-hidden="true" />
                             {t('nextcloudHelp.copyConfig')}
                           </Button>
                         </div>
                         <p className="text-xs text-muted-foreground">{t('nextcloudHelp.simpleConfigDescNginx')}</p>
-                        <pre className="bg-muted p-4 rounded text-xs overflow-x-auto">
+                        <pre className="overflow-x-auto rounded-lg bg-muted p-4 text-xs">
 {`# Simple CORS config (works with web + mobile apps)
 add_header 'Access-Control-Allow-Origin' '*' always;
 add_header 'Access-Control-Allow-Methods' 'GET, HEAD, POST, PUT, DELETE, OPTIONS, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE' always;
@@ -1495,7 +1504,7 @@ if ($request_method = 'OPTIONS') {
                       </div>
                       
                       {/* Advanced config (for shared servers) */}
-                      <Accordion type="single" collapsible className="border rounded-lg">
+                      <Accordion type="single" collapsible className="rounded-xl border border-border">
                         <AccordionItem value="advanced" className="border-none">
                           <AccordionTrigger className="px-3 py-2 text-sm hover:no-underline">
                             <div className="flex items-center justify-between gap-2 w-full">
@@ -1537,11 +1546,11 @@ if ($request_method = 'OPTIONS') {
                                   toast({ title: t('nextcloudHelp.copied'), description: t('nextcloudHelp.copiedDesc') });
                                 }}
                               >
-                                <Copy className="w-4 h-4 mr-1" />
+                                <Copy className="mr-1 h-4 w-4" aria-hidden="true" />
                                 {t('nextcloudHelp.copyConfig')}
                               </Button>
                             </div>
-                            <pre className="bg-muted p-4 rounded text-xs overflow-x-auto">
+                            <pre className="overflow-x-auto rounded-lg bg-muted p-4 text-xs">
 {`# Step A: Allow both web and mobile app origins
 set $cors_origin "";
 if ($http_origin ~ "^(${window.location.origin.replace(/[.*+?^${}()|[\]\\]/g, '\\\\$&')}|https?://localhost|capacitor://localhost|http://localhost)$") {
@@ -1568,7 +1577,7 @@ if ($request_method = 'OPTIONS') {
                       </Accordion>
                       
                       <div className="space-y-2 text-sm mt-4">
-                        <p className="font-semibold">{t('nextcloudHelp.afterConfig')}</p>
+                        <p className="font-medium">{t('nextcloudHelp.afterConfig')}</p>
                         <ol className="list-decimal list-inside space-y-2 ml-2">
                           <li>{t('nextcloudHelp.saveFile')}</li>
                           <li className="flex items-center flex-wrap gap-1">
@@ -1587,25 +1596,25 @@ if ($request_method = 'OPTIONS') {
                         </ol>
                       </div>
                       
-                      <div className="space-y-2 text-sm mt-4 p-3 bg-muted/50 rounded-lg">
-                        <p className="font-semibold">{t('nextcloudHelp.expectedOutput')}</p>
+                      <div className="mt-4 space-y-2 rounded-xl bg-muted/50 p-3.5 text-sm">
+                        <p className="font-medium">{t('nextcloudHelp.expectedOutput')}</p>
                         <div className="space-y-2 text-xs">
                           <div className="flex items-start gap-2">
-                            <span className="text-green-600 dark:text-green-400">✓</span>
+                            <span className="text-diagnostic-success" aria-hidden="true">✓</span>
                             <div>
                               <code className="bg-muted px-1.5 py-0.5 rounded">nginx: the configuration file ... syntax is ok</code>
                               <span className="text-muted-foreground ml-2">— {t('nextcloudHelp.nginxSyntaxOkDesc')}</span>
                             </div>
                           </div>
                           <div className="flex items-start gap-2">
-                            <span className="text-green-600 dark:text-green-400">✓</span>
+                            <span className="text-diagnostic-success" aria-hidden="true">✓</span>
                             <div>
                               <code className="bg-muted px-1.5 py-0.5 rounded">nginx: configuration file ... test is successful</code>
                               <span className="text-muted-foreground ml-2">— {t('nextcloudHelp.nginxTestOkDesc')}</span>
                             </div>
                           </div>
                           <div className="flex items-start gap-2">
-                            <span className="text-red-600 dark:text-red-400">✗</span>
+                            <span className="text-diagnostic-error" aria-hidden="true">✗</span>
                             <div>
                               <code className="bg-muted px-1.5 py-0.5 rounded">nginx: [emerg] unknown directive</code>
                               <span className="text-muted-foreground ml-2">— {t('nextcloudHelp.nginxUnknownDirectiveDesc')}</span>
@@ -1614,9 +1623,9 @@ if ($request_method = 'OPTIONS') {
                         </div>
                       </div>
                       
-                      <div className="space-y-2 text-sm mt-4 p-3 border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 rounded-lg">
-                        <p className="font-semibold flex items-center gap-2">
-                          <AlertCircle className="h-4 w-4 text-amber-600" />
+                      <div className="mt-4 space-y-2 rounded-xl border border-diagnostic-warning/40 bg-diagnostic-warning/10 p-3.5 text-sm">
+                        <p className="font-medium flex items-center gap-2">
+                          <AlertCircle className="h-4 w-4 flex-shrink-0 text-diagnostic-warning" aria-hidden="true" />
                           {t('nextcloudHelp.troubleshooting')}
                         </p>
                         <div className="space-y-3 text-xs">
@@ -1636,8 +1645,8 @@ if ($request_method = 'OPTIONS') {
                 
                 <AccordionItem value="method-3">
                   <AccordionTrigger className="text-left">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="secondary">{t('nextcloudHelp.sslIssues')}</Badge>
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                      <Badge variant="secondary" className="whitespace-nowrap">{t('nextcloudHelp.sslIssues')}</Badge>
                       <span>{t('nextcloudHelp.sslMethod')}</span>
                     </div>
                   </AccordionTrigger>
@@ -1647,19 +1656,19 @@ if ($request_method = 'OPTIONS') {
                     </p>
                     
                     <div className="space-y-4">
-                      <Alert>
-                        <AlertCircle className="h-4 w-4" />
-                        <AlertDescription className="text-sm">
+                      <div role="alert" className="notice">
+                        <AlertCircle aria-hidden="true" />
+                        <div className="min-w-0">
                           <strong>{t('nextcloudHelp.commonSslIssues')}</strong><br/>
                           • {t('nextcloudHelp.expiredCert')}<br/>
                           • {t('nextcloudHelp.selfSignedCert')}<br/>
                           • {t('nextcloudHelp.invalidCert')}<br/>
                           • {t('nextcloudHelp.missingIntermediateCerts')}
-                        </AlertDescription>
-                      </Alert>
+                        </div>
+                      </div>
                       
                       <div className="space-y-2">
-                        <p className="font-semibold text-sm">{t('nextcloudHelp.howToCheckSsl')}</p>
+                        <p className="font-medium text-sm">{t('nextcloudHelp.howToCheckSsl')}</p>
                         <ol className="list-decimal list-inside space-y-2 ml-2 text-sm">
                           <li>
                             {t('nextcloudHelp.openNextcloudUrl', { url: 'https://your-server.com' })}
@@ -1679,34 +1688,35 @@ if ($request_method = 'OPTIONS') {
                       </div>
                       
                       <div className="space-y-2">
-                        <p className="font-semibold text-sm">{t('nextcloudHelp.howToFixSsl')}</p>
+                        <p className="font-medium text-sm">{t('nextcloudHelp.howToFixSsl')}</p>
                         
-                        <div className="bg-muted p-3 rounded text-sm space-y-2">
+                        <div className="space-y-2 rounded-xl bg-muted/50 p-3.5 text-sm">
                           <p><strong>{t('nextcloudHelp.forExpiredCerts')}</strong></p>
                           <p>{t('nextcloudHelp.ifUsingLetsEncrypt')}</p>
                           <div className="relative">
-                            <pre className="bg-background p-2 rounded text-xs mt-1 pr-10">
+                            <pre className="mt-1 overflow-x-auto rounded-lg bg-card p-3 pr-10 text-xs">
 sudo certbot renew
 sudo systemctl reload apache2  # or nginx</pre>
                             <Button
                               size="sm"
                               variant="ghost"
-                              className="absolute top-1 right-1 h-6 w-6 p-0"
+                              className="absolute right-1.5 top-1.5 h-8 w-8 p-0"
+                              aria-label={t('nextcloudHelp.copyConfig')}
                               onClick={() => {
                                 navigator.clipboard.writeText(`sudo certbot renew\nsudo systemctl reload apache2  # or nginx`);
                                 toast({ title: t('nextcloudHelp.copied'), description: t('nextcloudHelp.copiedDesc') });
                               }}
                             >
-                              <Copy className="w-3 h-3" />
+                              <Copy className="h-3 w-3" aria-hidden="true" />
                             </Button>
                           </div>
                         </div>
                         
-                        <div className="bg-muted p-3 rounded text-sm space-y-2">
+                        <div className="space-y-2 rounded-xl bg-muted/50 p-3.5 text-sm">
                           <p><strong>{t('nextcloudHelp.forSelfSignedCerts')}</strong></p>
                           <p>{t('nextcloudHelp.getFreeCert')}</p>
                           <div className="relative">
-                            <pre className="bg-background p-2 rounded text-xs mt-1 pr-10">
+                            <pre className="mt-1 overflow-x-auto rounded-lg bg-card p-3 pr-10 text-xs">
 {`# Install certbot
 sudo apt install certbot python3-certbot-apache
 
@@ -1718,23 +1728,24 @@ sudo certbot --nginx -d your-domain.com`}</pre>
                             <Button
                               size="sm"
                               variant="ghost"
-                              className="absolute top-1 right-1 h-6 w-6 p-0"
+                              className="absolute right-1.5 top-1.5 h-8 w-8 p-0"
+                              aria-label={t('nextcloudHelp.copyConfig')}
                               onClick={() => {
                                 navigator.clipboard.writeText(`# Install certbot\nsudo apt install certbot python3-certbot-apache\n\n# Get certificate (Apache)\nsudo certbot --apache -d your-domain.com\n\n# Or for Nginx\nsudo certbot --nginx -d your-domain.com`);
                                 toast({ title: t('nextcloudHelp.copied'), description: t('nextcloudHelp.copiedDesc') });
                               }}
                             >
-                              <Copy className="w-3 h-3" />
+                              <Copy className="h-3 w-3" aria-hidden="true" />
                             </Button>
                           </div>
                         </div>
                         
-                        <Alert className="mt-2">
-                          <AlertCircle className="h-4 w-4" />
-                          <AlertDescription className="text-xs">
+                        <div role="alert" className="notice mt-2">
+                          <AlertCircle aria-hidden="true" />
+                          <div className="min-w-0">
                             {t('nextcloudHelp.sslFixNote')}
-                          </AlertDescription>
-                        </Alert>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </AccordionContent>
@@ -1742,12 +1753,11 @@ sudo certbot --nginx -d your-domain.com`}</pre>
               </Accordion>
               
               {/* Getting Started Guide for Beginners */}
-              <Accordion type="single" collapsible className="mt-4 border rounded-lg">
+              <Accordion type="single" collapsible className="mt-4 rounded-xl border border-border">
                 <AccordionItem value="getting-started" className="border-0">
                   <AccordionTrigger className="px-4 py-3 hover:no-underline">
                     <div className="flex items-center gap-2">
-                      <Star className="h-4 w-4 text-primary" />
-                      <span className="font-semibold">{t('nextcloudHelp.gettingStarted')}</span>
+                      <span className="font-medium">{t('nextcloudHelp.gettingStarted')}</span>
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="px-4 pb-4">
@@ -1755,20 +1765,20 @@ sudo certbot --nginx -d your-domain.com`}</pre>
                       <p className="text-muted-foreground">{t('nextcloudHelp.gettingStartedDesc')}</p>
                       
                       {/* Step 1: Server URL */}
-                      <div className="bg-muted p-3 rounded-lg space-y-2">
-                        <p className="font-semibold text-primary">{t('nextcloudHelp.step1Title')}</p>
+                      <div className="space-y-2 rounded-xl bg-muted/50 p-3.5">
+                        <p className="font-medium">{t('nextcloudHelp.step1Title')}</p>
                         <p>{t('nextcloudHelp.step1Desc')}</p>
                       </div>
                       
                       {/* Step 2: Username */}
-                      <div className="bg-muted p-3 rounded-lg space-y-2">
-                        <p className="font-semibold text-primary">{t('nextcloudHelp.step2Title')}</p>
+                      <div className="space-y-2 rounded-xl bg-muted/50 p-3.5">
+                        <p className="font-medium">{t('nextcloudHelp.step2Title')}</p>
                         <p>{t('nextcloudHelp.step2Desc')}</p>
                       </div>
                       
                       {/* Step 3: App Password */}
-                      <div className="bg-muted p-3 rounded-lg space-y-2">
-                        <p className="font-semibold text-primary">{t('nextcloudHelp.step3Title')}</p>
+                      <div className="space-y-2 rounded-xl bg-muted/50 p-3.5">
+                        <p className="font-medium">{t('nextcloudHelp.step3Title')}</p>
                         <p className="font-medium">{t('nextcloudHelp.step3CreatePassword')}</p>
                         <ol className="list-decimal list-inside space-y-1 ml-2">
                           <li>{t('nextcloudHelp.step3Instructions1')}</li>
@@ -1778,21 +1788,21 @@ sudo certbot --nginx -d your-domain.com`}</pre>
                           <li>{t('nextcloudHelp.step3Instructions5')}</li>
                           <li>{t('nextcloudHelp.step3Instructions6')}</li>
                         </ol>
-                        <Alert className="mt-2 border-primary/20 bg-primary/5">
-                          <AlertCircle className="h-4 w-4 text-primary" />
-                          <AlertDescription className="text-xs">
+                        <div role="alert" className="notice mt-2 bg-card">
+                          <AlertCircle aria-hidden="true" />
+                          <div className="min-w-0">
                             {t('nextcloudHelp.step3Tip')}
-                          </AlertDescription>
-                        </Alert>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
 
-              <Alert className="mt-4">
-                <AlertCircle className="h-4 w-4" />
-                <AlertDescription className="text-sm">
+              <div role="alert" className="notice mt-4">
+                <AlertCircle aria-hidden="true" />
+                <div className="min-w-0">
                   <strong>{t('nextcloudHelp.needMoreHelp')}</strong><br/>
                   • <a href="https://docs.nextcloud.com/server/latest/admin_manual/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">{t('nextcloudHelp.checkHostingDocs')}</a><br/>
                   • {t('nextcloudHelp.askSysAdmin')}<br/>
@@ -1802,96 +1812,93 @@ sudo certbot --nginx -d your-domain.com`}</pre>
                         docLink: <a href="https://docs.nextcloud.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary" />
                       }}
                     />
-                </AlertDescription>
-              </Alert>
+                </div>
+              </div>
             </div>
           </DialogContent>
         </Dialog>
       </div>
 
       {connectionError && connectionError.type === 'cors' && (
-        <Alert className="mb-4 border-orange-200 bg-orange-50">
-          <AlertCircle className="h-4 w-4 text-orange-600" />
-          <AlertDescription className="text-sm">
-            <strong>{t('nextcloudHelp.corsBlocked')}</strong> Click "Setup Help" above for step-by-step instructions.
-          </AlertDescription>
-        </Alert>
+        <div role="alert" className="notice notice-warning">
+          <AlertCircle aria-hidden="true" />
+          <div className="min-w-0">
+            <strong className="font-medium">{t('nextcloudHelp.corsBlocked')}</strong> Click "Setup Help" above for step-by-step instructions.
+          </div>
+        </div>
       )}
 
       {connectionError && connectionError.type === 'auth' && (
-        <Alert className="mb-4 border-red-200 bg-red-50">
-          <AlertCircle className="h-4 w-4 text-red-600" />
-          <AlertDescription className="text-sm">
-            <strong>{t('nextcloudHelp.authFailed')}</strong>
-          </AlertDescription>
-        </Alert>
+        <div role="alert" className="notice notice-error">
+          <AlertCircle aria-hidden="true" />
+          <div className="min-w-0">
+            <strong className="font-medium">{t('nextcloudHelp.authFailed')}</strong>
+          </div>
+        </div>
       )}
 
       {connectionError && connectionError.type === 'ssl' && (
-        <Alert className="mb-4 border-red-200 bg-red-50">
-          <AlertCircle className="h-4 w-4 text-red-600" />
-          <AlertDescription className="text-sm">
-            <strong>{t('nextcloudHelp.sslError')}</strong> Click "Setup Help" above for instructions on fixing SSL certificate issues.
-          </AlertDescription>
-        </Alert>
+        <div role="alert" className="notice notice-error">
+          <AlertCircle aria-hidden="true" />
+          <div className="min-w-0">
+            <strong className="font-medium">{t('nextcloudHelp.sslError')}</strong> Click "Setup Help" above for instructions on fixing SSL certificate issues.
+          </div>
+        </div>
       )}
 
       {isConnected ? (
-        // Connected state - clean display
         <div className="space-y-4">
           {/* CORS Error Banner - shown when server connection issue detected */}
           {connectionError?.type === 'cors' && (
-            <Alert variant="destructive" className="border-orange-500 bg-orange-50 dark:bg-orange-950/20">
-              <AlertCircle className="h-4 w-4" />
-              <AlertDescription className="text-xs space-y-2">
-                <p className="font-semibold">{t('nextcloudHelp.corsTitle')}</p>
+            <div role="alert" className="notice notice-warning">
+              <AlertCircle aria-hidden="true" />
+              <div className="min-w-0 space-y-2">
+                <p className="font-medium">{t('nextcloudHelp.corsTitle')}</p>
                 <p>
                   {t('nextcloudHelp.corsDescriptionPart1')}
                   <strong>{t('nextcloudHelp.corsDescriptionBold')}</strong>
                   {t('nextcloudHelp.corsDescriptionPart2')}
                 </p>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
+                <Button
+                  variant="outline"
+                  size="sm"
                   onClick={() => setShowCorsHelp(true)}
-                  className="mt-2"
+                  className="min-h-10 sm:min-h-9"
                 >
-                  <HelpCircle className="h-3 w-3 mr-1" />
+                  <HelpCircle className="mr-1.5 h-4 w-4" aria-hidden="true" />
                   {t('nextcloudHelp.howToFix')}
                 </Button>
-              </AlertDescription>
-            </Alert>
+              </div>
+            </div>
           )}
-          
-          <p className="text-sm text-muted-foreground">
-            {t('providers.nextcloud.syncingWith')} <strong>{config.serverUrl}</strong>
+
+          <p className="break-words text-sm text-muted-foreground">
+            {t('providers.nextcloud.syncingWith')} <strong className="font-medium text-foreground">{config.serverUrl}</strong>
           </p>
-          <div className="flex gap-2 pt-2">
-            <Button variant="outline" onClick={handleDisconnect} className="flex-1">
-              {t('providers.nextcloud.disconnect')}
-            </Button>
-          </div>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleDisconnect}
+            className="-ml-3 min-h-10 text-destructive hover:bg-destructive/10 hover:text-destructive sm:min-h-9"
+          >
+            {t('providers.nextcloud.disconnect')}
+          </Button>
         </div>
       ) : (
-        // Not connected - show form
         <div className="space-y-4">
         {/* QR Code Scanner Section - Mobile Only */}
         {isMobile && isQrScanningAvailable() && (
           <>
-            {/* Description above the button */}
-            <div className="text-center space-y-2">
-              <div className="flex items-center justify-center gap-2">
-                <QrCode className="w-6 h-6 text-primary" />
-                <h4 className="font-semibold text-base">{t('nextcloud.scanQrCode')}</h4>
-              </div>
+            <div className="space-y-1">
+              <h4 className="text-sm font-medium">{t('nextcloud.scanQrCode')}</h4>
               <p className="text-sm text-muted-foreground">
                 {t('nextcloud.scanQrCodeDesc')}
               </p>
             </div>
             
-            {/* Prominent action button */}
-            <Button 
-              className="w-full py-6 text-base"
+            <Button
+              variant="outline"
+              className="h-12 w-full"
               onClick={async () => {
                 setIsScanning(true);
                 try {
@@ -1952,39 +1959,37 @@ sudo certbot --nginx -d your-domain.com`}</pre>
             >
               {isScanning ? (
                 <>
-                  <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
                   {t('nextcloud.qrScanning')}
                 </>
               ) : (
                 <>
-                  <QrCode className="w-5 h-5 mr-2" />
+                  <QrCode className="mr-2 h-4 w-4" aria-hidden="true" />
                   {t('nextcloud.openCameraToScan')}
                 </>
               )}
             </Button>
             
-            {/* Separator */}
-            <div className="relative flex items-center justify-center py-2">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t" />
-              </div>
-              <span className="relative bg-background px-3 text-xs text-muted-foreground">
+            <div className="flex items-center gap-3">
+              <span className="h-px flex-1 bg-border" aria-hidden="true" />
+              <span className="eyebrow">
                 {t('nextcloud.orEnterManually')}
               </span>
+              <span className="h-px flex-1 bg-border" aria-hidden="true" />
             </div>
           </>
         )}
         
         {getEncryptionMode() === 'simple' && (
-          <Alert className="border-amber-200 bg-amber-50 dark:bg-amber-950/20">
-            <AlertCircle className="h-4 w-4 text-amber-600" />
-            <AlertDescription className="text-amber-800 dark:text-amber-400 text-xs">
-              <strong>{t('nextcloud.simpleModeWarning')}</strong>
-            </AlertDescription>
-          </Alert>
+          <div role="alert" className="notice notice-warning">
+            <AlertCircle aria-hidden="true" />
+            <div className="min-w-0">
+              <strong className="font-medium">{t('nextcloud.simpleModeWarning')}</strong>
+            </div>
+          </div>
         )}
         
-        <div>
+        <div className="space-y-1.5">
           <Label htmlFor="serverUrl">{t('nextcloud.serverUrlLabel')}</Label>
           <Input
             id="serverUrl"
@@ -1998,20 +2003,20 @@ sudo certbot --nginx -d your-domain.com`}</pre>
                 setValidationErrors({ ...validationErrors, serverUrl: '' });
               }
             }}
-            className={validationErrors.serverUrl ? "border-red-500" : ""}
+            className={validationErrors.serverUrl ? "border-destructive" : ""}
           />
           {validationErrors.serverUrl && (
-            <p className="text-xs text-red-600 mt-1 flex items-center gap-1">
-              <AlertCircle className="w-3 h-3" />
+            <p className="flex items-center gap-1 text-xs text-destructive">
+              <AlertCircle className="h-3 w-3 flex-shrink-0" aria-hidden="true" />
               {validationErrors.serverUrl}
             </p>
           )}
-          <p className="text-xs text-muted-foreground mt-1">
+          <p className="text-xs text-muted-foreground">
             {t('nextcloud.serverUrlHelper')}
           </p>
         </div>
 
-        <div>
+        <div className="space-y-1.5">
           <Label htmlFor="username">{t('nextcloud.usernameLabel')}</Label>
           <Input
             id="username"
@@ -2024,17 +2029,17 @@ sudo certbot --nginx -d your-domain.com`}</pre>
                 setValidationErrors({ ...validationErrors, username: '' });
               }
             }}
-            className={validationErrors.username ? "border-red-500" : ""}
+            className={validationErrors.username ? "border-destructive" : ""}
           />
           {validationErrors.username && (
-            <p className="text-xs text-red-600 mt-1 flex items-center gap-1">
-              <AlertCircle className="w-3 h-3" />
+            <p className="flex items-center gap-1 text-xs text-destructive">
+              <AlertCircle className="h-3 w-3 flex-shrink-0" aria-hidden="true" />
               {validationErrors.username}
             </p>
           )}
         </div>
 
-        <div>
+        <div className="space-y-1.5">
           <Label htmlFor="appPassword">{t('nextcloud.appPasswordLabel')}</Label>
           <div className="relative">
             <Input
@@ -2058,26 +2063,26 @@ sudo certbot --nginx -d your-domain.com`}</pre>
               onClick={() => setShowAppPassword(!showAppPassword)}
               tabIndex={-1}
             >
-              {showAppPassword ? <EyeOff className="h-4 w-4 text-muted-foreground" /> : <Eye className="h-4 w-4 text-muted-foreground" />}
+              {showAppPassword ? <EyeOff className="h-4 w-4 text-muted-foreground" aria-hidden="true" /> : <Eye className="h-4 w-4 text-muted-foreground" aria-hidden="true" />}
             </Button>
           </div>
           {validationErrors.appPassword && (
-            <p className="text-xs text-destructive mt-1 flex items-center gap-1">
-              <AlertCircle className="w-3 h-3" />
+            <p className="flex items-center gap-1 text-xs text-destructive">
+              <AlertCircle className="h-3 w-3 flex-shrink-0" aria-hidden="true" />
               {validationErrors.appPassword}
             </p>
           )}
-          <p className="text-xs text-muted-foreground mt-1">
+          <p className="text-xs text-muted-foreground">
             {t('nextcloudHelp.generateAppPassword')}
           </p>
         </div>
 
-        <div className="flex gap-2 pt-2">
-          <Button 
+        <div className="flex flex-wrap gap-2">
+          <Button
             ref={connectButtonRef}
-            onClick={handleConnect} 
+            onClick={handleConnect}
             disabled={isConnecting}
-            className="flex-1"
+            className="flex-1 sm:flex-none"
           >
             {isConnecting ? t('providers.nextcloud.connecting') : t('providers.nextcloud.connect')}
           </Button>

@@ -754,6 +754,8 @@
     "searchPlaceholder": "Search entries…",
     "startDate": "Start date",
     "endDate": "End date",
+    "filters": "Filters",
+    "clearFilters": "Clear filters",
     "noEntries": "No matching entries",
     "startJourney": "Start Your Journey",
     "tryAdjusting": "Try adjusting your search or filters",
