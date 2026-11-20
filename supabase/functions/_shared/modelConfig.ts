@@ -34,6 +34,11 @@ export function getModelForType(type: string): string {
       return `google/${AI_MODELS.suggestions}`;
     case "analyzeTrends":
       return `google/${AI_MODELS.deepAnalysis}`;
+    // Dream reflection starts on the entry-analysis model (owner decision,
+    // 2026-11-19); move it here only after comparing quality and cost.
+    case "analyzeDream":
+    case "analyzeDreamPatterns":
+      return `google/${AI_MODELS.entryAnalysis}`;
     default:
       return `google/${AI_MODELS.entryAnalysis}`;
   }

@@ -94,6 +94,18 @@ Scope: the OwnJournal app (`src/i18n/locales/pt.json`) and the website's UI, pri
 - pt-BR quick test: *você*, bare *Seu/Sua*, gerund progressives, *configurações, assinatura, senha, provedor, aplicativo, conectar, salvar, excluir, deletar, acessar, digite, habilitar, cadastro, navegador, aba, tela, arquivo, usuário, câmera, time, jornada, Ruim, Pular, Próximo*.
 - The whole app and website UI/legal files were converted to pt-PT in Nov 2026; any new BR form is a regression.
 
+## Dreams glossary (2026-11)
+| Term | Use | Avoid / note |
+|---|---|---|
+| Dream reflection (feature, card title, toasts) | **Reflexão sobre sonhos**; prose *a reflexão sobre sonhos*; button *Refletir sobre o sonho* | *Reflexão sobre o sonho* as a name (judgment) |
+| Dream patterns | title **Padrões dos sonhos**; prose *relatório de padrões dos sonhos*; inside the card just *relatório* | *relatório Padrões dos sonhos* (capitalised name after a noun) (judgment) |
+| nightmare / recurring / lucid | *pesadelo* / *recorrente* / *lúcido* (*sabia que estava a sonhar*) | — (Público, Visão) |
+| awe (feeling chip) | **Deslumbramento** | *Assombro* (= fright, haunting in pt-PT) (pt-PT academic paper "Awe: … do deslumbramento num contexto experimental") |
+| self-harm (care text) | *magoar-se*; official PT term *comportamentos autolesivos* | *fazer mal a si próprio* (gendered) |
+| crisis line | *linha de prevenção do suicídio* (PT: Linha Nacional de Prevenção do Suicídio e Apoio Psicológico, 1411); never a number in app text | *linha de crise* |
+| hard to carry (a dream) | *custar a passar* | *difícil de carregar* (calque) (judgment) |
+| short labels (sent for patterns) | *rótulos curtos* | *etiquetas* (collides with tags) |
+
 ## Sources
 - Microsoft pt-PT Style Guide: https://download.microsoft.com/download/9/9/5/995a8ca6-383c-439d-9db0-cd457c9c2724/por-prt-StyleGuide.pdf
 - Google Privacy Policy pt-PT: https://policies.google.com/privacy?hl=pt-PT

@@ -102,7 +102,7 @@ export const OnboardingTour = ({
 }: OnboardingTourProps) => {
   const { t } = useTranslation();
 
-  // 7-step tour with center-placed educational content
+  // 8-step tour with center-placed educational content
   const steps: Step[] = [
     // 1. Welcome
     {
@@ -120,7 +120,15 @@ export const OnboardingTour = ({
       placement: 'top',
       disableBeacon: true,
     },
-    // 3. Sync Status
+    // 3. Dream journal (shown on the timeline; the Dream chip itself is in the entry editor)
+    {
+      target: '.tour-timeline',
+      content: t('onboardingTour.dreams.content'),
+      title: t('onboardingTour.dreams.title'),
+      placement: 'top',
+      disableBeacon: true,
+    },
+    // 4. Sync Status
     {
       target: '.tour-sync-status',
       content: t('onboardingTour.syncStatus.content', 'Once you connect cloud storage, this indicator shows your sync status. Green means synced!'),
@@ -128,7 +136,7 @@ export const OnboardingTour = ({
       placement: 'bottom',
       disableBeacon: true,
     },
-    // 4. Encryption Modes (points to settings button)
+    // 5. Encryption Modes (points to settings button)
     {
       target: '.tour-settings',
       content: t('onboardingTour.encryptionModes.content', 'Choose Simple Mode for easy setup, or E2E Encrypted for maximum privacy with your own password.'),
@@ -136,7 +144,7 @@ export const OnboardingTour = ({
       placement: 'bottom',
       disableBeacon: true,
     },
-    // 5. Cloud Storage (points to settings button)
+    // 6. Cloud Storage (points to settings button)
     {
       target: '.tour-settings',
       content: t('onboardingTour.settings.content', 'Connect your cloud storage by tapping "Connect" next to your preferred provider.'),
@@ -144,7 +152,7 @@ export const OnboardingTour = ({
       placement: 'bottom',
       disableBeacon: true,
     },
-    // 6. Help
+    // 7. Help
     {
       target: '.tour-help',
       content: t('onboardingTour.help.content', 'Need help anytime? Click here to access guides, tips, and restart this tour.'),
@@ -152,7 +160,7 @@ export const OnboardingTour = ({
       placement: 'bottom',
       disableBeacon: true,
     },
-    // 7. Complete
+    // 8. Complete
     {
       target: 'body',
       content: t('onboardingTour.complete.content', 'You\'re all set! Start writing your first entry, or open Settings to connect cloud storage for syncing across devices.'),

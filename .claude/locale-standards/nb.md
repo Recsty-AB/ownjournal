@@ -120,6 +120,20 @@ Legal facts that must survive translation: 5 minutes per recording; 200 minutes 
 ## 7. Danish drift checklist (seen in this codebase)
 `funktion`→`funksjon`, `kræver`→`krever`, `annuller`→`avbryt`, `optagelse`→`opptak`, `efter`→`etter`, `nogen`→`noen`, `måske`→`kanskje`, `foranstaltning`→`tiltak`/`garanti`, `persondata`→`personopplysninger`, `kr.`→`kr`, `tegnsætning`→`tegnsetting`.
 
+## 8. Dreams glossary (dream reflection, 2026-11)
+| English | Bokmål | Avoid | Evidence |
+|---|---|---|---|
+| Dream reflection (feature) | Drømmerefleksjon; lowercase `drømmerefleksjon` in running text, indefinite as a name | `Drømmerefleksjonen` as the feature name | judgment |
+| Dream patterns (feature) / its report | «Drømmemønstre» (card title); report = `mønsterrapport`, outside the card first mention `mønsterrapport under «Drømmemønstre»` | `drømmemønsterrapport`, `Drømmemønster-rapport` | judgment |
+| nightmare | mareritt | mardrøm (dated) | SNL «drøm», NHI «Mareritt» |
+| lucid dream | klardrøm (alt. bevisst drøm) | lucid drøm | no.wikipedia «Bevisst drøm» |
+| recurring | tilbakevendende; prose `drømmer som kommer igjen` | gjentakende (as chip) | SNL, Klikk |
+| anxiety (feeling chip) | Uro (pairs with Frykt as in `frykt og uro`) | Angst (clinical next to angstlidelse) | Dagbladet/Helsenorge via OsloMet: «frykt, redselen eller uroen» |
+| a series of dreams (Jung) | flere drømmer sett i sammenheng | `en rekke drømmer` (reads "many dreams") | judgment |
+| multi-select flag heading | `Stemmer noe av dette?` | `Hva slags drøm var det?` (asks for one) | judgment |
+| health professional / crisis line | helsepersonell / hjelpetelefon | | SML, Helsenorge |
+| tokens (AI usage) | `omfanget av AI-behandlingen målt i tokens` | | judgment |
+
 ## Sources
 - EDPB SME guide (nb), «Standard personvernbestemmelser (SCC-er)»: https://www.edpb.europa.eu/sme/be-compliant/international-data-transfers_nb
 - GDPR in Norwegian (personopplysningsloven, ch. V): https://lovdata.no/dokument/NL/lov/2018-06-15-38/KAPITTEL_gdpr-5

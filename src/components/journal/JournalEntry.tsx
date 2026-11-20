@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Calendar, Tag, Heart, Save, Edit3, Trash2, ImagePlus, X, Loader2, FileText, FileType, Activity, ChevronDown } from "lucide-react";
+import { Calendar, Tag, Heart, Save, Edit3, Trash2, ImagePlus, X, Loader2, FileText, FileType, Activity, ChevronDown, Moon } from "lucide-react";
 import { format } from "date-fns";
 import { getDateLocale } from "@/utils/dateLocale";
 import { MarkdownEditor } from "@/components/editor/MarkdownEditor";
@@ -12,6 +12,10 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
 import { AIAnalysis } from "./AIAnalysis";
+import { DreamReflection } from "./DreamReflection";
+import { DreamDetailsEditor } from "./DreamDetailsEditor";
+import { DreamGuide } from "./DreamGuide";
+import { hasSeenDreamGuide, setDreamGuideSeen } from "@/services/dreamService";
 import { TitleSuggestion } from "./TitleSuggestion";
 import { TagSuggestion } from "./TagSuggestion";
 import { useToast } from "@/hooks/use-toast";
@@ -25,6 +29,7 @@ import { extractInlineTags, mergeInlineTags } from "@/utils/inlineTags";
 import { MOOD_EMOJI } from "@/utils/moodEmoji";
 import { MOOD_CELL_COLORS } from "@/utils/moodColors";
 import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
+import type { DreamDetails, DreamReflection as DreamReflectionData } from "@/types/dream";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -53,7 +58,13 @@ export interface JournalEntryData {
   updatedAt: Date;
   // Notes reuse the journal entry storage/sync pipeline; absent means a
   // regular (time-specific) journal entry. Notes ignore date/mood/activities.
-  type?: 'note';
+  // Dreams are dated journal entries without mood/activities; they are kept
+  // out of mood and trend views.
+  type?: 'note' | 'dream';
+  // Dream-only. Both live inside the encrypted payload, never in plaintext
+  // cloud metadata.
+  dream?: DreamDetails;
+  dreamReflection?: DreamReflectionData;
 }
 
 interface JournalEntryProps {
@@ -69,11 +80,17 @@ interface JournalEntryProps {
   editingEntryId?: string | null;
   onEditStart?: () => void;
   onEditEnd?: () => void;
+  /** Stores a new dream reflection on this entry without leaving view mode. */
+  onSaveReflection?: (entry: JournalEntryData, reflection: DreamReflectionData) => Promise<void>;
+  /** A new entry that opens already marked as a dream (from the feature tip). */
+  startAsDream?: boolean;
+  /** Stores the dreamer's own thoughts with this dream without leaving view mode. */
+  onSaveDreamThoughts?: (entry: JournalEntryData, thoughts: string) => Promise<void>;
 }
 
 const PREDEFINED_ACTIVITY_KEYS = PREDEFINED_ACTIVITIES.map(a => a.key);
 
-const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = false, onEditingChange, allEntries = [], isPro = false, isDemo = false, editingEntryId, onEditStart, onEditEnd }: JournalEntryProps) => {
+const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = false, onEditingChange, allEntries = [], isPro = false, isDemo = false, editingEntryId, onEditStart, onEditEnd, onSaveReflection, onSaveDreamThoughts, startAsDream = false }: JournalEntryProps) => {
   const [isEditMode, setIsEditMode] = useState(isEditing);
   const [title, setTitle] = useState(entry?.title || "");
   const [body, setBody] = useState(entry?.body || "");
@@ -86,6 +103,14 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
   const [images, setImages] = useState<string[]>(entry?.images || []);
   const [tagInput, setTagInput] = useState("");
   const [selectedDate, setSelectedDate] = useState<Date>(entry?.date || new Date());
+  const opensAsDream = !entry && startAsDream;
+  const [isDream, setIsDream] = useState(entry?.type === 'dream' || opensAsDream);
+  const [dreamDetails, setDreamDetails] = useState<DreamDetails>(entry?.dream ?? { feelings: [] });
+  // Opening as a dream counts as switching Dream on: the guide shows the first time.
+  const [dreamGuideOpen, setDreamGuideOpen] = useState(() => opensAsDream && !hasSeenDreamGuide());
+  useEffect(() => {
+    if (opensAsDream) setDreamGuideSeen();
+  }, [opensAsDream]);
   const [showTagSuggestions, setShowTagSuggestions] = useState(false);
   const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(0);
   const [isCompressing, setIsCompressing] = useState(false);
@@ -121,8 +146,19 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
       setActivities(entry.activities || []);
       setImages(entry.images || []);
       setSelectedDate(entry.date || new Date());
+      setIsDream(entry.type === 'dream');
+      setDreamDetails(entry.dream ?? { feelings: [] });
     }
-  }, [entry?.id, entry?.body, entry?.updatedAt, isEditMode]);
+  }, [entry?.id, entry?.body, entry?.updatedAt, entry?.type, isEditMode]);
+
+  const toggleDream = () => {
+    const next = !isDream;
+    setIsDream(next);
+    if (next && !hasSeenDreamGuide()) {
+      setDreamGuideSeen();
+      setDreamGuideOpen(true);
+    }
+  };
 
   // Call onEditStart when entering edit mode initially
   useEffect(() => {
@@ -180,9 +216,18 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
       title,
       body,
       tags: finalTags,
-      mood,
-      activities,
-      images
+      // Dreams have no mood or activities; the stored mood is a neutral
+      // placeholder and dreams are kept out of every mood view.
+      mood: isDream ? 'okay' : mood,
+      activities: isDream ? [] : activities,
+      images,
+      // Switching Dream off turns the entry back into an ordinary one and drops
+      // its dream details and reflection.
+      ...(isDream && {
+        type: 'dream' as const,
+        dream: dreamDetails,
+        ...(entry?.dreamReflection && { dreamReflection: entry.dreamReflection }),
+      }),
     });
     setTags(finalTags);
     setIsEditMode(false);
@@ -432,8 +477,14 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
     doc.text(format(entry.date, 'PPPP', { locale: getDateLocale(i18n.language) }), margin, yPosition);
     yPosition += 10;
 
-    // Mood
-    doc.text(`${t('journalEntry.mood')}: ${MOOD_EMOJI[entry.mood] || ''} ${t(`journalEntry.moods.${entry.mood}`)}`, margin, yPosition);
+    // Mood (dreams print their label instead of the placeholder mood)
+    doc.text(
+      entry.type === 'dream'
+        ? t('dream.badge')
+        : `${t('journalEntry.mood')}: ${MOOD_EMOJI[entry.mood] || ''} ${t(`journalEntry.moods.${entry.mood}`)}`,
+      margin,
+      yPosition,
+    );
     yPosition += 10;
 
     // Activities
@@ -507,7 +558,9 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
           new Paragraph({
             children: [
               new TextRun({
-                text: `${t('journalEntry.mood')}: ${MOOD_EMOJI[entry.mood] || ''} ${t(`journalEntry.moods.${entry.mood}`)}`,
+                text: entry.type === 'dream'
+                  ? t('dream.badge')
+                  : `${t('journalEntry.mood')}: ${MOOD_EMOJI[entry.mood] || ''} ${t(`journalEntry.moods.${entry.mood}`)}`,
                 size: 20,
               }),
             ],
@@ -677,12 +730,31 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
         )}
 
         <div className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-2 text-sm text-muted-foreground">
-          <span className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-foreground">
-            <span aria-hidden="true" className={`h-2 w-2 rounded-full ${MOOD_CELL_COLORS[entry.mood]}`} />
-            {t(`journalEntry.moods.${entry.mood}`)}
-          </span>
+          {entry.type === 'dream' ? (
+            <>
+              <span className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-foreground">
+                <Moon aria-hidden="true" className="h-3.5 w-3.5" />
+                {t('dream.badge')}
+              </span>
+              {entry.dream?.feelings.map(feeling => (
+                <span key={feeling} className="inline-flex items-center rounded-full border border-border px-3 py-1">
+                  {t(`dream.feelings.${feeling}`)}
+                </span>
+              ))}
+              {(['recurring', 'nightmare', 'lucid'] as const).filter(flag => entry.dream?.[flag]).map(flag => (
+                <span key={flag} className="inline-flex items-center rounded-full border border-dashed border-border px-3 py-1">
+                  {t(`dream.flags.${flag}`)}
+                </span>
+              ))}
+            </>
+          ) : (
+            <span className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-foreground">
+              <span aria-hidden="true" className={`h-2 w-2 rounded-full ${MOOD_CELL_COLORS[entry.mood]}`} />
+              {t(`journalEntry.moods.${entry.mood}`)}
+            </span>
+          )}
 
-          {entry.activities?.map(activity => (
+          {entry.type !== 'dream' && entry.activities?.map(activity => (
             <span key={activity} className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1">
               <span aria-hidden="true">{getActivityEmoji(activity)}</span>
               {PREDEFINED_ACTIVITIES.some(p => p.key === activity) ? t(`activities.${activity}`) : activity}
@@ -694,6 +766,19 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
           ))}
         </div>
 
+        {entry.type === 'dream' ? (
+          <DreamReflection
+            entry={entry}
+            allEntries={allEntries}
+            isPro={isPro}
+            isDemo={isDemo}
+            onSaveReflection={async (reflection) => {
+              if (!onSaveReflection) throw new Error('Reflection cannot be saved here');
+              await onSaveReflection(entry, reflection);
+            }}
+            onSaveThoughts={onSaveDreamThoughts ? (thoughts) => onSaveDreamThoughts(entry, thoughts) : undefined}
+          />
+        ) : (
         <AIAnalysis 
           entryId={entry.id}
           content={entry.body}
@@ -712,6 +797,7 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
             });
           }}
         />
+        )}
       </Card>
     );
   }
@@ -719,7 +805,7 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
   return (
     <Card className="max-w-full overflow-hidden rounded-2xl border-border bg-card p-5 shadow-medium sm:p-8">
       <div className="space-y-6 min-w-0">
-        <div className="flex items-center gap-3 text-sm xl:text-base text-muted-foreground mb-4">
+        <div className="flex flex-wrap items-center gap-3 text-sm xl:text-base text-muted-foreground mb-4">
           <Calendar className="w-4 h-4 xl:w-5 xl:h-5 flex-shrink-0" />
           <Input
             type="date"
@@ -727,6 +813,16 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
             onChange={(e) => setSelectedDate(new Date(e.target.value))}
             className="w-auto border-0 bg-transparent p-0 focus-visible:ring-0 text-muted-foreground xl:text-base"
           />
+          <button
+            type="button"
+            className="chip ml-auto"
+            aria-pressed={isDream}
+            onClick={toggleDream}
+            title={t('dream.toggleHint')}
+          >
+            <Moon aria-hidden="true" className="h-4 w-4" />
+            {t('dream.toggle')}
+          </button>
         </div>
 
         <Input
@@ -740,7 +836,7 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
           <TitleSuggestion 
             content={body}
             tags={tags}
-            mood={mood}
+            mood={isDream ? undefined : mood}
             onApply={setTitle}
             isPro={isPro}
           />
@@ -749,12 +845,22 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
         <MarkdownEditor
           value={body}
           onChange={setBody}
-          placeholder={t('journalEntry.startWriting')}
+          placeholder={isDream ? t('dream.editor.placeholder') : t('journalEntry.startWriting')}
           availableTags={autocompleteTags}
           voiceInput={isDemo ? undefined : { isPro }}
         />
 
         <div className="space-y-3">
+          {isDream ? (
+            <div className="sm:ml-7">
+              <DreamDetailsEditor
+                value={dreamDetails}
+                onChange={setDreamDetails}
+                onShowGuide={() => setDreamGuideOpen(true)}
+              />
+            </div>
+          ) : (
+          <>
           {/* Mood selector with horizontal scroll on mobile */}
           <div className="flex items-center gap-3 min-w-0">
             <Heart className="w-4 h-4 xl:w-5 xl:h-5 text-muted-foreground flex-shrink-0" />
@@ -909,6 +1015,8 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
               </div>
             );
           })()}
+          </>
+          )}
 
           <div className="flex items-center gap-3">
             <Tag className="w-4 h-4 xl:w-5 xl:h-5 text-muted-foreground" />
@@ -982,7 +1090,7 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
                 existingTags={tags}
                 onApplyTags={(newTags) => setTags([...tags, ...newTags])}
                 isPro={isPro}
-                predefinedActivities={PREDEFINED_ACTIVITY_KEYS}
+                predefinedActivities={isDream ? undefined : PREDEFINED_ACTIVITY_KEYS}
                 existingActivities={activities}
                 onApplyActivities={(newActivities) => {
                   setActivities(prev => {
@@ -1079,6 +1187,7 @@ const JournalEntryInner = ({ entry, onSave, onDelete, onCancel, isEditing = fals
           )}
         </div>
       </div>
+      <DreamGuide open={dreamGuideOpen} onOpenChange={setDreamGuideOpen} isPro={isPro} />
     </Card>
   );
 };

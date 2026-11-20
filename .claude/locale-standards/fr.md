@@ -142,3 +142,16 @@ see the website's `.claude/locale-standards/fr.md`. Target is France French (fr-
 - Gboard « Saisie vocale » / Android « Micro » permission naming (Google help; third-party guides e.g.
   https://www.prodigemobile.com/tutoriel/dicter-texte-android/)
 - Non-breaking spaces before French punctuation: https://wiki.openoffice.org/wiki/Non_Breaking_Spaces_Before_Punctuation_In_French_(espaces_insécables)
+
+## Dreams glossary (dream journal and reflection, Nov 2026)
+| English | Use | Avoid / source |
+|---|---|---|
+| dream journal | **journal de rêves** | fr.wikipedia « Journal de rêves »; pourquoidocteur.fr |
+| Dream reflection (feature) | **Réflexion sur les rêves**; card title « Réflexion sur le rêve » | « Analyse/Interprétation des rêves » (implies decoding, clashes with « Analyse par IA ») — judgment |
+| Reflect on this dream (button) / reflected | **Explorer ce rêve**; « Exploration du rêve… »; « rêves explorés ». Verb = the user's act, noun « réflexion » = the result; guide and Help quote the button exactly | « Réfléchir à ce rêve » (app cannot "think") — judgment |
+| Dream patterns (report) | **Motifs récurrents des rêves**; the report = **bilan** | bare « Motifs récurrents » (loses "dream" in the journal card and saved-note title; « motifs » alone also reads "reasons"); « rapport » — judgment |
+| nightmare / lucid dream / recurring | **cauchemar**, **rêve lucide** (chip « Lucide »), **récurrent** | fr.wikipedia « Rêve lucide » |
+| symbol dictionary | « clé des songes », « dictionnaire de symboles » | fr.wikipedia « Rêve (psychologie analytique) » |
+| short labels sent for patterns | **mots-clés** | « étiquettes » (= activity tags) — judgment |
+| tokens (legal) | « le nombre de **jetons** utilisés pour le traitement par l'IA » (JO 6 Sept 2024 term: « jeton textuel ») | « tokens » in running text; « le volume de traitement par l'IA consommé » (« l'IA consommé » garden-path) |
+| take what fits | « Prenez ce qui vous parle, laissez le reste. » | « ce qui vous convient » — judgment |

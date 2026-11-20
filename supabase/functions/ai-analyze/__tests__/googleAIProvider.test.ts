@@ -28,6 +28,8 @@ const routes = [
   { type: 'analyzeEntry', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2000 },
   { type: 'analyzeTrends', google: 'gemini-3.1-pro-preview', thinking: 'HIGH', maxTokens: 4000 },
   { type: 'analyze', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2000 },
+  { type: 'analyzeDream', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2000 },
+  { type: 'analyzeDreamPatterns', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2500 },
 ];
 
 const fetchMock = vi.fn<typeof fetch>();
@@ -110,5 +112,66 @@ describe('Google request compatibility', () => {
     await callGoogleAI('custom-model', messages);
 
     expect(lastRequest().body.generationConfig).toEqual({ maxOutputTokens: 2000 });
+  });
+
+  it('reports thinking tokens separately from response tokens', async () => {
+    fetchMock.mockResolvedValue(Response.json({
+      candidates: [{ content: { parts: [{ text: '{}' }] }, finishReason: 'STOP' }],
+      usageMetadata: { promptTokenCount: 120, candidatesTokenCount: 40, thoughtsTokenCount: 300, totalTokenCount: 460 },
+    }));
+
+    const response = await callGoogleAI(getModelForType('analyzeEntry'), messages);
+
+    expect(response.usage).toEqual({ prompt_tokens: 120, completion_tokens: 40, thinking_tokens: 300, total_tokens: 460 });
+  });
+
+  it('records zero thinking tokens when the model reports none', async () => {
+    fetchMock.mockResolvedValue(Response.json({
+      candidates: [{ content: { parts: [{ text: '{}' }] }, finishReason: 'STOP' }],
+      usageMetadata: { promptTokenCount: 10, candidatesTokenCount: 5, totalTokenCount: 15 },
+    }));
+
+    const response = await callGoogleAI('custom-model', messages);
+
+    expect(response.usage?.thinking_tokens).toBe(0);
+  });
+
+  it('reports a blocked prompt as PROMPT_BLOCKED and keeps its billed tokens', async () => {
+    fetchMock.mockResolvedValue(Response.json({
+      promptFeedback: { blockReason: 'SAFETY' },
+      usageMetadata: { promptTokenCount: 700, candidatesTokenCount: 0, totalTokenCount: 700 },
+    }));
+
+    const response = await callGoogleAI(getModelForType('analyzeEntry'), messages);
+
+    expect(response.choices[0].finish_reason).toBe('PROMPT_BLOCKED');
+    expect(response.usage?.prompt_tokens).toBe(700);
+  });
+
+  it('keeps the tokens of an answer recovered from a malformed call', async () => {
+    fetchMock.mockResolvedValue(Response.json({
+      candidates: [{
+        finishReason: 'MALFORMED_FUNCTION_CALL',
+        finishMessage: 'Malformed function call: print(default_api.generate_titles(titles=["A walk", "With a friend"]))',
+      }],
+      usageMetadata: { promptTokenCount: 120, candidatesTokenCount: 40, thoughtsTokenCount: 10, totalTokenCount: 170 },
+    }));
+
+    const result = await callGoogleAI(getModelForType('title'), messages, tools, toolChoice, 2000);
+
+    expect(result.choices[0].message.tool_calls?.[0].function.name).toBe('generate_titles');
+    expect(result.usage).toMatchObject({ prompt_tokens: 120, completion_tokens: 40, thinking_tokens: 10 });
+  });
+
+  it('keeps the tokens of an empty, refused answer', async () => {
+    fetchMock.mockResolvedValue(Response.json({
+      candidates: [{ finishReason: 'SAFETY' }],
+      usageMetadata: { promptTokenCount: 700, candidatesTokenCount: 0, totalTokenCount: 700 },
+    }));
+
+    const response = await callGoogleAI(getModelForType('analyzeEntry'), messages);
+
+    expect(response.choices[0].finish_reason).toBe('SAFETY');
+    expect(response.usage?.prompt_tokens).toBe(700);
   });
 });

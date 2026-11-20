@@ -1647,6 +1647,7 @@
       "tagSuggestions": "Suggestions intelligentes de tags",
       "trendAnalysis": "Analyses de l'humeur et des tendances",
       "voiceEntry": "Saisie vocale",
+      "dreamReflection": "Réflexion sur les rêves",
       "exports": "Exportation PDF et Word"
     },
     "trialCta": "Commencer l'essai gratuit",
@@ -1882,6 +1883,10 @@
       "title": "Votre chronologie",
       "content": "Vos entrées de journal apparaîtront ici, organisées par date. Appuyez sur le bouton + pour créer votre première entrée."
     },
+    "dreams": {
+      "title": "Votre journal de rêves",
+      "content": "Notez un rêve dès le réveil, avant qu'il ne s'estompe, et appuyez sur « Rêve » pour marquer l'entrée comme un rêve. Vous pouvez aussi choisir les émotions ressenties. Tout cela est gratuit.\n\nAvec Plus, vous pouvez obtenir une réflexion sur vos rêves."
+    },
     "syncStatus": {
       "title": "Statut de synchronisation",
       "content": "Une fois le stockage cloud connecté, cet indicateur montre votre statut de synchronisation.\nVert signifie synchronisé !"
@@ -2064,6 +2069,21 @@
         "desc": "Appuyez sur le micro sous l'éditeur et parlez au lieu de taper. Quand vous arrêtez l'enregistrement, ce que vous avez dit est transformé en un texte propre et ponctué, inséré à l'emplacement du curseur. Cela fonctionne dans la langue que vous parlez, même si vous changez de langue en cours de route. Chaque enregistrement peut durer jusqu'à 5 minutes, et Plus inclut 200 minutes par mois.",
         "proNote": "(Fonctionnalité Plus)"
       },
+      "dreams": {
+        "title": "Journal de rêves et réflexion",
+        "desc": "Quand vous écrivez une entrée, activez « Rêve » pour l'enregistrer comme un rêve. Notez-le dès le réveil, tel qu'il vous revient, puis choisissez les émotions qu'il vous a laissées. Les rêves n'apparaissent ni dans le calendrier d'humeur ni dans l'analyse des tendances. Avec Plus, appuyez sur « Explorer ce rêve » pour obtenir une réflexion : des thèmes possibles, des images à explorer et des questions à vous poser. Sous la réflexion, vous pouvez noter vos propres pensées : « Explorer à nouveau » en tient compte. Plus comprend 30 réflexions par mois. Dès qu'une période de votre choix compte au moins cinq rêves, vous pouvez créer un bilan « Motifs récurrents des rêves » sur cette période, jusqu'à deux par mois. À la création du bilan, les rêves de cette période qui n'ont pas encore de réflexion sont d'abord explorés automatiquement, et chacun utilise l'une de vos 30 réflexions du mois. Le bilan fait ressortir les personnes, les lieux et les thèmes qui reviennent, et les compare avec ce dont vous parlez dans votre journal.",
+        "proNote": "(Fonctionnalité Plus)"
+      },
+      "dreamMethod": {
+        "title": "Comment fonctionne la réflexion sur les rêves",
+        "intro": "La réflexion sur les rêves s'inspire de la manière dont Carl Gustav Jung abordait les rêves, ainsi que de la recherche moderne sur le rêve.",
+        "jung": "De Jung, elle retient que vos propres associations comptent davantage que le sens général d'un symbole. D'où la possibilité de noter vos pensées sous une réflexion, puis d'explorer le rêve à nouveau. Toujours selon Jung, une même image peut s'explorer dans plusieurs directions, un rêve peut éclairer un aspect de votre vie auquel vous prêtez moins attention dans la journée, et une série de rêves en dit plus long qu'un rêve isolé.",
+        "research": "De la recherche sur le rêve, en particulier des travaux de Calvin Hall et de G. William Domhoff, elle retient que les rêves reflètent surtout ce qui vous occupe à l'état de veille : vos relations, vos soucis, vos émotions. C'est pourquoi une réflexion peut signaler des liens possibles avec vos entrées de la semaine écoulée, et pourquoi un bilan « Motifs récurrents des rêves » compare vos rêves avec les thèmes de votre journal.",
+        "questions": "Les questions finales suivent le modèle de Clara Hill pour le travail sur les rêves : explorer le rêve, chercher ce qu'il pourrait signifier pour vous, puis envisager un petit pas à faire.",
+        "noDictionary": "Aucune clé des songes, aucun dictionnaire de symboles figé : une réflexion propose des pistes, et c'est vous qui décidez de ce qui vous parle.",
+        "notAdvice": "La réflexion sur les rêves est un outil d'introspection. Elle ne constitue pas un avis médical ou psychologique et ne permet de poser aucun diagnostic.",
+        "privacy": "Pour préparer une réflexion, OwnJournal envoie au service Gemini de Google le texte et la date de votre rêve, les émotions que vous avez choisies, le type de rêve indiqué (récurrent, cauchemar, lucide) et, si vous en avez noté, vos propres pensées sur ce rêve, accompagnées des questions de la réflexion précédente auxquelles elles répondent. S'y ajoutent, pour chacune de vos entrées déjà analysées de la semaine écoulée, sa date, son court résumé, ses thèmes clés et son émotion dominante, mais jamais le texte de ces entrées. Pour un bilan « Motifs récurrents des rêves », OwnJournal envoie les mots-clés enregistrés avec chaque réflexion. Afin de comparer vos rêves avec votre journal, l'application envoie aussi les thèmes clés et les émotions dominantes de vos entrées déjà analysées de la même période que ces rêves, en remontant jusqu'à une semaine avant le premier d'entre eux. Elle y joint, pour chaque thème et chaque émotion, le nombre d'entrées concernées. Pour ce bilan, ni le texte de vos rêves ni celui de vos entrées ne sont envoyés. OwnJournal ne conserve aucune des données envoyées."
+      },
       "aiAnalysis": {
         "title": "Analyse par IA",
         "desc": "Obtenez, grâce à l'IA, un éclairage sur vos entrées : analyse de l'humeur, détection des sujets abordés et suggestions personnalisées pour approfondir votre introspection.",
@@ -2206,7 +2226,7 @@
       },
       "pro": {
         "question": "Que comprend Plus ?",
-        "answer": "Plus comprend l'analyse par IA, les suggestions de titres et de tags, la saisie vocale, l'analyse des tendances, les Analyses d'activités et l'exportation PDF et Word."
+        "answer": "Plus comprend l'analyse par IA, les suggestions de titres et de tags, la saisie vocale, la réflexion sur les rêves, l'analyse des tendances, les Analyses d'activités et l'exportation PDF et Word."
       },
       "manageSubscription": {
         "question": "Comment gérer mon abonnement ?",
@@ -2312,7 +2332,7 @@
       },
       "collection": {
         "title": "Informations que nous collectons",
-        "content": "Les données à caractère personnel que nous collectons sont réduites au minimum. Dans le cadre de votre compte, nous collectons : votre adresse e-mail, votre nom d'affichage (s'il est fourni par un service d'authentification externe tel que Google ou Apple) et, une fois que vous connectez un stockage cloud, un enregistrement du fournisseur que vous avez choisi. Pour exploiter le service de journal, nous conservons une petite quantité d'état sur nos serveurs : si votre configuration de chiffrement est terminée, votre statut d'abonnement et les identifiants dont notre prestataire de paiement (Stripe) a besoin pour gérer votre abonnement. Pour surveiller l'utilisation équitable des fonctionnalités d'IA optionnelles, nous enregistrons des compteurs d'utilisation par utilisateur (le type d'analyse effectuée et un horodatage ; jamais le contenu de vos entrées). Pour la saisie vocale, le compteur consigne également la durée, en secondes, de chaque enregistrement transcrit ; l'enregistrement lui-même n'est jamais conservé. Notre service d'authentification conserve également des métadonnées de session standard telles que les horodatages de connexion. Les noms d'affichage sont utilisés uniquement pour personnaliser votre expérience dans l'application et ne sont jamais rendus publics. Pour afficher les prix d'abonnement dans votre devise locale, nous pouvons consulter brièvement le pays associé à votre adresse IP ; seul le code pays résultant est utilisé, il n'est pas lié à votre compte et nous ne conservons pas votre adresse IP. Nous n'utilisons pas de services d'analyse tiers, de SDK publicitaires ni de traceurs inter-applications. Lorsque vous utilisez le chiffrement de bout en bout (E2E), le contenu de votre journal est chiffré sur votre appareil et nous ne pouvons pas le lire. En mode Simple, les données de votre journal sont synchronisées avec votre fournisseur cloud choisi sans chiffrement de bout en bout. Le mode Simple est conçu pour la simplicité d'utilisation et peut réduire la confidentialité par rapport au mode E2E ; vos données restent protégées par les mesures de sécurité standard de votre fournisseur cloud."
+        "content": "Les données à caractère personnel que nous collectons sont réduites au minimum. Dans le cadre de votre compte, nous collectons : votre adresse e-mail, votre nom d'affichage (s'il est fourni par un service d'authentification externe tel que Google ou Apple) et, une fois que vous connectez un stockage cloud, un enregistrement du fournisseur que vous avez choisi. Pour exploiter le service de journal, nous conservons une petite quantité d'état sur nos serveurs : si votre configuration de chiffrement est terminée, votre statut d'abonnement et les identifiants dont notre prestataire de paiement (Stripe) a besoin pour gérer votre abonnement. Pour surveiller l'utilisation équitable des fonctionnalités d'IA optionnelles, nous enregistrons des compteurs d'utilisation par utilisateur (le type d'analyse effectuée, un horodatage, le modèle d'IA employé, le nombre de jetons utilisés pour le traitement par l'IA et l'identifiant de l'entrée concernée pour les fonctionnalités portant sur une seule entrée ; jamais le contenu de vos entrées). Pour la saisie vocale, le compteur consigne également la durée, en secondes, de chaque enregistrement transcrit ; l'enregistrement lui-même n'est jamais conservé. Notre service d'authentification conserve également des métadonnées de session standard telles que les horodatages de connexion. Les noms d'affichage sont utilisés uniquement pour personnaliser votre expérience dans l'application et ne sont jamais rendus publics. Pour afficher les prix d'abonnement dans votre devise locale, nous pouvons consulter brièvement le pays associé à votre adresse IP ; seul le code pays résultant est utilisé, il n'est pas lié à votre compte et nous ne conservons pas votre adresse IP. Nous n'utilisons pas de services d'analyse tiers, de SDK publicitaires ni de traceurs inter-applications. Lorsque vous utilisez le chiffrement de bout en bout (E2E), le contenu de votre journal est chiffré sur votre appareil et nous ne pouvons pas le lire. En mode Simple, les données de votre journal sont synchronisées avec votre fournisseur cloud choisi sans chiffrement de bout en bout. Le mode Simple est conçu pour la simplicité d'utilisation et peut réduire la confidentialité par rapport au mode E2E ; vos données restent protégées par les mesures de sécurité standard de votre fournisseur cloud."
       },
       "usage": {
         "title": "Comment nous utilisons les informations",
@@ -2340,7 +2360,7 @@
       },
       "aiProcessing": {
         "title": "Fonctionnalités d'IA et traitement",
-        "content": "OwnJournal propose des fonctionnalités optionnelles basées sur l'IA, comme l'analyse de l'humeur, les suggestions et la saisie vocale, réservées aux abonnés Plus. Le traitement par l'IA n'a lieu que lorsque vous, en tant qu'abonné Plus, utilisez expressément ces fonctionnalités. Lorsque vous utilisez les fonctionnalités d'IA basées sur le texte, le texte concerné est d'abord déchiffré sur votre appareil, puis envoyé, par votre action explicite et via nos serveurs, à notre fournisseur d'IA, actuellement Google (Gemini), au moyen de son API payante. Lorsque vous utilisez la saisie vocale, le micro de votre appareil n'est utilisé que pendant l'enregistrement ; l'enregistrement est envoyé via nos serveurs à Google (Gemini) pour être converti en texte, et le texte obtenu est ajouté à votre entrée sur votre appareil. Nous ne conservons sur nos serveurs ni les données transmises à l'IA ni les résultats qu'elle produit, y compris les enregistrements vocaux et les transcriptions ; nous enregistrons uniquement des compteurs d'utilisation des fonctionnalités d'IA par utilisateur (le type d'analyse effectuée, un horodatage et, pour la saisie vocale, la durée de l'enregistrement en secondes ; jamais le contenu) afin d'appliquer les limites d'utilisation équitable. Google peut conserver les requêtes et les réponses pendant une durée limitée à des fins de détection des abus et d'application de ses règles, conformément à ses politiques en vigueur. Le traitement par l'IA peut avoir lieu en dehors de l'EEE ; Google met en œuvre des garanties appropriées pour les transferts de données, telles que les clauses contractuelles types. Nous utilisons l'offre payante du service d'IA de Google, dans le cadre de laquelle les requêtes et les réponses ne sont pas utilisées pour entraîner ou améliorer ses modèles. Vous pouvez choisir de ne pas utiliser les fonctionnalités d'IA, sans incidence sur les fonctionnalités de base du journal."
+        "content": "OwnJournal propose des fonctionnalités optionnelles basées sur l'IA, comme l'analyse de l'humeur, les suggestions, la saisie vocale et la réflexion sur les rêves, réservées aux abonnés Plus. Le traitement par l'IA n'a lieu que lorsque vous, en tant qu'abonné Plus, utilisez expressément ces fonctionnalités. Lorsque vous utilisez les fonctionnalités d'IA basées sur le texte, le texte concerné est d'abord déchiffré sur votre appareil, puis envoyé, par votre action explicite et via nos serveurs, à notre fournisseur d'IA, actuellement Google (Gemini), au moyen de son API payante. Lorsque vous utilisez la saisie vocale, le micro de votre appareil n'est utilisé que pendant l'enregistrement ; l'enregistrement est envoyé via nos serveurs à Google (Gemini) pour être converti en texte, et le texte obtenu est ajouté à votre entrée sur votre appareil. Nous ne conservons sur nos serveurs ni les données transmises à l'IA ni les résultats qu'elle produit, y compris les enregistrements vocaux et les transcriptions ; nous enregistrons uniquement des compteurs d'utilisation des fonctionnalités d'IA par utilisateur (le type d'analyse effectuée, un horodatage, le modèle d'IA employé, le nombre de jetons utilisés pour le traitement par l'IA, l'identifiant de l'entrée concernée pour les fonctionnalités portant sur une seule entrée et, pour la saisie vocale, la durée de l'enregistrement en secondes ; jamais le contenu) afin d'appliquer les limites d'utilisation équitable. Google peut conserver les requêtes et les réponses pendant une durée limitée à des fins de détection des abus et d'application de ses règles, conformément à ses politiques en vigueur. Le traitement par l'IA peut avoir lieu en dehors de l'EEE ; Google met en œuvre des garanties appropriées pour les transferts de données, telles que les clauses contractuelles types. Nous utilisons l'offre payante du service d'IA de Google, dans le cadre de laquelle les requêtes et les réponses ne sont pas utilisées pour entraîner ou améliorer ses modèles. Vous pouvez choisir de ne pas utiliser les fonctionnalités d'IA, sans incidence sur les fonctionnalités de base du journal."
       },
       "diagnostics": {
         "title": "Diagnostics et journaux de plantage",
@@ -2604,5 +2624,173 @@
       "noSpeech": "Aucune parole n'a été détectée dans l'enregistrement.",
       "failed": "La transcription a échoué. Veuillez réessayer."
     }
+  },
+  "dream": {
+    "toggle": "Rêve",
+    "toggleHint": "Marquer cette entrée comme un rêve",
+    "badge": "Rêve",
+    "editor": {
+      "placeholder": "Que s'est-il passé dans votre rêve ? Notez-le tel qu'il vous revient.",
+      "feelingsLabel": "Qu'avez-vous ressenti dans ce rêve ?",
+      "flagsLabel": "Type de rêve",
+      "howItWorks": "Comment ça marche"
+    },
+    "feelings": {
+      "joy": "Joie",
+      "calm": "Calme",
+      "awe": "Émerveillement",
+      "curiosity": "Curiosité",
+      "love": "Amour",
+      "fear": "Peur",
+      "anxiety": "Angoisse",
+      "sadness": "Tristesse",
+      "anger": "Colère",
+      "confusion": "Confusion",
+      "shame": "Honte",
+      "loneliness": "Solitude"
+    },
+    "flags": {
+      "recurring": "Récurrent",
+      "nightmare": "Cauchemar",
+      "lucid": "Lucide",
+      "lucidExplained": "Lucide : vous saviez que vous étiez en train de rêver."
+    },
+    "guide": {
+      "title": "Votre journal de rêves",
+      "step1": "Notez votre rêve dès le réveil : il s'estompe en quelques minutes.",
+      "step1Voice": "Vous pouvez aussi le dicter : c'est parfois plus rapide.",
+      "step2": "Racontez-le tel que vous l'avez vécu : les personnes, les lieux, ce que vous faisiez, ce que vous ressentiez. Peu importe l'ordre ou la logique.",
+      "step3": "Appuyez ensuite sur « Explorer ce rêve » pour obtenir une réflexion sur ce que vous avez écrit.",
+      "step3Patterns": "Après cinq rêves notés, vous pourrez créer dans votre journal un bilan « Motifs récurrents des rêves » sur la période de votre choix. Ce bilan fait ressortir les personnes, les lieux et les thèmes qui reviennent.",
+      "done": "J'ai compris"
+    },
+    "reflection": {
+      "title": "Réflexion sur le rêve",
+      "reflect": "Explorer ce rêve",
+      "reflecting": "Exploration du rêve…",
+      "reflectAgain": "Explorer à nouveau",
+      "editToReflectAgain": "Modifiez le rêve ou ajoutez vos pensées pour l'explorer à nouveau",
+      "plusOnly": "La réflexion sur les rêves est disponible avec Plus",
+      "remaining": "Réflexions restantes ce mois-ci : {{remaining}} sur {{limit}}",
+      "summary": "En bref",
+      "themes": "Thèmes possibles",
+      "images": "Images à explorer",
+      "wakingLinks": "Liens possibles avec vos journées",
+      "questions": "Questions à vous poser",
+      "thoughts": {
+        "label": "Vos pensées",
+        "placeholder": "Que vous évoquent ces questions ?",
+        "hint": "« Explorer à nouveau » tient compte de vos pensées."
+      },
+      "fromThoughts": "Ce que vos pensées ont changé",
+      "footer": "Une réflexion, pas un diagnostic. Prenez ce qui vous parle, laissez le reste.",
+      "howThisWorks": "Découvrir la méthode",
+      "show": "Afficher",
+      "hide": "Masquer",
+      "care": {
+        "title": "Si ce rêve vous poursuit",
+        "body": "Certains rêves sont lourds à porter. Si des rêves éprouvants reviennent souvent ou pèsent sur vos journées, en parler à une personne de confiance ou à un professionnel de santé peut vous aider.",
+        "urgent": "Si vous pensez à vous faire du mal, contactez sans attendre les services d'urgence ou une ligne d'écoute."
+      },
+      "consent": {
+        "title": "Explorer votre rêve avec Google ?",
+        "body": "Pour préparer la réflexion, OwnJournal envoie au service Gemini de Google le texte et la date de votre rêve, les émotions que vous avez choisies, le type de rêve indiqué (récurrent, cauchemar, lucide) et, si vous en avez noté, vos propres pensées sur ce rêve, accompagnées des questions de la réflexion précédente auxquelles elles répondent. S'y ajoutent, pour chacune de vos entrées déjà analysées de la semaine écoulée, sa date, son court résumé, ses thèmes clés et son émotion dominante, mais jamais le texte de ces entrées. Pour un bilan « Motifs récurrents des rêves », OwnJournal envoie les mots-clés enregistrés avec chaque réflexion. Afin de comparer vos rêves avec votre journal, l'application envoie aussi les thèmes clés et les émotions dominantes de vos entrées déjà analysées de la même période que ces rêves, en remontant jusqu'à une semaine avant le premier d'entre eux. Elle y joint, pour chaque thème et chaque émotion, le nombre d'entrées concernées. Pour ce bilan, ni le texte de vos rêves ni celui de vos entrées ne sont envoyés. OwnJournal ne conserve aucune des données envoyées. Google ne les utilise pas pour entraîner ses modèles et ne peut les conserver que brièvement, pour prévenir les abus. La réflexion est enregistrée avec votre rêve, comme le reste de l'entrée.",
+        "accept": "Continuer",
+        "decline": "Pas maintenant"
+      },
+      "errors": {
+        "offline": "Vous êtes hors ligne. La réflexion sur les rêves nécessite une connexion Internet.",
+        "authRequired": "Veuillez vous connecter pour explorer vos rêves.",
+        "plusRequired": "La réflexion sur les rêves nécessite un abonnement Plus.",
+        "limitReached": "Vous avez utilisé vos {{limit}} réflexions du mois. Votre quota sera renouvelé le mois prochain ; d'ici là, vous pouvez toujours noter vos rêves.",
+        "tooShort": "Écrivez d'abord au moins {{min}} caractères sur votre rêve.",
+        "tooLong": "Ce rêve est trop long pour une réflexion. Raccourcissez-le un peu, puis réessayez.",
+        "saveFailed": "La réflexion n'a pas pu être enregistrée. Veuillez réessayer.",
+        "failed": "La réflexion n'a pas abouti cette fois-ci. Veuillez réessayer.",
+        "failedLimitReached": "Trop de demandes n'ont pas abouti ce mois-ci : la réflexion sur les rêves reprendra le mois prochain. D'ici là, vous pouvez toujours noter vos rêves.",
+        "blocked": "Le service d'IA ne traite pas certains sujets évoqués dans ce rêve : aucune réflexion n'est donc possible. Votre rêve reste enregistré dans votre journal."
+      }
+    },
+    "patterns": {
+      "title": "Motifs récurrents des rêves",
+      "intro": "Ce qui revient d'un rêve à l'autre.",
+      "dreamsInPeriod_one": "{{count}} rêve sur cette période",
+      "dreamsInPeriod_many": "{{count}} rêves sur cette période",
+      "dreamsInPeriod_other": "{{count}} rêves sur cette période",
+      "needMore": "Il faut au moins {{min}} rêves pour créer un bilan.",
+      "reflectFirst_one": "L'un de ces rêves n'a pas encore de réflexion. Il sera exploré avant la création du bilan, ce qui utilisera une de vos réflexions du mois (il vous en reste {{remaining}}).",
+      "reflectFirst_many": "{{count}} de ces rêves n'ont pas encore de réflexion. Ils seront explorés avant la création du bilan, ce qui utilisera {{count}} de vos réflexions du mois (il vous en reste {{remaining}}).",
+      "reflectFirst_other": "{{count}} de ces rêves n'ont pas encore de réflexion. Ils seront explorés avant la création du bilan, ce qui utilisera {{count}} de vos réflexions du mois (il vous en reste {{remaining}}).",
+      "notEnoughReflections_one": "{{dreams}} de ces rêves n'ont pas encore de réflexion, mais il ne vous en reste qu'une ce mois-ci. Choisissez une période plus courte.",
+      "notEnoughReflections_many": "{{dreams}} de ces rêves n'ont pas encore de réflexion, mais il ne vous en reste que {{count}} ce mois-ci. Choisissez une période plus courte.",
+      "notEnoughReflections_other": "{{dreams}} de ces rêves n'ont pas encore de réflexion, mais il ne vous en reste que {{count}} ce mois-ci. Choisissez une période plus courte.",
+      "noReflectionsLeft_one": "L'un de ces rêves n'a pas encore de réflexion, mais il ne vous en reste plus aucune ce mois-ci. Choisissez une période plus courte.",
+      "noReflectionsLeft_many": "{{count}} de ces rêves n'ont pas encore de réflexion, mais il ne vous en reste plus aucune ce mois-ci. Choisissez une période plus courte.",
+      "noReflectionsLeft_other": "{{count}} de ces rêves n'ont pas encore de réflexion, mais il ne vous en reste plus aucune ce mois-ci. Choisissez une période plus courte.",
+      "ready": "Vous pouvez maintenant créer votre premier bilan.",
+      "create": "Créer le bilan",
+      "createNew": "Créer un nouveau bilan",
+      "creating": "Recherche des motifs…",
+      "reflecting": "Exploration du rêve {{current}} sur {{total}}…",
+      "remaining": "Bilans restants ce mois-ci : {{remaining}} sur {{limit}}",
+      "plusOnly": "Le bilan « Motifs récurrents des rêves » est disponible avec Plus",
+      "earlyThemes": "Premiers thèmes",
+      "earlyThemesNote_one": "D'après {{count}} rêve. Les motifs se dessinent mieux avec davantage de rêves, par exemple sur une période plus longue.",
+      "earlyThemesNote_many": "D'après {{count}} rêves. Les motifs se dessinent mieux avec davantage de rêves, par exemple sur une période plus longue.",
+      "earlyThemesNote_other": "D'après {{count}} rêves. Les motifs se dessinent mieux avec davantage de rêves, par exemple sur une période plus longue.",
+      "basedOn_one": "D'après {{count}} rêve",
+      "basedOn_many": "D'après {{count}} rêves",
+      "basedOn_other": "D'après {{count}} rêves",
+      "overview": "Vue d'ensemble",
+      "recurring": "Ce qui revient",
+      "inDreams_one": "Dans {{count}} rêve",
+      "inDreams_many": "Dans {{count}} rêves",
+      "inDreams_other": "Dans {{count}} rêves",
+      "kinds": {
+        "character": "Personne",
+        "setting": "Lieu",
+        "emotion": "Ressenti",
+        "theme": "Thème"
+      },
+      "changes": "Comment vos rêves ont évolué",
+      "waking": {
+        "title": "Vos rêves et vos journées",
+        "basedOn_one": "Comparaison avec {{count}} entrée analysée de la même période",
+        "basedOn_many": "Comparaison avec {{count}} entrées analysées de la même période",
+        "basedOn_other": "Comparaison avec {{count}} entrées analysées de la même période",
+        "shared": "Dans vos rêves et dans votre journal",
+        "dreamsOnly": "Dans vos rêves, pas dans votre journal",
+        "wakingOnly": "Dans votre journal, pas dans vos rêves",
+        "none": "Ce bilan ne contient pas de comparaison avec votre journal. Elle nécessite au moins {{min}} entrées analysées de la même période que vos rêves."
+      },
+      "questions": "Questions à vous poser",
+      "footer": "Des pistes de réflexion, pas un diagnostic. Prenez ce qui vous parle, laissez le reste.",
+      "saveAsNote": "Enregistrer comme note",
+      "noteTitle": "Motifs récurrents des rêves ({{date}})",
+      "errors": {
+        "offline": "Vous êtes hors ligne. Le bilan « Motifs récurrents des rêves » nécessite une connexion Internet.",
+        "limitReached": "Vous avez créé vos {{limit}} bilans « Motifs récurrents des rêves » du mois. Vous pourrez en créer un nouveau le mois prochain.",
+        "failed": "Le bilan n'a pas pu être créé cette fois-ci. Veuillez réessayer.",
+        "failedLimitReached": "Trop de demandes n'ont pas abouti ce mois-ci. Vous pourrez de nouveau créer des bilans le mois prochain.",
+        "blocked": "Le service d'IA ne traite pas certains thèmes présents dans vos rêves : le bilan n'a donc pas pu être créé."
+      }
+    },
+    "filter": "Rêves"
+  },
+  "featureTip": {
+    "title": "Nouveautés d'OwnJournal",
+    "free": "Gratuit",
+    "dreamJournal": {
+      "name": "Journal de rêves",
+      "desc": "Notez un rêve dès le réveil, avant qu'il ne s'estompe, et marquez l'entrée comme un rêve. Vous pouvez aussi choisir les émotions ressenties."
+    },
+    "dreamReflection": {
+      "desc": "Explorez un rêve pour obtenir une réflexion. Avec cinq rêves sur une période, créez un bilan de ce qui revient souvent."
+    },
+    "voice": {
+      "desc": "Appuyez sur le micro sous l'éditeur et parlez au lieu de taper."
+    },
+    "writeDream": "Noter un rêve",
+    "dismiss": "J'ai compris"
   }
 }

@@ -1579,6 +1579,7 @@
       "tagSuggestions": "Gợi ý thẻ thông minh",
       "trendAnalysis": "Phân tích tâm trạng và xu hướng",
       "voiceEntry": "Nhập bằng giọng nói",
+      "dreamReflection": "Suy ngẫm giấc mơ",
       "exports": "Xuất PDF/Word"
     },
     "trialCta": "Bắt đầu dùng thử miễn phí",
@@ -1810,6 +1811,10 @@
       "title": "Dòng thời gian nhật ký",
       "content": "Các bài viết nhật ký sẽ hiển thị ở đây, sắp xếp theo ngày. Nhấn nút + để tạo bài viết đầu tiên."
     },
+    "dreams": {
+      "title": "Nhật ký giấc mơ",
+      "content": "Ghi lại giấc mơ ngay khi vừa thức dậy, kẻo quên, và nhấn \"Giấc mơ\" để đánh dấu bài viết là giấc mơ. Nếu muốn, hãy chọn thêm cảm xúc trong mơ. Tất cả đều miễn phí.\n\nVới gói Plus, bạn còn có thể nhận phần suy ngẫm về giấc mơ của mình."
+    },
     "syncStatus": {
       "title": "Trạng thái đồng bộ",
       "content": "Khi kết nối lưu trữ đám mây, biểu tượng này hiển thị trạng thái đồng bộ. Màu xanh lá nghĩa là đã đồng bộ!"
@@ -1992,6 +1997,21 @@
         "desc": "Nhấn vào biểu tượng micrô bên dưới trình soạn thảo và nói thay vì gõ. Khi bạn dừng, lời bạn nói được chuyển thành văn bản gọn gàng, có dấu câu và chèn vào vị trí con trỏ. Tính năng này nhận biết ngôn ngữ bạn đang nói, kể cả khi bạn chuyển sang ngôn ngữ khác giữa chừng. Mỗi bản ghi âm dài tối đa 5 phút; gói Plus có 200 phút mỗi tháng.",
         "proNote": "(Tính năng Plus)"
       },
+      "dreams": {
+        "title": "Nhật ký giấc mơ và suy ngẫm",
+        "desc": "Khi viết bài, nhấn \"Giấc mơ\" để đánh dấu bài viết đó là một giấc mơ. Hãy ghi lại ngay khi vừa thức dậy, theo những gì bạn còn nhớ, rồi chọn những cảm xúc trong giấc mơ. Giấc mơ không được tính vào lịch tâm trạng và phân tích xu hướng. Với gói Plus, nhấn \"Suy ngẫm giấc mơ này\" để nhận phần suy ngẫm gồm những chủ đề có thể có, những hình ảnh đáng tìm hiểu và vài câu hỏi dành cho bạn. Bên dưới phần suy ngẫm, bạn có thể viết ra suy nghĩ của riêng mình. Khi bạn nhấn \"Suy ngẫm lại\", phần suy ngẫm mới sẽ dựa trên cả những suy nghĩ đó. Gói Plus có 30 lượt suy ngẫm mỗi tháng. Khi có ít nhất năm giấc mơ trong khoảng thời gian bạn chọn, bạn có thể tạo báo cáo Mẫu hình giấc mơ cho khoảng thời gian đó (tối đa hai báo cáo mỗi tháng). Khi bạn tạo báo cáo, giấc mơ nào trong khoảng thời gian đó chưa có phần suy ngẫm sẽ được suy ngẫm trước, và mỗi giấc mơ như vậy được tính một lượt trong 30 lượt suy ngẫm mỗi tháng. Báo cáo này cho thấy những người, địa điểm và chủ đề cứ trở đi trở lại, đồng thời so sánh với những gì bạn viết trong nhật ký.",
+        "proNote": "(Tính năng Plus)"
+      },
+      "dreamMethod": {
+        "title": "Cách hoạt động của suy ngẫm giấc mơ",
+        "intro": "Suy ngẫm giấc mơ lấy cảm hứng từ cách Carl Jung tiếp cận giấc mơ và từ các nghiên cứu hiện đại về giấc mơ.",
+        "jung": "Từ Jung, tính năng này mượn một quan niệm: điều một hình ảnh gợi lên trong chính bạn quan trọng hơn mọi cách hiểu chung về hình ảnh đó. Chính vì vậy, bạn có thể viết ra suy nghĩ của riêng mình bên dưới phần suy ngẫm rồi nhấn \"Suy ngẫm lại\". Cũng theo Jung, một hình ảnh có thể được nhìn theo nhiều hướng. Giấc mơ có khi cho thấy một mặt của cuộc sống mà lúc thức bạn ít để tâm. Nhìn cả một chuỗi giấc mơ, bạn thường hiểu được nhiều hơn so với chỉ một giấc mơ riêng lẻ.",
+        "research": "Từ nghiên cứu về giấc mơ, nhất là công trình của Calvin Hall và G. William Domhoff, tính năng này dựa trên phát hiện rằng giấc mơ phần lớn phản ánh những điều bạn bận tâm khi thức: các mối quan hệ, nỗi lo và cảm xúc. Vì thế mà phần suy ngẫm có thể gợi ra mối liên hệ với các bài viết của bạn trong tuần qua; cũng vì thế mà báo cáo Mẫu hình giấc mơ so sánh giấc mơ với các chủ đề trong nhật ký của bạn.",
+        "questions": "Các câu hỏi ở cuối dựa theo mô hình tìm hiểu giấc mơ của Clara Hill: khám phá giấc mơ, ngẫm xem giấc mơ có thể mang ý nghĩa gì với bạn, rồi nghĩ đến một bước nhỏ bạn có thể làm.",
+        "noDictionary": "Không có bảng giải mã cố định nào cho các biểu tượng trong mơ. Phần suy ngẫm chỉ đưa ra các khả năng, còn điều gì phù hợp là do bạn quyết định.",
+        "notAdvice": "Suy ngẫm giấc mơ là để bạn tự nhìn lại mình, không phải lời khuyên y tế hay tâm lý, và không thể dùng để chẩn đoán bất cứ điều gì.",
+        "privacy": "Để tạo phần suy ngẫm, ứng dụng sẽ gửi tới dịch vụ Gemini của Google: nội dung và ngày tháng của giấc mơ, những cảm xúc và loại giấc mơ bạn đã chọn (mơ lặp lại, ác mộng, mơ sáng suốt), cùng những suy nghĩ của bạn về giấc mơ, nếu bạn có ghi lại; khi đó, ứng dụng gửi cả các câu hỏi trong phần suy ngẫm trước đó, những câu hỏi mà các suy nghĩ ấy trả lời. Kèm theo đó là ngày tháng, bản tóm tắt ngắn, chủ đề chính và cảm xúc chủ đạo của từng bài viết trong tuần qua đã được phân tích, chứ không phải nội dung của các bài viết đó. Với báo cáo Mẫu hình giấc mơ, ứng dụng gửi các nhãn ngắn được lưu kèm từng phần suy ngẫm. Để so sánh giấc mơ với nhật ký, ứng dụng còn gửi chủ đề chính và cảm xúc chủ đạo của những bài viết đã được phân tích, viết trong cùng khoảng thời gian với các giấc mơ trong báo cáo, tính từ một tuần trước giấc mơ sớm nhất. Kèm theo là số lần xuất hiện của từng chủ đề và cảm xúc. Khi tạo báo cáo, ứng dụng không gửi nội dung của các giấc mơ hay các bài viết đó. OwnJournal không lưu bất kỳ dữ liệu nào được gửi đi."
+      },
       "aiAnalysis": {
         "title": "Phân tích AI",
         "desc": "Nhận phân tích thông minh về bài viết nhật ký, bao gồm phân tích tâm trạng, nhận diện chủ đề và gợi ý cá nhân để giúp bạn tự suy ngẫm sâu hơn.",
@@ -2134,7 +2154,7 @@
       },
       "pro": {
         "question": "Gói Plus bao gồm những gì?",
-        "answer": "Plus bao gồm phân tích AI, gợi ý tiêu đề, gợi ý thẻ, nhập bằng giọng nói, phân tích xu hướng, Phân tích hoạt động và xuất PDF/Word."
+        "answer": "Plus bao gồm phân tích AI, gợi ý tiêu đề, gợi ý thẻ, nhập bằng giọng nói, suy ngẫm giấc mơ, phân tích xu hướng, Phân tích hoạt động và xuất PDF/Word."
       },
       "manageSubscription": {
         "question": "Làm sao để quản lý đăng ký?",
@@ -2240,7 +2260,7 @@
       },
       "collection": {
         "title": "Thông tin chúng tôi thu thập",
-        "content": "Thông tin cá nhân chúng tôi thu thập là tối thiểu. Liên quan đến tài khoản của bạn, chúng tôi thu thập: địa chỉ email của bạn, tên hiển thị của bạn (nếu được cung cấp bởi nhà cung cấp xác thực bên ngoài như Google hoặc Apple) và — sau khi bạn kết nối lưu trữ đám mây — bản ghi về nhà cung cấp bạn đã chọn. Để vận hành dịch vụ nhật ký, chúng tôi lưu giữ một lượng nhỏ trạng thái trên máy chủ của chúng tôi — liệu thiết lập mã hóa của bạn đã hoàn tất hay chưa, trạng thái đăng ký của bạn và các định danh mà nhà xử lý thanh toán của chúng tôi (Stripe) cần để quản lý đăng ký của bạn. Để giám sát việc sử dụng hợp lý các tính năng AI tùy chọn, chúng tôi ghi lại các bộ đếm sử dụng theo người dùng (loại phân tích được thực hiện và dấu thời gian; không bao giờ là nội dung của các bài viết của bạn). Với tính năng nhập bằng giọng nói, bộ đếm cũng ghi lại độ dài tính bằng giây của từng bản ghi âm đã chuyển thành văn bản; bản thân bản ghi âm không bao giờ được lưu. Hệ thống xác thực phía sau của chúng tôi cũng lưu giữ siêu dữ liệu phiên tiêu chuẩn như dấu thời gian đăng nhập. Tên hiển thị chỉ được sử dụng để cá nhân hóa trải nghiệm của bạn trong ứng dụng và không bao giờ được công khai. Để hiển thị giá đăng ký bằng đồng tiền địa phương của bạn, chúng tôi có thể tra cứu nhanh quốc gia liên kết với địa chỉ IP của bạn; chỉ mã quốc gia kết quả được sử dụng, không được liên kết với tài khoản của bạn, và chúng tôi không lưu trữ địa chỉ IP của bạn. Chúng tôi không sử dụng dịch vụ phân tích bên thứ ba, SDK quảng cáo hoặc trình theo dõi giữa các ứng dụng. Khi bạn sử dụng mã hóa đầu cuối (E2E), nội dung nhật ký của bạn được mã hóa trên thiết bị của bạn và chúng tôi không thể đọc được. Ở chế độ Đơn giản, dữ liệu nhật ký của bạn được đồng bộ với nhà cung cấp đám mây bạn chọn mà không có mã hóa đầu cuối. Chế độ Đơn giản được thiết kế để thuận tiện và có thể giảm quyền riêng tư so với chế độ E2E; dữ liệu của bạn vẫn được bảo vệ bởi các biện pháp bảo mật tiêu chuẩn của nhà cung cấp đám mây của bạn."
+        "content": "Thông tin cá nhân chúng tôi thu thập là tối thiểu. Liên quan đến tài khoản của bạn, chúng tôi thu thập: địa chỉ email của bạn, tên hiển thị của bạn (nếu được cung cấp bởi nhà cung cấp xác thực bên ngoài như Google hoặc Apple) và — sau khi bạn kết nối lưu trữ đám mây — bản ghi về nhà cung cấp bạn đã chọn. Để vận hành dịch vụ nhật ký, chúng tôi lưu giữ một lượng nhỏ trạng thái trên máy chủ của chúng tôi — liệu thiết lập mã hóa của bạn đã hoàn tất hay chưa, trạng thái đăng ký của bạn và các định danh mà nhà xử lý thanh toán của chúng tôi (Stripe) cần để quản lý đăng ký của bạn. Để giám sát việc sử dụng hợp lý các tính năng AI tùy chọn, chúng tôi ghi lại các bộ đếm sử dụng theo người dùng (loại phân tích được thực hiện, dấu thời gian, mô hình AI được sử dụng và lượng xử lý AI đã sử dụng tính bằng token; với các tính năng áp dụng cho một bài viết riêng lẻ, còn có mã định danh của bài viết đó; không bao giờ là nội dung của các bài viết của bạn). Với tính năng nhập bằng giọng nói, bộ đếm cũng ghi lại độ dài tính bằng giây của từng bản ghi âm đã chuyển thành văn bản; bản thân bản ghi âm không bao giờ được lưu. Hệ thống xác thực phía sau của chúng tôi cũng lưu giữ siêu dữ liệu phiên tiêu chuẩn như dấu thời gian đăng nhập. Tên hiển thị chỉ được sử dụng để cá nhân hóa trải nghiệm của bạn trong ứng dụng và không bao giờ được công khai. Để hiển thị giá đăng ký bằng đồng tiền địa phương của bạn, chúng tôi có thể tra cứu nhanh quốc gia liên kết với địa chỉ IP của bạn; chỉ mã quốc gia kết quả được sử dụng, không được liên kết với tài khoản của bạn, và chúng tôi không lưu trữ địa chỉ IP của bạn. Chúng tôi không sử dụng dịch vụ phân tích bên thứ ba, SDK quảng cáo hoặc trình theo dõi giữa các ứng dụng. Khi bạn sử dụng mã hóa đầu cuối (E2E), nội dung nhật ký của bạn được mã hóa trên thiết bị của bạn và chúng tôi không thể đọc được. Ở chế độ Đơn giản, dữ liệu nhật ký của bạn được đồng bộ với nhà cung cấp đám mây bạn chọn mà không có mã hóa đầu cuối. Chế độ Đơn giản được thiết kế để thuận tiện và có thể giảm quyền riêng tư so với chế độ E2E; dữ liệu của bạn vẫn được bảo vệ bởi các biện pháp bảo mật tiêu chuẩn của nhà cung cấp đám mây của bạn."
       },
       "usage": {
         "title": "Cách chúng tôi sử dụng thông tin",
@@ -2268,7 +2288,7 @@
       },
       "aiProcessing": {
         "title": "Tính năng AI và xử lý",
-        "content": "OwnJournal cung cấp các tính năng tùy chọn dựa trên AI như phân tích tâm trạng, gợi ý và nhập bằng giọng nói, chỉ dành riêng cho người đăng ký Plus. Việc xử lý bằng AI chỉ diễn ra khi bạn, với tư cách là người đăng ký Plus, chủ động sử dụng các tính năng này. Khi bạn dùng các tính năng AI dựa trên văn bản, văn bản liên quan được giải mã trên thiết bị của bạn trước, sau đó được gửi theo thao tác chủ động của bạn, qua máy chủ của chúng tôi, tới nhà cung cấp AI của chúng tôi, hiện là Google (Gemini), thông qua API trả phí của Google. Khi bạn dùng tính năng nhập bằng giọng nói, micrô của thiết bị chỉ được dùng trong lúc bạn ghi âm; bản ghi âm được gửi qua máy chủ của chúng tôi tới Google (Gemini) để chuyển thành văn bản, và văn bản thu được được thêm vào bài viết của bạn trên thiết bị của bạn. Chúng tôi không lưu dữ liệu đầu vào hoặc đầu ra của AI, bao gồm bản ghi âm giọng nói và bản chép lời, trên máy chủ của mình; chúng tôi chỉ ghi lại bộ đếm sử dụng tính năng AI theo từng người dùng (loại phân tích đã thực hiện, dấu thời gian và, với tính năng nhập bằng giọng nói, độ dài bản ghi âm tính bằng giây; không bao giờ ghi nội dung) để áp dụng giới hạn sử dụng hợp lý. Google có thể lưu giữ lời nhắc và kết quả trong một khoảng thời gian giới hạn để giám sát lạm dụng và thực thi chính sách, theo chính sách hiện hành của họ. Việc xử lý bằng AI có thể diễn ra bên ngoài EEA; Google duy trì các biện pháp bảo vệ phù hợp khi chuyển dữ liệu, chẳng hạn như Điều khoản Hợp đồng Tiêu chuẩn. Chúng tôi sử dụng gói trả phí của dịch vụ AI của Google, theo đó lời nhắc và kết quả không được dùng để huấn luyện hay cải thiện mô hình của họ. Bạn có thể chọn không dùng các tính năng AI; việc này không ảnh hưởng đến các chức năng nhật ký cốt lõi."
+        "content": "OwnJournal cung cấp các tính năng tùy chọn dựa trên AI như phân tích tâm trạng, gợi ý, nhập bằng giọng nói và suy ngẫm giấc mơ, chỉ dành riêng cho người đăng ký Plus. Việc xử lý bằng AI chỉ diễn ra khi bạn, với tư cách là người đăng ký Plus, chủ động sử dụng các tính năng này. Khi bạn dùng các tính năng AI dựa trên văn bản, văn bản liên quan được giải mã trên thiết bị của bạn trước, sau đó được gửi theo thao tác chủ động của bạn, qua máy chủ của chúng tôi, tới nhà cung cấp AI của chúng tôi, hiện là Google (Gemini), thông qua API trả phí của Google. Khi bạn dùng tính năng nhập bằng giọng nói, micrô của thiết bị chỉ được dùng trong lúc bạn ghi âm; bản ghi âm được gửi qua máy chủ của chúng tôi tới Google (Gemini) để chuyển thành văn bản, và văn bản thu được được thêm vào bài viết của bạn trên thiết bị của bạn. Chúng tôi không lưu dữ liệu đầu vào hoặc đầu ra của AI, bao gồm bản ghi âm giọng nói và bản chép lời, trên máy chủ của mình; chúng tôi chỉ ghi lại bộ đếm sử dụng tính năng AI theo từng người dùng (loại phân tích đã thực hiện, dấu thời gian, mô hình AI được sử dụng và lượng xử lý AI đã sử dụng tính bằng token; với các tính năng áp dụng cho một bài viết riêng lẻ, còn có mã định danh của bài viết đó; với tính năng nhập bằng giọng nói, còn có độ dài bản ghi âm tính bằng giây; không bao giờ ghi nội dung) để áp dụng giới hạn sử dụng hợp lý. Google có thể lưu giữ lời nhắc và kết quả trong một khoảng thời gian giới hạn để giám sát lạm dụng và thực thi chính sách, theo chính sách hiện hành của họ. Việc xử lý bằng AI có thể diễn ra bên ngoài EEA; Google duy trì các biện pháp bảo vệ phù hợp khi chuyển dữ liệu, chẳng hạn như Điều khoản Hợp đồng Tiêu chuẩn. Chúng tôi sử dụng gói trả phí của dịch vụ AI của Google, theo đó lời nhắc và kết quả không được dùng để huấn luyện hay cải thiện mô hình của họ. Bạn có thể chọn không dùng các tính năng AI; việc này không ảnh hưởng đến các chức năng nhật ký cốt lõi."
       },
       "diagnostics": {
         "title": "Chẩn đoán và nhật ký lỗi",
@@ -2520,5 +2540,157 @@
       "noSpeech": "Không phát hiện giọng nói trong bản ghi âm.",
       "failed": "Không thể chuyển giọng nói thành văn bản. Vui lòng thử lại."
     }
+  },
+  "dream": {
+    "toggle": "Giấc mơ",
+    "toggleHint": "Đánh dấu bài viết này là một giấc mơ",
+    "badge": "Giấc mơ",
+    "editor": {
+      "placeholder": "Bạn đã mơ thấy gì? Cứ viết lại theo những gì bạn còn nhớ.",
+      "feelingsLabel": "Trong giấc mơ, bạn cảm thấy thế nào?",
+      "flagsLabel": "Loại giấc mơ",
+      "howItWorks": "Cách hoạt động"
+    },
+    "feelings": {
+      "joy": "Vui sướng",
+      "calm": "Bình yên",
+      "awe": "Kinh ngạc",
+      "curiosity": "Tò mò",
+      "love": "Yêu thương",
+      "fear": "Sợ hãi",
+      "anxiety": "Lo âu",
+      "sadness": "Buồn bã",
+      "anger": "Tức giận",
+      "confusion": "Bối rối",
+      "shame": "Xấu hổ",
+      "loneliness": "Cô đơn"
+    },
+    "flags": {
+      "recurring": "Mơ lặp lại",
+      "nightmare": "Ác mộng",
+      "lucid": "Mơ sáng suốt",
+      "lucidExplained": "Mơ sáng suốt là khi bạn biết mình đang mơ."
+    },
+    "guide": {
+      "title": "Nhật ký giấc mơ",
+      "step1": "Ghi lại ngay khi vừa tỉnh giấc — chỉ vài phút sau, giấc mơ đã bắt đầu nhạt đi.",
+      "step1Voice": "Nếu nói nhanh hơn gõ, bạn có thể đọc chính tả.",
+      "step2": "Kể lại đúng như trong mơ: có những ai, ở đâu, bạn đã làm gì và cảm thấy ra sao. Trước sau lộn xộn hay phi lý cũng không sao.",
+      "step3": "Nhấn \"Suy ngẫm giấc mơ này\" để nhận phần suy ngẫm dựa trên những gì bạn đã viết.",
+      "step3Patterns": "Khi đã ghi lại đủ năm giấc mơ, bạn có thể tạo báo cáo Mẫu hình giấc mơ cho khoảng thời gian bạn chọn. Báo cáo này cho thấy những người, địa điểm và chủ đề cứ trở đi trở lại.",
+      "done": "Đã hiểu"
+    },
+    "reflection": {
+      "title": "Suy ngẫm giấc mơ",
+      "reflect": "Suy ngẫm giấc mơ này",
+      "reflecting": "Đang suy ngẫm…",
+      "reflectAgain": "Suy ngẫm lại",
+      "editToReflectAgain": "Chỉnh sửa giấc mơ hoặc thêm suy nghĩ của bạn để suy ngẫm lại",
+      "plusOnly": "Suy ngẫm giấc mơ có trong gói Plus",
+      "remaining": "Còn {{remaining}} trên {{limit}} lượt suy ngẫm trong tháng này",
+      "summary": "Tóm tắt",
+      "themes": "Chủ đề có thể có",
+      "images": "Hình ảnh đáng tìm hiểu",
+      "wakingLinks": "Có thể liên quan đến những ngày gần đây",
+      "questions": "Câu hỏi để bạn suy ngẫm",
+      "thoughts": {
+        "label": "Suy nghĩ của bạn",
+        "placeholder": "Những câu hỏi trên gợi cho bạn điều gì?",
+        "hint": "Khi bạn nhấn \"Suy ngẫm lại\", phần suy ngẫm mới sẽ dựa trên cả những suy nghĩ này."
+      },
+      "fromThoughts": "Điều đã thay đổi nhờ suy nghĩ của bạn",
+      "footer": "Gợi ý để suy ngẫm, không phải chẩn đoán. Thấy điều gì đúng với mình thì giữ lại, còn lại cứ bỏ qua.",
+      "howThisWorks": "Cách hoạt động",
+      "show": "Hiện",
+      "hide": "Ẩn",
+      "care": {
+        "title": "Nếu bạn cứ nghĩ mãi về giấc mơ này",
+        "body": "Những giấc mơ như vậy có thể khiến lòng bạn nặng trĩu. Nếu những giấc mơ gây bất an cứ quay lại hoặc ảnh hưởng đến cuộc sống hằng ngày của bạn, việc tâm sự với một người mà bạn tin tưởng hoặc nói chuyện với một chuyên gia chăm sóc sức khỏe có thể giúp ích.",
+        "urgent": "Nếu bạn đang nghĩ đến việc tự làm hại bản thân, hãy gọi ngay số cấp cứu tại nơi bạn sống hoặc một đường dây nóng hỗ trợ tâm lý."
+      },
+      "consent": {
+        "title": "Dùng Google để suy ngẫm giấc mơ của bạn?",
+        "body": "Để tạo phần suy ngẫm, ứng dụng sẽ gửi tới dịch vụ Gemini của Google: nội dung và ngày tháng của giấc mơ, những cảm xúc và loại giấc mơ bạn đã chọn (mơ lặp lại, ác mộng, mơ sáng suốt), cùng những suy nghĩ của bạn về giấc mơ, nếu bạn có ghi lại; khi đó, ứng dụng gửi cả các câu hỏi trong phần suy ngẫm trước đó, những câu hỏi mà các suy nghĩ ấy trả lời. Kèm theo đó là ngày tháng, bản tóm tắt ngắn, chủ đề chính và cảm xúc chủ đạo của từng bài viết trong tuần qua đã được phân tích, chứ không phải nội dung của các bài viết đó. Với báo cáo Mẫu hình giấc mơ, ứng dụng gửi các nhãn ngắn được lưu kèm từng phần suy ngẫm. Để so sánh giấc mơ với nhật ký, ứng dụng còn gửi chủ đề chính và cảm xúc chủ đạo của những bài viết đã được phân tích, viết trong cùng khoảng thời gian với các giấc mơ trong báo cáo, tính từ một tuần trước giấc mơ sớm nhất. Kèm theo là số lần xuất hiện của từng chủ đề và cảm xúc. Khi tạo báo cáo, ứng dụng không gửi nội dung của các giấc mơ hay các bài viết đó. OwnJournal không lưu bất kỳ dữ liệu nào được gửi đi. Google không dùng dữ liệu này để huấn luyện mô hình của họ và chỉ có thể lưu giữ trong thời gian ngắn để ngăn chặn lạm dụng. Phần suy ngẫm được lưu cùng giấc mơ, như các nội dung khác trong bài viết của bạn.",
+        "accept": "Tiếp tục",
+        "decline": "Để sau"
+      },
+      "errors": {
+        "offline": "Bạn đang ngoại tuyến. Suy ngẫm giấc mơ cần kết nối internet.",
+        "authRequired": "Vui lòng đăng nhập để dùng tính năng suy ngẫm giấc mơ.",
+        "plusRequired": "Suy ngẫm giấc mơ yêu cầu gói đăng ký Plus.",
+        "limitReached": "Bạn đã dùng hết {{limit}} lượt suy ngẫm giấc mơ của tháng này. Giới hạn sẽ được đặt lại vào tháng sau; bạn vẫn có thể ghi lại giấc mơ như thường.",
+        "tooShort": "Hãy viết ít nhất {{min}} ký tự về giấc mơ trước đã.",
+        "tooLong": "Giấc mơ này quá dài để tạo phần suy ngẫm. Hãy rút gọn một chút rồi thử lại.",
+        "saveFailed": "Không thể lưu phần suy ngẫm. Vui lòng thử lại.",
+        "failed": "Lần này chưa tạo được phần suy ngẫm. Vui lòng thử lại.",
+        "failedLimitReached": "Tháng này có quá nhiều lần thử không thành công, nên tính năng suy ngẫm giấc mơ tạm ngừng đến tháng sau. Bạn vẫn có thể ghi lại giấc mơ như thường.",
+        "blocked": "Dịch vụ AI không xử lý một số nội dung trong giấc mơ này, nên không thể tạo phần suy ngẫm. Giấc mơ của bạn vẫn được lưu trong nhật ký."
+      }
+    },
+    "patterns": {
+      "title": "Mẫu hình giấc mơ",
+      "intro": "Những gì cứ trở đi trở lại trong các giấc mơ của bạn.",
+      "dreamsInPeriod_other": "{{count}} giấc mơ trong khoảng thời gian này",
+      "needMore": "Báo cáo cần ít nhất {{min}} giấc mơ.",
+      "reflectFirst_other": "Trong số đó, {{count}} giấc mơ chưa có phần suy ngẫm và sẽ được suy ngẫm trước khi tạo báo cáo, mất {{count}} lượt (tháng này bạn còn {{remaining}} lượt suy ngẫm).",
+      "notEnoughReflections_other": "Trong số đó, {{dreams}} giấc mơ chưa có phần suy ngẫm, nhưng tháng này bạn chỉ còn {{count}} lượt suy ngẫm. Hãy chọn khoảng thời gian ngắn hơn.",
+      "noReflectionsLeft_other": "Trong số đó, {{count}} giấc mơ chưa có phần suy ngẫm, nhưng tháng này bạn đã hết lượt suy ngẫm. Hãy chọn khoảng thời gian ngắn hơn.",
+      "ready": "Bạn đã có thể tạo báo cáo Mẫu hình giấc mơ đầu tiên.",
+      "create": "Tạo báo cáo",
+      "createNew": "Tạo báo cáo mới",
+      "creating": "Đang tìm mẫu hình…",
+      "reflecting": "Đang suy ngẫm giấc mơ {{current}} trên {{total}}…",
+      "remaining": "Còn {{remaining}} trên {{limit}} báo cáo trong tháng này",
+      "plusOnly": "Mẫu hình giấc mơ có trong gói Plus",
+      "earlyThemes": "Chủ đề bước đầu",
+      "earlyThemesNote_other": "Dựa trên {{count}} giấc mơ. Càng có nhiều giấc mơ, mẫu hình càng rõ — chẳng hạn khi bạn chọn khoảng thời gian dài hơn.",
+      "basedOn_other": "Dựa trên {{count}} giấc mơ",
+      "overview": "Tổng quan",
+      "recurring": "Những điều cứ lặp lại",
+      "inDreams_other": "Xuất hiện trong {{count}} giấc mơ",
+      "kinds": {
+        "character": "Người",
+        "setting": "Địa điểm",
+        "emotion": "Cảm xúc",
+        "theme": "Chủ đề"
+      },
+      "changes": "Giấc mơ của bạn đã thay đổi ra sao",
+      "waking": {
+        "title": "Giấc mơ và đời thực",
+        "basedOn_other": "So sánh với {{count}} bài viết nhật ký đã được phân tích, viết trong cùng khoảng thời gian",
+        "shared": "Có trong cả giấc mơ lẫn nhật ký",
+        "dreamsOnly": "Có trong giấc mơ, không có trong nhật ký",
+        "wakingOnly": "Có trong nhật ký, không có trong giấc mơ",
+        "none": "Báo cáo này không có phần so sánh với nhật ký. Phần so sánh cần ít nhất {{min}} bài viết đã được phân tích, viết trong cùng khoảng thời gian với các giấc mơ."
+      },
+      "questions": "Câu hỏi để bạn suy ngẫm",
+      "footer": "Mẫu hình để suy ngẫm, không phải chẩn đoán. Thấy điều gì đúng với mình thì giữ lại, còn lại cứ bỏ qua.",
+      "saveAsNote": "Lưu thành ghi chú",
+      "noteTitle": "Mẫu hình giấc mơ ngày {{date}}",
+      "errors": {
+        "offline": "Bạn đang ngoại tuyến. Mẫu hình giấc mơ cần kết nối internet.",
+        "limitReached": "Bạn đã tạo {{limit}} báo cáo Mẫu hình giấc mơ trong tháng này. Sang tháng sau, bạn có thể tạo báo cáo mới.",
+        "failed": "Lần này chưa tạo được báo cáo. Vui lòng thử lại.",
+        "failedLimitReached": "Tháng này có quá nhiều lần thử không thành công, nên tính năng Mẫu hình giấc mơ tạm ngừng đến tháng sau.",
+        "blocked": "Dịch vụ AI không xử lý một số chủ đề trong các giấc mơ của bạn, nên không thể tạo báo cáo."
+      }
+    },
+    "filter": "Giấc mơ"
+  },
+  "featureTip": {
+    "title": "Tính năng mới trong OwnJournal",
+    "free": "Miễn phí",
+    "dreamJournal": {
+      "name": "Nhật ký giấc mơ",
+      "desc": "Ghi lại giấc mơ ngay khi vừa thức dậy, kẻo quên, và đánh dấu bài viết là giấc mơ. Nếu muốn, hãy chọn thêm cảm xúc trong mơ."
+    },
+    "dreamReflection": {
+      "desc": "Nhận phần suy ngẫm về giấc mơ của bạn. Khi có đủ năm giấc mơ trong một khoảng thời gian, bạn có thể tạo báo cáo về những gì cứ trở đi trở lại."
+    },
+    "voice": {
+      "desc": "Nhấn vào biểu tượng micrô bên dưới trình soạn thảo và nói thay vì gõ."
+    },
+    "writeDream": "Ghi lại giấc mơ",
+    "dismiss": "Đã hiểu"
   }
 }

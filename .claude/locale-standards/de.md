@@ -169,3 +169,18 @@ that register does NOT apply to the app or the website UI.
 - Duden (spelling, Stopp, units, dashes): https://www.duden.de/sprachwissen/rechtschreibregeln
 - House style: existing `src/i18n/locales/de.json` (Sie-form, KI, Plus-Abonnement, Fair-Use-Limits,
   geeignete Garantien gemäß Artikel 46 DSGVO).
+
+## 7. Dreams glossary (dream journal and reflection)
+| English | German | Avoid / source |
+|---|---|---|
+| Dream journal | Traumtagebuch | attested (gesundheit.gv.at, de.wikipedia) |
+| Nightmare / lucid dream | Albtraum / Klartraum | Alptraum (valid, not house), luzider Traum in chips; de.wikipedia |
+| Dream reflection (feature) / button | Traumreflexion / „Traum reflektieren“; status „Reflexion wird erstellt…“ | Traumdeutung (implies symbol lookup), „Wird reflektiert…“ (reads as light/physics); judgment |
+| Dream patterns (card) / its report | Traummuster / Traummuster-Auswertung („Auswertung erstellen“) | Traummuster-Bericht; judgment |
+| Awe / anxiety (chips, next to Angst) | Staunen / Beklemmung | Ehrfurcht (religious), Ängstlichkeit; judgment |
+| Personal associations (Jung) | Einfälle | Assoziationen in UI prose; judgment |
+| Waking life | Wachleben, im Wachen | judgment, dream-research usage |
+| Health professional (care text) | sich ärztlich oder psychotherapeutisch beraten lassen | Gesundheitsfachkraft (calque); judgment after gesundheit.gv.at „professionelle Hilfe“ |
+| Crisis line (DE/AT/CH neutral) | „wenden Sie sich an einen Krisendienst“; emergency: „rufen Sie den Notruf an“ | „an ein Krisentelefon wenden“ (one calls a phone, turns to a service); gesundheit.gv.at |
+| Tokens (legal) | „den in Tokens gemessenen Umfang der genutzten KI-Verarbeitung“ | Token (as plural); Duden plural Tokens, file „OAuth-Tokens“ |
+| How this works (link) | So funktioniert es | judgment (matches Help title „So funktioniert die Traumreflexion“) |

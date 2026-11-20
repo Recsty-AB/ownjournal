@@ -1579,6 +1579,7 @@
       "tagSuggestions": "Saran Tag Cerdas",
       "trendAnalysis": "Wawasan Suasana Hati & Tren",
       "voiceEntry": "Input Suara",
+      "dreamReflection": "Refleksi Mimpi",
       "exports": "Ekspor PDF & Word"
     },
     "trialCta": "Mulai Uji Coba Gratis",
@@ -1810,6 +1811,10 @@
       "title": "Timeline Jurnalmu",
       "content": "Catatan jurnalmu akan muncul di sini, diurutkan berdasarkan tanggal. Ketuk tombol + untuk membuat catatan pertamamu."
     },
+    "dreams": {
+      "title": "Jurnal Mimpimu",
+      "content": "Tulis isi mimpimu begitu bangun tidur, sebelum memudar, dan ketuk \"Mimpi\" untuk menandai catatannya sebagai mimpi. Kalau mau, pilih perasaan dalam mimpi itu. Semuanya gratis.\n\nUntuk pelanggan Plus, ada juga refleksi atas mimpimu."
+    },
     "syncStatus": {
       "title": "Status Sinkronisasi",
       "content": "Setelah kamu menghubungkan penyimpanan cloud, indikator ini menunjukkan status sinkronisasi. Hijau berarti tersinkron!"
@@ -1992,6 +1997,21 @@
         "desc": "Ketuk mikrofon di bawah editor, lalu bicaralah alih-alih mengetik. Begitu kamu berhenti, ucapanmu diubah menjadi teks rapi lengkap dengan tanda baca dan disisipkan di posisi kursor. Fitur ini mengikuti bahasa yang kamu ucapkan, bahkan jika kamu berganti bahasa di tengah jalan. Setiap rekaman bisa berdurasi hingga 5 menit, dan Plus mencakup 200 menit per bulan.",
         "proNote": "(Fitur Plus)"
       },
+      "dreams": {
+        "title": "Jurnal dan Refleksi Mimpi",
+        "desc": "Saat menulis catatan, ketuk \"Mimpi\" di baris tanggal agar catatan itu disimpan sebagai mimpi. Tulis begitu bangun tidur, sesuai yang kamu ingat, lalu pilih perasaan yang muncul dalam mimpi itu. Mimpi tidak dimasukkan ke Kalender Suasana Hati maupun analisis tren. Pelanggan Plus bisa mengetuk \"Refleksikan mimpi ini\" untuk mendapatkan refleksi berisi kemungkinan tema, gambaran dalam mimpi untuk ditelusuri, dan pertanyaan untukmu. Di bawah refleksi, kamu bisa menuliskan pikiranmu sendiri, lalu mengetuk \"Refleksikan lagi\" agar pikiran itu ikut dipertimbangkan. Plus mencakup 30 refleksi per bulan. Kalau ada minimal lima mimpi dalam periode yang kamu pilih, kamu bisa membuat laporan pola mimpi untuk periode tersebut, hingga dua kali sebulan. Saat kamu membuat laporan, mimpi di periode itu yang belum punya refleksi akan direfleksikan otomatis lebih dulu, dan masing-masing memakai satu dari jatah 30 refleksi per bulan. Laporan ini memperlihatkan orang, tempat, dan tema yang terus muncul, serta membandingkannya dengan hal-hal yang kamu tulis di jurnalmu.",
+        "proNote": "(Fitur Plus)"
+      },
+      "dreamMethod": {
+        "title": "Cara Kerja Refleksi Mimpi",
+        "intro": "Refleksi mimpi terinspirasi oleh pendekatan Carl Jung terhadap mimpi dan oleh penelitian mimpi modern.",
+        "jung": "Yang diambil dari Jung adalah gagasan bahwa asosiasimu sendiri lebih penting daripada arti umum sebuah simbol. Karena itu, di bawah refleksi kamu bisa menuliskan pikiranmu sendiri, lalu merefleksikan mimpimu lagi. Menurut Jung, satu gambaran bisa ditelusuri ke lebih dari satu arah, mimpi bisa memperlihatkan sisi hidup yang kurang kamu perhatikan saat terjaga, dan serangkaian mimpi lebih banyak mengungkap daripada satu mimpi saja.",
+        "research": "Penelitian mimpi, terutama karya Calvin Hall dan G. William Domhoff, menemukan bahwa mimpi kebanyakan mencerminkan apa yang menyita pikiranmu saat terjaga — hubunganmu dengan orang lain, kekhawatiran, dan perasaanmu. Itu sebabnya refleksi bisa menunjukkan kaitan dengan catatanmu seminggu terakhir, dan laporan pola mimpi membandingkan mimpimu dengan tema-tema di jurnalmu.",
+        "questions": "Pertanyaan di bagian akhir mengikuti model Clara Hill untuk mengolah mimpi: menelusuri mimpinya, mencari tahu apa maknanya bagimu, lalu memikirkan satu langkah kecil yang bisa kamu ambil.",
+        "noDictionary": "Di sini tidak ada kamus tafsir mimpi yang baku. Refleksi hanya memberi beberapa kemungkinan, dan kamulah yang menentukan mana yang pas.",
+        "notAdvice": "Refleksi mimpi ditujukan untuk merenungi diri sendiri. Fitur ini bukan nasihat medis atau psikologis dan tidak bisa mendiagnosis apa pun.",
+        "privacy": "Agar refleksi bisa dibuat, OwnJournal mengirim data mimpimu ke layanan Gemini milik Google: teks dan tanggalnya, perasaan yang kamu pilih, jenis mimpi yang kamu tandai (berulang, mimpi buruk, atau lucid dream), serta pikiranmu sendiri tentang mimpi itu kalau sudah kamu tuliskan, lengkap dengan pertanyaan dari refleksi sebelumnya yang kamu tanggapi lewat pikiran itu. Dari setiap catatanmu seminggu terakhir yang sudah dianalisis, ikut dikirim tanggal, ringkasan, tema utama, dan emosi dominannya, bukan isi catatannya. Untuk laporan pola mimpi, OwnJournal mengirim label singkat yang disimpan bersama setiap refleksi. Supaya mimpi-mimpimu bisa dibandingkan dengan jurnalmu, dikirim juga tema utama dan emosi dominan dari catatanmu yang sudah dianalisis, beserta seberapa sering masing-masing muncul. Catatan yang diperhitungkan berasal dari periode yang sama dengan mimpi-mimpi itu, mulai seminggu sebelum mimpi yang paling awal. Teks mimpi maupun isi catatanmu tidak dikirim untuk laporan ini. OwnJournal sama sekali tidak menyimpan data yang dikirim."
+      },
       "aiAnalysis": {
         "title": "Analisis AI",
         "desc": "Dapatkan wawasan berbasis AI tentang catatan jurnalmu, termasuk analisis suasana hati, deteksi topik, dan saran personal untuk memperdalam refleksi diri.",
@@ -2134,7 +2154,7 @@
       },
       "pro": {
         "question": "Apa saja yang termasuk Plus?",
-        "answer": "Plus mencakup analisis AI, saran judul, saran tag, input suara, analisis tren, Wawasan Aktivitas, dan ekspor PDF/Word."
+        "answer": "Plus mencakup analisis AI, saran judul, saran tag, input suara, refleksi mimpi, analisis tren, Wawasan Aktivitas, dan ekspor PDF/Word."
       },
       "manageSubscription": {
         "question": "Bagaimana cara mengelola langganan?",
@@ -2240,7 +2260,7 @@
       },
       "collection": {
         "title": "Informasi yang Kami Kumpulkan",
-        "content": "Informasi pribadi yang kami kumpulkan minimal. Sehubungan dengan akun Anda, kami mengumpulkan: alamat email Anda, nama tampilan Anda (jika disediakan oleh penyedia autentikasi eksternal seperti Google atau Apple), dan — setelah Anda menghubungkan penyimpanan cloud — catatan tentang penyedia mana yang Anda pilih. Untuk menjalankan layanan jurnal, kami menyimpan sedikit data status di server kami — apakah pengaturan enkripsi Anda telah selesai, status langganan Anda, dan pengenal yang dibutuhkan oleh pemroses pembayaran kami (Stripe) untuk mengelola langganan Anda. Untuk memantau penggunaan wajar dari fitur AI opsional, kami mencatat penghitung penggunaan per pengguna (jenis analisis yang dilakukan dan stempel waktu; tidak pernah konten catatan Anda). Untuk input suara, penghitung juga mencatat durasi (dalam detik) setiap rekaman yang ditranskripsikan; rekamannya sendiri tidak pernah disimpan. Backend autentikasi kami juga menyimpan metadata sesi standar seperti stempel waktu masuk. Nama tampilan hanya digunakan untuk mempersonalisasi pengalaman Anda dalam aplikasi dan tidak pernah dipublikasikan. Untuk menampilkan harga langganan dalam mata uang lokal Anda, kami dapat sebentar mencari negara yang terkait dengan alamat IP Anda; hanya kode negara yang dihasilkan yang digunakan, tidak ditautkan ke akun Anda, dan kami tidak menyimpan alamat IP Anda. Kami tidak menggunakan analitik pihak ketiga, SDK iklan, atau pelacak antar aplikasi. Saat Anda menggunakan enkripsi ujung-ke-ujung (E2E), konten jurnal Anda dienkripsi di perangkat Anda dan kami tidak dapat membacanya. Dalam mode Sederhana, data jurnal Anda disinkronkan dengan penyedia cloud pilihan Anda tanpa enkripsi ujung-ke-ujung. Mode Sederhana ditujukan untuk kenyamanan dan dapat mengurangi privasi dibandingkan dengan mode E2E; data Anda tetap dilindungi oleh langkah-langkah keamanan standar penyedia cloud Anda."
+        "content": "Informasi pribadi yang kami kumpulkan minimal. Sehubungan dengan akun Anda, kami mengumpulkan: alamat email Anda, nama tampilan Anda (jika disediakan oleh penyedia autentikasi eksternal seperti Google atau Apple), dan — setelah Anda menghubungkan penyimpanan cloud — catatan tentang penyedia mana yang Anda pilih. Untuk menjalankan layanan jurnal, kami menyimpan sedikit data status di server kami — apakah pengaturan enkripsi Anda telah selesai, status langganan Anda, dan pengenal yang dibutuhkan oleh pemroses pembayaran kami (Stripe) untuk mengelola langganan Anda. Untuk memantau penggunaan wajar dari fitur AI opsional, kami mencatat penghitung penggunaan per pengguna (jenis analisis yang dilakukan, stempel waktu, model AI yang digunakan, dan jumlah pemrosesan AI yang digunakan dalam satuan token; untuk fitur yang memproses satu catatan, juga pengenal catatan tersebut; tidak pernah konten catatan Anda). Untuk input suara, penghitung juga mencatat durasi (dalam detik) setiap rekaman yang ditranskripsikan; rekamannya sendiri tidak pernah disimpan. Backend autentikasi kami juga menyimpan metadata sesi standar seperti stempel waktu masuk. Nama tampilan hanya digunakan untuk mempersonalisasi pengalaman Anda dalam aplikasi dan tidak pernah dipublikasikan. Untuk menampilkan harga langganan dalam mata uang lokal Anda, kami dapat sebentar mencari negara yang terkait dengan alamat IP Anda; hanya kode negara yang dihasilkan yang digunakan, tidak ditautkan ke akun Anda, dan kami tidak menyimpan alamat IP Anda. Kami tidak menggunakan analitik pihak ketiga, SDK iklan, atau pelacak antar aplikasi. Saat Anda menggunakan enkripsi ujung-ke-ujung (E2E), konten jurnal Anda dienkripsi di perangkat Anda dan kami tidak dapat membacanya. Dalam mode Sederhana, data jurnal Anda disinkronkan dengan penyedia cloud pilihan Anda tanpa enkripsi ujung-ke-ujung. Mode Sederhana ditujukan untuk kenyamanan dan dapat mengurangi privasi dibandingkan dengan mode E2E; data Anda tetap dilindungi oleh langkah-langkah keamanan standar penyedia cloud Anda."
       },
       "usage": {
         "title": "Bagaimana Kami Menggunakan Informasi",
@@ -2268,7 +2288,7 @@
       },
       "aiProcessing": {
         "title": "Fitur AI dan Pemrosesan",
-        "content": "OwnJournal menawarkan fitur opsional berbasis AI seperti analisis suasana hati, saran, dan input suara, yang tersedia khusus untuk pelanggan Plus. Pemrosesan AI hanya terjadi saat Anda, sebagai pelanggan Plus, secara eksplisit menggunakan fitur-fitur ini. Saat Anda menggunakan fitur AI berbasis teks, teks yang relevan didekripsi terlebih dahulu di perangkat Anda, lalu dikirim atas tindakan eksplisit Anda dan melalui server kami ke penyedia AI kami, saat ini Google (Gemini), menggunakan API berbayarnya. Saat Anda menggunakan input suara, mikrofon perangkat Anda hanya digunakan selama Anda merekam; rekaman dikirim melalui server kami ke Google (Gemini) untuk diubah menjadi teks, dan teks yang dihasilkan ditambahkan ke catatan Anda di perangkat Anda. Kami tidak menyimpan input atau output AI, termasuk rekaman suara dan transkrip, di server kami; kami hanya mencatat penghitung penggunaan fitur AI per pengguna (jenis analisis yang dilakukan, stempel waktu, dan untuk input suara, durasi rekaman dalam detik; tidak pernah kontennya) untuk pembatasan penggunaan wajar. Google dapat menyimpan prompt dan output untuk jangka waktu terbatas guna pemantauan penyalahgunaan dan penegakan kebijakan, sesuai kebijakannya yang berlaku. Pemrosesan AI dapat terjadi di luar EEA; Google menerapkan perlindungan transfer data yang sesuai seperti Klausul Kontrak Standar. Kami menggunakan paket berbayar layanan AI Google; dalam paket ini, prompt dan output tidak digunakan untuk melatih atau meningkatkan model Google. Anda dapat memilih untuk tidak menggunakan fitur AI, dan hal itu tidak memengaruhi fungsi inti jurnal."
+        "content": "OwnJournal menawarkan fitur opsional berbasis AI seperti analisis suasana hati, saran, input suara, dan refleksi mimpi, yang tersedia khusus untuk pelanggan Plus. Pemrosesan AI hanya terjadi saat Anda, sebagai pelanggan Plus, secara eksplisit menggunakan fitur-fitur ini. Saat Anda menggunakan fitur AI berbasis teks, teks yang relevan didekripsi terlebih dahulu di perangkat Anda, lalu dikirim atas tindakan eksplisit Anda dan melalui server kami ke penyedia AI kami, saat ini Google (Gemini), menggunakan API berbayarnya. Saat Anda menggunakan input suara, mikrofon perangkat Anda hanya digunakan selama Anda merekam; rekaman dikirim melalui server kami ke Google (Gemini) untuk diubah menjadi teks, dan teks yang dihasilkan ditambahkan ke catatan Anda di perangkat Anda. Kami tidak menyimpan input atau output AI, termasuk rekaman suara dan transkrip, di server kami; kami hanya mencatat penghitung penggunaan fitur AI per pengguna (jenis analisis yang dilakukan, stempel waktu, model AI yang digunakan, dan jumlah pemrosesan AI yang digunakan dalam satuan token; untuk fitur yang memproses satu catatan, juga pengenal catatan tersebut; untuk input suara, juga durasi rekaman dalam detik; tidak pernah kontennya) untuk pembatasan penggunaan wajar. Google dapat menyimpan prompt dan output untuk jangka waktu terbatas guna pemantauan penyalahgunaan dan penegakan kebijakan, sesuai kebijakannya yang berlaku. Pemrosesan AI dapat terjadi di luar EEA; Google menerapkan perlindungan transfer data yang sesuai seperti Klausul Kontrak Standar. Kami menggunakan paket berbayar layanan AI Google; dalam paket ini, prompt dan output tidak digunakan untuk melatih atau meningkatkan model Google. Anda dapat memilih untuk tidak menggunakan fitur AI, dan hal itu tidak memengaruhi fungsi inti jurnal."
       },
       "diagnostics": {
         "title": "Diagnostik dan Log Crash",
@@ -2520,5 +2540,157 @@
       "noSpeech": "Tidak ada ucapan yang terdeteksi dalam rekaman.",
       "failed": "Transkripsi gagal. Silakan coba lagi."
     }
+  },
+  "dream": {
+    "toggle": "Mimpi",
+    "toggleHint": "Tandai catatan ini sebagai mimpi",
+    "badge": "Mimpi",
+    "editor": {
+      "placeholder": "Apa yang terjadi dalam mimpimu? Tulis sesuai yang kamu ingat.",
+      "feelingsLabel": "Apa yang kamu rasakan dalam mimpi ini?",
+      "flagsLabel": "Jenis mimpi",
+      "howItWorks": "Cara kerjanya"
+    },
+    "feelings": {
+      "joy": "Gembira",
+      "calm": "Tenang",
+      "awe": "Takjub",
+      "curiosity": "Penasaran",
+      "love": "Cinta",
+      "fear": "Takut",
+      "anxiety": "Cemas",
+      "sadness": "Sedih",
+      "anger": "Marah",
+      "confusion": "Bingung",
+      "shame": "Malu",
+      "loneliness": "Kesepian"
+    },
+    "flags": {
+      "recurring": "Berulang",
+      "nightmare": "Mimpi buruk",
+      "lucid": "Lucid dream",
+      "lucidExplained": "Lucid dream artinya kamu sadar sedang bermimpi."
+    },
+    "guide": {
+      "title": "Jurnal mimpimu",
+      "step1": "Catat mimpimu begitu bangun tidur. Ingatan tentang mimpi bisa memudar hanya dalam hitungan menit.",
+      "step1Voice": "Mendikte bisa lebih cepat.",
+      "step2": "Ceritakan apa adanya — siapa saja yang ada, di mana, apa yang kamu lakukan, dan bagaimana rasanya. Tidak perlu runtut, tidak perlu masuk akal.",
+      "step3": "Ketuk \"Refleksikan mimpi ini\" untuk mendapatkan refleksi atas apa yang kamu tulis.",
+      "step3Patterns": "Setelah mencatat lima mimpi, kamu bisa membuat laporan pola mimpi untuk periode pilihanmu. Laporan ini memperlihatkan orang, tempat, dan tema yang terus muncul.",
+      "done": "Mengerti"
+    },
+    "reflection": {
+      "title": "Refleksi mimpi",
+      "reflect": "Refleksikan mimpi ini",
+      "reflecting": "Menyusun refleksi…",
+      "reflectAgain": "Refleksikan lagi",
+      "editToReflectAgain": "Ubah dulu mimpinya atau tambahkan pikiranmu agar bisa direfleksikan lagi",
+      "plusOnly": "Refleksi mimpi tersedia di Plus",
+      "remaining": "Sisa {{remaining}} dari {{limit}} refleksi bulan ini",
+      "summary": "Singkatnya",
+      "themes": "Kemungkinan tema",
+      "images": "Gambaran dalam mimpi untuk ditelusuri",
+      "wakingLinks": "Kemungkinan kaitan dengan hari-harimu",
+      "questions": "Pertanyaan untuk direnungkan",
+      "thoughts": {
+        "label": "Pikiranmu sendiri",
+        "placeholder": "Apa yang terlintas saat membaca pertanyaannya?",
+        "hint": "Pikiranmu ikut dipertimbangkan saat kamu mengetuk \"Refleksikan lagi\"."
+      },
+      "fromThoughts": "Yang berubah karena pikiranmu",
+      "footer": "Sifatnya refleksi, bukan diagnosis. Ambil yang terasa pas, sisanya biarkan saja.",
+      "howThisWorks": "Cara kerjanya",
+      "show": "Tampilkan",
+      "hide": "Sembunyikan",
+      "care": {
+        "title": "Kalau mimpi ini terus terbayang-bayang",
+        "body": "Mimpi seperti ini bisa meninggalkan rasa berat. Kalau mimpi yang menyesakkan terus berulang atau membebani hari-harimu, bercerita kepada orang yang kamu percaya atau berkonsultasi dengan tenaga kesehatan bisa membantu.",
+        "urgent": "Kalau kamu terpikir untuk menyakiti diri sendiri, segera hubungi nomor darurat setempat atau hotline kesehatan jiwa."
+      },
+      "consent": {
+        "title": "Refleksikan mimpimu dengan Google?",
+        "body": "Agar refleksi bisa dibuat, OwnJournal mengirim data mimpimu ke layanan Gemini milik Google: teks dan tanggalnya, perasaan yang kamu pilih, jenis mimpi yang kamu tandai (berulang, mimpi buruk, atau lucid dream), serta pikiranmu sendiri tentang mimpi itu kalau sudah kamu tuliskan, lengkap dengan pertanyaan dari refleksi sebelumnya yang kamu tanggapi lewat pikiran itu. Dari setiap catatanmu seminggu terakhir yang sudah dianalisis, ikut dikirim tanggal, ringkasan, tema utama, dan emosi dominannya, bukan isi catatannya. Untuk laporan pola mimpi, OwnJournal mengirim label singkat dari refleksimu. Supaya mimpi-mimpimu bisa dibandingkan dengan jurnalmu, dikirim juga tema utama dan emosi dominan dari catatanmu yang sudah dianalisis, beserta seberapa sering masing-masing muncul. Catatan yang diperhitungkan berasal dari periode yang sama dengan mimpi-mimpi itu, mulai seminggu sebelum mimpi yang paling awal. Teks mimpi maupun isi catatanmu tidak dikirim untuk laporan ini. OwnJournal sama sekali tidak menyimpan data yang dikirim. Google tidak menggunakannya untuk melatih modelnya dan mungkin menyimpannya hanya sebentar untuk mencegah penyalahgunaan. Refleksinya disimpan bersama mimpimu, seperti bagian lain catatanmu.",
+        "accept": "Lanjutkan",
+        "decline": "Nanti saja"
+      },
+      "errors": {
+        "offline": "Kamu sedang offline. Refleksi mimpi memerlukan koneksi internet.",
+        "authRequired": "Silakan masuk untuk merefleksikan mimpimu.",
+        "plusRequired": "Refleksi mimpi memerlukan langganan Plus.",
+        "limitReached": "Kamu sudah memakai seluruh {{limit}} refleksi mimpi bulan ini. Batasnya direset bulan depan, dan kamu tetap bisa mencatat mimpimu.",
+        "tooShort": "Tulis dulu minimal {{min}} karakter tentang mimpimu.",
+        "tooLong": "Mimpi ini terlalu panjang untuk direfleksikan. Persingkat sedikit, lalu coba lagi.",
+        "saveFailed": "Refleksinya tidak bisa disimpan. Silakan coba lagi.",
+        "failed": "Refleksinya belum berhasil dibuat kali ini. Silakan coba lagi.",
+        "failedLimitReached": "Terlalu banyak percobaan tidak berhasil bulan ini. Refleksi mimpi tersedia lagi bulan depan, dan kamu tetap bisa mencatat mimpimu.",
+        "blocked": "Layanan AI tidak bisa menanggapi isi mimpi ini, jadi refleksinya tidak dapat dibuat. Mimpimu tetap tersimpan di jurnalmu."
+      }
+    },
+    "patterns": {
+      "title": "Pola mimpi",
+      "intro": "Hal-hal yang terus muncul dalam mimpi-mimpimu.",
+      "dreamsInPeriod_other": "{{count}} mimpi dalam periode ini",
+      "needMore": "Laporan memerlukan minimal {{min}} mimpi",
+      "reflectFirst_other": "{{count}} di antaranya belum direfleksikan. Saat kamu membuat laporan, mimpi tersebut direfleksikan lebih dulu, sehingga terpakai {{count}} dari jatah refleksimu bulan ini (masih tersisa {{remaining}}).",
+      "notEnoughReflections_other": "{{dreams}} di antaranya belum direfleksikan, sedangkan refleksimu bulan ini tinggal {{count}}. Pilih periode yang lebih pendek.",
+      "noReflectionsLeft_other": "{{count}} di antaranya belum direfleksikan, dan refleksimu bulan ini sudah habis. Pilih periode yang lebih pendek.",
+      "ready": "Laporan pola mimpi pertamamu sudah bisa dibuat.",
+      "create": "Buat laporan pola mimpi",
+      "createNew": "Buat laporan baru",
+      "creating": "Mencari pola…",
+      "reflecting": "Merefleksikan mimpi {{current}} dari {{total}}…",
+      "remaining": "Sisa {{remaining}} dari {{limit}} laporan bulan ini",
+      "plusOnly": "Pola mimpi tersedia di Plus",
+      "earlyThemes": "Tema awal",
+      "earlyThemesNote_other": "Berdasarkan {{count}} mimpi. Makin banyak mimpi, makin jelas polanya, misalnya kalau kamu memilih periode yang lebih panjang.",
+      "basedOn_other": "Berdasarkan {{count}} mimpi",
+      "overview": "Ringkasan",
+      "recurring": "Yang terus muncul",
+      "inDreams_other": "Muncul dalam {{count}} mimpi",
+      "kinds": {
+        "character": "Orang",
+        "setting": "Tempat",
+        "emotion": "Perasaan",
+        "theme": "Tema"
+      },
+      "changes": "Perubahan dalam mimpimu",
+      "waking": {
+        "title": "Mimpi dan hari-harimu",
+        "basedOn_other": "Dibandingkan dengan {{count}} catatan jurnal yang sudah dianalisis dari periode yang sama",
+        "shared": "Muncul dalam mimpi dan di jurnalmu",
+        "dreamsOnly": "Muncul dalam mimpi, tidak di jurnalmu",
+        "wakingOnly": "Muncul di jurnalmu, tidak dalam mimpi",
+        "none": "Laporan ini tidak memuat perbandingan dengan jurnalmu. Perbandingan memerlukan minimal {{min}} catatan yang sudah dianalisis dari periode yang sama dengan mimpi-mimpimu."
+      },
+      "questions": "Pertanyaan untuk direnungkan",
+      "footer": "Pola ini bahan renungan, bukan diagnosis. Ambil yang terasa pas, sisanya biarkan saja.",
+      "saveAsNote": "Simpan sebagai memo",
+      "noteTitle": "Pola mimpi, {{date}}",
+      "errors": {
+        "offline": "Kamu sedang offline. Pola mimpi memerlukan koneksi internet.",
+        "limitReached": "Kamu sudah membuat {{limit}} laporan pola mimpi bulan ini. Laporan baru bisa dibuat bulan depan.",
+        "failed": "Laporannya belum berhasil dibuat kali ini. Silakan coba lagi.",
+        "failedLimitReached": "Terlalu banyak percobaan tidak berhasil bulan ini. Pola mimpi tersedia lagi bulan depan.",
+        "blocked": "Layanan AI tidak bisa menanggapi beberapa tema mimpimu, jadi laporannya tidak dapat dibuat."
+      }
+    },
+    "filter": "Mimpi"
+  },
+  "featureTip": {
+    "title": "Yang baru di OwnJournal",
+    "free": "Gratis",
+    "dreamJournal": {
+      "name": "Jurnal mimpi",
+      "desc": "Tulis isi mimpimu begitu bangun tidur, sebelum memudar, dan tandai catatannya sebagai mimpi. Kalau mau, pilih perasaan dalam mimpi itu."
+    },
+    "dreamReflection": {
+      "desc": "Dapatkan refleksi atas mimpimu. Kalau ada lima mimpi dalam satu periode, kamu bisa membuat laporan tentang apa yang terus muncul."
+    },
+    "voice": {
+      "desc": "Ketuk mikrofon di bawah editor dan cukup bicara, tak perlu mengetik."
+    },
+    "writeDream": "Catat mimpi",
+    "dismiss": "Mengerti"
   }
 }

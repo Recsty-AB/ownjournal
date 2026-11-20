@@ -46,7 +46,7 @@ Pointers to non-obvious load-bearing modules — not a catalogue. Other services
 | `validation.ts` | Zod schemas for entries, tags, auth (passwords 6+ chars, titles <200 chars, content <50k chars) |
 | `cloudErrorCodes.ts` | Unified `CloudErrorCode` enum for cross-provider error handling |
 | `oauth.ts` | PKCE utilities (code verifier/challenge, state parameter) |
-| `platformDetection.ts` | Detects web/mobile/desktop, exposes `canShowPurchaseCTA()` |
+| `platformDetection.ts` | Detects web/mobile/desktop; purchase gates `canShowStripeCheckout()`, `canShowNativeCheckout()`, `canShowAnyPurchaseCTA()` |
 
 ## Architecture Patterns
 
@@ -123,7 +123,12 @@ Consult `src/config/features.ts` for any gated features before changing related 
 Delete unreachable or superseded code immediately. Do not keep it behind comments, rename it with `_old` / `_legacy` suffixes, add "(Legacy)" rows to doc tables, or leave it "for reference". Git history is the reference. If you're adding a new implementation alongside an old one, check whether the old one is still reachable; if not, delete it in the same PR.
 
 ### Store compliance (native builds)
-On Capacitor (iOS/Android) builds, all purchase CTAs must be gated by `canShowPurchaseCTA()` from `src/utils/platformDetection.ts`. Apple and Google reject builds that link to web checkout from native. The rollout for this landed in v1.0.16 — when touching anything subscription/purchase-facing, verify the CTA is still gated.
+Purchase surfaces are gated by three functions in `src/utils/platformDetection.ts`:
+- `canShowStripeCheckout()`: false on Capacitor iOS/Android. Every Stripe checkout or billing-portal entry point must be behind it; Apple and Google reject builds that link to web checkout from native.
+- `canShowNativeCheckout()`: true only on Capacitor iOS/Android, where purchases go through StoreKit / Google Play Billing (RevenueCat, `NativePaywall`).
+- `canShowAnyPurchaseCTA()`: whether any upgrade surface may render at all; use the two above to pick the checkout flow.
+
+When touching anything subscription/purchase-facing, verify web checkout is still unreachable on native. Plus-gated features show an informational lock (disabled button with a Crown, "available with Plus" text), never a link to web checkout.
 
 ### Commit messages
 Do not append `Co-Authored-By: Claude …` (or any other AI-tool signature) to commit messages. Plain commit message only.

@@ -268,9 +268,15 @@
     background-color: hsl(0 0% 100%);
   }
 
-  /* Proper word breaking for CJK languages (Japanese, Korean, Chinese) */
-  html:lang(ja), html:lang(ko), html:lang(zh), html:lang(zh-TW) {
+  /* Korean separates words with spaces, so lines break only between words.
+     Japanese and Chinese have no spaces and break between characters:
+     keep-all would allow a break only at punctuation and leave lines short. */
+  html:lang(ko) {
     word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  html:lang(ja), html:lang(zh), html:lang(zh-TW) {
+    line-break: strict;
     overflow-wrap: anywhere;
   }
 

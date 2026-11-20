@@ -1613,6 +1613,7 @@
       "tagSuggestions": "Smart Tag Suggestions",
       "trendAnalysis": "Mood & Trend Insights",
       "voiceEntry": "Voice Entry",
+      "dreamReflection": "Dream Reflection",
       "exports": "PDF & Word Export"
     },
     "trialCta": "Start Free Trial",
@@ -1846,6 +1847,10 @@
       "title": "Your Journal Timeline",
       "content": "Your journal entries will appear here, organized by date. Tap the + button to create your first entry."
     },
+    "dreams": {
+      "title": "Your Dream Journal",
+      "content": "Write down a dream as soon as you wake, before it fades. Tap \"Dream\" to mark the entry as a dream. You can also pick how it felt. All of this is free.\n\nWith Plus, you can get reflections on your dreams."
+    },
     "syncStatus": {
       "title": "Sync Status",
       "content": "Once you connect cloud storage, this indicator shows your sync status. Green means synced!"
@@ -2028,6 +2033,21 @@
         "desc": "Tap the microphone below the editor and speak instead of typing. When you stop, your words are turned into clean, punctuated text and added where your cursor is. It works in the language you speak, even if you switch languages along the way. Each recording can be up to 5 minutes, and Plus includes 200 minutes a month.",
         "proNote": "(Plus feature)"
       },
+      "dreams": {
+        "title": "Dream Journal and Reflection",
+        "desc": "Tap \"Dream\" when you write an entry to mark it as a dream. Write it down as soon as you wake, the way you remember it, and pick how it felt. Dreams stay out of your mood calendar and trend analysis. With Plus, tap \"Reflect on this dream\" to get a reflection with possible themes, images to explore and questions for you. Under a reflection you can write down your own thoughts, and \"Reflect again\" takes them into account. Plus includes 30 reflections a month. When a period you choose holds at least five dreams, you can create a Dream patterns report for it, up to two a month. When you create a report, any dreams in that period without a reflection get one automatically first, and each of these uses one of your 30 reflections a month. The report shows the people, places and themes that keep coming back, and how they compare with what you write about in your journal.",
+        "proNote": "(Plus feature)"
+      },
+      "dreamMethod": {
+        "title": "How Dream Reflection Works",
+        "intro": "Dream reflection is inspired by Carl Jung's approach to dreams and by modern dream research.",
+        "jung": "From Jung it takes the idea that your own associations matter more than any general meaning of a symbol. That is why you can write your own thoughts under a reflection and reflect again. From Jung it also takes these ideas: an image can be explored in more than one direction, a dream may show a side of life you give less attention to while awake, and a series of dreams says more than a single one.",
+        "research": "From dream research, especially the work of Calvin Hall and G. William Domhoff, it takes the finding that dreams mostly reflect what occupies you while awake: your relationships, worries and feelings. That is why a reflection can point to links with your entries from the past week, and why a Dream patterns report compares your dreams with the themes of your journal.",
+        "questions": "The questions at the end follow Clara Hill's model of dream work: explore the dream, look for what it might mean to you, then think about a small step you could take.",
+        "noDictionary": "There is no fixed dictionary of dream symbols. A reflection offers possibilities, and you decide what fits.",
+        "notAdvice": "Dream reflection is for self-reflection. It is not medical or psychological advice and cannot diagnose anything.",
+        "privacy": "To make a reflection, OwnJournal sends this to Google's Gemini service: your dream text and its date; the feelings you chose and whether you marked the dream as recurring, a nightmare, or lucid; your own thoughts on the dream, if you wrote any, with the questions from the earlier reflection that they answer; and, for each analyzed entry from the past week, its date, short summary, key themes, and dominant emotion. A Dream patterns report does not send the text of your dreams or entries. It sends the short labels saved with each reflection. To compare your dreams with your journal, it also sends the key themes and dominant emotions of your analyzed entries from the same period as the dreams in the report, starting a week before the first of those dreams, and how often each theme and emotion appears. OwnJournal stores none of what is sent."
+      },
       "aiAnalysis": {
         "title": "AI Analysis",
         "desc": "Get AI-powered insights about your journal entries, including mood analysis, topic detection, and personalized suggestions to deepen your self-reflection.",
@@ -2170,7 +2190,7 @@
       },
       "pro": {
         "question": "What does Plus include?",
-        "answer": "Plus includes AI analysis, title suggestions, tag suggestions, voice entry, trend analysis, Activity Insights, and PDF/Word export."
+        "answer": "Plus includes AI analysis, title suggestions, tag suggestions, voice entry, dream reflection, trend analysis, Activity Insights, and PDF/Word export."
       },
       "manageSubscription": {
         "question": "How do I manage my subscription?",
@@ -2276,7 +2296,7 @@
       },
       "collection": {
         "title": "Information We Collect",
-        "content": "The personal information we collect is minimal. In connection with your account, we collect: your email address, your display name (if provided by an external authentication provider such as Google or Apple), and — once you connect cloud storage — a record of which provider you have chosen. To operate the journaling service, we keep a small amount of state on our servers — whether your encryption setup is complete, your subscription status, and the identifiers our payment processor (Stripe) needs to manage your subscription. To monitor fair use of optional AI features, we record per-user usage counters (the type of analysis performed and a timestamp; never the content of your entries). For voice entry, the counter also records the length of each transcribed recording in seconds; the recording itself is never stored. Our authentication backend also keeps standard session metadata such as sign-in timestamps. Display names are used only to personalize your in-app experience and are never made public. To show subscription prices in your local currency, we may briefly look up the country associated with your IP address; only the resulting country code is used, it is not linked to your account, and we do not store your IP address. We do not use third-party analytics, advertising SDKs, or cross-app trackers. When you use E2E encryption, your journal content is encrypted on your device and we cannot read it. In Simple mode, your journal data is synced to your chosen cloud provider without end-to-end encryption. Simple mode is intended for convenience and may reduce privacy compared to E2E mode; your data remains protected by your cloud provider's standard security measures."
+        "content": "The personal information we collect is minimal. In connection with your account, we collect: your email address, your display name (if provided by an external authentication provider such as Google or Apple), and — once you connect cloud storage — a record of which provider you have chosen. To operate the journaling service, we keep a small amount of state on our servers — whether your encryption setup is complete, your subscription status, and the identifiers our payment processor (Stripe) needs to manage your subscription. To monitor fair use of optional AI features, we record per-user usage counters (the type of analysis performed, a timestamp, the AI model used, and the amount of AI processing used, measured in tokens; for features that work on a single entry, also that entry's identifier; never the content of your entries). For voice entry, the counter also records the length of each transcribed recording in seconds; the recording itself is never stored. Our authentication backend also keeps standard session metadata such as sign-in timestamps. Display names are used only to personalize your in-app experience and are never made public. To show subscription prices in your local currency, we may briefly look up the country associated with your IP address; only the resulting country code is used, it is not linked to your account, and we do not store your IP address. We do not use third-party analytics, advertising SDKs, or cross-app trackers. When you use E2E encryption, your journal content is encrypted on your device and we cannot read it. In Simple mode, your journal data is synced to your chosen cloud provider without end-to-end encryption. Simple mode is intended for convenience and may reduce privacy compared to E2E mode; your data remains protected by your cloud provider's standard security measures."
       },
       "usage": {
         "title": "How We Use Information",
@@ -2304,7 +2324,7 @@
       },
       "aiProcessing": {
         "title": "AI Features and Processing",
-        "content": "OwnJournal offers optional AI-powered features such as mood analysis, suggestions, and voice entry, available exclusively to Plus subscribers. AI processing occurs only when you, as a Plus subscriber, explicitly use these features. When you use text-based AI features, the relevant text is decrypted on your device first and then sent, through your explicit action and via our servers, to our AI provider, currently Google (Gemini), through its paid API. When you use voice entry, your device's microphone is used only while you are recording; the recording is sent via our servers to Google (Gemini) to be converted into text, and the resulting text is added to your entry on your device. We do not store AI inputs or outputs, including voice recordings and transcripts, on our servers; we only record per-user counters of AI feature usage (the type of analysis performed, a timestamp, and, for voice entry, the length of the recording in seconds; never the content) for fair-use rate limiting. Google may retain prompts and outputs for a limited period for abuse monitoring and policy enforcement, per its current policies. AI processing may occur outside the EEA; Google maintains appropriate data transfer safeguards such as Standard Contractual Clauses. We use the paid tier of Google's AI service, under which prompts and outputs are not used to train or improve its models. You can choose not to use AI features, and doing so does not affect the core journaling functionality."
+        "content": "OwnJournal offers optional AI-powered features such as mood analysis, suggestions, voice entry, and dream reflection, available exclusively to Plus subscribers. AI processing occurs only when you, as a Plus subscriber, explicitly use these features. When you use text-based AI features, the relevant text is decrypted on your device first and then sent, through your explicit action and via our servers, to our AI provider, currently Google (Gemini), through its paid API. When you use voice entry, your device's microphone is used only while you are recording; the recording is sent via our servers to Google (Gemini) to be converted into text, and the resulting text is added to your entry on your device. We do not store AI inputs or outputs, including voice recordings and transcripts, on our servers; we only record per-user counters of AI feature usage (the type of analysis performed, a timestamp, the AI model used, and the amount of AI processing used, measured in tokens; for features that work on a single entry, also that entry's identifier; for voice entry, also the length of the recording in seconds; never the content) for fair-use rate limiting. Google may retain prompts and outputs for a limited period for abuse monitoring and policy enforcement, per its current policies. AI processing may occur outside the EEA; Google maintains appropriate data transfer safeguards such as Standard Contractual Clauses. We use the paid tier of Google's AI service, under which prompts and outputs are not used to train or improve its models. You can choose not to use AI features, and doing so does not affect the core journaling functionality."
       },
       "diagnostics": {
         "title": "Diagnostics and Crash Logs",
@@ -2562,5 +2582,165 @@
       "noSpeech": "No speech was detected in the recording.",
       "failed": "Transcription failed. Please try again."
     }
+  },
+  "dream": {
+    "toggle": "Dream",
+    "toggleHint": "Mark this entry as a dream",
+    "badge": "Dream",
+    "editor": {
+      "placeholder": "What happened in your dream? Write it as you remember it.",
+      "feelingsLabel": "How did the dream feel?",
+      "flagsLabel": "This dream was",
+      "howItWorks": "How it works"
+    },
+    "feelings": {
+      "joy": "Joy",
+      "calm": "Calm",
+      "awe": "Awe",
+      "curiosity": "Curiosity",
+      "love": "Love",
+      "fear": "Fear",
+      "anxiety": "Anxiety",
+      "sadness": "Sadness",
+      "anger": "Anger",
+      "confusion": "Confusion",
+      "shame": "Shame",
+      "loneliness": "Loneliness"
+    },
+    "flags": {
+      "recurring": "Recurring",
+      "nightmare": "A nightmare",
+      "lucid": "Lucid",
+      "lucidExplained": "Lucid means you knew you were dreaming."
+    },
+    "guide": {
+      "title": "Your dream journal",
+      "step1": "Write it down as soon as you wake. Dreams fade within minutes.",
+      "step1Voice": "Dictate if that is faster.",
+      "step2": "Tell it as it happened: people, places, what you did, how it felt. Order and logic do not matter.",
+      "step3": "Tap \"Reflect on this dream\" to get a reflection on what you wrote.",
+      "step3Patterns": "Once you have written down five dreams, you can create a Dream patterns report for a period you choose. It shows the people, places and themes that keep coming back.",
+      "done": "Got it"
+    },
+    "reflection": {
+      "title": "Dream reflection",
+      "reflect": "Reflect on this dream",
+      "reflecting": "Reflecting…",
+      "reflectAgain": "Reflect again",
+      "editToReflectAgain": "Edit the dream or add your thoughts to reflect on it again",
+      "plusOnly": "Dream reflection is available with Plus",
+      "remaining": "{{remaining}} of {{limit}} reflections left this month",
+      "summary": "In short",
+      "themes": "Possible themes",
+      "images": "Images to explore",
+      "wakingLinks": "Possible links to your days",
+      "questions": "Questions to reflect on",
+      "thoughts": {
+        "label": "Your thoughts",
+        "placeholder": "What do the questions bring to mind?",
+        "hint": "\"Reflect again\" takes your thoughts into account."
+      },
+      "fromThoughts": "What your thoughts changed",
+      "footer": "A reflection, not a diagnosis. Take what fits and leave the rest.",
+      "howThisWorks": "How this works",
+      "show": "Show",
+      "hide": "Hide",
+      "care": {
+        "title": "If this dream stays with you",
+        "body": "Dreams like this can be hard to carry. If distressing dreams keep coming back or weigh on your days, it can help to talk to someone you trust or to a health professional.",
+        "urgent": "If you are thinking about harming yourself, contact your local emergency number or a crisis line now."
+      },
+      "consent": {
+        "title": "Reflect on your dream with Google?",
+        "body": "To make the reflection, OwnJournal sends this to Google's Gemini service: your dream text and its date; the feelings you chose and whether you marked the dream as recurring, a nightmare, or lucid; your own thoughts on the dream, if you wrote any, with the questions from the earlier reflection that they answer; and, for each analyzed entry from the past week, its date, short summary, key themes, and dominant emotion. A Dream patterns report does not send the text of your dreams or entries. It sends short labels from your reflections. To compare your dreams with your journal, it also sends the key themes and dominant emotions of your analyzed entries from the same period as the dreams in the report, starting a week before the first of those dreams, and how often each theme and emotion appears. OwnJournal stores none of what is sent. Google doesn't use it to train its models and may keep it only briefly to prevent abuse. The reflection is saved with your dream, like the rest of the entry.",
+        "accept": "Continue",
+        "decline": "Not now"
+      },
+      "errors": {
+        "offline": "You're offline. Dream reflection needs an internet connection.",
+        "authRequired": "Please sign in to reflect on your dreams.",
+        "plusRequired": "Dream reflection requires a Plus subscription.",
+        "limitReached": "You've used all {{limit}} dream reflections this month. The limit resets next month, and you can still write down your dreams.",
+        "tooShort": "Write at least {{min}} characters about your dream first.",
+        "tooLong": "This dream is too long for a reflection. Shorten it a little and try again.",
+        "saveFailed": "The reflection couldn't be saved. Please try again.",
+        "failed": "The reflection didn't work this time. Please try again.",
+        "failedLimitReached": "Too many attempts didn't work this month, so dream reflection is paused until next month. You can still write down your dreams.",
+        "blocked": "The AI service won't respond to what this dream describes, so no reflection could be made. Your dream stays saved in your journal."
+      }
+    },
+    "patterns": {
+      "title": "Dream patterns",
+      "intro": "What keeps coming back across your dreams.",
+      "dreamsInPeriod_one": "{{count}} dream in this period",
+      "dreamsInPeriod_other": "{{count}} dreams in this period",
+      "needMore": "A report needs at least {{min}} dreams.",
+      "reflectFirst_one": "One of these dreams has no reflection yet. Creating the report reflects on that dream first, which uses 1 of your reflections this month ({{remaining}} left).",
+      "reflectFirst_other": "{{count}} of these dreams have no reflection yet. Creating the report reflects on them first, which uses {{count}} of your reflections this month ({{remaining}} left).",
+      "notEnoughReflections_one": "{{dreams}} of these dreams have no reflection yet, but you have only 1 reflection left this month. Choose a shorter period.",
+      "notEnoughReflections_other": "{{dreams}} of these dreams have no reflection yet, but you have only {{count}} reflections left this month. Choose a shorter period.",
+      "noReflectionsLeft_one": "One of these dreams has no reflection yet, and you have no reflections left this month. Choose a shorter period.",
+      "noReflectionsLeft_other": "{{count}} of these dreams have no reflection yet, and you have no reflections left this month. Choose a shorter period.",
+      "ready": "Your first Dream patterns report is ready to create.",
+      "create": "Create Dream patterns report",
+      "createNew": "Create a new report",
+      "creating": "Looking for patterns…",
+      "reflecting": "Reflecting on dream {{current}} of {{total}}…",
+      "remaining": "{{remaining}} of {{limit}} reports left this month",
+      "plusOnly": "Dream patterns is available with Plus",
+      "earlyThemes": "Early themes",
+      "earlyThemesNote_one": "Based on {{count}} dream. Patterns get clearer with more dreams, for example over a longer period.",
+      "earlyThemesNote_other": "Based on {{count}} dreams. Patterns get clearer with more dreams, for example over a longer period.",
+      "basedOn_one": "Based on {{count}} dream",
+      "basedOn_other": "Based on {{count}} dreams",
+      "overview": "Overview",
+      "recurring": "What keeps coming back",
+      "inDreams_one": "In {{count}} dream",
+      "inDreams_other": "In {{count}} dreams",
+      "kinds": {
+        "character": "Person",
+        "setting": "Place",
+        "emotion": "Feeling",
+        "theme": "Theme"
+      },
+      "changes": "How your dreams have changed",
+      "waking": {
+        "title": "Dreams and waking life",
+        "basedOn_one": "Compared with {{count}} analyzed journal entry from the same period",
+        "basedOn_other": "Compared with {{count}} analyzed journal entries from the same period",
+        "shared": "In your dreams and in your journal",
+        "dreamsOnly": "In your dreams, not in your journal",
+        "wakingOnly": "In your journal, not in your dreams",
+        "none": "No comparison with your journal this time. It needs at least {{min}} analyzed entries from the same period as your dreams."
+      },
+      "questions": "Questions to reflect on",
+      "footer": "Patterns to reflect on, not a diagnosis. Take what fits and leave the rest.",
+      "saveAsNote": "Save as note",
+      "noteTitle": "Dream patterns, {{date}}",
+      "errors": {
+        "offline": "You're offline. Dream patterns needs an internet connection.",
+        "limitReached": "You've created {{limit}} Dream patterns reports this month. You can create a new one next month.",
+        "failed": "The report didn't work this time. Please try again.",
+        "failedLimitReached": "Too many attempts didn't work this month, so Dream patterns is paused until next month.",
+        "blocked": "The AI service won't respond to some of the themes in your dreams, so no report could be made."
+      }
+    },
+    "filter": "Dreams"
+  },
+  "featureTip": {
+    "title": "New in OwnJournal",
+    "free": "Free",
+    "dreamJournal": {
+      "name": "Dream journal",
+      "desc": "Write down a dream as soon as you wake, before it fades. Mark the entry as a dream. You can also pick how it felt."
+    },
+    "dreamReflection": {
+      "desc": "Get a reflection on a dream. With five dreams in a period, you can create a report on what keeps coming back."
+    },
+    "voice": {
+      "desc": "Tap the microphone below the editor and speak instead of typing."
+    },
+    "writeDream": "Write down a dream",
+    "dismiss": "Got it"
   }
 }

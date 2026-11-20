@@ -29,7 +29,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
 import {
-  AlertCircle, Brain, Lightbulb, Tag, TrendingUp, FileText, Mic, Loader2, RotateCcw,
+  AlertCircle, Brain, Lightbulb, Tag, TrendingUp, FileText, Mic, Moon, Loader2, RotateCcw,
 } from "lucide-react";
 import { iapService, IAPError, type IAPProduct, type IAPEntitlement } from "@/services/iapService";
 import { getPlatformInfo } from "@/utils/platformDetection";
@@ -49,6 +49,7 @@ const proFeatures = [
   { key: "tagSuggestions", icon: Tag },
   { key: "trendAnalysis", icon: TrendingUp },
   { key: "voiceEntry", icon: Mic },
+  { key: "dreamReflection", icon: Moon },
   { key: "exports", icon: FileText },
 ];
 

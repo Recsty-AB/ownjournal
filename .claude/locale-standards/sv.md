@@ -127,6 +127,20 @@ For long-form blog/brand voice see the website's `.claude/locale-standards/sv.md
 - Calques fixed once, do not reintroduce: `Se det i aktion`, `Njuter av …`, `emotionella resa`, `Inga frågor ställda`, `genom design`, `30-sekunders rundtur`, `14-dagars ångerrätt`, `serverside`, `Riktext`, `anmäler sig inte till`, `kärnfunktionaliteten`.
 - Capitalised month names (`November 2026`) are an English tell.
 
+## 8. Dreams glossary (dream journal and reflection)
+| English | Swedish | Avoid | Source |
+|---|---|---|---|
+| lucid dream / nightmare / recurring | klardröm / mardröm / återkommande | lucid dröm | sv.wikipedia "Klardröm"; 1177 |
+| Dream reflection / Dream patterns | Drömreflektion / Drömmönster; the report: "rapport om drömmönster" | drömmönsterrapport | judgment |
+| reflecting (progress) | Skapar reflektion… | Reflekterar… (the app cannot reflect) | judgment |
+| take what fits, leave the rest | Ta till dig det som stämmer och låt resten vara | strunta i resten (brusque) | judgment |
+| emergency number (no digits) | nödnumret | larmnumret | SOS Alarm, sosalarm.se/112 ("nödnumret 112") |
+| crisis line / health professional | stödlinje / någon i vården | krislinje | 1177 "Till dig som har självmordstankar" |
+| Got it (closing a tips guide) | OK | Jag förstår (reads as accepting a warning) | judgment |
+| symbol meaning | en symbol har en betydelse; "betydelse för" = importance to | betydelser för symboler | judgment |
+| amount of AI processing (legal) | omfattningen av AI-behandlingen mätt i tokens | mängden AI-behandling som har använts | GDPR sv "behandlingens … omfattning" |
+| Clara Hill's dream work | Clara Hills modell för att arbeta med drömmar | drömarbete (= Freud's Traumarbeit) | judgment |
+
 ## Sources
 - Microsoft Swedish localization style guide: https://learn.microsoft.com/en-us/globalization/reference/microsoft-style-guides (sv-SE: address form, error messages, en-dash, ellipsis)
 - Apple iPhone User Guide (sv-se), "Diktera text på iPhone": https://support.apple.com/sv-se/guide/iphone/iph2c0651d2/ios

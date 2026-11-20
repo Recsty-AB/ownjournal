@@ -144,3 +144,15 @@ user's speech ("trasforma le tue parole in testo"). Always say "voce del diario"
 - Decision (UE) 2021/914, "clausole contrattuali tipo": https://eur-lex.europa.eu/eli/dec_impl/2021/914/oj?locale=it
 - Garante privacy, trasferimento di dati all'estero: https://www.garanteprivacy.it/it/temi/trasferimento-di-dati-all-estero
 - Website editorial standard: ownjournal-website/.claude/locale-standards/it.md
+
+## Dreams glossary (2026-11-19)
+| English | Italian | Avoid / source |
+|---|---|---|
+| Dream journal | **diario dei sogni** | it.wikipedia "Sogno lucido" |
+| Dream reflection (feature name) | **Riflessione sui sogni** (generic plural in lists, titles, errors); button for one dream **Rifletti sul sogno** | "la riflessione sul sogno" as feature name (reads as one specific dream); judgment |
+| Dream patterns (card, report) | **Schemi ricorrenti nei sogni**; in prose "report sugli schemi ricorrenti" | pattern (bare); house term |
+| Nightmare / lucid / recurring (chips) | **Incubo**, **Lucido**, **Ricorrente** under "Che tipo di sogno era?" | "Un incubo" (article in a chip); it.wikipedia "Incubo", "Sogno lucido" |
+| Dream work (Clara Hill) | "il modello di Clara Hill per il lavoro sui sogni" | "modello di lavoro sul sogno di Clara Hill" (parses as Hill's dream); unobravo "lavoro … sul sogno" |
+| Take what fits, leave the rest | **prendi quello che senti tuo e lascia il resto** | "tieni quello che ti serve" (keep/need, not fit); judgment |
+| Crisis line / emergency number | **linea di ascolto**, **il numero di emergenza** | no specific numbers; unobravo, findahelpline |
+| Failed AI toast | "Riflessione non riuscita. Riprova." | "Questa volta … non è riuscita" (calque of "this time") |

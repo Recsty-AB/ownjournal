@@ -17,7 +17,7 @@ type InvokeFn = <T = unknown>(name: string, options: EdgeFunctionInvokeOptions) 
 /**
  * Invoke a Supabase Edge Function with one retry on 503 retryable errors.
  * Returns the same { data, error } shape as supabase.functions.invoke().
- * On final failure, the error object is unchanged so callers can still use error.context?.json() for the response body.
+ * On final failure, the error object is unchanged and its response body is unread, so callers can still use error.context?.json().
  *
  * @param supabase - Supabase client (or any object with functions.invoke)
  * @param name - Edge function name (e.g. 'ai-analyze')
@@ -36,9 +36,12 @@ export async function invokeWithRetry<T = unknown>(
     const status = (result.error as { context?: { status?: number } })?.context?.status;
     let body: { retryable?: boolean } | null = null;
     try {
-      const ctx = (result.error as { context?: { json?: () => Promise<unknown> } })?.context;
-      if (typeof ctx?.json === "function") {
-        body = (await ctx.json()) as { retryable?: boolean };
+      const ctx = (result.error as { context?: { json?: () => Promise<unknown>; clone?: () => { json: () => Promise<unknown> } } })?.context;
+      // Read a clone: a Response body can be read only once, and the caller
+      // needs it to tell a monthly limit from a plain failure.
+      const readable = typeof ctx?.clone === "function" ? ctx.clone() : ctx;
+      if (typeof readable?.json === "function") {
+        body = (await readable.json()) as { retryable?: boolean };
       }
     } catch {
       // ignore parse failure

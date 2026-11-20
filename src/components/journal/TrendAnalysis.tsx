@@ -7,10 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { TrendingUp, Loader2, Crown, ChevronDown, Calendar as CalendarIcon, AlertTriangle, FileText } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Calendar } from "@/components/ui/calendar";
-import { format, subDays, startOfYear, isAfter, isBefore, startOfDay, endOfDay } from "date-fns";
+import { format, isAfter, isBefore } from "date-fns";
+import { CustomPeriodPicker, PeriodSelect } from "./PeriodPicker";
+import { periodRange, type PeriodPreset } from "@/utils/period";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { invokeWithRetry } from "@/utils/edgeFunctionRetry";
@@ -53,20 +52,6 @@ interface CloudTrendData {
   analysis: TrendData;
 }
 
-type DateRangePreset = "last30days" | "last90days" | "thisYear" | "custom";
-
-const DATE_RANGE_OPTIONS = [
-  { value: "last30days" as const, label: "trendAnalysis.last30days" },
-  { value: "last90days" as const, label: "trendAnalysis.last90days" },
-  { value: "thisYear" as const, label: "trendAnalysis.thisYear" },
-  { value: "custom" as const, label: "trendAnalysis.customRange" },
-];
-
-// On iOS native, Radix UI's portal-based Select doesn't receive touch events
-// reliably in Capacitor's WKWebView, so fall back to a native <select>.
-const isNativeIOS = !!(window as any).Capacitor?.isNativePlatform?.() &&
-  (window as any).Capacitor?.getPlatform?.() === 'ios';
-
 export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisProps) => {
   const [analysis, setAnalysis] = useState<TrendData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -89,7 +74,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
   useEffect(() => {
     if (isPro) setIsSetupCollapsed(false);
   }, [isPro]);
-  const [dateRangePreset, setDateRangePreset] = useState<DateRangePreset>("last30days");
+  const [dateRangePreset, setDateRangePreset] = useState<PeriodPreset>("last30days");
   const [customStartDate, setCustomStartDate] = useState<Date | undefined>(undefined);
   const [customEndDate, setCustomEndDate] = useState<Date | undefined>(undefined);
   // Store the actual period that was analyzed (not the current selection)
@@ -103,32 +88,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
 
   // Calculate date range and filter entries based on selection
   const { startDate, endDate, filteredEntries } = useMemo(() => {
-    const now = new Date();
-    let start: Date;
-    let end: Date = now;
-
-    switch (dateRangePreset) {
-      case "last30days":
-        start = subDays(now, 30);
-        break;
-      case "last90days":
-        start = subDays(now, 90);
-        break;
-      case "thisYear":
-        start = startOfYear(now);
-        break;
-      case "custom":
-        if (customStartDate && customEndDate) {
-          start = startOfDay(customStartDate);
-          end = endOfDay(customEndDate);
-        } else {
-          // Default to last 30 days if custom dates not set
-          start = subDays(now, 30);
-        }
-        break;
-      default:
-        start = subDays(now, 30);
-    }
+    const { start, end } = periodRange(dateRangePreset, customStartDate, customEndDate);
 
     const filtered = entries.filter(entry => {
       const entryDate = entry.date;
@@ -997,30 +957,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
 
                 {/* Action bar — dropdown and Analyze button; wraps when the card is narrow */}
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                  {isNativeIOS ? (
-                    <select
-                      value={dateRangePreset}
-                      onChange={(e) => setDateRangePreset(e.target.value as DateRangePreset)}
-                      className="min-h-11 min-w-[11rem] flex-1 px-3 py-2 rounded-md border border-input bg-background text-sm"
-                    >
-                      {DATE_RANGE_OPTIONS.map(option => (
-                        <option key={option.value} value={option.value}>{t(option.label)}</option>
-                      ))}
-                    </select>
-                  ) : (
-                    <Select value={dateRangePreset} onValueChange={(value) => setDateRangePreset(value as DateRangePreset)}>
-                      <SelectTrigger className="min-h-11 min-w-[11rem] flex-1">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {DATE_RANGE_OPTIONS.map(option => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {t(option.label)}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  )}
+                  <PeriodSelect value={dateRangePreset} onChange={setDateRangePreset} />
 
                   <Button
                     onClick={handleAnalyze}
@@ -1072,66 +1009,12 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
 
               {/* Custom Date Range Pickers */}
               {dateRangePreset === "custom" && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
-                  <div className="space-y-2">
-                    <label className="text-xs text-muted-foreground">{t('trendAnalysis.startDate')}</label>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <Button
-                          variant="outline"
-                          className={cn(
-                            "w-full justify-start text-left font-normal",
-                            !customStartDate && "text-muted-foreground"
-                          )}
-                        >
-                          <CalendarIcon aria-hidden="true" className="mr-2 h-4 w-4" />
-                          {customStartDate ? format(customStartDate, "PPP", { locale: dateLocale }) : t('trendAnalysis.pickDate')}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={customStartDate}
-                          onSelect={setCustomStartDate}
-                          disabled={(date) =>
-                            date > new Date() || (customEndDate && date > customEndDate)
-                          }
-                          initialFocus
-                          className="pointer-events-auto"
-                        />
-                      </PopoverContent>
-                    </Popover>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs text-muted-foreground">{t('trendAnalysis.endDate')}</label>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <Button
-                          variant="outline"
-                          className={cn(
-                            "w-full justify-start text-left font-normal",
-                            !customEndDate && "text-muted-foreground"
-                          )}
-                        >
-                          <CalendarIcon aria-hidden="true" className="mr-2 h-4 w-4" />
-                          {customEndDate ? format(customEndDate, "PPP", { locale: dateLocale }) : t('trendAnalysis.pickDate')}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={customEndDate}
-                          onSelect={setCustomEndDate}
-                          disabled={(date) =>
-                            date > new Date() || (customStartDate && date < customStartDate)
-                          }
-                          initialFocus
-                          className="pointer-events-auto"
-                        />
-                      </PopoverContent>
-                    </Popover>
-                  </div>
-                </div>
+                <CustomPeriodPicker
+                  start={customStartDate}
+                  end={customEndDate}
+                  onStartChange={setCustomStartDate}
+                  onEndChange={setCustomEndDate}
+                />
               )}
 
               {progressPanel}

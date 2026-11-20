@@ -141,3 +141,18 @@ One term per concept across both repos; the app's term wins unless it is wrong.
 - Datatilsynet, "Vejledning om overførsel til tredjelande" (april 2024): https://www.datatilsynet.dk/Media/638478180234447566/Vejledning%20om%20overf%C3%B8rsel%20til%20tredjelande.pdf (fornødne garantier, tilstrækkelighedsafgørelse, standardkontraktbestemmelser, supplerende foranstaltninger)
 - GDPR, Danish text (EUR-Lex): https://eur-lex.europa.eu/legal-content/DA/TXT/?uri=CELEX:32016R0679
 - Dansk Sprognævn (comma, month capitalization): https://dsn.dk / https://sproget.dk
+
+## 8. Dreams glossary (dream reflection, 2026-11)
+| English | Danish | Avoid | Status |
+|---|---|---|---|
+| Dream reflection / Dream patterns (features) | Drømmerefleksion / Drømmemønstre; in prose `en rapport om (dine) drømmemønstre` | Drømmeanalyse, Drømmetydning | judgment (house) |
+| Reflect on this dream (button) | Reflekter over drømmen (quote exactly in help/guide) | Reflektér, Reflekter drømmen | judgment |
+| dream journal / nightmare / recurring | drømmedagbog / mareridt / tilbagevendende | drømmejournal | videnskab.dk, lex.dk |
+| lucid dream | klar drøm | lucid drøm | videnskab.dk |
+| awe (feeling chip) | Ærefrygt | Betagelse (= fascination), Undren (overlaps Nysgerrighed) | Danish Keltner translations |
+| anxiety (feeling chip) | Uro | Angst (clinical) | website standard §12 |
+| crisis wording | `skal du kontakte alarmnummeret eller en krisetelefon` | `det lokale alarmnummer`, `sundhedsprofessionel` | Livslinien ("skal du kontakte 112") |
+| health professional (care text) | en læge eller psykolog | sundhedsprofessionel, fagperson | judgment |
+| Jung | C.G. Jung, then Jung; genitive Jungs | Carl Jung's | da.wikipedia |
+| AI usage in tokens (legal) | forbruget af AI-behandling målt i tokens | tokenforbrug (unexplained) | judgment |
+| failed generation (toast) | `Det lykkedes ikke at lave rapporten/refleksionen …` | `Rapporten mislykkedes` (reads as a bad report) | judgment |

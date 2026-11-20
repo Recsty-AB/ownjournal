@@ -22,6 +22,13 @@ import { aiMetadataService } from './aiMetadataService';
 import { cloudRateLimiter, AdaptiveRateLimiter } from '@/utils/adaptiveRateLimiter';
 import { CloudErrorCode, createCloudError, getCloudErrorCode, isCloudError } from '@/utils/cloudErrorCodes';
 import { FEATURES } from '@/config/features';
+import { convertStoredPatternsReport } from './dreamPatternsReportStore';
+import {
+  DREAM_PATTERNS_REPORT_CLEARED,
+  DREAM_PATTERNS_REPORT_KEY,
+  sanitizeDreamDetails,
+  sanitizeDreamReflection,
+} from '@/types/dream';
 
 // ============= CONSTANTS =============
 const ENCRYPTION_CONSTANTS = {
@@ -493,8 +500,32 @@ function entriesAreIdentical(a: JournalEntryData, b: JournalEntryData): boolean 
     a.title === b.title &&
     a.body === b.body &&
     a.mood === b.mood &&
-    JSON.stringify((a.tags || []).slice().sort()) === JSON.stringify((b.tags || []).slice().sort())
+    a.type === b.type &&
+    JSON.stringify((a.tags || []).slice().sort()) === JSON.stringify((b.tags || []).slice().sort()) &&
+    JSON.stringify(a.dream ?? null) === JSON.stringify(b.dream ?? null) &&
+    JSON.stringify(a.dreamReflection ?? null) === JSON.stringify(b.dreamReflection ?? null)
   );
+}
+
+/** Entry types that survive storage; anything else is an ordinary journal entry. */
+function storedEntryType(value: unknown): 'note' | 'dream' | undefined {
+  return value === 'note' || value === 'dream' ? value : undefined;
+}
+
+/**
+ * Dream fields for the entry payload (`encryptedData` JSON). They always travel
+ * next to title/body/images and must never be copied into plaintext metadata.
+ * Keys are only present when defined. saveEntry writes them for dream entries
+ * only, so switching a dream back to an ordinary entry drops them.
+ */
+function dreamPayloadFields(source: { dream?: unknown; dreamReflection?: unknown }): {
+  dream?: unknown;
+  dreamReflection?: unknown;
+} {
+  return {
+    ...(source?.dream !== undefined ? { dream: source.dream } : {}),
+    ...(source?.dreamReflection !== undefined ? { dreamReflection: source.dreamReflection } : {}),
+  };
 }
 
   /**
@@ -569,8 +600,10 @@ interface EncryptedEntry {
     mood?: string;
     activities?: string[];
     aiMetadata?: import('@/types/aiMetadata').EntryAIMetadata; // AI analysis metadata
-    // 'note' for Notes-section documents; absent for journal entries. New E2E
-    // entries carry this inside the encrypted payload like the fields above.
+    // 'note' for Notes-section documents, 'dream' for dream entries; absent for
+    // ordinary journal entries. New E2E entries carry this inside the encrypted
+    // payload like the fields above. Dream details and reflections are NEVER
+    // stored here; they live in `encryptedData` in every mode.
     type?: string;
   };
   // Phase 4: Version vector for conflict detection
@@ -3232,6 +3265,9 @@ class StorageServiceV2 {
     }
 
     if (import.meta.env.DEV) console.log('🔐 Starting Simple→E2E migration...');
+
+    // The saved Dream patterns report becomes encrypted along with the entries.
+    await convertStoredPatternsReport(this.masterKey, true);
     
     try {
       // List all entry files in cloud
@@ -3279,15 +3315,18 @@ class StorageServiceV2 {
               title: plainData.title || '',
               body: plainData.body || '',
               images: plainData.images || [],
+              ...dreamPayloadFields(plainData),
               date: entry.metadata.date,
               tags: entry.metadata.tags,
               mood: entry.metadata.mood,
               activities: entry.metadata.activities || [],
               aiMetadata: entry.metadata.aiMetadata,
+              type: entry.metadata.type,
             } : {
               title: plainData.title || '',
               body: plainData.body || '',
               images: plainData.images || [],
+              ...dreamPayloadFields(plainData),
             });
 
             const { encrypted, iv } = await encryptData(dataToEncrypt, this.masterKey!);
@@ -3872,6 +3911,7 @@ class StorageServiceV2 {
           title: entry.title,
           body: entry.body,
           images: entry.images || [],
+          ...(entry.type === 'dream' ? dreamPayloadFields(entry) : {}),
           date: entry.date.toISOString(),
           tags: entry.tags,
           mood: entry.mood,
@@ -3882,6 +3922,7 @@ class StorageServiceV2 {
           title: entry.title,
           body: entry.body,
           images: entry.images || [],
+          ...(entry.type === 'dream' ? dreamPayloadFields(entry) : {}),
         });
 
         const { encrypted, iv } = await encryptData(plaintext, this.masterKey);
@@ -3929,7 +3970,13 @@ class StorageServiceV2 {
         
         encryptedEntry = {
           id: entry.id,
-          encryptedData: JSON.stringify({ title: entry.title, body: entry.body, images: entry.images || [] }), // Plain JSON
+          // Plain JSON; dream fields live here, never in metadata.
+          encryptedData: JSON.stringify({
+            title: entry.title,
+            body: entry.body,
+            images: entry.images || [],
+            ...(entry.type === 'dream' ? dreamPayloadFields(entry) : {}),
+          }),
           iv: '', // No IV in Simple mode
           metadata: {
             date: entry.date.toISOString(),
@@ -4128,7 +4175,9 @@ class StorageServiceV2 {
       mood: e.mood || 'okay',
       createdAt: e.createdAt?.toISOString() ?? new Date().toISOString(),
       updatedAt: e.updatedAt?.toISOString() ?? new Date().toISOString(),
-      ...(e.type === 'note' ? { type: 'note' as const } : {}),
+      // Type only (badges, filters, mood exclusion at startup); dream details
+      // and reflections are deliberately not cached here.
+      ...(storedEntryType(e.type) ? { type: storedEntryType(e.type) } : {}),
     }));
 
     await saveToIndexedDB('settings', {
@@ -4179,7 +4228,7 @@ class StorageServiceV2 {
         images: [],
         createdAt: new Date(e.createdAt),
         updatedAt: new Date(e.updatedAt),
-        ...(e.type === 'note' ? { type: 'note' as const } : {}),
+        ...(storedEntryType(e.type) ? { type: storedEntryType(e.type) } : {}),
       }));
     } catch {
       return [];
@@ -4295,6 +4344,11 @@ class StorageServiceV2 {
     try {
       settingsStore.delete('cachedEntrySnapshot');
     } catch { /* settings store may not have this key */ }
+    // The Dream patterns report summarises the deleted dreams; it goes with them.
+    try {
+      settingsStore.delete(DREAM_PATTERNS_REPORT_KEY);
+    } catch { /* no report saved */ }
+    window.dispatchEvent(new CustomEvent(DREAM_PATTERNS_REPORT_CLEARED));
 
     onProgress?.({ phase: 'local', current: 1, total: 1 });
 
@@ -4611,6 +4665,9 @@ class StorageServiceV2 {
     }
 
     if (import.meta.env.DEV) console.log('🔐 Starting manual Simple→E2E migration...');
+
+    // The saved Dream patterns report becomes encrypted along with the entries.
+    await convertStoredPatternsReport(this.masterKey, true);
     
     let migrated = 0;
     let skipped = 0;
@@ -4645,15 +4702,18 @@ class StorageServiceV2 {
             title: plainData.title || '',
             body: plainData.body || '',
             images: plainData.images || [],
+            ...dreamPayloadFields(plainData),
             date: entry.metadata.date,
             tags: entry.metadata.tags,
             mood: entry.metadata.mood,
             activities: entry.metadata.activities || [],
             aiMetadata: entry.metadata.aiMetadata,
+            type: entry.metadata.type,
           } : {
             title: plainData.title || '',
             body: plainData.body || '',
             images: plainData.images || [],
+            ...dreamPayloadFields(plainData),
           });
 
           const { encrypted, iv } = await encryptData(dataToEncrypt, this.masterKey!);
@@ -4756,7 +4816,8 @@ class StorageServiceV2 {
             encryptedData: JSON.stringify({
               title: plainData.title || '',
               body: plainData.body || '',
-              images: plainData.images || []
+              images: plainData.images || [],
+              ...dreamPayloadFields(plainData),
             }),
             iv: '', // Empty IV indicates plaintext
             versionVector: entry.versionVector,
@@ -4766,6 +4827,7 @@ class StorageServiceV2 {
               mood: plainData.mood ?? entry.metadata.mood,
               activities: plainData.activities ?? entry.metadata.activities ?? [],
               aiMetadata: plainData.aiMetadata ?? entry.metadata.aiMetadata,
+              type: plainData.type ?? entry.metadata.type,
               createdAt: entry.metadata.createdAt,
               updatedAt: entry.metadata.updatedAt,
             },
@@ -4789,6 +4851,10 @@ class StorageServiceV2 {
         }
       }
       
+      // The saved Dream patterns report follows the entries; without this it
+      // could not be read once the key is discarded.
+      await convertStoredPatternsReport(this.masterKey, false);
+
       if (import.meta.env.DEV) {
         console.log(`✅ E2E→Simple migration complete: ${migrated} decrypted, ${skipped} skipped, ${failed} failed`);
       }
@@ -5079,6 +5145,10 @@ class StorageServiceV2 {
     // payload. Populated from the decrypted JSON when present; otherwise we fall
     // back to plaintext metadata (legacy E2E entries and Simple mode).
     let payload: { date?: string; tags?: string[]; mood?: string; activities?: string[]; aiMetadata?: import('@/types/aiMetadata').EntryAIMetadata; type?: string } = {};
+    // Dream fields always live in the payload (encrypted or plain JSON), never
+    // in metadata. Raw here; sanitized below.
+    let dreamRaw: unknown;
+    let dreamReflectionRaw: unknown;
 
     // Check if entry has IV (indicates encrypted data)
     const entryIsEncrypted = encryptedEntry.iv && encryptedEntry.iv.length > 0;
@@ -5105,6 +5175,8 @@ class StorageServiceV2 {
         title = parsed.title;
         body = parsed.body;
         images = parsed.images || [];
+        dreamRaw = parsed.dream;
+        dreamReflectionRaw = parsed.dreamReflection;
         // New E2E entries carry these inside the payload; absent for legacy entries.
         payload = {
           date: parsed.date,
@@ -5141,6 +5213,8 @@ class StorageServiceV2 {
         title = parsed.title || '';
         body = parsed.body || '';
         images = parsed.images || [];
+        dreamRaw = parsed.dream;
+        dreamReflectionRaw = parsed.dreamReflection;
       } catch (error) {
         // Fallback for corrupted data
         title = 'Corrupted Entry';
@@ -5161,7 +5235,12 @@ class StorageServiceV2 {
       });
     }
 
-    const entryType = payload.type ?? meta.type;
+    const entryType = storedEntryType(payload.type ?? meta.type);
+    // Dream fields are only attached to dream entries.
+    // A loaded dream always has details; the startup snapshot has none, which
+    // is how the reflection card tells a dream that is not loaded yet.
+    const dream = entryType === 'dream' ? sanitizeDreamDetails(dreamRaw) ?? { feelings: [] } : undefined;
+    const dreamReflection = entryType === 'dream' ? sanitizeDreamReflection(dreamReflectionRaw) : undefined;
 
     return {
       id: encryptedEntry.id,
@@ -5174,7 +5253,9 @@ class StorageServiceV2 {
       activities: payload.activities ?? meta.activities ?? [],
       createdAt: new Date(meta.createdAt),
       updatedAt: new Date(meta.updatedAt),
-      ...(entryType === 'note' ? { type: 'note' as const } : {}),
+      ...(entryType ? { type: entryType } : {}),
+      ...(dream ? { dream } : {}),
+      ...(dreamReflection ? { dreamReflection } : {}),
     };
   }
 
