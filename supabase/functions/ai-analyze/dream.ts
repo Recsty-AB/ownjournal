@@ -557,7 +557,7 @@ Fill every field of reflect_on_dream:
 - images: 2-4 key images from the dream. For each, offer possibilities (not a fixed meaning). No question here; the questions field holds all questions.
 - wakingLinks: 0-3 tentative links to the waking-life context above. Empty if there is no context or no real connection.
 - questions: 2-3 open reflection questions, the only questions in the reflection. They may ask what a key image brings to mind for the dreamer. The last may ask what small, concrete step the dreamer could take.
-- coded: short lower-case labels (characters, settings, emotions, themes) in the dream's language, for comparing dreams later. Use generic roles for people ("mother", "a stranger"), not names.
+- coded: short lower-case labels (characters, settings, emotions, themes) in the dream's language, for comparing dreams later. Use generic roles for people ("mother", "a stranger"), not names. Never list the dreamer (I, me, myself, or the equivalent) as a character; the dreamer is in almost every dream.
 - care: "none" or "distress" per the care rule.`;
 
   const { result, usage, model, error } = await callWithRetry(
@@ -647,6 +647,7 @@ ${METHOD}
 
 ${SAFETY_RULES}
 - Only report an element as recurring when it appears in at least two dreams, and give the real count.
+- Never report the dreamer themselves (labels such as "I", "me", "myself", "the dreamer" or their equivalent in any language) as a recurring character: the dreamer is in almost every dream, so it says nothing. Older labels may still contain the dreamer; skip them.
 ${early ? "- There are few dreams so far. Present everything as early, tentative themes." : ""}
 ${journal ? `- In wakingLife, describe what is there and offer it as something to wonder about. Never explain why something is missing from the dreams or from the journal, and never call it avoided, repressed, hidden, unconscious or denied. The journal lists only entries the app has analysed and people do not write about everything, so an absence proves nothing.` : ""}
 
