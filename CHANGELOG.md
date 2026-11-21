@@ -1,8 +1,12 @@
 # Changelog
 
-## Unreleased
+## v1.1.0
 
 ### New Features
+- Dream journal: tap "Dream" in the editor to mark an entry as a dream, and optionally pick how it felt and whether it was recurring, a nightmare or lucid. Dreams stay out of the mood calendar, mood statistics and Trend Analysis. Free for everyone
+- Dream reflection (Plus, 30 a month): possible themes, images to explore, possible links to the past week's entries and questions to reflect on. Write your own thoughts under a reflection and tap "Reflect again"; the new reflection opens with what your thoughts changed
+- Dream patterns (Plus, two a month): pick a period as in Trend Analysis; with five or more dreams in it, dreams without a reflection get one first, then the report shows what keeps coming back and how your dreams compare with your journal
+- One-time tip about dreams and voice entry for journals already in use, and a dream step in the onboarding tour
 - Voice entry (Plus): tap the microphone under the editor and speak; Gemini turns the recording into clean, punctuated text in the spoken language and inserts it at the cursor. Up to 5 minutes per recording, 200 minutes per month
 - Free users can tap the microphone to see what voice entry unlocks with Plus
 
@@ -17,12 +21,19 @@
 ### Bug Fixes
 - Sync diagnostics showed a literal "{{time}}" instead of when a paused provider reopens
 - Adding activities past the limit of 20 showed the wrong message in some languages
+- Dropdowns, date pickers and menus opened behind dialogs on desktop, so the language picker in Settings did nothing
+- Japanese and Chinese text broke lines only at punctuation, leaving uneven short lines; it breaks between characters again
+- The remaining-AI-uses display could show too little usage in a heavy month (it stopped at the server's row limit)
 
 ### Developer Notes
 - New `ai-transcribe` edge function (`gemini-3.5-transcribe` via the Interactions API with `store: false`); deploy it with `supabase functions deploy ai-transcribe`
 - Migration `20261116120000_add_transcription_usage.sql` adds `ai_usage_stats.audio_seconds` and a monthly transcription total to `get_ai_usage_summary`
 - `modelConfig.ts` moved to `supabase/functions/_shared/`
 - New native permissions: Android `RECORD_AUDIO`, iOS/macOS `NSMicrophoneUsageDescription`
+- Android versionCode: `10100`; iOS build: `33`
+- `ai-analyze` gains `analyzeDream` and `analyzeDreamPatterns` (`gemini-3.8-flash`); deploy with `supabase functions deploy ai-analyze`
+- Migrations `20261119120000_add_thinking_tokens.sql` (thinking tokens per request) and `20261119120100_add_dream_usage.sql` (dream counts in `get_ai_usage_summary`). Deploy order: migrations, then `ai-analyze`, then the app
+- Trend Analysis and Dream patterns share one period picker (`PeriodPicker.tsx`, `utils/period.ts`)
 
 ---
 
