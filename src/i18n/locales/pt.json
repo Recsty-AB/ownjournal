@@ -2713,7 +2713,8 @@
     },
     "patterns": {
       "title": "Padrões dos sonhos",
-      "intro": "O que volta a aparecer nos seus sonhos.",
+      "intro": "O que volta a aparecer nos seus sonhos e como se comparam com o diário.",
+      "compareJournal": "Comparar com o diário",
       "dreamsInPeriod_one": "Sonhos neste período: {{count}}",
       "dreamsInPeriod_many": "{{count}} sonhos neste período",
       "dreamsInPeriod_other": "{{count}} sonhos neste período",

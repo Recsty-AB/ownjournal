@@ -2671,7 +2671,8 @@
     },
     "patterns": {
       "title": "Unien kuviot",
-      "intro": "Asiat, jotka toistuvat unissasi.",
+      "intro": "Mikä unissasi toistuu ja miten ne vertautuvat päiväkirjaasi.",
+      "compareJournal": "Vertaa unia päiväkirjaasi",
       "dreamsInPeriod_one": "{{count}} uni tällä ajanjaksolla",
       "dreamsInPeriod_other": "{{count}} unta tällä ajanjaksolla",
       "needMore": "Raporttiin tarvitaan vähintään {{min}} unta.",

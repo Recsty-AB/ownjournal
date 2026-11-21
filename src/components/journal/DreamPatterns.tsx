@@ -3,6 +3,8 @@ import { format, parseISO } from "date-fns";
 import { ChevronDown, Crown, Loader2, Moon, NotebookPen, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Card } from "@/components/ui/card";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
@@ -14,7 +16,7 @@ import {
   updateDreamPatternsRequest,
   useDreamPatternsRequest,
 } from "@/hooks/useDreamPatternsRequest";
-import { getCurrentUserId } from "@/utils/userScope";
+import { getCurrentUserId, scopedKey } from "@/utils/userScope";
 import { getDateLocale } from "@/utils/dateLocale";
 import { supabase } from "@/integrations/supabase/client";
 import { analyzeMissingEntries, loadEntryAnalyses, needsEntryAnalysis } from "@/services/entryAnalysisService";
@@ -65,6 +67,9 @@ interface DreamPatternsProps {
 // The three lists of the dreams-and-waking-life comparison, in reading order.
 const WAKING_GROUPS = ["shared", "dreamsOnly", "wakingOnly"] as const;
 
+// Per-account, per-device choice: compare the dreams with the journal.
+const COMPARE_JOURNAL_KEY = "dream-patterns-compare-journal";
+
 const hasWakingItems = (waking: DreamWakingComparison | undefined): waking is DreamWakingComparison =>
   !!waking && WAKING_GROUPS.some((group) => waking[group].length > 0);
 
@@ -92,6 +97,24 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
   const [customEnd, setCustomEnd] = useState<Date | undefined>(undefined);
   const period = useMemo(() => periodRange(preset, customStart, customEnd), [preset, customStart, customEnd]);
 
+  // Whether a report also compares the dreams with the journal. On by
+  // default, remembered on this device; off sends nothing about the journal.
+  const [compareJournal, setCompareJournalState] = useState(() => {
+    try {
+      return localStorage.getItem(scopedKey(COMPARE_JOURNAL_KEY)) !== "false";
+    } catch {
+      return true;
+    }
+  });
+  const setCompareJournal = (value: boolean) => {
+    setCompareJournalState(value);
+    try {
+      localStorage.setItem(scopedKey(COMPARE_JOURNAL_KEY), String(value));
+    } catch {
+      /* Not remembered; the choice still applies now. */
+    }
+  };
+
   const hasDreams = useMemo(() => entries.some((e) => e.type === "dream"), [entries]);
   const periodDreams = useMemo(() => dreamsForPatterns(entries, period.start, period.end), [entries, period]);
   const withoutReflection = periodDreams.filter((d) => !d.dreamReflection).length;
@@ -103,7 +126,7 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
   const canCompare = journalEntries.length >= DREAM_LIMITS.wakingEntriesForPatterns;
   const [unanalyzed, setUnanalyzed] = useState(0);
   useEffect(() => {
-    if (!canCompare) {
+    if (!canCompare || !compareJournal) {
       setUnanalyzed(0);
       return;
     }
@@ -118,7 +141,7 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
     return () => {
       cancelled = true;
     };
-  }, [journalEntries, canCompare]);
+  }, [journalEntries, canCompare, compareJournal]);
   const unlocked = periodDreams.length >= DREAM_LIMITS.dreamsForPatterns;
   const remaining = Math.max(0, usage.limit - usage.current);
   const reflectionsLeft = Math.max(0, reflectionUsage.limit - reflectionUsage.current);
@@ -224,7 +247,8 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
       // Journal entries of the same period without an AI analysis get one,
       // so the report can compare the dreams with the journal. An entry that
       // fails is left out; the comparison needs three analysed entries.
-      const journal = journalEntriesForComparison(dreams, entries);
+      const compare = compareJournal;
+      const journal = compare ? journalEntriesForComparison(dreams, entries) : [];
       if (journal.length >= DREAM_LIMITS.wakingEntriesForPatterns) {
         const items = await loadEntryAnalyses(journal);
         const missing = items.filter(needsEntryAnalysis).length;
@@ -242,7 +266,7 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
       }
 
       const ready = dreams.map((d) => (made.has(d.id) ? { ...d, dreamReflection: made.get(d.id) } : d));
-      const result = await requestDreamPatterns(ready, entries, i18n.language, range);
+      const result = await requestDreamPatterns(ready, entries, i18n.language, range, compare);
       if (!sameUser()) return;
       aiUsageLimits.setMonthlyDreamCount("dreamPatterns", result.used);
       updateDreamPatternsRequest({ report: result.report });
@@ -406,7 +430,18 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
                   {t("dream.patterns.tooShort", { count: tooShort, min: DREAM_LIMITS.minCharacters })}
                 </p>
               )}
-              {isPro && unlocked && (
+              <div className="flex items-center gap-2 pt-1">
+                <Switch
+                  id="dream-patterns-compare-journal"
+                  checked={compareJournal}
+                  onCheckedChange={setCompareJournal}
+                  disabled={loading || !isPro}
+                />
+                <Label htmlFor="dream-patterns-compare-journal" className="text-sm font-normal">
+                  {t("dream.patterns.compareJournal")}
+                </Label>
+              </div>
+              {isPro && compareJournal && (
                 <p className="text-xs tabular-nums text-muted-foreground">
                   {canCompare
                     ? t("dream.patterns.journalCompare", { count: journalEntries.length })
@@ -512,8 +547,9 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
                     ))}
                   </div>
                 ) : (
-                  // No comparison was made: too few analysed journal entries.
-                  !report.waking && (
+                  // No comparison was made: too few journal entries. Nothing
+                  // is said when the dreamer switched the comparison off.
+                  !report.waking && report.journalCompared !== false && (
                     <p className="text-sm text-muted-foreground">
                       {t("dream.patterns.waking.none", { min: DREAM_LIMITS.wakingEntriesForPatterns })}
                     </p>

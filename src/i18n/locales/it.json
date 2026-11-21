@@ -2713,7 +2713,8 @@
     },
     "patterns": {
       "title": "Schemi ricorrenti nei sogni",
-      "intro": "Ciò che ritorna da un sogno all'altro.",
+      "intro": "Ciò che ritorna da un sogno all'altro e il confronto con il diario.",
+      "compareJournal": "Confronta con il diario",
       "dreamsInPeriod_one": "{{count}} sogno in questo periodo",
       "dreamsInPeriod_many": "{{count}} sogni in questo periodo",
       "dreamsInPeriod_other": "{{count}} sogni in questo periodo",

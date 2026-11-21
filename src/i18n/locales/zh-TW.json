@@ -2629,7 +2629,8 @@
     },
     "patterns": {
       "title": "夢境脈絡",
-      "intro": "看看哪些人、地方和主題在您的夢裡一再出現。",
+      "intro": "看看哪些人、地方和主題在您的夢裡一再出現，以及夢境和日記有什麼異同。",
+      "compareJournal": "與日記對照",
       "dreamsInPeriod_other": "此時期有 {{count}} 個夢",
       "needMore": "至少需要 {{min}} 個夢才能產生報告",
       "tooShort_other": "此時期另有 {{count}} 個夢太短，無法解讀，所以不列入計算，也不會納入報告。夢境內容至少要有 {{min}} 個字才能解讀。",

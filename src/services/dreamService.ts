@@ -354,11 +354,13 @@ export async function requestDreamPatterns(
   entries: JournalEntryData[],
   language: string,
   period: { start: Date; end: Date },
+  /** Off: nothing about the journal is sent and the report has no comparison. */
+  compareWithJournal = true,
 ): Promise<DreamPatternsResult> {
   dreams = dreams.filter((d) => d.dreamReflection).slice(-DREAM_LIMITS.maxDreamsForPatterns);
   if (dreams.length < DREAM_LIMITS.dreamsForPatterns) throw new DreamRequestError('notEnoughDreams');
 
-  const waking = await buildWakingSummary(dreams, entries);
+  const waking = compareWithJournal ? await buildWakingSummary(dreams, entries) : null;
   const data = await invokeDream<{ report?: unknown; used?: number }>({
     type: 'analyzeDreamPatterns',
     language,
@@ -374,6 +376,7 @@ export async function requestDreamPatterns(
     createdAt: new Date().toISOString(),
     periodStart: localDay(period.start),
     periodEnd: localDay(period.end),
+    journalCompared: compareWithJournal,
   });
   if (!report) throw new DreamRequestError('failed');
   return { report, used: Number(data.used ?? 0) };

@@ -156,6 +156,8 @@ export interface DreamPatternsReport {
   /** Calendar days (YYYY-MM-DD) of the period the report covers. */
   periodStart?: string;
   periodEnd?: string;
+  /** False when the dreamer switched the comparison with the journal off. */
+  journalCompared?: boolean;
   overview: string;
   recurring: { kind: DreamPatternKind; label: string; count: number; note: string }[];
   changes: string[];
@@ -265,6 +267,7 @@ export function sanitizeDreamPatternsReport(value: unknown): DreamPatternsReport
     createdAt: raw.createdAt,
     dreamCount: typeof raw.dreamCount === 'number' ? raw.dreamCount : 0,
     ...(isDay(raw.periodStart) && isDay(raw.periodEnd) ? { periodStart: raw.periodStart, periodEnd: raw.periodEnd } : {}),
+    ...(raw.journalCompared === false ? { journalCompared: false } : {}),
     overview: raw.overview,
     recurring: Array.isArray(raw.recurring)
       ? raw.recurring

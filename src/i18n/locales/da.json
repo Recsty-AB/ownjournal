@@ -2671,7 +2671,8 @@
     },
     "patterns": {
       "title": "Drømmemønstre",
-      "intro": "Det, der går igen i dine drømme.",
+      "intro": "Det, der går igen i dine drømme, og hvordan de forholder sig til din dagbog.",
+      "compareJournal": "Sammenlign med din dagbog",
       "dreamsInPeriod_one": "{{count}} drøm i denne periode",
       "dreamsInPeriod_other": "{{count}} drømme i denne periode",
       "needMore": "Der skal mindst {{min}} drømme til en rapport.",

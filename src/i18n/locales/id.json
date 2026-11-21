@@ -2629,7 +2629,8 @@
     },
     "patterns": {
       "title": "Pola mimpi",
-      "intro": "Hal-hal yang terus muncul dalam mimpi-mimpimu.",
+      "intro": "Hal-hal yang terus muncul dalam mimpi-mimpimu, serta persamaan dan perbedaannya dengan jurnalmu.",
+      "compareJournal": "Bandingkan dengan jurnalmu",
       "dreamsInPeriod_other": "{{count}} mimpi dalam periode ini",
       "needMore": "Laporan memerlukan minimal {{min}} mimpi",
       "tooShort_other": "{{count}} mimpi dalam periode ini terlalu pendek untuk direfleksikan, jadi tidak ikut dihitung. Refleksi memerlukan minimal {{min}} karakter.",

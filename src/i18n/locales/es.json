@@ -2713,7 +2713,8 @@
     },
     "patterns": {
       "title": "Patrones de tus sueños",
-      "intro": "Lo que se repite una y otra vez en tus sueños.",
+      "intro": "Lo que se repite una y otra vez en tus sueños, y en qué coinciden con tu diario y en qué no.",
+      "compareJournal": "Comparar con tu diario",
       "dreamsInPeriod_one": "{{count}} sueño en este periodo",
       "dreamsInPeriod_many": "{{count}} de sueños en este periodo",
       "dreamsInPeriod_other": "{{count}} sueños en este periodo",

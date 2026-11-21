@@ -2713,7 +2713,8 @@
     },
     "patterns": {
       "title": "Motifs récurrents des rêves",
-      "intro": "Ce qui revient d'un rêve à l'autre.",
+      "intro": "Ce qui revient d'un rêve à l'autre et ce que vos rêves partagent ou non avec votre journal.",
+      "compareJournal": "Comparer avec votre journal",
       "dreamsInPeriod_one": "{{count}} rêve sur cette période",
       "dreamsInPeriod_many": "{{count}} rêves sur cette période",
       "dreamsInPeriod_other": "{{count}} rêves sur cette période",

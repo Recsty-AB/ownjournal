@@ -2629,7 +2629,8 @@
     },
     "patterns": {
       "title": "Mẫu hình giấc mơ",
-      "intro": "Những gì cứ trở đi trở lại trong các giấc mơ của bạn.",
+      "intro": "Những gì cứ trở đi trở lại trong các giấc mơ của bạn, và giấc mơ so với nhật ký ra sao.",
+      "compareJournal": "So sánh với nhật ký",
       "dreamsInPeriod_other": "{{count}} giấc mơ trong khoảng thời gian này",
       "needMore": "Báo cáo cần ít nhất {{min}} giấc mơ.",
       "tooShort_other": "Có {{count}} giấc mơ quá ngắn để tạo phần suy ngẫm nên không được tính. Phần suy ngẫm cần giấc mơ dài ít nhất {{min}} ký tự.",

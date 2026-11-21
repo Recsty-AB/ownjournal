@@ -2629,7 +2629,8 @@
     },
     "patterns": {
       "title": "梦境规律",
-      "intro": "看看哪些内容在您的梦里一再出现。",
+      "intro": "看看哪些内容在您的梦里一再出现，梦与日记又有哪些异同。",
+      "compareJournal": "与日记对照",
       "dreamsInPeriod_other": "此时期有 {{count}} 个梦",
       "needMore": "生成报告至少需要 {{min}} 个梦",
       "tooShort_other": "此时期还有 {{count}} 个梦太短，无法解读，不计入上面的数量和报告。解读至少需要 {{min}} 个字符。",

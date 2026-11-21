@@ -522,6 +522,39 @@ describe('DreamPatterns', () => {
     expect(mocks.analyzeMissingEntries.mock.invocationCallOrder[0]).toBeLessThan(mocks.requestDreamPatterns.mock.invocationCallOrder[0]);
   });
 
+  it('shows the journal comparison as a switch, on by default, even before five dreams count', () => {
+    renderCard([...dreams(2), ...journal(4)]);
+    openCard();
+
+    expect(screen.getByRole('switch', { name: 'dream.patterns.compareJournal' })).toBeChecked();
+    expect(screen.getByText(/dream.patterns.journalCompare/)).toBeInTheDocument();
+  });
+
+  it('with the switch off, analyses and sends nothing about the journal, and remembers the choice', async () => {
+    setDreamConsent();
+    mocks.loadEntryAnalyses.mockImplementation(async (list: JournalEntryData[]) =>
+      list.map((entry) => ({ entry, metadata: null })));
+    mocks.requestDreamPatterns.mockResolvedValue({ report: { ...REPORT, journalCompared: false }, used: 1 });
+    const first = renderCard([...dreams(5), ...journal(3)]);
+    openCard();
+
+    fireEvent.click(screen.getByRole('switch', { name: 'dream.patterns.compareJournal' }));
+    expect(screen.queryByText(/dream.patterns.journalCompare/)).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: /dream.patterns.create/ }));
+
+    await screen.findByText('Searching runs through your dreams.');
+    expect(mocks.analyzeMissingEntries).not.toHaveBeenCalled();
+    expect(mocks.requestDreamPatterns.mock.calls[0][4]).toBe(false);
+    // A report made without the comparison does not claim too few entries.
+    expect(screen.queryByText('dream.patterns.waking.none')).not.toBeInTheDocument();
+    first.unmount();
+
+    renderCard([...dreams(5), ...journal(3)]);
+    await act(async () => {});
+    if (!screen.queryByRole('switch', { name: 'dream.patterns.compareJournal' })) openCard();
+    expect(screen.getByRole('switch', { name: 'dream.patterns.compareJournal' })).not.toBeChecked();
+  });
+
   it('lets free users see a locked create button but not use it', async () => {
     renderCard(dreams(5), { isPro: false });
     openCard();

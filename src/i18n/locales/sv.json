@@ -2671,7 +2671,8 @@
     },
     "patterns": {
       "title": "Drömmönster",
-      "intro": "Det som återkommer i dina drömmar.",
+      "intro": "Det som återkommer i dina drömmar och hur de förhåller sig till din dagbok.",
+      "compareJournal": "Jämför med din dagbok",
       "dreamsInPeriod_one": "{{count}} dröm under den här perioden",
       "dreamsInPeriod_other": "{{count}} drömmar under den här perioden",
       "needMore": "För en rapport behövs minst {{min}} drömmar.",
