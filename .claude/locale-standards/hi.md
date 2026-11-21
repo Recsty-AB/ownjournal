@@ -147,3 +147,15 @@ Button labels: 1–3 words ("बोलकर लिखें", "रोकें"
   https://www.apple.com/legal/privacy/data/hi/sign-in-with-apple/ ("Apple से साइन इन करें")
 - Gboard dictation help (Gemini "Rambler" voice input): https://support.google.com/gboard/answer/17468539
 - House style: term counts from both hi.json files (Nov 2026); owner decisions of Nov 2026.
+
+## 7. Dreams glossary (Nov 2026)
+| English | Use | Avoid | Basis |
+|---|---|---|---|
+| Dream / Dreams (chip, filter) | सपना / सपने | स्वप्न in UI | everyday word; judgment |
+| Dream journal | सपनों की जर्नल (f.) | सपनों की डायरी | house term जर्नल |
+| Dream reflection (feature; countable result) | सपने पर चिंतन; count with invariant m. चिंतन ("30 चिंतन", "{{remaining}} चिंतन बाकी"); result "तैयार होना" | "चिंतन बनना", रिफ्लेक्शन | judgment; matches `समापन चिंतन` |
+| Dream patterns (report) | सपनों के पैटर्न / “सपनों के पैटर्न” रिपोर्ट | ड्रीम पैटर्न | house term पैटर्न |
+| Nightmare / recurring / lucid dream | बुरा सपना / बार-बार आने वाला / ल्यूसिड ड्रीम (with a यानी gloss) | दुःस्वप्न in chips; coinages like सचेत सपना | hi.wikipedia title "दुःस्वप्न (बुरे सपने)"; no Hindi article or term for lucid dream (Wikipedia langlinks) |
+| Jung / Hall / Domhoff / Clara Hill | कार्ल युंग / कैल्विन हॉल / जी. विलियम डॉमहॉफ / क्लारा हिल | जंग, यूंग | hi.wikipedia "कार्ल युंग"; others judgment |
+| Hill's dream-work model | सपनों पर काम करने का क्लारा हिल का मॉडल | ड्रीम वर्क मॉडल (echoes Freud's dream-work) | judgment |
+| Health professional / crisis line | डॉक्टर या काउंसलर / मानसिक स्वास्थ्य हेल्पलाइन; "आपातकालीन नंबर पर कॉल करें" | अथवा in warm UI text; specific numbers | Tele-MANAS Hindi coverage: "प्रशिक्षित काउंसलर", "हेल्पलाइन नंबर" |

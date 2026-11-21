@@ -19,6 +19,7 @@ const DialogClose = DialogPrimitive.Close
  *   full-height drawer    110   (Settings, Help — opaque, covers the screen)
  *   modal overlay         200
  *   modal content         210
+ *   select, popover, menu 220   (open from inside modals and drawers)
  *   toasts                300
  * Modals must outrank the full-height drawer: Settings and Help open dialogs
  * (PDF/Word export, delete confirmations, provider transfer) from inside the

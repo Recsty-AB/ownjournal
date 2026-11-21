@@ -162,3 +162,16 @@ voice see the website repo's `.claude/locale-standards/pt-BR.md` (brand voice, c
 - Academia Brasileira de Letras, VOLP / Acordo Ortográfico 1990: https://www.academia.org.br/nossa-lingua/busca-no-vocabulario
 - Apple Suporte (BR), "Conta Apple, anteriormente ID Apple": https://support.apple.com/pt-br/apple-account
 - Apple Developer (BR), "Sobre o recurso Iniciar sessão com a Apple": https://developer.apple.com/br/help/account/capabilities/about-sign-in-with-apple/
+
+## Dreams glossary (2026-11)
+| English | pt-BR | Avoid / note |
+|---|---|---|
+| dream journal | diário de sonhos | attested (Personare) |
+| nightmare / lucid dream / recurring | pesadelo / sonho lúcido / recorrente | attested (Personare, Correio Braziliense) |
+| awe (feeling chip) | Deslumbramento | "Encanto" (too weak), "Assombro" (evokes assombração); UFRJ, Psic.: Teoria e Pesquisa |
+| Dream reflection (feature) | reflexão de sonhos (lowercase in prose, like "entrada por voz") | judgment |
+| Dream patterns (card/report) | "Padrões dos sonhos", quoted in prose: relatório "Padrões dos sonhos" | judgment (unquoted lowercase reads as generic) |
+| reflected dreams (count) | reflexões ("Reflexões feitas", "novas reflexões") | "sonho refletido" (= mirrored) |
+| Clara Hill's model | o modelo de Clara Hill para o trabalho com sonhos | "trabalho com sonhos de Clara Hill" (garden path) |
+| crisis line | linha de apoio emocional | CVV wording "apoio emocional" (cvv.org.br) |
+| mark an entry as a dream | marcar como sonho | "guardar como sonho" |

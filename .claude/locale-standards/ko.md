@@ -129,6 +129,21 @@ apply to the UI, where 항목 is the established term.
 - Tap → 탭하다 everywhere English says Tap (incl. Share button, profile icon); keep 클릭 where English
   still says click (billing-portal 'Manage').
 
+## 7. Dreams glossary (term → use → avoid; source)
+| English | Korean | Avoid / source |
+|---|---|---|
+| Dream journal | 꿈 일기 | 드림 저널; ko.wikipedia 「자각몽」 |
+| Dream reflection (feature, button) | 꿈 돌아보기 / '이 꿈 돌아보기'; the result = 돌아본 내용·돌아본 결과 | 꿈 해석, 해몽, 꿈 성찰, 회고; judgment (§9 website: 돌아보다 > 회고하다) |
+| Dream patterns (report) | 꿈 패턴 (보고서) | 드림 패턴; judgment, 패턴 is house usage |
+| Nightmare / lucid / recurring | 악몽 / 자각몽 / 반복되는 꿈 | 루시드 드림; ko.wikipedia 「자각몽」, 약학정보원 「반복적인 악몽」 |
+| Possible themes | 엿보이는 주제 | 있을 법한 주제 (reads "commonplace"); judgment |
+| Early themes (badge) | 초기 단계 | 초기 주제 (초기 = "initial/default" in UI); judgment |
+| Short labels (sent for patterns) | 짧은 키워드 | 레이블, 라벨; judgment |
+| Health professional (care text) | 의사 또는 상담 전문가 | 의료 전문가 (calque); judgment, Korean 109 boilerplate "전문가의 상담" |
+| Jung / Hall / Domhoff / Hill | 카를 융 / 캘빈 홀 / G. 윌리엄 돔호프 / 클라라 힐 | 칼 융 (secondary); ko.wikipedia 「카를 융」, Kyobo 『융 심리학 입문』 (캘빈 S. 홀); others 외래어 표기법 |
+| Measured in tokens (legal) | 토큰 단위로 측정한 AI 처리 사용량 | pattern of house 「초 단위」; judgment |
+| "N of M" progress toward a goal | "꿈 M개를 돌아보면 … 지금까지 N개" | "M개 중 N개" (reads as N out of a set of M) |
+
 ## Sources
 - Microsoft Korean localization style guide: https://aka.ms/korean-styleguide
 - Korean GDPR text (KISA translation), Art. 4, 37, 46: https://gdpr-text.com/ko/read/article-46/
@@ -139,3 +154,4 @@ apply to the UI, where 항목 is the established term.
 - Apple로 로그인: https://www.apple.com/kr/legal/privacy/data/ko/sign-in-with-apple/ and
   https://developer.apple.com/kr/design/human-interface-guidelines/sign-in-with-apple
 - 국립국어원 한글 맞춤법 (띄어쓰기, 문장 부호): https://korean.go.kr
+

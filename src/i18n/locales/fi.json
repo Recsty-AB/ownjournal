@@ -1613,6 +1613,7 @@
       "tagSuggestions": "Älykkäät tunniste-ehdotukset",
       "trendAnalysis": "Mieliala- ja trendioivallukset",
       "voiceEntry": "Sanelu",
+      "dreamReflection": "Unipohdinta",
       "exports": "PDF- ja Word-vienti"
     },
     "trialCta": "Aloita ilmainen kokeilu",
@@ -1846,6 +1847,10 @@
       "title": "Päiväkirjasi aikajana",
       "content": "Päiväkirjamerkintäsi näkyvät täällä päivämäärän mukaan järjestettyinä.\nLuo ensimmäinen merkintäsi napauttamalla +-painiketta."
     },
+    "dreams": {
+      "title": "Unipäiväkirjasi",
+      "content": "Kirjoita uni muistiin heti herättyäsi, ennen kuin se haihtuu, ja tallenna merkintä unena napauttamalla ”Uni”-valintaa. Halutessasi voit valita, miltä uni tuntui. Unipäiväkirja on ilmainen.\n\nPlus-tilaajana voit saada unestasi myös pohdinnan."
+    },
     "syncStatus": {
       "title": "Synkronoinnin tila",
       "content": "Kun yhdistät pilvitallennustilan, tämä ilmaisin näyttää synkronoinnin tilan.\nVihreä tarkoittaa, että kaikki on synkronoitu!"
@@ -2028,6 +2033,21 @@
         "desc": "Napauta editorin alla olevaa mikrofonipainiketta ja puhu kirjoittamisen sijaan. Kun lopetat, puheesi muunnetaan siistiksi tekstiksi välimerkkeineen ja lisätään kohdistimen kohdalle. Sanelu toimii sillä kielellä, jota puhut, vaikka vaihtaisit välillä kieltä. Yksi tallenne voi kestää enintään 5 minuuttia, ja Plus sisältää 200 minuuttia kuukaudessa.",
         "proNote": "(Plus-ominaisuus)"
       },
+      "dreams": {
+        "title": "Unipäiväkirja ja unipohdinta",
+        "desc": "Kun kirjoitat merkintää, napauta päivämäärärivin ”Uni”-valintaa, niin merkintä tallentuu unena. Kirjoita uni muistiin heti herättyäsi sellaisena kuin sen muistat ja valitse, miltä uni tuntui. Unet eivät näy mielialakalenterissa eivätkä trendianalyysissä. Plus-tilaajana voit napauttaa ”Pohdi tätä unta” -painiketta ja saada pohdinnan, jossa on mahdollisia teemoja, tutkittavia unen kuvia ja kysymyksiä sinulle. Pohdinnan alle voit kirjoittaa omia ajatuksiasi, ja ne otetaan huomioon, kun napautat ”Pohdi uudelleen” -painiketta. Plus sisältää 30 unipohdintaa kuukaudessa. Kun valitsemallasi ajanjaksolla on vähintään viisi unta, voit luoda niistä Unien kuviot -raportin, enintään kaksi kuukaudessa. Siitä näet ihmiset, paikat ja teemat, jotka toistuvat unissasi. Raportissa niitä myös verrataan siihen, mistä kirjoitat päiväkirjaasi. Kun luot raportin, valitsemasi ajanjakson unet, joita ei ole vielä pohdittu, pohditaan ensin automaattisesti. Nämä pohdinnat vähennetään kuukauden 30 unipohdinnasta.",
+        "proNote": "(Plus-ominaisuus)"
+      },
+      "dreamMethod": {
+        "title": "Miten unipohdinta toimii",
+        "intro": "Unipohdinta on saanut vaikutteita Carl Gustav Jungin unikäsityksestä ja nykyaikaisesta unitutkimuksesta.",
+        "jung": "Jungilta on peräisin ajatus, että omat mielleyhtymäsi ovat tärkeämpiä kuin symbolin yleinen merkitys. Siksi voit kirjoittaa pohdinnan alle omia ajatuksiasi ja pohtia unta uudelleen. Jungin mukaan unen kuvaa voi lähestyä useammalta suunnalta, ja uni voi tuoda esiin elämäsi puolen, johon kiinnität valveilla vähemmän huomiota. Lisäksi unien sarja kertoo enemmän kuin yksittäinen uni.",
+        "research": "Pohdinta nojaa myös unitutkimukseen ja etenkin Calvin Hallin ja G. William Domhoffin havaintoon, että unet heijastavat enimmäkseen sitä, mikä askarruttaa sinua valveilla: ihmissuhteita, huolia ja tunteita. Siksi pohdinta voi tuoda esiin yhteyksiä kuluneen viikon merkintöihisi, ja siksi Unien kuviot -raportissa uniasi verrataan päiväkirjasi teemoihin.",
+        "questions": "Lopun kysymykset noudattavat Clara Hillin mallia unien käsittelystä: ensin tutkitaan unta, sitten etsitään, mitä se voisi merkitä sinulle, ja lopuksi mietitään jotakin pientä, mitä voisit tehdä.",
+        "noDictionary": "Pohdinta ei käytä valmista unisymbolien sanakirjaa. Se tarjoaa mahdollisuuksia, ja sinä päätät, mikä niistä sopii.",
+        "notAdvice": "Unipohdinta on tarkoitettu itsetutkiskeluun. Siinä ei anneta lääketieteellisiä eikä psykologisia neuvoja, eikä sillä voi diagnosoida mitään.",
+        "privacy": "Pohdintaa varten Googlen Gemini-palveluun lähetetään unesi teksti ja päivämäärä, valitsemasi tunteet sekä tieto siitä, oletko merkinnyt unen toistuvaksi, painajaiseksi tai selkouneksi. Jos olet kirjoittanut unesta omia ajatuksiasi, nekin lähetetään, ja niiden mukana aiemman pohdinnan kysymykset, joihin ajatuksesi vastaavat. Lisäksi jokaisesta kuluneen viikon analysoidusta merkinnästäsi lähetetään sen päivämäärä, lyhyt yhteenveto, avainteemat ja hallitseva tunne, mutta ei itse merkinnän tekstiä. Unien kuviot -raporttia varten lähetetään lyhyet avainsanat, jotka on tallennettu kunkin pohdinnan yhteyteen. Jotta unia voidaan verrata päiväkirjaasi, lähetetään myös päiväkirjamerkintöjesi avainteemat ja hallitsevat tunteet samalta ajanjaksolta kuin unet sekä tieto siitä, kuinka monessa merkinnässä kukin teema ja tunne esiintyy. Ajanjakso alkaa jo viikkoa ennen raportin varhaisinta unta. Ajanjakson päiväkirjamerkinnät, joilla ei ole vielä tekoälyanalyysiä, analysoidaan ensin samalla tavalla kuin trendianalyysissä, ja tätä analyysiä varten lähetetään niiden teksti. Raporttia varten ei lähetetä uniesi tekstiä. OwnJournal ei tallenna mitään lähetetyistä tiedoista."
+      },
       "aiAnalysis": {
         "title": "Tekoälyanalyysi",
         "desc": "Saat oivalluksia päiväkirjamerkinnöistäsi, mukaan lukien mieliala-analyysi, teemojen tunnistus ja henkilökohtaiset ehdotukset.",
@@ -2170,7 +2190,7 @@
       },
       "pro": {
         "question": "Mitä Plus sisältää?",
-        "answer": "Plus sisältää tekoälyanalyysin, otsikkoehdotukset, tunniste-ehdotukset, sanelun, trendianalyysin, Aktiviteettinäkymät sekä PDF- ja Word-viennin."
+        "answer": "Plus sisältää tekoälyanalyysin, otsikkoehdotukset, tunniste-ehdotukset, sanelun, unipohdinnan, trendianalyysin, Aktiviteettinäkymät sekä PDF- ja Word-viennin."
       },
       "manageSubscription": {
         "question": "Miten hallinnoin tilaustani?",
@@ -2276,7 +2296,7 @@
       },
       "collection": {
         "title": "Keräämämme tiedot",
-        "content": "Keräämme mahdollisimman vähän henkilötietoja. Tilisi yhteydessä keräämme sähköpostiosoitteesi, näyttönimesi (jos sen toimittaa ulkoinen todennuspalvelu, kuten Google tai Apple) ja – kun yhdistät pilvitallennustilan – tiedon siitä, minkä palveluntarjoajan olet valinnut. Päiväkirjapalvelun ylläpitämiseksi säilytämme palvelimillamme pienen määrän tilatietoja: onko salausasetuksesi valmis, tilauksesi tilan sekä tunnisteet, joita maksupalveluntarjoajamme (Stripe) tarvitsee tilauksesi hallintaan. Valinnaisten tekoälyominaisuuksien kohtuullisen käytön valvomiseksi kirjaamme käyttäjäkohtaisia käyttölaskureita (suoritetun analyysin tyypin ja aikaleiman; ei koskaan merkintöjesi sisältöä). Sanelun osalta laskuriin kirjataan lisäksi kunkin litteroidun äänitallenteen kesto sekunteina; itse äänitallennetta ei koskaan säilytetä. Todennuksen taustajärjestelmämme säilyttää myös tavanomaisia istuntotietoja, kuten kirjautumisaikoja. Näyttönimiä käytetään vain sovelluskokemuksesi personointiin, eikä niitä koskaan julkaista. Jotta voimme näyttää tilausten hinnat paikallisessa valuutassasi, voimme tarkistaa hetkellisesti IP-osoitteeseesi liittyvän maan; käytämme vain saatua maakoodia, sitä ei yhdistetä tiliisi, emmekä tallenna IP-osoitettasi. Emme käytä kolmannen osapuolen analytiikkaa, mainos-SDK:ita tai sovellusten välisiä seurantaohjelmia. Kun käytät päästä päähän -salausta (E2E), päiväkirjasi sisältö salataan laitteellasi, emmekä voi lukea sitä. Yksinkertaisessa tilassa päiväkirjasi tiedot synkronoidaan valitsemasi pilvipalveluntarjoajan kanssa ilman päästä päähän -salausta. Yksinkertainen tila on tarkoitettu helppokäyttöisyyttä varten, ja sen yksityisyydensuoja voi olla E2E-tilaa heikompi; tietosi ovat kuitenkin edelleen pilvipalveluntarjoajasi tavanomaisten suojausten piirissä."
+        "content": "Keräämme mahdollisimman vähän henkilötietoja. Tilisi yhteydessä keräämme sähköpostiosoitteesi, näyttönimesi (jos sen toimittaa ulkoinen todennuspalvelu, kuten Google tai Apple) ja – kun yhdistät pilvitallennustilan – tiedon siitä, minkä palveluntarjoajan olet valinnut. Päiväkirjapalvelun ylläpitämiseksi säilytämme palvelimillamme pienen määrän tilatietoja: onko salausasetuksesi valmis, tilauksesi tilan sekä tunnisteet, joita maksupalveluntarjoajamme (Stripe) tarvitsee tilauksesi hallintaan. Valinnaisten tekoälyominaisuuksien kohtuullisen käytön valvomiseksi kirjaamme käyttäjäkohtaisia käyttölaskureita (suoritetun analyysin tyypin, aikaleiman, käytetyn tekoälymallin, käytetyn tekoälykäsittelyn määrän tokeneina mitattuna sekä yksittäistä merkintää käsittelevien ominaisuuksien osalta kyseisen merkinnän tunnisteen; ei koskaan merkintöjesi sisältöä). Sanelun osalta laskuriin kirjataan lisäksi kunkin litteroidun äänitallenteen kesto sekunteina; itse äänitallennetta ei koskaan säilytetä. Todennuksen taustajärjestelmämme säilyttää myös tavanomaisia istuntotietoja, kuten kirjautumisaikoja. Näyttönimiä käytetään vain sovelluskokemuksesi personointiin, eikä niitä koskaan julkaista. Jotta voimme näyttää tilausten hinnat paikallisessa valuutassasi, voimme tarkistaa hetkellisesti IP-osoitteeseesi liittyvän maan; käytämme vain saatua maakoodia, sitä ei yhdistetä tiliisi, emmekä tallenna IP-osoitettasi. Emme käytä kolmannen osapuolen analytiikkaa, mainos-SDK:ita tai sovellusten välisiä seurantaohjelmia. Kun käytät päästä päähän -salausta (E2E), päiväkirjasi sisältö salataan laitteellasi, emmekä voi lukea sitä. Yksinkertaisessa tilassa päiväkirjasi tiedot synkronoidaan valitsemasi pilvipalveluntarjoajan kanssa ilman päästä päähän -salausta. Yksinkertainen tila on tarkoitettu helppokäyttöisyyttä varten, ja sen yksityisyydensuoja voi olla E2E-tilaa heikompi; tietosi ovat kuitenkin edelleen pilvipalveluntarjoajasi tavanomaisten suojausten piirissä."
       },
       "usage": {
         "title": "Miten käytämme tietoja",
@@ -2304,7 +2324,7 @@
       },
       "aiProcessing": {
         "title": "Tekoälyominaisuudet ja käsittely",
-        "content": "OwnJournal tarjoaa valinnaisia tekoälyominaisuuksia, kuten mielialan analyysin, ehdotukset ja sanelun, jotka ovat vain Plus-tilaajien käytettävissä. Tekoälykäsittelyä tapahtuu vain, kun käytät Plus-tilaajana näitä ominaisuuksia nimenomaisesti. Kun käytät tekstipohjaisia tekoälyominaisuuksia, kyseisen tekstin salaus puretaan ensin laitteellasi, minkä jälkeen teksti lähetetään nimenomaisesta toimestasi palvelimiemme kautta tekoälypalveluntarjoajallemme, tällä hetkellä Googlelle (Gemini), sen maksullista rajapintaa käyttäen. Kun käytät sanelua, laitteesi mikrofonia käytetään vain äänityksen ajan; äänitallenne lähetetään palvelimiemme kautta Googlelle (Gemini) tekstiksi muunnettavaksi, ja syntynyt teksti lisätään merkintääsi laitteellasi. Emme tallenna tekoälyn syötteitä tai tuloksia, mukaan lukien äänitallenteet ja litteraatit, palvelimillemme; kirjaamme vain käyttäjäkohtaisia tekoälyominaisuuksien käyttölaskureita (suoritetun analyysin tyyppi, aikaleima ja sanelun osalta äänitallenteen kesto sekunteina; ei koskaan sisältöä) kohtuullisen käytön rajojen valvomiseksi. Google voi säilyttää kehotteita ja tuloksia rajoitetun ajan väärinkäytösten valvontaa ja käytäntöjensä noudattamisen varmistamista varten voimassa olevien käytäntöjensä mukaisesti. Tekoälykäsittelyä voi tapahtua ETA-alueen ulkopuolella; Googlella on asianmukaiset tiedonsiirtoa koskevat suojatoimet, kuten vakiosopimuslausekkeet. Käytämme Googlen tekoälypalvelun maksullista tasoa, jossa kehotteita ja tuloksia ei käytetä Googlen mallien kouluttamiseen tai parantamiseen. Voit jättää tekoälyominaisuudet käyttämättä, eikä se vaikuta päiväkirjan perustoimintoihin."
+        "content": "OwnJournal tarjoaa valinnaisia tekoälyominaisuuksia, kuten mielialan analyysin, ehdotukset, sanelun ja unipohdinnan, jotka ovat vain Plus-tilaajien käytettävissä. Tekoälykäsittelyä tapahtuu vain, kun käytät Plus-tilaajana näitä ominaisuuksia nimenomaisesti. Kun käytät tekstipohjaisia tekoälyominaisuuksia, kyseisen tekstin salaus puretaan ensin laitteellasi, minkä jälkeen teksti lähetetään nimenomaisesta toimestasi palvelimiemme kautta tekoälypalveluntarjoajallemme, tällä hetkellä Googlelle (Gemini), sen maksullista rajapintaa käyttäen. Kun käytät sanelua, laitteesi mikrofonia käytetään vain äänityksen ajan; äänitallenne lähetetään palvelimiemme kautta Googlelle (Gemini) tekstiksi muunnettavaksi, ja syntynyt teksti lisätään merkintääsi laitteellasi. Emme tallenna tekoälyn syötteitä tai tuloksia, mukaan lukien äänitallenteet ja litteraatit, palvelimillemme; kirjaamme vain käyttäjäkohtaisia tekoälyominaisuuksien käyttölaskureita (suoritetun analyysin tyyppi, aikaleima, käytetty tekoälymalli, käytetyn tekoälykäsittelyn määrä tokeneina mitattuna, yksittäistä merkintää käsittelevien ominaisuuksien osalta kyseisen merkinnän tunniste ja sanelun osalta äänitallenteen kesto sekunteina; ei koskaan sisältöä) kohtuullisen käytön rajojen valvomiseksi. Google voi säilyttää kehotteita ja tuloksia rajoitetun ajan väärinkäytösten valvontaa ja käytäntöjensä noudattamisen varmistamista varten voimassa olevien käytäntöjensä mukaisesti. Tekoälykäsittelyä voi tapahtua ETA-alueen ulkopuolella; Googlella on asianmukaiset tiedonsiirtoa koskevat suojatoimet, kuten vakiosopimuslausekkeet. Käytämme Googlen tekoälypalvelun maksullista tasoa, jossa kehotteita ja tuloksia ei käytetä Googlen mallien kouluttamiseen tai parantamiseen. Voit jättää tekoälyominaisuudet käyttämättä, eikä se vaikuta päiväkirjan perustoimintoihin."
       },
       "diagnostics": {
         "title": "Diagnostiikka ja kaatumislokit",
@@ -2562,5 +2582,174 @@
       "noSpeech": "Tallenteesta ei tunnistettu puhetta.",
       "failed": "Litterointi epäonnistui. Yritä uudelleen."
     }
+  },
+  "dream": {
+    "toggle": "Uni",
+    "toggleHint": "Tallenna tämä merkintä unena",
+    "badge": "Uni",
+    "editor": {
+      "placeholder": "Mitä unessa tapahtui? Kirjoita se sellaisena kuin sen muistat.",
+      "feelingsLabel": "Miltä uni tuntui?",
+      "flagsLabel": "Uni oli",
+      "howItWorks": "Miten tämä toimii?"
+    },
+    "feelings": {
+      "joy": "Ilo",
+      "calm": "Tyyneys",
+      "awe": "Haltioituminen",
+      "curiosity": "Uteliaisuus",
+      "love": "Rakkaus",
+      "fear": "Pelko",
+      "anxiety": "Ahdistus",
+      "sadness": "Suru",
+      "anger": "Viha",
+      "confusion": "Hämmennys",
+      "shame": "Häpeä",
+      "loneliness": "Yksinäisyys"
+    },
+    "flags": {
+      "recurring": "Toistuva",
+      "nightmare": "Painajainen",
+      "lucid": "Selkouni",
+      "lucidExplained": "Selkouni tarkoittaa, että tiesit näkeväsi unta."
+    },
+    "guide": {
+      "title": "Unipäiväkirjasi",
+      "step1": "Kirjoita uni muistiin heti herättyäsi. Unet haihtuvat mielestä jo muutamassa minuutissa.",
+      "step1Voice": "Sanelu voi olla nopeampaa.",
+      "step2": "Kerro uni sellaisena kuin se tapahtui: keitä siinä oli, missä olit, mitä teit ja miltä se tuntui. Järjestyksellä ja logiikalla ei ole väliä.",
+      "step3": "Napauta ”Pohdi tätä unta” -painiketta, niin saat pohdinnan siitä, mitä kirjoitit.",
+      "step3Patterns": "Kun olet kirjoittanut muistiin viisi unta, voit luoda päiväkirjassasi Unien kuviot -raportin valitsemaltasi ajanjaksolta. Siitä näet ihmiset, paikat ja teemat, jotka toistuvat unissasi.",
+      "done": "Selvä"
+    },
+    "reflection": {
+      "title": "Unipohdinta",
+      "reflect": "Pohdi tätä unta",
+      "reflecting": "Pohditaan…",
+      "reflectAgain": "Pohdi uudelleen",
+      "editToReflectAgain": "Muokkaa unta tai lisää omat ajatuksesi, jos haluat pohtia sitä uudelleen",
+      "plusOnly": "Unipohdinta sisältyy Plus-tilaukseen",
+      "remaining": "Pohdintoja jäljellä tässä kuussa: {{remaining}} / {{limit}}",
+      "summary": "Lyhyesti",
+      "themes": "Mahdollisia teemoja",
+      "images": "Unen kuvia tutkittavaksi",
+      "wakingLinks": "Mahdollisia yhteyksiä viime päiviisi",
+      "questions": "Kysymyksiä pohdittavaksi",
+      "thoughts": {
+        "label": "Omat ajatuksesi",
+        "placeholder": "Mitä ajatuksia kysymykset herättävät?",
+        "hint": "Ajatuksesi otetaan huomioon, kun napautat ”Pohdi uudelleen” -painiketta."
+      },
+      "fromThoughts": "Mitä ajatuksesi muuttivat",
+      "footer": "Kyse on pohdinnasta, ei diagnoosista. Poimi siitä se, mikä tuntuu osuvalta, ja jätä muu sikseen.",
+      "howThisWorks": "Miten tämä toimii?",
+      "show": "Näytä",
+      "hide": "Piilota",
+      "care": {
+        "title": "Jos uni jää painamaan mieltäsi",
+        "body": "Tällaisen unen jälkeen olo voi olla raskas. Jos ahdistavat unet toistuvat tai alkavat varjostaa päiviäsi, voi olla avuksi kertoa niistä jollekulle, johon luotat, tai terveydenhuollon ammattilaiselle.",
+        "urgent": "Jos sinulla on itsetuhoisia ajatuksia, soita heti hätänumeroon tai kriisipuhelimeen."
+      },
+      "consent": {
+        "title": "Pohditaanko untasi Googlen avulla?",
+        "body": "Pohdintaa varten Googlen Gemini-palveluun lähetetään unesi teksti ja päivämäärä, valitsemasi tunteet sekä tieto siitä, oletko merkinnyt unen toistuvaksi, painajaiseksi tai selkouneksi. Jos olet kirjoittanut unesta omia ajatuksiasi, nekin lähetetään, ja niiden mukana aiemman pohdinnan kysymykset, joihin ajatuksesi vastaavat. Lisäksi jokaisesta kuluneen viikon analysoidusta merkinnästäsi lähetetään sen päivämäärä, lyhyt yhteenveto, avainteemat ja hallitseva tunne, mutta ei itse merkinnän tekstiä. Unien kuviot -raporttia varten lähetetään lyhyet avainsanat, jotka on tallennettu kunkin pohdinnan yhteyteen. Jotta unia voidaan verrata päiväkirjaasi, lähetetään myös päiväkirjamerkintöjesi avainteemat ja hallitsevat tunteet samalta ajanjaksolta kuin unet sekä tieto siitä, kuinka monessa merkinnässä kukin teema ja tunne esiintyy. Ajanjakso alkaa jo viikkoa ennen raportin varhaisinta unta. Ajanjakson päiväkirjamerkinnät, joilla ei ole vielä tekoälyanalyysiä, analysoidaan ensin samalla tavalla kuin trendianalyysissä, ja tätä analyysiä varten lähetetään niiden teksti. Raporttia varten ei lähetetä uniesi tekstiä. OwnJournal ei tallenna mitään lähetetyistä tiedoista. Google ei käytä tietoja malliensa kouluttamiseen. Se voi säilyttää niitä vain lyhyen aikaa väärinkäytösten estämiseksi. Pohdinta tallennetaan unen yhteyteen samalla tavalla kuin muu merkintäsi.",
+        "accept": "Jatka",
+        "decline": "Ei nyt"
+      },
+      "errors": {
+        "offline": "Olet offline-tilassa. Unipohdinta vaatii internetyhteyden.",
+        "authRequired": "Kirjaudu sisään, jotta voit pohtia uniasi.",
+        "plusRequired": "Unipohdinta vaatii Plus-tilauksen.",
+        "limitReached": "Olet käyttänyt kaikki tämän kuun {{limit}} unipohdintaa. Kiintiö uusiutuu ensi kuussa, ja voit edelleen kirjoittaa unesi muistiin.",
+        "tooShort": "Kirjoita unestasi ensin vähintään {{min}} merkkiä.",
+        "tooLong": "Unen kuvaus on liian pitkä pohdintaa varten. Lyhennä sitä hieman ja yritä uudelleen.",
+        "saveFailed": "Pohdintaa ei voitu tallentaa. Yritä uudelleen.",
+        "failed": "Pohdinta ei onnistunut tällä kertaa. Yritä uudelleen.",
+        "failedLimitReached": "Unipohdinta on tauolla ensi kuuhun asti, koska liian moni yrityskerta on epäonnistunut tässä kuussa. Voit silti kirjoittaa unesi muistiin.",
+        "blocked": "Tekoälypalvelu ei vastaa siihen, mitä tässä unessa kuvataan, joten pohdintaa ei voi luoda. Unesi on yhä tallessa päiväkirjassasi."
+      }
+    },
+    "patterns": {
+      "title": "Unien kuviot",
+      "intro": "Mikä unissasi toistuu ja miten ne vertautuvat päiväkirjaasi.",
+      "compareJournal": "Vertaa unia päiväkirjaasi",
+      "dreamsInPeriod_one": "{{count}} uni tällä ajanjaksolla",
+      "dreamsInPeriod_other": "{{count}} unta tällä ajanjaksolla",
+      "needMore": "Raporttiin tarvitaan vähintään {{min}} unta.",
+      "tooShort_one": "Yksi tämän ajanjakson unista on liian lyhyt pohdittavaksi, joten sitä ei lasketa mukaan unien määrään eikä raporttiin. Pohdintaan tarvitaan vähintään {{min}} merkkiä.",
+      "tooShort_other": "Tämän ajanjakson unista {{count}} on liian lyhyitä pohdittaviksi, joten niitä ei lasketa mukaan unien määrään eikä raporttiin. Pohdintaan tarvitaan vähintään {{min}} merkkiä.",
+      "journalCompare_one": "Uniasi verrataan myös {{count}} päiväkirjamerkintään samalta ajanjaksolta.",
+      "journalCompare_other": "Uniasi verrataan myös {{count}} päiväkirjamerkintään samalta ajanjaksolta.",
+      "journalAnalyzeFirst_one": "Yksi niistä on vielä analysoimatta, joten tekoäly analysoi sen ensin kuten trendianalyysissä.",
+      "journalAnalyzeFirst_other": "Niistä {{count}} on vielä analysoimatta, joten tekoäly analysoi ne ensin kuten trendianalyysissä.",
+      "journalTooFew": "Uniasi ei verrata päiväkirjaasi, koska vertailuun tarvitaan vähintään {{min}} päiväkirjamerkintää samalta ajanjaksolta.",
+      "reflectFirst_one": "Yksi näistä unista on vielä pohtimatta. Kun luot raportin, tämä uni pohditaan ensin, ja siihen kuluu yksi tämän kuun pohdinnoistasi (jäljellä {{remaining}}).",
+      "reflectFirst_other": "Näistä unista {{count}} on vielä pohtimatta. Kun luot raportin, ne pohditaan ensin, ja siihen kuluu {{count}} tämän kuun pohdinnoistasi (jäljellä {{remaining}}).",
+      "notEnoughReflections_one": "Näistä unista {{dreams}} on vielä pohtimatta, mutta sinulla on tässä kuussa jäljellä enää yksi pohdinta. Valitse lyhyempi ajanjakso.",
+      "notEnoughReflections_other": "Näistä unista {{dreams}} on vielä pohtimatta, mutta sinulla on tässä kuussa jäljellä enää {{count}} pohdintaa. Valitse lyhyempi ajanjakso.",
+      "noReflectionsLeft_one": "Yksi näistä unista on vielä pohtimatta, mutta pohdintoja ei ole tässä kuussa enää jäljellä. Valitse lyhyempi ajanjakso.",
+      "noReflectionsLeft_other": "Näistä unista {{count}} on vielä pohtimatta, mutta pohdintoja ei ole tässä kuussa enää jäljellä. Valitse lyhyempi ajanjakso.",
+      "ready": "Voit nyt luoda ensimmäisen Unien kuviot -raporttisi.",
+      "create": "Luo raportti",
+      "createNew": "Luo uusi raportti",
+      "creating": "Etsitään kuvioita…",
+      "reflecting": "Pohditaan unta {{current}} / {{total}}…",
+      "analyzingEntries": "Analysoidaan merkintää {{current}} / {{total}}…",
+      "remaining": "Raportteja jäljellä tässä kuussa: {{remaining}} / {{limit}}",
+      "plusOnly": "Unien kuviot -toiminto sisältyy Plus-tilaukseen",
+      "earlyThemes": "Alustavia teemoja",
+      "earlyThemesNote_one": "Perustuu {{count}} uneen. Kuviot selkenevät, kun unia on enemmän, esimerkiksi pidemmältä ajanjaksolta.",
+      "earlyThemesNote_other": "Perustuu {{count}} uneen. Kuviot selkenevät, kun unia on enemmän, esimerkiksi pidemmältä ajanjaksolta.",
+      "basedOn_one": "Perustuu {{count}} uneen",
+      "basedOn_other": "Perustuu {{count}} uneen",
+      "overview": "Yleiskuva",
+      "recurring": "Mikä unissa toistuu",
+      "inDreams_one": "{{count}} unessa",
+      "inDreams_other": "{{count}} unessa",
+      "kinds": {
+        "character": "Henkilö",
+        "setting": "Paikka",
+        "emotion": "Tunne",
+        "theme": "Teema"
+      },
+      "changes": "Miten unesi ovat muuttuneet",
+      "waking": {
+        "title": "Vertailu päiväkirjaasi",
+        "basedOn_one": "Perustuu {{count}} päiväkirjamerkintään samalta ajanjaksolta",
+        "basedOn_other": "Perustuu {{count}} päiväkirjamerkintään samalta ajanjaksolta",
+        "shared": "Sekä unissa että päiväkirjassa",
+        "dreamsOnly": "Unissa, ei päiväkirjassa",
+        "wakingOnly": "Päiväkirjassa, ei unissa",
+        "none": "Tässä raportissa unia ei ole verrattu päiväkirjaasi. Vertailuun tarvitaan vähintään {{min}} päiväkirjamerkintää samalta ajanjaksolta kuin unesi."
+      },
+      "questions": "Kysymyksiä pohdittavaksi",
+      "footer": "Kyse on pohdittavista kuvioista, ei diagnoosista. Poimi niistä se, mikä tuntuu osuvalta, ja jätä muu sikseen.",
+      "saveAsNote": "Tallenna muistiinpanona",
+      "noteTitle": "Unien kuviot – {{date}}",
+      "errors": {
+        "offline": "Olet offline-tilassa. Unien kuviot -toiminto vaatii internetyhteyden.",
+        "limitReached": "Olet luonut tässä kuussa jo {{limit}} Unien kuviot -raporttia. Voit luoda uuden ensi kuussa.",
+        "failed": "Raportin luominen ei onnistunut tällä kertaa. Yritä uudelleen.",
+        "failedLimitReached": "Liian moni yrityskerta on epäonnistunut tässä kuussa. Voit luoda raportin ensi kuussa.",
+        "blocked": "Tekoälypalvelu ei käsittele joitakin uniesi teemoja, joten raporttia ei voi luoda."
+      }
+    },
+    "filter": "Unet"
+  },
+  "featureTip": {
+    "title": "Uutta OwnJournalissa",
+    "free": "Ilmainen",
+    "dreamJournal": {
+      "name": "Unipäiväkirja",
+      "desc": "Kirjoita uni muistiin heti herättyäsi, ennen kuin se haihtuu, ja tallenna merkintä unena. Voit myös valita, miltä uni tuntui."
+    },
+    "dreamReflection": {
+      "desc": "Saat unestasi pohdinnan. Kun valitsemallasi ajanjaksolla on viisi unta, voit luoda raportin siitä, mikä unissasi toistuu."
+    },
+    "voice": {
+      "desc": "Napauta editorin alla olevaa mikrofonipainiketta ja puhu kirjoittamisen sijaan."
+    },
+    "writeDream": "Kirjoita uni muistiin",
+    "dismiss": "Selvä"
   }
 }

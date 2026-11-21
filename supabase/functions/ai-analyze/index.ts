@@ -2,6 +2,7 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 import { callGoogleAI, isGoogleAIConfigured } from "./googleAIProvider.ts";
 import { AI_MODELS, getModelForType } from "../_shared/modelConfig.ts";
+import { handleDreamRequest, isDreamRequestType } from "./dream.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -274,6 +275,24 @@ serve(async (req) => {
       return new Response(JSON.stringify({ error: "Pro subscription required for AI features" }), {
         status: 403,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    // Dream reflection and Dream patterns have their own limits, prompts and
+    // parsing in dream.ts.
+    if (isDreamRequestType(type)) {
+      if (!isGoogleAIConfigured()) {
+        throw new Error("GOOGLE_API_KEY not configured");
+      }
+      return await handleDreamRequest({
+        type,
+        body: requestBody,
+        userId: user.id,
+        usageSummary: summary,
+        targetLanguage,
+        supabaseClient,
+        callAI: callGoogleAI,
+        corsHeaders,
       });
     }
 
@@ -1743,6 +1762,7 @@ Respond in JSON format:
         created_at: new Date().toISOString(),
         input_tokens: tokenUsage?.prompt_tokens ?? null,
         output_tokens: tokenUsage?.completion_tokens ?? null,
+        thinking_tokens: tokenUsage?.thinking_tokens ?? null,
         model_used: modelToUse,
       };
 

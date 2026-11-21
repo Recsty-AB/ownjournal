@@ -86,9 +86,14 @@ interface GoogleResponse {
     finishReason?: string;
     finishMessage?: string;
   }>;
+  // Set when the prompt itself was blocked; no candidates come back then.
+  promptFeedback?: { blockReason?: string };
   usageMetadata?: {
     promptTokenCount: number;
     candidatesTokenCount: number;
+    // Reported separately from candidatesTokenCount and billed at the output
+    // rate. Absent when the model did no thinking.
+    thoughtsTokenCount?: number;
     totalTokenCount: number;
   };
   error?: {
@@ -118,6 +123,8 @@ interface OpenAIResponse {
   usage?: {
     prompt_tokens: number;
     completion_tokens: number;
+    // Thinking tokens, not included in completion_tokens (billed as output).
+    thinking_tokens: number;
     total_tokens: number;
   };
 }
@@ -248,6 +255,13 @@ function convertToolChoiceToGoogleFormat(
  */
 function parseGoogleResponse(response: GoogleResponse, hasToolCalls: boolean): OpenAIResponse {
   const candidate = response.candidates?.[0];
+  // Kept on empty and blocked answers too: the prompt is billed either way.
+  const usage = response.usageMetadata ? {
+    prompt_tokens: response.usageMetadata.promptTokenCount,
+    completion_tokens: response.usageMetadata.candidatesTokenCount,
+    thinking_tokens: response.usageMetadata.thoughtsTokenCount ?? 0,
+    total_tokens: response.usageMetadata.totalTokenCount
+  } : undefined;
   
   if (!candidate) {
     // Handle error or empty response
@@ -257,14 +271,18 @@ function parseGoogleResponse(response: GoogleResponse, hasToolCalls: boolean): O
           role: "assistant",
           content: response.error?.message || "No response from AI"
         },
-        finish_reason: "error"
-      }]
+        // A blocked prompt is reported as such, so callers need not retry it.
+        finish_reason: response.promptFeedback?.blockReason ? "PROMPT_BLOCKED" : "error"
+      }],
+      usage
     };
   }
   
   // Check if content exists - Google may return candidate without content
   if (!candidate.content || !candidate.content.parts) {
-    console.error("[GOOGLE_AI] Response has no content.parts:", JSON.stringify(candidate));
+    // The reason only: finishMessage can carry the generated text, which is
+    // derived from the user's journal and must not reach the logs.
+    console.error("[GOOGLE_AI] Response has no content.parts, finishReason:", candidate.finishReason);
     
     // Try to recover from MALFORMED_FUNCTION_CALL - Google sometimes wraps function calls in Python syntax
     if (candidate.finishReason === "MALFORMED_FUNCTION_CALL" && candidate.finishMessage) {
@@ -305,8 +323,9 @@ function parseGoogleResponse(response: GoogleResponse, hasToolCalls: boolean): O
           try {
             parsedValue = JSON.parse(fixedJson);
             console.log("[GOOGLE_AI] Successfully recovered truncated JSON");
-          } catch (e) {
-            console.error("[GOOGLE_AI] Failed to recover malformed function call:", e);
+          } catch {
+            // The parse error quotes its input (generated text): not logged.
+            console.error("[GOOGLE_AI] Failed to recover malformed function call");
           }
         }
         
@@ -336,7 +355,8 @@ function parseGoogleResponse(response: GoogleResponse, hasToolCalls: boolean): O
                 }]
               },
               finish_reason: "tool_calls"
-            }]
+            }],
+            usage
           };
         }
       }
@@ -350,7 +370,8 @@ function parseGoogleResponse(response: GoogleResponse, hasToolCalls: boolean): O
           content: "AI response was empty or blocked"
         },
         finish_reason: candidate.finishReason || "error"
-      }]
+      }],
+      usage
     };
   }
   
@@ -388,11 +409,7 @@ function parseGoogleResponse(response: GoogleResponse, hasToolCalls: boolean): O
       },
       finish_reason: candidate.finishReason || "stop"
     }],
-    usage: response.usageMetadata ? {
-      prompt_tokens: response.usageMetadata.promptTokenCount,
-      completion_tokens: response.usageMetadata.candidatesTokenCount,
-      total_tokens: response.usageMetadata.totalTokenCount
-    } : undefined
+    usage
   };
 }
 

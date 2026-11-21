@@ -1681,6 +1681,7 @@
       "tagSuggestions": "Inteligentne sugestie tagów",
       "trendAnalysis": "Nastrój i trendy",
       "voiceEntry": "Wprowadzanie głosowe",
+      "dreamReflection": "Refleksja nad snem",
       "exports": "Eksport PDF i Word"
     },
     "trialCta": "Rozpocznij bezpłatny okres próbny",
@@ -1918,6 +1919,10 @@
       "title": "Twoja oś czasu dziennika",
       "content": "Twoje wpisy dziennika pojawią się tutaj, uporządkowane według daty.\nDotknij przycisku +, aby utworzyć pierwszy wpis."
     },
+    "dreams": {
+      "title": "Twój dziennik snów",
+      "content": "Opisz sen zaraz po przebudzeniu, zanim uleci z pamięci, i dotknij przycisku „Sen”, aby zapisać wpis jako sen. Możesz też wybrać uczucia, które mu towarzyszyły. To wszystko jest bezpłatne.\n\nW planie Plus możesz utworzyć refleksję nad snem."
+    },
     "syncStatus": {
       "title": "Status synchronizacji",
       "content": "Po połączeniu magazynu w chmurze ten wskaźnik pokazuje status synchronizacji.\nZielony kolor oznacza, że wszystko jest zsynchronizowane!"
@@ -2100,6 +2105,21 @@
         "desc": "Dotknij mikrofonu pod edytorem i mów, zamiast pisać. Gdy skończysz, Twoje słowa zamienią się w uporządkowany tekst ze znakami interpunkcyjnymi i trafią w miejsce kursora. Tekst powstaje w języku, w którym mówisz, nawet jeśli w trakcie zmienisz język. Każde nagranie może trwać do 5 minut, a Plus obejmuje 200 minut miesięcznie.",
         "proNote": "(Funkcja Plus)"
       },
+      "dreams": {
+        "title": "Dziennik snów i refleksja nad snem",
+        "desc": "Gdy piszesz wpis, dotknij przycisku „Sen” obok daty, a wpis zostanie zapisany jako sen. Zapisz go zaraz po przebudzeniu, tak jak go pamiętasz, i wybierz uczucia, które mu towarzyszyły. Samo zapisywanie snów jest bezpłatne, a sny nie trafiają do kalendarza nastroju ani do analizy trendów. Jeśli masz plan Plus, dotknij przycisku „Utwórz refleksję”, aby zobaczyć możliwe motywy, obrazy do zgłębienia i pytania dla Ciebie. Pod refleksją możesz zapisać własne przemyślenia, a gdy dotkniesz przycisku „Utwórz nową refleksję”, zostaną one uwzględnione. Plus obejmuje 30 refleksji miesięcznie. Jeśli w wybranym okresie jest co najmniej pięć snów, możesz utworzyć raport „Wzorce snów” za ten okres. Jeśli któreś sny z tego okresu nie mają jeszcze refleksji, przed utworzeniem raportu powstaną refleksje nad nimi, a każda z nich wlicza się do limitu 30 refleksji miesięcznie. W miesiącu możesz utworzyć maksymalnie dwa raporty. Znajdziesz w nich osoby, miejsca i motywy, które wracają w Twoich snach, a także porównanie snów z tym, o czym piszesz w dzienniku. Limity odnawiają się na początku każdego miesiąca.",
+        "proNote": "(Funkcja Plus)"
+      },
+      "dreamMethod": {
+        "title": "Jak działa refleksja nad snem",
+        "intro": "Refleksja nad snem czerpie z podejścia Carla Gustava Junga do snów i ze współczesnych badań nad marzeniami sennymi.",
+        "jung": "Od Junga pochodzi przekonanie, że Twoje własne skojarzenia liczą się bardziej niż ogólne znaczenie symbolu. Dlatego pod refleksją możesz zapisać własne przemyślenia, a potem utworzyć nową refleksję. Jung zauważał też, że obraz ze snu można zgłębiać w kilku kierunkach, że sen może odsłaniać tę stronę życia, której na jawie poświęcasz mniej uwagi, i że seria snów mówi więcej niż pojedynczy sen.",
+        "research": "Z badań nad marzeniami sennymi, zwłaszcza z prac Calvina Halla i G. Williama Domhoffa, pochodzi obserwacja, że sny odzwierciedlają przede wszystkim to, czym żyjesz na jawie: Twoje relacje, zmartwienia i uczucia. Dlatego refleksja może wskazać związki z Twoimi wpisami z ostatniego tygodnia, a raport „Wzorce snów” porównuje sny z tematami z Twojego dziennika.",
+        "questions": "Pytania na końcu opierają się na modelu pracy ze snami, który opracowała Clara Hill: najpierw przyglądasz się samemu snowi, potem szukasz, co może dla Ciebie znaczyć, a na koniec zastanawiasz się, jaki mały krok możesz zrobić.",
+        "noDictionary": "Refleksja nie korzysta z sennika ani żadnego innego stałego słownika symboli. Podsuwa możliwości, a to Ty decydujesz, co do Ciebie pasuje.",
+        "notAdvice": "Refleksja nad snem ma pomóc Ci lepiej poznać siebie. Nie jest poradą medyczną ani psychologiczną i nie może niczego zdiagnozować.",
+        "privacy": "Aby utworzyć refleksję, do usługi Gemini firmy Google wysyłane są: treść i data snu, wybrane przez Ciebie uczucia oraz informacja o tym, czy sen oznaczono jako powracający, koszmar lub świadomy. Jeśli zapiszesz własne przemyślenia na temat snu, one także zostaną wysłane razem z pytaniami z poprzedniej refleksji, na które odpowiadają. Z każdego przeanalizowanego wpisu z ostatniego tygodnia wysyłane są też: data, krótkie podsumowanie, kluczowe tematy i dominująca emocja (a nie jego treść). Na potrzeby raportu „Wzorce snów” nie jest wysyłana treść snów, tylko krótkie etykiety zapisane razem z każdą refleksją. Aby można było porównać sny z dziennikiem, wysyłane są też kluczowe tematy i dominujące emocje z Twoich wpisów dziennika wraz z informacją, jak często się w nich pojawiają. Chodzi o wpisy z tego samego okresu co sny objęte raportem, począwszy od tygodnia przed pierwszym z tych snów. Wpisy z tego okresu, które nie mają jeszcze analizy AI, są najpierw analizowane tak jak w analizie trendów. W tym celu wysyłana jest ich treść. OwnJournal nie przechowuje żadnych wysyłanych danych."
+      },
       "aiAnalysis": {
         "title": "Analiza AI",
         "desc": "Poznaj spostrzeżenia na temat swoich wpisów, w tym analizę nastroju, wykrywanie tematów i spersonalizowane sugestie.",
@@ -2242,7 +2262,7 @@
       },
       "pro": {
         "question": "Co zawiera Plus?",
-        "answer": "Plus obejmuje analizę AI, sugestie tytułów i tagów, wprowadzanie głosowe, analizę trendów, analizę aktywności oraz eksport PDF i Word."
+        "answer": "Plus obejmuje analizę AI, sugestie tytułów i tagów, wprowadzanie głosowe, refleksję nad snem, analizę trendów, analizę aktywności oraz eksport PDF i Word."
       },
       "manageSubscription": {
         "question": "Jak zarządzać subskrypcją?",
@@ -2348,7 +2368,7 @@
       },
       "collection": {
         "title": "Informacje, które zbieramy",
-        "content": "Zbieramy minimalną ilość danych osobowych. W związku z Twoim kontem zbieramy: Twój adres e-mail, Twoją nazwę wyświetlaną (jeśli przekazuje ją zewnętrzny dostawca uwierzytelniania, taki jak Google lub Apple) oraz — po podłączeniu magazynu w chmurze — informację o tym, którego dostawcę wybrano. Na potrzeby działania usługi dziennika przechowujemy na naszych serwerach niewielką ilość danych o stanie: informację, czy konfiguracja szyfrowania została ukończona, status Twojej subskrypcji oraz identyfikatory, których nasz operator płatności (Stripe) potrzebuje do zarządzania Twoją subskrypcją. Aby monitorować uczciwe korzystanie z opcjonalnych funkcji AI, rejestrujemy liczniki wykorzystania dla każdego użytkownika (typ wykonanej analizy oraz znacznik czasu; nigdy treść Twoich wpisów). W przypadku wprowadzania głosowego licznik zapisuje także długość każdego przetranskrybowanego nagrania w sekundach; samo nagranie nigdy nie jest przechowywane. Nasze zaplecze uwierzytelniania przechowuje również standardowe metadane sesji, takie jak znaczniki czasu logowania. Nazwy wyświetlane służą wyłącznie do personalizacji korzystania z aplikacji i nigdy nie są upubliczniane. Aby wyświetlać ceny subskrypcji w Twojej walucie lokalnej, możemy jednorazowo ustalić kraj powiązany z Twoim adresem IP; wykorzystywany jest wyłącznie uzyskany kod kraju, który nie jest powiązany z Twoim kontem, a Twojego adresu IP nie przechowujemy. Nie korzystamy z zewnętrznych usług analitycznych, reklamowych pakietów SDK ani narzędzi śledzących użytkowników między aplikacjami. Gdy korzystasz z szyfrowania end-to-end (E2E), treść Twojego dziennika jest szyfrowana na Twoim urządzeniu i nie możemy jej odczytać. W trybie prostym dane Twojego dziennika są synchronizowane z wybranym dostawcą chmury bez szyfrowania end-to-end. Tryb prosty służy wygodzie i może zapewniać mniejszą prywatność niż tryb E2E; Twoje dane pozostają chronione standardowymi środkami bezpieczeństwa Twojego dostawcy chmury."
+        "content": "Zbieramy minimalną ilość danych osobowych. W związku z Twoim kontem zbieramy: Twój adres e-mail, Twoją nazwę wyświetlaną (jeśli przekazuje ją zewnętrzny dostawca uwierzytelniania, taki jak Google lub Apple) oraz — po podłączeniu magazynu w chmurze — informację o tym, którego dostawcę wybrano. Na potrzeby działania usługi dziennika przechowujemy na naszych serwerach niewielką ilość danych o stanie: informację, czy konfiguracja szyfrowania została ukończona, status Twojej subskrypcji oraz identyfikatory, których nasz operator płatności (Stripe) potrzebuje do zarządzania Twoją subskrypcją. Aby monitorować uczciwe korzystanie z opcjonalnych funkcji AI, rejestrujemy liczniki wykorzystania dla każdego użytkownika (typ wykonanej analizy, znacznik czasu, użyty model AI oraz ilość wykorzystanego przetwarzania przez AI mierzona w tokenach; w przypadku funkcji dotyczących pojedynczego wpisu także identyfikator tego wpisu; nigdy treść Twoich wpisów). W przypadku wprowadzania głosowego licznik zapisuje także długość każdego przetranskrybowanego nagrania w sekundach; samo nagranie nigdy nie jest przechowywane. Nasze zaplecze uwierzytelniania przechowuje również standardowe metadane sesji, takie jak znaczniki czasu logowania. Nazwy wyświetlane służą wyłącznie do personalizacji korzystania z aplikacji i nigdy nie są upubliczniane. Aby wyświetlać ceny subskrypcji w Twojej walucie lokalnej, możemy jednorazowo ustalić kraj powiązany z Twoim adresem IP; wykorzystywany jest wyłącznie uzyskany kod kraju, który nie jest powiązany z Twoim kontem, a Twojego adresu IP nie przechowujemy. Nie korzystamy z zewnętrznych usług analitycznych, reklamowych pakietów SDK ani narzędzi śledzących użytkowników między aplikacjami. Gdy korzystasz z szyfrowania end-to-end (E2E), treść Twojego dziennika jest szyfrowana na Twoim urządzeniu i nie możemy jej odczytać. W trybie prostym dane Twojego dziennika są synchronizowane z wybranym dostawcą chmury bez szyfrowania end-to-end. Tryb prosty służy wygodzie i może zapewniać mniejszą prywatność niż tryb E2E; Twoje dane pozostają chronione standardowymi środkami bezpieczeństwa Twojego dostawcy chmury."
       },
       "usage": {
         "title": "Jak wykorzystujemy informacje",
@@ -2376,7 +2396,7 @@
       },
       "aiProcessing": {
         "title": "Funkcje AI i przetwarzanie",
-        "content": "OwnJournal oferuje opcjonalne funkcje oparte na AI, takie jak analiza nastroju, sugestie i wprowadzanie głosowe, dostępne wyłącznie dla subskrybentów Plus. Przetwarzanie przez AI następuje tylko wtedy, gdy Ty, jako subskrybent Plus, wyraźnie korzystasz z tych funkcji. Gdy korzystasz z funkcji AI opartych na tekście, odpowiedni tekst jest najpierw odszyfrowywany na Twoim urządzeniu, a następnie, w wyniku Twojego wyraźnego działania, wysyłany za pośrednictwem naszych serwerów do naszego dostawcy AI, obecnie firmy Google (Gemini), przez jej płatne API. Gdy korzystasz z wprowadzania głosowego, mikrofon urządzenia jest używany tylko podczas nagrywania; nagranie jest wysyłane za pośrednictwem naszych serwerów do firmy Google (Gemini) w celu zamiany na tekst, a uzyskany tekst jest dodawany do Twojego wpisu na Twoim urządzeniu. Nie przechowujemy na naszych serwerach danych wejściowych ani wyjściowych AI, w tym nagrań głosowych i transkrypcji; rejestrujemy jedynie liczniki korzystania z funkcji AI dla każdego użytkownika (typ wykonanej analizy, znacznik czasu oraz, w przypadku wprowadzania głosowego, długość nagrania w sekundach; nigdy treść) w celu egzekwowania limitów uczciwego użytkowania. Google może przez ograniczony czas przechowywać zapytania i odpowiedzi w celu monitorowania nadużyć i egzekwowania zasad, zgodnie ze swoją aktualną polityką. Przetwarzanie przez AI może odbywać się poza EOG; Google stosuje odpowiednie zabezpieczenia przekazywania danych, takie jak standardowe klauzule umowne. Korzystamy z płatnego planu usługi AI Google, w ramach którego zapytania i odpowiedzi nie są wykorzystywane do trenowania ani ulepszania modeli Google. Możesz zrezygnować z funkcji AI; nie wpływa to na podstawowe funkcje dziennika."
+        "content": "OwnJournal oferuje opcjonalne funkcje oparte na AI, takie jak analiza nastroju, sugestie, wprowadzanie głosowe i refleksja nad snem, dostępne wyłącznie dla subskrybentów Plus. Przetwarzanie przez AI następuje tylko wtedy, gdy Ty, jako subskrybent Plus, wyraźnie korzystasz z tych funkcji. Gdy korzystasz z funkcji AI opartych na tekście, odpowiedni tekst jest najpierw odszyfrowywany na Twoim urządzeniu, a następnie, w wyniku Twojego wyraźnego działania, wysyłany za pośrednictwem naszych serwerów do naszego dostawcy AI, obecnie firmy Google (Gemini), przez jej płatne API. Gdy korzystasz z wprowadzania głosowego, mikrofon urządzenia jest używany tylko podczas nagrywania; nagranie jest wysyłane za pośrednictwem naszych serwerów do firmy Google (Gemini) w celu zamiany na tekst, a uzyskany tekst jest dodawany do Twojego wpisu na Twoim urządzeniu. Nie przechowujemy na naszych serwerach danych wejściowych ani wyjściowych AI, w tym nagrań głosowych i transkrypcji; rejestrujemy jedynie liczniki korzystania z funkcji AI dla każdego użytkownika (typ wykonanej analizy, znacznik czasu, użyty model AI oraz ilość wykorzystanego przetwarzania przez AI mierzona w tokenach; w przypadku funkcji dotyczących pojedynczego wpisu także identyfikator tego wpisu; w przypadku wprowadzania głosowego także długość nagrania w sekundach; nigdy treść) w celu egzekwowania limitów uczciwego użytkowania. Google może przez ograniczony czas przechowywać zapytania i odpowiedzi w celu monitorowania nadużyć i egzekwowania zasad, zgodnie ze swoją aktualną polityką. Przetwarzanie przez AI może odbywać się poza EOG; Google stosuje odpowiednie zabezpieczenia przekazywania danych, takie jak standardowe klauzule umowne. Korzystamy z płatnego planu usługi AI Google, w ramach którego zapytania i odpowiedzi nie są wykorzystywane do trenowania ani ulepszania modeli Google. Możesz zrezygnować z funkcji AI; nie wpływa to na podstawowe funkcje dziennika."
       },
       "diagnostics": {
         "title": "Diagnostyka i logi awarii",
@@ -2646,5 +2666,196 @@
       "noSpeech": "W nagraniu nie wykryto mowy.",
       "failed": "Transkrypcja nie powiodła się. Spróbuj ponownie."
     }
+  },
+  "dream": {
+    "toggle": "Sen",
+    "toggleHint": "Zapisz ten wpis jako sen",
+    "badge": "Sen",
+    "editor": {
+      "placeholder": "Co Ci się śniło? Opisz to tak, jak pamiętasz.",
+      "feelingsLabel": "Jakie uczucia towarzyszyły Ci we śnie?",
+      "flagsLabel": "Rodzaj snu",
+      "howItWorks": "Jak to działa"
+    },
+    "feelings": {
+      "joy": "Radość",
+      "calm": "Spokój",
+      "awe": "Zachwyt",
+      "curiosity": "Ciekawość",
+      "love": "Miłość",
+      "fear": "Strach",
+      "anxiety": "Niepokój",
+      "sadness": "Smutek",
+      "anger": "Złość",
+      "confusion": "Dezorientacja",
+      "shame": "Wstyd",
+      "loneliness": "Samotność"
+    },
+    "flags": {
+      "recurring": "Powracający",
+      "nightmare": "Koszmar",
+      "lucid": "Świadomy",
+      "lucidExplained": "Świadomy sen to taki, w którym wiesz, że śnisz."
+    },
+    "guide": {
+      "title": "Twój dziennik snów",
+      "step1": "Zapisz sen zaraz po przebudzeniu, bo po kilku minutach ulatuje z pamięci.",
+      "step1Voice": "Możesz go też podyktować, jeśli tak będzie szybciej.",
+      "step2": "Opowiedz, co dzieje się we śnie: kto się w nim pojawia, gdzie jesteś, co robisz i co przy tym czujesz. Nie przejmuj się kolejnością ani logiką.",
+      "step3": "Dotknij przycisku „Utwórz refleksję”, aby przyjrzeć się bliżej zapisanemu snowi.",
+      "step3Patterns": "Po zapisaniu pięciu snów możesz w dzienniku utworzyć raport „Wzorce snów” za wybrany okres. Zobaczysz w nim osoby, miejsca i motywy, które wracają w Twoich snach.",
+      "done": "Rozumiem"
+    },
+    "reflection": {
+      "title": "Refleksja nad snem",
+      "reflect": "Utwórz refleksję",
+      "reflecting": "Tworzenie refleksji…",
+      "reflectAgain": "Utwórz nową refleksję",
+      "editToReflectAgain": "Zmień opis snu lub dopisz przemyślenia, aby utworzyć nową refleksję",
+      "plusOnly": "Refleksja nad snem jest dostępna w planie Plus",
+      "remaining": "Pozostało w tym miesiącu: {{remaining}} z {{limit}} refleksji",
+      "summary": "W skrócie",
+      "themes": "Możliwe motywy",
+      "images": "Obrazy do zgłębienia",
+      "wakingLinks": "Możliwe związki z ostatnimi dniami",
+      "questions": "Pytania do przemyślenia",
+      "thoughts": {
+        "label": "Twoje przemyślenia",
+        "placeholder": "Co Ci przychodzi na myśl przy tych pytaniach?",
+        "hint": "Twoje przemyślenia zostaną uwzględnione, gdy dotkniesz przycisku „Utwórz nową refleksję”."
+      },
+      "fromThoughts": "Co zmieniły Twoje przemyślenia",
+      "footer": "To refleksja, nie diagnoza. Weź z niej to, co do Ciebie przemawia, a resztę zostaw.",
+      "howThisWorks": "Jak to działa",
+      "show": "Pokaż",
+      "hide": "Ukryj",
+      "care": {
+        "title": "Jeśli ten sen nie daje Ci spokoju",
+        "body": "Takie sny potrafią długo ciążyć. Jeśli niepokojące sny wracają albo kładą się cieniem na Twoich dniach, pomóc może rozmowa z kimś, komu ufasz, albo ze specjalistą, na przykład z lekarzem lub psychologiem.",
+        "urgent": "Jeśli myślisz o zrobieniu sobie krzywdy, zadzwoń teraz na numer alarmowy albo do telefonu zaufania."
+      },
+      "consent": {
+        "title": "Utworzyć refleksję nad snem za pomocą Google?",
+        "body": "Aby utworzyć refleksję, do usługi Gemini firmy Google zostaną wysłane: treść i data snu, wybrane przez Ciebie uczucia oraz informacja o tym, czy sen oznaczono jako powracający, koszmar lub świadomy. Jeśli zapiszesz własne przemyślenia na temat snu, one także zostaną wysłane razem z pytaniami z poprzedniej refleksji, na które odpowiadają. Z każdego przeanalizowanego wpisu z ostatniego tygodnia zostaną też wysłane: data, krótkie podsumowanie, kluczowe tematy i dominująca emocja (a nie jego treść). Na potrzeby raportu „Wzorce snów” nie jest wysyłana treść snów, tylko krótkie etykiety zapisane razem z każdą refleksją. Aby można było porównać sny z dziennikiem, wysyłane są też kluczowe tematy i dominujące emocje z Twoich wpisów dziennika wraz z informacją, jak często się w nich pojawiają. Chodzi o wpisy z tego samego okresu co sny objęte raportem, począwszy od tygodnia przed pierwszym z tych snów. Wpisy z tego okresu, które nie mają jeszcze analizy AI, są najpierw analizowane tak jak w analizie trendów. W tym celu wysyłana jest ich treść. OwnJournal nie przechowuje żadnych wysyłanych danych. Google nie wykorzystuje tych danych do trenowania swoich modeli i może je przechowywać tylko przez krótki czas, aby zapobiegać nadużyciom. Refleksja zostanie zapisana razem ze snem, jak reszta wpisu.",
+        "accept": "Kontynuuj",
+        "decline": "Nie teraz"
+      },
+      "errors": {
+        "offline": "Jesteś offline. Refleksja nad snem wymaga połączenia z internetem.",
+        "authRequired": "Zaloguj się, aby korzystać z refleksji nad snem.",
+        "plusRequired": "Refleksja nad snem wymaga subskrypcji Plus.",
+        "limitReached": "Wykorzystano wszystkie refleksje nad snem w tym miesiącu ({{limit}}). Limit odnowi się w przyszłym miesiącu, a sny nadal możesz zapisywać.",
+        "tooShort": "Najpierw opisz sen dokładniej. Minimalna liczba znaków: {{min}}.",
+        "tooLong": "Ten opis snu jest za długi na refleksję. Skróć go trochę i spróbuj ponownie.",
+        "saveFailed": "Nie udało się zapisać refleksji. Spróbuj ponownie.",
+        "failed": "Tym razem nie udało się utworzyć refleksji. Spróbuj ponownie.",
+        "failedLimitReached": "W tym miesiącu zbyt wiele prób się nie powiodło. Refleksja nad snem będzie znów dostępna w przyszłym miesiącu, a sny nadal możesz zapisywać.",
+        "blocked": "Usługa AI nie podejmuje tematów z tego snu, dlatego nie można utworzyć refleksji. Sam sen pozostaje zapisany w Twoim dzienniku."
+      }
+    },
+    "patterns": {
+      "title": "Wzorce snów",
+      "intro": "Co powraca w Twoich snach i jak mają się one do Twojego dziennika.",
+      "compareJournal": "Porównaj z dziennikiem",
+      "dreamsInPeriod_one": "{{count}} sen w tym okresie",
+      "dreamsInPeriod_few": "{{count}} sny w tym okresie",
+      "dreamsInPeriod_many": "{{count}} snów w tym okresie",
+      "dreamsInPeriod_other": "{{count}} snu w tym okresie",
+      "needMore": "Do raportu potrzeba co najmniej {{min}} snów.",
+      "tooShort_one": "Jeden sen z tego okresu jest za krótki na refleksję, więc nie jest wliczany. Minimalna liczba znaków: {{min}}.",
+      "tooShort_few": "{{count}} sny z tego okresu są za krótkie na refleksję, więc nie są wliczane. Minimalna liczba znaków: {{min}}.",
+      "tooShort_many": "{{count}} snów z tego okresu jest za krótkich na refleksję, więc nie są wliczane. Minimalna liczba znaków: {{min}}.",
+      "tooShort_other": "{{count}} snu z tego okresu jest za krótkie na refleksję, więc nie jest wliczane. Minimalna liczba znaków: {{min}}.",
+      "journalCompare_one": "Sny zostaną też porównane z {{count}} wpisem dziennika z tego samego okresu.",
+      "journalCompare_few": "Sny zostaną też porównane z {{count}} wpisami dziennika z tego samego okresu.",
+      "journalCompare_many": "Sny zostaną też porównane z {{count}} wpisami dziennika z tego samego okresu.",
+      "journalCompare_other": "Sny zostaną też porównane z {{count}} wpisu dziennika z tego samego okresu.",
+      "journalAnalyzeFirst_one": "Jeden z nich nie ma jeszcze analizy AI, więc najpierw zostanie przeanalizowany, tak jak w analizie trendów.",
+      "journalAnalyzeFirst_few": "{{count}} z nich nie mają jeszcze analizy AI, więc najpierw zostaną przeanalizowane, tak jak w analizie trendów.",
+      "journalAnalyzeFirst_many": "{{count}} z nich nie ma jeszcze analizy AI, więc najpierw zostaną przeanalizowane, tak jak w analizie trendów.",
+      "journalAnalyzeFirst_other": "{{count}} z nich nie ma jeszcze analizy AI, więc najpierw zostaną przeanalizowane, tak jak w analizie trendów.",
+      "journalTooFew": "Sny nie zostaną porównane z dziennikiem, bo potrzeba do tego co najmniej {{min}} wpisów z tego samego okresu.",
+      "reflectFirst_one": "Jeden z tych snów nie ma jeszcze refleksji. Przed utworzeniem raportu powstanie refleksja nad nim, na co wykorzystasz jedną refleksję z limitu na ten miesiąc (pozostało: {{remaining}}).",
+      "reflectFirst_few": "{{count}} z tych snów nie mają jeszcze refleksji. Przed utworzeniem raportu powstaną refleksje nad nimi, na co wykorzystasz {{count}} refleksje z limitu na ten miesiąc (pozostało: {{remaining}}).",
+      "reflectFirst_many": "{{count}} z tych snów nie ma jeszcze refleksji. Przed utworzeniem raportu powstaną refleksje nad nimi, na co wykorzystasz {{count}} refleksji z limitu na ten miesiąc (pozostało: {{remaining}}).",
+      "reflectFirst_other": "{{count}} z tych snów nie ma jeszcze refleksji. Przed utworzeniem raportu powstaną refleksje nad nimi, na co wykorzystasz {{count}} refleksji z limitu na ten miesiąc (pozostało: {{remaining}}).",
+      "notEnoughReflections_one": "Liczba snów z tego okresu bez refleksji: {{dreams}}. W tym miesiącu została Ci tylko jedna refleksja. Wybierz krótszy okres.",
+      "notEnoughReflections_few": "Liczba snów z tego okresu bez refleksji: {{dreams}}. W tym miesiącu zostały Ci tylko {{count}} refleksje. Wybierz krótszy okres.",
+      "notEnoughReflections_many": "Liczba snów z tego okresu bez refleksji: {{dreams}}. W tym miesiącu zostało Ci tylko {{count}} refleksji. Wybierz krótszy okres.",
+      "notEnoughReflections_other": "Liczba snów z tego okresu bez refleksji: {{dreams}}. W tym miesiącu zostało Ci tylko {{count}} refleksji. Wybierz krótszy okres.",
+      "noReflectionsLeft_one": "Jeden z tych snów nie ma jeszcze refleksji, a w tym miesiącu wykorzystano już wszystkie refleksje. Wybierz krótszy okres.",
+      "noReflectionsLeft_few": "{{count}} z tych snów nie mają jeszcze refleksji, a w tym miesiącu wykorzystano już wszystkie refleksje. Wybierz krótszy okres.",
+      "noReflectionsLeft_many": "{{count}} z tych snów nie ma jeszcze refleksji, a w tym miesiącu wykorzystano już wszystkie refleksje. Wybierz krótszy okres.",
+      "noReflectionsLeft_other": "{{count}} z tych snów nie ma jeszcze refleksji, a w tym miesiącu wykorzystano już wszystkie refleksje. Wybierz krótszy okres.",
+      "ready": "Możesz już utworzyć pierwszy raport „Wzorce snów”.",
+      "create": "Utwórz raport",
+      "createNew": "Utwórz nowy raport",
+      "creating": "Szukanie wzorców…",
+      "reflecting": "Tworzenie refleksji {{current}} z {{total}}…",
+      "analyzingEntries": "Analizowanie wpisu {{current}} z {{total}}…",
+      "remaining": "Pozostało w tym miesiącu: {{remaining}} z {{limit}} raportów",
+      "plusOnly": "Wzorce snów są dostępne w planie Plus",
+      "earlyThemes": "Wstępne motywy",
+      "earlyThemesNote_one": "Na podstawie {{count}} snu. Im więcej snów, tym wyraźniejsze wzorce — na przykład w dłuższym okresie.",
+      "earlyThemesNote_few": "Na podstawie {{count}} snów. Im więcej snów, tym wyraźniejsze wzorce — na przykład w dłuższym okresie.",
+      "earlyThemesNote_many": "Na podstawie {{count}} snów. Im więcej snów, tym wyraźniejsze wzorce — na przykład w dłuższym okresie.",
+      "earlyThemesNote_other": "Na podstawie {{count}} snu. Im więcej snów, tym wyraźniejsze wzorce — na przykład w dłuższym okresie.",
+      "basedOn_one": "Na podstawie {{count}} snu",
+      "basedOn_few": "Na podstawie {{count}} snów",
+      "basedOn_many": "Na podstawie {{count}} snów",
+      "basedOn_other": "Na podstawie {{count}} snu",
+      "overview": "Ogólny obraz",
+      "recurring": "Co powraca",
+      "inDreams_one": "W {{count}} śnie",
+      "inDreams_few": "W {{count}} snach",
+      "inDreams_many": "W {{count}} snach",
+      "inDreams_other": "W {{count}} snu",
+      "kinds": {
+        "character": "Osoba",
+        "setting": "Miejsce",
+        "emotion": "Uczucie",
+        "theme": "Motyw"
+      },
+      "changes": "Jak zmieniały się Twoje sny",
+      "waking": {
+        "title": "Porównanie z dziennikiem",
+        "basedOn_one": "Na podstawie {{count}} wpisu dziennika z tego samego okresu",
+        "basedOn_few": "Na podstawie {{count}} wpisów dziennika z tego samego okresu",
+        "basedOn_many": "Na podstawie {{count}} wpisów dziennika z tego samego okresu",
+        "basedOn_other": "Na podstawie {{count}} wpisu dziennika z tego samego okresu",
+        "shared": "W snach i w dzienniku",
+        "dreamsOnly": "W snach, ale nie w dzienniku",
+        "wakingOnly": "W dzienniku, ale nie w snach",
+        "none": "W tym raporcie nie ma porównania z dziennikiem. Do porównania potrzeba co najmniej {{min}} wpisów dziennika z tego samego okresu co sny."
+      },
+      "questions": "Pytania do przemyślenia",
+      "footer": "To wzorce do przemyślenia, nie diagnoza. Weź z nich to, co do Ciebie przemawia, a resztę zostaw.",
+      "saveAsNote": "Zapisz jako notatkę",
+      "noteTitle": "Wzorce snów — {{date}}",
+      "errors": {
+        "offline": "Jesteś offline. Wzorce snów wymagają połączenia z internetem.",
+        "limitReached": "W tym miesiącu utworzono już wszystkie raporty „Wzorce snów” ({{limit}}). Nowy utworzysz w przyszłym miesiącu.",
+        "failed": "Tym razem nie udało się utworzyć raportu. Spróbuj ponownie.",
+        "failedLimitReached": "W tym miesiącu zbyt wiele prób się nie powiodło. Wzorce snów będą znów dostępne w przyszłym miesiącu.",
+        "blocked": "Usługa AI nie podejmuje niektórych tematów z Twoich snów, dlatego nie można utworzyć raportu."
+      }
+    },
+    "filter": "Sny"
+  },
+  "featureTip": {
+    "title": "Co nowego w OwnJournal",
+    "free": "Bezpłatnie",
+    "dreamJournal": {
+      "name": "Dziennik snów",
+      "desc": "Opisz sen zaraz po przebudzeniu, zanim uleci z pamięci, i zapisz wpis jako sen. Możesz też wybrać towarzyszące mu uczucia."
+    },
+    "dreamReflection": {
+      "desc": "Utwórz refleksję nad zapisanym snem. Gdy w wybranym okresie masz pięć snów, utworzysz raport o tym, co w nich powraca."
+    },
+    "voice": {
+      "desc": "Dotknij mikrofonu pod edytorem i mów, zamiast pisać."
+    },
+    "writeDream": "Opisz sen",
+    "dismiss": "Rozumiem"
   }
 }

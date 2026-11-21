@@ -1647,6 +1647,7 @@
       "tagSuggestions": "Sugestões de tags inteligentes",
       "trendAnalysis": "Insights de humor e tendências",
       "voiceEntry": "Entrada por voz",
+      "dreamReflection": "Reflexão de sonhos",
       "exports": "Exportação em PDF e Word"
     },
     "trialCta": "Iniciar teste gratuito",
@@ -1882,6 +1883,10 @@
       "title": "Sua linha do tempo",
       "content": "Suas entradas de diário aparecerão aqui, organizadas por data.\nToque no botão + para criar sua primeira entrada."
     },
+    "dreams": {
+      "title": "Seu diário de sonhos",
+      "content": "Anote o sonho assim que acordar, antes que a lembrança suma, e toque em \"Sonho\" para marcar a entrada como sonho. Se quiser, escolha como se sentiu nele. É tudo gratuito.\n\nCom o Plus, você também pode receber uma reflexão sobre o sonho."
+    },
     "syncStatus": {
       "title": "Status de sincronização",
       "content": "Quando você conectar o armazenamento em nuvem, este indicador mostrará seu status de sincronização.\nVerde significa sincronizado!"
@@ -2064,6 +2069,21 @@
         "desc": "Toque no microfone abaixo do editor e fale em vez de digitar. Quando você parar, suas palavras serão convertidas em texto limpo e pontuado e inseridas na posição do cursor. Funciona no idioma em que você fala, mesmo que você troque de idioma no meio do caminho. Cada gravação pode ter até 5 minutos, e o Plus inclui 200 minutos por mês.",
         "proNote": "(Recurso Plus)"
       },
+      "dreams": {
+        "title": "Diário de sonhos e reflexão",
+        "desc": "Toque em \"Sonho\", ao lado da data, para marcar a entrada como sonho. Anote assim que acordar, do jeito que você se lembra, e escolha os sentimentos que o sonho trouxe. Os sonhos ficam fora do calendário de humor e da análise de tendências. Com o Plus, toque em \"Refletir sobre o sonho\" para receber uma reflexão com possíveis temas, imagens para explorar e perguntas para você pensar. Abaixo da reflexão, você pode escrever seus pensamentos; com \"Refletir de novo\", a nova reflexão leva em conta o que você escreveu. O Plus inclui 30 reflexões por mês. Quando o período que você escolher tiver pelo menos cinco sonhos, você pode criar um relatório \"Padrões dos sonhos\" (até dois por mês), que mostra as pessoas, os lugares e os temas que voltam a aparecer, além de compará-los com os assuntos do seu diário. Ao criar o relatório, os sonhos desse período que ainda não têm reflexão recebem uma automaticamente, e essas reflexões entram na conta das 30 do mês.",
+        "proNote": "(Recurso Plus)"
+      },
+      "dreamMethod": {
+        "title": "Como funciona a reflexão de sonhos",
+        "intro": "A reflexão de sonhos se inspira na abordagem de Carl Jung e na pesquisa moderna sobre sonhos.",
+        "jung": "De Jung vem a ideia de que aquilo que uma imagem desperta em você pesa mais do que qualquer significado genérico de um símbolo. É por isso que, abaixo de uma reflexão, você pode escrever seus próprios pensamentos e refletir de novo. Ainda segundo Jung, uma mesma imagem pode ser explorada em mais de uma direção; um sonho pode mostrar um lado da vida que fica em segundo plano quando você está acordado; e uma série de sonhos diz mais do que um sonho isolado.",
+        "research": "Da pesquisa sobre sonhos, em especial dos trabalhos de Calvin Hall e G. William Domhoff, vem a constatação de que os sonhos refletem, em grande parte, o que ocupa sua cabeça no dia a dia: relacionamentos, preocupações e sentimentos. Por isso a reflexão pode apontar ligações com as suas entradas dos últimos sete dias, e o relatório \"Padrões dos sonhos\" compara seus sonhos com os temas do seu diário.",
+        "questions": "As perguntas do final seguem o modelo de Clara Hill para o trabalho com sonhos: primeiro explorar o sonho, depois buscar o que ele pode significar para você e, por fim, pensar em um pequeno passo que você poderia dar.",
+        "noDictionary": "Não existe um dicionário fixo de símbolos dos sonhos. A reflexão oferece possibilidades, e quem decide o que faz sentido é você.",
+        "notAdvice": "A reflexão de sonhos é um recurso de autorreflexão. Não é orientação médica nem psicológica e não pode diagnosticar nada.",
+        "privacy": "Para preparar uma reflexão, são enviados ao serviço Gemini do Google o texto e a data do sonho, os sentimentos que você escolheu, as opções que marcou (recorrente, pesadelo ou lúcido) e os pensamentos que você tiver escrito sobre o sonho, acompanhados das perguntas da reflexão anterior às quais eles respondem. De cada entrada dos últimos sete dias que já foi analisada, o serviço recebe também a data, o resumo curto, os temas principais e a emoção dominante, mas não o texto da entrada. Para um relatório \"Padrões dos sonhos\", são enviados os rótulos curtos salvos com cada reflexão. Como o relatório compara os sonhos com o seu diário, são enviados também os temas principais e as emoções dominantes das suas entradas de diário do mesmo período que esses sonhos, contado a partir de uma semana antes do primeiro deles, junto com o número de entradas em que cada tema ou emoção aparece. No caso do relatório, o texto dos sonhos não é enviado. As entradas desse período que ainda não têm análise com IA são analisadas primeiro, como na análise de tendências; para isso, o texto delas é enviado. O OwnJournal não armazena nenhum dos dados enviados."
+      },
       "aiAnalysis": {
         "title": "Análise de IA",
         "desc": "Obtenha insights sobre suas entradas de diário incluindo análise de humor, detecção de tópicos e sugestões personalizadas.",
@@ -2206,7 +2226,7 @@
       },
       "pro": {
         "question": "O que o Plus inclui?",
-        "answer": "O Plus inclui análise com IA, sugestões de título, sugestões de tags, entrada por voz, análise de tendências, análise de atividades e exportação em PDF/Word."
+        "answer": "O Plus inclui análise com IA, sugestões de título, sugestões de tags, entrada por voz, reflexão de sonhos, análise de tendências, análise de atividades e exportação em PDF/Word."
       },
       "manageSubscription": {
         "question": "Como gerencio minha assinatura?",
@@ -2312,7 +2332,7 @@
       },
       "collection": {
         "title": "Informações que coletamos",
-        "content": "As informações pessoais que coletamos são mínimas. Em relação à sua conta, coletamos: seu endereço de e-mail, seu nome de exibição (caso seja fornecido por um provedor de autenticação externo como o Google ou a Apple) e — assim que você conectar um armazenamento em nuvem — um registro do provedor que escolheu. Para operar o serviço de diário, mantemos uma pequena quantidade de estado em nossos servidores — se a configuração da criptografia está concluída, o status da sua assinatura e os identificadores de que o nosso processador de pagamentos (Stripe) precisa para gerenciar sua assinatura. Para monitorar o uso justo dos recursos opcionais de IA, registramos contadores de uso por usuário (o tipo de análise realizada e um carimbo de data/hora; nunca o conteúdo das suas entradas). Na entrada por voz, o contador também registra a duração em segundos de cada gravação transcrita; a gravação em si nunca é armazenada. Nosso backend de autenticação também mantém metadados de sessão padrão, como carimbos de data/hora de login. Os nomes de exibição são usados apenas para personalizar sua experiência no aplicativo e nunca são tornados públicos. Para exibir os preços de assinatura na sua moeda local, podemos consultar brevemente o país associado ao seu endereço IP; somente o código de país resultante é utilizado, não é vinculado à sua conta e não armazenamos seu endereço IP. Não utilizamos serviços de análise de terceiros, SDKs de publicidade nem rastreadores entre aplicativos. Quando você usa a criptografia de ponta a ponta (E2E), o conteúdo do seu diário é criptografado no seu dispositivo e não podemos lê-lo. No modo Simples, os dados do seu diário são sincronizados com o provedor de nuvem escolhido sem criptografia de ponta a ponta. O modo Simples é voltado para a conveniência e pode reduzir a privacidade em comparação com o modo E2E; seus dados continuam protegidos pelas medidas de segurança padrão do seu provedor de nuvem."
+        "content": "As informações pessoais que coletamos são mínimas. Em relação à sua conta, coletamos: seu endereço de e-mail, seu nome de exibição (caso seja fornecido por um provedor de autenticação externo como o Google ou a Apple) e — assim que você conectar um armazenamento em nuvem — um registro do provedor que escolheu. Para operar o serviço de diário, mantemos uma pequena quantidade de estado em nossos servidores — se a configuração da criptografia está concluída, o status da sua assinatura e os identificadores de que o nosso processador de pagamentos (Stripe) precisa para gerenciar sua assinatura. Para monitorar o uso justo dos recursos opcionais de IA, registramos contadores de uso por usuário (o tipo de análise realizada, um carimbo de data/hora, o modelo de IA usado e a quantidade de processamento por IA utilizada, medida em tokens; nos recursos que se aplicam a uma única entrada, também o identificador dessa entrada; nunca o conteúdo das suas entradas). Na entrada por voz, o contador também registra a duração em segundos de cada gravação transcrita; a gravação em si nunca é armazenada. Nosso backend de autenticação também mantém metadados de sessão padrão, como carimbos de data/hora de login. Os nomes de exibição são usados apenas para personalizar sua experiência no aplicativo e nunca são tornados públicos. Para exibir os preços de assinatura na sua moeda local, podemos consultar brevemente o país associado ao seu endereço IP; somente o código de país resultante é utilizado, não é vinculado à sua conta e não armazenamos seu endereço IP. Não utilizamos serviços de análise de terceiros, SDKs de publicidade nem rastreadores entre aplicativos. Quando você usa a criptografia de ponta a ponta (E2E), o conteúdo do seu diário é criptografado no seu dispositivo e não podemos lê-lo. No modo Simples, os dados do seu diário são sincronizados com o provedor de nuvem escolhido sem criptografia de ponta a ponta. O modo Simples é voltado para a conveniência e pode reduzir a privacidade em comparação com o modo E2E; seus dados continuam protegidos pelas medidas de segurança padrão do seu provedor de nuvem."
       },
       "usage": {
         "title": "Como usamos as informações",
@@ -2340,7 +2360,7 @@
       },
       "aiProcessing": {
         "title": "Recursos de IA e processamento",
-        "content": "O OwnJournal oferece recursos opcionais com IA, como análise de humor, sugestões e entrada por voz, disponíveis exclusivamente para assinantes Plus. O processamento por IA ocorre somente quando você, como assinante Plus, usa esses recursos de forma explícita. Quando você usa recursos de IA baseados em texto, o texto relevante é primeiro descriptografado no seu dispositivo e depois enviado, por ação explícita sua e por meio dos nossos servidores, ao nosso provedor de IA, atualmente o Google (Gemini), pela API paga desse provedor. Quando você usa a entrada por voz, o microfone do seu dispositivo é usado apenas enquanto você grava; a gravação é enviada, por meio dos nossos servidores, ao Google (Gemini) para ser convertida em texto, e o texto resultante é adicionado à sua entrada no seu dispositivo. Não armazenamos em nossos servidores os dados enviados à IA nem as respostas geradas, incluindo gravações de voz e transcrições; registramos apenas contadores de uso dos recursos de IA por usuário (o tipo de análise realizada, um carimbo de data/hora e, na entrada por voz, a duração da gravação em segundos; nunca o conteúdo) para aplicar os limites de uso justo. O Google pode reter solicitações e respostas por um período limitado para monitoramento de abusos e aplicação de políticas, conforme as próprias políticas vigentes. O processamento por IA pode ocorrer fora do EEE; o Google mantém salvaguardas adequadas para transferência de dados, como as Cláusulas Contratuais Padrão. Usamos o plano pago do serviço de IA do Google, no qual solicitações e respostas não são usadas para treinar nem melhorar os modelos do Google. Você pode optar por não usar os recursos de IA, e isso não afeta as funcionalidades principais do diário."
+        "content": "O OwnJournal oferece recursos opcionais com IA, como análise de humor, sugestões, entrada por voz e reflexão de sonhos, disponíveis exclusivamente para assinantes Plus. O processamento por IA ocorre somente quando você, como assinante Plus, usa esses recursos de forma explícita. Quando você usa recursos de IA baseados em texto, o texto relevante é primeiro descriptografado no seu dispositivo e depois enviado, por ação explícita sua e por meio dos nossos servidores, ao nosso provedor de IA, atualmente o Google (Gemini), pela API paga desse provedor. Quando você usa a entrada por voz, o microfone do seu dispositivo é usado apenas enquanto você grava; a gravação é enviada, por meio dos nossos servidores, ao Google (Gemini) para ser convertida em texto, e o texto resultante é adicionado à sua entrada no seu dispositivo. Não armazenamos em nossos servidores os dados enviados à IA nem as respostas geradas, incluindo gravações de voz e transcrições; registramos apenas contadores de uso dos recursos de IA por usuário (o tipo de análise realizada, um carimbo de data/hora, o modelo de IA usado e a quantidade de processamento por IA utilizada, medida em tokens; nos recursos que se aplicam a uma única entrada, também o identificador dessa entrada; na entrada por voz, também a duração da gravação em segundos; nunca o conteúdo) para aplicar os limites de uso justo. O Google pode reter solicitações e respostas por um período limitado para monitoramento de abusos e aplicação de políticas, conforme as próprias políticas vigentes. O processamento por IA pode ocorrer fora do EEE; o Google mantém salvaguardas adequadas para transferência de dados, como as Cláusulas Contratuais Padrão. Usamos o plano pago do serviço de IA do Google, no qual solicitações e respostas não são usadas para treinar nem melhorar os modelos do Google. Você pode optar por não usar os recursos de IA, e isso não afeta as funcionalidades principais do diário."
       },
       "diagnostics": {
         "title": "Diagnósticos e logs de falhas",
@@ -2604,5 +2624,185 @@
       "noSpeech": "Nenhuma fala foi detectada na gravação.",
       "failed": "A transcrição falhou. Tente novamente."
     }
+  },
+  "dream": {
+    "toggle": "Sonho",
+    "toggleHint": "Marcar esta entrada como sonho",
+    "badge": "Sonho",
+    "editor": {
+      "placeholder": "O que aconteceu no sonho? Escreva do jeito que você se lembra.",
+      "feelingsLabel": "Como você se sentiu no sonho?",
+      "flagsLabel": "Marque se for o caso",
+      "howItWorks": "Como funciona"
+    },
+    "feelings": {
+      "joy": "Alegria",
+      "calm": "Calma",
+      "awe": "Deslumbramento",
+      "curiosity": "Curiosidade",
+      "love": "Amor",
+      "fear": "Medo",
+      "anxiety": "Ansiedade",
+      "sadness": "Tristeza",
+      "anger": "Raiva",
+      "confusion": "Confusão",
+      "shame": "Vergonha",
+      "loneliness": "Solidão"
+    },
+    "flags": {
+      "recurring": "Recorrente",
+      "nightmare": "Pesadelo",
+      "lucid": "Lúcido",
+      "lucidExplained": "Sonho lúcido é aquele em que você sabe que está sonhando."
+    },
+    "guide": {
+      "title": "Seu diário de sonhos",
+      "step1": "Anote o sonho assim que acordar, porque a lembrança costuma sumir em poucos minutos.",
+      "step1Voice": "Ditar pode ser mais rápido.",
+      "step2": "Conte como aconteceu: quem estava lá, onde você estava, o que fez e o que sentiu. Não importa a ordem nem se faz sentido.",
+      "step3": "Para receber uma reflexão sobre o que você escreveu, toque em \"Refletir sobre o sonho\".",
+      "step3Patterns": "Depois de anotar cinco sonhos, você pode escolher um período e criar no diário um relatório \"Padrões dos sonhos\", com as pessoas, os lugares e os temas que voltam a aparecer.",
+      "done": "Entendi"
+    },
+    "reflection": {
+      "title": "Reflexão de sonhos",
+      "reflect": "Refletir sobre o sonho",
+      "reflecting": "Preparando a reflexão…",
+      "reflectAgain": "Refletir de novo",
+      "editToReflectAgain": "Edite o sonho ou escreva seus pensamentos para refletir sobre ele de novo",
+      "plusOnly": "A reflexão de sonhos está disponível no Plus",
+      "remaining": "Reflexões restantes neste mês: {{remaining}} de {{limit}}",
+      "summary": "Em resumo",
+      "themes": "Possíveis temas",
+      "images": "Imagens para explorar",
+      "wakingLinks": "Possíveis ligações com os últimos dias",
+      "questions": "Perguntas para refletir",
+      "thoughts": {
+        "label": "Seus pensamentos",
+        "placeholder": "O que as perguntas despertam em você?",
+        "hint": "Com \"Refletir de novo\", a nova reflexão leva em conta seus pensamentos."
+      },
+      "fromThoughts": "O que seus pensamentos mudaram",
+      "footer": "É uma reflexão, não um diagnóstico. Aproveite o que fizer sentido e deixe o resto de lado.",
+      "howThisWorks": "Como funciona",
+      "show": "Mostrar",
+      "hide": "Ocultar",
+      "care": {
+        "title": "Se este sonho não sai da sua cabeça",
+        "body": "Não é fácil acordar de um sonho assim. Se sonhos angustiantes se repetem ou começam a pesar no seu dia a dia, conversar com alguém em quem você confia ou com um profissional de saúde pode ajudar.",
+        "urgent": "Se você está pensando em se machucar, ligue agora para o número de emergência da sua região ou para uma linha de apoio emocional."
+      },
+      "consent": {
+        "title": "Refletir sobre seu sonho com o Google?",
+        "body": "Para preparar a reflexão, o serviço Gemini do Google recebe o texto e a data do sonho, os sentimentos que você escolheu, as opções que marcou (recorrente, pesadelo ou lúcido) e os pensamentos que você tiver escrito sobre o sonho, acompanhados das perguntas da reflexão anterior às quais eles respondem. De cada entrada dos últimos sete dias que já foi analisada, recebe também a data, o resumo curto, os temas principais e a emoção dominante, mas não o texto da entrada. Para um relatório \"Padrões dos sonhos\", são enviados os rótulos curtos salvos com cada reflexão. Como o relatório compara os sonhos com o seu diário, são enviados também os temas principais e as emoções dominantes das suas entradas de diário do mesmo período que esses sonhos, contado a partir de uma semana antes do primeiro deles, junto com o número de entradas em que cada tema ou emoção aparece. No caso do relatório, o texto dos sonhos não é enviado. As entradas desse período que ainda não têm análise com IA são analisadas primeiro, como na análise de tendências; para isso, o texto delas é enviado. O OwnJournal não armazena nenhum dos dados enviados. O Google não usa esses dados para treinar os próprios modelos e pode guardá-los apenas por pouco tempo para prevenir abusos. A reflexão é salva junto com o sonho, como o resto da entrada.",
+        "accept": "Continuar",
+        "decline": "Agora não"
+      },
+      "errors": {
+        "offline": "Você está offline. A reflexão de sonhos precisa de conexão com a internet.",
+        "authRequired": "Faça login para refletir sobre seus sonhos.",
+        "plusRequired": "A reflexão de sonhos requer uma assinatura Plus.",
+        "limitReached": "Você já usou as {{limit}} reflexões de sonhos deste mês. O limite é renovado no próximo mês; enquanto isso, você pode continuar anotando seus sonhos.",
+        "tooShort": "Para pedir uma reflexão, escreva pelo menos {{min}} caracteres sobre o sonho.",
+        "tooLong": "Este sonho está longo demais para uma reflexão. Encurte um pouco o texto e tente novamente.",
+        "saveFailed": "Não foi possível salvar a reflexão. Tente novamente.",
+        "failed": "Não foi possível gerar a reflexão desta vez. Tente novamente.",
+        "failedLimitReached": "Como muitas tentativas não deram certo neste mês, a reflexão de sonhos fica indisponível até o próximo mês. Você pode continuar anotando seus sonhos.",
+        "blocked": "Este sonho toca em assuntos que o serviço de IA não aborda, por isso fica sem reflexão. Ele continua salvo no seu diário."
+      }
+    },
+    "patterns": {
+      "title": "Padrões dos sonhos",
+      "intro": "O que se repete nos seus sonhos e como eles se comparam com o seu diário.",
+      "compareJournal": "Comparar com o seu diário",
+      "dreamsInPeriod_one": "{{count}} sonho neste período",
+      "dreamsInPeriod_many": "{{count}} sonhos neste período",
+      "dreamsInPeriod_other": "{{count}} sonhos neste período",
+      "needMore": "Um relatório precisa de pelo menos {{min}} sonhos.",
+      "tooShort_one": "Um sonho deste período não é contado porque é curto demais para uma reflexão, que exige um texto de pelo menos {{min}} caracteres.",
+      "tooShort_many": "{{count}} sonhos deste período não são contados porque são curtos demais para uma reflexão, que exige um texto de pelo menos {{min}} caracteres.",
+      "tooShort_other": "{{count}} sonhos deste período não são contados porque são curtos demais para uma reflexão, que exige um texto de pelo menos {{min}} caracteres.",
+      "journalCompare_one": "Seus sonhos também são comparados com {{count}} entrada de diário do mesmo período.",
+      "journalCompare_many": "Seus sonhos também são comparados com {{count}} entradas de diário do mesmo período.",
+      "journalCompare_other": "Seus sonhos também são comparados com {{count}} entradas de diário do mesmo período.",
+      "journalAnalyzeFirst_one": "Uma delas ainda não tem análise com IA e recebe uma antes, como na análise de tendências.",
+      "journalAnalyzeFirst_many": "{{count}} delas ainda não têm análise com IA e recebem uma antes, como na análise de tendências.",
+      "journalAnalyzeFirst_other": "{{count}} delas ainda não têm análise com IA e recebem uma antes, como na análise de tendências.",
+      "journalTooFew": "Seus sonhos não serão comparados com o seu diário: para isso, são necessárias pelo menos {{min}} entradas de diário do mesmo período.",
+      "reflectFirst_one": "Um desses sonhos ainda não tem reflexão. Ao criar o relatório, a reflexão que falta é feita primeiro e usa uma das suas reflexões do mês (você ainda tem {{remaining}}).",
+      "reflectFirst_many": "{{count}} desses sonhos ainda não têm reflexão. Ao criar o relatório, as reflexões que faltam são feitas primeiro e usam {{count}} das suas reflexões do mês (você ainda tem {{remaining}}).",
+      "reflectFirst_other": "{{count}} desses sonhos ainda não têm reflexão. Ao criar o relatório, as reflexões que faltam são feitas primeiro e usam {{count}} das suas reflexões do mês (você ainda tem {{remaining}}).",
+      "notEnoughReflections_one": "{{dreams}} desses sonhos ainda não têm reflexão, mas só resta uma reflexão neste mês. Escolha um período mais curto.",
+      "notEnoughReflections_many": "{{dreams}} desses sonhos ainda não têm reflexão, mas só restam {{count}} reflexões neste mês. Escolha um período mais curto.",
+      "notEnoughReflections_other": "{{dreams}} desses sonhos ainda não têm reflexão, mas só restam {{count}} reflexões neste mês. Escolha um período mais curto.",
+      "noReflectionsLeft_one": "Um desses sonhos ainda não tem reflexão, e não resta nenhuma reflexão neste mês. Escolha um período mais curto.",
+      "noReflectionsLeft_many": "{{count}} desses sonhos ainda não têm reflexão, e não resta nenhuma reflexão neste mês. Escolha um período mais curto.",
+      "noReflectionsLeft_other": "{{count}} desses sonhos ainda não têm reflexão, e não resta nenhuma reflexão neste mês. Escolha um período mais curto.",
+      "ready": "Seu primeiro relatório já pode ser criado.",
+      "create": "Criar relatório",
+      "createNew": "Criar novo relatório",
+      "creating": "Procurando padrões…",
+      "reflecting": "Refletindo sobre o sonho {{current}} de {{total}}…",
+      "analyzingEntries": "Analisando a entrada de diário {{current}} de {{total}}…",
+      "remaining": "Relatórios restantes neste mês: {{remaining}} de {{limit}}",
+      "plusOnly": "O recurso \"Padrões dos sonhos\" está disponível no Plus",
+      "earlyThemes": "Primeiros temas",
+      "earlyThemesNote_one": "Com base em {{count}} sonho. Os padrões ficam mais nítidos com mais sonhos, por exemplo, ao escolher um período mais longo.",
+      "earlyThemesNote_many": "Com base em {{count}} sonhos. Os padrões ficam mais nítidos com mais sonhos, por exemplo, ao escolher um período mais longo.",
+      "earlyThemesNote_other": "Com base em {{count}} sonhos. Os padrões ficam mais nítidos com mais sonhos, por exemplo, ao escolher um período mais longo.",
+      "basedOn_one": "Com base em {{count}} sonho",
+      "basedOn_many": "Com base em {{count}} sonhos",
+      "basedOn_other": "Com base em {{count}} sonhos",
+      "overview": "Visão geral",
+      "recurring": "O que se repete",
+      "inDreams_one": "Em {{count}} sonho",
+      "inDreams_many": "Em {{count}} sonhos",
+      "inDreams_other": "Em {{count}} sonhos",
+      "kinds": {
+        "character": "Pessoa",
+        "setting": "Lugar",
+        "emotion": "Sentimento",
+        "theme": "Tema"
+      },
+      "changes": "Como seus sonhos mudaram",
+      "waking": {
+        "title": "Comparação com o seu diário",
+        "basedOn_one": "Com base em {{count}} entrada de diário do mesmo período",
+        "basedOn_many": "Com base em {{count}} entradas de diário do mesmo período",
+        "basedOn_other": "Com base em {{count}} entradas de diário do mesmo período",
+        "shared": "Nos sonhos e no diário",
+        "dreamsOnly": "Nos sonhos, mas não no diário",
+        "wakingOnly": "No diário, mas não nos sonhos",
+        "none": "Este relatório não inclui a comparação com o seu diário. Ela precisa de pelo menos {{min}} entradas de diário do mesmo período que os sonhos."
+      },
+      "questions": "Perguntas para refletir",
+      "footer": "São padrões para reflexão, não um diagnóstico. Aproveite o que fizer sentido e deixe o resto de lado.",
+      "saveAsNote": "Salvar como nota",
+      "noteTitle": "Padrões dos sonhos — {{date}}",
+      "errors": {
+        "offline": "Você está offline. O recurso \"Padrões dos sonhos\" precisa de conexão com a internet.",
+        "limitReached": "Você já criou {{limit}} relatórios \"Padrões dos sonhos\" neste mês. No próximo mês, poderá criar outro.",
+        "failed": "Não foi possível gerar o relatório desta vez. Tente novamente.",
+        "failedLimitReached": "Muitas tentativas não deram certo neste mês. O recurso \"Padrões dos sonhos\" volta no próximo mês.",
+        "blocked": "Alguns temas dos seus sonhos ficam de fora do que o serviço de IA analisa, por isso não há como criar o relatório."
+      }
+    },
+    "filter": "Sonhos"
+  },
+  "featureTip": {
+    "title": "Novidades do OwnJournal",
+    "free": "Grátis",
+    "dreamJournal": {
+      "name": "Diário de sonhos",
+      "desc": "Anote o sonho assim que acordar, antes que ele suma, e marque a entrada como sonho. Se quiser, escolha como se sentiu nele."
+    },
+    "dreamReflection": {
+      "desc": "Receba uma reflexão sobre seu sonho. Com cinco sonhos em um período, veja em um relatório o que se repete."
+    },
+    "voice": {
+      "desc": "Toque no microfone abaixo do editor e fale em vez de digitar."
+    },
+    "writeDream": "Anotar um sonho",
+    "dismiss": "Entendi"
   }
 }

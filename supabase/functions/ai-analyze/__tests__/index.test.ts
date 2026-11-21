@@ -64,6 +64,7 @@ function titleResponse() {
       content: { parts: [{ functionCall: { name: 'generate_titles', args: { titles: ['A Walk Together'] } } }] },
       finishReason: 'STOP',
     }],
+    usageMetadata: { promptTokenCount: 200, candidatesTokenCount: 50, thoughtsTokenCount: 30, totalTokenCount: 280 },
   });
 }
 
@@ -80,6 +81,19 @@ describe('Gemini-only analysis', () => {
     expect(envGet).not.toHaveBeenCalledWith('AI_PROVIDER');
     expect(envGet).not.toHaveBeenCalledWith('OPENAI_API_KEY');
     expect(mocks.insert).toHaveBeenCalledOnce();
+  });
+
+  it('records billed thinking tokens with the usage row', async () => {
+    fetchMock.mockResolvedValue(titleResponse());
+
+    await requestTitles();
+
+    expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({
+      analysis_type: 'title',
+      input_tokens: 200,
+      output_tokens: 50,
+      thinking_tokens: 30,
+    }));
   });
 
   it.each([429, 403, 503])('returns Google HTTP %s errors without sending the entry to another provider', async (status) => {

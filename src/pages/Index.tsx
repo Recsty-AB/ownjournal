@@ -9,6 +9,10 @@ import { useTranslation } from "react-i18next";
 import { Header } from "@/components/layout/Header";
 import { Timeline } from "@/components/journal/Timeline";
 import { TrendAnalysis } from "@/components/journal/TrendAnalysis";
+import { DreamPatterns } from "@/components/journal/DreamPatterns";
+import { sanitizeDreamFields, withoutDreams, type DreamReflection } from "@/types/dream";
+import { resetDreamReflectionRequests } from "@/hooks/useDreamReflectionRequest";
+import { resetDreamPatternsRequest } from "@/hooks/useDreamPatternsRequest";
 import { MoodCalendar } from "@/components/journal/MoodCalendar";
 import { MoodStats } from "@/components/journal/MoodStats";
 import { MoodCorrelations } from "@/components/journal/MoodCorrelations";
@@ -41,6 +45,7 @@ import { retrievePassword, clearPassword, storePassword } from "@/utils/password
 import { journalNameStorage } from "@/utils/journalNameStorage";
 import { setCurrentUserId, getCurrentUserId, getLastUserId, migrateLocalStorageToUserScope, clearUnscopedUserData, scopedKey } from "@/utils/userScope";
 import { useOnboarding } from "@/hooks/useOnboarding";
+import { setFeatureTipSeen } from "@/utils/featureTip";
 import { OnboardingTour } from "@/components/onboarding/OnboardingTour";
 import { HelpDialog } from "@/components/help/HelpDialog";
 import { SetNewPasswordDialog } from "@/components/auth/SetNewPasswordDialog";
@@ -68,11 +73,20 @@ function sortEntriesByDateNewestFirst(entries: JournalEntryData[]): JournalEntry
 const Index = () => {
   const { t } = useTranslation();
   const [entries, setEntries] = useState<JournalEntryData[]>([]);
+  // Current entries for callbacks that finish long after they were created.
+  const entriesRef = useRef(entries);
+  entriesRef.current = entries;
+  // Reflections whose save is still running, by entry id. An edit saved in that
+  // window carries the reflection, or the edit would overwrite it in storage.
+  const pendingReflectionsRef = useRef(new Map<string, DreamReflection>());
   const [activeView, setActiveView] = useState<'journal' | 'notes'>('journal');
   // Notes share the entries store but live in their own section; keep them out
   // of the timeline, mood, and trend views.
   const journalEntries = useMemo(() => entries.filter(e => e.type !== 'note'), [entries]);
   const notes = useMemo(() => entries.filter(e => e.type === 'note'), [entries]);
+  // Dreams stay in the timeline but out of every mood and trend view: a
+  // nightmare is not a bad day.
+  const moodEntries = useMemo(() => withoutDreams(journalEntries), [journalEntries]);
   const allTags = useMemo(() => Array.from(new Set(entries.flatMap(e => e.tags))), [entries]);
   const sortedEntries = useMemo(() => sortEntriesByDateNewestFirst(journalEntries), [journalEntries]);
   const [user, setUser] = useState<{
@@ -1730,8 +1744,12 @@ const Index = () => {
     // Find existing entry if editing
     const existingEntry = entryData.id ? entries.find((e) => e.id === entryData.id) : null;
     
+    const pendingReflection = entryData.id && entryData.type === 'dream'
+      ? pendingReflectionsRef.current.get(entryData.id)
+      : undefined;
     const newEntry: JournalEntryData = {
       ...entryData,
+      ...(pendingReflection && { dreamReflection: pendingReflection }),
       id: entryData.id || Date.now().toString(), // Use existing ID or generate new
       createdAt: existingEntry?.createdAt || new Date(),
       updatedAt: new Date(),
@@ -1799,6 +1817,48 @@ const Index = () => {
         duration: 5000,
       });
     }
+  };
+
+  // Saves a new dream reflection into the entry (inside its encrypted payload)
+  // without the editor's saving toasts. Starts from the latest copy of the
+  // entry in state so nothing written meanwhile is lost.
+  const handleSaveReflection = async (entry: JournalEntryData, reflection: DreamReflection) => {
+    // A reflection takes seconds to come back, and the dream may have been
+    // edited, switched to an ordinary entry or deleted in the meantime. Attach
+    // it to the entry as it is now, never to the copy from when it was requested.
+    // Not in memory (e.g. a reload is in progress): use the stored copy. With
+    // neither, fail, so the card offers Retry instead of looking saved.
+    const latest = entriesRef.current.find((e) => e.id === entry.id) ?? (await storageServiceV2.getEntry(entry.id));
+    if (!latest) throw new Error('Dream entry not found');
+    // Switched back to an ordinary entry meanwhile: the reflection goes with it.
+    if (latest.type !== 'dream') return;
+    const updatedAt = new Date();
+    pendingReflectionsRef.current.set(entry.id, reflection);
+    try {
+      await storageServiceV2.saveEntry({ ...latest, dreamReflection: reflection, updatedAt });
+    } finally {
+      if (pendingReflectionsRef.current.get(entry.id) === reflection) pendingReflectionsRef.current.delete(entry.id);
+    }
+    // Only after the save succeeded, so a failed save never looks saved.
+    setEntries((prev) =>
+      prev.map((e) =>
+        e.id === entry.id && e.type === 'dream'
+          // Keep the later time when an edit was saved meanwhile.
+          ? { ...e, dreamReflection: reflection, updatedAt: e.updatedAt > updatedAt ? e.updatedAt : updatedAt }
+          : e,
+      ),
+    );
+  };
+
+  // Saves what the dreamer wrote under a reflection. It is an edit of the
+  // entry and goes the same way: shown at once, toasts for the outcome, and a
+  // reflection whose save is still running is carried along.
+  const handleSaveDreamThoughts = async (entry: JournalEntryData, thoughts: string) => {
+    const latest = entriesRef.current.find((e) => e.id === entry.id);
+    if (!latest || latest.type !== 'dream') return;
+    const { createdAt, updatedAt, ...data } = latest;
+    const { thoughts: _previous, ...details } = latest.dream ?? { feelings: [] };
+    await handleSaveEntry({ ...data, dream: { ...details, ...(thoughts ? { thoughts } : {}) } });
   };
 
   const handleSaveNote = async (noteData: NoteSaveData) => {
@@ -2194,6 +2254,8 @@ const Index = () => {
       clearUnscopedUserData();
       setCurrentUserId(null);
       setEntries([]);
+      resetDreamReflectionRequests();
+      resetDreamPatternsRequest();
 
       // Clear in-memory connections only. Do NOT call unregisterProvider() or add to disabled list,
       // so the same account can auto-reconnect (ensureConnections) when they sign back in.
@@ -2287,7 +2349,8 @@ const Index = () => {
       // FIXED: Preserve original updatedAt to prevent overwriting newer cloud edits
       const entriesToImport: JournalEntryData[] = data.entries.map(
         (entry: JournalEntryData & { date: string | Date; createdAt: string | Date; updatedAt?: string | Date }) => ({
-          ...entry,
+          // A hand-edited or foreign backup may hold malformed dream fields.
+          ...sanitizeDreamFields(entry),
           date: new Date(entry.date),
           createdAt: new Date(entry.createdAt),
           updatedAt: entry.updatedAt ? new Date(entry.updatedAt) : new Date(entry.createdAt),
@@ -2999,7 +3062,12 @@ const Index = () => {
         run={showTour && !!user}
         stepIndex={tourStepIndex}
         onStepChange={setTourStepIndex}
-        onComplete={completeTour}
+        onComplete={() => {
+          // The tour has a step about the dream journal, so the one-time
+          // "new in OwnJournal" tip would only repeat it.
+          setFeatureTipSeen();
+          completeTour();
+        }}
         onSkip={skipTour}
       />
 
@@ -3181,29 +3249,40 @@ const Index = () => {
               Each wrapper spans all 3 columns when its card is expanded (Radix
               Collapsible sets data-state="open"), so expanded content gets full
               width while the other two stay compact. */}
-          {activeView === 'journal' && showInsights && journalEntries.length >= 1 && (
+          {activeView === 'journal' && showInsights && moodEntries.length >= 1 && (
             <div className="grid gap-3 lg:grid-cols-3 items-start">
               <div className="lg:has-[[data-state=open]]:col-span-3 min-w-0">
-                <MoodCalendar entries={journalEntries} />
+                <MoodCalendar entries={moodEntries} />
               </div>
-              {journalEntries.length >= 3 && (
+              {moodEntries.length >= 3 && (
                 <div className="lg:has-[[data-state=open]]:col-span-3 min-w-0">
-                  <MoodStats entries={journalEntries} />
+                  <MoodStats entries={moodEntries} />
                 </div>
               )}
-              {journalEntries.length >= 5 && (
+              {moodEntries.length >= 5 && (
                 <div className="lg:has-[[data-state=open]]:col-span-3 min-w-0">
-                  <MoodCorrelations entries={journalEntries} isPro={isPro} />
+                  <MoodCorrelations entries={moodEntries} isPro={isPro} />
                 </div>
               )}
             </div>
           )}
 
-          {activeView === 'journal' && showInsights && journalEntries.length >= 3 && (
+          {activeView === 'journal' && showInsights && moodEntries.length >= 3 && (
             <TrendAnalysis
               key={`trend-${user?.id ?? 'anonymous'}`}
+              entries={moodEntries}
+              isPro={isPro}
+            />
+          )}
+
+          {/* Renders only once the journal holds a dream. */}
+          {activeView === 'journal' && showInsights && (
+            <DreamPatterns
+              key={`dreams-${user?.id ?? 'anonymous'}`}
               entries={journalEntries}
               isPro={isPro}
+              onSaveAsNote={(title, body) => handleSaveNote({ title, body, tags: [] })}
+              onSaveReflection={handleSaveReflection}
             />
           )}
 
@@ -3274,6 +3353,8 @@ const Index = () => {
               onSaveEntry={handleSaveEntry}
               onDeleteEntry={handleDeleteEntry}
               onEditingChange={setIsEditing}
+              onSaveReflection={handleSaveReflection}
+              onSaveDreamThoughts={handleSaveDreamThoughts}
               isPro={isPro}
             />
           </div>

@@ -255,6 +255,7 @@ const pdfCorpus = (entries: JournalEntry[], journalName: string, locale: Locale)
     t("export.entries"),
     t("export.exportedOn"),
     t("export.mood"),
+    t("dream.badge"),
     format(new Date(), "PPP", { locale }),
   ];
 
@@ -292,6 +293,8 @@ export interface JournalEntry {
   tags?: string[];
   activities?: string[];
   images?: string[];
+  // Dreams print a "Dream" label instead of the placeholder mood they store.
+  type?: string;
 }
 
 interface EntriesByYearMonth {
@@ -611,7 +614,9 @@ export const exportToPDF = async (entries: JournalEntry[], journalName?: string)
           doc.setTextColor(COLORS.medium.r, COLORS.medium.g, COLORS.medium.b);
 
           let metaText = "";
-          if (entry.mood) {
+          if (entry.type === "dream") {
+            metaText = t("dream.badge");
+          } else if (entry.mood) {
             const translatedMood = t(`journalEntry.moods.${entry.mood}`);
             metaText = `${t("export.mood")}: ${MOOD_EMOJI[entry.mood] || ''} ${translatedMood}`;
           }
@@ -913,7 +918,9 @@ export const exportToWord = async (entries: JournalEntry[], journalName?: string
         if (entry.mood || (entry.activities && entry.activities.length > 0) || (entry.tags && entry.tags.length > 0)) {
           const metaParts: TextRun[] = [];
 
-          if (entry.mood) {
+          if (entry.type === "dream") {
+            metaParts.push(new TextRun({ text: `✦ ${t("dream.badge")}`, size: 20, color: "6366F1" }));
+          } else if (entry.mood) {
             const translatedMood = t(`journalEntry.moods.${entry.mood}`);
             metaParts.push(
               new TextRun({

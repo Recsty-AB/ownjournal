@@ -133,3 +133,18 @@ The scope is the app's UI, Help, paywall and privacy/legal strings in `src/i18n/
 
 ## Chart tooltips
 - Mood-correlation tooltip: "{{delta}} (เฉลี่ย {{emoji}} {{avg}} จาก {{count}} รายการ)". No colon after เฉลี่ย and no comma in Thai; จาก links the average to the entry count. Only `_other`.
+
+## Dreams glossary (2026-11-19)
+| English | Thai | Avoid / evidence |
+|---|---|---|
+| Dream reflection (feature, button) | ทบทวนความฝัน (การทบทวนความฝัน in sentences); button “ทบทวนความฝันนี้” | สะท้อนความฝัน (reads "mirror the dream"; Thai lets the dream be the thing that สะท้อน), ตีความฝัน/ทำนายฝัน (fortune-telling). Judgment |
+| A reflection (the output) | บทสะท้อน | Matches บทสะท้อนส่งท้าย |
+| Dream patterns (report) | รูปแบบความฝัน / รายงานรูปแบบความฝัน, classifier ฉบับ | Judgment |
+| Dream journal / write down dreams | บันทึกความฝัน / จดบันทึกความฝัน | Attested (LINE Today, Health Addict) |
+| Nightmare / recurring dream | ฝันร้าย / ฝันซ้ำ | ฝันร้าย attested (th.wikipedia ฝันร้าย); ฝันซ้ำ judgment |
+| Lucid dream | ลูซิดดรีม | Attested (LINE Today); ฝันรู้ตัว not found in Thai sources read |
+| Carl Jung | คาร์ล ยุง, ยุง in running text | Attested (th.wikipedia) |
+| Calvin Hall, G. William Domhoff, Clara Hill | Latin script | Transliterations (แคลวิน ฮอลล์, ดอมฮอฟฟ์, คลารา ฮิลล์) unattested; researcher names stay Latin (OwnJournal website standard) |
+| Health professional (care text) | ผู้เชี่ยวชาญด้านสุขภาพจิต | ผู้เชี่ยวชาญด้านสุขภาพ (generic, reads as wellness expert). Judgment |
+| Crisis line | สายด่วนสุขภาพจิต | Attested (Thai PBS) |
+| Dream counter | ความฝัน {{count}} เรื่อง | Judgment |

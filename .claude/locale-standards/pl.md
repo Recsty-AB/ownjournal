@@ -176,3 +176,18 @@ Source: Polish text of Regulation (EU) 2016/679 (RODO) on EUR-Lex; EDPB Polish d
 - Apple PL, Funkcja Zaloguj się, używając konta Apple i prywatność: https://support.apple.com/pl-pl/HT210699
 - Apple Sign in with Apple JS, Polish button strings: https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/pl_PL/appleid.auth.js
 - Poradnia językowa PWN (comma with „zamiast” + bezokolicznik; lowercase after colon; month names): https://sjp.pwn.pl/poradnia
+
+## 8. Dreams glossary (2026-11-19)
+| English | Polish | Avoid / source |
+|---|---|---|
+| Dream / Dreams (chip, filter) | Sen / Sny; dream journal → dziennik snów | judgment |
+| Dream reflection (feature) | **Refleksja nad snem**; countable: `30 refleksji`, `utworzyć refleksję` | „Analiza snu”, „Interpretacja snu” (implies a verdict) — judgment |
+| Reflect on this dream (button) | **Utwórz refleksję**; again → **Utwórz nową refleksję** | „Przyjrzyj się snowi” (tells the user to look; clashes with `utworzyć refleksję` everywhere else) |
+| Dream patterns | **Wzorce snów**; the report → raport „Wzorce snów” | judgment |
+| Nightmare / lucid / recurring | Koszmar / Świadomy (świadomy sen) / Powracający, under heading „Rodzaj snu” | pl.wikipedia „Świadomy sen” |
+| Anxiety / fear (feeling chips) | **Niepokój** / Strach | „Lęk” next to „Strach” (near-synonyms for lay readers); doz.pl pairs „strach i niepokój” |
+| Awe / confusion | Zachwyt / Dezorientacja | „Podziw”, „Zagubienie” — judgment |
+| Monthly remaining count | `Pozostało w tym miesiącu: {{remaining}} z {{limit}} refleksji` (mirrors `voice.minutesLeft`) | „Pozostałe refleksje: …” (reads as *the other reflections*) |
+| Amount measured in tokens (legal) | ilość wykorzystanego przetwarzania przez AI mierzona w tokenach | „zakres” (= scope; RODO „zakres przetwarzania”) |
+| Take what fits, leave the rest | Weź z niej to, co do Ciebie przemawia, a resztę zostaw. | „Zatrzymaj to, co…” (two parses: keep / stop) |
+| Crisis line / emergency number | telefon zaufania / numer alarmowy | gov.pl zdrowie |

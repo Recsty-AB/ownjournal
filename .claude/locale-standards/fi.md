@@ -175,6 +175,20 @@ a limited time for abuse monitoring).
 - `kuten muukin merkintäsi` ≠ "like the rest of your entry" → `samalla tavalla kuin muu merkintäsi`.
 - Swedish drift: `versionshistoria` → `versiohistoria`.
 
+## Dreams
+
+| Term | Preferred | Avoid / notes |
+|---|---|---|
+| Dream reflection (feature) | `Unipohdinta`, running text `unipohdinta`; button `Pohdi tätä unta` | `Unen tulkinta` (implies a symbol key); judgment, after house `Päätöspohdinta` |
+| Dream patterns (feature) | `Unien kuviot`; inflect only via `Unien kuviot -raportti` / `-toiminto` | `Unikuviot`; never inflect the bare name (judgment) |
+| "after five reflected dreams" | `Kun pohdittuja unia on kertynyt viisi` (matches `Pohdittuja unia: x / 5`) | `Kun olet pohtinut viittä unta` (atelic partitive reads as ongoing) |
+| nightmare / lucid / recurring | `painajainen` / `selkouni` / `toistuva uni` | fi.wikipedia Selkouni, Unennäkö |
+| dream symbol dictionary | `unisymbolien sanakirja`; folk genre is `unikirja` | `Sanakirjaa ei ole` alone (reads as "none exists") |
+| labels sent for patterns | `lyhyet avainsanat` | `tunnisteet` (= tags); judgment |
+| awe (chip) | `Haltioituminen` | `Kunnioitus`; judgment |
+| self-harm crisis line | `Jos sinulla on itsetuhoisia ajatuksia, soita heti hätänumeroon tai kriisipuhelimeen.` | no numbers; wording per mielenterveystalo.fi, terveyskyla.fi |
+| "Google doesn't use it and may keep it" | split: `Google ei käytä … Se voi säilyttää …` | `ei käytä … ja voi …` (connegative `voi` misparse) |
+
 ## Sources
 
 - Microsoft Finnish Localization Style Guide:
