@@ -17,11 +17,16 @@ export interface DreamPatternsRequest {
    * report: the one being reflected on (from 1) and how many there are.
    */
   reflecting: { current: number; total: number } | null;
+  /**
+   * Then, while journal entries of the same period that have no AI analysis
+   * get one (for the comparison with the journal): how far along it is.
+   */
+  analyzing: { current: number; total: number } | null;
   /** The report made in this session; newer than the one saved on the device. */
   report: DreamPatternsReport | null;
 }
 
-const IDLE: DreamPatternsRequest = { loading: false, reflecting: null, report: null };
+const IDLE: DreamPatternsRequest = { loading: false, reflecting: null, analyzing: null, report: null };
 let state: DreamPatternsRequest = IDLE;
 // The account the state belongs to: it is never shown to another one.
 let owner: string | null = null;
@@ -36,7 +41,7 @@ export function getDreamPatternsRequest(): DreamPatternsRequest {
 export function updateDreamPatternsRequest(patch: Partial<DreamPatternsRequest>): void {
   const next = { ...getDreamPatternsRequest(), ...patch };
   owner = getCurrentUserId();
-  state = next.loading || next.report ? (next.loading ? next : { ...next, reflecting: null }) : IDLE;
+  state = next.loading || next.report ? (next.loading ? next : { ...next, reflecting: null, analyzing: null }) : IDLE;
   notify();
 }
 

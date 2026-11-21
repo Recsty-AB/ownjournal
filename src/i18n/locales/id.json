@@ -2010,7 +2010,7 @@
         "questions": "Pertanyaan di bagian akhir mengikuti model Clara Hill untuk mengolah mimpi: menelusuri mimpinya, mencari tahu apa maknanya bagimu, lalu memikirkan satu langkah kecil yang bisa kamu ambil.",
         "noDictionary": "Di sini tidak ada kamus tafsir mimpi yang baku. Refleksi hanya memberi beberapa kemungkinan, dan kamulah yang menentukan mana yang pas.",
         "notAdvice": "Refleksi mimpi ditujukan untuk merenungi diri sendiri. Fitur ini bukan nasihat medis atau psikologis dan tidak bisa mendiagnosis apa pun.",
-        "privacy": "Agar refleksi bisa dibuat, OwnJournal mengirim data mimpimu ke layanan Gemini milik Google: teks dan tanggalnya, perasaan yang kamu pilih, jenis mimpi yang kamu tandai (berulang, mimpi buruk, atau lucid dream), serta pikiranmu sendiri tentang mimpi itu kalau sudah kamu tuliskan, lengkap dengan pertanyaan dari refleksi sebelumnya yang kamu tanggapi lewat pikiran itu. Dari setiap catatanmu seminggu terakhir yang sudah dianalisis, ikut dikirim tanggal, ringkasan, tema utama, dan emosi dominannya, bukan isi catatannya. Untuk laporan pola mimpi, OwnJournal mengirim label singkat yang disimpan bersama setiap refleksi. Supaya mimpi-mimpimu bisa dibandingkan dengan jurnalmu, dikirim juga tema utama dan emosi dominan dari catatanmu yang sudah dianalisis, beserta seberapa sering masing-masing muncul. Catatan yang diperhitungkan berasal dari periode yang sama dengan mimpi-mimpi itu, mulai seminggu sebelum mimpi yang paling awal. Teks mimpi maupun isi catatanmu tidak dikirim untuk laporan ini. OwnJournal sama sekali tidak menyimpan data yang dikirim."
+        "privacy": "Agar refleksi bisa dibuat, OwnJournal mengirim data mimpimu ke layanan Gemini milik Google: teks dan tanggalnya, perasaan yang kamu pilih, jenis mimpi yang kamu tandai (berulang, mimpi buruk, atau lucid dream), serta pikiranmu sendiri tentang mimpi itu kalau sudah kamu tuliskan, lengkap dengan pertanyaan dari refleksi sebelumnya yang kamu tanggapi lewat pikiran itu. Dari setiap catatanmu seminggu terakhir yang sudah dianalisis, ikut dikirim tanggal, ringkasan, tema utama, dan emosi dominannya, bukan isi catatannya. Untuk laporan pola mimpi, teks mimpimu tidak dikirim. OwnJournal mengirim label singkat yang disimpan bersama setiap refleksi. Supaya mimpi-mimpimu bisa dibandingkan dengan jurnalmu, dikirim juga tema utama dan emosi dominan dari catatan jurnalmu, beserta seberapa sering masing-masing muncul. Catatan yang diperhitungkan berasal dari periode yang sama dengan mimpi-mimpi itu, mulai seminggu sebelum mimpi yang paling awal. Catatan dari periode itu yang belum punya analisis AI akan dianalisis lebih dulu, sama seperti di Analisis Tren, dan untuk analisis ini teks catatannya ikut dikirim. OwnJournal sama sekali tidak menyimpan data yang dikirim."
       },
       "aiAnalysis": {
         "title": "Analisis AI",
@@ -2610,7 +2610,7 @@
       },
       "consent": {
         "title": "Refleksikan mimpimu dengan Google?",
-        "body": "Agar refleksi bisa dibuat, OwnJournal mengirim data mimpimu ke layanan Gemini milik Google: teks dan tanggalnya, perasaan yang kamu pilih, jenis mimpi yang kamu tandai (berulang, mimpi buruk, atau lucid dream), serta pikiranmu sendiri tentang mimpi itu kalau sudah kamu tuliskan, lengkap dengan pertanyaan dari refleksi sebelumnya yang kamu tanggapi lewat pikiran itu. Dari setiap catatanmu seminggu terakhir yang sudah dianalisis, ikut dikirim tanggal, ringkasan, tema utama, dan emosi dominannya, bukan isi catatannya. Untuk laporan pola mimpi, OwnJournal mengirim label singkat dari refleksimu. Supaya mimpi-mimpimu bisa dibandingkan dengan jurnalmu, dikirim juga tema utama dan emosi dominan dari catatanmu yang sudah dianalisis, beserta seberapa sering masing-masing muncul. Catatan yang diperhitungkan berasal dari periode yang sama dengan mimpi-mimpi itu, mulai seminggu sebelum mimpi yang paling awal. Teks mimpi maupun isi catatanmu tidak dikirim untuk laporan ini. OwnJournal sama sekali tidak menyimpan data yang dikirim. Google tidak menggunakannya untuk melatih modelnya dan mungkin menyimpannya hanya sebentar untuk mencegah penyalahgunaan. Refleksinya disimpan bersama mimpimu, seperti bagian lain catatanmu.",
+        "body": "Agar refleksi bisa dibuat, OwnJournal mengirim data mimpimu ke layanan Gemini milik Google: teks dan tanggalnya, perasaan yang kamu pilih, jenis mimpi yang kamu tandai (berulang, mimpi buruk, atau lucid dream), serta pikiranmu sendiri tentang mimpi itu kalau sudah kamu tuliskan, lengkap dengan pertanyaan dari refleksi sebelumnya yang kamu tanggapi lewat pikiran itu. Dari setiap catatanmu seminggu terakhir yang sudah dianalisis, ikut dikirim tanggal, ringkasan, tema utama, dan emosi dominannya, bukan isi catatannya. Untuk laporan pola mimpi, teks mimpimu tidak dikirim. OwnJournal mengirim label singkat yang disimpan bersama setiap refleksi. Supaya mimpi-mimpimu bisa dibandingkan dengan jurnalmu, dikirim juga tema utama dan emosi dominan dari catatan jurnalmu, beserta seberapa sering masing-masing muncul. Catatan yang diperhitungkan berasal dari periode yang sama dengan mimpi-mimpi itu, mulai seminggu sebelum mimpi yang paling awal. Catatan dari periode itu yang belum punya analisis AI akan dianalisis lebih dulu, sama seperti di Analisis Tren, dan untuk analisis ini teks catatannya ikut dikirim. OwnJournal sama sekali tidak menyimpan data yang dikirim. Google tidak menggunakannya untuk melatih modelnya dan mungkin menyimpannya hanya sebentar untuk mencegah penyalahgunaan. Refleksinya disimpan bersama mimpimu, seperti bagian lain catatanmu.",
         "accept": "Lanjutkan",
         "decline": "Nanti saja"
       },
@@ -2633,6 +2633,9 @@
       "dreamsInPeriod_other": "{{count}} mimpi dalam periode ini",
       "needMore": "Laporan memerlukan minimal {{min}} mimpi",
       "tooShort_other": "{{count}} mimpi dalam periode ini terlalu pendek untuk direfleksikan, jadi tidak ikut dihitung. Refleksi memerlukan minimal {{min}} karakter.",
+      "journalCompare_other": "Mimpi-mimpimu juga dibandingkan dengan {{count}} catatan jurnal dari periode yang sama.",
+      "journalAnalyzeFirst_other": "{{count}} di antaranya belum punya analisis AI dan akan dianalisis lebih dulu, seperti di Analisis Tren.",
+      "journalTooFew": "Mimpi-mimpimu tidak akan dibandingkan dengan jurnalmu karena perbandingan memerlukan minimal {{min}} catatan jurnal dari periode yang sama.",
       "reflectFirst_other": "{{count}} di antaranya belum direfleksikan. Saat kamu membuat laporan, mimpi tersebut direfleksikan lebih dulu, sehingga terpakai {{count}} dari jatah refleksimu bulan ini (masih tersisa {{remaining}}).",
       "notEnoughReflections_other": "{{dreams}} di antaranya belum direfleksikan, sedangkan refleksimu bulan ini tinggal {{count}}. Pilih periode yang lebih pendek.",
       "noReflectionsLeft_other": "{{count}} di antaranya belum direfleksikan, dan refleksimu bulan ini sudah habis. Pilih periode yang lebih pendek.",
@@ -2641,6 +2644,7 @@
       "createNew": "Buat laporan baru",
       "creating": "Mencari pola…",
       "reflecting": "Merefleksikan mimpi {{current}} dari {{total}}…",
+      "analyzingEntries": "Menganalisis catatan {{current}} dari {{total}}…",
       "remaining": "Sisa {{remaining}} dari {{limit}} laporan bulan ini",
       "plusOnly": "Pola mimpi tersedia di Plus",
       "earlyThemes": "Tema awal",
@@ -2657,12 +2661,12 @@
       },
       "changes": "Perubahan dalam mimpimu",
       "waking": {
-        "title": "Mimpi dan hari-harimu",
-        "basedOn_other": "Dibandingkan dengan {{count}} catatan jurnal yang sudah dianalisis dari periode yang sama",
+        "title": "Perbandingan dengan jurnalmu",
+        "basedOn_other": "Berdasarkan {{count}} catatan jurnal dari periode yang sama",
         "shared": "Muncul dalam mimpi dan di jurnalmu",
         "dreamsOnly": "Muncul dalam mimpi, tidak di jurnalmu",
         "wakingOnly": "Muncul di jurnalmu, tidak dalam mimpi",
-        "none": "Laporan ini tidak memuat perbandingan dengan jurnalmu. Perbandingan memerlukan minimal {{min}} catatan yang sudah dianalisis dari periode yang sama dengan mimpi-mimpimu."
+        "none": "Laporan ini tidak memuat perbandingan dengan jurnalmu. Perbandingan memerlukan minimal {{min}} catatan jurnal dari periode yang sama dengan mimpi-mimpimu."
       },
       "questions": "Pertanyaan untuk direnungkan",
       "footer": "Pola ini bahan renungan, bukan diagnosis. Ambil yang terasa pas, sisanya biarkan saja.",

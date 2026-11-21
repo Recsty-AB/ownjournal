@@ -236,6 +236,27 @@ function topCounts(counts: Map<string, number>, max: number): { label: string; c
 }
 
 /**
+ * The ordinary journal entries (not dreams, not notes) a report compares its
+ * dreams with: from a week before the oldest of the dreams to the end of the
+ * day of the newest. Their AI analyses are what the comparison uses; the card
+ * analyses the ones that have none before the report.
+ */
+export function journalEntriesForComparison(dreams: JournalEntryData[], entries: JournalEntryData[]): JournalEntryData[] {
+  if (dreams.length === 0) return [];
+  const times = dreams.map((d) => new Date(d.date).getTime());
+  const from = new Date(Math.min(...times));
+  from.setHours(0, 0, 0, 0);
+  const to = new Date(Math.max(...times));
+  to.setHours(23, 59, 59, 999);
+  const earliest = from.getTime() - 7 * DAY_MS;
+  return entries.filter((e) => {
+    if (e.type) return false;
+    const time = new Date(e.date).getTime();
+    return time >= earliest && time <= to.getTime();
+  });
+}
+
+/**
  * The journal side of a report's dreams-and-waking-life comparison: the topics
  * and dominant emotions of the already analysed, ordinary entries written from
  * a week before the oldest of the dreams to the day of the newest, each with
@@ -246,19 +267,7 @@ export async function buildWakingSummary(
   dreams: JournalEntryData[],
   entries: JournalEntryData[],
 ): Promise<WakingSummary | null> {
-  if (dreams.length === 0) return null;
-  const times = dreams.map((d) => new Date(d.date).getTime());
-  const from = new Date(Math.min(...times));
-  from.setHours(0, 0, 0, 0);
-  const to = new Date(Math.max(...times));
-  to.setHours(23, 59, 59, 999);
-  const earliest = from.getTime() - 7 * DAY_MS;
-
-  const candidates = entries.filter((e) => {
-    if (e.type) return false;
-    const time = new Date(e.date).getTime();
-    return time >= earliest && time <= to.getTime();
-  });
+  const candidates = journalEntriesForComparison(dreams, entries);
   if (candidates.length < DREAM_LIMITS.wakingEntriesForPatterns) return null;
 
   // A report is still made when the analysis store cannot be read.

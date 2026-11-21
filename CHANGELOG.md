@@ -5,7 +5,7 @@
 ### New Features
 - Dream journal: tap "Dream" in the editor to mark an entry as a dream, and optionally pick how it felt and whether it was recurring, a nightmare or lucid. Dreams stay out of the mood calendar, mood statistics and Trend Analysis. Free for everyone
 - Dream reflection (Plus, 30 a month): possible themes, images to explore, possible links to the past week's entries and questions to reflect on. Write your own thoughts under a reflection and tap "Reflect again"; the new reflection opens with what your thoughts changed
-- Dream patterns (Plus, two a month): pick a period as in Trend Analysis; with five or more dreams in it, dreams without a reflection get one first, then the report shows what keeps coming back and how your dreams compare with your journal
+- Dream patterns (Plus, two a month): pick a period as in Trend Analysis; with five or more dreams in it, dreams without a reflection get one first, then the report shows what keeps coming back. It also compares your dreams with your journal entries from the same period; entries without an AI analysis get one first, as in Trend Analysis
 - One-time tip about dreams and voice entry for journals already in use, and a dream step in the onboarding tour
 - Voice entry (Plus): tap the microphone under the editor and speak; Gemini turns the recording into clean, punctuated text in the spoken language and inserts it at the cursor. Up to 5 minutes per recording, 200 minutes per month
 - Free users can tap the microphone to see what voice entry unlocks with Plus
@@ -33,7 +33,7 @@
 - Android versionCode: `10100`; iOS build: `33`
 - `ai-analyze` gains `analyzeDream` and `analyzeDreamPatterns` (`gemini-3.8-flash`); deploy with `supabase functions deploy ai-analyze`
 - Migrations `20261119120000_add_thinking_tokens.sql` (thinking tokens per request) and `20261119120100_add_dream_usage.sql` (dream counts in `get_ai_usage_summary`). Deploy order: migrations, then `ai-analyze`, then the app
-- Trend Analysis and Dream patterns share one period picker (`PeriodPicker.tsx`, `utils/period.ts`)
+- Trend Analysis and Dream patterns share one period picker (`PeriodPicker.tsx`, `utils/period.ts`) and the analysis of entries that have none (`entryAnalysisService.ts`)
 
 ---
 

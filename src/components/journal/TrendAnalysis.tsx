@@ -15,7 +15,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { invokeWithRetry } from "@/utils/edgeFunctionRetry";
 import { useToast } from "@/hooks/use-toast";
 import type { JournalEntryData } from "./JournalEntry";
-import { aiMetadataService } from "@/services/aiMetadataService";
+import { analyzeMissingEntries, isFailedEntryAnalysis, loadEntryAnalyses, needsEntryAnalysis } from "@/services/entryAnalysisService";
 import type { EntryAIMetadata, AggregatedMetadata } from "@/types/aiMetadata";
 import { aiUsageLimits } from "@/services/aiUsageLimits";
 import { useTranslation } from "react-i18next";
@@ -451,62 +451,16 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
     
     try {
       // Step 1: Check which entries have metadata
-      const entriesWithMetadata: Array<{ entry: JournalEntryData; metadata: EntryAIMetadata | null }> = [];
-      
-      for (const entry of filteredEntries) {
-        const metadata = await aiMetadataService.getMetadata(entry.id);
-        entriesWithMetadata.push({ entry, metadata });
-      }
+      const entriesWithMetadata = await loadEntryAnalyses(filteredEntries);
 
       // Step 2: Analyze missing OR failed entries
-      // Helper to detect failed analysis metadata
-      const isFailedMetadata = (metadata: EntryAIMetadata | null): boolean => {
-        if (!metadata) return false;
-        
-        const summary = metadata.shortSummary?.toLowerCase().trim() || '';
-        
-        // Check for explicit failure indicators in multiple languages
-        const failureIndicators = [
-          'could not analyze',
-          'analysis failed',
-          'error analyzing',
-          'failed to analyze',
-          'unable to analyze',
-          'cannot analyze',
-          // Japanese failure indicators
-          '分析できませんでした',
-          '分析に失敗',
-          '分析エラー',
-        ];
-        
-        if (failureIndicators.some(indicator => summary.includes(indicator))) {
-          console.log(`[isFailedMetadata] Detected failure indicator in summary: "${metadata.shortSummary}"`);
-          return true;
-        }
-        
-        // Detect default/placeholder metadata indicating failed extraction
-        // This catches old fallback metadata that used neutral defaults
-        const hasDefaultValues = 
-          metadata.sentimentScore === 0 &&
-          metadata.dominantEmotion === 'neutral' &&
-          (summary === '' || summary.length < 10);
-        
-        if (hasDefaultValues) {
-          console.log(`[isFailedMetadata] Detected default values indicating failure: sentiment=0, emotion=neutral, summary="${metadata.shortSummary}"`);
-          return true;
-        }
-        
-        return false;
-      };
-      
-      const missingEntries = entriesWithMetadata.filter(e => !e.metadata || isFailedMetadata(e.metadata));
-      
-      if (missingEntries.length > 0) {
-        setAnalyzingCount(missingEntries.length);
-        setProgress({ step: 2, totalSteps: 5, currentAction: t('trendAnalysis.progress.analyzingEntry', { current: 0, total: missingEntries.length }), currentEntry: 0, totalEntries: missingEntries.length });
+      const missingCount = entriesWithMetadata.filter(needsEntryAnalysis).length;
+      if (missingCount > 0) {
+        setAnalyzingCount(missingCount);
+        setProgress({ step: 2, totalSteps: 5, currentAction: t('trendAnalysis.progress.analyzingEntry', { current: 0, total: missingCount }), currentEntry: 0, totalEntries: missingCount });
         toast({
           title: t('trendAnalysis.analyzingEntries'),
-          description: t('trendAnalysis.analyzingEntriesDesc', { count: missingEntries.length }),
+          description: t('trendAnalysis.analyzingEntriesDesc', { count: missingCount }),
         });
 
         const { data: { session } } = await supabase.auth.getSession();
@@ -520,175 +474,30 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
           return;
         }
 
-        // Analyze missing entries in parallel batches of 4 for speed
-        const PARALLEL_BATCH_SIZE = 4;
-        let processedCount = 0;
-
-        for (let i = 0; i < missingEntries.length; i += PARALLEL_BATCH_SIZE) {
-          const batch = missingEntries.slice(i, i + PARALLEL_BATCH_SIZE);
-          const batchEndIndex = Math.min(i + PARALLEL_BATCH_SIZE, missingEntries.length);
-          
-          setProgress({ 
-            step: 2, 
-            totalSteps: 5, 
-            currentAction: t('trendAnalysis.progress.analyzingEntry', { 
-              current: `${i + 1}-${batchEndIndex}`, 
-              total: missingEntries.length 
-            }), 
-            currentEntry: batchEndIndex, 
-            totalEntries: missingEntries.length 
-          });
-          
-          // Process batch in parallel
-          const batchResults = await Promise.allSettled(
-            batch.map(async ({ entry, metadata }) => {
-              // If this entry had failed metadata, clear it before retry
-              if (metadata && isFailedMetadata(metadata)) {
-                await aiMetadataService.deleteMetadata(entry.id);
-              }
-              
-              const { data, error } = await supabase.functions.invoke('ai-analyze', {
-                body: {
-                  type: 'analyzeEntry',
-                  language: i18n.language.split('-')[0],
-                  entryId: entry.id,
-                  content: entry.body,
-                  createdAt: entry.createdAt.toISOString(),
-                  tags: entry.tags,
-                  mood: entry.mood,
-                  forceReanalyze: metadata ? isFailedMetadata(metadata) : false,
-                  batchContext: {
-                    isTrendBatch: true,
-                    entryCount: missingEntries.length
-                  }
-                },
-                headers: {
-                  Authorization: `Bearer ${session.access_token}`
-                }
-              });
-              
-              if (error) throw error;
-              return { entryId: entry.id, data };
-            })
-          );
-          
-          // Process results from this batch and collect failed entries for retry
-          const failedInBatch: typeof batch = [];
-          
-          for (let j = 0; j < batchResults.length; j++) {
-            const result = batchResults[j];
-            if (result.status === 'fulfilled' && result.value.data) {
-              // Find the original entry to include analyzedContentLength
-              const originalEntry = batch.find(b => b.entry.id === result.value.entryId);
-              const metadataWithLength = {
-                ...result.value.data,
-                analyzedContentLength: originalEntry?.entry.body?.trim().length || 0
-              };
-              
-              await aiMetadataService.setMetadata(result.value.entryId, metadataWithLength);
-              const index = entriesWithMetadata.findIndex(e => e.entry.id === result.value.entryId);
-              if (index !== -1) {
-                entriesWithMetadata[index].metadata = metadataWithLength;
-              }
-              processedCount++;
-            } else if (result.status === 'rejected') {
-              console.error('Failed to analyze entry in batch, will retry:', result.reason);
-              // Clear any existing failed metadata so this entry will be picked up next run
-              if (batch[j]) {
-                await aiMetadataService.deleteMetadata(batch[j].entry.id);
-                failedInBatch.push(batch[j]);
-              }
-            }
-          }
-          
-          // Retry failed entries from this batch (one attempt each with delay)
-          if (failedInBatch.length > 0) {
-            console.log(`[RETRY] Retrying ${failedInBatch.length} failed entries from batch`);
-            
-            for (const { entry } of failedInBatch) {
-              try {
-                // Small delay before retry to avoid rate limiting
-                await new Promise(r => setTimeout(r, 800));
-                
-                setProgress({ 
-                  step: 2, 
-                  totalSteps: 5, 
-                  currentAction: t('trendAnalysis.progress.retrying', { defaultValue: 'Retrying...' }), 
-                  currentEntry: processedCount, 
-                  totalEntries: missingEntries.length 
-                });
-                
-                const { data, error } = await supabase.functions.invoke('ai-analyze', {
-                  body: {
-                    type: 'analyzeEntry',
-                    language: i18n.language.split('-')[0],
-                    entryId: entry.id,
-                    content: entry.body,
-                    createdAt: entry.createdAt.toISOString(),
-                    tags: entry.tags,
-                    mood: entry.mood,
-                    forceReanalyze: true, // Force since it failed before
-                    batchContext: { isTrendBatch: true, entryCount: missingEntries.length, isRetry: true }
-                  },
-                  headers: {
-                    Authorization: `Bearer ${session.access_token}`
-                  }
-                });
-                
-                if (!error && data) {
-                  const metadataWithLength = {
-                    ...data,
-                    analyzedContentLength: entry.body?.trim().length || 0
-                  };
-                  await aiMetadataService.setMetadata(entry.id, metadataWithLength);
-                  const index = entriesWithMetadata.findIndex(e => e.entry.id === entry.id);
-                  if (index !== -1) {
-                    entriesWithMetadata[index].metadata = metadataWithLength;
-                  }
-                  processedCount++;
-                  console.log(`[RETRY] Successfully analyzed entry ${entry.id} on retry`);
-                } else {
-                  console.error(`[RETRY] Entry ${entry.id} failed with error:`, error);
-                }
-              } catch (retryError) {
-                console.error(`[RETRY] Entry ${entry.id} failed again:`, retryError);
-                // Clear metadata so entry will be picked up on next trend analysis run
-                await aiMetadataService.deleteMetadata(entry.id);
-              }
-            }
-          }
-        }
-        
-        // Sync analyzed entries to cloud for cross-device persistence
-        // Update updatedAt timestamp to ensure other devices detect the metadata change
-        if (processedCount > 0) {
-          console.log(`[SYNC] Syncing ${processedCount} entries with new metadata to cloud`);
-          
-          for (const { entry, metadata } of entriesWithMetadata) {
-            if (metadata && !isFailedMetadata(metadata)) {
-              try {
-                const fullEntry = await storageServiceV2.getEntry(entry.id);
-                if (fullEntry) {
-                  // Force timestamp update so other devices detect the metadata change
-                  fullEntry.updatedAt = new Date();
-                  await storageServiceV2.saveEntry(fullEntry);
-                }
-              } catch (syncError) {
-                console.warn(`[SYNC] Failed to sync entry ${entry.id}:`, syncError);
-              }
-            }
-          }
-        }
+        await analyzeMissingEntries(entriesWithMetadata, {
+          language: i18n.language,
+          accessToken: session.access_token,
+          onProgress: ({ done, total, retrying }) =>
+            setProgress({
+              step: 2,
+              totalSteps: 5,
+              currentAction: retrying
+                ? t('trendAnalysis.progress.retrying', { defaultValue: 'Retrying...' })
+                : t('trendAnalysis.progress.analyzingEntry', { current: done, total }),
+              currentEntry: done,
+              totalEntries: total,
+            }),
+        });
       }
 
       // Step 3: Collect all VALID metadata (exclude failed analyses)
       const allMetadata = entriesWithMetadata
         .map(e => e.metadata)
-        .filter((m): m is EntryAIMetadata => m !== null && !isFailedMetadata(m));
+        .filter((m): m is EntryAIMetadata => m !== null && !isFailedEntryAnalysis(m));
 
       // Track failed entries for logging
       const failedCount = entriesWithMetadata.filter(e => 
-        e.metadata && isFailedMetadata(e.metadata)
+        e.metadata && isFailedEntryAnalysis(e.metadata)
       ).length;
 
       if (failedCount > 0) {
@@ -744,7 +553,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
         // Long period (>90 days): Use time-bucketed aggregation
         // Prepare entries with metadata and dates for bucketing
         const entriesWithDates: EntryWithDateAndMetadata[] = entriesWithMetadata
-          .filter(e => e.metadata && !isFailedMetadata(e.metadata))
+          .filter(e => e.metadata && !isFailedEntryAnalysis(e.metadata))
           .map(e => ({
             entry: e.entry,
             metadata: e.metadata as EntryAIMetadata

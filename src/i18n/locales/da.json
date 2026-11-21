@@ -2046,7 +2046,7 @@
         "questions": "Spørgsmålene i slutningen følger Clara Hills model for drømmearbejde: Først udforsker du drømmen, så ser du efter, hvad den kan betyde for dig, og til sidst overvejer du, om der er et lille skridt, du har lyst til at tage.",
         "noDictionary": "Der findes ingen fast ordbog over drømmesymboler. En refleksion kommer med bud, og du afgør selv, hvad der passer.",
         "notAdvice": "Drømmerefleksion er til selvrefleksion. Den er ikke medicinsk eller psykologisk rådgivning og kan ikke stille nogen diagnose.",
-        "privacy": "For at lave en refleksion sendes følgende til Googles Gemini-tjeneste: din drømmetekst og drømmens dato, de følelser, du har valgt, og om du har markeret drømmen som tilbagevendende, som mareridt eller som klar drøm. Har du skrevet dine egne tanker om drømmen, sendes de sammen med de spørgsmål fra den tidligere refleksion, som tankerne svarer på. For hvert af dine allerede analyserede indlæg fra den seneste uge sendes desuden indlæggets dato, korte resumé, nøgletemaer og dominerende følelse. Til en rapport om drømmemønstre sendes de korte stikord, der er gemt med hver refleksion. For at drømmene kan sammenlignes med din dagbog, sendes også nøgletemaer og dominerende følelser fra dine allerede analyserede indlæg fra samme periode som drømmene. Perioden regnes fra en uge før den tidligste af drømmene. Der sendes også tal for, hvor mange indlæg hvert tema og hver følelse optræder i. Til rapporten sendes hverken teksten i dine drømme eller i dine indlæg. OwnJournal gemmer intet af det, der sendes."
+        "privacy": "For at lave en refleksion sendes følgende til Googles Gemini-tjeneste: din drømmetekst og drømmens dato, de følelser, du har valgt, og om du har markeret drømmen som tilbagevendende, som mareridt eller som klar drøm. Har du skrevet dine egne tanker om drømmen, sendes de sammen med de spørgsmål fra den tidligere refleksion, som tankerne svarer på. For hvert af dine allerede analyserede indlæg fra den seneste uge sendes desuden indlæggets dato, korte resumé, nøgletemaer og dominerende følelse. Til en rapport om drømmemønstre sendes de korte stikord, der er gemt med hver refleksion, men ikke teksten i dine drømme. For at drømmene kan sammenlignes med din dagbog, sendes også nøgletemaer og dominerende følelser fra dine dagbogsindlæg fra samme periode som drømmene. Perioden regnes fra en uge før den tidligste af drømmene. Der sendes også tal for, hvor mange indlæg hvert tema og hver følelse optræder i. Dagbogsindlæg fra perioden, som endnu ikke har fået en AI-analyse, bliver først analyseret, ligesom i tendensanalysen, og til det sendes deres tekst. OwnJournal gemmer intet af det, der sendes."
       },
       "aiAnalysis": {
         "title": "AI-analyse",
@@ -2652,7 +2652,7 @@
       },
       "consent": {
         "title": "Vil du reflektere over drømmen med hjælp fra Google?",
-        "body": "For at lave refleksionen sendes følgende til Googles Gemini-tjeneste: din drømmetekst og drømmens dato, de følelser, du har valgt, og om du har markeret drømmen som tilbagevendende, som mareridt eller som klar drøm. Har du skrevet dine egne tanker om drømmen, sendes de sammen med de spørgsmål fra den tidligere refleksion, som tankerne svarer på. For hvert af dine allerede analyserede indlæg fra den seneste uge sendes desuden indlæggets dato, korte resumé, nøgletemaer og dominerende følelse. Til en rapport om drømmemønstre sendes de korte stikord, der er gemt med hver refleksion. For at drømmene kan sammenlignes med din dagbog, sendes også nøgletemaer og dominerende følelser fra dine allerede analyserede indlæg fra samme periode som drømmene. Perioden regnes fra en uge før den tidligste af drømmene. Der sendes også tal for, hvor mange indlæg hvert tema og hver følelse optræder i. Til rapporten sendes hverken teksten i dine drømme eller i dine indlæg. OwnJournal gemmer intet af det, der sendes. Google bruger det ikke til at træne sine modeller og opbevarer det højst kortvarigt for at forhindre misbrug. Refleksionen gemmes sammen med drømmen ligesom resten af indlægget.",
+        "body": "For at lave refleksionen sendes følgende til Googles Gemini-tjeneste: din drømmetekst og drømmens dato, de følelser, du har valgt, og om du har markeret drømmen som tilbagevendende, som mareridt eller som klar drøm. Har du skrevet dine egne tanker om drømmen, sendes de sammen med de spørgsmål fra den tidligere refleksion, som tankerne svarer på. For hvert af dine allerede analyserede indlæg fra den seneste uge sendes desuden indlæggets dato, korte resumé, nøgletemaer og dominerende følelse. Til en rapport om drømmemønstre sendes de korte stikord, der er gemt med hver refleksion, men ikke teksten i dine drømme. For at drømmene kan sammenlignes med din dagbog, sendes også nøgletemaer og dominerende følelser fra dine dagbogsindlæg fra samme periode som drømmene. Perioden regnes fra en uge før den tidligste af drømmene. Der sendes også tal for, hvor mange indlæg hvert tema og hver følelse optræder i. Dagbogsindlæg fra perioden, som endnu ikke har fået en AI-analyse, bliver først analyseret, ligesom i tendensanalysen, og til det sendes deres tekst. OwnJournal gemmer intet af det, der sendes. Google bruger det ikke til at træne sine modeller og opbevarer det højst kortvarigt for at forhindre misbrug. Refleksionen gemmes sammen med drømmen ligesom resten af indlægget.",
         "accept": "Fortsæt",
         "decline": "Ikke nu"
       },
@@ -2677,6 +2677,11 @@
       "needMore": "Der skal mindst {{min}} drømme til en rapport.",
       "tooShort_one": "I perioden er en drøm for kort til en refleksion, så den tælles ikke med. Der skal mindst {{min}} tegn til en refleksion.",
       "tooShort_other": "I perioden er {{count}} drømme for korte til en refleksion, så de tælles ikke med. Der skal mindst {{min}} tegn til en refleksion.",
+      "journalCompare_one": "Dine drømme sammenlignes også med {{count}} dagbogsindlæg fra samme periode.",
+      "journalCompare_other": "Dine drømme sammenlignes også med {{count}} dagbogsindlæg fra samme periode.",
+      "journalAnalyzeFirst_one": "Heraf har ét endnu ikke fået en AI-analyse, og det bliver analyseret først, ligesom i tendensanalysen.",
+      "journalAnalyzeFirst_other": "Heraf har {{count}} endnu ikke fået en AI-analyse, og de bliver analyseret først, ligesom i tendensanalysen.",
+      "journalTooFew": "Dine drømme bliver ikke sammenlignet med din dagbog, for det kræver mindst {{min}} dagbogsindlæg fra samme periode.",
       "reflectFirst_one": "I perioden har en af drømmene endnu ikke fået en refleksion. Når du laver rapporten, får drømmen en refleksion først, og det bruger én af dine refleksioner denne måned ({{remaining}} tilbage).",
       "reflectFirst_other": "I perioden har {{count}} af drømmene endnu ikke fået en refleksion. Når du laver rapporten, får de hver en refleksion først, og det bruger {{count}} af dine refleksioner denne måned ({{remaining}} tilbage).",
       "notEnoughReflections_one": "I perioden har {{dreams}} af drømmene endnu ikke fået en refleksion, men du har kun én refleksion tilbage denne måned. Vælg en kortere periode.",
@@ -2688,6 +2693,7 @@
       "createNew": "Lav en ny rapport",
       "creating": "Leder efter mønstre…",
       "reflecting": "Reflekterer over drøm {{current}} af {{total}}…",
+      "analyzingEntries": "Analyserer dagbogsindlæg {{current}} af {{total}}…",
       "remaining": "{{remaining}} af {{limit}} rapporter tilbage denne måned",
       "plusOnly": "Drømmemønstre er inkluderet i Plus",
       "earlyThemes": "Foreløbige temaer",
@@ -2707,13 +2713,13 @@
       },
       "changes": "Sådan har dine drømme ændret sig",
       "waking": {
-        "title": "Dine drømme og din hverdag",
-        "basedOn_one": "Sammenlignet med {{count}} analyseret dagbogsindlæg fra samme periode",
-        "basedOn_other": "Sammenlignet med {{count}} analyserede dagbogsindlæg fra samme periode",
+        "title": "Sammenlignet med din dagbog",
+        "basedOn_one": "Ud fra {{count}} dagbogsindlæg fra samme periode",
+        "basedOn_other": "Ud fra {{count}} dagbogsindlæg fra samme periode",
         "shared": "Både i drømmene og i dagbogen",
         "dreamsOnly": "I drømmene, men ikke i dagbogen",
         "wakingOnly": "I dagbogen, men ikke i drømmene",
-        "none": "Der er ingen sammenligning med din dagbog i denne rapport. Det kræver mindst {{min}} analyserede indlæg fra samme periode som drømmene."
+        "none": "Der er ingen sammenligning med din dagbog i denne rapport. Det kræver mindst {{min}} dagbogsindlæg fra samme periode som drømmene."
       },
       "questions": "Spørgsmål at tænke over",
       "footer": "Mønstre at tænke over, ikke en diagnose. Tag det, der giver mening for dig, og lad resten ligge.",

@@ -2082,7 +2082,7 @@
         "questions": "As perguntas do final seguem o modelo de Clara Hill para o trabalho com sonhos: primeiro explorar o sonho, depois buscar o que ele pode significar para você e, por fim, pensar em um pequeno passo que você poderia dar.",
         "noDictionary": "Não existe um dicionário fixo de símbolos dos sonhos. A reflexão oferece possibilidades, e quem decide o que faz sentido é você.",
         "notAdvice": "A reflexão de sonhos é um recurso de autorreflexão. Não é orientação médica nem psicológica e não pode diagnosticar nada.",
-        "privacy": "Para preparar uma reflexão, são enviados ao serviço Gemini do Google o texto e a data do sonho, os sentimentos que você escolheu, as opções que marcou (recorrente, pesadelo ou lúcido) e os pensamentos que você tiver escrito sobre o sonho, acompanhados das perguntas da reflexão anterior às quais eles respondem. De cada entrada dos últimos sete dias que já foi analisada, o serviço recebe também a data, o resumo curto, os temas principais e a emoção dominante, mas não o texto da entrada. Para um relatório \"Padrões dos sonhos\", são enviados os rótulos curtos salvos com cada reflexão. Como o relatório compara os sonhos com o seu diário, são enviados também os temas principais e as emoções dominantes das suas entradas já analisadas do mesmo período que esses sonhos, contado a partir de uma semana antes do primeiro deles, junto com o número de entradas em que cada tema ou emoção aparece. No caso do relatório, o texto dos sonhos e das entradas não é enviado. O OwnJournal não armazena nenhum dos dados enviados."
+        "privacy": "Para preparar uma reflexão, são enviados ao serviço Gemini do Google o texto e a data do sonho, os sentimentos que você escolheu, as opções que marcou (recorrente, pesadelo ou lúcido) e os pensamentos que você tiver escrito sobre o sonho, acompanhados das perguntas da reflexão anterior às quais eles respondem. De cada entrada dos últimos sete dias que já foi analisada, o serviço recebe também a data, o resumo curto, os temas principais e a emoção dominante, mas não o texto da entrada. Para um relatório \"Padrões dos sonhos\", são enviados os rótulos curtos salvos com cada reflexão. Como o relatório compara os sonhos com o seu diário, são enviados também os temas principais e as emoções dominantes das suas entradas de diário do mesmo período que esses sonhos, contado a partir de uma semana antes do primeiro deles, junto com o número de entradas em que cada tema ou emoção aparece. No caso do relatório, o texto dos sonhos não é enviado. As entradas desse período que ainda não têm análise com IA são analisadas primeiro, como na análise de tendências; para isso, o texto delas é enviado. O OwnJournal não armazena nenhum dos dados enviados."
       },
       "aiAnalysis": {
         "title": "Análise de IA",
@@ -2694,7 +2694,7 @@
       },
       "consent": {
         "title": "Refletir sobre seu sonho com o Google?",
-        "body": "Para preparar a reflexão, o serviço Gemini do Google recebe o texto e a data do sonho, os sentimentos que você escolheu, as opções que marcou (recorrente, pesadelo ou lúcido) e os pensamentos que você tiver escrito sobre o sonho, acompanhados das perguntas da reflexão anterior às quais eles respondem. De cada entrada dos últimos sete dias que já foi analisada, recebe também a data, o resumo curto, os temas principais e a emoção dominante, mas não o texto da entrada. Para um relatório \"Padrões dos sonhos\", são enviados os rótulos curtos salvos com cada reflexão. Como o relatório compara os sonhos com o seu diário, são enviados também os temas principais e as emoções dominantes das suas entradas já analisadas do mesmo período que esses sonhos, contado a partir de uma semana antes do primeiro deles, junto com o número de entradas em que cada tema ou emoção aparece. No caso do relatório, o texto dos sonhos e das entradas não é enviado. O OwnJournal não armazena nenhum dos dados enviados. O Google não usa esses dados para treinar os próprios modelos e pode guardá-los apenas por pouco tempo para prevenir abusos. A reflexão é salva junto com o sonho, como o resto da entrada.",
+        "body": "Para preparar a reflexão, o serviço Gemini do Google recebe o texto e a data do sonho, os sentimentos que você escolheu, as opções que marcou (recorrente, pesadelo ou lúcido) e os pensamentos que você tiver escrito sobre o sonho, acompanhados das perguntas da reflexão anterior às quais eles respondem. De cada entrada dos últimos sete dias que já foi analisada, recebe também a data, o resumo curto, os temas principais e a emoção dominante, mas não o texto da entrada. Para um relatório \"Padrões dos sonhos\", são enviados os rótulos curtos salvos com cada reflexão. Como o relatório compara os sonhos com o seu diário, são enviados também os temas principais e as emoções dominantes das suas entradas de diário do mesmo período que esses sonhos, contado a partir de uma semana antes do primeiro deles, junto com o número de entradas em que cada tema ou emoção aparece. No caso do relatório, o texto dos sonhos não é enviado. As entradas desse período que ainda não têm análise com IA são analisadas primeiro, como na análise de tendências; para isso, o texto delas é enviado. O OwnJournal não armazena nenhum dos dados enviados. O Google não usa esses dados para treinar os próprios modelos e pode guardá-los apenas por pouco tempo para prevenir abusos. A reflexão é salva junto com o sonho, como o resto da entrada.",
         "accept": "Continuar",
         "decline": "Agora não"
       },
@@ -2721,6 +2721,13 @@
       "tooShort_one": "Um sonho deste período não é contado porque é curto demais para uma reflexão, que exige um texto de pelo menos {{min}} caracteres.",
       "tooShort_many": "{{count}} sonhos deste período não são contados porque são curtos demais para uma reflexão, que exige um texto de pelo menos {{min}} caracteres.",
       "tooShort_other": "{{count}} sonhos deste período não são contados porque são curtos demais para uma reflexão, que exige um texto de pelo menos {{min}} caracteres.",
+      "journalCompare_one": "Seus sonhos também são comparados com {{count}} entrada de diário do mesmo período.",
+      "journalCompare_many": "Seus sonhos também são comparados com {{count}} entradas de diário do mesmo período.",
+      "journalCompare_other": "Seus sonhos também são comparados com {{count}} entradas de diário do mesmo período.",
+      "journalAnalyzeFirst_one": "Uma delas ainda não tem análise com IA e recebe uma antes, como na análise de tendências.",
+      "journalAnalyzeFirst_many": "{{count}} delas ainda não têm análise com IA e recebem uma antes, como na análise de tendências.",
+      "journalAnalyzeFirst_other": "{{count}} delas ainda não têm análise com IA e recebem uma antes, como na análise de tendências.",
+      "journalTooFew": "Seus sonhos não serão comparados com o seu diário: para isso, são necessárias pelo menos {{min}} entradas de diário do mesmo período.",
       "reflectFirst_one": "Um desses sonhos ainda não tem reflexão. Ao criar o relatório, a reflexão que falta é feita primeiro e usa uma das suas reflexões do mês (você ainda tem {{remaining}}).",
       "reflectFirst_many": "{{count}} desses sonhos ainda não têm reflexão. Ao criar o relatório, as reflexões que faltam são feitas primeiro e usam {{count}} das suas reflexões do mês (você ainda tem {{remaining}}).",
       "reflectFirst_other": "{{count}} desses sonhos ainda não têm reflexão. Ao criar o relatório, as reflexões que faltam são feitas primeiro e usam {{count}} das suas reflexões do mês (você ainda tem {{remaining}}).",
@@ -2735,6 +2742,7 @@
       "createNew": "Criar novo relatório",
       "creating": "Procurando padrões…",
       "reflecting": "Refletindo sobre o sonho {{current}} de {{total}}…",
+      "analyzingEntries": "Analisando a entrada de diário {{current}} de {{total}}…",
       "remaining": "Relatórios restantes neste mês: {{remaining}} de {{limit}}",
       "plusOnly": "O recurso \"Padrões dos sonhos\" está disponível no Plus",
       "earlyThemes": "Primeiros temas",
@@ -2757,14 +2765,14 @@
       },
       "changes": "Como seus sonhos mudaram",
       "waking": {
-        "title": "Sonhos e dia a dia",
-        "basedOn_one": "Comparação com {{count}} entrada de diário já analisada do mesmo período",
-        "basedOn_many": "Comparação com {{count}} entradas de diário já analisadas do mesmo período",
-        "basedOn_other": "Comparação com {{count}} entradas de diário já analisadas do mesmo período",
+        "title": "Comparação com o seu diário",
+        "basedOn_one": "Com base em {{count}} entrada de diário do mesmo período",
+        "basedOn_many": "Com base em {{count}} entradas de diário do mesmo período",
+        "basedOn_other": "Com base em {{count}} entradas de diário do mesmo período",
         "shared": "Nos sonhos e no diário",
         "dreamsOnly": "Nos sonhos, mas não no diário",
         "wakingOnly": "No diário, mas não nos sonhos",
-        "none": "Este relatório não inclui a comparação com o seu diário. Ela precisa de pelo menos {{min}} entradas já analisadas do mesmo período que os sonhos."
+        "none": "Este relatório não inclui a comparação com o seu diário. Ela precisa de pelo menos {{min}} entradas de diário do mesmo período que os sonhos."
       },
       "questions": "Perguntas para refletir",
       "footer": "São padrões para reflexão, não um diagnóstico. Aproveite o que fizer sentido e deixe o resto de lado.",

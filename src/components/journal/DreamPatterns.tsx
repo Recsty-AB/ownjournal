@@ -16,6 +16,8 @@ import {
 } from "@/hooks/useDreamPatternsRequest";
 import { getCurrentUserId } from "@/utils/userScope";
 import { getDateLocale } from "@/utils/dateLocale";
+import { supabase } from "@/integrations/supabase/client";
+import { analyzeMissingEntries, loadEntryAnalyses, needsEntryAnalysis } from "@/services/entryAnalysisService";
 import { cn } from "@/lib/utils";
 import { aiUsageLimits } from "@/services/aiUsageLimits";
 import {
@@ -28,6 +30,7 @@ import {
   onJournalLockChange,
   loadPatternsReport,
   dreamsForPatterns,
+  journalEntriesForComparison,
   tooShortDreams,
   requestDreamPatterns,
   requestDreamReflection,
@@ -74,7 +77,7 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
   const [savedReport, setSavedReport] = useState<DreamPatternsReport | null>(null);
   const [reportLoaded, setReportLoaded] = useState(false);
   const request = useDreamPatternsRequest();
-  const { loading, reflecting } = request;
+  const { loading, reflecting, analyzing } = request;
   const report = request.report ?? savedReport;
   const [savingNote, setSavingNote] = useState(false);
   const [consentOpen, setConsentOpen] = useState(false);
@@ -93,6 +96,29 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
   const periodDreams = useMemo(() => dreamsForPatterns(entries, period.start, period.end), [entries, period]);
   const withoutReflection = periodDreams.filter((d) => !d.dreamReflection).length;
   const tooShort = useMemo(() => tooShortDreams(entries, period.start, period.end), [entries, period]);
+
+  // The journal entries the dreams are compared with, and how many of them
+  // still need an AI analysis (made before the report, as in Trend Analysis).
+  const journalEntries = useMemo(() => journalEntriesForComparison(periodDreams, entries), [periodDreams, entries]);
+  const canCompare = journalEntries.length >= DREAM_LIMITS.wakingEntriesForPatterns;
+  const [unanalyzed, setUnanalyzed] = useState(0);
+  useEffect(() => {
+    if (!canCompare) {
+      setUnanalyzed(0);
+      return;
+    }
+    let cancelled = false;
+    void loadEntryAnalyses(journalEntries)
+      .then((items) => {
+        if (!cancelled) setUnanalyzed(items.filter(needsEntryAnalysis).length);
+      })
+      .catch(() => {
+        if (!cancelled) setUnanalyzed(0);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [journalEntries, canCompare]);
   const unlocked = periodDreams.length >= DREAM_LIMITS.dreamsForPatterns;
   const remaining = Math.max(0, usage.limit - usage.current);
   const reflectionsLeft = Math.max(0, reflectionUsage.limit - reflectionUsage.current);
@@ -194,6 +220,26 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
         }
       }
       updateDreamPatternsRequest({ reflecting: null });
+
+      // Journal entries of the same period without an AI analysis get one,
+      // so the report can compare the dreams with the journal. An entry that
+      // fails is left out; the comparison needs three analysed entries.
+      const journal = journalEntriesForComparison(dreams, entries);
+      if (journal.length >= DREAM_LIMITS.wakingEntriesForPatterns) {
+        const items = await loadEntryAnalyses(journal);
+        const missing = items.filter(needsEntryAnalysis).length;
+        const { data: { session } } = await supabase.auth.getSession();
+        if (missing > 0 && session) {
+          updateDreamPatternsRequest({ analyzing: { current: 0, total: missing } });
+          await analyzeMissingEntries(items, {
+            language: i18n.language,
+            accessToken: session.access_token,
+            onProgress: ({ done, total }) => updateDreamPatternsRequest({ analyzing: { current: done, total } }),
+          });
+          if (!sameUser()) return;
+          updateDreamPatternsRequest({ analyzing: null });
+        }
+      }
 
       const ready = dreams.map((d) => (made.has(d.id) ? { ...d, dreamReflection: made.get(d.id) } : d));
       const result = await requestDreamPatterns(ready, entries, i18n.language, range);
@@ -320,7 +366,9 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
                   {loading
                     ? reflecting
                       ? t("dream.patterns.reflecting", { current: reflecting.current, total: reflecting.total })
-                      : t("dream.patterns.creating")
+                      : analyzing
+                        ? t("dream.patterns.analyzingEntries", { current: Math.max(1, analyzing.current), total: analyzing.total })
+                        : t("dream.patterns.creating")
                     : report
                       ? t("dream.patterns.createNew")
                       : t("dream.patterns.create")}
@@ -342,11 +390,6 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
                   </>
                 )}
               </p>
-              {tooShort > 0 && (
-                <p className="text-xs tabular-nums text-muted-foreground">
-                  {t("dream.patterns.tooShort", { count: tooShort, min: DREAM_LIMITS.minCharacters })}
-                </p>
-              )}
               {isPro && unlocked && withoutReflection > 0 && (
                 <p className={cn("text-xs tabular-nums", tooFewReflections ? "font-medium text-diagnostic-warning" : "text-muted-foreground")}>
                   {!tooFewReflections
@@ -354,6 +397,26 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
                     : reflectionsLeft === 0
                       ? t("dream.patterns.noReflectionsLeft", { count: withoutReflection })
                       : t("dream.patterns.notEnoughReflections", { count: reflectionsLeft, dreams: withoutReflection })}
+                </p>
+              )}
+              {/* Order matters: the reflection line says "these dreams" and must
+                  sit right under the count of dreams it refers to. */}
+              {tooShort > 0 && (
+                <p className="text-xs tabular-nums text-muted-foreground">
+                  {t("dream.patterns.tooShort", { count: tooShort, min: DREAM_LIMITS.minCharacters })}
+                </p>
+              )}
+              {isPro && unlocked && (
+                <p className="text-xs tabular-nums text-muted-foreground">
+                  {canCompare
+                    ? t("dream.patterns.journalCompare", { count: journalEntries.length })
+                    : t("dream.patterns.journalTooFew", { min: DREAM_LIMITS.wakingEntriesForPatterns })}
+                  {canCompare && unanalyzed > 0 && (
+                    <>
+                      {sentenceSeparator(i18n.language)}
+                      {t("dream.patterns.journalAnalyzeFirst", { count: unanalyzed })}
+                    </>
+                  )}
                 </p>
               )}
               <p className="text-xs tabular-nums text-muted-foreground">

@@ -2082,7 +2082,7 @@
         "questions": "Las preguntas finales siguen el modelo de Clara Hill para trabajar con los sueños: explorar el sueño, buscar qué puede significar para ti y, por último, plantearte dar un pequeño paso.",
         "noDictionary": "No se recurre a ningún diccionario de símbolos con significados fijos. La reflexión te propone posibilidades, y eres tú quien decide qué encaja.",
         "notAdvice": "La reflexión sobre sueños es una herramienta de autorreflexión. No ofrece consejo médico ni psicológico y no puede diagnosticar nada.",
-        "privacy": "Para preparar una reflexión, se envían al servicio Gemini de Google el texto y la fecha de tu sueño; las emociones que has marcado y si has indicado que es recurrente, lúcido o una pesadilla; y tus pensamientos sobre el sueño, si los has escrito, junto con las preguntas de la reflexión anterior, a las que responden. De cada entrada ya analizada de la última semana, se envían también la fecha, el resumen breve, los temas clave y la emoción dominante, pero no el texto de la entrada. Al crear un informe de patrones de tus sueños, se envían las palabras clave guardadas con cada reflexión. Para comparar tus sueños con tu diario, se envían además los temas clave y las emociones dominantes de las entradas ya analizadas del mismo periodo que esos sueños (desde una semana antes del primero), junto con el número de entradas en las que aparece cada tema y cada emoción. Para el informe no se envía el texto de los sueños ni el de las entradas. OwnJournal no guarda nada de lo que se envía."
+        "privacy": "Para preparar una reflexión, se envían al servicio Gemini de Google el texto y la fecha de tu sueño; las emociones que has marcado y si has indicado que es recurrente, lúcido o una pesadilla; y tus pensamientos sobre el sueño, si los has escrito, junto con las preguntas de la reflexión anterior, a las que responden. De cada entrada ya analizada de la última semana, se envían también la fecha, el resumen breve, los temas clave y la emoción dominante, pero no el texto de la entrada. Al crear un informe de patrones de tus sueños, se envían las palabras clave guardadas con cada reflexión, pero no el texto de los sueños. Para comparar tus sueños con tu diario, se envían además los temas clave y las emociones dominantes de las entradas de tu diario del mismo periodo que esos sueños (desde una semana antes del primero), junto con el número de entradas en las que aparece cada tema y cada emoción. Las entradas de ese periodo que aún no se han analizado con IA se analizan primero, como en el análisis de tendencias, y para ello se envía el texto de esas entradas. OwnJournal no guarda nada de lo que se envía."
       },
       "aiAnalysis": {
         "title": "Análisis de IA",
@@ -2694,7 +2694,7 @@
       },
       "consent": {
         "title": "¿Reflexionar sobre tu sueño con Google?",
-        "body": "Para preparar la reflexión, se envían al servicio Gemini de Google el texto y la fecha de tu sueño; las emociones que has marcado y si has indicado que es recurrente, lúcido o una pesadilla; y tus pensamientos sobre el sueño, si los has escrito, junto con las preguntas de la reflexión anterior, a las que responden. De cada entrada ya analizada de la última semana, se envían también la fecha, el resumen breve, los temas clave y la emoción dominante, pero no el texto de la entrada. Al crear un informe de patrones de tus sueños, se envían las palabras clave guardadas con cada reflexión. Para comparar tus sueños con tu diario, se envían además los temas clave y las emociones dominantes de las entradas ya analizadas del mismo periodo que esos sueños (desde una semana antes del primero), junto con el número de entradas en las que aparece cada tema y cada emoción. Para el informe no se envía el texto de los sueños ni el de las entradas. OwnJournal no guarda nada de lo que se envía. Google no lo utiliza para entrenar sus modelos y solo puede conservarlo durante un breve periodo para prevenir abusos. La reflexión se guarda con tu sueño, como el resto de la entrada.",
+        "body": "Para preparar la reflexión, se envían al servicio Gemini de Google el texto y la fecha de tu sueño; las emociones que has marcado y si has indicado que es recurrente, lúcido o una pesadilla; y tus pensamientos sobre el sueño, si los has escrito, junto con las preguntas de la reflexión anterior, a las que responden. De cada entrada ya analizada de la última semana, se envían también la fecha, el resumen breve, los temas clave y la emoción dominante, pero no el texto de la entrada. Al crear un informe de patrones de tus sueños, se envían las palabras clave guardadas con cada reflexión, pero no el texto de los sueños. Para comparar tus sueños con tu diario, se envían además los temas clave y las emociones dominantes de las entradas de tu diario del mismo periodo que esos sueños (desde una semana antes del primero), junto con el número de entradas en las que aparece cada tema y cada emoción. Las entradas de ese periodo que aún no se han analizado con IA se analizan primero, como en el análisis de tendencias, y para ello se envía el texto de esas entradas. OwnJournal no guarda nada de lo que se envía. Google no lo utiliza para entrenar sus modelos y solo puede conservarlo durante un breve periodo para prevenir abusos. La reflexión se guarda con tu sueño, como el resto de la entrada.",
         "accept": "Continuar",
         "decline": "Ahora no"
       },
@@ -2721,6 +2721,13 @@
       "tooShort_one": "En este periodo hay un sueño demasiado corto para reflexionar sobre él, así que no se cuenta. Para una reflexión hacen falta al menos {{min}} caracteres.",
       "tooShort_many": "En este periodo hay {{count}} de sueños demasiado cortos para reflexionar sobre ellos, así que no se cuentan. Para una reflexión hacen falta al menos {{min}} caracteres.",
       "tooShort_other": "En este periodo hay {{count}} sueños demasiado cortos para reflexionar sobre ellos, así que no se cuentan. Para una reflexión hacen falta al menos {{min}} caracteres.",
+      "journalCompare_one": "Tus sueños también se compararán con {{count}} entrada de tu diario del mismo periodo.",
+      "journalCompare_many": "Tus sueños también se compararán con {{count}} de entradas de tu diario del mismo periodo.",
+      "journalCompare_other": "Tus sueños también se compararán con {{count}} entradas de tu diario del mismo periodo.",
+      "journalAnalyzeFirst_one": "Una de ellas aún no se ha analizado con IA y se analizará primero, como en el análisis de tendencias.",
+      "journalAnalyzeFirst_many": "De ellas, {{count}} aún no se han analizado con IA y se analizarán primero, como en el análisis de tendencias.",
+      "journalAnalyzeFirst_other": "De ellas, {{count}} aún no se han analizado con IA y se analizarán primero, como en el análisis de tendencias.",
+      "journalTooFew": "Tus sueños no se compararán con tu diario: para eso hacen falta al menos {{min}} entradas del mismo periodo.",
       "reflectFirst_one": "Uno de estos sueños aún no tiene reflexión. Al crear el informe, primero se preparará la suya, que contará como una de tus reflexiones de este mes (restantes: {{remaining}}).",
       "reflectFirst_many": "De estos sueños, {{count}} aún no tienen reflexión. Al crear el informe, primero se prepararán las suyas, que contarán como {{count}} de tus reflexiones de este mes (restantes: {{remaining}}).",
       "reflectFirst_other": "De estos sueños, {{count}} aún no tienen reflexión. Al crear el informe, primero se prepararán las suyas, que contarán como {{count}} de tus reflexiones de este mes (restantes: {{remaining}}).",
@@ -2735,6 +2742,7 @@
       "createNew": "Crear un informe nuevo",
       "creating": "Buscando patrones…",
       "reflecting": "Preparando la reflexión {{current}} de {{total}}…",
+      "analyzingEntries": "Analizando la entrada {{current}} de {{total}}…",
       "remaining": "Informes restantes este mes: {{remaining}} de {{limit}}",
       "plusOnly": "El informe de patrones de tus sueños está disponible con Plus",
       "earlyThemes": "Primeros temas",
@@ -2757,14 +2765,14 @@
       },
       "changes": "Cómo han cambiado tus sueños",
       "waking": {
-        "title": "Tus sueños y tu día a día",
-        "basedOn_one": "Comparación con {{count}} entrada analizada de tu diario del mismo periodo",
-        "basedOn_many": "Comparación con {{count}} de entradas analizadas de tu diario del mismo periodo",
-        "basedOn_other": "Comparación con {{count}} entradas analizadas de tu diario del mismo periodo",
+        "title": "Comparación con tu diario",
+        "basedOn_one": "A partir de {{count}} entrada de tu diario del mismo periodo",
+        "basedOn_many": "A partir de {{count}} de entradas de tu diario del mismo periodo",
+        "basedOn_other": "A partir de {{count}} entradas de tu diario del mismo periodo",
         "shared": "En tus sueños y en tu diario",
         "dreamsOnly": "En tus sueños, pero no en tu diario",
         "wakingOnly": "En tu diario, pero no en tus sueños",
-        "none": "Este informe no compara tus sueños con tu diario. La comparación necesita al menos {{min}} entradas analizadas del mismo periodo que tus sueños."
+        "none": "Tus sueños no se han comparado con tu diario: para eso hacen falta al menos {{min}} entradas del mismo periodo que tus sueños."
       },
       "questions": "Preguntas para reflexionar",
       "footer": "Son patrones para reflexionar, no un diagnóstico. Quédate con lo que te sirva y deja el resto.",

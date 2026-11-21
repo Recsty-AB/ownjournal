@@ -2082,7 +2082,7 @@
         "questions": "Les questions finales suivent le modèle de Clara Hill pour le travail sur les rêves : explorer le rêve, chercher ce qu'il pourrait signifier pour vous, puis envisager un petit pas à faire.",
         "noDictionary": "Aucune clé des songes, aucun dictionnaire de symboles figé : une réflexion propose des pistes, et c'est vous qui décidez de ce qui vous parle.",
         "notAdvice": "La réflexion sur les rêves est un outil d'introspection. Elle ne constitue pas un avis médical ou psychologique et ne permet de poser aucun diagnostic.",
-        "privacy": "Pour préparer une réflexion, OwnJournal envoie au service Gemini de Google le texte et la date de votre rêve, les émotions que vous avez choisies, le type de rêve indiqué (récurrent, cauchemar, lucide) et, si vous en avez noté, vos propres pensées sur ce rêve, accompagnées des questions de la réflexion précédente auxquelles elles répondent. S'y ajoutent, pour chacune de vos entrées déjà analysées de la semaine écoulée, sa date, son court résumé, ses thèmes clés et son émotion dominante, mais jamais le texte de ces entrées. Pour un bilan « Motifs récurrents des rêves », OwnJournal envoie les mots-clés enregistrés avec chaque réflexion. Afin de comparer vos rêves avec votre journal, l'application envoie aussi les thèmes clés et les émotions dominantes de vos entrées déjà analysées de la même période que ces rêves, en remontant jusqu'à une semaine avant le premier d'entre eux. Elle y joint, pour chaque thème et chaque émotion, le nombre d'entrées concernées. Pour ce bilan, ni le texte de vos rêves ni celui de vos entrées ne sont envoyés. OwnJournal ne conserve aucune des données envoyées."
+        "privacy": "Pour préparer une réflexion, OwnJournal envoie au service Gemini de Google le texte et la date de votre rêve, les émotions que vous avez choisies, le type de rêve indiqué (récurrent, cauchemar, lucide) et, si vous en avez noté, vos propres pensées sur ce rêve, accompagnées des questions de la réflexion précédente auxquelles elles répondent. S'y ajoutent, pour chacune de vos entrées déjà analysées de la semaine écoulée, sa date, son court résumé, ses thèmes clés et son émotion dominante, mais jamais le texte de ces entrées. Pour un bilan « Motifs récurrents des rêves », OwnJournal envoie les mots-clés enregistrés avec chaque réflexion, mais pas le texte de vos rêves. Afin de comparer vos rêves avec votre journal, l'application envoie aussi les thèmes clés et les émotions dominantes de vos entrées de journal de la même période que ces rêves, en remontant jusqu'à une semaine avant le premier d'entre eux. Elle y joint, pour chaque thème et chaque émotion, le nombre d'entrées concernées. Les entrées de cette période qui n'ont pas encore été analysées par IA le sont d'abord, comme dans l'analyse des tendances, ce qui implique l'envoi de leur texte. OwnJournal ne conserve aucune des données envoyées."
       },
       "aiAnalysis": {
         "title": "Analyse par IA",
@@ -2694,7 +2694,7 @@
       },
       "consent": {
         "title": "Explorer votre rêve avec Google ?",
-        "body": "Pour préparer la réflexion, OwnJournal envoie au service Gemini de Google le texte et la date de votre rêve, les émotions que vous avez choisies, le type de rêve indiqué (récurrent, cauchemar, lucide) et, si vous en avez noté, vos propres pensées sur ce rêve, accompagnées des questions de la réflexion précédente auxquelles elles répondent. S'y ajoutent, pour chacune de vos entrées déjà analysées de la semaine écoulée, sa date, son court résumé, ses thèmes clés et son émotion dominante, mais jamais le texte de ces entrées. Pour un bilan « Motifs récurrents des rêves », OwnJournal envoie les mots-clés enregistrés avec chaque réflexion. Afin de comparer vos rêves avec votre journal, l'application envoie aussi les thèmes clés et les émotions dominantes de vos entrées déjà analysées de la même période que ces rêves, en remontant jusqu'à une semaine avant le premier d'entre eux. Elle y joint, pour chaque thème et chaque émotion, le nombre d'entrées concernées. Pour ce bilan, ni le texte de vos rêves ni celui de vos entrées ne sont envoyés. OwnJournal ne conserve aucune des données envoyées. Google ne les utilise pas pour entraîner ses modèles et ne peut les conserver que brièvement, pour prévenir les abus. La réflexion est enregistrée avec votre rêve, comme le reste de l'entrée.",
+        "body": "Pour préparer la réflexion, OwnJournal envoie au service Gemini de Google le texte et la date de votre rêve, les émotions que vous avez choisies, le type de rêve indiqué (récurrent, cauchemar, lucide) et, si vous en avez noté, vos propres pensées sur ce rêve, accompagnées des questions de la réflexion précédente auxquelles elles répondent. S'y ajoutent, pour chacune de vos entrées déjà analysées de la semaine écoulée, sa date, son court résumé, ses thèmes clés et son émotion dominante, mais jamais le texte de ces entrées. Pour un bilan « Motifs récurrents des rêves », OwnJournal envoie les mots-clés enregistrés avec chaque réflexion, mais pas le texte de vos rêves. Afin de comparer vos rêves avec votre journal, l'application envoie aussi les thèmes clés et les émotions dominantes de vos entrées de journal de la même période que ces rêves, en remontant jusqu'à une semaine avant le premier d'entre eux. Elle y joint, pour chaque thème et chaque émotion, le nombre d'entrées concernées. Les entrées de cette période qui n'ont pas encore été analysées par IA le sont d'abord, comme dans l'analyse des tendances, ce qui implique l'envoi de leur texte. OwnJournal ne conserve aucune des données envoyées. Google ne les utilise pas pour entraîner ses modèles et ne peut les conserver que brièvement, pour prévenir les abus. La réflexion est enregistrée avec votre rêve, comme le reste de l'entrée.",
         "accept": "Continuer",
         "decline": "Pas maintenant"
       },
@@ -2721,6 +2721,13 @@
       "tooShort_one": "{{count}} rêve de cette période est trop court pour une réflexion : il n'est pas compté. Une réflexion nécessite au moins {{min}} caractères.",
       "tooShort_many": "{{count}} rêves de cette période sont trop courts pour une réflexion : ils ne sont pas comptés. Une réflexion nécessite au moins {{min}} caractères.",
       "tooShort_other": "{{count}} rêves de cette période sont trop courts pour une réflexion : ils ne sont pas comptés. Une réflexion nécessite au moins {{min}} caractères.",
+      "journalCompare_one": "Vos rêves seront aussi comparés avec {{count}} entrée de journal de la même période.",
+      "journalCompare_many": "Vos rêves seront aussi comparés avec {{count}} entrées de journal de la même période.",
+      "journalCompare_other": "Vos rêves seront aussi comparés avec {{count}} entrées de journal de la même période.",
+      "journalAnalyzeFirst_one": "L'une d'elles n'a pas encore été analysée par IA : elle le sera d'abord, comme dans l'analyse des tendances.",
+      "journalAnalyzeFirst_many": "{{count}} d'entre elles n'ont pas encore été analysées par IA : elles le seront d'abord, comme dans l'analyse des tendances.",
+      "journalAnalyzeFirst_other": "{{count}} d'entre elles n'ont pas encore été analysées par IA : elles le seront d'abord, comme dans l'analyse des tendances.",
+      "journalTooFew": "Vos rêves ne seront pas comparés avec votre journal : il faut pour cela au moins {{min}} entrées de journal de la même période.",
       "reflectFirst_one": "L'un de ces rêves n'a pas encore de réflexion. Il sera exploré avant la création du bilan, ce qui utilisera une de vos réflexions du mois (il vous en reste {{remaining}}).",
       "reflectFirst_many": "{{count}} de ces rêves n'ont pas encore de réflexion. Ils seront explorés avant la création du bilan, ce qui utilisera {{count}} de vos réflexions du mois (il vous en reste {{remaining}}).",
       "reflectFirst_other": "{{count}} de ces rêves n'ont pas encore de réflexion. Ils seront explorés avant la création du bilan, ce qui utilisera {{count}} de vos réflexions du mois (il vous en reste {{remaining}}).",
@@ -2735,6 +2742,7 @@
       "createNew": "Créer un nouveau bilan",
       "creating": "Recherche des motifs…",
       "reflecting": "Exploration du rêve {{current}} sur {{total}}…",
+      "analyzingEntries": "Analyse de l'entrée {{current}} sur {{total}}…",
       "remaining": "Bilans restants ce mois-ci : {{remaining}} sur {{limit}}",
       "plusOnly": "Le bilan « Motifs récurrents des rêves » est disponible avec Plus",
       "earlyThemes": "Premiers thèmes",
@@ -2757,14 +2765,14 @@
       },
       "changes": "Comment vos rêves ont évolué",
       "waking": {
-        "title": "Vos rêves et vos journées",
-        "basedOn_one": "Comparaison avec {{count}} entrée analysée de la même période",
-        "basedOn_many": "Comparaison avec {{count}} entrées analysées de la même période",
-        "basedOn_other": "Comparaison avec {{count}} entrées analysées de la même période",
+        "title": "Comparaison avec votre journal",
+        "basedOn_one": "D'après {{count}} entrée de journal de la même période",
+        "basedOn_many": "D'après {{count}} entrées de journal de la même période",
+        "basedOn_other": "D'après {{count}} entrées de journal de la même période",
         "shared": "Dans vos rêves et dans votre journal",
         "dreamsOnly": "Dans vos rêves, pas dans votre journal",
         "wakingOnly": "Dans votre journal, pas dans vos rêves",
-        "none": "Ce bilan ne contient pas de comparaison avec votre journal. Elle nécessite au moins {{min}} entrées analysées de la même période que vos rêves."
+        "none": "Ce bilan ne contient pas de comparaison avec votre journal. Elle nécessite au moins {{min}} entrées de journal de la même période que vos rêves."
       },
       "questions": "Questions à vous poser",
       "footer": "Des pistes de réflexion, pas un diagnostic. Prenez ce qui vous parle, laissez le reste.",

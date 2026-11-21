@@ -2046,7 +2046,7 @@
         "questions": "Frågorna i slutet följer Clara Hills modell för att arbeta med drömmar: först utforskar du drömmen, sedan funderar du på vad den kan betyda för dig och till sist på ett litet steg du skulle kunna ta.",
         "noDictionary": "Reflektionen bygger inte på något drömlexikon där varje symbol har en fast betydelse. Den visar möjligheter, och det är du som avgör vad som stämmer.",
         "notAdvice": "Drömreflektion är ett stöd för självreflektion, inte medicinsk eller psykologisk rådgivning. Den kan inte heller användas för att ställa diagnoser.",
-        "privacy": "När du reflekterar över en dröm skickas det här till Googles Gemini-tjänst: det du har skrivit om drömmen, drömmens datum, känslorna du valde och om du har markerat den som återkommande, som mardröm eller som klardröm. Om du har skrivit ner egna tankar om drömmen skickas de också, tillsammans med frågorna i den tidigare reflektionen som tankarna svarar på. För vart och ett av dina redan analyserade inlägg från den senaste veckan skickas dessutom datum, kort sammanfattning, nyckelteman och dominerande känsla. När du skapar en rapport om drömmönster skickas de korta etiketter som sparas med varje reflektion. För att drömmarna ska kunna jämföras med dagboken skickas också nyckelteman och dominerande känslor i dina redan analyserade inlägg från samma period som drömmarna, och hur ofta varje tema och känsla förekommer. Perioden räknas från en vecka före den första av drömmarna. Texten i dina drömmar och inlägg skickas inte när du skapar en rapport. OwnJournal sparar inget av det som skickas."
+        "privacy": "När du reflekterar över en dröm skickas det här till Googles Gemini-tjänst: det du har skrivit om drömmen, drömmens datum, känslorna du valde och om du har markerat den som återkommande, som mardröm eller som klardröm. Om du har skrivit ner egna tankar om drömmen skickas de också, tillsammans med frågorna i den tidigare reflektionen som tankarna svarar på. För vart och ett av dina redan analyserade inlägg från den senaste veckan skickas dessutom datum, kort sammanfattning, nyckelteman och dominerande känsla. När du skapar en rapport om drömmönster skickas inte texten i dina drömmar, utan de korta etiketter som sparas med varje reflektion. För att drömmarna ska kunna jämföras med dagboken skickas också nyckelteman och dominerande känslor i dina dagboksinlägg från samma period som drömmarna, och hur ofta varje tema och känsla förekommer. Perioden räknas från en vecka före den första av drömmarna. Om några av dagboksinläggen i perioden saknar AI-analys får de först en, på samma sätt som i Trendanalys, och då skickas deras text. OwnJournal sparar inget av det som skickas."
       },
       "aiAnalysis": {
         "title": "AI-analys",
@@ -2652,7 +2652,7 @@
       },
       "consent": {
         "title": "Vill du skicka drömmen till Google för en reflektion?",
-        "body": "För att reflektionen ska kunna skapas skickas det här till Googles Gemini-tjänst: det du har skrivit om drömmen, drömmens datum, känslorna du valde och om du har markerat den som återkommande, som mardröm eller som klardröm. Om du har skrivit ner egna tankar om drömmen skickas de också, tillsammans med frågorna i den tidigare reflektionen som tankarna svarar på. För vart och ett av dina redan analyserade inlägg från den senaste veckan skickas dessutom datum, kort sammanfattning, nyckelteman och dominerande känsla. När du skapar en rapport om drömmönster skickas korta etiketter från dina reflektioner. För att drömmarna ska kunna jämföras med dagboken skickas också nyckelteman och dominerande känslor i dina redan analyserade inlägg från samma period som drömmarna, och hur ofta varje tema och känsla förekommer. Perioden räknas från en vecka före den första av drömmarna. Texten i dina drömmar och inlägg skickas inte när du skapar en rapport. OwnJournal sparar inget av det som skickas. Google använder det inte för att träna sina modeller och kan bara spara det en kort tid för att förhindra missbruk. Reflektionen sparas tillsammans med drömmen, på samma sätt som resten av inlägget.",
+        "body": "För att reflektionen ska kunna skapas skickas det här till Googles Gemini-tjänst: det du har skrivit om drömmen, drömmens datum, känslorna du valde och om du har markerat den som återkommande, som mardröm eller som klardröm. Om du har skrivit ner egna tankar om drömmen skickas de också, tillsammans med frågorna i den tidigare reflektionen som tankarna svarar på. För vart och ett av dina redan analyserade inlägg från den senaste veckan skickas dessutom datum, kort sammanfattning, nyckelteman och dominerande känsla. När du skapar en rapport om drömmönster skickas inte texten i dina drömmar, utan de korta etiketter som sparas med varje reflektion. För att drömmarna ska kunna jämföras med dagboken skickas också nyckelteman och dominerande känslor i dina dagboksinlägg från samma period som drömmarna, och hur ofta varje tema och känsla förekommer. Perioden räknas från en vecka före den första av drömmarna. Om några av dagboksinläggen i perioden saknar AI-analys får de först en, på samma sätt som i Trendanalys, och då skickas deras text. OwnJournal sparar inget av det som skickas. Google använder det inte för att träna sina modeller och kan bara spara det en kort tid för att förhindra missbruk. Reflektionen sparas tillsammans med drömmen, på samma sätt som resten av inlägget.",
         "accept": "Fortsätt",
         "decline": "Inte nu"
       },
@@ -2677,6 +2677,11 @@
       "needMore": "För en rapport behövs minst {{min}} drömmar.",
       "tooShort_one": "En av drömmarna i perioden är för kort för en reflektion och räknas därför inte. För en reflektion behövs minst {{min}} tecken.",
       "tooShort_other": "{{count}} av drömmarna i perioden är för korta för en reflektion och räknas därför inte. För en reflektion behövs minst {{min}} tecken.",
+      "journalCompare_one": "Drömmarna jämförs också med {{count}} dagboksinlägg från samma period.",
+      "journalCompare_other": "Drömmarna jämförs också med {{count}} dagboksinlägg från samma period.",
+      "journalAnalyzeFirst_one": "Ett av dem har ingen AI-analys än och får först en, på samma sätt som i Trendanalys.",
+      "journalAnalyzeFirst_other": "{{count}} av dem har ingen AI-analys än och får först en var, på samma sätt som i Trendanalys.",
+      "journalTooFew": "Drömmarna jämförs inte med dagboken. För det behövs minst {{min}} dagboksinlägg från samma period.",
       "reflectFirst_one": "En av drömmarna har ingen reflektion än. När du skapar rapporten får den först en, och det går åt en av dina reflektioner den här månaden ({{remaining}} kvar).",
       "reflectFirst_other": "{{count}} av drömmarna har ingen reflektion än. När du skapar rapporten får de först en var, och det går åt {{count}} av dina reflektioner den här månaden ({{remaining}} kvar).",
       "notEnoughReflections_one": "{{dreams}} av drömmarna har ingen reflektion än, men du har bara en reflektion kvar den här månaden. Välj en kortare period.",
@@ -2688,6 +2693,7 @@
       "createNew": "Skapa ny rapport",
       "creating": "Letar efter mönster…",
       "reflecting": "Skapar reflektion {{current}} av {{total}}…",
+      "analyzingEntries": "Analyserar dagboksinlägg {{current}} av {{total}}…",
       "remaining": "{{remaining}} av {{limit}} rapporter kvar den här månaden",
       "plusOnly": "Drömmönster ingår i Plus",
       "earlyThemes": "Preliminära teman",
@@ -2707,13 +2713,13 @@
       },
       "changes": "Hur dina drömmar har förändrats",
       "waking": {
-        "title": "Dina drömmar och din vardag",
-        "basedOn_one": "Jämfört med {{count}} analyserat dagboksinlägg från samma period",
-        "basedOn_other": "Jämfört med {{count}} analyserade dagboksinlägg från samma period",
+        "title": "Jämfört med din dagbok",
+        "basedOn_one": "Bygger på {{count}} dagboksinlägg från samma period",
+        "basedOn_other": "Bygger på {{count}} dagboksinlägg från samma period",
         "shared": "Både i drömmarna och i dagboken",
         "dreamsOnly": "I drömmarna men inte i dagboken",
         "wakingOnly": "I dagboken men inte i drömmarna",
-        "none": "I den här rapporten finns ingen jämförelse med dagboken. För det behövs minst {{min}} analyserade inlägg från samma period som drömmarna."
+        "none": "I den här rapporten finns ingen jämförelse med dagboken. För det behövs minst {{min}} dagboksinlägg från samma period som drömmarna."
       },
       "questions": "Frågor att fundera på",
       "footer": "Mönster att fundera på – ingen diagnos. Ta till dig det som stämmer och låt resten vara.",
