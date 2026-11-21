@@ -617,6 +617,9 @@ describe('analyzeTrends with dreams', () => {
     expect(user).toContain('Dreams the user recorded in this period (3, oldest first)');
     expect(user).toContain('2026-11-01 (nightmare): characters: sister | settings: school');
     expect(user).toContain('a nightmare is not a bad day');
+    // Observations, not invitations to wonder about them.
+    expect(user).toContain('Do not invite the user to reflect');
+    expect(user).toContain('「〜に思いを馳せてみるのも〜かもしれません」');
     expect(user).toContain('"dreamInsights"');
     expect(user).not.toContain('Secret dream text');
   });

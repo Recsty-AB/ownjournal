@@ -664,7 +664,9 @@ export function trendDreamsPrompt(dreams: TrendDream[]): { data: string; rules: 
     data: `Dreams the user recorded in this period (${dreams.length}, oldest first). Short labels the app extracted from each dream, never the dream text. Dreams are NOT part of the mood data above:
 ${lines.join("\n")}`,
     rules: `DREAMS:
-- Use the dates to set the dreams beside what the journal shows at the same time: the topics, emotions and mood of the entries in the days or weeks around each dream. Mention a link only when the data supports it, and offer it as something to wonder about.
+- Use the dates to set the dreams beside what the journal shows at the same time: the topics, emotions and mood of the entries in the days or weeks around each dream. Mention a link only when the data supports it.
+- Write each dreamInsight as an observation about the user's dreams and days, made tentative with ONE hedge ("seems", "appears", "perhaps"), e.g. "In the weeks your entries were about deadlines, the dreams seem to return to being chased." Do not invite the user to reflect, wonder or think about it ("you might wonder", "it may be worth considering", "it is natural to think"), do not tell them what is natural, and do not stack hedges ("it may be possible that perhaps"). The user decides what to make of it; just say what you see.
+- If the output language is Japanese: end such an observation with one hedge, e.g. 「〜ようです」「〜ように見えます」「〜と重なっているようです」. Never 「〜に思いを馳せてみるのも〜かもしれません」「〜てみてはいかがでしょうか」「〜てみますか」「〜可能性があるかもしれません」.
 - A dream's emotions are not the user's mood: a nightmare is not a bad day. Do not use dreams in periodSummary, moodTrend or insights.
 - Never report the dreamer themselves as a recurring figure.
 - Offer possibilities, never verdicts ("this means", "this shows that" or their equivalents). No dream symbol dictionary, no predictions, no messages from anyone.
