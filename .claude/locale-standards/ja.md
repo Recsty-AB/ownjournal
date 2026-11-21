@@ -130,7 +130,7 @@ The rules below are owner-approved house rules (whole-file pass, Nov 2026). They
 | Concept | Use | Avoid | Source |
 |---|---|---|---|
 | Dream journal (keep one) | 夢日記（をつける） | ドリームジャーナル | ja.wikipedia 夢日記 |
-| Nightmare / lucid / recurring | 悪夢 / 明晰夢 / 繰り返し見る夢 | 反復夢 (too technical for a chip) | ja.wikipedia 夢・悪夢; NCNP 睡眠時随伴症 |
+| Nightmare / lucid / recurring | 悪夢 / 夢とわかって見た夢 (chip; line under it: 夢を見ている最中に「これは夢だ」と気づいたときに選びます。) / 繰り返し見る夢 | 明晰夢 (lucid); 夢だと気づいた夢 (alone as a tag it can mean "realised on waking"); 反復夢 (too technical for a chip) | ja.wikipedia 夢・悪夢; NCNP 睡眠時随伴症; lucid: owner ruling 2026-11-21 (too technical for users) |
 | Dream reflection (feature, AI output) | 夢の振り返り; button 「この夢を振り返る」 | 夢占い, 夢診断, 夢の解釈 | Apple ジャーナル App JP 「振り返りのプロンプト」 |
 | Dream patterns | 夢のパターン; its output is レポート | – | judgment |
 | Awe (feeling chip) | 畏敬の念 | bare 畏敬, 畏れ (reads as fear) | JP awe research (高野了太; 野村理朗 KAKEN) |
