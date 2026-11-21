@@ -2630,7 +2630,7 @@
     "patterns": {
       "title": "꿈 패턴",
       "intro": "여러 꿈에 거듭 나타나는 것을 한데 모아 보여 주고, 일기장과도 비교합니다.",
-      "compareJournal": "일기장과 비교",
+      "compareJournal": "꿈 패턴에 일기 항목 포함",
       "dreamsInPeriod_other": "이 기간 꿈 {{count}}개",
       "needMore": "보고서를 만들려면 꿈이 {{min}}개 이상 있어야 합니다.",
       "tooShort_other": "이 기간의 꿈 중 {{count}}개는 돌아보기에는 너무 짧아 개수와 보고서에 포함되지 않습니다. 꿈을 돌아보려면 꿈 내용이 {{min}}자 이상이어야 합니다.",

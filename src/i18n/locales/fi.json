@@ -2672,7 +2672,7 @@
     "patterns": {
       "title": "Unien kuviot",
       "intro": "Mikä unissasi toistuu ja miten ne vertautuvat päiväkirjaasi.",
-      "compareJournal": "Vertaa unia päiväkirjaasi",
+      "compareJournal": "Ota päiväkirjamerkinnät mukaan",
       "dreamsInPeriod_one": "{{count}} uni tällä ajanjaksolla",
       "dreamsInPeriod_other": "{{count}} unta tällä ajanjaksolla",
       "needMore": "Raporttiin tarvitaan vähintään {{min}} unta.",

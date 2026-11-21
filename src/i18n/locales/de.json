@@ -2672,7 +2672,7 @@
     "patterns": {
       "title": "Traummuster",
       "intro": "Was in Ihren Träumen immer wiederkehrt und was ein Vergleich mit Ihrem Tagebuch zeigt.",
-      "compareJournal": "Mit Ihrem Tagebuch vergleichen",
+      "compareJournal": "Tagebucheinträge einbeziehen",
       "dreamsInPeriod_one": "{{count}} Traum in diesem Zeitraum",
       "dreamsInPeriod_other": "{{count}} Träume in diesem Zeitraum",
       "needMore": "Für eine Auswertung sind mindestens {{min}} Träume nötig.",

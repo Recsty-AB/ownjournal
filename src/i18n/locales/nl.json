@@ -2672,7 +2672,7 @@
     "patterns": {
       "title": "Droompatronen",
       "intro": "Wat er in uw dromen steeds terugkomt en hoe ze zich verhouden tot uw dagboek.",
-      "compareJournal": "Vergelijken met uw dagboek",
+      "compareJournal": "Uw dagboekitems meenemen",
       "dreamsInPeriod_one": "{{count}} droom in deze periode",
       "dreamsInPeriod_other": "{{count}} dromen in deze periode",
       "needMore": "Voor een rapport zijn minstens {{min}} dromen nodig.",

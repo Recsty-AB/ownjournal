@@ -2756,7 +2756,7 @@
     "patterns": {
       "title": "Wzorce snów",
       "intro": "Co powraca w Twoich snach i jak mają się one do Twojego dziennika.",
-      "compareJournal": "Porównaj z dziennikiem",
+      "compareJournal": "Uwzględnij wpisy dziennika",
       "dreamsInPeriod_one": "{{count}} sen w tym okresie",
       "dreamsInPeriod_few": "{{count}} sny w tym okresie",
       "dreamsInPeriod_many": "{{count}} snów w tym okresie",

@@ -2672,7 +2672,7 @@
     "patterns": {
       "title": "Dream patterns",
       "intro": "What keeps coming back across your dreams, and how they compare with your journal.",
-      "compareJournal": "Compare with your journal",
+      "compareJournal": "Include your journal entries",
       "dreamsInPeriod_one": "{{count}} dream in this period",
       "dreamsInPeriod_other": "{{count}} dreams in this period",
       "needMore": "A report needs at least {{min}} dreams.",
