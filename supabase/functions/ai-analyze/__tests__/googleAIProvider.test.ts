@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { callGoogleAI } from '../googleAIProvider';
-import { getModelForType } from '../../_shared/modelConfig';
+import { getModelForType, getThinkingLevelForType } from '../../_shared/modelConfig';
 
 const messages = [
   { role: 'system' as const, content: 'Return journal metadata in the entry language.' },
@@ -26,10 +26,10 @@ const routes = [
   { type: 'title', google: 'gemini-3.5-flash-lite', thinking: 'MINIMAL', maxTokens: 2000 },
   { type: 'tags', google: 'gemini-3.5-flash-lite', thinking: 'MINIMAL', maxTokens: 2000 },
   { type: 'analyzeEntry', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2000 },
-  { type: 'analyzeTrends', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 6000 },
+  { type: 'analyzeTrends', google: 'gemini-3.8-flash', thinking: 'HIGH', maxTokens: 16000 },
   { type: 'analyze', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2000 },
   { type: 'analyzeDream', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2000 },
-  { type: 'analyzeDreamPatterns', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2500 },
+  { type: 'analyzeDreamPatterns', google: 'gemini-3.8-flash', thinking: 'HIGH', maxTokens: 16000 },
 ];
 
 const fetchMock = vi.fn<typeof fetch>();
@@ -63,7 +63,7 @@ describe('Google request compatibility', () => {
       candidates: [{ content: { parts: [{ text: '{"summary":"A pleasant walk."}' }] }, finishReason: 'STOP' }],
     }));
 
-    const response = await callGoogleAI(getModelForType(type), messages, undefined, undefined, maxTokens);
+    const response = await callGoogleAI(getModelForType(type), messages, undefined, undefined, maxTokens, getThinkingLevelForType(type));
     const { url, body } = lastRequest();
 
     expect(new URL(url).pathname).toBe(`/v1beta/models/${google}:generateContent`);

@@ -422,7 +422,9 @@ export async function callGoogleAI(
   messages: OpenAIMessage[],
   tools?: OpenAITool[],
   toolChoice?: OpenAIToolChoice,
-  maxTokens?: number
+  maxTokens?: number,
+  /** Overrides the model's default thinking level (see getThinkingLevelForType). */
+  thinkingLevel?: GoogleThinkingLevel
 ): Promise<OpenAIResponse> {
   const GOOGLE_API_KEY = Deno.env.get("GOOGLE_API_KEY");
   
@@ -434,7 +436,7 @@ export async function callGoogleAI(
   const { contents, systemInstruction } = convertMessagesToGoogleFormat(messages);
   const googleTools = convertToolsToGoogleFormat(tools);
   const googleToolConfig = convertToolChoiceToGoogleFormat(toolChoice, tools);
-  const modelSettings = AI_MODEL_SETTINGS[googleModel];
+  const level = thinkingLevel ?? AI_MODEL_SETTINGS[googleModel]?.thinkingLevel;
   
   const requestBody: GoogleRequest = {
     contents,
@@ -442,8 +444,8 @@ export async function callGoogleAI(
       maxOutputTokens: maxTokens || 2000,
       // generateContent uses camelCase fields and uppercase enum values.
       // Omit deprecated sampling parameters and numeric thinking budgets.
-      ...(modelSettings && {
-        thinkingConfig: { thinkingLevel: modelSettings.thinkingLevel }
+      ...(level && {
+        thinkingConfig: { thinkingLevel: level }
       })
     }
   };

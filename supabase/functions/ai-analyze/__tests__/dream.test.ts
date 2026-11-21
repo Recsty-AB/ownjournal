@@ -129,6 +129,8 @@ describe('analyzeDream', () => {
     expect(url).toContain('/models/gemini-3.8-flash:generateContent');
     // Room for a long dream in a token-heavy script plus the model's thinking.
     expect(body.generationConfig.maxOutputTokens).toBe(6000);
+    // Reflections run often and stay on the model's default.
+    expect(body.generationConfig.thinkingConfig).toEqual({ thinkingLevel: 'LOW' });
     expect(user).toContain(DREAM_TEXT);
     expect(user).toContain('confusion, fear');
     expect(user).not.toContain('longing');
@@ -483,7 +485,8 @@ describe('analyzeDreamPatterns', () => {
     expect(data.report).toMatchObject({ overview: PATTERNS.overview, dreamCount: 5, recurring: PATTERNS.recurring });
     expect(data).toMatchObject({ used: 1, limit: 2 });
     const { system, user, body } = promptText();
-    expect(body.generationConfig.maxOutputTokens).toBe(5000);
+    expect(body.generationConfig.maxOutputTokens).toBe(16000);
+    expect(body.generationConfig.thinkingConfig).toEqual({ thinkingLevel: 'HIGH' });
     expect(system).toContain('Japanese');
     expect(system).toContain('early, tentative themes');
     // The dreamer is in almost every dream; listing them says nothing.
@@ -590,7 +593,8 @@ describe('analyzeTrends with dreams', () => {
     expect(response.status).toBe(200);
     const { user, url, body } = promptText();
     expect(url).toContain('/models/gemini-3.8-flash:generateContent');
-    expect(body.generationConfig.maxOutputTokens).toBe(6000);
+    expect(body.generationConfig.maxOutputTokens).toBe(16000);
+    expect(body.generationConfig.thinkingConfig).toEqual({ thinkingLevel: 'HIGH' });
     expect(user).toContain('1. 2026-11-01, Sentiment: -0.20');
     expect(user).not.toContain('Dreams the user recorded');
     expect(user).not.toContain('dreamInsights');

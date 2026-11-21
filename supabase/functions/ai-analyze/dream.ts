@@ -8,7 +8,7 @@
 // that row comes from the request, so a request cannot make the insert fail
 // and get an uncounted reflection.
 
-import { getModelForType } from "../_shared/modelConfig.ts";
+import { getModelForType, getThinkingLevelForType, type GoogleThinkingLevel } from "../_shared/modelConfig.ts";
 
 // Keep in sync with DREAM_LIMITS in src/types/dream.ts.
 export const DREAM_LIMITS = {
@@ -35,7 +35,9 @@ export const DREAM_LIMITS = {
 // ceiling costs nothing on a normal answer; it keeps a long dream in a
 // token-heavy script (th, hi, ja) plus the model's thinking from being cut off
 // mid-answer, which would fail both attempts and count towards the failed cap.
-const DREAM_OUTPUT_TOKENS = { reflection: 6000, patterns: 5000 } as const;
+// Dream patterns thinks on HIGH (see getThinkingLevelForType), and thinking
+// counts towards the ceiling.
+const DREAM_OUTPUT_TOKENS = { reflection: 6000, patterns: 16000 } as const;
 
 // Gemini finish reasons (and the parser's PROMPT_BLOCKED for a blocked prompt)
 // that mean the content was refused, not that the answer went wrong.
@@ -58,6 +60,7 @@ type CallAI = (
   tools?: any[],
   toolChoice?: any,
   maxTokens?: number,
+  thinkingLevel?: GoogleThinkingLevel,
 ) => Promise<any>;
 
 export interface DreamRequestContext {
@@ -336,7 +339,7 @@ async function callWithRetry(
   for (let attempt = 0; attempt < 2; attempt++) {
     let aiData: any;
     try {
-      aiData = await ctx.callAI(model, messages, [tool], toolChoice, maxTokens);
+      aiData = await ctx.callAI(model, messages, [tool], toolChoice, maxTokens, getThinkingLevelForType(ctx.type));
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       console.error(`[DREAM] Gemini request failed for ${ctx.type}:`, message);

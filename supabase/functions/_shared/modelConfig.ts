@@ -28,6 +28,20 @@ export const AI_MODEL_SETTINGS: Readonly<Record<string, {
   },
 };
 
+// Request types that reason across many entries or dreams think harder than
+// their model's default. They run rarely (Trend Analysis once a week, Dream
+// patterns twice a month), so the extra thinking tokens cost little (owner
+// decision, 2026-11-21).
+const THINKING_BY_TYPE: Readonly<Record<string, GoogleThinkingLevel>> = {
+  analyzeTrends: "HIGH",
+  analyzeDreamPatterns: "HIGH",
+};
+
+/** The thinking level a request type overrides its model's default with, if any. */
+export function getThinkingLevelForType(type: string): GoogleThinkingLevel | undefined {
+  return THINKING_BY_TYPE[type];
+}
+
 export function getModelForType(type: string): string {
   switch (type) {
     case "title":

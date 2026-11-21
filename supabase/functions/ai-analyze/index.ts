@@ -1,7 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 import { callGoogleAI, isGoogleAIConfigured } from "./googleAIProvider.ts";
-import { AI_MODELS, getModelForType } from "../_shared/modelConfig.ts";
+import { AI_MODELS, getModelForType, getThinkingLevelForType } from "../_shared/modelConfig.ts";
 import { handleDreamRequest, isDreamRequestType, sanitizeDreamInsights, sanitizeTrendDreams, trendDreamsPrompt } from "./dream.ts";
 
 const corsHeaders = {
@@ -866,9 +866,10 @@ Respond in JSON format:
         { role: "user", content: analysisPrompt },
       ],
       // Title/tags use 2000 (actual usage ~300-900 tokens)
-      // Only generated tokens are billed; the trend ceiling leaves room for
-      // the dream section and token-heavy scripts (th, hi, ja).
-      max_completion_tokens: type === "analyzeTrends" ? 6000 : 2000,
+      // Only generated tokens are billed. The trend ceiling leaves room for
+      // HIGH thinking, which counts towards it, the dream section and
+      // token-heavy scripts (th, hi, ja).
+      max_completion_tokens: type === "analyzeTrends" ? 16000 : 2000,
     };
 
     // Add tool calling for title and tag generation to get structured output
@@ -1008,7 +1009,8 @@ Respond in JSON format:
         aiRequestBody.messages,
         aiRequestBody.tools,
         aiRequestBody.tool_choice,
-        aiRequestBody.max_completion_tokens
+        aiRequestBody.max_completion_tokens,
+        getThinkingLevelForType(type)
       );
       
       aiRequestTime = Date.now() - aiRequestStart;
@@ -1195,7 +1197,8 @@ Respond in JSON format:
             aiRequestBody.messages,
             aiRequestBody.tools,
             aiRequestBody.tool_choice,
-            aiRequestBody.max_completion_tokens
+            aiRequestBody.max_completion_tokens,
+            getThinkingLevelForType(type)
           );
           aiContent = sameModelResult.choices[0]?.message?.content;
         } catch (sameModelError) {
