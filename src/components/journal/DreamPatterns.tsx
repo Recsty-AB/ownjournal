@@ -28,6 +28,7 @@ import {
   onJournalLockChange,
   loadPatternsReport,
   dreamsForPatterns,
+  tooShortDreams,
   requestDreamPatterns,
   requestDreamReflection,
   savePatternsReport,
@@ -91,6 +92,7 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
   const hasDreams = useMemo(() => entries.some((e) => e.type === "dream"), [entries]);
   const periodDreams = useMemo(() => dreamsForPatterns(entries, period.start, period.end), [entries, period]);
   const withoutReflection = periodDreams.filter((d) => !d.dreamReflection).length;
+  const tooShort = useMemo(() => tooShortDreams(entries, period.start, period.end), [entries, period]);
   const unlocked = periodDreams.length >= DREAM_LIMITS.dreamsForPatterns;
   const remaining = Math.max(0, usage.limit - usage.current);
   const reflectionsLeft = Math.max(0, reflectionUsage.limit - reflectionUsage.current);
@@ -340,6 +342,11 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
                   </>
                 )}
               </p>
+              {tooShort > 0 && (
+                <p className="text-xs tabular-nums text-muted-foreground">
+                  {t("dream.patterns.tooShort", { count: tooShort, min: DREAM_LIMITS.minCharacters })}
+                </p>
+              )}
               {isPro && unlocked && withoutReflection > 0 && (
                 <p className={cn("text-xs tabular-nums", tooFewReflections ? "font-medium text-diagnostic-warning" : "text-muted-foreground")}>
                   {!tooFewReflections

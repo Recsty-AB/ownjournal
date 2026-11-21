@@ -2632,6 +2632,7 @@
       "intro": "看看哪些人、地方和主題在您的夢裡一再出現。",
       "dreamsInPeriod_other": "此時期有 {{count}} 個夢",
       "needMore": "至少需要 {{min}} 個夢才能產生報告",
+      "tooShort_other": "此時期另有 {{count}} 個夢太短，無法解讀，所以不列入計算，也不會納入報告。夢境內容至少要有 {{min}} 個字才能解讀。",
       "reflectFirst_other": "其中 {{count}} 個夢還沒有解讀。產生報告時會先自動解讀，並扣除本月 {{count}} 次解讀額度（目前剩餘 {{remaining}} 次）。",
       "notEnoughReflections_other": "其中 {{dreams}} 個夢還沒有解讀，但本月只剩 {{count}} 次解讀。請改選較短的時期。",
       "noReflectionsLeft_other": "其中 {{count}} 個夢還沒有解讀，但本月的解讀額度已經用完。請改選較短的時期。",

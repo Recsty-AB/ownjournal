@@ -2632,6 +2632,7 @@
       "intro": "Những gì cứ trở đi trở lại trong các giấc mơ của bạn.",
       "dreamsInPeriod_other": "{{count}} giấc mơ trong khoảng thời gian này",
       "needMore": "Báo cáo cần ít nhất {{min}} giấc mơ.",
+      "tooShort_other": "Có {{count}} giấc mơ quá ngắn để tạo phần suy ngẫm nên không được tính. Phần suy ngẫm cần giấc mơ dài ít nhất {{min}} ký tự.",
       "reflectFirst_other": "Trong số đó, {{count}} giấc mơ chưa có phần suy ngẫm và sẽ được suy ngẫm trước khi tạo báo cáo, mất {{count}} lượt (tháng này bạn còn {{remaining}} lượt suy ngẫm).",
       "notEnoughReflections_other": "Trong số đó, {{dreams}} giấc mơ chưa có phần suy ngẫm, nhưng tháng này bạn chỉ còn {{count}} lượt suy ngẫm. Hãy chọn khoảng thời gian ngắn hơn.",
       "noReflectionsLeft_other": "Trong số đó, {{count}} giấc mơ chưa có phần suy ngẫm, nhưng tháng này bạn đã hết lượt suy ngẫm. Hãy chọn khoảng thời gian ngắn hơn.",

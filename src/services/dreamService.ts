@@ -315,6 +315,21 @@ export function dreamsForPatterns(entries: JournalEntryData[], start: Date, end:
     .slice(-DREAM_LIMITS.maxDreamsForPatterns);
 }
 
+/**
+ * Dreams of the period [start, end] left out of a report because they are too
+ * short for a reflection and have none yet. The card says so, so the count of
+ * dreams does not look wrong.
+ */
+export function tooShortDreams(entries: JournalEntryData[], start: Date, end: Date): number {
+  const from = start.getTime();
+  const to = end.getTime();
+  return entries.filter((e) => {
+    if (e.type !== 'dream' || !e.dream || e.dreamReflection) return false;
+    const time = new Date(e.date).getTime();
+    return time >= from && time <= to && e.body.trim().length < DREAM_LIMITS.minCharacters;
+  }).length;
+}
+
 export interface DreamPatternsResult {
   report: DreamPatternsReport;
   used: number;

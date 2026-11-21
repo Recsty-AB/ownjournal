@@ -19,6 +19,7 @@ import {
   buildWakingSummary,
   dreamChangedSinceReflection,
   dreamsForPatterns,
+  tooShortDreams,
   requestDreamPatterns,
   requestDreamReflection,
 } from '../dreamService';
@@ -223,6 +224,8 @@ describe('Dream patterns helpers', () => {
       entry('journal', '2026-11-07'),
     ];
     expect(dreamsForPatterns(list, PERIOD.start, PERIOD.end).map((e) => e.id)).toEqual(['a', 'b']);
+    // The short one is counted separately, so the card can say why it is missing.
+    expect(tooShortDreams(list, PERIOD.start, PERIOD.end)).toBe(1);
 
     const many = Array.from({ length: 45 }, (_, i) =>
       entry(`m${i}`, new Date(Date.UTC(2026, 10, 1, 12) + i * 3600_000).toISOString(), { type: 'dream', dreamReflection: reflection }));

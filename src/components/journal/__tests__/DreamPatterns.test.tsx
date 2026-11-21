@@ -126,6 +126,8 @@ describe('DreamPatterns', () => {
 
     expect(screen.getByText(/dream.patterns.dreamsInPeriod/)).toBeInTheDocument();
     expect(screen.getByText(/dream.patterns.needMore/)).toBeInTheDocument();
+    // The short dream is not silently missing from the count.
+    expect(screen.getByText('dream.patterns.tooShort')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /dream.patterns.create/ })).toBeDisabled();
   });
 

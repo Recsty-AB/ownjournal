@@ -2632,6 +2632,7 @@
       "intro": "Hal-hal yang terus muncul dalam mimpi-mimpimu.",
       "dreamsInPeriod_other": "{{count}} mimpi dalam periode ini",
       "needMore": "Laporan memerlukan minimal {{min}} mimpi",
+      "tooShort_other": "{{count}} mimpi dalam periode ini terlalu pendek untuk direfleksikan, jadi tidak ikut dihitung. Refleksi memerlukan minimal {{min}} karakter.",
       "reflectFirst_other": "{{count}} di antaranya belum direfleksikan. Saat kamu membuat laporan, mimpi tersebut direfleksikan lebih dulu, sehingga terpakai {{count}} dari jatah refleksimu bulan ini (masih tersisa {{remaining}}).",
       "notEnoughReflections_other": "{{dreams}} di antaranya belum direfleksikan, sedangkan refleksimu bulan ini tinggal {{count}}. Pilih periode yang lebih pendek.",
       "noReflectionsLeft_other": "{{count}} di antaranya belum direfleksikan, dan refleksimu bulan ini sudah habis. Pilih periode yang lebih pendek.",

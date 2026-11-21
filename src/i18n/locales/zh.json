@@ -2632,6 +2632,7 @@
       "intro": "看看哪些内容在您的梦里一再出现。",
       "dreamsInPeriod_other": "此时期有 {{count}} 个梦",
       "needMore": "生成报告至少需要 {{min}} 个梦",
+      "tooShort_other": "此时期还有 {{count}} 个梦太短，无法解读，不计入上面的数量和报告。解读至少需要 {{min}} 个字符。",
       "reflectFirst_other": "其中 {{count}} 个梦还没有解读。生成报告时会先自动解读，占用本月 {{count}} 次解读（目前剩余 {{remaining}} 次）。",
       "notEnoughReflections_other": "其中 {{dreams}} 个梦还没有解读，但本月只剩 {{count}} 次解读。请选择更短的时期。",
       "noReflectionsLeft_other": "其中 {{count}} 个梦还没有解读，但本月的解读次数已经用完。请选择更短的时期。",

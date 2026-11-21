@@ -2675,6 +2675,8 @@
       "dreamsInPeriod_one": "{{count}} drøm i denne periode",
       "dreamsInPeriod_other": "{{count}} drømme i denne periode",
       "needMore": "Der skal mindst {{min}} drømme til en rapport.",
+      "tooShort_one": "I perioden er en drøm for kort til en refleksion, så den tælles ikke med. Der skal mindst {{min}} tegn til en refleksion.",
+      "tooShort_other": "I perioden er {{count}} drømme for korte til en refleksion, så de tælles ikke med. Der skal mindst {{min}} tegn til en refleksion.",
       "reflectFirst_one": "I perioden har en af drømmene endnu ikke fået en refleksion. Når du laver rapporten, får drømmen en refleksion først, og det bruger én af dine refleksioner denne måned ({{remaining}} tilbage).",
       "reflectFirst_other": "I perioden har {{count}} af drømmene endnu ikke fået en refleksion. Når du laver rapporten, får de hver en refleksion først, og det bruger {{count}} af dine refleksioner denne måned ({{remaining}} tilbage).",
       "notEnoughReflections_one": "I perioden har {{dreams}} af drømmene endnu ikke fået en refleksion, men du har kun én refleksion tilbage denne måned. Vælg en kortere periode.",

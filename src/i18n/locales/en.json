@@ -2675,6 +2675,8 @@
       "dreamsInPeriod_one": "{{count}} dream in this period",
       "dreamsInPeriod_other": "{{count}} dreams in this period",
       "needMore": "A report needs at least {{min}} dreams.",
+      "tooShort_one": "One dream in this period is too short for a reflection, so it isn't counted. A reflection needs at least {{min}} characters.",
+      "tooShort_other": "{{count}} dreams in this period are too short for a reflection, so they aren't counted. A reflection needs at least {{min}} characters.",
       "reflectFirst_one": "One of these dreams has no reflection yet. Creating the report reflects on that dream first, which uses 1 of your reflections this month ({{remaining}} left).",
       "reflectFirst_other": "{{count}} of these dreams have no reflection yet. Creating the report reflects on them first, which uses {{count}} of your reflections this month ({{remaining}} left).",
       "notEnoughReflections_one": "{{dreams}} of these dreams have no reflection yet, but you have only 1 reflection left this month. Choose a shorter period.",

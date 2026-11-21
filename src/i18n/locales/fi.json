@@ -2675,6 +2675,8 @@
       "dreamsInPeriod_one": "{{count}} uni tällä ajanjaksolla",
       "dreamsInPeriod_other": "{{count}} unta tällä ajanjaksolla",
       "needMore": "Raporttiin tarvitaan vähintään {{min}} unta.",
+      "tooShort_one": "Yksi tämän ajanjakson unista on liian lyhyt pohdittavaksi, joten sitä ei lasketa mukaan unien määrään eikä raporttiin. Pohdintaan tarvitaan vähintään {{min}} merkkiä.",
+      "tooShort_other": "Tämän ajanjakson unista {{count}} on liian lyhyitä pohdittaviksi, joten niitä ei lasketa mukaan unien määrään eikä raporttiin. Pohdintaan tarvitaan vähintään {{min}} merkkiä.",
       "reflectFirst_one": "Yksi näistä unista on vielä pohtimatta. Kun luot raportin, tämä uni pohditaan ensin, ja siihen kuluu yksi tämän kuun pohdinnoistasi (jäljellä {{remaining}}).",
       "reflectFirst_other": "Näistä unista {{count}} on vielä pohtimatta. Kun luot raportin, ne pohditaan ensin, ja siihen kuluu {{count}} tämän kuun pohdinnoistasi (jäljellä {{remaining}}).",
       "notEnoughReflections_one": "Näistä unista {{dreams}} on vielä pohtimatta, mutta sinulla on tässä kuussa jäljellä enää yksi pohdinta. Valitse lyhyempi ajanjakso.",

@@ -2675,6 +2675,8 @@
       "dreamsInPeriod_one": "{{count}} Traum in diesem Zeitraum",
       "dreamsInPeriod_other": "{{count}} Träume in diesem Zeitraum",
       "needMore": "Für eine Auswertung sind mindestens {{min}} Träume nötig.",
+      "tooShort_one": "{{count}} Traum in diesem Zeitraum ist für eine Reflexion zu kurz (unter {{min}} Zeichen) und wird nicht mitgezählt.",
+      "tooShort_other": "{{count}} Träume in diesem Zeitraum sind für eine Reflexion zu kurz (unter {{min}} Zeichen) und werden nicht mitgezählt.",
       "reflectFirst_one": "Einer dieser Träume ist noch nicht reflektiert. Das wird vor der Auswertung nachgeholt und kostet eine Ihrer Reflexionen dieses Monats (noch {{remaining}} übrig).",
       "reflectFirst_other": "{{count}} dieser Träume sind noch nicht reflektiert. Das wird vor der Auswertung nachgeholt und kostet {{count}} Ihrer Reflexionen dieses Monats (noch {{remaining}} übrig).",
       "notEnoughReflections_one": "{{dreams}} dieser Träume sind noch nicht reflektiert, Ihnen bleibt diesen Monat aber nur noch eine Reflexion. Wählen Sie einen kürzeren Zeitraum.",
