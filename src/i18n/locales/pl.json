@@ -2128,7 +2128,7 @@
       },
       "dreams": {
         "title": "Dziennik snów i refleksja nad snem",
-        "desc": "Gdy piszesz wpis, dotknij przycisku „Sen” obok daty, a wpis zostanie zapisany jako sen. Zapisz go zaraz po przebudzeniu, tak jak go pamiętasz, i wybierz uczucia, które mu towarzyszyły. Samo zapisywanie snów jest bezpłatne, a sny nie trafiają do kalendarza nastroju i nie wpływają na nastrój w analizie trendów. Jeśli masz plan Plus, dotknij przycisku „Utwórz refleksję”, aby zobaczyć możliwe motywy, obrazy do zgłębienia i pytania dla Ciebie. Pod refleksją możesz zapisać własne przemyślenia, a gdy dotkniesz przycisku „Utwórz nową refleksję”, zostaną one uwzględnione. Plus obejmuje 30 refleksji miesięcznie. Jeśli w wybranym okresie jest co najmniej pięć snów, możesz utworzyć raport „Wzorce snów” za ten okres. Jeśli któreś sny z tego okresu nie mają jeszcze refleksji, przed utworzeniem raportu powstaną refleksje nad nimi, a każda z nich wlicza się do limitu 30 refleksji miesięcznie. W miesiącu możesz utworzyć maksymalnie dwa raporty. Znajdziesz w nich osoby, miejsca i motywy, które wracają w Twoich snach. Aby zestawić sny z dziennikiem, włącz opcję „Uwzględnij sny” w analizie trendów. Limity odnawiają się na początku każdego miesiąca.",
+        "desc": "Gdy piszesz wpis, dotknij przycisku „Sen” obok daty, a wpis zostanie zapisany jako sen. Zapisz go zaraz po przebudzeniu, tak jak go pamiętasz, i wybierz uczucia, które mu towarzyszyły. Samo zapisywanie snów jest bezpłatne, a sny nie trafiają do kalendarza nastroju i nie wpływają na nastrój w analizie trendów. Jeśli masz plan Plus, dotknij przycisku „Utwórz refleksję”, aby zobaczyć możliwe motywy, obrazy do zgłębienia i pytania dla Ciebie. Pod refleksją możesz zapisać własne przemyślenia, a gdy dotkniesz przycisku „Utwórz nową refleksję”, zostaną one uwzględnione. Plus obejmuje 30 refleksji miesięcznie. Jeśli w wybranym okresie jest co najmniej pięć snów, możesz utworzyć raport „Wzorce snów” za ten okres. Jeśli któreś sny z tego okresu nie mają jeszcze refleksji, przed utworzeniem raportu powstaną refleksje nad nimi, a każda z nich wlicza się do limitu 30 refleksji miesięcznie. Raporty możesz tworzyć raz w tygodniu. Znajdziesz w nich osoby, miejsca i motywy, które wracają w Twoich snach. Aby zestawić sny z dziennikiem, włącz opcję „Uwzględnij sny” w analizie trendów. Limit refleksji odnawia się na początku każdego miesiąca.",
         "proNote": "(Funkcja Plus)"
       },
       "dreamMethod": {
@@ -2803,7 +2803,8 @@
       "createNew": "Utwórz nowy raport",
       "creating": "Szukanie wzorców…",
       "reflecting": "Tworzenie refleksji {{current}} z {{total}}…",
-      "remaining": "Pozostało w tym miesiącu: {{remaining}} z {{limit}} raportów",
+      "oncePerWeek": "Jeden raport na tydzień",
+      "usedThisWeek": "W tym tygodniu utworzono już raport. Nowy utworzysz w przyszłym tygodniu.",
       "plusOnly": "Wzorce snów są dostępne w planie Plus",
       "earlyThemes": "Wstępne motywy",
       "earlyThemesNote_one": "Na podstawie {{count}} snu. Im więcej snów, tym wyraźniejsze wzorce — na przykład w dłuższym okresie.",
@@ -2833,7 +2834,7 @@
       "noteTitle": "Wzorce snów — {{date}}",
       "errors": {
         "offline": "Jesteś offline. Wzorce snów wymagają połączenia z internetem.",
-        "limitReached": "W tym miesiącu utworzono już wszystkie raporty „Wzorce snów” ({{limit}}). Nowy utworzysz w przyszłym miesiącu.",
+        "limitReached": "W tym tygodniu utworzono już raport „Wzorce snów”. Nowy utworzysz w przyszłym tygodniu.",
         "failed": "Tym razem nie udało się utworzyć raportu. Spróbuj ponownie.",
         "failedLimitReached": "W tym miesiącu zbyt wiele prób się nie powiodło. Wzorce snów będą znów dostępne w przyszłym miesiącu.",
         "blocked": "Usługa AI nie podejmuje niektórych tematów z Twoich snów, dlatego nie można utworzyć raportu."

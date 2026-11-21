@@ -68,7 +68,8 @@ export interface DreamReflection {
 /** Server limits, mirrored in supabase/functions/ai-analyze (keep in sync). */
 export const DREAM_LIMITS = {
   reflectionsPerMonth: 30,
-  patternReportsPerMonth: 2,
+  /** Per week (Sunday to Saturday, UTC), like Trend Analysis. */
+  patternReportsPerWeek: 1,
   /** Dreams in the chosen period needed for a Dream patterns report. */
   dreamsForPatterns: 5,
   /** Below this many reflected dreams the report is labelled "early themes". */

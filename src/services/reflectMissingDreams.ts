@@ -48,7 +48,7 @@ export async function reflectMissingDreams(
     try {
       const result = await requestDreamReflection(todo[i], entries, options.language);
       if (!options.isCurrent()) return null;
-      aiUsageLimits.setMonthlyDreamCount('dreamReflection', result.used);
+      aiUsageLimits.setDreamCount('dreamReflection', result.used);
       made.set(todo[i].id, result.reflection);
       try {
         await options.onSaved(todo[i], result.reflection);

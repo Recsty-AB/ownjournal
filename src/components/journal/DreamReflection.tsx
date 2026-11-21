@@ -128,7 +128,7 @@ export const DreamReflection = ({
     try {
       const result = await requestDreamReflection(target, allEntries, i18n.language);
       if (!sameUser()) return;
-      aiUsageLimits.setMonthlyDreamCount("dreamReflection", result.used);
+      aiUsageLimits.setDreamCount("dreamReflection", result.used);
       setCollapsed(false);
       await saveReflection(result.reflection);
     } catch (error) {

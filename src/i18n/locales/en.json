@@ -2048,7 +2048,7 @@
       },
       "dreams": {
         "title": "Dream Journal and Reflection",
-        "desc": "Tap \"Dream\" when you write an entry to mark it as a dream. Write it down as soon as you wake, the way you remember it, and pick how it felt. Dreams stay out of your mood calendar and out of the mood trend in Trend Analysis. With Plus, tap \"Reflect on this dream\" to get a reflection with possible themes, images to explore and questions for you. Under a reflection you can write down your own thoughts, and \"Reflect again\" takes them into account. Plus includes 30 reflections a month. When a period you choose holds at least five dreams, you can create a Dream patterns report for it, up to two a month. When you create a report, any dreams in that period without a reflection get one automatically first, and each of these uses one of your 30 reflections a month. The report shows the people, places and themes that keep coming back. To see your dreams beside your journal, turn on \"Include your dreams\" in Trend Analysis.",
+        "desc": "Tap \"Dream\" when you write an entry to mark it as a dream. Write it down as soon as you wake, the way you remember it, and pick how it felt. Dreams stay out of your mood calendar and out of the mood trend in Trend Analysis. With Plus, tap \"Reflect on this dream\" to get a reflection with possible themes, images to explore and questions for you. Under a reflection you can write down your own thoughts, and \"Reflect again\" takes them into account. Plus includes 30 reflections a month. When a period you choose holds at least five dreams, you can create a Dream patterns report for it, once a week. When you create a report, any dreams in that period without a reflection get one automatically first, and each of these uses one of your 30 reflections a month. The report shows the people, places and themes that keep coming back. To see your dreams beside your journal, turn on \"Include your dreams\" in Trend Analysis.",
         "proNote": "(Plus feature)"
       },
       "dreamMethod": {
@@ -2701,7 +2701,8 @@
       "createNew": "Create a new report",
       "creating": "Looking for patterns…",
       "reflecting": "Reflecting on dream {{current}} of {{total}}…",
-      "remaining": "{{remaining}} of {{limit}} reports left this month",
+      "oncePerWeek": "One report a week",
+      "usedThisWeek": "You've created this week's report. You can create a new one next week.",
       "plusOnly": "Dream patterns is available with Plus",
       "earlyThemes": "Early themes",
       "earlyThemesNote_one": "Based on {{count}} dream. Patterns get clearer with more dreams, for example over a longer period.",
@@ -2725,7 +2726,7 @@
       "noteTitle": "Dream patterns, {{date}}",
       "errors": {
         "offline": "You're offline. Dream patterns needs an internet connection.",
-        "limitReached": "You've created {{limit}} Dream patterns reports this month. You can create a new one next month.",
+        "limitReached": "You've already created this week's Dream patterns report. You can create a new one next week.",
         "failed": "The report didn't work this time. Please try again.",
         "failedLimitReached": "Too many attempts didn't work this month, so Dream patterns is paused until next month.",
         "blocked": "The AI service won't respond to some of the themes in your dreams, so no report could be made."

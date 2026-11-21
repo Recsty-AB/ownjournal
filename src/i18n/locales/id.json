@@ -2008,7 +2008,7 @@
       },
       "dreams": {
         "title": "Jurnal dan Refleksi Mimpi",
-        "desc": "Saat menulis catatan, ketuk \"Mimpi\" di baris tanggal agar catatan itu disimpan sebagai mimpi. Tulis begitu bangun tidur, sesuai yang kamu ingat, lalu pilih perasaan yang muncul dalam mimpi itu. Mimpi tidak dimasukkan ke Kalender Suasana Hati dan tidak memengaruhi suasana hati di Analisis Tren. Pelanggan Plus bisa mengetuk \"Refleksikan mimpi ini\" untuk mendapatkan refleksi berisi kemungkinan tema, gambaran dalam mimpi untuk ditelusuri, dan pertanyaan untukmu. Di bawah refleksi, kamu bisa menuliskan pikiranmu sendiri, lalu mengetuk \"Refleksikan lagi\" agar pikiran itu ikut dipertimbangkan. Plus mencakup 30 refleksi per bulan. Kalau ada minimal lima mimpi dalam periode yang kamu pilih, kamu bisa membuat laporan pola mimpi untuk periode tersebut, hingga dua kali sebulan. Saat kamu membuat laporan, mimpi di periode itu yang belum punya refleksi akan direfleksikan otomatis lebih dulu, dan masing-masing memakai satu dari jatah 30 refleksi per bulan. Laporan ini memperlihatkan orang, tempat, dan tema yang terus muncul. Untuk melihat mimpimu berdampingan dengan jurnalmu, aktifkan \"Sertakan mimpimu\" di Analisis Tren.",
+        "desc": "Saat menulis catatan, ketuk \"Mimpi\" di baris tanggal agar catatan itu disimpan sebagai mimpi. Tulis begitu bangun tidur, sesuai yang kamu ingat, lalu pilih perasaan yang muncul dalam mimpi itu. Mimpi tidak dimasukkan ke Kalender Suasana Hati dan tidak memengaruhi suasana hati di Analisis Tren. Pelanggan Plus bisa mengetuk \"Refleksikan mimpi ini\" untuk mendapatkan refleksi berisi kemungkinan tema, gambaran dalam mimpi untuk ditelusuri, dan pertanyaan untukmu. Di bawah refleksi, kamu bisa menuliskan pikiranmu sendiri, lalu mengetuk \"Refleksikan lagi\" agar pikiran itu ikut dipertimbangkan. Plus mencakup 30 refleksi per bulan. Kalau ada minimal lima mimpi dalam periode yang kamu pilih, kamu bisa membuat laporan pola mimpi untuk periode tersebut, seminggu sekali. Saat kamu membuat laporan, mimpi di periode itu yang belum punya refleksi akan direfleksikan otomatis lebih dulu, dan masing-masing memakai satu dari jatah 30 refleksi per bulan. Laporan ini memperlihatkan orang, tempat, dan tema yang terus muncul. Untuk melihat mimpimu berdampingan dengan jurnalmu, aktifkan \"Sertakan mimpimu\" di Analisis Tren.",
         "proNote": "(Fitur Plus)"
       },
       "dreamMethod": {
@@ -2650,7 +2650,8 @@
       "createNew": "Buat laporan baru",
       "creating": "Mencari pola…",
       "reflecting": "Merefleksikan mimpi {{current}} dari {{total}}…",
-      "remaining": "Sisa {{remaining}} dari {{limit}} laporan bulan ini",
+      "oncePerWeek": "Satu laporan seminggu",
+      "usedThisWeek": "Laporan minggu ini sudah kamu buat. Laporan baru bisa dibuat minggu depan.",
       "plusOnly": "Pola mimpi tersedia di Plus",
       "earlyThemes": "Tema awal",
       "earlyThemesNote_other": "Berdasarkan {{count}} mimpi. Makin banyak mimpi, makin jelas polanya, misalnya kalau kamu memilih periode yang lebih panjang.",
@@ -2671,7 +2672,7 @@
       "noteTitle": "Pola mimpi, {{date}}",
       "errors": {
         "offline": "Kamu sedang offline. Pola mimpi memerlukan koneksi internet.",
-        "limitReached": "Kamu sudah membuat {{limit}} laporan pola mimpi bulan ini. Laporan baru bisa dibuat bulan depan.",
+        "limitReached": "Kamu sudah membuat laporan pola mimpi minggu ini. Laporan baru bisa dibuat minggu depan.",
         "failed": "Laporannya belum berhasil dibuat kali ini. Silakan coba lagi.",
         "failedLimitReached": "Terlalu banyak percobaan tidak berhasil bulan ini. Pola mimpi tersedia lagi bulan depan.",
         "blocked": "Layanan AI tidak bisa menanggapi beberapa tema mimpimu, jadi laporannya tidak dapat dibuat."

@@ -26,7 +26,7 @@ function usageSummary(overrides: Record<string, unknown> = {}) {
   return {
     is_pro: true,
     monthly_dream_reflection_count: 0,
-    monthly_dream_patterns_count: 0,
+    weekly_dream_patterns_count: 0,
     ...overrides,
   };
 }
@@ -483,7 +483,7 @@ describe('analyzeDreamPatterns', () => {
     expect(response.status).toBe(200);
     const data = await response.json();
     expect(data.report).toMatchObject({ overview: PATTERNS.overview, dreamCount: 5, recurring: PATTERNS.recurring });
-    expect(data).toMatchObject({ used: 1, limit: 2 });
+    expect(data).toMatchObject({ used: 1, limit: 1 });
     const { system, user, body } = promptText();
     expect(body.generationConfig.maxOutputTokens).toBe(16000);
     expect(body.generationConfig.thinkingConfig).toEqual({ thinkingLevel: 'HIGH' });
@@ -512,12 +512,14 @@ describe('analyzeDreamPatterns', () => {
   });
 
   it('refuses at the monthly limit', async () => {
-    mocks.rpc.mockResolvedValue({ data: [usageSummary({ monthly_dream_patterns_count: 2 })], error: null });
+    mocks.rpc.mockResolvedValue({ data: [usageSummary({ weekly_dream_patterns_count: 1 })], error: null });
 
     const response = await post({ type: 'analyzeDreamPatterns', language: 'en', dreams: dreams(6) });
 
     expect(response.status).toBe(429);
-    expect(await response.json()).toMatchObject({ limitReached: true, limit: 2, current: 2 });
+    const limited = await response.json();
+    expect(limited).toMatchObject({ limitReached: true, limit: 1, current: 1 });
+    expect(limited.error).toContain('weekly limit');
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
@@ -596,6 +598,9 @@ describe('analyzeTrends with dreams', () => {
     expect(body.generationConfig.maxOutputTokens).toBe(16000);
     expect(body.generationConfig.thinkingConfig).toEqual({ thinkingLevel: 'HIGH' });
     expect(user).toContain('1. 2026-11-01, Sentiment: -0.20');
+    // Observations about the user's life are offered, not stated as fact.
+    expect(user).toContain("OFFER, DON'T STATE");
+    expect(user).toContain('「〜ように見えます」');
     expect(user).not.toContain('Dreams the user recorded');
     expect(user).not.toContain('dreamInsights');
   });

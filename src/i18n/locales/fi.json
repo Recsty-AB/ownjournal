@@ -2048,7 +2048,7 @@
       },
       "dreams": {
         "title": "Unipäiväkirja ja unipohdinta",
-        "desc": "Kun kirjoitat merkintää, napauta päivämäärärivin ”Uni”-valintaa, niin merkintä tallentuu unena. Kirjoita uni muistiin heti herättyäsi sellaisena kuin sen muistat ja valitse, miltä uni tuntui. Unet eivät näy mielialakalenterissa, eikä niitä lasketa mukaan trendianalyysin mielialaan. Plus-tilaajana voit napauttaa ”Pohdi tätä unta” -painiketta ja saada pohdinnan, jossa on mahdollisia teemoja, tutkittavia unen kuvia ja kysymyksiä sinulle. Pohdinnan alle voit kirjoittaa omia ajatuksiasi, ja ne otetaan huomioon, kun napautat ”Pohdi uudelleen” -painiketta. Plus sisältää 30 unipohdintaa kuukaudessa. Kun valitsemallasi ajanjaksolla on vähintään viisi unta, voit luoda niistä Unien kuviot -raportin, enintään kaksi kuukaudessa. Siitä näet ihmiset, paikat ja teemat, jotka toistuvat unissasi. Kun luot raportin, valitsemasi ajanjakson unet, joita ei ole vielä pohdittu, pohditaan ensin automaattisesti. Nämä pohdinnat vähennetään kuukauden 30 unipohdinnasta. Jos haluat nähdä unesi päiväkirjasi rinnalla, ota trendianalyysissä käyttöön ”Ota unet mukaan analyysiin” -asetus.",
+        "desc": "Kun kirjoitat merkintää, napauta päivämäärärivin ”Uni”-valintaa, niin merkintä tallentuu unena. Kirjoita uni muistiin heti herättyäsi sellaisena kuin sen muistat ja valitse, miltä uni tuntui. Unet eivät näy mielialakalenterissa, eikä niitä lasketa mukaan trendianalyysin mielialaan. Plus-tilaajana voit napauttaa ”Pohdi tätä unta” -painiketta ja saada pohdinnan, jossa on mahdollisia teemoja, tutkittavia unen kuvia ja kysymyksiä sinulle. Pohdinnan alle voit kirjoittaa omia ajatuksiasi, ja ne otetaan huomioon, kun napautat ”Pohdi uudelleen” -painiketta. Plus sisältää 30 unipohdintaa kuukaudessa. Kun valitsemallasi ajanjaksolla on vähintään viisi unta, voit luoda niistä Unien kuviot -raportin kerran viikossa. Siitä näet ihmiset, paikat ja teemat, jotka toistuvat unissasi. Kun luot raportin, valitsemasi ajanjakson unet, joita ei ole vielä pohdittu, pohditaan ensin automaattisesti. Nämä pohdinnat vähennetään kuukauden 30 unipohdinnasta. Jos haluat nähdä unesi päiväkirjasi rinnalla, ota trendianalyysissä käyttöön ”Ota unet mukaan analyysiin” -asetus.",
         "proNote": "(Plus-ominaisuus)"
       },
       "dreamMethod": {
@@ -2701,7 +2701,8 @@
       "createNew": "Luo uusi raportti",
       "creating": "Etsitään kuvioita…",
       "reflecting": "Pohditaan unta {{current}} / {{total}}…",
-      "remaining": "Raportteja jäljellä tässä kuussa: {{remaining}} / {{limit}}",
+      "oncePerWeek": "Yksi raportti viikossa",
+      "usedThisWeek": "Olet jo luonut tämän viikon raportin. Voit luoda uuden ensi viikolla.",
       "plusOnly": "Unien kuviot -toiminto sisältyy Plus-tilaukseen",
       "earlyThemes": "Alustavia teemoja",
       "earlyThemesNote_one": "Perustuu {{count}} uneen. Kuviot selkenevät, kun unia on enemmän, esimerkiksi pidemmältä ajanjaksolta.",
@@ -2725,7 +2726,7 @@
       "noteTitle": "Unien kuviot – {{date}}",
       "errors": {
         "offline": "Olet offline-tilassa. Unien kuviot -toiminto vaatii internetyhteyden.",
-        "limitReached": "Olet luonut tässä kuussa jo {{limit}} Unien kuviot -raporttia. Voit luoda uuden ensi kuussa.",
+        "limitReached": "Olet jo luonut tämän viikon Unien kuviot -raportin. Voit luoda uuden ensi viikolla.",
         "failed": "Raportin luominen ei onnistunut tällä kertaa. Yritä uudelleen.",
         "failedLimitReached": "Liian moni yrityskerta on epäonnistunut tässä kuussa. Voit luoda raportin ensi kuussa.",
         "blocked": "Tekoälypalvelu ei käsittele joitakin uniesi teemoja, joten raporttia ei voi luoda."

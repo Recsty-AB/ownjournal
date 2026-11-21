@@ -2088,7 +2088,7 @@
       },
       "dreams": {
         "title": "Journal de rêves et réflexion",
-        "desc": "Quand vous écrivez une entrée, activez « Rêve » pour l'enregistrer comme un rêve. Notez-le dès le réveil, tel qu'il vous revient, puis choisissez les émotions qu'il vous a laissées. Les rêves n'apparaissent pas dans le calendrier d'humeur, et l'analyse des tendances n'en tient pas compte pour évaluer votre humeur. Avec Plus, appuyez sur « Explorer ce rêve » pour obtenir une réflexion : des thèmes possibles, des images à explorer et des questions à vous poser. Sous la réflexion, vous pouvez noter vos propres pensées : « Explorer à nouveau » en tient compte. Plus comprend 30 réflexions par mois. Dès qu'une période de votre choix compte au moins cinq rêves, vous pouvez créer un bilan « Motifs récurrents des rêves » sur cette période, jusqu'à deux par mois. À la création du bilan, les rêves de cette période qui n'ont pas encore de réflexion sont d'abord explorés automatiquement, et chacun utilise l'une de vos 30 réflexions du mois. Le bilan fait ressortir les personnes, les lieux et les thèmes qui reviennent. Pour mettre vos rêves en regard de votre journal, activez « Inclure vos rêves » dans l'analyse des tendances.",
+        "desc": "Quand vous écrivez une entrée, activez « Rêve » pour l'enregistrer comme un rêve. Notez-le dès le réveil, tel qu'il vous revient, puis choisissez les émotions qu'il vous a laissées. Les rêves n'apparaissent pas dans le calendrier d'humeur, et l'analyse des tendances n'en tient pas compte pour évaluer votre humeur. Avec Plus, appuyez sur « Explorer ce rêve » pour obtenir une réflexion : des thèmes possibles, des images à explorer et des questions à vous poser. Sous la réflexion, vous pouvez noter vos propres pensées : « Explorer à nouveau » en tient compte. Plus comprend 30 réflexions par mois. Dès qu'une période de votre choix compte au moins cinq rêves, vous pouvez créer un bilan « Motifs récurrents des rêves » sur cette période, une fois par semaine. À la création du bilan, les rêves de cette période qui n'ont pas encore de réflexion sont d'abord explorés automatiquement, et chacun utilise l'une de vos 30 réflexions du mois. Le bilan fait ressortir les personnes, les lieux et les thèmes qui reviennent. Pour mettre vos rêves en regard de votre journal, activez « Inclure vos rêves » dans l'analyse des tendances.",
         "proNote": "(Fonctionnalité Plus)"
       },
       "dreamMethod": {
@@ -2752,7 +2752,8 @@
       "createNew": "Créer un nouveau bilan",
       "creating": "Recherche des motifs…",
       "reflecting": "Exploration du rêve {{current}} sur {{total}}…",
-      "remaining": "Bilans restants ce mois-ci : {{remaining}} sur {{limit}}",
+      "oncePerWeek": "Un bilan par semaine",
+      "usedThisWeek": "Vous avez créé le bilan de cette semaine. Vous pourrez en créer un nouveau la semaine prochaine.",
       "plusOnly": "Le bilan « Motifs récurrents des rêves » est disponible avec Plus",
       "earlyThemes": "Premiers thèmes",
       "earlyThemesNote_one": "D'après {{count}} rêve. Les motifs se dessinent mieux avec davantage de rêves, par exemple sur une période plus longue.",
@@ -2779,7 +2780,7 @@
       "noteTitle": "Motifs récurrents des rêves ({{date}})",
       "errors": {
         "offline": "Vous êtes hors ligne. Le bilan « Motifs récurrents des rêves » nécessite une connexion Internet.",
-        "limitReached": "Vous avez créé vos {{limit}} bilans « Motifs récurrents des rêves » du mois. Vous pourrez en créer un nouveau le mois prochain.",
+        "limitReached": "Vous avez déjà créé le bilan « Motifs récurrents des rêves » de cette semaine. Vous pourrez en créer un nouveau la semaine prochaine.",
         "failed": "Le bilan n'a pas pu être créé cette fois-ci. Veuillez réessayer.",
         "failedLimitReached": "Trop de demandes n'ont pas abouti ce mois-ci. Vous pourrez de nouveau créer des bilans le mois prochain.",
         "blocked": "Le service d'IA ne traite pas certains thèmes présents dans vos rêves : le bilan n'a donc pas pu être créé."

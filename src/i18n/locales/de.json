@@ -2048,7 +2048,7 @@
       },
       "dreams": {
         "title": "Traumtagebuch und Traumreflexion",
-        "desc": "Tippen Sie beim Schreiben eines Eintrags auf „Traum“, um ihn als Traum zu speichern. Schreiben Sie den Traum gleich nach dem Aufwachen so auf, wie Sie ihn in Erinnerung haben, und wählen Sie die Gefühle aus, die dazu passen. Träume erscheinen nicht im Stimmungskalender und fließen nicht in den Stimmungstrend der Trendanalyse ein. Mit Plus tippen Sie auf „Traum reflektieren“ und erhalten eine Reflexion mit möglichen Themen, Traumbildern zum Erkunden und Fragen zum Nachdenken. Unter einer Reflexion können Sie Ihre eigenen Gedanken notieren. Bei „Erneut reflektieren“ werden sie berücksichtigt. Plus enthält 30 Reflexionen pro Monat. Umfasst ein Zeitraum Ihrer Wahl mindestens fünf Träume, können Sie dafür eine Traummuster-Auswertung erstellen, bis zu zwei pro Monat. Hat ein Traum aus diesem Zeitraum noch keine Reflexion, erhält er vor der Auswertung automatisch eine. Diese Reflexionen zählen zu den 30 pro Monat. Die Auswertung zeigt, welche Personen, Orte und Themen immer wiederkehren. Um Ihre Träume Ihrem Tagebuch gegenüberzustellen, schalten Sie in der Trendanalyse „Träume einbeziehen“ ein.",
+        "desc": "Tippen Sie beim Schreiben eines Eintrags auf „Traum“, um ihn als Traum zu speichern. Schreiben Sie den Traum gleich nach dem Aufwachen so auf, wie Sie ihn in Erinnerung haben, und wählen Sie die Gefühle aus, die dazu passen. Träume erscheinen nicht im Stimmungskalender und fließen nicht in den Stimmungstrend der Trendanalyse ein. Mit Plus tippen Sie auf „Traum reflektieren“ und erhalten eine Reflexion mit möglichen Themen, Traumbildern zum Erkunden und Fragen zum Nachdenken. Unter einer Reflexion können Sie Ihre eigenen Gedanken notieren. Bei „Erneut reflektieren“ werden sie berücksichtigt. Plus enthält 30 Reflexionen pro Monat. Umfasst ein Zeitraum Ihrer Wahl mindestens fünf Träume, können Sie dafür eine Traummuster-Auswertung erstellen, einmal pro Woche. Hat ein Traum aus diesem Zeitraum noch keine Reflexion, erhält er vor der Auswertung automatisch eine. Diese Reflexionen zählen zu den 30 pro Monat. Die Auswertung zeigt, welche Personen, Orte und Themen immer wiederkehren. Um Ihre Träume Ihrem Tagebuch gegenüberzustellen, schalten Sie in der Trendanalyse „Träume einbeziehen“ ein.",
         "proNote": "(Plus-Funktion)"
       },
       "dreamMethod": {
@@ -2701,7 +2701,8 @@
       "createNew": "Neue Auswertung erstellen",
       "creating": "Muster werden gesucht…",
       "reflecting": "Reflexion {{current}} von {{total}} wird erstellt…",
-      "remaining": "Noch {{remaining}} von {{limit}} Auswertungen diesen Monat",
+      "oncePerWeek": "Eine Auswertung pro Woche",
+      "usedThisWeek": "Die Auswertung für diese Woche ist erstellt. Nächste Woche können Sie wieder eine neue erstellen.",
       "plusOnly": "Die Traummuster-Auswertung ist in Plus enthalten",
       "earlyThemes": "Erste Themen",
       "earlyThemesNote_one": "Diese Auswertung beruht auf {{count}} Traum. Mit mehr Träumen, etwa aus einem längeren Zeitraum, werden die Muster deutlicher.",
@@ -2725,7 +2726,7 @@
       "noteTitle": "Traummuster vom {{date}}",
       "errors": {
         "offline": "Sie sind offline. Die Traummuster-Auswertung benötigt eine Internetverbindung.",
-        "limitReached": "Sie haben in diesem Monat bereits {{limit}} Traummuster-Auswertungen erstellt. Im nächsten Monat können Sie wieder eine neue erstellen.",
+        "limitReached": "Sie haben in dieser Woche bereits eine Traummuster-Auswertung erstellt. Nächste Woche können Sie wieder eine neue erstellen.",
         "failed": "Die Auswertung konnte diesmal nicht erstellt werden. Bitte versuchen Sie es erneut.",
         "failedLimitReached": "Diesen Monat sind zu viele Versuche fehlgeschlagen. Die Traummuster-Auswertung ist erst nächsten Monat wieder verfügbar.",
         "blocked": "Auf einige Themen aus Ihren Träumen geht der KI-Dienst nicht ein – daher konnte keine Traummuster-Auswertung erstellt werden."

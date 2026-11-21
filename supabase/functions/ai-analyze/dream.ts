@@ -13,7 +13,8 @@ import { getModelForType, getThinkingLevelForType, type GoogleThinkingLevel } fr
 // Keep in sync with DREAM_LIMITS in src/types/dream.ts.
 export const DREAM_LIMITS = {
   reflectionsPerMonth: 30,
-  patternReportsPerMonth: 2,
+  // Per week (Sunday to Saturday, UTC), like Trend Analysis.
+  patternReportsPerWeek: 1,
   // Requests that reached Gemini but produced nothing usable. They cost money
   // without counting as a reflection or a report, so they have their own cap.
   failedRequestsPerMonth: 20,
@@ -390,17 +391,17 @@ async function recordUsage(
   }
 }
 
-function monthlyCount(ctx: DreamRequestContext, column: string): number | null {
+function usageCount(ctx: DreamRequestContext, column: string): number | null {
   const value = Number(ctx.usageSummary?.[column]);
   // A missing column means the migration has not been applied. Refuse rather
   // than run without a limit.
   return Number.isFinite(value) ? value : null;
 }
 
-function limitResponse(ctx: DreamRequestContext, limit: number, current: number, what: string): Response {
+function limitResponse(ctx: DreamRequestContext, limit: number, current: number, what: string, per: "week" | "month"): Response {
   return json(
     {
-      error: `You've reached the monthly limit of ${limit} ${what}. The limit resets next month.`,
+      error: `You've reached the ${per === "week" ? "weekly" : "monthly"} limit of ${limit} ${what}. The limit resets next ${per}.`,
       limitReached: true,
       limit,
       current,
@@ -437,12 +438,12 @@ async function handleReflection(ctx: DreamRequestContext): Promise<Response> {
     );
   }
 
-  const used = monthlyCount(ctx, "monthly_dream_reflection_count");
+  const used = usageCount(ctx, "monthly_dream_reflection_count");
   if (used === null) {
     return json({ error: "Dream reflection is not available yet. Please try again later." }, 503, ctx.corsHeaders);
   }
   if (used >= DREAM_LIMITS.reflectionsPerMonth) {
-    return limitResponse(ctx, DREAM_LIMITS.reflectionsPerMonth, used, "dream reflections");
+    return limitResponse(ctx, DREAM_LIMITS.reflectionsPerMonth, used, "dream reflections", "month");
   }
   const capped = failedCapResponse(ctx);
   if (capped) return capped;
@@ -561,12 +562,12 @@ async function handlePatterns(ctx: DreamRequestContext): Promise<Response> {
     );
   }
 
-  const used = monthlyCount(ctx, "monthly_dream_patterns_count");
+  const used = usageCount(ctx, "weekly_dream_patterns_count");
   if (used === null) {
     return json({ error: "Dream patterns is not available yet. Please try again later." }, 503, ctx.corsHeaders);
   }
-  if (used >= DREAM_LIMITS.patternReportsPerMonth) {
-    return limitResponse(ctx, DREAM_LIMITS.patternReportsPerMonth, used, "Dream patterns reports");
+  if (used >= DREAM_LIMITS.patternReportsPerWeek) {
+    return limitResponse(ctx, DREAM_LIMITS.patternReportsPerWeek, used, "Dream patterns reports", "week");
   }
   const capped = failedCapResponse(ctx);
   if (capped) return capped;
@@ -624,7 +625,7 @@ Fill every field of find_dream_patterns:
   };
 
   await recordUsage(ctx, "dreamPatterns", usage, model);
-  return json({ report, used: used + 1, limit: DREAM_LIMITS.patternReportsPerMonth }, 200, ctx.corsHeaders);
+  return json({ report, used: used + 1, limit: DREAM_LIMITS.patternReportsPerWeek }, 200, ctx.corsHeaders);
 }
 
 // ---------------------------------------------------------------------------

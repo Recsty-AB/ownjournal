@@ -2048,7 +2048,7 @@
       },
       "dreams": {
         "title": "Drømmedagbok og drømmerefleksjon",
-        "desc": "Slå på «Drøm» når du skriver et innlegg, så lagres det som en drøm. Det er gratis å føre drømmedagbok. Skriv drømmen ned med en gang du våkner, slik du husker den, og velg følelsene du kjente i den. Drømmer holdes utenfor humørkalenderen og påvirker ikke humøret i trendanalysen. Med Plus kan du trykke på «Reflekter over drømmen» og få en refleksjon med mulige temaer, drømmebilder å utforske og spørsmål å tenke over. Nedenfor refleksjonen kan du skrive ned dine egne tanker. Trykker du på «Reflekter på nytt», tas de med i den nye refleksjonen. Plus inkluderer 30 refleksjoner i måneden. Velger du en periode med minst fem drømmer, kan du lage en mønsterrapport for den under «Drømmemønstre», opptil to i måneden. Har noen av drømmene i perioden ingen refleksjon ennå, får de hver sin refleksjon automatisk før rapporten lages. Disse refleksjonene regnes med blant de 30 i måneden. Rapporten viser hvilke personer, steder og temaer som går igjen. Vil du se drømmene ved siden av dagboken, kan du slå på «Ta med drømmene dine» i trendanalysen.",
+        "desc": "Slå på «Drøm» når du skriver et innlegg, så lagres det som en drøm. Det er gratis å føre drømmedagbok. Skriv drømmen ned med en gang du våkner, slik du husker den, og velg følelsene du kjente i den. Drømmer holdes utenfor humørkalenderen og påvirker ikke humøret i trendanalysen. Med Plus kan du trykke på «Reflekter over drømmen» og få en refleksjon med mulige temaer, drømmebilder å utforske og spørsmål å tenke over. Nedenfor refleksjonen kan du skrive ned dine egne tanker. Trykker du på «Reflekter på nytt», tas de med i den nye refleksjonen. Plus inkluderer 30 refleksjoner i måneden. Velger du en periode med minst fem drømmer, kan du lage en mønsterrapport for den under «Drømmemønstre», én gang i uken. Har noen av drømmene i perioden ingen refleksjon ennå, får de hver sin refleksjon automatisk før rapporten lages. Disse refleksjonene regnes med blant de 30 i måneden. Rapporten viser hvilke personer, steder og temaer som går igjen. Vil du se drømmene ved siden av dagboken, kan du slå på «Ta med drømmene dine» i trendanalysen.",
         "proNote": "(Plus-funksjon)"
       },
       "dreamMethod": {
@@ -2701,7 +2701,8 @@
       "createNew": "Lag en ny rapport",
       "creating": "Ser etter mønstre…",
       "reflecting": "Reflekterer over drøm {{current}} av {{total}}…",
-      "remaining": "{{remaining}} av {{limit}} rapporter igjen denne måneden",
+      "oncePerWeek": "Én rapport per uke",
+      "usedThisWeek": "Du har laget ukens rapport. Neste uke kan du lage en ny.",
       "plusOnly": "Drømmemønstre er inkludert i Plus",
       "earlyThemes": "Foreløpige temaer",
       "earlyThemesNote_one": "Bygger på {{count}} drøm. Mønstrene blir tydeligere med flere drømmer, for eksempel om du velger en lengre periode.",
@@ -2725,7 +2726,7 @@
       "noteTitle": "Drømmemønstre, {{date}}",
       "errors": {
         "offline": "Du er frakoblet. Drømmemønstre krever internettilkobling.",
-        "limitReached": "Du har laget {{limit}} mønsterrapporter denne måneden. Neste måned kan du lage en ny.",
+        "limitReached": "Du har allerede laget ukens mønsterrapport. Neste uke kan du lage en ny.",
         "failed": "Det gikk ikke å lage rapporten denne gangen. Prøv igjen.",
         "failedLimitReached": "For mange forsøk har mislyktes denne måneden. Prøv igjen neste måned.",
         "blocked": "AI-tjenesten vil ikke svare på enkelte av temaene i drømmene dine, så det ble ingen rapport."

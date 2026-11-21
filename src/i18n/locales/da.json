@@ -2048,7 +2048,7 @@
       },
       "dreams": {
         "title": "Drømmedagbog og drømmerefleksion",
-        "desc": "Tryk på \"Drøm\", når du skriver et indlæg, så gemmes det som en drøm. Skriv drømmen ned, så snart du er vågnet, sådan som du husker den, og vælg de følelser, den gav dig. Drømme kommer hverken med i humørkalenderen eller i humørtendenserne i tendensanalysen. Med Plus kan du trykke på \"Reflekter over drømmen\" og få en refleksion med mulige temaer, billeder at dykke ned i og spørgsmål til dig selv. Lige under refleksionen kan du skrive dine egne tanker ned, og de kommer med, når du trykker på \"Reflekter igen\". Plus inkluderer 30 refleksioner om måneden. Er der mindst fem drømme i den periode, du vælger, kan du lave en rapport om dine drømmemønstre for perioden, op til to om måneden. Drømme i perioden, som endnu ikke har fået en refleksion, får en først. Disse refleksioner tæller med i de 30 om måneden. Rapporten viser de personer, steder og temaer, der går igen. Vil du se dine drømme ved siden af din dagbog, kan du slå \"Tag dine drømme med\" til i tendensanalysen.",
+        "desc": "Tryk på \"Drøm\", når du skriver et indlæg, så gemmes det som en drøm. Skriv drømmen ned, så snart du er vågnet, sådan som du husker den, og vælg de følelser, den gav dig. Drømme kommer hverken med i humørkalenderen eller i humørtendenserne i tendensanalysen. Med Plus kan du trykke på \"Reflekter over drømmen\" og få en refleksion med mulige temaer, billeder at dykke ned i og spørgsmål til dig selv. Lige under refleksionen kan du skrive dine egne tanker ned, og de kommer med, når du trykker på \"Reflekter igen\". Plus inkluderer 30 refleksioner om måneden. Er der mindst fem drømme i den periode, du vælger, kan du lave en rapport om dine drømmemønstre for perioden, én gang om ugen. Drømme i perioden, som endnu ikke har fået en refleksion, får en først. Disse refleksioner tæller med i de 30 om måneden. Rapporten viser de personer, steder og temaer, der går igen. Vil du se dine drømme ved siden af din dagbog, kan du slå \"Tag dine drømme med\" til i tendensanalysen.",
         "proNote": "(Plus-funktion)"
       },
       "dreamMethod": {
@@ -2701,7 +2701,8 @@
       "createNew": "Lav en ny rapport",
       "creating": "Leder efter mønstre…",
       "reflecting": "Reflekterer over drøm {{current}} af {{total}}…",
-      "remaining": "{{remaining}} af {{limit}} rapporter tilbage denne måned",
+      "oncePerWeek": "Én rapport om ugen",
+      "usedThisWeek": "Du har lavet ugens rapport. Du kan lave en ny næste uge.",
       "plusOnly": "Drømmemønstre er inkluderet i Plus",
       "earlyThemes": "Foreløbige temaer",
       "earlyThemesNote_one": "Ud fra {{count}} drøm. Mønstrene bliver tydeligere, jo flere drømme der er med, for eksempel hvis du vælger en længere periode.",
@@ -2725,7 +2726,7 @@
       "noteTitle": "Drømmemønstre – {{date}}",
       "errors": {
         "offline": "Du er offline. Drømmemønstre kræver en internetforbindelse.",
-        "limitReached": "Du har lavet {{limit}} rapporter om drømmemønstre denne måned. Du kan lave en ny næste måned.",
+        "limitReached": "Du har allerede lavet ugens rapport om drømmemønstre. Du kan lave en ny næste uge.",
         "failed": "Det lykkedes ikke at lave rapporten denne gang. Prøv igen.",
         "failedLimitReached": "Drømmemønstre er sat på pause til næste måned, fordi for mange forsøg er mislykkedes.",
         "blocked": "Rapporten blev ikke lavet, fordi AI-tjenesten ikke vil behandle nogle af dine drømmetemaer."

@@ -29,7 +29,7 @@ const summary = (counts: Record<string, unknown> = {}) => ({
     yearly_trend_count: 0,
     monthly_transcription_seconds: 0,
     monthly_dream_reflection_count: 0,
-    monthly_dream_patterns_count: 0,
+    weekly_dream_patterns_count: 0,
     monthly_dream_failed_count: 0,
     ...counts,
   }],
@@ -44,17 +44,30 @@ beforeEach(() => {
 });
 
 describe('aiUsageLimits dream features', () => {
-  it('allows 30 reflections and 2 pattern reports a month', () => {
+  it('allows 30 reflections a month and one pattern report a week', () => {
     expect(aiUsageLimits.getUsageStats().dreamReflection).toEqual({ current: 0, limit: 30 });
-    expect(aiUsageLimits.getUsageStats().dreamPatterns).toEqual({ current: 0, limit: 2 });
+    expect(aiUsageLimits.getUsageStats().dreamPatterns).toEqual({ current: 0, limit: 1 });
 
-    aiUsageLimits.setMonthlyDreamCount('dreamReflection', 29);
+    aiUsageLimits.setDreamCount('dreamReflection', 29);
     expect(aiUsageLimits.canUseFeature('dreamReflection').allowed).toBe(true);
-    aiUsageLimits.setMonthlyDreamCount('dreamReflection', 30);
+    aiUsageLimits.setDreamCount('dreamReflection', 30);
     expect(aiUsageLimits.canUseFeature('dreamReflection')).toMatchObject({ allowed: false, current: 30, limit: 30 });
 
     aiUsageLimits.markLimitReached('dreamPatterns');
-    expect(aiUsageLimits.canUseFeature('dreamPatterns')).toMatchObject({ allowed: false, limit: 2 });
+    expect(aiUsageLimits.canUseFeature('dreamPatterns')).toMatchObject({ allowed: false, limit: 1 });
+  });
+
+  it('counts Dream patterns per UTC week from Sunday, also across a month boundary', () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-11-30T10:00:00Z')); // Monday; the week began on Sunday 29 November
+    aiUsageLimits.setDreamCount('dreamPatterns', 1);
+    expect(aiUsageLimits.canUseFeature('dreamPatterns').allowed).toBe(false);
+
+    vi.setSystemTime(new Date('2026-12-01T10:00:00Z')); // a new month, the same week
+    expect(aiUsageLimits.canUseFeature('dreamPatterns').allowed).toBe(false);
+
+    vi.setSystemTime(new Date('2026-12-06T00:30:00Z')); // Sunday: a new week
+    expect(aiUsageLimits.canUseFeature('dreamPatterns').allowed).toBe(true);
   });
 
   it('loads usage saved by an older app version without dream counters', () => {
@@ -71,7 +84,7 @@ describe('aiUsageLimits dream features', () => {
   it('takes the counts from the server, which counts the usage rows itself', async () => {
     db.result = summary({
       monthly_dream_reflection_count: 2,
-      monthly_dream_patterns_count: 1,
+      weekly_dream_patterns_count: 1,
       monthly_dream_failed_count: 1,
       monthly_title_count: 1,
       weekly_trend_count: 1,
@@ -98,7 +111,7 @@ describe('aiUsageLimits dream features', () => {
   });
 
   it('shows nothing used for an account without a subscription record', async () => {
-    aiUsageLimits.setMonthlyDreamCount('dreamReflection', 5);
+    aiUsageLimits.setDreamCount('dreamReflection', 5);
     db.result = { data: [], error: null };
 
     await aiUsageLimits.syncFromBackend();
@@ -107,7 +120,7 @@ describe('aiUsageLimits dream features', () => {
   });
 
   it('reads counts sent as text and ignores values that are not counts', async () => {
-    db.result = summary({ monthly_dream_reflection_count: '7', monthly_dream_patterns_count: -1, monthly_title_count: null });
+    db.result = summary({ monthly_dream_reflection_count: '7', weekly_dream_patterns_count: -1, monthly_title_count: null });
 
     await aiUsageLimits.syncFromBackend();
 
@@ -121,8 +134,8 @@ describe('aiUsageLimits dream features', () => {
     ['the read fails', { data: null, error: { message: 'network' } }],
     ['the read returns nothing', { data: null, error: null }],
   ])('keeps the counts it has when %s', async (_name, result) => {
-    aiUsageLimits.setMonthlyDreamCount('dreamReflection', 30);
-    aiUsageLimits.setMonthlyDreamCount('dreamPatterns', 2);
+    aiUsageLimits.setDreamCount('dreamReflection', 30);
+    aiUsageLimits.setDreamCount('dreamPatterns', 1);
     const notified = vi.fn();
     const unsubscribe = aiUsageLimits.subscribe(notified);
     db.result = result;
@@ -131,7 +144,7 @@ describe('aiUsageLimits dream features', () => {
     unsubscribe();
 
     expect(aiUsageLimits.getUsageStats().dreamReflection.current).toBe(30);
-    expect(aiUsageLimits.getUsageStats().dreamPatterns.current).toBe(2);
+    expect(aiUsageLimits.getUsageStats().dreamPatterns.current).toBe(1);
     expect(aiUsageLimits.canUseFeature('dreamReflection').allowed).toBe(false);
     expect(notified).not.toHaveBeenCalled();
   });
@@ -157,7 +170,7 @@ describe('aiUsageLimits dream features', () => {
   it('starts a new month when the server does, at midnight UTC', () => {
     vi.useFakeTimers({ toFake: ['Date'] });
     vi.setSystemTime(new Date('2026-11-30T23:59:00.000Z'));
-    aiUsageLimits.setMonthlyDreamCount('dreamReflection', 30);
+    aiUsageLimits.setDreamCount('dreamReflection', 30);
     expect(aiUsageLimits.getUsageStats().dreamReflection.current).toBe(30);
 
     vi.setSystemTime(new Date('2026-12-01T00:01:00.000Z'));
@@ -166,7 +179,7 @@ describe('aiUsageLimits dream features', () => {
   });
 
   it('ignores invalid server counts', () => {
-    aiUsageLimits.setMonthlyDreamCount('dreamReflection', Number.NaN);
+    aiUsageLimits.setDreamCount('dreamReflection', Number.NaN);
     expect(aiUsageLimits.getUsageStats().dreamReflection.current).toBe(0);
   });
 });

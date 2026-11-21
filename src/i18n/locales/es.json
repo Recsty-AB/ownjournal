@@ -2088,7 +2088,7 @@
       },
       "dreams": {
         "title": "Diario de sueños y reflexión",
-        "desc": "Al escribir una entrada, activa \"Sueño\" para guardarla como sueño. Anota lo que has soñado nada más despertarte, tal como lo recuerdes, y marca qué sentiste. Los sueños quedan fuera del calendario de ánimo y no cuentan para el estado de ánimo en el análisis de tendencias. Con Plus, toca \"Reflexionar sobre este sueño\" y recibirás una reflexión con posibles temas, imágenes para explorar y preguntas para ti. Debajo de la reflexión puedes escribir tus pensamientos, que se tendrán en cuenta al tocar \"Volver a reflexionar\". Plus incluye 30 reflexiones al mes. Si en el periodo que elijas hay al menos cinco sueños, podrás crear un informe de patrones de tus sueños sobre ese periodo (hasta dos al mes). Al crear el informe, los sueños de ese periodo que aún no tienen reflexión reciben primero la suya, y cada una cuenta como una de las 30 reflexiones del mes. El informe muestra las personas, los lugares y los temas que se repiten. Para ver tus sueños junto a tu diario, activa \"Incluir tus sueños\" en el análisis de tendencias.",
+        "desc": "Al escribir una entrada, activa \"Sueño\" para guardarla como sueño. Anota lo que has soñado nada más despertarte, tal como lo recuerdes, y marca qué sentiste. Los sueños quedan fuera del calendario de ánimo y no cuentan para el estado de ánimo en el análisis de tendencias. Con Plus, toca \"Reflexionar sobre este sueño\" y recibirás una reflexión con posibles temas, imágenes para explorar y preguntas para ti. Debajo de la reflexión puedes escribir tus pensamientos, que se tendrán en cuenta al tocar \"Volver a reflexionar\". Plus incluye 30 reflexiones al mes. Si en el periodo que elijas hay al menos cinco sueños, podrás crear un informe de patrones de tus sueños sobre ese periodo (uno por semana). Al crear el informe, los sueños de ese periodo que aún no tienen reflexión reciben primero la suya, y cada una cuenta como una de las 30 reflexiones del mes. El informe muestra las personas, los lugares y los temas que se repiten. Para ver tus sueños junto a tu diario, activa \"Incluir tus sueños\" en el análisis de tendencias.",
         "proNote": "(Función Plus)"
       },
       "dreamMethod": {
@@ -2752,7 +2752,8 @@
       "createNew": "Crear un informe nuevo",
       "creating": "Buscando patrones…",
       "reflecting": "Preparando la reflexión {{current}} de {{total}}…",
-      "remaining": "Informes restantes este mes: {{remaining}} de {{limit}}",
+      "oncePerWeek": "Un informe por semana",
+      "usedThisWeek": "Ya has creado el informe de esta semana. Podrás crear uno nuevo la semana que viene.",
       "plusOnly": "El informe de patrones de tus sueños está disponible con Plus",
       "earlyThemes": "Primeros temas",
       "earlyThemesNote_one": "A partir de {{count}} sueño. Los patrones se irán aclarando con más sueños, por ejemplo, si eliges un periodo más largo.",
@@ -2779,7 +2780,7 @@
       "noteTitle": "Patrones de mis sueños, {{date}}",
       "errors": {
         "offline": "No tienes conexión. Los patrones de tus sueños necesitan conexión a Internet.",
-        "limitReached": "Ya has creado {{limit}} informes de patrones este mes. Podrás crear uno nuevo el mes que viene.",
+        "limitReached": "Ya has creado el informe de patrones de esta semana. Podrás crear uno nuevo la semana que viene.",
         "failed": "Esta vez no se pudo crear el informe. Inténtalo de nuevo.",
         "failedLimitReached": "Ha habido demasiados fallos este mes. No podrás crear informes hasta el mes que viene.",
         "blocked": "No se pudo crear el informe: el servicio de IA no puede responder sobre algunos temas de tus sueños."

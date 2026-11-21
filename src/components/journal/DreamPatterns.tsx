@@ -88,7 +88,7 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
   const tooShort = useMemo(() => tooShortDreams(entries, period.start, period.end), [entries, period]);
 
   const unlocked = periodDreams.length >= DREAM_LIMITS.dreamsForPatterns;
-  const remaining = Math.max(0, usage.limit - usage.current);
+  const weekUsed = usage.current >= usage.limit;
   const reflectionsLeft = Math.max(0, reflectionUsage.limit - reflectionUsage.current);
   const tooFewReflections = withoutReflection > reflectionsLeft;
 
@@ -139,7 +139,7 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
   const showError = (key: string) =>
     toast({
       title: t("dream.patterns.title"),
-      description: t(`dream.patterns.errors.${key}`, { limit: DREAM_LIMITS.patternReportsPerMonth }),
+      description: t(`dream.patterns.errors.${key}`),
       variant: "destructive",
     });
 
@@ -176,7 +176,7 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
 
       const result = await requestDreamPatterns(reflected.dreams, i18n.language, range);
       if (!sameUser()) return;
-      aiUsageLimits.setMonthlyDreamCount("dreamPatterns", result.used);
+      aiUsageLimits.setDreamCount("dreamPatterns", result.used);
       updateDreamPatternsRequest({ report: result.report });
       await savePatternsReport(result.report);
     } catch (error) {
@@ -197,7 +197,7 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
   };
 
   const handleCreate = () => {
-    if (!isPro || loading || !unlocked || tooFewReflections) return;
+    if (!isPro || loading || !unlocked || tooFewReflections || weekUsed) return;
     if (!aiUsageLimits.canUseFeature("dreamPatterns").allowed) return showError("limitReached");
     if (!hasDreamConsent()) {
       setConsentOpen(true);
@@ -275,7 +275,7 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
                 <PeriodSelect value={preset} onChange={setPreset} disabled={loading} />
                 <Button
                   onClick={handleCreate}
-                  disabled={loading || !isPro || !unlocked || tooFewReflections}
+                  disabled={loading || !isPro || !unlocked || tooFewReflections || weekUsed}
                   size="sm"
                   variant={isPro ? "default" : "outline"}
                   className="min-h-11 h-auto"
@@ -328,10 +328,13 @@ export const DreamPatterns = ({ entries, isPro, onSaveAsNote, onSaveReflection }
                   {t("dream.patterns.tooShort", { count: tooShort, min: DREAM_LIMITS.minCharacters })}
                 </p>
               )}
-              <p className="text-xs tabular-nums text-muted-foreground">
-                {isPro
-                  ? t("dream.patterns.remaining", { remaining, limit: usage.limit })
-                  : t("dream.patterns.plusOnly")}
+              {/* Like Trend Analysis: one a week, and when this week's is used. */}
+              <p className={cn("text-xs", isPro && weekUsed ? "font-medium text-diagnostic-warning" : "text-muted-foreground")}>
+                {!isPro
+                  ? t("dream.patterns.plusOnly")
+                  : weekUsed
+                    ? t("dream.patterns.usedThisWeek")
+                    : t("dream.patterns.oncePerWeek")}
               </p>
               {preset === "custom" && (
                 <CustomPeriodPicker start={customStart} end={customEnd} onStartChange={setCustomStart} onEndChange={setCustomEnd} />

@@ -191,6 +191,8 @@ describe('DreamPatterns', () => {
     first.unmount();
     resetDreamPatternsRequest();
     mocks.requestDreamPatterns.mockClear();
+    // A new week, so the next report is allowed.
+    aiUsageLimits.setDreamCount('dreamPatterns', 0);
 
     mocks.requestDreamReflection.mockRejectedValue(new DreamRequestError('limitReached'));
     renderCard(dreams(5, 2));
@@ -205,7 +207,7 @@ describe('DreamPatterns', () => {
   });
 
   it('asks for a shorter period when more dreams need a reflection than are left this month', async () => {
-    aiUsageLimits.setMonthlyDreamCount('dreamReflection', 29);
+    aiUsageLimits.setDreamCount('dreamReflection', 29);
     const first = renderCard(dreams(4, 2));
     openCard();
 
@@ -214,7 +216,7 @@ describe('DreamPatterns', () => {
     first.unmount();
 
     // None left at all: said as such, not as "more than 0".
-    aiUsageLimits.setMonthlyDreamCount('dreamReflection', 30);
+    aiUsageLimits.setDreamCount('dreamReflection', 30);
     renderCard(dreams(4, 2));
     openCard();
     expect(screen.getByText('dream.patterns.noReflectionsLeft')).toBeInTheDocument();
@@ -279,7 +281,8 @@ describe('DreamPatterns', () => {
     await act(async () => answer({ report: REPORT, used: 1 }));
 
     expect(await screen.findByText('Searching runs through your dreams.')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /dream.patterns.createNew/ })).toBeEnabled();
+    // This week's report is made: the next one waits for next week.
+    expect(screen.getByRole('button', { name: /dream.patterns.createNew/ })).toBeDisabled();
     expect(mocks.savePatternsReport).toHaveBeenCalledWith(REPORT);
   });
 
@@ -298,6 +301,8 @@ describe('DreamPatterns', () => {
     openCard();
     expect(screen.queryByText('Searching runs through your dreams.')).not.toBeInTheDocument();
 
+    // A new week: another report may be made.
+    act(() => aiUsageLimits.setDreamCount('dreamPatterns', 0));
     fireEvent.click(await screen.findByRole('button', { name: /dream.patterns.create/ }));
     await screen.findByText('Searching runs through your dreams.');
     second.unmount();
@@ -389,7 +394,22 @@ describe('DreamPatterns', () => {
     expect(screen.queryByText('Searching runs through your dreams.')).not.toBeInTheDocument();
   });
 
-  it('explains the monthly limit', async () => {
+  it('says one report a week while this week\'s is still available', async () => {
+    renderCard(dreams(6));
+    openCard();
+    expect(screen.getByText('dream.patterns.oncePerWeek')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /dream.patterns.create/ })).toBeEnabled();
+  });
+
+  it('disables Create once this week\'s report is made', async () => {
+    aiUsageLimits.setDreamCount('dreamPatterns', 1);
+    renderCard(dreams(6));
+    openCard();
+    expect(screen.getByText('dream.patterns.usedThisWeek')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /dream.patterns.create/ })).toBeDisabled();
+  });
+
+  it('explains the weekly limit when the server reports it', async () => {
     setDreamConsent();
     const { DreamRequestError } = await import('@/services/dreamService');
     mocks.requestDreamPatterns.mockRejectedValue(new DreamRequestError('limitReached'));

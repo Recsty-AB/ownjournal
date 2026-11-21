@@ -13,14 +13,14 @@ export type AIFeature = 'title' | 'tags' | 'entryAnalysis' | 'trendAnalysis' | '
 
 interface UsageData {
   month: string; // YYYY-MM format
-  week: string; // YYYY-Ww format
+  week: string; // YYYY-MM-DD of the week's Sunday (UTC)
   titleCount: number;
   tagsCount: number;
   entryAnalysisCount: number;
   trendAnalysisCount: number;
-  // Monthly. Optional so data saved by older app versions still loads.
-  dreamReflectionCount?: number;
-  dreamPatternsCount?: number;
+  // Optional so data saved by older app versions still loads.
+  dreamReflectionCount?: number; // monthly
+  dreamPatternsCount?: number; // weekly
   analyzedEntries: string[]; // Entry IDs that have been analyzed
 }
 
@@ -31,7 +31,7 @@ const LIMITS = {
   entryAnalysisBoost: 2000, // One-time yearly boost after first trend analysis
   trendAnalysis: 1, // Per week
   dreamReflection: DREAM_LIMITS.reflectionsPerMonth,
-  dreamPatterns: DREAM_LIMITS.patternReportsPerMonth,
+  dreamPatterns: DREAM_LIMITS.patternReportsPerWeek, // Per week
   maxWordsPerRequest: 3000,
 };
 
@@ -63,11 +63,9 @@ class AIUsageLimitsService {
 
   private getCurrentWeek(): string {
     const now = new Date();
-    const start = new Date(now.getFullYear(), 0, 1);
-    const diff = now.getTime() - start.getTime();
-    const oneWeek = 1000 * 60 * 60 * 24 * 7;
-    const week = Math.floor(diff / oneWeek);
-    return `${now.getFullYear()}-W${week}`;
+    return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - now.getUTCDay()))
+      .toISOString()
+      .slice(0, 10);
   }
 
   private getData(): UsageData {
@@ -86,12 +84,19 @@ class AIUsageLimitsService {
       const oldTrendCount = data.trendAnalysisCount;
       const newData = this.createEmptyData();
       newData.trendAnalysisCount = oldTrendCount;
+      // A week can start in the old month: its Dream patterns report still counts.
+      if (data.week === currentWeek) {
+        newData.dreamPatternsCount = data.dreamPatternsCount ?? 0;
+        this.saveData(newData);
+      }
       return newData;
     }
 
-    // Reset trend analysis if week changed (but keep total count for yearly limit)
+    // Reset trend analysis if week changed (but keep total count for yearly limit).
+    // Dream patterns counts per week.
     if (data.week !== currentWeek) {
       data.week = currentWeek;
+      data.dreamPatternsCount = 0;
       this.saveData(data);
     }
 
@@ -220,7 +225,7 @@ class AIUsageLimitsService {
       // Dream callers build their own translated messages from current/limit.
       case 'dreamReflection':
       case 'dreamPatterns': {
-        const current = this.getMonthlyDreamCount(data, feature);
+        const current = this.getDreamCount(data, feature);
         if (current >= LIMITS[feature]) {
           return { allowed: false, current, limit: LIMITS[feature] };
         }
@@ -234,7 +239,7 @@ class AIUsageLimitsService {
   /**
    * Record usage of a feature
    * Note: Backend is the source of truth, this is for client-side caching/hints.
-   * Dream features take the server's count instead (setMonthlyDreamCount).
+   * Dream features take the server's count instead (setDreamCount).
    */
   recordUsage(feature: Exclude<AIFeature, 'dreamReflection' | 'dreamPatterns'>, entryId?: string): void {
     const data = this.getData();
@@ -270,7 +275,7 @@ class AIUsageLimitsService {
    * Store the server's count after a dream request; the server is the source
    * of truth and returns `used` with every successful dream response.
    */
-  setMonthlyDreamCount(feature: 'dreamReflection' | 'dreamPatterns', used: number): void {
+  setDreamCount(feature: 'dreamReflection' | 'dreamPatterns', used: number): void {
     if (!Number.isFinite(used) || used < 0) return;
     const data = this.getData();
     if (feature === 'dreamReflection') data.dreamReflectionCount = used;
@@ -279,7 +284,7 @@ class AIUsageLimitsService {
     this.notify();
   }
 
-  private getMonthlyDreamCount(data: UsageData, feature: 'dreamReflection' | 'dreamPatterns'): number {
+  private getDreamCount(data: UsageData, feature: 'dreamReflection' | 'dreamPatterns'): number {
     return (feature === 'dreamReflection' ? data.dreamReflectionCount : data.dreamPatternsCount) ?? 0;
   }
 
@@ -338,7 +343,7 @@ class AIUsageLimitsService {
       data.entryAnalysisCount = count(counts?.monthly_entry_count);
       data.trendAnalysisCount = count(counts?.weekly_trend_count);
       data.dreamReflectionCount = count(counts?.monthly_dream_reflection_count);
-      data.dreamPatternsCount = count(counts?.monthly_dream_patterns_count);
+      data.dreamPatternsCount = count(counts?.weekly_dream_patterns_count);
       this.saveData(data);
       this.notify();
       

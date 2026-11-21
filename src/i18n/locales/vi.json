@@ -2008,7 +2008,7 @@
       },
       "dreams": {
         "title": "Nhật ký giấc mơ và suy ngẫm",
-        "desc": "Khi viết bài, nhấn \"Giấc mơ\" để đánh dấu bài viết đó là một giấc mơ. Hãy ghi lại ngay khi vừa thức dậy, theo những gì bạn còn nhớ, rồi chọn những cảm xúc trong giấc mơ. Giấc mơ không được tính vào lịch tâm trạng hay vào tâm trạng trong Phân tích xu hướng. Với gói Plus, nhấn \"Suy ngẫm giấc mơ này\" để nhận phần suy ngẫm gồm những chủ đề có thể có, những hình ảnh đáng tìm hiểu và vài câu hỏi dành cho bạn. Bên dưới phần suy ngẫm, bạn có thể viết ra suy nghĩ của riêng mình. Khi bạn nhấn \"Suy ngẫm lại\", phần suy ngẫm mới sẽ dựa trên cả những suy nghĩ đó. Gói Plus có 30 lượt suy ngẫm mỗi tháng. Khi có ít nhất năm giấc mơ trong khoảng thời gian bạn chọn, bạn có thể tạo báo cáo Mẫu hình giấc mơ cho khoảng thời gian đó (tối đa hai báo cáo mỗi tháng). Khi bạn tạo báo cáo, giấc mơ nào trong khoảng thời gian đó chưa có phần suy ngẫm sẽ được suy ngẫm trước, và mỗi giấc mơ như vậy được tính một lượt trong 30 lượt suy ngẫm mỗi tháng. Báo cáo này cho thấy những người, địa điểm và chủ đề cứ trở đi trở lại. Để xem giấc mơ bên cạnh nhật ký, hãy bật \"Bao gồm cả giấc mơ\" trong Phân tích xu hướng.",
+        "desc": "Khi viết bài, nhấn \"Giấc mơ\" để đánh dấu bài viết đó là một giấc mơ. Hãy ghi lại ngay khi vừa thức dậy, theo những gì bạn còn nhớ, rồi chọn những cảm xúc trong giấc mơ. Giấc mơ không được tính vào lịch tâm trạng hay vào tâm trạng trong Phân tích xu hướng. Với gói Plus, nhấn \"Suy ngẫm giấc mơ này\" để nhận phần suy ngẫm gồm những chủ đề có thể có, những hình ảnh đáng tìm hiểu và vài câu hỏi dành cho bạn. Bên dưới phần suy ngẫm, bạn có thể viết ra suy nghĩ của riêng mình. Khi bạn nhấn \"Suy ngẫm lại\", phần suy ngẫm mới sẽ dựa trên cả những suy nghĩ đó. Gói Plus có 30 lượt suy ngẫm mỗi tháng. Khi có ít nhất năm giấc mơ trong khoảng thời gian bạn chọn, bạn có thể tạo báo cáo Mẫu hình giấc mơ cho khoảng thời gian đó (mỗi tuần một báo cáo). Khi bạn tạo báo cáo, giấc mơ nào trong khoảng thời gian đó chưa có phần suy ngẫm sẽ được suy ngẫm trước, và mỗi giấc mơ như vậy được tính một lượt trong 30 lượt suy ngẫm mỗi tháng. Báo cáo này cho thấy những người, địa điểm và chủ đề cứ trở đi trở lại. Để xem giấc mơ bên cạnh nhật ký, hãy bật \"Bao gồm cả giấc mơ\" trong Phân tích xu hướng.",
         "proNote": "(Tính năng Plus)"
       },
       "dreamMethod": {
@@ -2650,7 +2650,8 @@
       "createNew": "Tạo báo cáo mới",
       "creating": "Đang tìm mẫu hình…",
       "reflecting": "Đang suy ngẫm giấc mơ {{current}} trên {{total}}…",
-      "remaining": "Còn {{remaining}} trên {{limit}} báo cáo trong tháng này",
+      "oncePerWeek": "Mỗi tuần một báo cáo",
+      "usedThisWeek": "Tuần này bạn đã tạo một báo cáo. Sang tuần sau, bạn có thể tạo báo cáo mới.",
       "plusOnly": "Mẫu hình giấc mơ có trong gói Plus",
       "earlyThemes": "Chủ đề bước đầu",
       "earlyThemesNote_other": "Dựa trên {{count}} giấc mơ. Càng có nhiều giấc mơ, mẫu hình càng rõ — chẳng hạn khi bạn chọn khoảng thời gian dài hơn.",
@@ -2671,7 +2672,7 @@
       "noteTitle": "Mẫu hình giấc mơ ngày {{date}}",
       "errors": {
         "offline": "Bạn đang ngoại tuyến. Mẫu hình giấc mơ cần kết nối internet.",
-        "limitReached": "Bạn đã tạo {{limit}} báo cáo Mẫu hình giấc mơ trong tháng này. Sang tháng sau, bạn có thể tạo báo cáo mới.",
+        "limitReached": "Tuần này bạn đã tạo một báo cáo Mẫu hình giấc mơ. Sang tuần sau, bạn có thể tạo báo cáo mới.",
         "failed": "Lần này chưa tạo được báo cáo. Vui lòng thử lại.",
         "failedLimitReached": "Tháng này có quá nhiều lần thử không thành công, nên tính năng Mẫu hình giấc mơ tạm ngừng đến tháng sau.",
         "blocked": "Dịch vụ AI không xử lý một số chủ đề trong các giấc mơ của bạn, nên không thể tạo báo cáo."

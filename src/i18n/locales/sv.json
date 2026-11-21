@@ -2048,7 +2048,7 @@
       },
       "dreams": {
         "title": "Drömdagbok och drömreflektion",
-        "desc": "Tryck på \"Dröm\" när du skriver ett inlägg, så sparas det som en dröm. Skriv ner drömmen så fort du vaknar, så som du minns den, och välj hur den kändes. Drömmar hålls utanför humörkalendern och humörtrenden i Trendanalys. Med Plus kan du trycka på \"Reflektera över drömmen\" och få en reflektion med möjliga teman, drömbilder att utforska och frågor att fundera på. Nedanför frågorna kan du skriva ner dina egna tankar, och de tas med i nästa reflektion när du trycker på \"Reflektera igen\". I Plus ingår 30 reflektioner i månaden. En rapport om drömmönster gäller en period som du väljer och som har minst fem drömmar. Om några av drömmarna i perioden saknar reflektion får de automatiskt en var innan rapporten skapas, och de reflektionerna räknas till de 30 i månaden. Du kan skapa upp till två rapporter i månaden under \"Drömmönster\". Där ser du vilka personer, platser och teman som återkommer. Om du vill se dina drömmar sida vid sida med dagboken kan du slå på \"Ta med dina drömmar\" i Trendanalys.",
+        "desc": "Tryck på \"Dröm\" när du skriver ett inlägg, så sparas det som en dröm. Skriv ner drömmen så fort du vaknar, så som du minns den, och välj hur den kändes. Drömmar hålls utanför humörkalendern och humörtrenden i Trendanalys. Med Plus kan du trycka på \"Reflektera över drömmen\" och få en reflektion med möjliga teman, drömbilder att utforska och frågor att fundera på. Nedanför frågorna kan du skriva ner dina egna tankar, och de tas med i nästa reflektion när du trycker på \"Reflektera igen\". I Plus ingår 30 reflektioner i månaden. En rapport om drömmönster gäller en period som du väljer och som har minst fem drömmar. Om några av drömmarna i perioden saknar reflektion får de automatiskt en var innan rapporten skapas, och de reflektionerna räknas till de 30 i månaden. Du kan skapa en rapport i veckan under \"Drömmönster\". Där ser du vilka personer, platser och teman som återkommer. Om du vill se dina drömmar sida vid sida med dagboken kan du slå på \"Ta med dina drömmar\" i Trendanalys.",
         "proNote": "(Plus-funktion)"
       },
       "dreamMethod": {
@@ -2701,7 +2701,8 @@
       "createNew": "Skapa ny rapport",
       "creating": "Letar efter mönster…",
       "reflecting": "Skapar reflektion {{current}} av {{total}}…",
-      "remaining": "{{remaining}} av {{limit}} rapporter kvar den här månaden",
+      "oncePerWeek": "En rapport i veckan",
+      "usedThisWeek": "Du har skapat veckans rapport. Nästa vecka kan du skapa en ny.",
       "plusOnly": "Drömmönster ingår i Plus",
       "earlyThemes": "Preliminära teman",
       "earlyThemesNote_one": "Bygger på {{count}} dröm. Mönstren blir tydligare med fler drömmar, till exempel om du väljer en längre period.",
@@ -2725,7 +2726,7 @@
       "noteTitle": "Drömmönster – {{date}}",
       "errors": {
         "offline": "Du är offline. Drömmönster kräver en internetanslutning.",
-        "limitReached": "Du har skapat {{limit}} rapporter om drömmönster den här månaden. Nästa månad kan du skapa en ny.",
+        "limitReached": "Du har redan skapat veckans rapport om drömmönster. Nästa vecka kan du skapa en ny.",
         "failed": "Det gick inte att skapa rapporten den här gången. Försök igen.",
         "failedLimitReached": "Drömmönster är pausat till nästa månad eftersom för många försök har misslyckats den här månaden.",
         "blocked": "Det går inte att skapa en rapport eftersom AI-tjänsten inte svarar på vissa av temana i dina drömmar."

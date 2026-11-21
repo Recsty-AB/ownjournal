@@ -2048,7 +2048,7 @@
       },
       "dreams": {
         "title": "Droomdagboek en droomreflectie",
-        "desc": "Zet bij het schrijven van een item “Droom” aan om het als droom te bewaren. Schrijf de droom op zodra u wakker bent, zoals u zich hem herinnert, en kies welke gevoelens erbij hoorden. Dromen tellen niet mee in de stemmingskalender en ook niet voor de stemming in de trendanalyse. Met Plus tikt u op “Reflecteren op deze droom” voor een reflectie met mogelijke thema's, beelden om te verkennen en vragen om over na te denken. Onder een reflectie kunt u uw eigen gedachten opschrijven. Tikt u daarna op “Opnieuw reflecteren”, dan wordt met die gedachten rekening gehouden. Per maand krijgt u 30 reflecties. Kiest u een periode met minstens vijf dromen, dan kunt u daar een rapport Droompatronen over maken, maximaal twee per maand. Maakt u het rapport, dan wordt er eerst automatisch een reflectie gemaakt op elke droom uit die periode die er nog geen heeft. Die reflecties tellen mee voor uw 30 per maand. Daarna volgt het rapport. Daarin ziet u welke mensen, plaatsen en thema's steeds terugkomen. Wilt u uw dromen naast uw dagboek zien, zet dan in de trendanalyse “Dromen meenemen” aan.",
+        "desc": "Zet bij het schrijven van een item “Droom” aan om het als droom te bewaren. Schrijf de droom op zodra u wakker bent, zoals u zich hem herinnert, en kies welke gevoelens erbij hoorden. Dromen tellen niet mee in de stemmingskalender en ook niet voor de stemming in de trendanalyse. Met Plus tikt u op “Reflecteren op deze droom” voor een reflectie met mogelijke thema's, beelden om te verkennen en vragen om over na te denken. Onder een reflectie kunt u uw eigen gedachten opschrijven. Tikt u daarna op “Opnieuw reflecteren”, dan wordt met die gedachten rekening gehouden. Per maand krijgt u 30 reflecties. Kiest u een periode met minstens vijf dromen, dan kunt u daar een rapport Droompatronen over maken, eenmaal per week. Maakt u het rapport, dan wordt er eerst automatisch een reflectie gemaakt op elke droom uit die periode die er nog geen heeft. Die reflecties tellen mee voor uw 30 per maand. Daarna volgt het rapport. Daarin ziet u welke mensen, plaatsen en thema's steeds terugkomen. Wilt u uw dromen naast uw dagboek zien, zet dan in de trendanalyse “Dromen meenemen” aan.",
         "proNote": "(Plus-functie)"
       },
       "dreamMethod": {
@@ -2701,7 +2701,8 @@
       "createNew": "Nieuw rapport maken",
       "creating": "Bezig met zoeken naar patronen…",
       "reflecting": "Bezig met reflecteren op droom {{current}} van {{total}}…",
-      "remaining": "Nog {{remaining}} van {{limit}} rapporten deze maand",
+      "oncePerWeek": "Eén rapport per week",
+      "usedThisWeek": "U heeft het rapport van deze week al gemaakt. Volgende week kunt u weer een nieuw rapport maken.",
       "plusOnly": "Droompatronen zijn beschikbaar met Plus",
       "earlyThemes": "Eerste thema's",
       "earlyThemesNote_one": "Op basis van {{count}} droom. Met meer dromen, bijvoorbeeld uit een langere periode, worden de patronen duidelijker.",
@@ -2725,7 +2726,7 @@
       "noteTitle": "Droompatronen, {{date}}",
       "errors": {
         "offline": "U bent offline. Voor Droompatronen is een internetverbinding nodig.",
-        "limitReached": "U heeft deze maand al {{limit}} rapporten Droompatronen gemaakt. Volgende maand kunt u weer een nieuw rapport maken.",
+        "limitReached": "U heeft het rapport Droompatronen van deze week al gemaakt. Volgende week kunt u weer een nieuw rapport maken.",
         "failed": "Het rapport is deze keer niet gelukt. Probeer het opnieuw.",
         "failedLimitReached": "Er zijn deze maand te veel pogingen mislukt, dus u kunt pas volgende maand weer een rapport Droompatronen maken.",
         "blocked": "De AI-dienst gaat op sommige thema's uit uw dromen niet in, dus er kon geen rapport worden gemaakt."

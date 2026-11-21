@@ -170,12 +170,12 @@ export type Database = {
         Returns: {
           is_pro: boolean
           monthly_dream_failed_count: number
-          monthly_dream_patterns_count: number
           monthly_dream_reflection_count: number
           monthly_entry_count: number
           monthly_tags_count: number
           monthly_title_count: number
           monthly_transcription_seconds: number
+          weekly_dream_patterns_count: number
           weekly_trend_count: number
           yearly_entry_count: number
           yearly_trend_count: number
