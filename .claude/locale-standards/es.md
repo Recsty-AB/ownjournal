@@ -100,6 +100,20 @@ Scope: OwnJournal app (`src/i18n/locales/es.json`) and website (`ownjournal-webs
 - "privacy-first journal" → *un diario que antepone la privacidad*, not *diario con privacidad primero*. "No credit card required" → *Sin necesidad de tarjeta de crédito*. "Everything in Free" → *Todo lo del plan Gratis*. "where your data lives" → *dónde se guardan tus datos*.
 - Stale/condensed translations exist (Help, onboarding tour): when touching a key, check meaning parity against en.json, not only grammar.
 
+## Dreams (2026-11)
+*Sueño* also means sleep: avoid bare *del sueño / de sueño* in names and headings (*patrones de sueño* = sleep patterns). Inside a dream entry, *el sueño* is fine.
+| Term | Use | Avoid / source |
+|---|---|---|
+| Dream reflection (feature) | Reflexión sobre sueños (lowercase in prose) | *reflexión del sueño*; judgment |
+| Reflect on this dream (button) | Reflexionar sobre este sueño (quote it exactly in guide/Help) | bare *Reflexionar*; judgment |
+| Dream patterns (feature) | Patrones de tus sueños; prose *informe de patrones de tus sueños*; saved note title *Patrones de mis sueños, {{date}}* | *patrones de sueño*; judgment |
+| dream journal / nightmare / lucid / recurring | diario de sueños / pesadilla / sueño lúcido / sueño recurrente | La Mente es Maravillosa; es.wikipedia |
+| short labels (patterns input) | palabras clave | *etiquetas* (= tags); judgment |
+| health professional / emergency number | profesional sanitario / teléfono de emergencias | Ministerio de Sanidad, Línea 024 |
+| crisis line | línea de prevención del suicidio | *línea de crisis*; judgment (Spain's official name is Spain-only) |
+| distressing-dream notice title | Si este sueño te ha afectado | *te ha removido* (Iberian colloquial; reads as "removed" in American Spanish) |
+| Write it down (guide, first line) | Anota lo que has soñado… | an opening *Escríbelo* with no antecedent |
+
 ## Sources
 - Microsoft Spanish (Spain) Style Guide: https://download.microsoft.com/download/9/a/1/9a19beca-597c-417b-a2c2-0f1ea5a1e6c3/spa-esp-StyleGuide.pdf
 - Microsoft Spanish (Neutral) Style Guide: https://download.microsoft.com/download/4/3/1/431d9836-40dc-4f2b-aafc-def5c7b5d0f3/spa-neu-StyleGuide.pdf

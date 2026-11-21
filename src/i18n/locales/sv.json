@@ -1541,6 +1541,19 @@
       "entryProgress": "Inlägg {{current}} av {{total}}",
       "retrying": "Försöker misslyckade inlägg igen…",
       "doNotCloseApp": "Håll denna sida öppen tills analysen är klar"
+    },
+    "dreams": {
+      "include": "Ta med dina drömmar",
+      "included_one": "En dröm från den här perioden tas med.",
+      "included_other": "{{count}} drömmar från den här perioden tas med.",
+      "reflectFirst_one": "En av dem har ingen reflektion än och får först en. Det går åt en av dina reflektioner den här månaden ({{remaining}} kvar).",
+      "reflectFirst_other": "{{count}} av dem har ingen reflektion än och får först en var. Det går åt {{count}} av dina reflektioner den här månaden ({{remaining}} kvar).",
+      "leftOut_one": "Ytterligare en dröm har ingen reflektion och tas inte med, eftersom dina reflektioner den här månaden inte räcker till den.",
+      "leftOut_other": "Ytterligare {{count}} drömmar har ingen reflektion och tas inte med, eftersom dina reflektioner den här månaden inte räcker till dem.",
+      "tooFew_one": "Bara en dröm från den här perioden kan tas med. Det behövs minst {{min}}.",
+      "tooFew_other": "Från den här perioden kan {{count}} drömmar tas med, men det behövs minst {{min}}.",
+      "notIncluded": "Dina drömmar togs inte med den här gången, eftersom för få av dem kunde få en reflektion.",
+      "title": "Dina drömmar under perioden"
     }
   },
   "exportDialog": {
@@ -1613,6 +1626,7 @@
       "tagSuggestions": "Smarta taggförslag",
       "trendAnalysis": "Humör- och trendinsikter",
       "voiceEntry": "Röstinmatning",
+      "dreamReflection": "Drömreflektion",
       "exports": "PDF- och Word-export"
     },
     "trialCta": "Starta gratis provperiod",
@@ -1846,6 +1860,10 @@
       "title": "Din dagbokstidslinje",
       "content": "Dina dagboksinlägg visas här, ordnade efter datum.\nTryck på +-knappen för att skapa ditt första inlägg."
     },
+    "dreams": {
+      "title": "Din drömdagbok",
+      "content": "Skriv ner drömmen så fort du vaknar, innan den bleknar, och tryck på \"Dröm\" för att markera inlägget som en dröm. Om du vill kan du välja hur den kändes. Allt det här är gratis.\n\nMed Plus kan du också få en reflektion över drömmen."
+    },
     "syncStatus": {
       "title": "Synkroniseringsstatus",
       "content": "När du ansluter molnlagring visar denna indikator din synkroniseringsstatus.\nGrönt betyder synkroniserat!"
@@ -2028,6 +2046,21 @@
         "desc": "Tryck på mikrofonen under redigeraren och prata i stället för att skriva. När du stoppar omvandlas dina ord till ren text med skiljetecken och infogas där markören står. Det fungerar på det språk du talar, även om du byter språk medan du pratar. Varje inspelning kan vara upp till 5 minuter lång, och i Plus ingår 200 minuter i månaden.",
         "proNote": "(Plus-funktion)"
       },
+      "dreams": {
+        "title": "Drömdagbok och drömreflektion",
+        "desc": "Tryck på \"Dröm\" när du skriver ett inlägg, så sparas det som en dröm. Skriv ner drömmen så fort du vaknar, så som du minns den, och välj hur den kändes. Drömmar hålls utanför humörkalendern och humörtrenden i Trendanalys. Med Plus kan du trycka på \"Reflektera över drömmen\" och få en reflektion med möjliga teman, drömbilder att utforska och frågor att fundera på. Nedanför frågorna kan du skriva ner dina egna tankar, och de tas med i nästa reflektion när du trycker på \"Reflektera igen\". I Plus ingår 30 reflektioner i månaden. En rapport om drömmönster gäller en period som du väljer och som har minst fem drömmar. Om några av drömmarna i perioden saknar reflektion får de automatiskt en var innan rapporten skapas, och de reflektionerna räknas till de 30 i månaden. Du kan skapa en rapport i veckan under \"Drömmönster\". Där ser du vilka personer, platser och teman som återkommer. Om du vill se dina drömmar sida vid sida med dagboken kan du slå på \"Ta med dina drömmar\" i Trendanalys.",
+        "proNote": "(Plus-funktion)"
+      },
+      "dreamMethod": {
+        "title": "Så fungerar drömreflektion",
+        "intro": "Drömreflektionen är inspirerad av Carl Gustav Jungs syn på drömmar och av modern drömforskning.",
+        "jung": "Från Jung kommer tanken att dina egna associationer väger tyngre än det en symbol brukar sägas stå för. Det är därför du kan skriva ner dina egna tankar efter en reflektion och sedan reflektera igen. Från Jung kommer också tankarna att en drömbild går att utforska åt mer än ett håll, att en dröm kan visa en sida av livet som får mindre utrymme när du är vaken och att en drömserie säger mer än en enstaka dröm.",
+        "research": "Inom drömforskningen har framför allt Calvin Hall och G. William Domhoff kommit fram till att drömmar för det mesta speglar det som upptar oss i vardagen – relationer, oro och känslor. Därför kan en reflektion föreslå möjliga kopplingar till det du har skrivit i dagboken den senaste veckan, och därför kan du i Trendanalys se dina drömmar sida vid sida med dagbokens teman.",
+        "questions": "Frågorna i slutet följer Clara Hills modell för att arbeta med drömmar: först utforskar du drömmen, sedan funderar du på vad den kan betyda för dig och till sist på ett litet steg du skulle kunna ta.",
+        "noDictionary": "Reflektionen bygger inte på något drömlexikon där varje symbol har en fast betydelse. Den visar möjligheter, och det är du som avgör vad som stämmer.",
+        "notAdvice": "Drömreflektion är ett stöd för självreflektion, inte medicinsk eller psykologisk rådgivning. Den kan inte heller användas för att ställa diagnoser.",
+        "privacy": "När du reflekterar över en dröm skickas det här till Googles Gemini-tjänst: det du har skrivit om drömmen, drömmens datum, känslorna du valde och om du har markerat den som återkommande, som mardröm eller som klardröm. Om du har skrivit ner egna tankar om drömmen skickas de också, tillsammans med frågorna i den tidigare reflektionen som tankarna svarar på. För vart och ett av dina redan analyserade inlägg från den senaste veckan skickas dessutom datum, kort sammanfattning, nyckelteman och dominerande känsla. När du skapar en rapport om drömmönster skickas inte texten i dina drömmar, utan bara de korta etiketter som sparas med varje reflektion. När du har slagit på \"Ta med dina drömmar\" i Trendanalys skickas samma etiketter för varje dröm i den valda perioden, tillsammans med drömmens datum och om du har markerat den som mardröm eller som återkommande. Inte heller där skickas drömmarnas text. I båda fallen får drömmar utan reflektion först en, och då skickas de på det sätt som beskrivs i början. OwnJournal sparar inget av det som skickas."
+      },
       "aiAnalysis": {
         "title": "AI-analys",
         "desc": "Få insikter om dina dagboksinlägg inklusive humöranalys, ämnesdetektering och personliga förslag.",
@@ -2035,7 +2068,7 @@
       },
       "trends": {
         "title": "Trendanalys",
-        "desc": "Se mönster i din dagboksskrivning över tid. Se humörtrender, skrivfrekvens och vanliga teman.",
+        "desc": "Se mönster i din dagboksskrivning över tid. Se humörtrender, skrivfrekvens och vanliga teman. Om du slår på \"Ta med dina drömmar\" ser du också dina drömmar sida vid sida med det du skrev om vid samma tid.",
         "proNote": "(Plus-funktion)"
       },
       "export": {
@@ -2170,7 +2203,7 @@
       },
       "pro": {
         "question": "Vad ingår i Plus?",
-        "answer": "I Plus ingår AI-analys, titelförslag, taggförslag, röstinmatning, trendanalys, Aktivitetsinsikter samt PDF- och Word-export."
+        "answer": "I Plus ingår AI-analys, titelförslag, taggförslag, röstinmatning, drömreflektion, trendanalys, Aktivitetsinsikter samt PDF- och Word-export."
       },
       "manageSubscription": {
         "question": "Hur hanterar jag min prenumeration?",
@@ -2276,7 +2309,7 @@
       },
       "collection": {
         "title": "Information vi samlar in",
-        "content": "Vi samlar bara in ett minimum av personuppgifter. I samband med ditt konto samlar vi in: din e-postadress, ditt visningsnamn (om det tillhandahålls av en extern autentiseringsleverantör såsom Google eller Apple) och – när du ansluter molnlagring – en uppgift om vilken leverantör du har valt. För att driva dagbokstjänsten lagrar vi en liten mängd tillståndsdata på våra servrar: om din krypteringskonfiguration är slutförd, din prenumerationsstatus och de identifierare som vår betalningsleverantör (Stripe) behöver för att hantera din prenumeration. För att övervaka skälig användning av valfria AI-funktioner registrerar vi användningsräknare per användare (typen av utförd analys och en tidsstämpel; aldrig innehållet i dina inlägg). För röstinmatning registrerar räknaren även längden på varje transkriberad inspelning i sekunder; själva inspelningen sparas aldrig. Vår autentiseringsbackend lagrar också standardmetadata för sessioner såsom tidsstämplar för inloggning. Visningsnamn används endast för att personalisera din upplevelse i appen och görs aldrig offentliga. För att visa prenumerationspriser i din lokala valuta kan vi kort slå upp landet som är kopplat till din IP-adress; endast den resulterande landskoden används, den kopplas inte till ditt konto och vi lagrar inte din IP-adress. Vi använder inte tredjepartsanalys, reklam-SDK:er eller spårare mellan appar. När du använder end-to-end-kryptering (E2E) krypteras ditt dagboksinnehåll på din enhet och vi kan inte läsa det. I Enkelt läge synkroniseras dina dagboksdata med din valda molnleverantör utan end-to-end-kryptering. Enkelt läge är avsett för bekvämlighet och kan minska integriteten jämfört med E2E-läge; dina data förblir skyddade av din molnleverantörs standardsäkerhetsåtgärder."
+        "content": "Vi samlar bara in ett minimum av personuppgifter. I samband med ditt konto samlar vi in: din e-postadress, ditt visningsnamn (om det tillhandahålls av en extern autentiseringsleverantör såsom Google eller Apple) och – när du ansluter molnlagring – en uppgift om vilken leverantör du har valt. För att driva dagbokstjänsten lagrar vi en liten mängd tillståndsdata på våra servrar: om din krypteringskonfiguration är slutförd, din prenumerationsstatus och de identifierare som vår betalningsleverantör (Stripe) behöver för att hantera din prenumeration. För att övervaka skälig användning av valfria AI-funktioner registrerar vi användningsräknare per användare (typen av utförd analys, en tidsstämpel, den AI-modell som användes och omfattningen av AI-behandlingen mätt i tokens; för funktioner som gäller ett enskilt inlägg även inläggets identifierare; aldrig innehållet i dina inlägg). För röstinmatning registrerar räknaren även längden på varje transkriberad inspelning i sekunder; själva inspelningen sparas aldrig. Vår autentiseringsbackend lagrar också standardmetadata för sessioner såsom tidsstämplar för inloggning. Visningsnamn används endast för att personalisera din upplevelse i appen och görs aldrig offentliga. För att visa prenumerationspriser i din lokala valuta kan vi kort slå upp landet som är kopplat till din IP-adress; endast den resulterande landskoden används, den kopplas inte till ditt konto och vi lagrar inte din IP-adress. Vi använder inte tredjepartsanalys, reklam-SDK:er eller spårare mellan appar. När du använder end-to-end-kryptering (E2E) krypteras ditt dagboksinnehåll på din enhet och vi kan inte läsa det. I Enkelt läge synkroniseras dina dagboksdata med din valda molnleverantör utan end-to-end-kryptering. Enkelt läge är avsett för bekvämlighet och kan minska integriteten jämfört med E2E-läge; dina data förblir skyddade av din molnleverantörs standardsäkerhetsåtgärder."
       },
       "usage": {
         "title": "Hur vi använder information",
@@ -2304,7 +2337,7 @@
       },
       "aiProcessing": {
         "title": "AI-funktioner och behandling",
-        "content": "OwnJournal erbjuder valfria AI-drivna funktioner, till exempel humöranalys, förslag och röstinmatning, som endast är tillgängliga för Plus-prenumeranter. AI-behandling sker bara när du som Plus-prenumerant uttryckligen använder dessa funktioner. När du använder textbaserade AI-funktioner dekrypteras den berörda texten först på din enhet och skickas sedan, på din uttryckliga begäran och via våra servrar, till vår AI-leverantör, för närvarande Google (Gemini), genom dess betalda API. När du använder röstinmatning används enhetens mikrofon bara medan du spelar in; inspelningen skickas via våra servrar till Google (Gemini) för att omvandlas till text, och den resulterande texten läggs till i ditt inlägg på din enhet. Vi lagrar inte AI-indata eller -utdata, inklusive röstinspelningar och transkriptioner, på våra servrar; vi registrerar endast räknare för användning av AI-funktioner per användare (typen av utförd analys, en tidsstämpel och, för röstinmatning, inspelningens längd i sekunder; aldrig innehållet) för att upprätthålla gränserna för skälig användning. Google kan spara förfrågningar och utdata under en begränsad tid för att övervaka missbruk och upprätthålla sina regler, enligt sina gällande policyer. AI-behandling kan ske utanför EES; Google upprätthåller lämpliga skyddsåtgärder för dataöverföring, såsom standardavtalsklausuler. Vi använder den betalda nivån av Googles AI-tjänst, där förfrågningar och utdata inte används för att träna eller förbättra Googles modeller. Du kan välja att inte använda AI-funktioner, och det påverkar inte dagbokens grundläggande funktioner."
+        "content": "OwnJournal erbjuder valfria AI-drivna funktioner, till exempel humöranalys, förslag, röstinmatning och drömreflektion, som endast är tillgängliga för Plus-prenumeranter. AI-behandling sker bara när du som Plus-prenumerant uttryckligen använder dessa funktioner. När du använder textbaserade AI-funktioner dekrypteras den berörda texten först på din enhet och skickas sedan, på din uttryckliga begäran och via våra servrar, till vår AI-leverantör, för närvarande Google (Gemini), genom dess betalda API. När du använder röstinmatning används enhetens mikrofon bara medan du spelar in; inspelningen skickas via våra servrar till Google (Gemini) för att omvandlas till text, och den resulterande texten läggs till i ditt inlägg på din enhet. Vi lagrar inte AI-indata eller -utdata, inklusive röstinspelningar och transkriptioner, på våra servrar; vi registrerar endast räknare för användning av AI-funktioner per användare (typen av utförd analys, en tidsstämpel, den AI-modell som användes och omfattningen av AI-behandlingen mätt i tokens; för funktioner som gäller ett enskilt inlägg även inläggets identifierare; för röstinmatning även inspelningens längd i sekunder; aldrig innehållet) för att upprätthålla gränserna för skälig användning. Google kan spara förfrågningar och utdata under en begränsad tid för att övervaka missbruk och upprätthålla sina regler, enligt sina gällande policyer. AI-behandling kan ske utanför EES; Google upprätthåller lämpliga skyddsåtgärder för dataöverföring, såsom standardavtalsklausuler. Vi använder den betalda nivån av Googles AI-tjänst, där förfrågningar och utdata inte används för att träna eller förbättra Googles modeller. Du kan välja att inte använda AI-funktioner, och det påverkar inte dagbokens grundläggande funktioner."
       },
       "diagnostics": {
         "title": "Diagnostik och kraschloggar",
@@ -2562,5 +2595,159 @@
       "noSpeech": "Inget tal hittades i inspelningen.",
       "failed": "Transkriberingen misslyckades. Försök igen."
     }
+  },
+  "dream": {
+    "toggle": "Dröm",
+    "toggleHint": "Markera inlägget som en dröm",
+    "badge": "Dröm",
+    "editor": {
+      "placeholder": "Vad hände i drömmen? Skriv ner den så som du minns den.",
+      "feelingsLabel": "Hur kändes drömmen?",
+      "flagsLabel": "Stämmer något av det här in på drömmen?",
+      "howItWorks": "Så fungerar det"
+    },
+    "feelings": {
+      "joy": "Glädje",
+      "calm": "Lugn",
+      "awe": "Förundran",
+      "curiosity": "Nyfikenhet",
+      "love": "Kärlek",
+      "fear": "Rädsla",
+      "anxiety": "Ångest",
+      "sadness": "Sorg",
+      "anger": "Ilska",
+      "confusion": "Förvirring",
+      "shame": "Skam",
+      "loneliness": "Ensamhet"
+    },
+    "flags": {
+      "recurring": "Återkommande",
+      "nightmare": "Mardröm",
+      "lucid": "Klardröm",
+      "lucidExplained": "En klardröm är en dröm där du vet att du drömmer."
+    },
+    "guide": {
+      "title": "Din drömdagbok",
+      "step1": "Skriv ner drömmen direkt när du vaknar. Den bleknar redan efter några minuter.",
+      "step1Voice": "Det kan gå fortare att diktera.",
+      "step2": "Berätta drömmen så som du upplevde den – vilka som var med, var du var, vad du gjorde och hur det kändes. Det gör inget om ordningen blir fel eller om det inte hänger ihop.",
+      "step3": "Tryck på \"Reflektera över drömmen\" så får du en reflektion över det du har skrivit.",
+      "step3Patterns": "När du har skrivit ner fem drömmar kan du välja en period och skapa en rapport för den under \"Drömmönster\" i dagboken. Där ser du vilka personer, platser och teman som återkommer.",
+      "done": "OK"
+    },
+    "reflection": {
+      "title": "Drömreflektion",
+      "reflect": "Reflektera över drömmen",
+      "reflecting": "Skapar reflektion…",
+      "reflectAgain": "Reflektera igen",
+      "editToReflectAgain": "Redigera drömmen eller lägg till egna tankar för att kunna reflektera igen",
+      "plusOnly": "Drömreflektion ingår i Plus",
+      "remaining": "{{remaining}} av {{limit}} reflektioner kvar den här månaden",
+      "summary": "I korthet",
+      "themes": "Möjliga teman",
+      "images": "Drömbilder att utforska",
+      "wakingLinks": "Möjliga kopplingar till din vardag",
+      "questions": "Frågor att fundera på",
+      "thoughts": {
+        "label": "Dina egna tankar",
+        "placeholder": "Vad får frågorna dig att tänka på?",
+        "hint": "Dina tankar tas med när du trycker på \"Reflektera igen\"."
+      },
+      "fromThoughts": "Vad dina tankar ändrade",
+      "footer": "En reflektion – ingen diagnos. Ta till dig det som stämmer och låt resten vara.",
+      "howThisWorks": "Så fungerar det",
+      "show": "Visa",
+      "hide": "Dölj",
+      "care": {
+        "title": "Om drömmen inte släpper",
+        "body": "Drömmar som den här kan vara tunga att bära. Om jobbiga drömmar ofta kommer tillbaka eller börjar påverka hur du mår om dagarna, kan det hjälpa att prata med någon du har förtroende för eller med någon i vården.",
+        "urgent": "Om du har tankar på att skada dig själv, ring nödnumret eller kontakta en stödlinje direkt."
+      },
+      "consent": {
+        "title": "Vill du skicka drömmen till Google för en reflektion?",
+        "body": "För att reflektionen ska kunna skapas skickas det här till Googles Gemini-tjänst: det du har skrivit om drömmen, drömmens datum, känslorna du valde och om du har markerat den som återkommande, som mardröm eller som klardröm. Om du har skrivit ner egna tankar om drömmen skickas de också, tillsammans med frågorna i den tidigare reflektionen som tankarna svarar på. För vart och ett av dina redan analyserade inlägg från den senaste veckan skickas dessutom datum, kort sammanfattning, nyckelteman och dominerande känsla. När du skapar en rapport om drömmönster skickas inte texten i dina drömmar, utan bara de korta etiketter som sparas med varje reflektion. När du har slagit på \"Ta med dina drömmar\" i Trendanalys skickas samma etiketter för varje dröm i den valda perioden, tillsammans med drömmens datum och om du har markerat den som mardröm eller som återkommande. Inte heller där skickas drömmarnas text. I båda fallen får drömmar utan reflektion först en, och då skickas de på det sätt som beskrivs i början. OwnJournal sparar inget av det som skickas. Google använder det inte för att träna sina modeller och kan bara spara det en kort tid för att förhindra missbruk. Reflektionen sparas tillsammans med drömmen, på samma sätt som resten av inlägget.",
+        "accept": "Fortsätt",
+        "decline": "Inte nu"
+      },
+      "errors": {
+        "offline": "Du är offline. Drömreflektion kräver en internetanslutning.",
+        "authRequired": "Logga in för att reflektera över dina drömmar.",
+        "plusRequired": "Drömreflektion kräver en Plus-prenumeration.",
+        "limitReached": "Du har använt alla {{limit}} drömreflektioner den här månaden. Gränsen återställs nästa månad, och dina drömmar kan du skriva ner som vanligt.",
+        "tooShort": "Skriv minst {{min}} tecken om drömmen först.",
+        "tooLong": "Drömmen är för lång för en reflektion. Korta ner den lite och försök igen.",
+        "saveFailed": "Det gick inte att spara reflektionen. Försök igen.",
+        "failed": "Det gick inte att skapa reflektionen den här gången. Försök igen.",
+        "failedLimitReached": "Drömreflektion är pausad till nästa månad eftersom för många försök har misslyckats den här månaden. Dina drömmar kan du skriva ner som vanligt.",
+        "blocked": "Det går inte att skapa en reflektion eftersom AI-tjänsten inte svarar på det som den här drömmen handlar om. Drömmen finns kvar i din dagbok."
+      }
+    },
+    "patterns": {
+      "title": "Drömmönster",
+      "intro": "Det som återkommer i dina drömmar.",
+      "dreamsInPeriod_one": "{{count}} dröm under den här perioden",
+      "dreamsInPeriod_other": "{{count}} drömmar under den här perioden",
+      "needMore": "För en rapport behövs minst {{min}} drömmar.",
+      "tooShort_one": "En av drömmarna i perioden är för kort för en reflektion och räknas därför inte. För en reflektion behövs minst {{min}} tecken.",
+      "tooShort_other": "{{count}} av drömmarna i perioden är för korta för en reflektion och räknas därför inte. För en reflektion behövs minst {{min}} tecken.",
+      "reflectFirst_one": "En av drömmarna har ingen reflektion än. När du skapar rapporten får den först en, och det går åt en av dina reflektioner den här månaden ({{remaining}} kvar).",
+      "reflectFirst_other": "{{count}} av drömmarna har ingen reflektion än. När du skapar rapporten får de först en var, och det går åt {{count}} av dina reflektioner den här månaden ({{remaining}} kvar).",
+      "notEnoughReflections_one": "{{dreams}} av drömmarna har ingen reflektion än, men du har bara en reflektion kvar den här månaden. Välj en kortare period.",
+      "notEnoughReflections_other": "{{dreams}} av drömmarna har ingen reflektion än, men du har bara {{count}} reflektioner kvar den här månaden. Välj en kortare period.",
+      "noReflectionsLeft_one": "En av drömmarna har ingen reflektion än, och du har inga reflektioner kvar den här månaden. Välj en kortare period.",
+      "noReflectionsLeft_other": "{{count}} av drömmarna har ingen reflektion än, och du har inga reflektioner kvar den här månaden. Välj en kortare period.",
+      "ready": "Nu kan du skapa din första rapport om drömmönster.",
+      "create": "Skapa rapport",
+      "createNew": "Skapa ny rapport",
+      "creating": "Letar efter mönster…",
+      "reflecting": "Skapar reflektion {{current}} av {{total}}…",
+      "oncePerWeek": "En rapport i veckan",
+      "usedThisWeek": "Du har skapat veckans rapport. Nästa vecka kan du skapa en ny.",
+      "plusOnly": "Drömmönster ingår i Plus",
+      "earlyThemes": "Preliminära teman",
+      "earlyThemesNote_one": "Bygger på {{count}} dröm. Mönstren blir tydligare med fler drömmar, till exempel om du väljer en längre period.",
+      "earlyThemesNote_other": "Bygger på {{count}} drömmar. Mönstren blir tydligare med fler drömmar, till exempel om du väljer en längre period.",
+      "basedOn_one": "Bygger på {{count}} dröm",
+      "basedOn_other": "Bygger på {{count}} drömmar",
+      "overview": "Översikt",
+      "recurring": "Det som återkommer",
+      "inDreams_one": "I {{count}} dröm",
+      "inDreams_other": "I {{count}} drömmar",
+      "kinds": {
+        "character": "Person",
+        "setting": "Plats",
+        "emotion": "Känsla",
+        "theme": "Tema"
+      },
+      "changes": "Hur dina drömmar har förändrats",
+      "questions": "Frågor att fundera på",
+      "footer": "Mönster att fundera på – ingen diagnos. Ta till dig det som stämmer och låt resten vara.",
+      "saveAsNote": "Spara som anteckning",
+      "noteTitle": "Drömmönster – {{date}}",
+      "errors": {
+        "offline": "Du är offline. Drömmönster kräver en internetanslutning.",
+        "limitReached": "Du har redan skapat veckans rapport om drömmönster. Nästa vecka kan du skapa en ny.",
+        "failed": "Det gick inte att skapa rapporten den här gången. Försök igen.",
+        "failedLimitReached": "Drömmönster är pausat till nästa månad eftersom för många försök har misslyckats den här månaden.",
+        "blocked": "Det går inte att skapa en rapport eftersom AI-tjänsten inte svarar på vissa av temana i dina drömmar."
+      }
+    },
+    "filter": "Drömmar"
+  },
+  "featureTip": {
+    "title": "Nyheter i OwnJournal",
+    "free": "Gratis",
+    "dreamJournal": {
+      "name": "Drömdagbok",
+      "desc": "Skriv ner drömmen så fort du vaknar, innan den bleknar, och markera inlägget som en dröm. Du kan också välja hur den kändes."
+    },
+    "dreamReflection": {
+      "desc": "Få en reflektion över en dröm. Med fem drömmar under en period kan du skapa en rapport om det som återkommer."
+    },
+    "voice": {
+      "desc": "Tryck på mikrofonen under redigeraren och prata i stället för att skriva."
+    },
+    "writeDream": "Skriv ner en dröm",
+    "dismiss": "OK"
   }
 }

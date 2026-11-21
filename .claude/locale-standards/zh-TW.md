@@ -138,3 +138,18 @@ punctuation and Taiwan-versus-Mainland vocabulary rules apply here too.
 - Apple 帳號 (「Apple 帳號」（原名為 Apple ID）): https://support.apple.com/zh-tw/apple-account ; 使用 Apple 登入: https://support.apple.com/zh-tw/guide/iphone/iph238921d37/ios
 - Google 雲端硬碟 說明 (official zh-TW product name): https://support.google.com/drive/?hl=zh-TW ; Apple iCloud 雲碟: https://support.apple.com/zh-tw/icloud
 - Microsoft localization style guides index (zh-TW 用戶端, spacing): https://learn.microsoft.com/en-us/globalization/reference/microsoft-style-guides
+
+## 8. Dreams glossary (2026-11)
+| English | zh-TW | Avoid / status |
+|---|---|---|
+| Dream (chip, badge, filter) / dream journal | 夢境 / 夢境日記 | judgment |
+| Dream reflection (feature) / Reflect on this dream (button) | 夢境解讀 / 解讀這個夢 | 解夢 (fortune-telling register), 反思 (self-criticism). 解讀 attested for dreams (元氣網, psychiatrist) |
+| Dream patterns (report) | 夢境脈絡 (mirrors house 情緒脈絡) | 夢境模式 (reads as "dream mode"), 夢境趨勢 (clashes with trend analysis); judgment |
+| Nightmare / lucid dream / recurring dream | 惡夢 / 清醒夢 / 反覆出現的夢 | 噩夢 (less common in TW health media); 清醒夢 attested (helloyishi.com.tw, cw.com.tw) |
+| Dream image / dream work (Hill) | 意象 / 夢工作模式 | 圖像 |
+| Jung, Hall, Domhoff, Hill | 榮格（Carl Jung）; others in Latin | – |
+| Flags lead-in above chips | 「這是什麼樣的夢？」 (question, parallels the feelings question) | open fragment 「這個夢是」 |
+| Short labels (sent for patterns) | 簡短關鍵字 | 標籤 (= tags), 關鍵詞 |
+| Health professional | 醫師、心理師等專業人員 | 心理諮詢師 |
+| Crisis line (generic) | 自殺防治專線 (TW lines are all 「…專線」: 安心專線 1925, 張老師專線; MOHW also writes 自殺防治熱線) | no phone numbers |
+| Tokens (legal) | 以詞元數計量的 AI 處理用量 (Google Cloud zh-TW: 詞元) | 權杖, 令牌 |

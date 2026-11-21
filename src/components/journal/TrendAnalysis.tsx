@@ -7,16 +7,15 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { TrendingUp, Loader2, Crown, ChevronDown, Calendar as CalendarIcon, AlertTriangle, FileText } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Calendar } from "@/components/ui/calendar";
-import { format, subDays, startOfYear, isAfter, isBefore, startOfDay, endOfDay } from "date-fns";
+import { format, isAfter, isBefore } from "date-fns";
+import { CustomPeriodPicker, PeriodSelect } from "./PeriodPicker";
+import { periodRange, type PeriodPreset } from "@/utils/period";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { invokeWithRetry } from "@/utils/edgeFunctionRetry";
 import { useToast } from "@/hooks/use-toast";
 import type { JournalEntryData } from "./JournalEntry";
-import { aiMetadataService } from "@/services/aiMetadataService";
+import { analyzeMissingEntries, isFailedEntryAnalysis, loadEntryAnalyses, needsEntryAnalysis } from "@/services/entryAnalysisService";
 import type { EntryAIMetadata, AggregatedMetadata } from "@/types/aiMetadata";
 import { aiUsageLimits } from "@/services/aiUsageLimits";
 import { useTranslation } from "react-i18next";
@@ -29,11 +28,30 @@ import { getMockTrendAnalysis } from "@/demo/mockAIResponses";
 import { computeTimeBuckets, shouldUseTimeBuckets, type EntryWithDateAndMetadata } from "@/utils/timeBucketAggregation";
 import { getDateLocale } from "@/utils/dateLocale";
 import { canShowAnyPurchaseCTA } from "@/utils/platformDetection";
+import { getCurrentUserId, scopedKey } from "@/utils/userScope";
+import { useDreamUsage } from "@/hooks/useDreamUsage";
+import { DREAM_LIMITS, type DreamReflection } from "@/types/dream";
+import {
+  dreamsForPeriod,
+  hasDreamConsent,
+  sentenceSeparator,
+  trendDreamsPayload,
+} from "@/services/dreamService";
+import { DreamConsentDialog } from "./DreamConsentDialog";
+import { reflectMissingDreams } from "@/services/reflectMissingDreams";
 
 interface TrendAnalysisProps {
+  /** Journal entries without dreams: the mood and topics analysed. */
   entries: JournalEntryData[];
   isPro: boolean;
   isDemo?: boolean;
+  /**
+   * The dreams of the journal. With "Include your dreams" on, the reflected
+   * dreams of the period go into the analysis, after the ones without a
+   * reflection get one (saved with `onSaveReflection`).
+   */
+  dreams?: JournalEntryData[];
+  onSaveReflection?: (entry: JournalEntryData, reflection: DreamReflection) => Promise<void>;
 }
 
 interface TrendData {
@@ -42,7 +60,15 @@ interface TrendData {
   insights: string[];
   focusAreas: string[];
   closingReflection?: string;
+  /** How the dreams of the period sit beside the journal; only when dreams were included. */
+  dreamInsights?: string[];
+  dreamCount?: number;
 }
+
+// Per-account, per-device choice: include the dreams of the period.
+const INCLUDE_DREAMS_KEY = "trend-include-dreams";
+
+const NO_DREAMS: JournalEntryData[] = [];
 
 interface CloudTrendData {
   version: number;
@@ -53,21 +79,7 @@ interface CloudTrendData {
   analysis: TrendData;
 }
 
-type DateRangePreset = "last30days" | "last90days" | "thisYear" | "custom";
-
-const DATE_RANGE_OPTIONS = [
-  { value: "last30days" as const, label: "trendAnalysis.last30days" },
-  { value: "last90days" as const, label: "trendAnalysis.last90days" },
-  { value: "thisYear" as const, label: "trendAnalysis.thisYear" },
-  { value: "custom" as const, label: "trendAnalysis.customRange" },
-];
-
-// On iOS native, Radix UI's portal-based Select doesn't receive touch events
-// reliably in Capacitor's WKWebView, so fall back to a native <select>.
-const isNativeIOS = !!(window as any).Capacitor?.isNativePlatform?.() &&
-  (window as any).Capacitor?.getPlatform?.() === 'ios';
-
-export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisProps) => {
+export const TrendAnalysis = ({ entries, isPro, isDemo = false, dreams = NO_DREAMS, onSaveReflection }: TrendAnalysisProps) => {
   const [analysis, setAnalysis] = useState<TrendData | null>(null);
   const [loading, setLoading] = useState(false);
   const [lastAnalyzed, setLastAnalyzed] = useState<Date | null>(null);
@@ -89,7 +101,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
   useEffect(() => {
     if (isPro) setIsSetupCollapsed(false);
   }, [isPro]);
-  const [dateRangePreset, setDateRangePreset] = useState<DateRangePreset>("last30days");
+  const [dateRangePreset, setDateRangePreset] = useState<PeriodPreset>("last30days");
   const [customStartDate, setCustomStartDate] = useState<Date | undefined>(undefined);
   const [customEndDate, setCustomEndDate] = useState<Date | undefined>(undefined);
   // Store the actual period that was analyzed (not the current selection)
@@ -103,32 +115,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
 
   // Calculate date range and filter entries based on selection
   const { startDate, endDate, filteredEntries } = useMemo(() => {
-    const now = new Date();
-    let start: Date;
-    let end: Date = now;
-
-    switch (dateRangePreset) {
-      case "last30days":
-        start = subDays(now, 30);
-        break;
-      case "last90days":
-        start = subDays(now, 90);
-        break;
-      case "thisYear":
-        start = startOfYear(now);
-        break;
-      case "custom":
-        if (customStartDate && customEndDate) {
-          start = startOfDay(customStartDate);
-          end = endOfDay(customEndDate);
-        } else {
-          // Default to last 30 days if custom dates not set
-          start = subDays(now, 30);
-        }
-        break;
-      default:
-        start = subDays(now, 30);
-    }
+    const { start, end } = periodRange(dateRangePreset, customStartDate, customEndDate);
 
     const filtered = entries.filter(entry => {
       const entryDate = entry.date;
@@ -137,6 +124,36 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
 
     return { startDate: start, endDate: end, filteredEntries: filtered };
   }, [entries, dateRangePreset, customStartDate, customEndDate]);
+
+  // "Include your dreams": on by default, remembered on this device. Shown
+  // once the journal holds a dream; off sends nothing about the dreams.
+  const [includeDreams, setIncludeDreamsState] = useState(() => {
+    try {
+      return localStorage.getItem(scopedKey(INCLUDE_DREAMS_KEY)) !== "false";
+    } catch {
+      return true;
+    }
+  });
+  const setIncludeDreams = (value: boolean) => {
+    setIncludeDreamsState(value);
+    try {
+      localStorage.setItem(scopedKey(INCLUDE_DREAMS_KEY), String(value));
+    } catch {
+      /* Not remembered; the choice still applies now. */
+    }
+  };
+  const [consentOpen, setConsentOpen] = useState(false);
+  const showDreamSwitch = !isDemo && !!onSaveReflection && dreams.length > 0;
+  const periodDreams = useMemo(() => dreamsForPeriod(dreams, startDate, endDate), [dreams, startDate, endDate]);
+  // Dreams without a reflection get one first, as far as this month's
+  // reflections reach; the rest are left out.
+  const reflectionUsage = useDreamUsage("dreamReflection");
+  const reflectionsLeft = Math.max(0, reflectionUsage.limit - reflectionUsage.current);
+  const withoutReflection = periodDreams.filter((d) => !d.dreamReflection).length;
+  const toReflect = Math.min(withoutReflection, reflectionsLeft);
+  const leftOut = withoutReflection - toReflect;
+  const usableDreams = periodDreams.length - leftOut;
+  const withDreams = showDreamSwitch && isPro && includeDreams && usableDreams >= DREAM_LIMITS.dreamsForTrends;
 
   const canAnalyze = () => {
     const limitCheck = aiUsageLimits.canUseFeature('trendAnalysis');
@@ -428,6 +445,19 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
   };
 
   const handleAnalyze = async () => {
+    // Dreams go to Google only after the same consent as a dream reflection.
+    if (withDreams && !isDemo && !hasDreamConsent()) {
+      setConsentOpen(true);
+      return;
+    }
+    // The dreams and the reflection budget as they are when Analyze is tapped.
+    const runDreams = withDreams ? periodDreams : [];
+    const runReflections = reflectionsLeft;
+    const startedBy = getCurrentUserId();
+    // One more step when dreams are included: reflecting on those without one.
+    const totalSteps = runDreams.length > 0 ? 6 : 5;
+    const later = runDreams.length > 0 ? 1 : 0;
+
     // Demo mode: use mock responses
     if (isDemo) {
       setLoading(true);
@@ -487,66 +517,20 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
     }
 
     setLoading(true);
-    setProgress({ step: 1, totalSteps: 5, currentAction: t('trendAnalysis.progress.checkingEntries'), currentEntry: 0, totalEntries: 0 });
+    setProgress({ step: 1, totalSteps, currentAction: t('trendAnalysis.progress.checkingEntries'), currentEntry: 0, totalEntries: 0 });
     
     try {
       // Step 1: Check which entries have metadata
-      const entriesWithMetadata: Array<{ entry: JournalEntryData; metadata: EntryAIMetadata | null }> = [];
-      
-      for (const entry of filteredEntries) {
-        const metadata = await aiMetadataService.getMetadata(entry.id);
-        entriesWithMetadata.push({ entry, metadata });
-      }
+      const entriesWithMetadata = await loadEntryAnalyses(filteredEntries);
 
       // Step 2: Analyze missing OR failed entries
-      // Helper to detect failed analysis metadata
-      const isFailedMetadata = (metadata: EntryAIMetadata | null): boolean => {
-        if (!metadata) return false;
-        
-        const summary = metadata.shortSummary?.toLowerCase().trim() || '';
-        
-        // Check for explicit failure indicators in multiple languages
-        const failureIndicators = [
-          'could not analyze',
-          'analysis failed',
-          'error analyzing',
-          'failed to analyze',
-          'unable to analyze',
-          'cannot analyze',
-          // Japanese failure indicators
-          '分析できませんでした',
-          '分析に失敗',
-          '分析エラー',
-        ];
-        
-        if (failureIndicators.some(indicator => summary.includes(indicator))) {
-          console.log(`[isFailedMetadata] Detected failure indicator in summary: "${metadata.shortSummary}"`);
-          return true;
-        }
-        
-        // Detect default/placeholder metadata indicating failed extraction
-        // This catches old fallback metadata that used neutral defaults
-        const hasDefaultValues = 
-          metadata.sentimentScore === 0 &&
-          metadata.dominantEmotion === 'neutral' &&
-          (summary === '' || summary.length < 10);
-        
-        if (hasDefaultValues) {
-          console.log(`[isFailedMetadata] Detected default values indicating failure: sentiment=0, emotion=neutral, summary="${metadata.shortSummary}"`);
-          return true;
-        }
-        
-        return false;
-      };
-      
-      const missingEntries = entriesWithMetadata.filter(e => !e.metadata || isFailedMetadata(e.metadata));
-      
-      if (missingEntries.length > 0) {
-        setAnalyzingCount(missingEntries.length);
-        setProgress({ step: 2, totalSteps: 5, currentAction: t('trendAnalysis.progress.analyzingEntry', { current: 0, total: missingEntries.length }), currentEntry: 0, totalEntries: missingEntries.length });
+      const missingCount = entriesWithMetadata.filter(needsEntryAnalysis).length;
+      if (missingCount > 0) {
+        setAnalyzingCount(missingCount);
+        setProgress({ step: 2, totalSteps, currentAction: t('trendAnalysis.progress.analyzingEntry', { current: 0, total: missingCount }), currentEntry: 0, totalEntries: missingCount });
         toast({
           title: t('trendAnalysis.analyzingEntries'),
-          description: t('trendAnalysis.analyzingEntriesDesc', { count: missingEntries.length }),
+          description: t('trendAnalysis.analyzingEntriesDesc', { count: missingCount }),
         });
 
         const { data: { session } } = await supabase.auth.getSession();
@@ -560,175 +544,30 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
           return;
         }
 
-        // Analyze missing entries in parallel batches of 4 for speed
-        const PARALLEL_BATCH_SIZE = 4;
-        let processedCount = 0;
-
-        for (let i = 0; i < missingEntries.length; i += PARALLEL_BATCH_SIZE) {
-          const batch = missingEntries.slice(i, i + PARALLEL_BATCH_SIZE);
-          const batchEndIndex = Math.min(i + PARALLEL_BATCH_SIZE, missingEntries.length);
-          
-          setProgress({ 
-            step: 2, 
-            totalSteps: 5, 
-            currentAction: t('trendAnalysis.progress.analyzingEntry', { 
-              current: `${i + 1}-${batchEndIndex}`, 
-              total: missingEntries.length 
-            }), 
-            currentEntry: batchEndIndex, 
-            totalEntries: missingEntries.length 
-          });
-          
-          // Process batch in parallel
-          const batchResults = await Promise.allSettled(
-            batch.map(async ({ entry, metadata }) => {
-              // If this entry had failed metadata, clear it before retry
-              if (metadata && isFailedMetadata(metadata)) {
-                await aiMetadataService.deleteMetadata(entry.id);
-              }
-              
-              const { data, error } = await supabase.functions.invoke('ai-analyze', {
-                body: {
-                  type: 'analyzeEntry',
-                  language: i18n.language.split('-')[0],
-                  entryId: entry.id,
-                  content: entry.body,
-                  createdAt: entry.createdAt.toISOString(),
-                  tags: entry.tags,
-                  mood: entry.mood,
-                  forceReanalyze: metadata ? isFailedMetadata(metadata) : false,
-                  batchContext: {
-                    isTrendBatch: true,
-                    entryCount: missingEntries.length
-                  }
-                },
-                headers: {
-                  Authorization: `Bearer ${session.access_token}`
-                }
-              });
-              
-              if (error) throw error;
-              return { entryId: entry.id, data };
-            })
-          );
-          
-          // Process results from this batch and collect failed entries for retry
-          const failedInBatch: typeof batch = [];
-          
-          for (let j = 0; j < batchResults.length; j++) {
-            const result = batchResults[j];
-            if (result.status === 'fulfilled' && result.value.data) {
-              // Find the original entry to include analyzedContentLength
-              const originalEntry = batch.find(b => b.entry.id === result.value.entryId);
-              const metadataWithLength = {
-                ...result.value.data,
-                analyzedContentLength: originalEntry?.entry.body?.trim().length || 0
-              };
-              
-              await aiMetadataService.setMetadata(result.value.entryId, metadataWithLength);
-              const index = entriesWithMetadata.findIndex(e => e.entry.id === result.value.entryId);
-              if (index !== -1) {
-                entriesWithMetadata[index].metadata = metadataWithLength;
-              }
-              processedCount++;
-            } else if (result.status === 'rejected') {
-              console.error('Failed to analyze entry in batch, will retry:', result.reason);
-              // Clear any existing failed metadata so this entry will be picked up next run
-              if (batch[j]) {
-                await aiMetadataService.deleteMetadata(batch[j].entry.id);
-                failedInBatch.push(batch[j]);
-              }
-            }
-          }
-          
-          // Retry failed entries from this batch (one attempt each with delay)
-          if (failedInBatch.length > 0) {
-            console.log(`[RETRY] Retrying ${failedInBatch.length} failed entries from batch`);
-            
-            for (const { entry } of failedInBatch) {
-              try {
-                // Small delay before retry to avoid rate limiting
-                await new Promise(r => setTimeout(r, 800));
-                
-                setProgress({ 
-                  step: 2, 
-                  totalSteps: 5, 
-                  currentAction: t('trendAnalysis.progress.retrying', { defaultValue: 'Retrying...' }), 
-                  currentEntry: processedCount, 
-                  totalEntries: missingEntries.length 
-                });
-                
-                const { data, error } = await supabase.functions.invoke('ai-analyze', {
-                  body: {
-                    type: 'analyzeEntry',
-                    language: i18n.language.split('-')[0],
-                    entryId: entry.id,
-                    content: entry.body,
-                    createdAt: entry.createdAt.toISOString(),
-                    tags: entry.tags,
-                    mood: entry.mood,
-                    forceReanalyze: true, // Force since it failed before
-                    batchContext: { isTrendBatch: true, entryCount: missingEntries.length, isRetry: true }
-                  },
-                  headers: {
-                    Authorization: `Bearer ${session.access_token}`
-                  }
-                });
-                
-                if (!error && data) {
-                  const metadataWithLength = {
-                    ...data,
-                    analyzedContentLength: entry.body?.trim().length || 0
-                  };
-                  await aiMetadataService.setMetadata(entry.id, metadataWithLength);
-                  const index = entriesWithMetadata.findIndex(e => e.entry.id === entry.id);
-                  if (index !== -1) {
-                    entriesWithMetadata[index].metadata = metadataWithLength;
-                  }
-                  processedCount++;
-                  console.log(`[RETRY] Successfully analyzed entry ${entry.id} on retry`);
-                } else {
-                  console.error(`[RETRY] Entry ${entry.id} failed with error:`, error);
-                }
-              } catch (retryError) {
-                console.error(`[RETRY] Entry ${entry.id} failed again:`, retryError);
-                // Clear metadata so entry will be picked up on next trend analysis run
-                await aiMetadataService.deleteMetadata(entry.id);
-              }
-            }
-          }
-        }
-        
-        // Sync analyzed entries to cloud for cross-device persistence
-        // Update updatedAt timestamp to ensure other devices detect the metadata change
-        if (processedCount > 0) {
-          console.log(`[SYNC] Syncing ${processedCount} entries with new metadata to cloud`);
-          
-          for (const { entry, metadata } of entriesWithMetadata) {
-            if (metadata && !isFailedMetadata(metadata)) {
-              try {
-                const fullEntry = await storageServiceV2.getEntry(entry.id);
-                if (fullEntry) {
-                  // Force timestamp update so other devices detect the metadata change
-                  fullEntry.updatedAt = new Date();
-                  await storageServiceV2.saveEntry(fullEntry);
-                }
-              } catch (syncError) {
-                console.warn(`[SYNC] Failed to sync entry ${entry.id}:`, syncError);
-              }
-            }
-          }
-        }
+        await analyzeMissingEntries(entriesWithMetadata, {
+          language: i18n.language,
+          accessToken: session.access_token,
+          onProgress: ({ done, total, retrying }) =>
+            setProgress({
+              step: 2,
+              totalSteps,
+              currentAction: retrying
+                ? t('trendAnalysis.progress.retrying', { defaultValue: 'Retrying...' })
+                : t('trendAnalysis.progress.analyzingEntry', { current: done, total }),
+              currentEntry: done,
+              totalEntries: total,
+            }),
+        });
       }
 
       // Step 3: Collect all VALID metadata (exclude failed analyses)
       const allMetadata = entriesWithMetadata
         .map(e => e.metadata)
-        .filter((m): m is EntryAIMetadata => m !== null && !isFailedMetadata(m));
+        .filter((m): m is EntryAIMetadata => m !== null && !isFailedEntryAnalysis(m));
 
       // Track failed entries for logging
       const failedCount = entriesWithMetadata.filter(e => 
-        e.metadata && isFailedMetadata(e.metadata)
+        e.metadata && isFailedEntryAnalysis(e.metadata)
       ).length;
 
       if (failedCount > 0) {
@@ -745,12 +584,40 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
         return;
       }
 
-      // Step 3: Aggregate locally
-      setProgress({ step: 3, totalSteps: 5, currentAction: t('trendAnalysis.progress.aggregatingPatterns'), currentEntry: 0, totalEntries: 0 });
+      // Step 3 with dreams: reflect on the dreams of the period that have no
+      // reflection yet, as far as this month's reflections reach. Dreams
+      // that still have none are left out; too few left means no dreams.
+      let dreamsPayload: ReturnType<typeof trendDreamsPayload> = [];
+      if (runDreams.length > 0) {
+        const reflected = await reflectMissingDreams(runDreams, entries, {
+          language: i18n.language,
+          max: runReflections,
+          onProgress: (current, total) =>
+            setProgress({
+              step: 3,
+              totalSteps,
+              currentAction: t('dream.patterns.reflecting', { current, total }),
+              currentEntry: 0,
+              totalEntries: 0,
+            }),
+          onSaved: onSaveReflection!,
+          isCurrent: () => getCurrentUserId() === startedBy,
+        });
+        // Signed out or another account signed in meanwhile.
+        if (!reflected) return;
+        dreamsPayload = trendDreamsPayload(reflected.dreams);
+        if (dreamsPayload.length < DREAM_LIMITS.dreamsForTrends) {
+          dreamsPayload = [];
+          toast({ title: t('trendAnalysis.title'), description: t('trendAnalysis.dreams.notIncluded') });
+        }
+      }
+
+      // Aggregate locally
+      setProgress({ step: 3 + later, totalSteps, currentAction: t('trendAnalysis.progress.aggregatingPatterns'), currentEntry: 0, totalEntries: 0 });
       const aggregated = aggregateMetadata(allMetadata);
 
-      // Step 4: Call trend endpoint with aggregated data
-      setProgress({ step: 4, totalSteps: 5, currentAction: t('trendAnalysis.progress.generatingInsights'), currentEntry: 0, totalEntries: 0 });
+      // Call trend endpoint with aggregated data
+      setProgress({ step: 4 + later, totalSteps, currentAction: t('trendAnalysis.progress.generatingInsights'), currentEntry: 0, totalEntries: 0 });
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
         toast({
@@ -778,13 +645,14 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
           end: endDate.toISOString()
         },
         aggregates: aggregated,
+        ...(dreamsPayload.length > 0 ? { dreams: dreamsPayload } : {}),
       };
       
       if (shouldUseTimeBuckets(periodDays)) {
         // Long period (>90 days): Use time-bucketed aggregation
         // Prepare entries with metadata and dates for bucketing
         const entriesWithDates: EntryWithDateAndMetadata[] = entriesWithMetadata
-          .filter(e => e.metadata && !isFailedMetadata(e.metadata))
+          .filter(e => e.metadata && !isFailedEntryAnalysis(e.metadata))
           .map(e => ({
             entry: e.entry,
             metadata: e.metadata as EntryAIMetadata
@@ -799,14 +667,18 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
         
         console.log(`[TrendAnalysis] Using time buckets for ${periodDays}-day period: ${(requestBody.timeBuckets as unknown[]).length} buckets`);
       } else {
-        // Short period (≤90 days): Send individual entry metadata
-        requestBody.entryMetadata = allMetadata.slice(0, 90).map(m => ({
-          analyzedAt: m.analyzedAt,
-          sentimentScore: m.sentimentScore,
-          dominantEmotion: m.dominantEmotion,
-          topics: m.topics.slice(0, 3),
-          timeOfDay: m.timeOfDay
-        }));
+        // Short period (≤90 days): Send individual entry metadata, with the
+        // day of each entry so the dreams can be set beside it.
+        requestBody.entryMetadata = entriesWithMetadata
+          .filter(e => e.metadata && !isFailedEntryAnalysis(e.metadata))
+          .slice(0, 90)
+          .map(({ entry, metadata: m }) => ({
+            date: format(entry.date, 'yyyy-MM-dd'),
+            sentimentScore: m.sentimentScore,
+            dominantEmotion: m.dominantEmotion,
+            topics: m.topics.slice(0, 3),
+            timeOfDay: m.timeOfDay
+          }));
         
         console.log(`[TrendAnalysis] Using individual entries for ${periodDays}-day period: ${(requestBody.entryMetadata as unknown[]).length} entries`);
       }
@@ -850,6 +722,12 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
         return;
       }
 
+      // Dream observations only when dreams were sent.
+      if (dreamsPayload.length === 0 || !Array.isArray(data.dreamInsights)) {
+        delete data.dreamInsights;
+        delete data.dreamCount;
+      }
+
       setAnalysis(data);
       setLastAnalyzed(new Date());
       setIsCollapsed(false); // AUTO-SHOW results after analysis
@@ -859,8 +737,8 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
       setAnalyzedPeriodStart(startDate);
       setAnalyzedPeriodEnd(endDate);
       
-      // Step 5: Save to both local cache and cloud storage (include period dates)
-      setProgress({ step: 5, totalSteps: 5, currentAction: t('trendAnalysis.progress.savingAnalysis'), currentEntry: 0, totalEntries: 0 });
+      // Save to both local cache and cloud storage (include period dates)
+      setProgress({ step: 5 + later, totalSteps, currentAction: t('trendAnalysis.progress.savingAnalysis'), currentEntry: 0, totalEntries: 0 });
       await saveTrendAnalysis(data, startDate, endDate);
       
       aiUsageLimits.recordUsage('trendAnalysis');
@@ -947,6 +825,50 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
     </div>
   );
 
+  // "Include your dreams" and what it will do for the chosen period.
+  const dreamControls = showDreamSwitch && (
+    <div className="space-y-1">
+      <div className="flex items-center gap-2">
+        <Switch
+          id="trend-include-dreams"
+          checked={includeDreams}
+          onCheckedChange={setIncludeDreams}
+          disabled={loading || !isPro}
+        />
+        <Label htmlFor="trend-include-dreams" className="text-sm font-normal">
+          {t('trendAnalysis.dreams.include')}
+        </Label>
+      </div>
+      {isPro && includeDreams && (
+        <p className="text-xs tabular-nums text-muted-foreground">
+          {usableDreams < DREAM_LIMITS.dreamsForTrends ? (
+            t('trendAnalysis.dreams.tooFew', { count: usableDreams, min: DREAM_LIMITS.dreamsForTrends })
+          ) : (
+            <>
+              {t('trendAnalysis.dreams.included', { count: usableDreams })}
+              {toReflect > 0 && (
+                <>
+                  {sentenceSeparator(i18n.language)}
+                  {t('trendAnalysis.dreams.reflectFirst', { count: toReflect, remaining: reflectionsLeft })}
+                </>
+              )}
+              {leftOut > 0 && (
+                <>
+                  {sentenceSeparator(i18n.language)}
+                  {t('trendAnalysis.dreams.leftOut', { count: leftOut })}
+                </>
+              )}
+            </>
+          )}
+        </p>
+      )}
+    </div>
+  );
+
+  const consentDialog = showDreamSwitch && (
+    <DreamConsentDialog open={consentOpen} onOpenChange={setConsentOpen} onAccept={() => void handleAnalyze()} />
+  );
+
   if (!analysis || isSelectingPeriod) {
     return (
       <Card className="overflow-hidden rounded-2xl border-border bg-card shadow-soft">
@@ -997,30 +919,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
 
                 {/* Action bar — dropdown and Analyze button; wraps when the card is narrow */}
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                  {isNativeIOS ? (
-                    <select
-                      value={dateRangePreset}
-                      onChange={(e) => setDateRangePreset(e.target.value as DateRangePreset)}
-                      className="min-h-11 min-w-[11rem] flex-1 px-3 py-2 rounded-md border border-input bg-background text-sm"
-                    >
-                      {DATE_RANGE_OPTIONS.map(option => (
-                        <option key={option.value} value={option.value}>{t(option.label)}</option>
-                      ))}
-                    </select>
-                  ) : (
-                    <Select value={dateRangePreset} onValueChange={(value) => setDateRangePreset(value as DateRangePreset)}>
-                      <SelectTrigger className="min-h-11 min-w-[11rem] flex-1">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {DATE_RANGE_OPTIONS.map(option => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {t(option.label)}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  )}
+                  <PeriodSelect value={dateRangePreset} onChange={setDateRangePreset} />
 
                   <Button
                     onClick={handleAnalyze}
@@ -1070,74 +969,23 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
                 )}
               </div>
 
+              {dreamControls}
+
               {/* Custom Date Range Pickers */}
               {dateRangePreset === "custom" && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
-                  <div className="space-y-2">
-                    <label className="text-xs text-muted-foreground">{t('trendAnalysis.startDate')}</label>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <Button
-                          variant="outline"
-                          className={cn(
-                            "w-full justify-start text-left font-normal",
-                            !customStartDate && "text-muted-foreground"
-                          )}
-                        >
-                          <CalendarIcon aria-hidden="true" className="mr-2 h-4 w-4" />
-                          {customStartDate ? format(customStartDate, "PPP", { locale: dateLocale }) : t('trendAnalysis.pickDate')}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={customStartDate}
-                          onSelect={setCustomStartDate}
-                          disabled={(date) =>
-                            date > new Date() || (customEndDate && date > customEndDate)
-                          }
-                          initialFocus
-                          className="pointer-events-auto"
-                        />
-                      </PopoverContent>
-                    </Popover>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs text-muted-foreground">{t('trendAnalysis.endDate')}</label>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <Button
-                          variant="outline"
-                          className={cn(
-                            "w-full justify-start text-left font-normal",
-                            !customEndDate && "text-muted-foreground"
-                          )}
-                        >
-                          <CalendarIcon aria-hidden="true" className="mr-2 h-4 w-4" />
-                          {customEndDate ? format(customEndDate, "PPP", { locale: dateLocale }) : t('trendAnalysis.pickDate')}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={customEndDate}
-                          onSelect={setCustomEndDate}
-                          disabled={(date) =>
-                            date > new Date() || (customStartDate && date < customStartDate)
-                          }
-                          initialFocus
-                          className="pointer-events-auto"
-                        />
-                      </PopoverContent>
-                    </Popover>
-                  </div>
-                </div>
+                <CustomPeriodPicker
+                  start={customStartDate}
+                  end={customEndDate}
+                  onStartChange={setCustomStartDate}
+                  onEndChange={setCustomEndDate}
+                />
               )}
 
               {progressPanel}
             </div>
           </CollapsibleContent>
         </Collapsible>
+        {consentDialog}
       </Card>
     );
   }
@@ -1225,6 +1073,8 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
               </Button>
             </div>
 
+            {dreamControls}
+
             {progressPanel}
 
             {/* The report reads as one piece of writing: titled sections
@@ -1245,6 +1095,27 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
                   <h4 className="text-xl font-semibold">{t('trendAnalysis.keyInsights')}</h4>
                   <ul className="reading space-y-3">
                     {analysis.insights.map((insight, index) => (
+                      <li key={index} className="flex gap-3">
+                        <span aria-hidden="true" className="text-muted-foreground">•</span>
+                        <span className="min-w-0">{insight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {analysis.dreamInsights && analysis.dreamInsights.length > 0 && (
+                <section className="space-y-3 py-5">
+                  <div className="space-y-1">
+                    <h4 className="text-xl font-semibold">{t('trendAnalysis.dreams.title')}</h4>
+                    {analysis.dreamCount ? (
+                      <p className="text-xs tabular-nums text-muted-foreground">
+                        {t('dream.patterns.basedOn', { count: analysis.dreamCount })}
+                      </p>
+                    ) : null}
+                  </div>
+                  <ul className="reading space-y-3">
+                    {analysis.dreamInsights.map((insight, index) => (
                       <li key={index} className="flex gap-3">
                         <span aria-hidden="true" className="text-muted-foreground">•</span>
                         <span className="min-w-0">{insight}</span>
@@ -1299,6 +1170,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
           </div>
         </CollapsibleContent>
       </Collapsible>
+      {consentDialog}
     </Card>
   );
 };

@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { withoutDreams } from "@/types/dream";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
@@ -18,6 +19,8 @@ function DemoContent() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { entries, saveEntry, deleteEntry } = useDemo();
+  // Dreams stay out of mood and trend views, as in the app.
+  const moodEntries = useMemo(() => withoutDreams(entries), [entries]);
   useDocumentTitle(t('demo.mode'));
   
   const cleanMode = searchParams.get('clean') === 'true';
@@ -86,7 +89,7 @@ function DemoContent() {
           {showInsights && (
             <div className="lg:col-span-1 order-first lg:order-last">
               <TrendAnalysis
-                entries={entries}
+                entries={moodEntries}
                 isPro={true}
                 isDemo={true}
               />

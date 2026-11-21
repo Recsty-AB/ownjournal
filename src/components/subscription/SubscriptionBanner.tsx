@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Crown, Brain, Lightbulb, Tag, TrendingUp, FileText, Mic, Loader2, ExternalLink, Smartphone } from "lucide-react";
+import { Crown, Brain, Lightbulb, Tag, TrendingUp, FileText, Mic, Moon, Loader2, ExternalLink, Smartphone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedPricing } from "@/hooks/useLocalizedPricing";
 import { useIapOnlyRegion } from "@/hooks/useIapOnlyRegion";
@@ -26,6 +26,7 @@ const proFeatures = [
   { key: "tagSuggestions", icon: Tag },
   { key: "trendAnalysis", icon: TrendingUp },
   { key: "voiceEntry", icon: Mic },
+  { key: "dreamReflection", icon: Moon },
   { key: "exports", icon: FileText },
 ];
 

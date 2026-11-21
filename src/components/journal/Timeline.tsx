@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
-import { Plus, Search, Calendar, ArrowUp, SlidersHorizontal, X } from "lucide-react";
+import { Plus, Search, Calendar, ArrowUp, SlidersHorizontal, X, Moon } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
@@ -18,6 +18,10 @@ import { MOOD_EMOJI } from "@/utils/moodEmoji";
 import { MOOD_CELL_COLORS } from "@/utils/moodColors";
 import { cn } from "@/lib/utils";
 import { PREDEFINED_ACTIVITIES, getActivityEmoji } from "@/utils/activities";
+import { withoutDreams, type DreamReflection } from "@/types/dream";
+import { FeatureTip } from "./FeatureTip";
+import { isJournalLocked } from "@/services/dreamService";
+import { hasSeenFeatureTip, setFeatureTipSeen } from "@/utils/featureTip";
 
 const groupEntriesByDate = (entries: JournalEntryData[], t: (key: string) => string, locale: Locale) => {
   const groups: { [key: string]: JournalEntryData[] } = {};
@@ -51,17 +55,25 @@ interface TimelineProps {
   onSaveEntry: (entry: Omit<JournalEntryData, 'id' | 'createdAt' | 'updatedAt'>) => void;
   onDeleteEntry: (id: string) => void;
   onEditingChange?: (isEditing: boolean) => void;
+  onSaveReflection?: (entry: JournalEntryData, reflection: DreamReflection) => Promise<void>;
+  onSaveDreamThoughts?: (entry: JournalEntryData, thoughts: string) => Promise<void>;
   isPro?: boolean;
   isDemo?: boolean;
   hideFooter?: boolean;
 }
 
-export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange, isPro = false, isDemo = false, hideFooter = false }: TimelineProps) => {
+export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange, onSaveReflection, onSaveDreamThoughts, isPro = false, isDemo = false, hideFooter = false }: TimelineProps) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showNewEntry, setShowNewEntry] = useState(false);
+  // The new entry opened from the feature tip starts as a dream.
+  const [newEntryIsDream, setNewEntryIsDream] = useState(false);
+  // Re-renders the timeline once the tip is dismissed; the flag itself is read
+  // from storage on every render (see hasSeenFeatureTip).
+  const [, setTipDismissed] = useState(false);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selectedMoods, setSelectedMoods] = useState<string[]>([]);
   const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
+  const [dreamsOnly, setDreamsOnly] = useState(false);
   const [dateFilter, setDateFilter] = useState({ start: "", end: "" });
   const [editingEntryId, setEditingEntryId] = useState<string | null>(null);
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -188,13 +200,16 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
         entry.body.toLowerCase().includes(needle);
       const matchesTags = selectedTags.length === 0 ||
         selectedTags.some(tag => entry.tags.includes(tag));
+      const isDream = entry.type === 'dream';
+      // Dreams carry no mood or activities, so those filters never match them.
       const matchesMoods = selectedMoods.length === 0 ||
-        (entry.mood && selectedMoods.includes(entry.mood));
+        (!isDream && entry.mood && selectedMoods.includes(entry.mood));
       const matchesActivities = selectedActivities.length === 0 ||
-        (entry.activities && selectedActivities.some(activity => entry.activities!.includes(activity)));
+        (!isDream && entry.activities && selectedActivities.some(activity => entry.activities!.includes(activity)));
+      const matchesKind = !dreamsOnly || isDream;
       const matchesDateRange = (!startDate && !endDate) ||
         ((!startDate || entry.date >= startDate) && (!endDate || entry.date <= endDate));
-      return matchesSearch && matchesTags && matchesMoods && matchesActivities && matchesDateRange;
+      return matchesSearch && matchesTags && matchesMoods && matchesActivities && matchesKind && matchesDateRange;
     });
     filtered.sort((a, b) => {
       const dateA = a.date?.getTime() || 0;
@@ -206,7 +221,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
       return b.id.localeCompare(a.id);
     });
     return filtered;
-  }, [entries, searchQuery, selectedTags, selectedMoods, selectedActivities, dateFilter.start, dateFilter.end]);
+  }, [entries, searchQuery, selectedTags, selectedMoods, selectedActivities, dreamsOnly, dateFilter.start, dateFilter.end]);
 
   const groupedEntries = useMemo(
     () => groupEntriesByDate(sortedFilteredEntries, t, currentLocale),
@@ -230,13 +245,14 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
   // regardless of which moods happen to exist in the current entry set.
   const allMoods = useMemo(() => {
     const VALENCE_ORDER = ['great', 'good', 'okay', 'poor', 'terrible'];
-    const present = new Set(entries.map(entry => entry.mood).filter(Boolean) as string[]);
+    const present = new Set(withoutDreams(entries).map(entry => entry.mood).filter(Boolean) as string[]);
     return VALENCE_ORDER.filter(m => present.has(m));
   }, [entries]);
   const allActivities = useMemo(
-    () => Array.from(new Set(entries.flatMap(entry => entry.activities || []))),
+    () => Array.from(new Set(withoutDreams(entries).flatMap(entry => entry.activities || []))),
     [entries]
   );
+  const hasDreams = useMemo(() => entries.some(entry => entry.type === 'dream'), [entries]);
 
   const toggleTag = (tag: string) => {
     setSelectedTags(prev => 
@@ -264,6 +280,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
 
   const activeFilterCount =
     selectedTags.length + selectedMoods.length + selectedActivities.length +
+    (dreamsOnly ? 1 : 0) +
     (dateFilter.start ? 1 : 0) + (dateFilter.end ? 1 : 0);
   const isFiltering = searchQuery !== "" || activeFilterCount > 0;
 
@@ -271,6 +288,7 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
     setSelectedTags([]);
     setSelectedMoods([]);
     setSelectedActivities([]);
+    setDreamsOnly(false);
     setDateFilter({ start: "", end: "" });
   };
 
@@ -283,6 +301,26 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
       });
       return;
     }
+    setNewEntryIsDream(false);
+    setShowNewEntry(true);
+    onEditingChange?.(true);
+  };
+
+  // One-time tip about dreams and voice entry for a journal that is already
+  // in use. Someone who finishes the tour has just read about the dream
+  // journal, so the tour marks the tip as seen (see Index). Not while writing,
+  // and not while an encrypted journal is locked.
+  const showFeatureTip =
+    !isDemo && !showNewEntry && !editingEntryId && !hasSeenFeatureTip() && entries.length > 0 && !isJournalLocked();
+
+  const dismissFeatureTip = () => {
+    setFeatureTipSeen();
+    setTipDismissed(true);
+  };
+
+  const writeDreamFromTip = () => {
+    dismissFeatureTip();
+    setNewEntryIsDream(true);
     setShowNewEntry(true);
     onEditingChange?.(true);
   };
@@ -369,6 +407,17 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
               <div className="flex flex-wrap items-center gap-2">
                 {renderDateFilter('start')}
                 {renderDateFilter('end')}
+                {hasDreams && (
+                  <button
+                    type="button"
+                    className="chip"
+                    aria-pressed={dreamsOnly}
+                    onClick={() => setDreamsOnly(on => !on)}
+                  >
+                    <Moon aria-hidden="true" className="h-4 w-4" />
+                    {t('dream.filter')}
+                  </button>
+                )}
                 {activeFilterCount > 0 && (
                   <Button variant="ghost" size="sm" onClick={clearFilters} className="ml-auto rounded-full text-muted-foreground">
                     <X aria-hidden="true" className="h-4 w-4" />
@@ -444,11 +493,14 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
       {/* Timeline */}
       <ScrollArea className="flex-1" ref={scrollAreaRef}>
         <div className="p-4 sm:p-6 space-y-6 sm:space-y-8 overflow-x-hidden">
+          {showFeatureTip && <FeatureTip onWriteDream={writeDreamFromTip} onDismiss={dismissFeatureTip} />}
+
           {/* New Entry Form */}
           {showNewEntry && (
             <div className="mb-8" ref={newEntryRef}>
               <JournalEntry
                 isEditing
+                startAsDream={newEntryIsDream}
                 editingEntryId={editingEntryId}
                 onEditStart={() => setEditingEntryId('new-entry')}
                 onEditEnd={() => setEditingEntryId(null)}
@@ -521,6 +573,8 @@ export const Timeline = ({ entries, onSaveEntry, onDeleteEntry, onEditingChange,
                           onEditingChange?.(false);
                         }}
                         onEditingChange={onEditingChange}
+                        onSaveReflection={onSaveReflection}
+                        onSaveDreamThoughts={onSaveDreamThoughts}
                         allEntries={entries}
                         isPro={isPro}
                         isDemo={isDemo}

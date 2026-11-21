@@ -131,3 +131,18 @@ Scope: app strings (`src/i18n/locales/id.json`) and the website's UI strings (`o
 - Apple Support (id-ID), Akun Apple ("Akun Apple (sebelumnya ID Apple)"): https://support.apple.com/id-id/apple-account
 - Apple Legal (id), "Masuk dengan Apple & Privasi": https://www.apple.com/legal/privacy/data/id/sign-in-with-apple/
 - House style: existing app and website `id.json`.
+
+## Dreams glossary (dream journal and reflection)
+
+| English | Use | Avoid / source |
+|---|---|---|
+| dream / dream journal / nightmare | Mimpi / jurnal mimpi / mimpi buruk | attested (Alodokter, Kemenkes Keslan) |
+| lucid dream | Lucid dream (loan, also in chips) | "mimpi sadar", "mimpi jernih" (gloss only); Alodokter, Halodoc, Gramedia use the loan |
+| recurring (dream) | Berulang / mimpi berulang | attested (Kemenkes "terjadi berulang", Merahputih) |
+| flags heading (Recurring / Nightmare / Lucid) | Jenis mimpi | "Ciri mimpi ini" (nightmare and lucid dream are kinds, not traits); judgment |
+| Dream reflection / Reflect on this dream | Refleksi mimpi (titles: Refleksi Mimpi) / Refleksikan mimpi ini | "Renungkan mimpi ini" (tells the user to ponder); judgment |
+| Dream patterns (report) | Pola mimpi; "laporan pola mimpi" in prose | judgment |
+| possible themes / possible links | Kemungkinan tema / Kemungkinan kaitan | "Tema yang mungkin" (calque); pattern of Alodokter "kemungkinan penyebab" |
+| crisis line | hotline kesehatan jiwa | "layanan krisis" (unattested); Kemenkes "Layanan Hotline Healing119.id" |
+| health professional | tenaga kesehatan | attested (Kemenkes Healing119 FAQ) |
+| amount of AI processing, measured in tokens (legal) | jumlah pemrosesan AI yang digunakan dalam satuan token | judgment; unit after the measure, as "dalam detik" |

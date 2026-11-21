@@ -119,3 +119,18 @@ Technical loanwords kept on purpose: token, client ID, API, CORS, origin, header
 - Gboard App Store listing (vi), voice typing: https://apps.apple.com/us/app/gboard-the-google-keyboard/id1091700242?l=vi
 - Luật Bảo vệ dữ liệu cá nhân 2025 (91/2025/QH15), full text: https://luatvietnam.vn/dan-su/tai-toan-van-luat-bao-ve-du-lieu-ca-nhan-2025-pdf-word-568-103646-article.html ; SBV introduction: https://sbv.gov.vn/documents/20117/1445080/
 - House style: existing app and website `vi.json`; owner decisions of 2026-11 (one address form, chúng tôi on the website, app term wins).
+
+## Dreams glossary (2026-11)
+
+| English | Use | Avoid / source |
+|---|---|---|
+| dream journal / nightmare / lucid dream | Nhật ký giấc mơ / Ác mộng / (giấc) mơ sáng suốt | vi.wikipedia "Giấc mơ sáng suốt"; Vinmec |
+| recurring dream (chip) | Mơ lặp lại | Vinmec "giấc mơ lặp đi lặp lại"; chip form judgment |
+| flag-chip heading | Loại giấc mơ | Vinmec "Các loại giấc mơ" lists recurring, nightmare, lucid |
+| Dream reflection (feature) / one reflection / quota unit | Suy ngẫm giấc mơ / phần suy ngẫm / lượt suy ngẫm | "Suy ngẫm" = Jung's "Reflections" (vi. tr. Hồi ức, Giấc mơ, Suy ngẫm); rest judgment |
+| Dream patterns (feature) | Mẫu hình giấc mơ (capital M mid-sentence, like "Phân tích hoạt động") | "xu hướng" (= trend analysis), "quy luật"; judgment |
+| self-harm | tự làm hại bản thân | "làm hại bản thân" without "tự"; HelloBacsi/health pages |
+| crisis line / emergency number | đường dây nóng hỗ trợ tâm lý / số cấp cứu tại nơi bạn sống | Duy Tan Univ. suicide-prevention handbook ("liên hệ đường dây nóng", "Tổng đài Cấp cứu: 115") |
+| health professional | chuyên gia chăm sóc sức khỏe | Vinmec ("chuyên gia sức khỏe tâm thần" = mental-health professional) |
+| Clara Hill's dream work | mô hình tìm hiểu giấc mơ (khám phá, ý nghĩa, một bước nhỏ) | "làm việc với giấc mơ" (calque, unattested); judgment |
+| text of entries (not sent) | nội dung của các bài viết đó | "toàn văn" ("full text" implies part is sent); "toàn bộ nội dung" next to "nội dung giấc mơ" |

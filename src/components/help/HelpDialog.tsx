@@ -395,7 +395,8 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
                 <PlusBadge>{t('help.sections.proBadge')}</PlusBadge>
                 {t('help.sections.aiPoweredFeatures')}
               </h3>
-              <Accordion type="single" collapsible className="w-full">
+              {/* Controlled so in-app links (e.g. "How this works") can open a topic directly. */}
+              <Accordion type="single" collapsible className="w-full" value={openAccordionValue} onValueChange={(v) => setOpenAccordionValue(v)}>
                 <AccordionItem value="tag-suggestions">
                   <AccordionTrigger className={TOPIC}>
                     <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
@@ -432,6 +433,34 @@ export const HelpDialog = ({ open, onOpenChange, onStartTour, initialTab, initia
                   <AccordionContent className={ANSWER}>
                     <p>{t("help.features.voiceEntry.desc")}</p>
                     <PlusNote>{t("help.features.voiceEntry.proNote")}</PlusNote>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="dreams">
+                  <AccordionTrigger className={TOPIC}>
+                    <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                      {t("help.features.dreams.title")}
+                      <PlusBadge>{t('help.sections.proBadge')}</PlusBadge>
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className={ANSWER}>
+                    <p>{t("help.features.dreams.desc")}</p>
+                    <PlusNote>{t("help.features.dreams.proNote")}</PlusNote>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="dream-method">
+                  <AccordionTrigger className={TOPIC}>
+                    {t("help.features.dreamMethod.title")}
+                  </AccordionTrigger>
+                  <AccordionContent className={ANSWER}>
+                    <p>{t("help.features.dreamMethod.intro")}</p>
+                    <p>{t("help.features.dreamMethod.jung")}</p>
+                    <p>{t("help.features.dreamMethod.research")}</p>
+                    <p>{t("help.features.dreamMethod.questions")}</p>
+                    <p>{t("help.features.dreamMethod.noDictionary")}</p>
+                    <p>{t("help.features.dreamMethod.notAdvice")}</p>
+                    <p className={FOOTNOTE}>{t("help.features.dreamMethod.privacy")}</p>
                   </AccordionContent>
                 </AccordionItem>
 

@@ -1541,6 +1541,19 @@
       "entryProgress": "Eintrag {{current}} von {{total}}",
       "retrying": "Fehlgeschlagene Einträge werden erneut versucht…",
       "doNotCloseApp": "Bitte lassen Sie diese Seite geöffnet, bis die Analyse abgeschlossen ist"
+    },
+    "dreams": {
+      "include": "Träume einbeziehen",
+      "included_one": "{{count}} Traum aus diesem Zeitraum wird einbezogen.",
+      "included_other": "{{count}} Träume aus diesem Zeitraum werden einbezogen.",
+      "reflectFirst_one": "Einer davon ist noch nicht reflektiert. Das wird vor der Analyse nachgeholt und kostet eine Ihrer Reflexionen dieses Monats (noch {{remaining}} übrig).",
+      "reflectFirst_other": "{{count}} davon sind noch nicht reflektiert. Das wird vor der Analyse nachgeholt und kostet {{count}} Ihrer Reflexionen dieses Monats (noch {{remaining}} übrig).",
+      "leftOut_one": "Ein weiterer Traum ist noch nicht reflektiert und bleibt außen vor, weil Ihre Reflexionen dieses Monats dafür nicht ausreichen.",
+      "leftOut_other": "{{count}} weitere Träume sind noch nicht reflektiert und bleiben außen vor, weil Ihre Reflexionen dieses Monats dafür nicht ausreichen.",
+      "tooFew_one": "Aus diesem Zeitraum lässt sich nur ein Traum einbeziehen. Nötig sind mindestens {{min}}.",
+      "tooFew_other": "Aus diesem Zeitraum lassen sich {{count}} Träume einbeziehen, nötig sind aber mindestens {{min}}.",
+      "notIncluded": "Ihre Träume wurden diesmal nicht einbezogen, weil zu wenige davon eine Reflexion erhalten konnten.",
+      "title": "Ihre Träume in diesem Zeitraum"
     }
   },
   "exportDialog": {
@@ -1613,6 +1626,7 @@
       "tagSuggestions": "Intelligente Tag-Vorschläge",
       "trendAnalysis": "Stimmungs- und Trend-Einblicke",
       "voiceEntry": "Spracheingabe",
+      "dreamReflection": "Traumreflexion",
       "exports": "PDF- & Word-Export"
     },
     "trialCta": "Kostenlos testen",
@@ -1846,6 +1860,10 @@
       "title": "Ihre Tagebuch-Zeitleiste",
       "content": "Ihre Tagebucheinträge erscheinen hier, nach Datum sortiert.\nTippen Sie auf die Schaltfläche „+“, um Ihren ersten Eintrag zu erstellen."
     },
+    "dreams": {
+      "title": "Ihr Traumtagebuch",
+      "content": "Schreiben Sie Ihren Traum gleich nach dem Aufwachen auf, bevor er verblasst. Tippen Sie auf „Traum“, um den Eintrag als Traum zu markieren. Dazu können Sie Gefühle auswählen. Das alles ist kostenlos.\n\nMit Plus erhalten Sie auf Wunsch Reflexionen zu Ihren Träumen."
+    },
     "syncStatus": {
       "title": "Synchronisierungsstatus",
       "content": "Sobald Sie Cloud-Speicher verbinden, zeigt dieser Indikator Ihren Synchronisierungsstatus an.\nGrün bedeutet synchronisiert!"
@@ -2028,6 +2046,21 @@
         "desc": "Tippen Sie auf das Mikrofon unter dem Editor und sprechen Sie, statt zu schreiben. Sobald Sie die Aufnahme beenden, werden Ihre Worte in sauberen Text mit Satzzeichen umgewandelt und an der Cursorposition eingefügt. Das funktioniert in der Sprache, die Sie sprechen – auch wenn Sie zwischendurch die Sprache wechseln. Jede Aufnahme kann bis zu 5 Minuten lang sein, und Plus enthält 200 Minuten pro Monat.",
         "proNote": "(Plus-Funktion)"
       },
+      "dreams": {
+        "title": "Traumtagebuch und Traumreflexion",
+        "desc": "Tippen Sie beim Schreiben eines Eintrags auf „Traum“, um ihn als Traum zu speichern. Schreiben Sie den Traum gleich nach dem Aufwachen so auf, wie Sie ihn in Erinnerung haben, und wählen Sie die Gefühle aus, die dazu passen. Träume erscheinen nicht im Stimmungskalender und fließen nicht in den Stimmungstrend der Trendanalyse ein. Mit Plus tippen Sie auf „Traum reflektieren“ und erhalten eine Reflexion mit möglichen Themen, Traumbildern zum Erkunden und Fragen zum Nachdenken. Unter einer Reflexion können Sie Ihre eigenen Gedanken notieren. Bei „Erneut reflektieren“ werden sie berücksichtigt. Plus enthält 30 Reflexionen pro Monat. Umfasst ein Zeitraum Ihrer Wahl mindestens fünf Träume, können Sie dafür eine Traummuster-Auswertung erstellen, einmal pro Woche. Hat ein Traum aus diesem Zeitraum noch keine Reflexion, erhält er vor der Auswertung automatisch eine. Diese Reflexionen zählen zu den 30 pro Monat. Die Auswertung zeigt, welche Personen, Orte und Themen immer wiederkehren. Um Ihre Träume Ihrem Tagebuch gegenüberzustellen, schalten Sie in der Trendanalyse „Träume einbeziehen“ ein.",
+        "proNote": "(Plus-Funktion)"
+      },
+      "dreamMethod": {
+        "title": "So funktioniert die Traumreflexion",
+        "intro": "Die Traumreflexion orientiert sich am Traumverständnis von C. G. Jung und an der modernen Traumforschung.",
+        "jung": "Von Jung übernimmt sie den Gedanken, dass Ihre eigenen Einfälle zu einem Traumbild mehr zählen als jede allgemeine Bedeutung eines Symbols. Deshalb können Sie unter einer Reflexion notieren, was Ihnen selbst dazu einfällt, und den Traum erneut reflektieren. Von Jung stammen auch diese Gedanken: Ein Bild lässt sich in mehrere Richtungen erkunden, ein Traum kann eine Seite Ihres Lebens zeigen, der Sie im Wachen wenig Beachtung schenken, und eine Reihe von Träumen sagt mehr als ein einzelner.",
+        "research": "Aus der Traumforschung, vor allem aus den Arbeiten von Calvin Hall und G. William Domhoff, kommt der Befund, dass Träume meist aufgreifen, was Sie im Wachleben beschäftigt: Ihre Beziehungen, Sorgen und Gefühle. Deshalb kann eine Reflexion auf Bezüge zu Ihren Einträgen der vergangenen Woche hinweisen, und deshalb kann die Trendanalyse Ihre Träume den Themen Ihres Tagebuchs gegenüberstellen.",
+        "questions": "Die Fragen am Ende folgen Clara Hills Modell für die Arbeit mit Träumen: zuerst den Traum erkunden, dann überlegen, was er für Sie bedeuten könnte, und schließlich einen kleinen Schritt ins Auge fassen.",
+        "noDictionary": "Die Traumreflexion verwendet kein Traumlexikon, in dem Symbole feste Bedeutungen haben. Eine Reflexion zeigt Möglichkeiten auf – was davon passt, entscheiden Sie.",
+        "notAdvice": "Die Traumreflexion ist zum Nachdenken über sich selbst gedacht. Sie ist keine medizinische oder psychologische Beratung und kann keine Diagnosen stellen.",
+        "privacy": "Für eine Reflexion werden Ihr Traumtext und das Datum des Traums an den Gemini-Dienst von Google gesendet, dazu die gewählten Gefühle und Ihre Angabe, ob der Traum wiederkehrend, ein Albtraum oder ein Klartraum war. Haben Sie eigene Gedanken zum Traum notiert, werden auch diese gesendet, zusammen mit den Fragen der vorherigen Reflexion, denen sie gelten. Von jedem bereits analysierten Eintrag aus der vergangenen Woche werden außerdem das Datum, die kurze Zusammenfassung, die Schlüsselthemen und die vorherrschende Emotion mitgesendet, nicht aber der Text des Eintrags. Für eine Traummuster-Auswertung wird nicht der Text Ihrer Träume übermittelt, sondern nur die kurzen Stichworte, die zu jeder Reflexion gespeichert sind. Haben Sie in der Trendanalyse „Träume einbeziehen“ eingeschaltet, werden von jedem Traum des ausgewählten Zeitraums das Datum, diese Stichworte und Ihre Angabe gesendet, ob er wiederkehrend oder ein Albtraum war – nicht aber sein Text. In beiden Fällen erhalten Träume ohne Reflexion zuerst eine, und dafür werden sie wie oben beschrieben gesendet. Von den gesendeten Daten speichert OwnJournal nichts."
+      },
       "aiAnalysis": {
         "title": "KI-Analyse",
         "desc": "Erhalten Sie Einblicke in Ihre Tagebucheinträge, einschließlich Stimmungsanalyse, Themenerkennung und personalisierter Vorschläge.",
@@ -2035,7 +2068,7 @@
       },
       "trends": {
         "title": "Trendanalyse",
-        "desc": "Entdecken Sie Muster in Ihrem Tagebuchschreiben im Zeitverlauf. Verfolgen Sie Stimmungstrends, Schreibhäufigkeit und häufige Themen, um Ihre Gewohnheiten besser zu verstehen.",
+        "desc": "Entdecken Sie Muster in Ihrem Tagebuchschreiben im Zeitverlauf. Verfolgen Sie Stimmungstrends, Schreibhäufigkeit und häufige Themen, um Ihre Gewohnheiten besser zu verstehen. Ist „Träume einbeziehen“ eingeschaltet, stellt die Trendanalyse Ihre Träume außerdem den Einträgen gegenüber, die Sie zur selben Zeit geschrieben haben.",
         "proNote": "(Plus-Funktion)"
       },
       "export": {
@@ -2170,7 +2203,7 @@
       },
       "pro": {
         "question": "Was beinhaltet Plus?",
-        "answer": "Plus beinhaltet KI-Analyse, Titelvorschläge, Tag-Vorschläge, Spracheingabe, Trendanalyse, Aktivitäts-Einblicke sowie PDF- und Word-Export."
+        "answer": "Plus beinhaltet KI-Analyse, Titelvorschläge, Tag-Vorschläge, Spracheingabe, Traumreflexion, Trendanalyse, Aktivitäts-Einblicke sowie PDF- und Word-Export."
       },
       "manageSubscription": {
         "question": "Wie verwalte ich mein Abonnement?",
@@ -2276,7 +2309,7 @@
       },
       "collection": {
         "title": "Informationen, die wir erheben",
-        "content": "Die personenbezogenen Daten, die wir erheben, sind minimal. Im Zusammenhang mit Ihrem Konto erheben wir: Ihre E-Mail-Adresse, Ihren Anzeigenamen (sofern dieser von einem externen Anmeldedienst wie Google oder Apple bereitgestellt wird) und – sobald Sie einen Cloud-Speicher verbinden – einen Eintrag, welchen Anbieter Sie gewählt haben. Zum Betrieb des Tagebuchdienstes speichern wir auf unseren Servern eine geringe Menge an Zustandsinformationen – ob Ihre Verschlüsselungseinrichtung abgeschlossen ist, Ihren Abonnementstatus sowie die Kennungen, die unser Zahlungsdienstleister (Stripe) zur Verwaltung Ihres Abonnements benötigt. Zur Überwachung der Fair-Use-Limits optionaler KI-Funktionen erfassen wir nutzerbezogene Nutzungszähler (die Art der durchgeführten Analyse und einen Zeitstempel; niemals den Inhalt Ihrer Einträge). Bei der Spracheingabe erfasst der Zähler zusätzlich die Länge jeder transkribierten Aufnahme in Sekunden; die Aufnahme selbst wird nie gespeichert. Unser Authentifizierungs-Backend speichert außerdem standardmäßige Sitzungsmetadaten wie Anmelde-Zeitstempel. Anzeigenamen werden ausschließlich zur Personalisierung Ihrer Erfahrung in der App verwendet und niemals öffentlich gemacht. Um Abonnementpreise in Ihrer lokalen Währung anzuzeigen, kann das mit Ihrer IP-Adresse verknüpfte Land kurzzeitig ermittelt werden; nur der ermittelte Ländercode wird verwendet, er wird nicht mit Ihrem Konto verknüpft, und Ihre IP-Adresse wird nicht gespeichert. Wir verwenden keine Analyse-Dienste Dritter, Werbe-SDKs oder app-übergreifende Tracker. Wenn Sie die Ende-zu-Ende-Verschlüsselung (E2E) verwenden, werden Ihre Tagebuchinhalte auf Ihrem Gerät verschlüsselt und sind für uns unlesbar. Im einfachen Modus werden Ihre Tagebuchdaten ohne Ende-zu-Ende-Verschlüsselung mit Ihrem gewählten Cloud-Anbieter synchronisiert. Der einfache Modus dient der Bequemlichkeit und kann den Datenschutz im Vergleich zum E2E-Modus verringern; Ihre Daten bleiben durch die Standard-Sicherheitsmaßnahmen Ihres Cloud-Anbieters geschützt."
+        "content": "Die personenbezogenen Daten, die wir erheben, sind minimal. Im Zusammenhang mit Ihrem Konto erheben wir: Ihre E-Mail-Adresse, Ihren Anzeigenamen (sofern dieser von einem externen Anmeldedienst wie Google oder Apple bereitgestellt wird) und – sobald Sie einen Cloud-Speicher verbinden – einen Eintrag, welchen Anbieter Sie gewählt haben. Zum Betrieb des Tagebuchdienstes speichern wir auf unseren Servern eine geringe Menge an Zustandsinformationen – ob Ihre Verschlüsselungseinrichtung abgeschlossen ist, Ihren Abonnementstatus sowie die Kennungen, die unser Zahlungsdienstleister (Stripe) zur Verwaltung Ihres Abonnements benötigt. Zur Überwachung der Fair-Use-Limits optionaler KI-Funktionen erfassen wir nutzerbezogene Nutzungszähler (die Art der durchgeführten Analyse, einen Zeitstempel, das verwendete KI-Modell und den in Tokens gemessenen Umfang der genutzten KI-Verarbeitung; bei Funktionen, die sich auf einen einzelnen Eintrag beziehen, zusätzlich die Kennung dieses Eintrags; niemals den Inhalt Ihrer Einträge). Bei der Spracheingabe erfasst der Zähler zusätzlich die Länge jeder transkribierten Aufnahme in Sekunden; die Aufnahme selbst wird nie gespeichert. Unser Authentifizierungs-Backend speichert außerdem standardmäßige Sitzungsmetadaten wie Anmelde-Zeitstempel. Anzeigenamen werden ausschließlich zur Personalisierung Ihrer Erfahrung in der App verwendet und niemals öffentlich gemacht. Um Abonnementpreise in Ihrer lokalen Währung anzuzeigen, kann das mit Ihrer IP-Adresse verknüpfte Land kurzzeitig ermittelt werden; nur der ermittelte Ländercode wird verwendet, er wird nicht mit Ihrem Konto verknüpft, und Ihre IP-Adresse wird nicht gespeichert. Wir verwenden keine Analyse-Dienste Dritter, Werbe-SDKs oder app-übergreifende Tracker. Wenn Sie die Ende-zu-Ende-Verschlüsselung (E2E) verwenden, werden Ihre Tagebuchinhalte auf Ihrem Gerät verschlüsselt und sind für uns unlesbar. Im einfachen Modus werden Ihre Tagebuchdaten ohne Ende-zu-Ende-Verschlüsselung mit Ihrem gewählten Cloud-Anbieter synchronisiert. Der einfache Modus dient der Bequemlichkeit und kann den Datenschutz im Vergleich zum E2E-Modus verringern; Ihre Daten bleiben durch die Standard-Sicherheitsmaßnahmen Ihres Cloud-Anbieters geschützt."
       },
       "usage": {
         "title": "Wie wir Informationen verwenden",
@@ -2304,7 +2337,7 @@
       },
       "aiProcessing": {
         "title": "KI-Funktionen und Verarbeitung",
-        "content": "OwnJournal bietet optionale KI-gestützte Funktionen wie Stimmungsanalyse, Vorschläge und Spracheingabe, die ausschließlich Plus-Abonnenten zur Verfügung stehen. Eine KI-Verarbeitung findet nur statt, wenn Sie als Plus-Abonnent diese Funktionen ausdrücklich nutzen. Wenn Sie textbasierte KI-Funktionen nutzen, wird der betreffende Text zunächst auf Ihrem Gerät entschlüsselt und dann durch Ihre ausdrückliche Aktion über unsere Server an unseren KI-Anbieter, derzeit Google (Gemini), über dessen kostenpflichtige API gesendet. Wenn Sie die Spracheingabe nutzen, wird das Mikrofon Ihres Geräts nur während der Aufnahme verwendet; die Aufnahme wird zur Umwandlung in Text über unsere Server an Google (Gemini) gesendet, und der daraus entstandene Text wird auf Ihrem Gerät in Ihren Eintrag eingefügt. Wir speichern keine KI-Eingaben oder -Ausgaben, einschließlich Sprachaufnahmen und Transkripte, auf unseren Servern; wir erfassen lediglich nutzerbezogene Zähler der KI-Nutzung (die Art der durchgeführten Analyse, einen Zeitstempel und bei der Spracheingabe die Länge der Aufnahme in Sekunden; niemals den Inhalt) zur Durchsetzung von Fair-Use-Limits. Google kann Prompts und Ausgaben gemäß seinen aktuellen Richtlinien für einen begrenzten Zeitraum zur Missbrauchsüberwachung und Durchsetzung von Richtlinien aufbewahren. Die KI-Verarbeitung kann außerhalb des EWR erfolgen; Google sichert Datenübermittlungen durch geeignete Garantien wie Standardvertragsklauseln ab. Wir nutzen den kostenpflichtigen Tarif des KI-Dienstes von Google, in dem Prompts und Ausgaben nicht zum Trainieren oder Verbessern seiner Modelle verwendet werden. Sie können sich gegen die Nutzung von KI-Funktionen entscheiden; dies beeinträchtigt die grundlegenden Tagebuchfunktionen nicht."
+        "content": "OwnJournal bietet optionale KI-gestützte Funktionen wie Stimmungsanalyse, Vorschläge, Spracheingabe und Traumreflexion, die ausschließlich Plus-Abonnenten zur Verfügung stehen. Eine KI-Verarbeitung findet nur statt, wenn Sie als Plus-Abonnent diese Funktionen ausdrücklich nutzen. Wenn Sie textbasierte KI-Funktionen nutzen, wird der betreffende Text zunächst auf Ihrem Gerät entschlüsselt und dann durch Ihre ausdrückliche Aktion über unsere Server an unseren KI-Anbieter, derzeit Google (Gemini), über dessen kostenpflichtige API gesendet. Wenn Sie die Spracheingabe nutzen, wird das Mikrofon Ihres Geräts nur während der Aufnahme verwendet; die Aufnahme wird zur Umwandlung in Text über unsere Server an Google (Gemini) gesendet, und der daraus entstandene Text wird auf Ihrem Gerät in Ihren Eintrag eingefügt. Wir speichern keine KI-Eingaben oder -Ausgaben, einschließlich Sprachaufnahmen und Transkripte, auf unseren Servern; wir erfassen lediglich nutzerbezogene Zähler der KI-Nutzung (die Art der durchgeführten Analyse, einen Zeitstempel, das verwendete KI-Modell und den in Tokens gemessenen Umfang der genutzten KI-Verarbeitung; bei Funktionen, die sich auf einen einzelnen Eintrag beziehen, zusätzlich die Kennung dieses Eintrags; bei der Spracheingabe die Länge der Aufnahme in Sekunden; niemals den Inhalt) zur Durchsetzung von Fair-Use-Limits. Google kann Prompts und Ausgaben gemäß seinen aktuellen Richtlinien für einen begrenzten Zeitraum zur Missbrauchsüberwachung und Durchsetzung von Richtlinien aufbewahren. Die KI-Verarbeitung kann außerhalb des EWR erfolgen; Google sichert Datenübermittlungen durch geeignete Garantien wie Standardvertragsklauseln ab. Wir nutzen den kostenpflichtigen Tarif des KI-Dienstes von Google, in dem Prompts und Ausgaben nicht zum Trainieren oder Verbessern seiner Modelle verwendet werden. Sie können sich gegen die Nutzung von KI-Funktionen entscheiden; dies beeinträchtigt die grundlegenden Tagebuchfunktionen nicht."
       },
       "diagnostics": {
         "title": "Diagnose und Absturzprotokolle",
@@ -2562,5 +2595,159 @@
       "noSpeech": "In der Aufnahme wurde nichts Gesprochenes erkannt.",
       "failed": "Die Transkription ist fehlgeschlagen. Bitte versuchen Sie es erneut."
     }
+  },
+  "dream": {
+    "toggle": "Traum",
+    "toggleHint": "Diesen Eintrag als Traum markieren",
+    "badge": "Traum",
+    "editor": {
+      "placeholder": "Was haben Sie geträumt? Schreiben Sie es so auf, wie Sie es in Erinnerung haben.",
+      "feelingsLabel": "Wie hat sich der Traum angefühlt?",
+      "flagsLabel": "Trifft etwas davon zu?",
+      "howItWorks": "Wie funktioniert das?"
+    },
+    "feelings": {
+      "joy": "Freude",
+      "calm": "Ruhe",
+      "awe": "Staunen",
+      "curiosity": "Neugier",
+      "love": "Liebe",
+      "fear": "Angst",
+      "anxiety": "Beklemmung",
+      "sadness": "Traurigkeit",
+      "anger": "Wut",
+      "confusion": "Verwirrung",
+      "shame": "Scham",
+      "loneliness": "Einsamkeit"
+    },
+    "flags": {
+      "recurring": "Wiederkehrend",
+      "nightmare": "Albtraum",
+      "lucid": "Klartraum",
+      "lucidExplained": "In einem Klartraum wissen Sie, dass Sie träumen."
+    },
+    "guide": {
+      "title": "Ihr Traumtagebuch",
+      "step1": "Schreiben Sie Ihren Traum gleich nach dem Aufwachen auf. Schon nach wenigen Minuten verblasst die Erinnerung.",
+      "step1Voice": "Diktieren geht oft schneller.",
+      "step2": "Halten Sie fest, was passiert ist: wer vorkam, wo Sie waren, was Sie getan haben und wie es sich angefühlt hat. Reihenfolge und Logik spielen keine Rolle.",
+      "step3": "Tippen Sie dann auf „Traum reflektieren“, um eine Reflexion zu Ihrem Text zu erhalten.",
+      "step3Patterns": "Sobald Sie fünf Träume aufgeschrieben haben, können Sie in Ihrem Tagebuch eine Traummuster-Auswertung für einen Zeitraum Ihrer Wahl erstellen. Darin sehen Sie, welche Personen, Orte und Themen immer wiederkehren.",
+      "done": "Verstanden"
+    },
+    "reflection": {
+      "title": "Traumreflexion",
+      "reflect": "Traum reflektieren",
+      "reflecting": "Reflexion wird erstellt…",
+      "reflectAgain": "Erneut reflektieren",
+      "editToReflectAgain": "Bearbeiten Sie den Traum oder ergänzen Sie Ihre Gedanken, um ihn erneut zu reflektieren",
+      "plusOnly": "Traumreflexion ist in Plus enthalten",
+      "remaining": "Noch {{remaining}} von {{limit}} Reflexionen diesen Monat",
+      "summary": "Kurz gesagt",
+      "themes": "Mögliche Themen",
+      "images": "Traumbilder zum Erkunden",
+      "wakingLinks": "Mögliche Bezüge zu Ihrem Alltag",
+      "questions": "Fragen zum Nachdenken",
+      "thoughts": {
+        "label": "Ihre Gedanken",
+        "placeholder": "Was fällt Ihnen zu den Fragen ein?",
+        "hint": "Bei „Erneut reflektieren“ werden Ihre Gedanken berücksichtigt."
+      },
+      "fromThoughts": "Was Ihre Gedanken verändert haben",
+      "footer": "Eine Reflexion, keine Diagnose. Nehmen Sie, was für Sie passt – der Rest darf liegen bleiben.",
+      "howThisWorks": "So funktioniert es",
+      "show": "Anzeigen",
+      "hide": "Ausblenden",
+      "care": {
+        "title": "Wenn Sie dieser Traum nicht loslässt",
+        "body": "Solche Träume können sehr belasten. Kommen sie immer wieder oder machen sie Ihnen auch tagsüber zu schaffen, kann es helfen, mit einem Menschen Ihres Vertrauens darüber zu sprechen oder sich ärztlich oder psychotherapeutisch beraten zu lassen.",
+        "urgent": "Wenn Sie daran denken, sich etwas anzutun, rufen Sie jetzt den Notruf an oder wenden Sie sich an einen Krisendienst."
+      },
+      "consent": {
+        "title": "Ihren Traum mit Google reflektieren?",
+        "body": "Für die Reflexion werden Ihr Traumtext und das Datum des Traums an den Gemini-Dienst von Google gesendet, dazu die gewählten Gefühle und Ihre Angabe, ob der Traum wiederkehrend, ein Albtraum oder ein Klartraum war. Haben Sie eigene Gedanken zum Traum notiert, werden auch diese gesendet, zusammen mit den Fragen der vorherigen Reflexion, denen sie gelten. Von jedem bereits analysierten Eintrag aus der vergangenen Woche werden außerdem das Datum, die kurze Zusammenfassung, die Schlüsselthemen und die vorherrschende Emotion mitgesendet, nicht aber der Text des Eintrags. Für eine Traummuster-Auswertung wird nicht der Text Ihrer Träume übermittelt, sondern nur die kurzen Stichworte, die zu jeder Reflexion gespeichert sind. Haben Sie in der Trendanalyse „Träume einbeziehen“ eingeschaltet, werden von jedem Traum des ausgewählten Zeitraums das Datum, diese Stichworte und Ihre Angabe gesendet, ob er wiederkehrend oder ein Albtraum war – nicht aber sein Text. In beiden Fällen erhalten Träume ohne Reflexion zuerst eine, und dafür werden sie wie oben beschrieben gesendet. Von den gesendeten Daten speichert OwnJournal nichts. Google verwendet die Daten nicht zum Trainieren seiner Modelle und bewahrt sie höchstens kurz auf, um Missbrauch zu verhindern. Die Reflexion wird zusammen mit Ihrem Traum gespeichert, genauso wie der übrige Eintrag.",
+        "accept": "Weiter",
+        "decline": "Nicht jetzt"
+      },
+      "errors": {
+        "offline": "Sie sind offline. Die Traumreflexion benötigt eine Internetverbindung.",
+        "authRequired": "Bitte melden Sie sich an, um Ihre Träume zu reflektieren.",
+        "plusRequired": "Die Traumreflexion erfordert ein Plus-Abonnement.",
+        "limitReached": "Sie haben alle {{limit}} Traumreflexionen für diesen Monat genutzt. Das Limit wird nächsten Monat zurückgesetzt – aufschreiben können Sie Ihre Träume weiterhin.",
+        "tooShort": "Schreiben Sie zuerst mindestens {{min}} Zeichen über Ihren Traum.",
+        "tooLong": "Dieser Traum ist für eine Reflexion zu lang. Kürzen Sie ihn etwas und versuchen Sie es erneut.",
+        "saveFailed": "Die Reflexion konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
+        "failed": "Die Reflexion konnte diesmal nicht erstellt werden. Bitte versuchen Sie es erneut.",
+        "failedLimitReached": "Diesen Monat sind zu viele Versuche fehlgeschlagen. Die Traumreflexion ist erst nächsten Monat wieder verfügbar – aufschreiben können Sie Ihre Träume weiterhin.",
+        "blocked": "Auf das, was in diesem Traum vorkommt, geht der KI-Dienst nicht ein – eine Reflexion ist daher nicht möglich. Ihr Traum bleibt in Ihrem Tagebuch gespeichert."
+      }
+    },
+    "patterns": {
+      "title": "Traummuster",
+      "intro": "Was in Ihren Träumen immer wiederkehrt.",
+      "dreamsInPeriod_one": "{{count}} Traum in diesem Zeitraum",
+      "dreamsInPeriod_other": "{{count}} Träume in diesem Zeitraum",
+      "needMore": "Für eine Auswertung sind mindestens {{min}} Träume nötig.",
+      "tooShort_one": "{{count}} Traum in diesem Zeitraum ist für eine Reflexion zu kurz (unter {{min}} Zeichen) und wird nicht mitgezählt.",
+      "tooShort_other": "{{count}} Träume in diesem Zeitraum sind für eine Reflexion zu kurz (unter {{min}} Zeichen) und werden nicht mitgezählt.",
+      "reflectFirst_one": "Einer dieser Träume ist noch nicht reflektiert. Das wird vor der Auswertung nachgeholt und kostet eine Ihrer Reflexionen dieses Monats (noch {{remaining}} übrig).",
+      "reflectFirst_other": "{{count}} dieser Träume sind noch nicht reflektiert. Das wird vor der Auswertung nachgeholt und kostet {{count}} Ihrer Reflexionen dieses Monats (noch {{remaining}} übrig).",
+      "notEnoughReflections_one": "{{dreams}} dieser Träume sind noch nicht reflektiert, Ihnen bleibt diesen Monat aber nur noch eine Reflexion. Wählen Sie einen kürzeren Zeitraum.",
+      "notEnoughReflections_other": "{{dreams}} dieser Träume sind noch nicht reflektiert, Ihnen bleiben diesen Monat aber nur noch {{count}} Reflexionen. Wählen Sie einen kürzeren Zeitraum.",
+      "noReflectionsLeft_one": "Einer dieser Träume ist noch nicht reflektiert, und Ihnen bleiben diesen Monat keine Reflexionen mehr. Wählen Sie einen kürzeren Zeitraum.",
+      "noReflectionsLeft_other": "{{count}} dieser Träume sind noch nicht reflektiert, und Ihnen bleiben diesen Monat keine Reflexionen mehr. Wählen Sie einen kürzeren Zeitraum.",
+      "ready": "Sie können jetzt Ihre erste Traummuster-Auswertung erstellen.",
+      "create": "Auswertung erstellen",
+      "createNew": "Neue Auswertung erstellen",
+      "creating": "Muster werden gesucht…",
+      "reflecting": "Reflexion {{current}} von {{total}} wird erstellt…",
+      "oncePerWeek": "Eine Auswertung pro Woche",
+      "usedThisWeek": "Die Auswertung für diese Woche ist erstellt. Nächste Woche können Sie wieder eine neue erstellen.",
+      "plusOnly": "Die Traummuster-Auswertung ist in Plus enthalten",
+      "earlyThemes": "Erste Themen",
+      "earlyThemesNote_one": "Diese Auswertung beruht auf {{count}} Traum. Mit mehr Träumen, etwa aus einem längeren Zeitraum, werden die Muster deutlicher.",
+      "earlyThemesNote_other": "Diese Auswertung beruht auf {{count}} Träumen. Mit mehr Träumen, etwa aus einem längeren Zeitraum, werden die Muster deutlicher.",
+      "basedOn_one": "Auf Grundlage von {{count}} Traum",
+      "basedOn_other": "Auf Grundlage von {{count}} Träumen",
+      "overview": "Überblick",
+      "recurring": "Was immer wieder vorkommt",
+      "inDreams_one": "In {{count}} Traum",
+      "inDreams_other": "In {{count}} Träumen",
+      "kinds": {
+        "character": "Person",
+        "setting": "Ort",
+        "emotion": "Gefühl",
+        "theme": "Thema"
+      },
+      "changes": "Wie sich Ihre Träume verändert haben",
+      "questions": "Fragen zum Nachdenken",
+      "footer": "Muster zum Nachdenken, keine Diagnose. Nehmen Sie, was für Sie passt – der Rest darf liegen bleiben.",
+      "saveAsNote": "Als Notiz speichern",
+      "noteTitle": "Traummuster vom {{date}}",
+      "errors": {
+        "offline": "Sie sind offline. Die Traummuster-Auswertung benötigt eine Internetverbindung.",
+        "limitReached": "Sie haben in dieser Woche bereits eine Traummuster-Auswertung erstellt. Nächste Woche können Sie wieder eine neue erstellen.",
+        "failed": "Die Auswertung konnte diesmal nicht erstellt werden. Bitte versuchen Sie es erneut.",
+        "failedLimitReached": "Diesen Monat sind zu viele Versuche fehlgeschlagen. Die Traummuster-Auswertung ist erst nächsten Monat wieder verfügbar.",
+        "blocked": "Auf einige Themen aus Ihren Träumen geht der KI-Dienst nicht ein – daher konnte keine Traummuster-Auswertung erstellt werden."
+      }
+    },
+    "filter": "Träume"
+  },
+  "featureTip": {
+    "title": "Neue Funktionen",
+    "free": "Kostenlos",
+    "dreamJournal": {
+      "name": "Traumtagebuch",
+      "desc": "Schreiben Sie Ihren Traum gleich nach dem Aufwachen auf, bevor er verblasst, und markieren Sie den Eintrag als Traum. Dazu können Sie Gefühle auswählen."
+    },
+    "dreamReflection": {
+      "desc": "Zu Ihrem Traum erhalten Sie eine Reflexion. Ab fünf Träumen in einem Zeitraum zeigt eine Auswertung, was immer wiederkehrt."
+    },
+    "voice": {
+      "desc": "Tippen Sie auf das Mikrofon unter dem Editor und diktieren Sie Ihren Eintrag."
+    },
+    "writeDream": "Traum aufschreiben",
+    "dismiss": "Verstanden"
   }
 }

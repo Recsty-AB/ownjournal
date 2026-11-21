@@ -97,6 +97,19 @@ For blog and long-form brand voice, see the website repo's `.claude/locale-stand
 - 用说的 / 用講的 constructions read as Taiwanese colloquial speech.
 - Do not mirror English order ("以…的语言变成…"). Put the condition first in Chinese: 无论…都…
 
+## Dreams glossary (2026-11)
+| English | Use | Avoid / source |
+|---|---|---|
+| Dream (chip, badge, filter) / Dream journal | 梦境 / 梦境日记 | judgment; 梦境日记 attested (新京报 2026-09) |
+| Dream reflection (feature) / button | 梦境解读 / 解读这个梦 | 梦境反思 (self-criticism sense), 解梦 (周公解梦; though 简单心理 uses it informally) — judgment |
+| Dream patterns (feature, report) | 梦境规律 / 梦境规律报告 | 梦境模式 (reads as "dream mode" beside the toggle) — judgment |
+| Nightmare / Lucid dream / Recurring | 噩梦 / 清醒梦 / 反复出现 | 恶梦, 清明梦 in UI; zh.wikipedia 清醒梦 |
+| Dream images / associations | 意象 / 联想 | 图像; 简单心理《解梦的8个小方法》 (荣格, 意象, 自由联想) |
+| Jung, Hall, Domhoff, Hill | 卡尔·荣格; 卡尔文·霍尔（Calvin Hall）; 威廉·多姆霍夫（G. William Domhoff）; 克拉拉·希尔（Clara Hill） | first mention with Latin in （）; scholarly "work" → 研究, not 工作 |
+| Hill's dream model / stages | 梦工作模型; 探索、领悟、行动 | 依循 (TW flavour) → 按照/参照; stages from 《助人技术》 |
+| Token (AI usage unit, legal) | 词元 (全国名词委 2026-03 推荐试用) | Latin "token" mid-sentence in legal text; no nested （（）） for a gloss |
+| Crisis line / emergency | 心理援助热线 / 当地急救电话 | no numbers; 新华网 12356 report |
+
 ## Sources
 - Microsoft Chinese (Simplified) Localization Style Guide: https://download.microsoft.com/download/1/5/9/159cb91c-b61b-4385-97ca-80ccc7ff1fa0/zho-chn-StyleGuide.pdf (pronouns, em dash, ellipsis, parentheses)
 - GB/T 15834-2011 标点符号用法 (——, “”, full-width marks, ranges)

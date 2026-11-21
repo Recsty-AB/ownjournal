@@ -1541,6 +1541,19 @@
       "entryProgress": "Item {{current}} van {{total}}",
       "retrying": "Mislukte items opnieuw proberen…",
       "doNotCloseApp": "Houd deze pagina open totdat de analyse is voltooid"
+    },
+    "dreams": {
+      "include": "Dromen meenemen",
+      "included_one": "Een droom uit deze periode wordt meegenomen.",
+      "included_other": "{{count}} dromen uit deze periode worden meegenomen.",
+      "reflectFirst_one": "Een daarvan heeft nog geen reflectie en krijgt er eerst een. Daarvoor gebruikt u één reflectie van deze maand (u heeft er nog {{remaining}}).",
+      "reflectFirst_other": "{{count}} daarvan hebben nog geen reflectie en krijgen er eerst elk een. Daarvoor gebruikt u {{count}} reflecties van deze maand (u heeft er nog {{remaining}}).",
+      "leftOut_one": "Nog een droom heeft geen reflectie en blijft buiten beschouwing, omdat u deze maand niet genoeg reflecties meer heeft.",
+      "leftOut_other": "Nog {{count}} dromen hebben geen reflectie en blijven buiten beschouwing, omdat u deze maand niet genoeg reflecties meer heeft.",
+      "tooFew_one": "Uit deze periode kan maar één droom worden meegenomen. Er zijn er minstens {{min}} nodig.",
+      "tooFew_other": "{{count}} dromen uit deze periode kunnen worden meegenomen. Er zijn er minstens {{min}} nodig.",
+      "notIncluded": "Uw dromen zijn deze keer niet meegenomen, omdat te weinig dromen een reflectie konden krijgen.",
+      "title": "Uw dromen in deze periode"
     }
   },
   "exportDialog": {
@@ -1613,6 +1626,7 @@
       "tagSuggestions": "Slimme tagsuggesties",
       "trendAnalysis": "Stemmings- en trendinzichten",
       "voiceEntry": "Spraakinvoer",
+      "dreamReflection": "Droomreflectie",
       "exports": "PDF- en Word-export"
     },
     "trialCta": "Gratis proefperiode starten",
@@ -1846,6 +1860,10 @@
       "title": "Uw dagboektijdlijn",
       "content": "Uw dagboekitems verschijnen hier, geordend op datum.\nTik op de knop + om uw eerste item aan te maken."
     },
+    "dreams": {
+      "title": "Uw droomdagboek",
+      "content": "Schrijf een droom op zodra u wakker bent, voor hij vervaagt. Tik op “Droom” om het item als droom te bewaren. U kunt ook kiezen welke gevoelens erbij hoorden. Dat is allemaal gratis.\n\nMet Plus kunt u reflecties op uw dromen laten maken."
+    },
     "syncStatus": {
       "title": "Synchronisatiestatus",
       "content": "Zodra u cloudopslag verbindt, toont deze indicator uw synchronisatiestatus.\nGroen betekent gesynchroniseerd!"
@@ -2028,6 +2046,21 @@
         "desc": "Tik op de microfoon onder de editor en spreek in plaats van te typen. Zodra u stopt, worden uw woorden omgezet in nette tekst met leestekens en ingevoegd op de plek van de cursor. Het werkt in de taal die u spreekt, ook als u tussendoor van taal wisselt. Elke opname mag maximaal 5 minuten duren en met Plus heeft u 200 minuten per maand.",
         "proNote": "(Plus-functie)"
       },
+      "dreams": {
+        "title": "Droomdagboek en droomreflectie",
+        "desc": "Zet bij het schrijven van een item “Droom” aan om het als droom te bewaren. Schrijf de droom op zodra u wakker bent, zoals u zich hem herinnert, en kies welke gevoelens erbij hoorden. Dromen tellen niet mee in de stemmingskalender en ook niet voor de stemming in de trendanalyse. Met Plus tikt u op “Reflecteren op deze droom” voor een reflectie met mogelijke thema's, beelden om te verkennen en vragen om over na te denken. Onder een reflectie kunt u uw eigen gedachten opschrijven. Tikt u daarna op “Opnieuw reflecteren”, dan wordt met die gedachten rekening gehouden. Per maand krijgt u 30 reflecties. Kiest u een periode met minstens vijf dromen, dan kunt u daar een rapport Droompatronen over maken, eenmaal per week. Maakt u het rapport, dan wordt er eerst automatisch een reflectie gemaakt op elke droom uit die periode die er nog geen heeft. Die reflecties tellen mee voor uw 30 per maand. Daarna volgt het rapport. Daarin ziet u welke mensen, plaatsen en thema's steeds terugkomen. Wilt u uw dromen naast uw dagboek zien, zet dan in de trendanalyse “Dromen meenemen” aan.",
+        "proNote": "(Plus-functie)"
+      },
+      "dreamMethod": {
+        "title": "Zo werkt droomreflectie",
+        "intro": "Droomreflectie put uit de kijk van Carl Jung op dromen en uit modern droomonderzoek.",
+        "jung": "Van Jung komt het idee dat uw eigen associaties zwaarder wegen dan wat een symbool in het algemeen zou betekenen. Daarom kunt u onder een reflectie uw eigen gedachten opschrijven en opnieuw reflecteren. Van Jung komen ook deze ideeën: een beeld kunt u in meer dan één richting verkennen, een droom kan een kant van uw leven laten zien waar u overdag minder aandacht aan besteedt, en een reeks dromen zegt meer dan één losse droom.",
+        "research": "Droomonderzoek, vooral het werk van Calvin Hall en G. William Domhoff, laat zien dat dromen meestal draaien om wat u overdag bezighoudt: uw relaties, zorgen en gevoelens. Daarom kan een reflectie wijzen op verbanden met uw items van de afgelopen week, en daarom kunt u in de trendanalyse uw dromen naast de thema's uit uw dagboek zien.",
+        "questions": "De vragen aan het eind volgen het model van Clara Hill voor het werken met dromen: eerst de droom verkennen, dan nagaan wat hij voor u kan betekenen en ten slotte nadenken over een kleine stap die u zou kunnen zetten.",
+        "noDictionary": "Droomreflectie werkt niet met een vaste lijst van droomsymbolen. Een reflectie reikt mogelijkheden aan; u bepaalt zelf wat past.",
+        "notAdvice": "Droomreflectie is bedoeld om over uzelf na te denken. Een reflectie is geen medisch of psychologisch advies en kan geen diagnose stellen.",
+        "privacy": "Voor een reflectie wordt het volgende naar de Gemini-dienst van Google gestuurd: de tekst en de datum van uw droom, de gevoelens die u erbij heeft gekozen, en of u heeft aangegeven dat het een terugkerende droom, een nachtmerrie of een lucide droom was. Heeft u uw eigen gedachten bij de droom opgeschreven, dan worden die meegestuurd, samen met de vragen uit de eerdere reflectie waarop ze ingaan. Van elk item van de afgelopen week dat al is geanalyseerd (hooguit zeven) gaan ook de datum, de korte samenvatting, de belangrijkste thema's en de dominante emotie mee, maar niet de tekst van het item zelf. Voor een rapport Droompatronen gaan alleen de korte labels mee die bij elke reflectie zijn opgeslagen, niet de tekst van uw dromen. Staat in de trendanalyse “Dromen meenemen” aan, dan gaan daarvoor de datum en die labels van elke droom uit de gekozen periode mee, met erbij of u heeft aangegeven dat het een nachtmerrie of een terugkerende droom was. De tekst van de droom gaat niet mee. In beide gevallen krijgen dromen zonder reflectie er eerst een, en daarvoor worden ze verstuurd zoals aan het begin beschreven. OwnJournal slaat van de verstuurde gegevens niets op."
+      },
       "aiAnalysis": {
         "title": "AI-analyse",
         "desc": "Krijg inzichten over uw dagboekitems, inclusief stemmingsanalyse, onderwerpdetectie en gepersonaliseerde suggesties.",
@@ -2035,7 +2068,7 @@
       },
       "trends": {
         "title": "Trendanalyse",
-        "desc": "Bekijk patronen in uw schrijfgewoonten in de loop van de tijd. Zie stemmingstrends, schrijffrequentie en terugkerende thema's.",
+        "desc": "Bekijk patronen in uw schrijfgewoonten in de loop van de tijd. Zie stemmingstrends, schrijffrequentie en terugkerende thema's. Staat “Dromen meenemen” aan, dan ziet u ook uw dromen naast wat u rond dezelfde tijd heeft geschreven.",
         "proNote": "(Plus-functie)"
       },
       "export": {
@@ -2170,7 +2203,7 @@
       },
       "pro": {
         "question": "Wat bevat Plus?",
-        "answer": "Plus bevat AI-analyse, titelsuggesties, tagsuggesties, spraakinvoer, trendanalyse, Activiteitsinzichten en export naar PDF en Word."
+        "answer": "Plus bevat AI-analyse, titelsuggesties, tagsuggesties, spraakinvoer, droomreflectie, trendanalyse, Activiteitsinzichten en export naar PDF en Word."
       },
       "manageSubscription": {
         "question": "Hoe beheer ik mijn abonnement?",
@@ -2276,7 +2309,7 @@
       },
       "collection": {
         "title": "Informatie die we verzamelen",
-        "content": "We verzamelen zo min mogelijk persoonsgegevens. In verband met uw account verzamelen we: uw e-mailadres, uw weergavenaam (als deze wordt verstrekt door een externe authenticatieprovider zoals Google of Apple) en – zodra u cloudopslag verbindt – welke provider u heeft gekozen. Om de dagboekdienst te laten werken, bewaren we een kleine hoeveelheid statusgegevens op onze servers: of uw versleuteling is ingesteld, uw abonnementsstatus en de ID's die onze betalingsverwerker (Stripe) nodig heeft om uw abonnement te beheren. Om redelijk gebruik van optionele AI-functies te bewaken, registreren we gebruikstellers per gebruiker (het type uitgevoerde analyse en een tijdstempel; nooit de inhoud van uw items). Bij spraakinvoer registreert de teller ook de lengte van elke getranscribeerde opname in seconden; de opname zelf wordt nooit opgeslagen. Onze authenticatiebackend bewaart daarnaast standaard sessiemetagegevens, zoals tijdstempels van inlogmomenten. Weergavenamen worden uitsluitend gebruikt om uw ervaring in de app te personaliseren en worden nooit openbaar gemaakt. Om abonnementsprijzen in uw lokale valuta te tonen, kunnen we kort opzoeken bij welk land uw IP-adres hoort; alleen de resulterende landcode wordt gebruikt, deze wordt niet aan uw account gekoppeld en we slaan uw IP-adres niet op. We gebruiken geen analysediensten van derden, advertentie-SDK's of trackers tussen apps. Wanneer u end-to-end-versleuteling (E2E) gebruikt, wordt de inhoud van uw dagboek op uw apparaat versleuteld en kunnen wij die niet lezen. In de eenvoudige modus worden uw dagboekgegevens zonder end-to-end-versleuteling gesynchroniseerd met de cloudprovider die u kiest. De eenvoudige modus is bedoeld voor gemak en biedt mogelijk minder privacy dan de E2E-modus; uw gegevens blijven beschermd door de standaardbeveiligingsmaatregelen van uw cloudprovider."
+        "content": "We verzamelen zo min mogelijk persoonsgegevens. In verband met uw account verzamelen we: uw e-mailadres, uw weergavenaam (als deze wordt verstrekt door een externe authenticatieprovider zoals Google of Apple) en – zodra u cloudopslag verbindt – welke provider u heeft gekozen. Om de dagboekdienst te laten werken, bewaren we een kleine hoeveelheid statusgegevens op onze servers: of uw versleuteling is ingesteld, uw abonnementsstatus en de ID's die onze betalingsverwerker (Stripe) nodig heeft om uw abonnement te beheren. Om redelijk gebruik van optionele AI-functies te bewaken, registreren we gebruikstellers per gebruiker (het type uitgevoerde analyse, een tijdstempel, het gebruikte AI-model en de in tokens gemeten hoeveelheid gebruikte AI-verwerking; bij functies die op één afzonderlijk item betrekking hebben ook de ID van dat item; nooit de inhoud van uw items). Bij spraakinvoer registreert de teller ook de lengte van elke getranscribeerde opname in seconden; de opname zelf wordt nooit opgeslagen. Onze authenticatiebackend bewaart daarnaast standaard sessiemetagegevens, zoals tijdstempels van inlogmomenten. Weergavenamen worden uitsluitend gebruikt om uw ervaring in de app te personaliseren en worden nooit openbaar gemaakt. Om abonnementsprijzen in uw lokale valuta te tonen, kunnen we kort opzoeken bij welk land uw IP-adres hoort; alleen de resulterende landcode wordt gebruikt, deze wordt niet aan uw account gekoppeld en we slaan uw IP-adres niet op. We gebruiken geen analysediensten van derden, advertentie-SDK's of trackers tussen apps. Wanneer u end-to-end-versleuteling (E2E) gebruikt, wordt de inhoud van uw dagboek op uw apparaat versleuteld en kunnen wij die niet lezen. In de eenvoudige modus worden uw dagboekgegevens zonder end-to-end-versleuteling gesynchroniseerd met de cloudprovider die u kiest. De eenvoudige modus is bedoeld voor gemak en biedt mogelijk minder privacy dan de E2E-modus; uw gegevens blijven beschermd door de standaardbeveiligingsmaatregelen van uw cloudprovider."
       },
       "usage": {
         "title": "Hoe we informatie gebruiken",
@@ -2304,7 +2337,7 @@
       },
       "aiProcessing": {
         "title": "AI-functies en verwerking",
-        "content": "OwnJournal biedt optionele AI-functies zoals stemmingsanalyse, suggesties en spraakinvoer, die uitsluitend beschikbaar zijn voor Plus-abonnees. AI-verwerking vindt alleen plaats wanneer u als Plus-abonnee deze functies uitdrukkelijk gebruikt. Wanneer u tekstgebaseerde AI-functies gebruikt, wordt de betreffende tekst eerst op uw apparaat ontsleuteld en pas na een uitdrukkelijke handeling van uw kant via onze servers en de betaalde API naar onze AI-provider gestuurd, momenteel Google (Gemini). Wanneer u spraakinvoer gebruikt, wordt de microfoon van uw apparaat alleen gebruikt tijdens het opnemen; de opname wordt via onze servers naar Google (Gemini) gestuurd om in tekst te worden omgezet, en de resulterende tekst wordt op uw apparaat aan uw item toegevoegd. Wij slaan AI-invoer en -uitvoer, waaronder spraakopnamen en transcripties, niet op onze servers op; wij registreren alleen gebruikstellers per gebruiker voor AI-functies (het type uitgevoerde analyse, een tijdstempel en bij spraakinvoer de lengte van de opname in seconden; nooit de inhoud) om limieten voor redelijk gebruik te handhaven. Google kan prompts en uitvoer gedurende een beperkte periode bewaren voor misbruikbewaking en handhaving van beleid, volgens het geldende beleid van Google. AI-verwerking kan buiten de EER plaatsvinden; Google hanteert passende waarborgen voor de doorgifte van gegevens, zoals standaardcontractbepalingen. Wij gebruiken de betaalde versie van de AI-dienst van Google, waarbij prompts en uitvoer niet worden gebruikt om de modellen van Google te trainen of te verbeteren. U kunt ervoor kiezen geen AI-functies te gebruiken; dit heeft geen invloed op de basisfunctionaliteit van het dagboek."
+        "content": "OwnJournal biedt optionele AI-functies zoals stemmingsanalyse, suggesties, spraakinvoer en droomreflectie, die uitsluitend beschikbaar zijn voor Plus-abonnees. AI-verwerking vindt alleen plaats wanneer u als Plus-abonnee deze functies uitdrukkelijk gebruikt. Wanneer u tekstgebaseerde AI-functies gebruikt, wordt de betreffende tekst eerst op uw apparaat ontsleuteld en pas na een uitdrukkelijke handeling van uw kant via onze servers en de betaalde API naar onze AI-provider gestuurd, momenteel Google (Gemini). Wanneer u spraakinvoer gebruikt, wordt de microfoon van uw apparaat alleen gebruikt tijdens het opnemen; de opname wordt via onze servers naar Google (Gemini) gestuurd om in tekst te worden omgezet, en de resulterende tekst wordt op uw apparaat aan uw item toegevoegd. Wij slaan AI-invoer en -uitvoer, waaronder spraakopnamen en transcripties, niet op onze servers op; wij registreren alleen gebruikstellers per gebruiker voor AI-functies (het type uitgevoerde analyse, een tijdstempel, het gebruikte AI-model en de in tokens gemeten hoeveelheid gebruikte AI-verwerking; bij functies die op één afzonderlijk item betrekking hebben ook de ID van dat item; bij spraakinvoer ook de lengte van de opname in seconden; nooit de inhoud) om limieten voor redelijk gebruik te handhaven. Google kan prompts en uitvoer gedurende een beperkte periode bewaren voor misbruikbewaking en handhaving van beleid, volgens het geldende beleid van Google. AI-verwerking kan buiten de EER plaatsvinden; Google hanteert passende waarborgen voor de doorgifte van gegevens, zoals standaardcontractbepalingen. Wij gebruiken de betaalde versie van de AI-dienst van Google, waarbij prompts en uitvoer niet worden gebruikt om de modellen van Google te trainen of te verbeteren. U kunt ervoor kiezen geen AI-functies te gebruiken; dit heeft geen invloed op de basisfunctionaliteit van het dagboek."
       },
       "diagnostics": {
         "title": "Diagnostiek en crashlogs",
@@ -2562,5 +2595,159 @@
       "noSpeech": "Er is geen spraak gedetecteerd in de opname.",
       "failed": "Transcriptie mislukt. Probeer het opnieuw."
     }
+  },
+  "dream": {
+    "toggle": "Droom",
+    "toggleHint": "Dit item als droom bewaren",
+    "badge": "Droom",
+    "editor": {
+      "placeholder": "Wat gebeurde er in uw droom? Schrijf op wat u zich ervan herinnert.",
+      "feelingsLabel": "Wat voelde u in de droom?",
+      "flagsLabel": "Wat voor droom was het?",
+      "howItWorks": "Zo werkt het"
+    },
+    "feelings": {
+      "joy": "Vreugde",
+      "calm": "Rust",
+      "awe": "Ontzag",
+      "curiosity": "Nieuwsgierigheid",
+      "love": "Liefde",
+      "fear": "Angst",
+      "anxiety": "Onrust",
+      "sadness": "Verdriet",
+      "anger": "Boosheid",
+      "confusion": "Verwarring",
+      "shame": "Schaamte",
+      "loneliness": "Eenzaamheid"
+    },
+    "flags": {
+      "recurring": "Terugkerend",
+      "nightmare": "Nachtmerrie",
+      "lucid": "Lucide",
+      "lucidExplained": "Lucide betekent dat u wist dat u droomde."
+    },
+    "guide": {
+      "title": "Uw droomdagboek",
+      "step1": "Schrijf de droom op zodra u wakker bent. Binnen een paar minuten vervaagt hij al.",
+      "step1Voice": "Dicteren gaat misschien sneller.",
+      "step2": "Beschrijf wat er gebeurde: wie er waren, waar het zich afspeelde, wat u deed en hoe het voelde. Het hoeft niet op volgorde of logisch te zijn.",
+      "step3": "Tik op “Reflecteren op deze droom”. U krijgt dan een reflectie op wat u heeft opgeschreven.",
+      "step3Patterns": "Heeft u vijf dromen opgeschreven, dan kunt u in uw dagboek voor een periode naar keuze een rapport Droompatronen maken. Daarin ziet u welke mensen, plaatsen en thema's steeds terugkomen.",
+      "done": "Begrepen"
+    },
+    "reflection": {
+      "title": "Droomreflectie",
+      "reflect": "Reflecteren op deze droom",
+      "reflecting": "Bezig met reflecteren…",
+      "reflectAgain": "Opnieuw reflecteren",
+      "editToReflectAgain": "Bewerk de droom of voeg uw gedachten toe om opnieuw te reflecteren",
+      "plusOnly": "Droomreflectie is beschikbaar met Plus",
+      "remaining": "Nog {{remaining}} van {{limit}} reflecties deze maand",
+      "summary": "In het kort",
+      "themes": "Mogelijke thema's",
+      "images": "Beelden om te verkennen",
+      "wakingLinks": "Mogelijke verbanden met uw dagelijks leven",
+      "questions": "Vragen om over na te denken",
+      "thoughts": {
+        "label": "Uw eigen gedachten",
+        "placeholder": "Wat roepen de vragen bij u op?",
+        "hint": "Bij “Opnieuw reflecteren” wordt rekening gehouden met uw gedachten."
+      },
+      "fromThoughts": "Wat uw gedachten hebben veranderd",
+      "footer": "Een reflectie, geen diagnose. Neem wat u aanspreekt en laat de rest liggen.",
+      "howThisWorks": "Hoe werkt dit?",
+      "show": "Tonen",
+      "hide": "Verbergen",
+      "care": {
+        "title": "Als deze droom u niet loslaat",
+        "body": "Zo'n droom kan u flink aangrijpen. Komen nare dromen steeds terug of heeft u er overdag last van, dan kan het helpen om erover te praten met iemand die u vertrouwt of met een zorgverlener, zoals uw huisarts.",
+        "urgent": "Denkt u erover uzelf iets aan te doen? Neem dan nu meteen contact op met het alarmnummer of een hulplijn."
+      },
+      "consent": {
+        "title": "Een reflectie op uw droom laten maken door Google?",
+        "body": "Voor de reflectie wordt het volgende naar de Gemini-dienst van Google gestuurd: de tekst en de datum van uw droom, de gevoelens die u erbij heeft gekozen, en of u heeft aangegeven dat het een terugkerende droom, een nachtmerrie of een lucide droom was. Heeft u uw eigen gedachten bij de droom opgeschreven, dan worden die meegestuurd, samen met de vragen uit de eerdere reflectie waarop ze ingaan. Van elk item van de afgelopen week dat al is geanalyseerd (hooguit zeven) gaan ook de datum, de korte samenvatting, de belangrijkste thema's en de dominante emotie mee, maar niet de tekst van het item zelf. Voor een rapport Droompatronen gaan alleen de korte labels mee die bij elke reflectie zijn opgeslagen, niet de tekst van uw dromen. Staat in de trendanalyse “Dromen meenemen” aan, dan gaan daarvoor de datum en die labels van elke droom uit de gekozen periode mee, met erbij of u heeft aangegeven dat het een nachtmerrie of een terugkerende droom was. De tekst van de droom gaat niet mee. In beide gevallen krijgen dromen zonder reflectie er eerst een, en daarvoor worden ze verstuurd zoals aan het begin beschreven. OwnJournal slaat van de verstuurde gegevens niets op. Google gebruikt deze gegevens niet om zijn modellen te trainen en bewaart ze hooguit kort, uitsluitend om misbruik te voorkomen. De reflectie wordt bij uw droom opgeslagen, net als de rest van het item.",
+        "accept": "Doorgaan",
+        "decline": "Niet nu"
+      },
+      "errors": {
+        "offline": "U bent offline. Droomreflectie heeft een internetverbinding nodig.",
+        "authRequired": "Log in om op uw dromen te reflecteren.",
+        "plusRequired": "Droomreflectie vereist een Plus-abonnement.",
+        "limitReached": "U heeft alle {{limit}} droomreflecties van deze maand gebruikt. De limiet wordt volgende maand gereset. Uw dromen kunt u gewoon blijven opschrijven.",
+        "tooShort": "Schrijf eerst minstens {{min}} tekens over uw droom.",
+        "tooLong": "Deze droom is te lang voor een reflectie. Maak de tekst wat korter en probeer het opnieuw.",
+        "saveFailed": "De reflectie kon niet worden opgeslagen. Probeer het opnieuw.",
+        "failed": "De reflectie is deze keer niet gelukt. Probeer het opnieuw.",
+        "failedLimitReached": "Er zijn deze maand te veel pogingen mislukt, dus Droomreflectie is pas volgende maand weer beschikbaar. Uw dromen kunt u gewoon blijven opschrijven.",
+        "blocked": "De AI-dienst gaat niet in op wat er in deze droom gebeurt, dus een reflectie is niet mogelijk. Uw droom blijft gewoon in uw dagboek staan."
+      }
+    },
+    "patterns": {
+      "title": "Droompatronen",
+      "intro": "Wat er in uw dromen steeds terugkomt.",
+      "dreamsInPeriod_one": "{{count}} droom in deze periode",
+      "dreamsInPeriod_other": "{{count}} dromen in deze periode",
+      "needMore": "Voor een rapport zijn minstens {{min}} dromen nodig.",
+      "tooShort_one": "{{count}} droom in deze periode is te kort voor een reflectie en telt daarom niet mee. Voor een reflectie zijn minstens {{min}} tekens nodig.",
+      "tooShort_other": "{{count}} dromen in deze periode zijn te kort voor een reflectie en tellen daarom niet mee. Voor een reflectie zijn minstens {{min}} tekens nodig.",
+      "reflectFirst_one": "Een van deze dromen heeft nog geen reflectie en krijgt er eerst een als u het rapport maakt. Daarvoor gebruikt u één reflectie van deze maand (u heeft er nog {{remaining}}).",
+      "reflectFirst_other": "{{count}} van deze dromen hebben nog geen reflectie en krijgen er eerst elk een als u het rapport maakt. Daarvoor gebruikt u {{count}} reflecties van deze maand (u heeft er nog {{remaining}}).",
+      "notEnoughReflections_one": "{{dreams}} van deze dromen hebben nog geen reflectie, en u heeft deze maand nog maar één reflectie over. Kies een kortere periode.",
+      "notEnoughReflections_other": "{{dreams}} van deze dromen hebben nog geen reflectie, en u heeft deze maand nog maar {{count}} reflecties over. Kies een kortere periode.",
+      "noReflectionsLeft_one": "Een van deze dromen heeft nog geen reflectie, maar u heeft deze maand geen reflecties meer over. Kies een kortere periode.",
+      "noReflectionsLeft_other": "{{count}} van deze dromen hebben nog geen reflectie, maar u heeft deze maand geen reflecties meer over. Kies een kortere periode.",
+      "ready": "U kunt nu uw eerste rapport Droompatronen maken.",
+      "create": "Rapport maken",
+      "createNew": "Nieuw rapport maken",
+      "creating": "Bezig met zoeken naar patronen…",
+      "reflecting": "Bezig met reflecteren op droom {{current}} van {{total}}…",
+      "oncePerWeek": "Eén rapport per week",
+      "usedThisWeek": "U heeft het rapport van deze week al gemaakt. Volgende week kunt u weer een nieuw rapport maken.",
+      "plusOnly": "Droompatronen zijn beschikbaar met Plus",
+      "earlyThemes": "Eerste thema's",
+      "earlyThemesNote_one": "Op basis van {{count}} droom. Met meer dromen, bijvoorbeeld uit een langere periode, worden de patronen duidelijker.",
+      "earlyThemesNote_other": "Op basis van {{count}} dromen. Met meer dromen, bijvoorbeeld uit een langere periode, worden de patronen duidelijker.",
+      "basedOn_one": "Op basis van {{count}} droom",
+      "basedOn_other": "Op basis van {{count}} dromen",
+      "overview": "Overzicht",
+      "recurring": "Wat steeds terugkomt",
+      "inDreams_one": "In {{count}} droom",
+      "inDreams_other": "In {{count}} dromen",
+      "kinds": {
+        "character": "Persoon",
+        "setting": "Plaats",
+        "emotion": "Gevoel",
+        "theme": "Thema"
+      },
+      "changes": "Hoe uw dromen zijn veranderd",
+      "questions": "Vragen om over na te denken",
+      "footer": "Patronen om over na te denken, geen diagnose. Neem wat u aanspreekt en laat de rest liggen.",
+      "saveAsNote": "Opslaan als notitie",
+      "noteTitle": "Droompatronen, {{date}}",
+      "errors": {
+        "offline": "U bent offline. Voor Droompatronen is een internetverbinding nodig.",
+        "limitReached": "U heeft het rapport Droompatronen van deze week al gemaakt. Volgende week kunt u weer een nieuw rapport maken.",
+        "failed": "Het rapport is deze keer niet gelukt. Probeer het opnieuw.",
+        "failedLimitReached": "Er zijn deze maand te veel pogingen mislukt, dus u kunt pas volgende maand weer een rapport Droompatronen maken.",
+        "blocked": "De AI-dienst gaat op sommige thema's uit uw dromen niet in, dus er kon geen rapport worden gemaakt."
+      }
+    },
+    "filter": "Dromen"
+  },
+  "featureTip": {
+    "title": "Nieuw in OwnJournal",
+    "free": "Gratis",
+    "dreamJournal": {
+      "name": "Droomdagboek",
+      "desc": "Schrijf een droom op zodra u wakker bent, voor hij vervaagt, en bewaar het item als droom. U kunt ook kiezen wat u erbij voelde."
+    },
+    "dreamReflection": {
+      "desc": "Laat een reflectie op uw droom maken. Met vijf dromen in een periode kunt u een rapport maken over wat steeds terugkomt."
+    },
+    "voice": {
+      "desc": "Tik op de microfoon onder de editor en spreek in plaats van te typen."
+    },
+    "writeDream": "Droom opschrijven",
+    "dismiss": "Begrepen"
   }
 }

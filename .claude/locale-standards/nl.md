@@ -153,3 +153,17 @@ Mood labels (app = website): Geweldig, Goed, Oké, Matig, Slecht. Activity "Exer
   https://support.apple.com/nl-nl/guide/mac-mini/apd74518e330/2024/mac/15 (“Inloggen bij je Apple Account”)
 - Log in met Apple (NL): https://support.apple.com/nl-nl/ht5394 (“'Log in met Apple' gebruiken voor apps en websites”);
   https://support.apple.com/nl-nl/102609
+
+## 8. Dreams glossary (Nov 2026)
+
+| English | Use | Avoid | Basis |
+|---|---|---|---|
+| dream journal | `droomdagboek` | `logboek` | attested; house noun `dagboek` |
+| nightmare / lucid / recurring | `nachtmerrie`, `lucide (droom)`, `terugkerend(e droom)` | | nl.wikipedia “Lucide droom”; Radar (AVROTROS) |
+| Dream reflection / Dream patterns | `Droomreflectie`; `Droompatronen` (plural verb: `Droompatronen zijn …`, like `Activiteitsinzichten zijn …`); report = `rapport Droompatronen` | `Droompatronen is …` | judgment + house precedent |
+| reflect on | `reflecteren op` (prepositional; metadata: `op 2 dromen gereflecteerd`) | `een droom reflecteren`, `gereflecteerde droom` | judgment |
+| anxiety (feeling chip, next to `Angst`) | `Onrust` | `Spanning` (also means suspense/excitement) | judgment |
+| distressing dreams weigh on you | `er overdag last van hebben`, `nare dromen` | `dwarszitten` (also “thwart”) | UvA (Lancee), Radar |
+| health professional (NL) | `een zorgverlener, zoals uw huisarts` | `gezondheidsprofessional` | huisarts-first convention (thuisarts.nl) |
+| crisis line / emergency number | `een hulplijn` / `het alarmnummer` | `crisislijn` | 113.nl calls itself “de hulplijn”; rijksoverheid |
+| tokens (legal) | `de hoeveelheid gebruikte AI-verwerking, gemeten in tokens` | | judgment |
