@@ -87,6 +87,7 @@ const Index = () => {
   // Dreams stay in the timeline but out of every mood and trend view: a
   // nightmare is not a bad day.
   const moodEntries = useMemo(() => withoutDreams(journalEntries), [journalEntries]);
+  const dreamEntries = useMemo(() => journalEntries.filter(e => e.type === 'dream'), [journalEntries]);
   const allTags = useMemo(() => Array.from(new Set(entries.flatMap(e => e.tags))), [entries]);
   const sortedEntries = useMemo(() => sortEntriesByDateNewestFirst(journalEntries), [journalEntries]);
   const [user, setUser] = useState<{
@@ -3272,6 +3273,8 @@ const Index = () => {
               key={`trend-${user?.id ?? 'anonymous'}`}
               entries={moodEntries}
               isPro={isPro}
+              dreams={dreamEntries}
+              onSaveReflection={handleSaveReflection}
             />
           )}
 

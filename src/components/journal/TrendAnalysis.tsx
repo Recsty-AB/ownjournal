@@ -28,11 +28,30 @@ import { getMockTrendAnalysis } from "@/demo/mockAIResponses";
 import { computeTimeBuckets, shouldUseTimeBuckets, type EntryWithDateAndMetadata } from "@/utils/timeBucketAggregation";
 import { getDateLocale } from "@/utils/dateLocale";
 import { canShowAnyPurchaseCTA } from "@/utils/platformDetection";
+import { getCurrentUserId, scopedKey } from "@/utils/userScope";
+import { useDreamUsage } from "@/hooks/useDreamUsage";
+import { DREAM_LIMITS, type DreamReflection } from "@/types/dream";
+import {
+  dreamsForPeriod,
+  hasDreamConsent,
+  sentenceSeparator,
+  trendDreamsPayload,
+} from "@/services/dreamService";
+import { DreamConsentDialog } from "./DreamConsentDialog";
+import { reflectMissingDreams } from "@/services/reflectMissingDreams";
 
 interface TrendAnalysisProps {
+  /** Journal entries without dreams: the mood and topics analysed. */
   entries: JournalEntryData[];
   isPro: boolean;
   isDemo?: boolean;
+  /**
+   * The dreams of the journal. With "Include your dreams" on, the reflected
+   * dreams of the period go into the analysis, after the ones without a
+   * reflection get one (saved with `onSaveReflection`).
+   */
+  dreams?: JournalEntryData[];
+  onSaveReflection?: (entry: JournalEntryData, reflection: DreamReflection) => Promise<void>;
 }
 
 interface TrendData {
@@ -41,7 +60,15 @@ interface TrendData {
   insights: string[];
   focusAreas: string[];
   closingReflection?: string;
+  /** How the dreams of the period sit beside the journal; only when dreams were included. */
+  dreamInsights?: string[];
+  dreamCount?: number;
 }
+
+// Per-account, per-device choice: include the dreams of the period.
+const INCLUDE_DREAMS_KEY = "trend-include-dreams";
+
+const NO_DREAMS: JournalEntryData[] = [];
 
 interface CloudTrendData {
   version: number;
@@ -52,7 +79,7 @@ interface CloudTrendData {
   analysis: TrendData;
 }
 
-export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisProps) => {
+export const TrendAnalysis = ({ entries, isPro, isDemo = false, dreams = NO_DREAMS, onSaveReflection }: TrendAnalysisProps) => {
   const [analysis, setAnalysis] = useState<TrendData | null>(null);
   const [loading, setLoading] = useState(false);
   const [lastAnalyzed, setLastAnalyzed] = useState<Date | null>(null);
@@ -97,6 +124,36 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
 
     return { startDate: start, endDate: end, filteredEntries: filtered };
   }, [entries, dateRangePreset, customStartDate, customEndDate]);
+
+  // "Include your dreams": on by default, remembered on this device. Shown
+  // once the journal holds a dream; off sends nothing about the dreams.
+  const [includeDreams, setIncludeDreamsState] = useState(() => {
+    try {
+      return localStorage.getItem(scopedKey(INCLUDE_DREAMS_KEY)) !== "false";
+    } catch {
+      return true;
+    }
+  });
+  const setIncludeDreams = (value: boolean) => {
+    setIncludeDreamsState(value);
+    try {
+      localStorage.setItem(scopedKey(INCLUDE_DREAMS_KEY), String(value));
+    } catch {
+      /* Not remembered; the choice still applies now. */
+    }
+  };
+  const [consentOpen, setConsentOpen] = useState(false);
+  const showDreamSwitch = !isDemo && !!onSaveReflection && dreams.length > 0;
+  const periodDreams = useMemo(() => dreamsForPeriod(dreams, startDate, endDate), [dreams, startDate, endDate]);
+  // Dreams without a reflection get one first, as far as this month's
+  // reflections reach; the rest are left out.
+  const reflectionUsage = useDreamUsage("dreamReflection");
+  const reflectionsLeft = Math.max(0, reflectionUsage.limit - reflectionUsage.current);
+  const withoutReflection = periodDreams.filter((d) => !d.dreamReflection).length;
+  const toReflect = Math.min(withoutReflection, reflectionsLeft);
+  const leftOut = withoutReflection - toReflect;
+  const usableDreams = periodDreams.length - leftOut;
+  const withDreams = showDreamSwitch && isPro && includeDreams && usableDreams >= DREAM_LIMITS.dreamsForTrends;
 
   const canAnalyze = () => {
     const limitCheck = aiUsageLimits.canUseFeature('trendAnalysis');
@@ -388,6 +445,19 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
   };
 
   const handleAnalyze = async () => {
+    // Dreams go to Google only after the same consent as a dream reflection.
+    if (withDreams && !isDemo && !hasDreamConsent()) {
+      setConsentOpen(true);
+      return;
+    }
+    // The dreams and the reflection budget as they are when Analyze is tapped.
+    const runDreams = withDreams ? periodDreams : [];
+    const runReflections = reflectionsLeft;
+    const startedBy = getCurrentUserId();
+    // One more step when dreams are included: reflecting on those without one.
+    const totalSteps = runDreams.length > 0 ? 6 : 5;
+    const later = runDreams.length > 0 ? 1 : 0;
+
     // Demo mode: use mock responses
     if (isDemo) {
       setLoading(true);
@@ -447,7 +517,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
     }
 
     setLoading(true);
-    setProgress({ step: 1, totalSteps: 5, currentAction: t('trendAnalysis.progress.checkingEntries'), currentEntry: 0, totalEntries: 0 });
+    setProgress({ step: 1, totalSteps, currentAction: t('trendAnalysis.progress.checkingEntries'), currentEntry: 0, totalEntries: 0 });
     
     try {
       // Step 1: Check which entries have metadata
@@ -457,7 +527,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
       const missingCount = entriesWithMetadata.filter(needsEntryAnalysis).length;
       if (missingCount > 0) {
         setAnalyzingCount(missingCount);
-        setProgress({ step: 2, totalSteps: 5, currentAction: t('trendAnalysis.progress.analyzingEntry', { current: 0, total: missingCount }), currentEntry: 0, totalEntries: missingCount });
+        setProgress({ step: 2, totalSteps, currentAction: t('trendAnalysis.progress.analyzingEntry', { current: 0, total: missingCount }), currentEntry: 0, totalEntries: missingCount });
         toast({
           title: t('trendAnalysis.analyzingEntries'),
           description: t('trendAnalysis.analyzingEntriesDesc', { count: missingCount }),
@@ -480,7 +550,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
           onProgress: ({ done, total, retrying }) =>
             setProgress({
               step: 2,
-              totalSteps: 5,
+              totalSteps,
               currentAction: retrying
                 ? t('trendAnalysis.progress.retrying', { defaultValue: 'Retrying...' })
                 : t('trendAnalysis.progress.analyzingEntry', { current: done, total }),
@@ -514,12 +584,40 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
         return;
       }
 
-      // Step 3: Aggregate locally
-      setProgress({ step: 3, totalSteps: 5, currentAction: t('trendAnalysis.progress.aggregatingPatterns'), currentEntry: 0, totalEntries: 0 });
+      // Step 3 with dreams: reflect on the dreams of the period that have no
+      // reflection yet, as far as this month's reflections reach. Dreams
+      // that still have none are left out; too few left means no dreams.
+      let dreamsPayload: ReturnType<typeof trendDreamsPayload> = [];
+      if (runDreams.length > 0) {
+        const reflected = await reflectMissingDreams(runDreams, entries, {
+          language: i18n.language,
+          max: runReflections,
+          onProgress: (current, total) =>
+            setProgress({
+              step: 3,
+              totalSteps,
+              currentAction: t('dream.patterns.reflecting', { current, total }),
+              currentEntry: 0,
+              totalEntries: 0,
+            }),
+          onSaved: onSaveReflection!,
+          isCurrent: () => getCurrentUserId() === startedBy,
+        });
+        // Signed out or another account signed in meanwhile.
+        if (!reflected) return;
+        dreamsPayload = trendDreamsPayload(reflected.dreams);
+        if (dreamsPayload.length < DREAM_LIMITS.dreamsForTrends) {
+          dreamsPayload = [];
+          toast({ title: t('trendAnalysis.title'), description: t('trendAnalysis.dreams.notIncluded') });
+        }
+      }
+
+      // Aggregate locally
+      setProgress({ step: 3 + later, totalSteps, currentAction: t('trendAnalysis.progress.aggregatingPatterns'), currentEntry: 0, totalEntries: 0 });
       const aggregated = aggregateMetadata(allMetadata);
 
-      // Step 4: Call trend endpoint with aggregated data
-      setProgress({ step: 4, totalSteps: 5, currentAction: t('trendAnalysis.progress.generatingInsights'), currentEntry: 0, totalEntries: 0 });
+      // Call trend endpoint with aggregated data
+      setProgress({ step: 4 + later, totalSteps, currentAction: t('trendAnalysis.progress.generatingInsights'), currentEntry: 0, totalEntries: 0 });
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
         toast({
@@ -547,6 +645,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
           end: endDate.toISOString()
         },
         aggregates: aggregated,
+        ...(dreamsPayload.length > 0 ? { dreams: dreamsPayload } : {}),
       };
       
       if (shouldUseTimeBuckets(periodDays)) {
@@ -568,14 +667,18 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
         
         console.log(`[TrendAnalysis] Using time buckets for ${periodDays}-day period: ${(requestBody.timeBuckets as unknown[]).length} buckets`);
       } else {
-        // Short period (≤90 days): Send individual entry metadata
-        requestBody.entryMetadata = allMetadata.slice(0, 90).map(m => ({
-          analyzedAt: m.analyzedAt,
-          sentimentScore: m.sentimentScore,
-          dominantEmotion: m.dominantEmotion,
-          topics: m.topics.slice(0, 3),
-          timeOfDay: m.timeOfDay
-        }));
+        // Short period (≤90 days): Send individual entry metadata, with the
+        // day of each entry so the dreams can be set beside it.
+        requestBody.entryMetadata = entriesWithMetadata
+          .filter(e => e.metadata && !isFailedEntryAnalysis(e.metadata))
+          .slice(0, 90)
+          .map(({ entry, metadata: m }) => ({
+            date: format(entry.date, 'yyyy-MM-dd'),
+            sentimentScore: m.sentimentScore,
+            dominantEmotion: m.dominantEmotion,
+            topics: m.topics.slice(0, 3),
+            timeOfDay: m.timeOfDay
+          }));
         
         console.log(`[TrendAnalysis] Using individual entries for ${periodDays}-day period: ${(requestBody.entryMetadata as unknown[]).length} entries`);
       }
@@ -619,6 +722,12 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
         return;
       }
 
+      // Dream observations only when dreams were sent.
+      if (dreamsPayload.length === 0 || !Array.isArray(data.dreamInsights)) {
+        delete data.dreamInsights;
+        delete data.dreamCount;
+      }
+
       setAnalysis(data);
       setLastAnalyzed(new Date());
       setIsCollapsed(false); // AUTO-SHOW results after analysis
@@ -628,8 +737,8 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
       setAnalyzedPeriodStart(startDate);
       setAnalyzedPeriodEnd(endDate);
       
-      // Step 5: Save to both local cache and cloud storage (include period dates)
-      setProgress({ step: 5, totalSteps: 5, currentAction: t('trendAnalysis.progress.savingAnalysis'), currentEntry: 0, totalEntries: 0 });
+      // Save to both local cache and cloud storage (include period dates)
+      setProgress({ step: 5 + later, totalSteps, currentAction: t('trendAnalysis.progress.savingAnalysis'), currentEntry: 0, totalEntries: 0 });
       await saveTrendAnalysis(data, startDate, endDate);
       
       aiUsageLimits.recordUsage('trendAnalysis');
@@ -714,6 +823,50 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
         <span>{t('trendAnalysis.progress.doNotCloseApp')}</span>
       </div>
     </div>
+  );
+
+  // "Include your dreams" and what it will do for the chosen period.
+  const dreamControls = showDreamSwitch && (
+    <div className="space-y-1">
+      <div className="flex items-center gap-2">
+        <Switch
+          id="trend-include-dreams"
+          checked={includeDreams}
+          onCheckedChange={setIncludeDreams}
+          disabled={loading || !isPro}
+        />
+        <Label htmlFor="trend-include-dreams" className="text-sm font-normal">
+          {t('trendAnalysis.dreams.include')}
+        </Label>
+      </div>
+      {isPro && includeDreams && (
+        <p className="text-xs tabular-nums text-muted-foreground">
+          {usableDreams < DREAM_LIMITS.dreamsForTrends ? (
+            t('trendAnalysis.dreams.tooFew', { count: usableDreams, min: DREAM_LIMITS.dreamsForTrends })
+          ) : (
+            <>
+              {t('trendAnalysis.dreams.included', { count: usableDreams })}
+              {toReflect > 0 && (
+                <>
+                  {sentenceSeparator(i18n.language)}
+                  {t('trendAnalysis.dreams.reflectFirst', { count: toReflect, remaining: reflectionsLeft })}
+                </>
+              )}
+              {leftOut > 0 && (
+                <>
+                  {sentenceSeparator(i18n.language)}
+                  {t('trendAnalysis.dreams.leftOut', { count: leftOut })}
+                </>
+              )}
+            </>
+          )}
+        </p>
+      )}
+    </div>
+  );
+
+  const consentDialog = showDreamSwitch && (
+    <DreamConsentDialog open={consentOpen} onOpenChange={setConsentOpen} onAccept={() => void handleAnalyze()} />
   );
 
   if (!analysis || isSelectingPeriod) {
@@ -816,6 +969,8 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
                 )}
               </div>
 
+              {dreamControls}
+
               {/* Custom Date Range Pickers */}
               {dateRangePreset === "custom" && (
                 <CustomPeriodPicker
@@ -830,6 +985,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
             </div>
           </CollapsibleContent>
         </Collapsible>
+        {consentDialog}
       </Card>
     );
   }
@@ -917,6 +1073,8 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
               </Button>
             </div>
 
+            {dreamControls}
+
             {progressPanel}
 
             {/* The report reads as one piece of writing: titled sections
@@ -937,6 +1095,27 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
                   <h4 className="text-xl font-semibold">{t('trendAnalysis.keyInsights')}</h4>
                   <ul className="reading space-y-3">
                     {analysis.insights.map((insight, index) => (
+                      <li key={index} className="flex gap-3">
+                        <span aria-hidden="true" className="text-muted-foreground">•</span>
+                        <span className="min-w-0">{insight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {analysis.dreamInsights && analysis.dreamInsights.length > 0 && (
+                <section className="space-y-3 py-5">
+                  <div className="space-y-1">
+                    <h4 className="text-xl font-semibold">{t('trendAnalysis.dreams.title')}</h4>
+                    {analysis.dreamCount ? (
+                      <p className="text-xs tabular-nums text-muted-foreground">
+                        {t('dream.patterns.basedOn', { count: analysis.dreamCount })}
+                      </p>
+                    ) : null}
+                  </div>
+                  <ul className="reading space-y-3">
+                    {analysis.dreamInsights.map((insight, index) => (
                       <li key={index} className="flex gap-3">
                         <span aria-hidden="true" className="text-muted-foreground">•</span>
                         <span className="min-w-0">{insight}</span>
@@ -991,6 +1170,7 @@ export const TrendAnalysis = ({ entries, isPro, isDemo = false }: TrendAnalysisP
           </div>
         </CollapsibleContent>
       </Collapsible>
+      {consentDialog}
     </Card>
   );
 };

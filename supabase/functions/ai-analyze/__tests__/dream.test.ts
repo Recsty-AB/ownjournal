@@ -493,74 +493,19 @@ describe('analyzeDreamPatterns', () => {
     expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({ analysis_type: 'dreamPatterns' }));
   });
 
-  const WAKING_LIFE = {
-    shared: [{ label: 'school', note: 'It appears in your dreams and in what you write about.' }],
-    dreamsOnly: [
-      { label: 'sister', note: 'She appears in five dreams and not among your journal topics.' },
-      { label: 'no note' },
-      { label: 'a', note: 'n' }, { label: 'b', note: 'n' }, { label: 'c', note: 'n' },
-    ],
-    wakingOnly: [{ label: 'running', note: 'A frequent topic in your journal that the dreams do not show.' }],
-  };
-  const waking = {
-    entryCount: 9,
-    topics: [{ label: 'work', count: 6 }, { label: 'running', count: 4 }, { label: 'x'.repeat(200), count: 'many' }],
-    emotions: [{ label: 'tired', count: 5 }],
-    shortSummary: 'Entry text must never be accepted',
-  };
-
-  it('compares the dreams with the journal topics it was sent, and never with entry text', async () => {
-    fetchMock.mockResolvedValue(toolResponse('find_dream_patterns', { ...PATTERNS, wakingLife: WAKING_LIFE }));
-
-    const response = await post({ type: 'analyzeDreamPatterns', language: 'en', dreams: dreams(6), waking });
-
-    const data = await response.json();
-    expect(data.report.waking).toEqual({
-      entryCount: 9,
-      shared: WAKING_LIFE.shared,
-      // Lines without a note are dropped; at most three per list.
-      dreamsOnly: [WAKING_LIFE.dreamsOnly[0], { label: 'a', note: 'n' }, { label: 'b', note: 'n' }],
-      wakingOnly: WAKING_LIFE.wakingOnly,
-    });
-    const { system, user } = promptText();
-    expect(user).toContain('extracted from 9 regular entries');
-    expect(user).toContain('topics: work (6), running (4)');
-    expect(user).toContain('feelings: tired (5)');
-    expect(user).not.toContain('Entry text must never be accepted');
-    expect(user).not.toContain('x'.repeat(61));
-    // An absence is described, never explained.
-    expect(system).toContain('never call it avoided, repressed, hidden, unconscious or denied');
-    expect(system).not.toContain("nothing from the dreamer's other journal entries");
-  });
-
-  it('makes no comparison when no journal data was sent, whatever the model returns', async () => {
-    fetchMock.mockResolvedValue(toolResponse('find_dream_patterns', { ...PATTERNS, wakingLife: WAKING_LIFE }));
-
-    const response = await post({ type: 'analyzeDreamPatterns', language: 'en', dreams: dreams(6) });
-
-    expect((await response.json()).report).not.toHaveProperty('waking');
-    const { system, user } = promptText();
-    expect(user).toContain('No journal data was provided');
-    expect(system).toContain("nothing from the dreamer's other journal entries");
-  });
-
-  it('ignores journal data from fewer than three entries', async () => {
-    fetchMock.mockResolvedValue(toolResponse('find_dream_patterns', { ...PATTERNS, wakingLife: WAKING_LIFE }));
+  it('never compares with the journal, even when journal data is sent', async () => {
+    fetchMock.mockResolvedValue(toolResponse('find_dream_patterns', { ...PATTERNS, wakingLife: { shared: [{ label: 'work', note: 'n' }] } }));
 
     const response = await post({
-      type: 'analyzeDreamPatterns', language: 'en', dreams: dreams(6), waking: { ...waking, entryCount: 2 },
+      type: 'analyzeDreamPatterns', language: 'en', dreams: dreams(6),
+      waking: { entryCount: 9, topics: [{ label: 'work', count: 6 }], emotions: [] },
     });
 
     expect((await response.json()).report).not.toHaveProperty('waking');
-    expect(promptText().user).not.toContain('work (6)');
-  });
-
-  it('returns an empty comparison when the model finds nothing to compare', async () => {
-    fetchMock.mockResolvedValue(toolResponse('find_dream_patterns', PATTERNS));
-
-    const response = await post({ type: 'analyzeDreamPatterns', language: 'en', dreams: dreams(6), waking });
-
-    expect((await response.json()).report.waking).toEqual({ entryCount: 9, shared: [], dreamsOnly: [], wakingOnly: [] });
+    const { system, user, body } = promptText();
+    expect(user).not.toContain('work (6)');
+    expect(system).toContain("nothing from the dreamer's other journal entries");
+    expect(JSON.stringify(body.tools)).not.toContain('wakingLife');
   });
 
   it('refuses at the monthly limit', async () => {
@@ -597,5 +542,84 @@ describe('analyzeDreamPatterns', () => {
     expect(data.limitReached).toBeUndefined();
     expect(data.failedLimitReached).toBe(true);
     expect(fetchMock).not.toHaveBeenCalled();
+  });
+});
+
+describe('analyzeTrends with dreams', () => {
+  const coded = { characters: ['sister'], settings: ['school'], emotions: ['fear'], themes: ['searching'] };
+  const trendDreams = (n: number) =>
+    Array.from({ length: n }, (_, i) => ({
+      date: `2026-11-0${i + 1}`,
+      coded,
+      ...(i === 0 ? { nightmare: true } : {}),
+      // Never accepted: the client sends no text.
+      body: 'Secret dream text',
+    }));
+  const trendBody = (extra: Record<string, unknown> = {}) => ({
+    type: 'analyzeTrends',
+    language: 'en',
+    period: { start: '2026-10-22T00:00:00.000Z', end: '2026-11-21T00:00:00.000Z' },
+    aggregates: {
+      entryCount: 8, avgSentiment: 0.1,
+      topEmotions: [{ emotion: 'tired', count: 4 }], topTopics: [{ topic: 'work', count: 5 }],
+      timeOfDayDistribution: { morning: 8 }, lengthDistribution: { short: 8 },
+    },
+    entryMetadata: Array.from({ length: 8 }, (_, i) => ({
+      date: `2026-11-0${i + 1}`, sentimentScore: -0.2, dominantEmotion: 'tired', topics: ['work'], timeOfDay: 'morning',
+    })),
+    ...extra,
+  });
+  const TREND = {
+    periodSummary: 'A busy month.',
+    moodTrend: 'Steady, with a dip.',
+    insights: ['Work weighs on you.'],
+    focusAreas: ['Rest'],
+    closingReflection: 'You kept showing up.',
+  };
+  const textResponse = (value: Record<string, unknown>) =>
+    Response.json({
+      candidates: [{ content: { parts: [{ text: JSON.stringify(value) }] }, finishReason: 'STOP' }],
+      usageMetadata: { promptTokenCount: 2000, candidatesTokenCount: 800, thoughtsTokenCount: 100, totalTokenCount: 2900 },
+    });
+
+  it('runs on Flash and dates each entry', async () => {
+    fetchMock.mockResolvedValue(textResponse(TREND));
+
+    const response = await post(trendBody());
+
+    expect(response.status).toBe(200);
+    const { user, url, body } = promptText();
+    expect(url).toContain('/models/gemini-3.8-flash:generateContent');
+    expect(body.generationConfig.maxOutputTokens).toBe(6000);
+    expect(user).toContain('1. 2026-11-01, Sentiment: -0.20');
+    expect(user).not.toContain('Dreams the user recorded');
+    expect(user).not.toContain('dreamInsights');
+  });
+
+  it('sets the dreams beside the journal by date, from labels only, and returns what it found', async () => {
+    fetchMock.mockResolvedValue(textResponse({ ...TREND, dreamInsights: ['a', 'b', 'c', 'd', 'e'] }));
+
+    const response = await post(trendBody({ dreams: trendDreams(3) }));
+
+    const data = await response.json();
+    expect(data.dreamInsights).toEqual(['a', 'b', 'c', 'd']);
+    expect(data.dreamCount).toBe(3);
+    const { user } = promptText();
+    expect(user).toContain('Dreams the user recorded in this period (3, oldest first)');
+    expect(user).toContain('2026-11-01 (nightmare): characters: sister | settings: school');
+    expect(user).toContain('a nightmare is not a bad day');
+    expect(user).toContain('"dreamInsights"');
+    expect(user).not.toContain('Secret dream text');
+  });
+
+  it('leaves dreams out with fewer than three, whatever the model returns', async () => {
+    fetchMock.mockResolvedValue(textResponse({ ...TREND, dreamInsights: ['invented'] }));
+
+    const response = await post(trendBody({ dreams: trendDreams(2) }));
+
+    const data = await response.json();
+    expect(data).not.toHaveProperty('dreamInsights');
+    expect(data).not.toHaveProperty('dreamCount');
+    expect(promptText().user).not.toContain('Dreams the user recorded');
   });
 });

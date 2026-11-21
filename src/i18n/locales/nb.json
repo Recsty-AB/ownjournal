@@ -1541,6 +1541,19 @@
       "entryProgress": "Innlegg {{current}} av {{total}}",
       "retrying": "Prøver mislykkede innlegg på nytt…",
       "doNotCloseApp": "Hold denne siden åpen til analysen er fullført"
+    },
+    "dreams": {
+      "include": "Ta med drømmene dine",
+      "included_one": "Én drøm fra denne perioden tas med.",
+      "included_other": "{{count}} drømmer fra denne perioden tas med.",
+      "reflectFirst_one": "Én av dem har ingen refleksjon ennå og får en før analysen. Av månedens refleksjoner har du {{remaining}} igjen, og det går med én.",
+      "reflectFirst_other": "{{count}} av dem har ingen refleksjon ennå og får hver sin før analysen. Av månedens refleksjoner har du {{remaining}} igjen, og det går med {{count}}.",
+      "leftOut_one": "Én drøm til har ingen refleksjon og tas ikke med, fordi månedens refleksjoner ikke rekker til den.",
+      "leftOut_other": "{{count}} drømmer til har ingen refleksjon og tas ikke med, fordi månedens refleksjoner ikke rekker til dem.",
+      "tooFew_one": "Bare én drøm fra denne perioden kan tas med. Det trengs minst {{min}}.",
+      "tooFew_other": "{{count}} drømmer fra denne perioden kan tas med. Det trengs minst {{min}}.",
+      "notIncluded": "Drømmene dine ble ikke tatt med denne gangen, fordi for få av dem kunne få en refleksjon.",
+      "title": "Drømmene dine i perioden"
     }
   },
   "exportDialog": {
@@ -2035,18 +2048,18 @@
       },
       "dreams": {
         "title": "Drømmedagbok og drømmerefleksjon",
-        "desc": "Slå på «Drøm» når du skriver et innlegg, så lagres det som en drøm. Det er gratis å føre drømmedagbok. Skriv drømmen ned med en gang du våkner, slik du husker den, og velg følelsene du kjente i den. Drømmer holdes utenfor humørkalenderen og trendanalysen. Med Plus kan du trykke på «Reflekter over drømmen» og få en refleksjon med mulige temaer, drømmebilder å utforske og spørsmål å tenke over. Nedenfor refleksjonen kan du skrive ned dine egne tanker. Trykker du på «Reflekter på nytt», tas de med i den nye refleksjonen. Plus inkluderer 30 refleksjoner i måneden. Velger du en periode med minst fem drømmer, kan du lage en mønsterrapport for den under «Drømmemønstre», opptil to i måneden. Har noen av drømmene i perioden ingen refleksjon ennå, får de hver sin refleksjon automatisk før rapporten lages. Disse refleksjonene regnes med blant de 30 i måneden. Rapporten viser hvilke personer, steder og temaer som går igjen, og sammenligner dem med det du ellers skriver om i dagboken.",
+        "desc": "Slå på «Drøm» når du skriver et innlegg, så lagres det som en drøm. Det er gratis å føre drømmedagbok. Skriv drømmen ned med en gang du våkner, slik du husker den, og velg følelsene du kjente i den. Drømmer holdes utenfor humørkalenderen og påvirker ikke humøret i trendanalysen. Med Plus kan du trykke på «Reflekter over drømmen» og få en refleksjon med mulige temaer, drømmebilder å utforske og spørsmål å tenke over. Nedenfor refleksjonen kan du skrive ned dine egne tanker. Trykker du på «Reflekter på nytt», tas de med i den nye refleksjonen. Plus inkluderer 30 refleksjoner i måneden. Velger du en periode med minst fem drømmer, kan du lage en mønsterrapport for den under «Drømmemønstre», opptil to i måneden. Har noen av drømmene i perioden ingen refleksjon ennå, får de hver sin refleksjon automatisk før rapporten lages. Disse refleksjonene regnes med blant de 30 i måneden. Rapporten viser hvilke personer, steder og temaer som går igjen. Vil du se drømmene ved siden av dagboken, kan du slå på «Ta med drømmene dine» i trendanalysen.",
         "proNote": "(Plus-funksjon)"
       },
       "dreamMethod": {
         "title": "Slik fungerer drømmerefleksjon",
         "intro": "Drømmerefleksjon er inspirert av Carl Jungs syn på drømmer og av moderne drømmeforskning.",
         "jung": "Fra Jung kommer tanken om at det du selv forbinder med et bilde i drømmen, betyr mer enn en fast symbolbetydning. Derfor kan du skrive ned dine egne tanker etter en refleksjon og reflektere på nytt. Fra Jung kommer også tankene om at et drømmebilde kan utforskes i flere retninger, at en drøm kan vise en side av livet du ikke legger så mye merke til i hverdagen, og at flere drømmer sett i sammenheng sier mer enn én enkelt drøm.",
-        "research": "Drømmeforskningen, særlig arbeidet til Calvin Hall og G. William Domhoff, har vist at drømmer stort sett speiler det som opptar deg når du er våken: relasjonene dine, bekymringene og følelsene dine. Derfor kan en refleksjon peke på sammenhenger med innleggene dine fra den siste uken, og derfor sammenlignes drømmene dine med temaene i dagboken når du lager en mønsterrapport under «Drømmemønstre».",
+        "research": "Drømmeforskningen, særlig arbeidet til Calvin Hall og G. William Domhoff, har vist at drømmer stort sett speiler det som opptar deg når du er våken: relasjonene dine, bekymringene og følelsene dine. Derfor kan en refleksjon peke på sammenhenger med innleggene dine fra den siste uken, og derfor kan trendanalysen sette drømmene dine ved siden av temaene i dagboken.",
         "questions": "Spørsmålene på slutten følger Clara Hills modell for drømmearbeid. Først utforsker du drømmen, så ser du etter hva den kan bety for deg, og til slutt tenker du på et lite skritt du kan ta videre.",
         "noDictionary": "Refleksjonen bruker ingen fast ordbok over drømmesymboler. Den foreslår muligheter, og du avgjør selv hva som passer.",
         "notAdvice": "Drømmerefleksjon er ment for selvrefleksjon. Den er ikke medisinsk eller psykologisk rådgivning og kan ikke stille noen diagnose.",
-        "privacy": "For å lage en refleksjon sendes dette til Googles Gemini-tjeneste: drømmeteksten og datoen for drømmen, følelsene du valgte, og om du merket drømmen som mareritt, klardrøm eller tilbakevendende. Har du skrevet ned dine egne tanker om drømmen, sendes både tankene og spørsmålene i den forrige refleksjonen som de svarer på. For hvert analysert innlegg fra den siste uken sendes i tillegg datoen, den korte oppsummeringen, hovedtemaene og den dominerende følelsen, men ikke selve innlegget. Når du lager en mønsterrapport under «Drømmemønstre», sendes ikke selve drømmeteksten, men de korte stikkordene som lagres med hver refleksjon. For at drømmene skal kunne sammenlignes med dagboken, sendes også hovedtemaene og de dominerende følelsene i dagbokinnleggene dine fra samme periode som drømmene, sammen med hvor ofte hvert tema og hver følelse forekommer. Perioden regnes fra en uke før den første av drømmene. Har noen av dagbokinnleggene fra perioden ingen AI-analyse ennå, analyseres de først, som ved trendanalyse, og da sendes teksten i dem. OwnJournal lagrer ingenting av det som sendes."
+        "privacy": "For å lage en refleksjon sendes dette til Googles Gemini-tjeneste: drømmeteksten og datoen for drømmen, følelsene du valgte, og om du merket drømmen som mareritt, klardrøm eller tilbakevendende. Har du skrevet ned dine egne tanker om drømmen, sendes både tankene og spørsmålene i den forrige refleksjonen som de svarer på. For hvert analysert innlegg fra den siste uken sendes i tillegg datoen, den korte oppsummeringen, hovedtemaene og den dominerende følelsen, men ikke selve innlegget. Når du lager en mønsterrapport under «Drømmemønstre», sendes ikke selve drømmeteksten, bare de korte stikkordene som lagres med hver refleksjon. Er «Ta med drømmene dine» slått på i trendanalysen, sendes dette for hver drøm i perioden: datoen, de samme stikkordene og om du merket drømmen som mareritt eller tilbakevendende, men ikke selve teksten. I begge tilfeller får drømmer uten refleksjon først en refleksjon, og da sendes de slik det står i begynnelsen av denne teksten. OwnJournal lagrer ingenting av det som sendes."
       },
       "aiAnalysis": {
         "title": "AI-analyse",
@@ -2055,7 +2068,7 @@
       },
       "trends": {
         "title": "Trendanalyse",
-        "desc": "Se mønstre i dagbokskrivingen din over tid. Se humørtrender, skrivefrekvens og vanlige temaer.",
+        "desc": "Se mønstre i dagbokskrivingen din over tid. Se humørtrender, skrivefrekvens og vanlige temaer. Er «Ta med drømmene dine» slått på, settes også drømmene dine ved siden av det du skrev om på samme tid.",
         "proNote": "(Plus-funksjon)"
       },
       "export": {
@@ -2652,7 +2665,7 @@
       },
       "consent": {
         "title": "Vil du reflektere over drømmen med Google?",
-        "body": "For å lage refleksjonen sendes dette til Googles Gemini-tjeneste: drømmeteksten og datoen for drømmen, følelsene du valgte, og om du merket drømmen som mareritt, klardrøm eller tilbakevendende. Har du skrevet ned dine egne tanker om drømmen, sendes både tankene og spørsmålene i den forrige refleksjonen som de svarer på. For hvert analysert innlegg fra den siste uken sendes i tillegg datoen, den korte oppsummeringen, hovedtemaene og den dominerende følelsen, men ikke selve innlegget. Når du lager en mønsterrapport under «Drømmemønstre», sendes ikke selve drømmeteksten, men de korte stikkordene som lagres med hver refleksjon. For at drømmene skal kunne sammenlignes med dagboken, sendes også hovedtemaene og de dominerende følelsene i dagbokinnleggene dine fra samme periode som drømmene, sammen med hvor ofte hvert tema og hver følelse forekommer. Perioden regnes fra en uke før den første av drømmene. Har noen av dagbokinnleggene fra perioden ingen AI-analyse ennå, analyseres de først, som ved trendanalyse, og da sendes teksten i dem. OwnJournal lagrer ingenting av det som sendes. Google bruker det ikke til å trene modellene sine og kan bare oppbevare det i kort tid for å hindre misbruk. Refleksjonen lagres sammen med drømmen, som resten av innlegget.",
+        "body": "For å lage refleksjonen sendes dette til Googles Gemini-tjeneste: drømmeteksten og datoen for drømmen, følelsene du valgte, og om du merket drømmen som mareritt, klardrøm eller tilbakevendende. Har du skrevet ned dine egne tanker om drømmen, sendes både tankene og spørsmålene i den forrige refleksjonen som de svarer på. For hvert analysert innlegg fra den siste uken sendes i tillegg datoen, den korte oppsummeringen, hovedtemaene og den dominerende følelsen, men ikke selve innlegget. Når du lager en mønsterrapport under «Drømmemønstre», sendes ikke selve drømmeteksten, bare de korte stikkordene som lagres med hver refleksjon. Er «Ta med drømmene dine» slått på i trendanalysen, sendes dette for hver drøm i perioden: datoen, de samme stikkordene og om du merket drømmen som mareritt eller tilbakevendende, men ikke selve teksten. I begge tilfeller får drømmer uten refleksjon først en refleksjon, og da sendes de slik det står i begynnelsen av denne teksten. OwnJournal lagrer ingenting av det som sendes. Google bruker det ikke til å trene modellene sine og kan bare oppbevare det i kort tid for å hindre misbruk. Refleksjonen lagres sammen med drømmen, som resten av innlegget.",
         "accept": "Fortsett",
         "decline": "Ikke nå"
       },
@@ -2671,18 +2684,12 @@
     },
     "patterns": {
       "title": "Drømmemønstre",
-      "intro": "Det som går igjen i drømmene dine, og hvordan de forholder seg til dagboken.",
-      "compareJournal": "Ta med dagbokinnleggene dine",
+      "intro": "Det som går igjen i drømmene dine.",
       "dreamsInPeriod_one": "{{count}} drøm i denne perioden",
       "dreamsInPeriod_other": "{{count}} drømmer i denne perioden",
       "needMore": "En rapport krever minst {{min}} drømmer.",
       "tooShort_one": "Én drøm i perioden er for kort for en refleksjon og telles derfor ikke med. En refleksjon krever minst {{min}} tegn.",
       "tooShort_other": "{{count}} drømmer i perioden er for korte for en refleksjon og telles derfor ikke med. En refleksjon krever minst {{min}} tegn.",
-      "journalCompare_one": "Drømmene sammenlignes også med {{count}} dagbokinnlegg fra samme periode.",
-      "journalCompare_other": "Drømmene sammenlignes også med {{count}} dagbokinnlegg fra samme periode.",
-      "journalAnalyzeFirst_one": "Ett av dem har ingen AI-analyse ennå og analyseres først, som ved trendanalyse.",
-      "journalAnalyzeFirst_other": "{{count}} av dem har ingen AI-analyse ennå og analyseres først, som ved trendanalyse.",
-      "journalTooFew": "Drømmene blir ikke sammenlignet med dagboken. En sammenligning krever minst {{min}} dagbokinnlegg fra samme periode.",
       "reflectFirst_one": "Én av disse drømmene har ingen refleksjon ennå og får en før rapporten lages. Av månedens refleksjoner har du {{remaining}} igjen, og det går med én.",
       "reflectFirst_other": "{{count}} av disse drømmene har ingen refleksjon ennå og får hver sin før rapporten lages. Av månedens refleksjoner har du {{remaining}} igjen, og det går med {{count}}.",
       "notEnoughReflections_one": "{{dreams}} av disse drømmene har ingen refleksjon ennå, men du har bare én refleksjon igjen denne måneden. Velg en kortere periode.",
@@ -2694,7 +2701,6 @@
       "createNew": "Lag en ny rapport",
       "creating": "Ser etter mønstre…",
       "reflecting": "Reflekterer over drøm {{current}} av {{total}}…",
-      "analyzingEntries": "Analyserer dagbokinnlegg {{current}} av {{total}}…",
       "remaining": "{{remaining}} av {{limit}} rapporter igjen denne måneden",
       "plusOnly": "Drømmemønstre er inkludert i Plus",
       "earlyThemes": "Foreløpige temaer",
@@ -2713,15 +2719,6 @@
         "theme": "Tema"
       },
       "changes": "Slik har drømmene dine endret seg",
-      "waking": {
-        "title": "Sammenligning med dagboken din",
-        "basedOn_one": "Bygger på {{count}} dagbokinnlegg fra samme periode",
-        "basedOn_other": "Bygger på {{count}} dagbokinnlegg fra samme periode",
-        "shared": "Både i drømmene og i dagboken",
-        "dreamsOnly": "I drømmene, men ikke i dagboken",
-        "wakingOnly": "I dagboken, men ikke i drømmene",
-        "none": "I denne rapporten er drømmene ikke sammenlignet med dagboken. En sammenligning krever minst {{min}} dagbokinnlegg fra samme periode som drømmene."
-      },
       "questions": "Spørsmål å tenke over",
       "footer": "Mønstre å tenke over, ikke en diagnose. Ta med deg det som passer, og la resten ligge.",
       "saveAsNote": "Lagre som notat",

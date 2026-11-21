@@ -2,7 +2,7 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 import { callGoogleAI, isGoogleAIConfigured } from "./googleAIProvider.ts";
 import { AI_MODELS, getModelForType } from "../_shared/modelConfig.ts";
-import { handleDreamRequest, isDreamRequestType } from "./dream.ts";
+import { handleDreamRequest, isDreamRequestType, sanitizeDreamInsights, sanitizeTrendDreams, trendDreamsPrompt } from "./dream.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -190,6 +190,7 @@ serve(async (req) => {
       entryMetadata,
       timeBuckets,
       batchContext,
+      dreams: trendDreamsInput,
     } = requestBody;
 
     // Language mapping — must cover every language listed in
@@ -406,6 +407,8 @@ serve(async (req) => {
 
     // Handle different analysis types
     let analysisPrompt = "";
+    // Trend Analysis with "Include your dreams" on; [] otherwise.
+    const trendDreams = type === "analyzeTrends" ? sanitizeTrendDreams(trendDreamsInput) : [];
     let analysisType = type || "entry";
     let systemPrompt = "You are a helpful AI assistant that analyzes journal entries. Always respond with valid JSON.";
 
@@ -506,7 +509,7 @@ ANY violation of this rule is a critical error.`;
         temporalContext = `
 Temporal Analysis (${timeBuckets.length} ${bucketType}):
 ${timeBuckets.map((b: any) => 
-  `${b.periodLabel}: ${b.entryCount} entries, avg sentiment=${b.avgSentiment.toFixed(2)}, trend=${b.sentimentTrend}
+  `${b.periodLabel} (from ${String(b.startDate ?? "").slice(0, 10)}): ${b.entryCount} entries, avg sentiment=${b.avgSentiment.toFixed(2)}, trend=${b.sentimentTrend}
    Emotions: ${b.dominantEmotions.join(", ")} | Topics: ${b.dominantTopics.join(", ")}
    Range: ${b.sentimentRange.min.toFixed(2)} to ${b.sentimentRange.max.toFixed(2)}
    Typical entry: ${b.medianEntry.emotion} (${b.medianEntry.sentiment.toFixed(2)}) | Peak/Valley: ${b.extremeEntry.emotion} (${b.extremeEntry.sentiment.toFixed(2)})`
@@ -518,7 +521,7 @@ ${timeBuckets.map((b: any) =>
         temporalContext = `
 Entry-level data (${entryMetadata.length} entries):
 ${entryMetadata.slice(0, 90).map((m: any, i: number) => 
-  `${i + 1}. Sentiment: ${m.sentimentScore.toFixed(2)}, Emotion: ${m.dominantEmotion}, Topics: ${m.topics.join(", ")}, Time: ${m.timeOfDay}`
+  `${i + 1}. ${typeof m.date === "string" ? `${m.date.slice(0, 10)}, ` : ""}Sentiment: ${m.sentimentScore.toFixed(2)}, Emotion: ${m.dominantEmotion}, Topics: ${m.topics.join(", ")}, Time: ${m.timeOfDay}`
 ).join("\n")}`;
       }
 
@@ -532,6 +535,9 @@ LONG-TERM ANALYSIS FOCUS:
 - Focus on sustained patterns rather than individual fluctuations
 ` : "";
 
+      // With "Include your dreams" on: the reflected dreams of the period.
+      const dreamPart = trendDreams.length > 0 ? trendDreamsPrompt(trendDreams) : null;
+
       analysisPrompt = `Analyze the following aggregated journaling data and provide a warm, supportive trend analysis.
 
 Period: ${period?.start || "Unknown"} to ${period?.end || "Unknown"}
@@ -544,6 +550,7 @@ Time of day distribution: ${JSON.stringify(agg.timeOfDayDistribution)}
 Length distribution: ${JSON.stringify(agg.lengthDistribution)}
 ${temporalContext}
 ${longPeriodGuidance}
+${dreamPart ? `${dreamPart.data}\n\n${dreamPart.rules}\n` : ""}
 YOUR TASK:
 Write a trend analysis that feels warm, human, and emotionally intelligent — like a kind journaling coach (NOT a clinician or therapist).  
 
@@ -624,7 +631,7 @@ You MUST respond in valid JSON with EXACTLY these English field names (keys):
 - "moodTrend"  
 - "insights"
 - "focusAreas"
-- "closingReflection"
+- "closingReflection"${dreamPart ? '\n- "dreamInsights"' : ""}
 
 CRITICAL RULES FOR JSON OUTPUT:
 1. The JSON **keys** (field names) MUST ALWAYS be in English exactly as shown above.
@@ -658,7 +665,7 @@ Respond ONLY in valid JSON:
   "focusAreas": [
     "<3–5 gentle suggestions in ${targetLanguage} for what the user may want to pay attention to or reflect on>"
   ],
-  "closingReflection": "<See REFLECTION GUIDELINES above: a warm, gentle, emotionally aware paragraph in ${targetLanguage} acknowledging their lived experience — no advice or suggestions>"
+  "closingReflection": "<See REFLECTION GUIDELINES above: a warm, gentle, emotionally aware paragraph in ${targetLanguage} acknowledging their lived experience — no advice or suggestions>"${dreamPart ? `,\n  ${dreamPart.key}` : ""}
 }`;
     } else if (type === "title") {
       // Enhanced title generation - 10 titles in one call for cost optimization
@@ -858,8 +865,10 @@ Respond in JSON format:
         { role: "system", content: systemPrompt },
         { role: "user", content: analysisPrompt },
       ],
-      // Trend analysis needs more output; title/tags use 2000 (actual usage ~300-900 tokens)
-      max_completion_tokens: type === "analyzeTrends" ? 4000 : 2000,
+      // Title/tags use 2000 (actual usage ~300-900 tokens)
+      // Only generated tokens are billed; the trend ceiling leaves room for
+      // the dream section and token-heavy scripts (th, hi, ja).
+      max_completion_tokens: type === "analyzeTrends" ? 6000 : 2000,
     };
 
     // Add tool calling for title and tag generation to get structured output
@@ -1194,23 +1203,6 @@ Respond in JSON format:
         }
       }
       
-      // If still empty, try stable Flash as an alternative to Pro (when ENABLE_AI_RETRY).
-      if ((!aiContent || aiContent.trim() === '') && ENABLE_AI_RETRY) {
-        try {
-          const retryResult = await callGoogleAI(
-            `google/${AI_MODELS.entryAnalysis}`,
-            aiRequestBody.messages,
-            aiRequestBody.tools,
-            aiRequestBody.tool_choice,
-            aiRequestBody.max_completion_tokens
-          );
-          const retryData = retryResult;
-          aiContent = retryData.choices[0]?.message?.content;
-        } catch (retryError) {
-          console.error("[RETRY] Gemini retry failed:", retryError);
-        }
-      }
-      
       // If still empty after retries, return error
       if (!aiContent || aiContent.trim() === '') {
         console.error("[ERROR] Trend analysis returned empty response after retries");
@@ -1272,6 +1264,14 @@ Respond in JSON format:
         if (analysisData.periodSummary === "Unable to analyze trends" || 
             analysisData.moodTrend === "Data unavailable") {
           throw new Error("Trend analysis returned fallback data");
+        }
+
+        // Dream observations only when dreams were sent: never invented.
+        const dreamInsights = trendDreams.length > 0 ? sanitizeDreamInsights(analysisData.dreamInsights) : [];
+        delete analysisData.dreamInsights;
+        if (dreamInsights.length > 0) {
+          analysisData.dreamInsights = dreamInsights;
+          analysisData.dreamCount = trendDreams.length;
         }
       } catch (e) {
         console.error("[ERROR] Failed to parse trend analysis:", e instanceof Error ? e.message : String(e));

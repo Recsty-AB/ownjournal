@@ -1509,6 +1509,15 @@
       "entryProgress": "Catatan {{current}} dari {{total}}",
       "retrying": "Mencoba ulang catatan yang gagal…",
       "doNotCloseApp": "Jangan tutup halaman ini sampai analisis selesai"
+    },
+    "dreams": {
+      "include": "Sertakan mimpimu",
+      "included_other": "{{count}} mimpi dari periode ini disertakan.",
+      "reflectFirst_other": "{{count}} di antaranya belum punya refleksi dan akan direfleksikan lebih dulu, sehingga terpakai {{count}} dari jatah refleksimu bulan ini (masih tersisa {{remaining}}).",
+      "leftOut_other": "{{count}} mimpi lainnya tidak disertakan karena belum punya refleksi dan jatah refleksimu bulan ini tidak mencukupi.",
+      "tooFew_other": "{{count}} mimpi dari periode ini bisa disertakan. Butuh minimal {{min}} mimpi.",
+      "notIncluded": "Mimpimu tidak disertakan kali ini karena terlalu sedikit mimpi yang bisa direfleksikan.",
+      "title": "Mimpimu dalam Periode Ini"
     }
   },
   "exportDialog": {
@@ -1999,18 +2008,18 @@
       },
       "dreams": {
         "title": "Jurnal dan Refleksi Mimpi",
-        "desc": "Saat menulis catatan, ketuk \"Mimpi\" di baris tanggal agar catatan itu disimpan sebagai mimpi. Tulis begitu bangun tidur, sesuai yang kamu ingat, lalu pilih perasaan yang muncul dalam mimpi itu. Mimpi tidak dimasukkan ke Kalender Suasana Hati maupun analisis tren. Pelanggan Plus bisa mengetuk \"Refleksikan mimpi ini\" untuk mendapatkan refleksi berisi kemungkinan tema, gambaran dalam mimpi untuk ditelusuri, dan pertanyaan untukmu. Di bawah refleksi, kamu bisa menuliskan pikiranmu sendiri, lalu mengetuk \"Refleksikan lagi\" agar pikiran itu ikut dipertimbangkan. Plus mencakup 30 refleksi per bulan. Kalau ada minimal lima mimpi dalam periode yang kamu pilih, kamu bisa membuat laporan pola mimpi untuk periode tersebut, hingga dua kali sebulan. Saat kamu membuat laporan, mimpi di periode itu yang belum punya refleksi akan direfleksikan otomatis lebih dulu, dan masing-masing memakai satu dari jatah 30 refleksi per bulan. Laporan ini memperlihatkan orang, tempat, dan tema yang terus muncul, serta membandingkannya dengan hal-hal yang kamu tulis di jurnalmu.",
+        "desc": "Saat menulis catatan, ketuk \"Mimpi\" di baris tanggal agar catatan itu disimpan sebagai mimpi. Tulis begitu bangun tidur, sesuai yang kamu ingat, lalu pilih perasaan yang muncul dalam mimpi itu. Mimpi tidak dimasukkan ke Kalender Suasana Hati dan tidak memengaruhi suasana hati di Analisis Tren. Pelanggan Plus bisa mengetuk \"Refleksikan mimpi ini\" untuk mendapatkan refleksi berisi kemungkinan tema, gambaran dalam mimpi untuk ditelusuri, dan pertanyaan untukmu. Di bawah refleksi, kamu bisa menuliskan pikiranmu sendiri, lalu mengetuk \"Refleksikan lagi\" agar pikiran itu ikut dipertimbangkan. Plus mencakup 30 refleksi per bulan. Kalau ada minimal lima mimpi dalam periode yang kamu pilih, kamu bisa membuat laporan pola mimpi untuk periode tersebut, hingga dua kali sebulan. Saat kamu membuat laporan, mimpi di periode itu yang belum punya refleksi akan direfleksikan otomatis lebih dulu, dan masing-masing memakai satu dari jatah 30 refleksi per bulan. Laporan ini memperlihatkan orang, tempat, dan tema yang terus muncul. Untuk melihat mimpimu berdampingan dengan jurnalmu, aktifkan \"Sertakan mimpimu\" di Analisis Tren.",
         "proNote": "(Fitur Plus)"
       },
       "dreamMethod": {
         "title": "Cara Kerja Refleksi Mimpi",
         "intro": "Refleksi mimpi terinspirasi oleh pendekatan Carl Jung terhadap mimpi dan oleh penelitian mimpi modern.",
         "jung": "Yang diambil dari Jung adalah gagasan bahwa asosiasimu sendiri lebih penting daripada arti umum sebuah simbol. Karena itu, di bawah refleksi kamu bisa menuliskan pikiranmu sendiri, lalu merefleksikan mimpimu lagi. Menurut Jung, satu gambaran bisa ditelusuri ke lebih dari satu arah, mimpi bisa memperlihatkan sisi hidup yang kurang kamu perhatikan saat terjaga, dan serangkaian mimpi lebih banyak mengungkap daripada satu mimpi saja.",
-        "research": "Penelitian mimpi, terutama karya Calvin Hall dan G. William Domhoff, menemukan bahwa mimpi kebanyakan mencerminkan apa yang menyita pikiranmu saat terjaga — hubunganmu dengan orang lain, kekhawatiran, dan perasaanmu. Itu sebabnya refleksi bisa menunjukkan kaitan dengan catatanmu seminggu terakhir, dan laporan pola mimpi membandingkan mimpimu dengan tema-tema di jurnalmu.",
+        "research": "Penelitian mimpi, terutama karya Calvin Hall dan G. William Domhoff, menemukan bahwa mimpi kebanyakan mencerminkan apa yang menyita pikiranmu saat terjaga — hubunganmu dengan orang lain, kekhawatiran, dan perasaanmu. Itu sebabnya refleksi bisa menunjukkan kaitan dengan catatanmu seminggu terakhir, dan Analisis Tren bisa menyandingkan mimpimu dengan tema-tema di jurnalmu.",
         "questions": "Pertanyaan di bagian akhir mengikuti model Clara Hill untuk mengolah mimpi: menelusuri mimpinya, mencari tahu apa maknanya bagimu, lalu memikirkan satu langkah kecil yang bisa kamu ambil.",
         "noDictionary": "Di sini tidak ada kamus tafsir mimpi yang baku. Refleksi hanya memberi beberapa kemungkinan, dan kamulah yang menentukan mana yang pas.",
         "notAdvice": "Refleksi mimpi ditujukan untuk merenungi diri sendiri. Fitur ini bukan nasihat medis atau psikologis dan tidak bisa mendiagnosis apa pun.",
-        "privacy": "Agar refleksi bisa dibuat, OwnJournal mengirim data mimpimu ke layanan Gemini milik Google: teks dan tanggalnya, perasaan yang kamu pilih, jenis mimpi yang kamu tandai (berulang, mimpi buruk, atau lucid dream), serta pikiranmu sendiri tentang mimpi itu kalau sudah kamu tuliskan, lengkap dengan pertanyaan dari refleksi sebelumnya yang kamu tanggapi lewat pikiran itu. Dari setiap catatanmu seminggu terakhir yang sudah dianalisis, ikut dikirim tanggal, ringkasan, tema utama, dan emosi dominannya, bukan isi catatannya. Untuk laporan pola mimpi, teks mimpimu tidak dikirim. OwnJournal mengirim label singkat yang disimpan bersama setiap refleksi. Supaya mimpi-mimpimu bisa dibandingkan dengan jurnalmu, dikirim juga tema utama dan emosi dominan dari catatan jurnalmu, beserta seberapa sering masing-masing muncul. Catatan yang diperhitungkan berasal dari periode yang sama dengan mimpi-mimpi itu, mulai seminggu sebelum mimpi yang paling awal. Catatan dari periode itu yang belum punya analisis AI akan dianalisis lebih dulu, sama seperti di Analisis Tren, dan untuk analisis ini teks catatannya ikut dikirim. OwnJournal sama sekali tidak menyimpan data yang dikirim."
+        "privacy": "Agar refleksi bisa dibuat, OwnJournal mengirim data mimpimu ke layanan Gemini milik Google: teks dan tanggalnya, perasaan yang kamu pilih, jenis mimpi yang kamu tandai (berulang, mimpi buruk, atau lucid dream), serta pikiranmu sendiri tentang mimpi itu kalau sudah kamu tuliskan, lengkap dengan pertanyaan dari refleksi sebelumnya yang kamu tanggapi lewat pikiran itu. Dari setiap catatanmu seminggu terakhir yang sudah dianalisis, ikut dikirim tanggal, ringkasan, tema utama, dan emosi dominannya, bukan isi catatannya. Untuk laporan pola mimpi, teks mimpimu tidak dikirim, hanya label singkat yang disimpan bersama setiap refleksi. Kalau \"Sertakan mimpimu\" aktif di Analisis Tren, dari setiap mimpi dalam periode yang dipilih dikirim tanggal, label tersebut, dan apakah mimpi itu kamu tandai sebagai mimpi buruk atau berulang, bukan teksnya. Baik untuk laporan pola mimpi maupun Analisis Tren, mimpi yang belum punya refleksi akan direfleksikan lebih dulu, dan untuk itu data mimpi tersebut dikirim seperti yang dijelaskan di awal. OwnJournal sama sekali tidak menyimpan data yang dikirim."
       },
       "aiAnalysis": {
         "title": "Analisis AI",
@@ -2019,7 +2028,7 @@
       },
       "trends": {
         "title": "Analisis Tren",
-        "desc": "Temukan pola dalam kebiasaan menulis jurnalmu dari waktu ke waktu. Lacak tren suasana hati, frekuensi menulis, dan tema umum untuk lebih memahami kebiasaanmu.",
+        "desc": "Temukan pola dalam kebiasaan menulis jurnalmu dari waktu ke waktu. Lacak tren suasana hati, frekuensi menulis, dan tema umum untuk lebih memahami kebiasaanmu. Kalau \"Sertakan mimpimu\" aktif, mimpimu juga disandingkan dengan hal-hal yang kamu tulis pada waktu yang sama.",
         "proNote": "(Fitur Plus)"
       },
       "moodTracking": {
@@ -2610,7 +2619,7 @@
       },
       "consent": {
         "title": "Refleksikan mimpimu dengan Google?",
-        "body": "Agar refleksi bisa dibuat, OwnJournal mengirim data mimpimu ke layanan Gemini milik Google: teks dan tanggalnya, perasaan yang kamu pilih, jenis mimpi yang kamu tandai (berulang, mimpi buruk, atau lucid dream), serta pikiranmu sendiri tentang mimpi itu kalau sudah kamu tuliskan, lengkap dengan pertanyaan dari refleksi sebelumnya yang kamu tanggapi lewat pikiran itu. Dari setiap catatanmu seminggu terakhir yang sudah dianalisis, ikut dikirim tanggal, ringkasan, tema utama, dan emosi dominannya, bukan isi catatannya. Untuk laporan pola mimpi, teks mimpimu tidak dikirim. OwnJournal mengirim label singkat yang disimpan bersama setiap refleksi. Supaya mimpi-mimpimu bisa dibandingkan dengan jurnalmu, dikirim juga tema utama dan emosi dominan dari catatan jurnalmu, beserta seberapa sering masing-masing muncul. Catatan yang diperhitungkan berasal dari periode yang sama dengan mimpi-mimpi itu, mulai seminggu sebelum mimpi yang paling awal. Catatan dari periode itu yang belum punya analisis AI akan dianalisis lebih dulu, sama seperti di Analisis Tren, dan untuk analisis ini teks catatannya ikut dikirim. OwnJournal sama sekali tidak menyimpan data yang dikirim. Google tidak menggunakannya untuk melatih modelnya dan mungkin menyimpannya hanya sebentar untuk mencegah penyalahgunaan. Refleksinya disimpan bersama mimpimu, seperti bagian lain catatanmu.",
+        "body": "Agar refleksi bisa dibuat, OwnJournal mengirim data mimpimu ke layanan Gemini milik Google: teks dan tanggalnya, perasaan yang kamu pilih, jenis mimpi yang kamu tandai (berulang, mimpi buruk, atau lucid dream), serta pikiranmu sendiri tentang mimpi itu kalau sudah kamu tuliskan, lengkap dengan pertanyaan dari refleksi sebelumnya yang kamu tanggapi lewat pikiran itu. Dari setiap catatanmu seminggu terakhir yang sudah dianalisis, ikut dikirim tanggal, ringkasan, tema utama, dan emosi dominannya, bukan isi catatannya. Untuk laporan pola mimpi, teks mimpimu tidak dikirim, hanya label singkat yang disimpan bersama setiap refleksi. Kalau \"Sertakan mimpimu\" aktif di Analisis Tren, dari setiap mimpi dalam periode yang dipilih dikirim tanggal, label tersebut, dan apakah mimpi itu kamu tandai sebagai mimpi buruk atau berulang, bukan teksnya. Baik untuk laporan pola mimpi maupun Analisis Tren, mimpi yang belum punya refleksi akan direfleksikan lebih dulu, dan untuk itu data mimpi tersebut dikirim seperti yang dijelaskan di awal. OwnJournal sama sekali tidak menyimpan data yang dikirim. Google tidak menggunakannya untuk melatih modelnya dan mungkin menyimpannya hanya sebentar untuk mencegah penyalahgunaan. Refleksinya disimpan bersama mimpimu, seperti bagian lain catatanmu.",
         "accept": "Lanjutkan",
         "decline": "Nanti saja"
       },
@@ -2629,14 +2638,10 @@
     },
     "patterns": {
       "title": "Pola mimpi",
-      "intro": "Hal-hal yang terus muncul dalam mimpi-mimpimu, serta persamaan dan perbedaannya dengan jurnalmu.",
-      "compareJournal": "Sertakan catatan jurnalmu",
+      "intro": "Hal-hal yang terus muncul dalam mimpi-mimpimu.",
       "dreamsInPeriod_other": "{{count}} mimpi dalam periode ini",
       "needMore": "Laporan memerlukan minimal {{min}} mimpi",
       "tooShort_other": "{{count}} mimpi dalam periode ini terlalu pendek untuk direfleksikan, jadi tidak ikut dihitung. Refleksi memerlukan minimal {{min}} karakter.",
-      "journalCompare_other": "Mimpi-mimpimu juga dibandingkan dengan {{count}} catatan jurnal dari periode yang sama.",
-      "journalAnalyzeFirst_other": "{{count}} di antaranya belum punya analisis AI dan akan dianalisis lebih dulu, seperti di Analisis Tren.",
-      "journalTooFew": "Mimpi-mimpimu tidak akan dibandingkan dengan jurnalmu karena perbandingan memerlukan minimal {{min}} catatan jurnal dari periode yang sama.",
       "reflectFirst_other": "{{count}} di antaranya belum direfleksikan. Saat kamu membuat laporan, mimpi tersebut direfleksikan lebih dulu, sehingga terpakai {{count}} dari jatah refleksimu bulan ini (masih tersisa {{remaining}}).",
       "notEnoughReflections_other": "{{dreams}} di antaranya belum direfleksikan, sedangkan refleksimu bulan ini tinggal {{count}}. Pilih periode yang lebih pendek.",
       "noReflectionsLeft_other": "{{count}} di antaranya belum direfleksikan, dan refleksimu bulan ini sudah habis. Pilih periode yang lebih pendek.",
@@ -2645,7 +2650,6 @@
       "createNew": "Buat laporan baru",
       "creating": "Mencari pola…",
       "reflecting": "Merefleksikan mimpi {{current}} dari {{total}}…",
-      "analyzingEntries": "Menganalisis catatan {{current}} dari {{total}}…",
       "remaining": "Sisa {{remaining}} dari {{limit}} laporan bulan ini",
       "plusOnly": "Pola mimpi tersedia di Plus",
       "earlyThemes": "Tema awal",
@@ -2661,14 +2665,6 @@
         "theme": "Tema"
       },
       "changes": "Perubahan dalam mimpimu",
-      "waking": {
-        "title": "Perbandingan dengan jurnalmu",
-        "basedOn_other": "Berdasarkan {{count}} catatan jurnal dari periode yang sama",
-        "shared": "Muncul dalam mimpi dan di jurnalmu",
-        "dreamsOnly": "Muncul dalam mimpi, tidak di jurnalmu",
-        "wakingOnly": "Muncul di jurnalmu, tidak dalam mimpi",
-        "none": "Laporan ini tidak memuat perbandingan dengan jurnalmu. Perbandingan memerlukan minimal {{min}} catatan jurnal dari periode yang sama dengan mimpi-mimpimu."
-      },
       "questions": "Pertanyaan untuk direnungkan",
       "footer": "Pola ini bahan renungan, bukan diagnosis. Ambil yang terasa pas, sisanya biarkan saja.",
       "saveAsNote": "Simpan sebagai memo",

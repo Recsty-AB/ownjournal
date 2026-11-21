@@ -26,7 +26,7 @@ const routes = [
   { type: 'title', google: 'gemini-3.5-flash-lite', thinking: 'MINIMAL', maxTokens: 2000 },
   { type: 'tags', google: 'gemini-3.5-flash-lite', thinking: 'MINIMAL', maxTokens: 2000 },
   { type: 'analyzeEntry', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2000 },
-  { type: 'analyzeTrends', google: 'gemini-3.1-pro-preview', thinking: 'HIGH', maxTokens: 4000 },
+  { type: 'analyzeTrends', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 6000 },
   { type: 'analyze', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2000 },
   { type: 'analyzeDream', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2000 },
   { type: 'analyzeDreamPatterns', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2500 },

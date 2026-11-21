@@ -1541,6 +1541,19 @@
       "entryProgress": "Eintrag {{current}} von {{total}}",
       "retrying": "Fehlgeschlagene Einträge werden erneut versucht…",
       "doNotCloseApp": "Bitte lassen Sie diese Seite geöffnet, bis die Analyse abgeschlossen ist"
+    },
+    "dreams": {
+      "include": "Träume einbeziehen",
+      "included_one": "{{count}} Traum aus diesem Zeitraum wird einbezogen.",
+      "included_other": "{{count}} Träume aus diesem Zeitraum werden einbezogen.",
+      "reflectFirst_one": "Einer davon ist noch nicht reflektiert. Das wird vor der Analyse nachgeholt und kostet eine Ihrer Reflexionen dieses Monats (noch {{remaining}} übrig).",
+      "reflectFirst_other": "{{count}} davon sind noch nicht reflektiert. Das wird vor der Analyse nachgeholt und kostet {{count}} Ihrer Reflexionen dieses Monats (noch {{remaining}} übrig).",
+      "leftOut_one": "Ein weiterer Traum ist noch nicht reflektiert und bleibt außen vor, weil Ihre Reflexionen dieses Monats dafür nicht ausreichen.",
+      "leftOut_other": "{{count}} weitere Träume sind noch nicht reflektiert und bleiben außen vor, weil Ihre Reflexionen dieses Monats dafür nicht ausreichen.",
+      "tooFew_one": "Aus diesem Zeitraum lässt sich nur ein Traum einbeziehen. Nötig sind mindestens {{min}}.",
+      "tooFew_other": "Aus diesem Zeitraum lassen sich {{count}} Träume einbeziehen, nötig sind aber mindestens {{min}}.",
+      "notIncluded": "Ihre Träume wurden diesmal nicht einbezogen, weil zu wenige davon eine Reflexion erhalten konnten.",
+      "title": "Ihre Träume in diesem Zeitraum"
     }
   },
   "exportDialog": {
@@ -2035,18 +2048,18 @@
       },
       "dreams": {
         "title": "Traumtagebuch und Traumreflexion",
-        "desc": "Tippen Sie beim Schreiben eines Eintrags auf „Traum“, um ihn als Traum zu speichern. Schreiben Sie den Traum gleich nach dem Aufwachen so auf, wie Sie ihn in Erinnerung haben, und wählen Sie die Gefühle aus, die dazu passen. Träume erscheinen nicht im Stimmungskalender und fließen nicht in die Trendanalyse ein. Mit Plus tippen Sie auf „Traum reflektieren“ und erhalten eine Reflexion mit möglichen Themen, Traumbildern zum Erkunden und Fragen zum Nachdenken. Unter einer Reflexion können Sie Ihre eigenen Gedanken notieren. Bei „Erneut reflektieren“ werden sie berücksichtigt. Plus enthält 30 Reflexionen pro Monat. Umfasst ein Zeitraum Ihrer Wahl mindestens fünf Träume, können Sie dafür eine Traummuster-Auswertung erstellen, bis zu zwei pro Monat. Hat ein Traum aus diesem Zeitraum noch keine Reflexion, erhält er vor der Auswertung automatisch eine. Diese Reflexionen zählen zu den 30 pro Monat. Die Auswertung zeigt, welche Personen, Orte und Themen immer wiederkehren, und vergleicht sie mit dem, worüber Sie in Ihrem Tagebuch schreiben.",
+        "desc": "Tippen Sie beim Schreiben eines Eintrags auf „Traum“, um ihn als Traum zu speichern. Schreiben Sie den Traum gleich nach dem Aufwachen so auf, wie Sie ihn in Erinnerung haben, und wählen Sie die Gefühle aus, die dazu passen. Träume erscheinen nicht im Stimmungskalender und fließen nicht in den Stimmungstrend der Trendanalyse ein. Mit Plus tippen Sie auf „Traum reflektieren“ und erhalten eine Reflexion mit möglichen Themen, Traumbildern zum Erkunden und Fragen zum Nachdenken. Unter einer Reflexion können Sie Ihre eigenen Gedanken notieren. Bei „Erneut reflektieren“ werden sie berücksichtigt. Plus enthält 30 Reflexionen pro Monat. Umfasst ein Zeitraum Ihrer Wahl mindestens fünf Träume, können Sie dafür eine Traummuster-Auswertung erstellen, bis zu zwei pro Monat. Hat ein Traum aus diesem Zeitraum noch keine Reflexion, erhält er vor der Auswertung automatisch eine. Diese Reflexionen zählen zu den 30 pro Monat. Die Auswertung zeigt, welche Personen, Orte und Themen immer wiederkehren. Um Ihre Träume Ihrem Tagebuch gegenüberzustellen, schalten Sie in der Trendanalyse „Träume einbeziehen“ ein.",
         "proNote": "(Plus-Funktion)"
       },
       "dreamMethod": {
         "title": "So funktioniert die Traumreflexion",
         "intro": "Die Traumreflexion orientiert sich am Traumverständnis von C. G. Jung und an der modernen Traumforschung.",
         "jung": "Von Jung übernimmt sie den Gedanken, dass Ihre eigenen Einfälle zu einem Traumbild mehr zählen als jede allgemeine Bedeutung eines Symbols. Deshalb können Sie unter einer Reflexion notieren, was Ihnen selbst dazu einfällt, und den Traum erneut reflektieren. Von Jung stammen auch diese Gedanken: Ein Bild lässt sich in mehrere Richtungen erkunden, ein Traum kann eine Seite Ihres Lebens zeigen, der Sie im Wachen wenig Beachtung schenken, und eine Reihe von Träumen sagt mehr als ein einzelner.",
-        "research": "Aus der Traumforschung, vor allem aus den Arbeiten von Calvin Hall und G. William Domhoff, kommt der Befund, dass Träume meist aufgreifen, was Sie im Wachleben beschäftigt: Ihre Beziehungen, Sorgen und Gefühle. Deshalb kann eine Reflexion auf Bezüge zu Ihren Einträgen der vergangenen Woche hinweisen, und deshalb vergleicht eine Traummuster-Auswertung Ihre Träume mit den Themen Ihres Tagebuchs.",
+        "research": "Aus der Traumforschung, vor allem aus den Arbeiten von Calvin Hall und G. William Domhoff, kommt der Befund, dass Träume meist aufgreifen, was Sie im Wachleben beschäftigt: Ihre Beziehungen, Sorgen und Gefühle. Deshalb kann eine Reflexion auf Bezüge zu Ihren Einträgen der vergangenen Woche hinweisen, und deshalb kann die Trendanalyse Ihre Träume den Themen Ihres Tagebuchs gegenüberstellen.",
         "questions": "Die Fragen am Ende folgen Clara Hills Modell für die Arbeit mit Träumen: zuerst den Traum erkunden, dann überlegen, was er für Sie bedeuten könnte, und schließlich einen kleinen Schritt ins Auge fassen.",
         "noDictionary": "Die Traumreflexion verwendet kein Traumlexikon, in dem Symbole feste Bedeutungen haben. Eine Reflexion zeigt Möglichkeiten auf – was davon passt, entscheiden Sie.",
         "notAdvice": "Die Traumreflexion ist zum Nachdenken über sich selbst gedacht. Sie ist keine medizinische oder psychologische Beratung und kann keine Diagnosen stellen.",
-        "privacy": "Für eine Reflexion werden Ihr Traumtext und das Datum des Traums an den Gemini-Dienst von Google gesendet, dazu die gewählten Gefühle und Ihre Angabe, ob der Traum wiederkehrend, ein Albtraum oder ein Klartraum war. Haben Sie eigene Gedanken zum Traum notiert, werden auch diese gesendet, zusammen mit den Fragen der vorherigen Reflexion, denen sie gelten. Von jedem bereits analysierten Eintrag aus der vergangenen Woche werden außerdem das Datum, die kurze Zusammenfassung, die Schlüsselthemen und die vorherrschende Emotion mitgesendet, nicht aber der Text des Eintrags. Für eine Traummuster-Auswertung werden die kurzen Stichworte übermittelt, die zu jeder Reflexion gespeichert sind. Damit sich Ihre Träume mit Ihrem Tagebuch vergleichen lassen, werden auch die Schlüsselthemen und vorherrschenden Emotionen Ihrer Tagebucheinträge aus dem Zeitraum dieser Träume mitgesendet, jeweils mit der Angabe, in wie vielen Einträgen sie vorkommen. Dieser Zeitraum beginnt schon eine Woche vor dem frühesten der ausgewerteten Träume. Einträge aus diesem Zeitraum, die noch keine KI-Analyse haben, werden vorher analysiert, wie bei der Trendanalyse. Dafür wird der Text dieser Einträge gesendet. Der Text Ihrer Träume wird für die Auswertung nicht gesendet. Von den gesendeten Daten speichert OwnJournal nichts."
+        "privacy": "Für eine Reflexion werden Ihr Traumtext und das Datum des Traums an den Gemini-Dienst von Google gesendet, dazu die gewählten Gefühle und Ihre Angabe, ob der Traum wiederkehrend, ein Albtraum oder ein Klartraum war. Haben Sie eigene Gedanken zum Traum notiert, werden auch diese gesendet, zusammen mit den Fragen der vorherigen Reflexion, denen sie gelten. Von jedem bereits analysierten Eintrag aus der vergangenen Woche werden außerdem das Datum, die kurze Zusammenfassung, die Schlüsselthemen und die vorherrschende Emotion mitgesendet, nicht aber der Text des Eintrags. Für eine Traummuster-Auswertung wird nicht der Text Ihrer Träume übermittelt, sondern nur die kurzen Stichworte, die zu jeder Reflexion gespeichert sind. Haben Sie in der Trendanalyse „Träume einbeziehen“ eingeschaltet, werden von jedem Traum des ausgewählten Zeitraums das Datum, diese Stichworte und Ihre Angabe gesendet, ob er wiederkehrend oder ein Albtraum war – nicht aber sein Text. In beiden Fällen erhalten Träume ohne Reflexion zuerst eine, und dafür werden sie wie oben beschrieben gesendet. Von den gesendeten Daten speichert OwnJournal nichts."
       },
       "aiAnalysis": {
         "title": "KI-Analyse",
@@ -2055,7 +2068,7 @@
       },
       "trends": {
         "title": "Trendanalyse",
-        "desc": "Entdecken Sie Muster in Ihrem Tagebuchschreiben im Zeitverlauf. Verfolgen Sie Stimmungstrends, Schreibhäufigkeit und häufige Themen, um Ihre Gewohnheiten besser zu verstehen.",
+        "desc": "Entdecken Sie Muster in Ihrem Tagebuchschreiben im Zeitverlauf. Verfolgen Sie Stimmungstrends, Schreibhäufigkeit und häufige Themen, um Ihre Gewohnheiten besser zu verstehen. Ist „Träume einbeziehen“ eingeschaltet, stellt die Trendanalyse Ihre Träume außerdem den Einträgen gegenüber, die Sie zur selben Zeit geschrieben haben.",
         "proNote": "(Plus-Funktion)"
       },
       "export": {
@@ -2652,7 +2665,7 @@
       },
       "consent": {
         "title": "Ihren Traum mit Google reflektieren?",
-        "body": "Für die Reflexion werden Ihr Traumtext und das Datum des Traums an den Gemini-Dienst von Google gesendet, dazu die gewählten Gefühle und Ihre Angabe, ob der Traum wiederkehrend, ein Albtraum oder ein Klartraum war. Haben Sie eigene Gedanken zum Traum notiert, werden auch diese gesendet, zusammen mit den Fragen der vorherigen Reflexion, denen sie gelten. Von jedem bereits analysierten Eintrag aus der vergangenen Woche werden außerdem das Datum, die kurze Zusammenfassung, die Schlüsselthemen und die vorherrschende Emotion mitgesendet, nicht aber der Text des Eintrags. Für eine Traummuster-Auswertung werden die kurzen Stichworte übermittelt, die zu jeder Reflexion gespeichert sind. Damit sich Ihre Träume mit Ihrem Tagebuch vergleichen lassen, werden auch die Schlüsselthemen und vorherrschenden Emotionen Ihrer Tagebucheinträge aus dem Zeitraum dieser Träume mitgesendet, jeweils mit der Angabe, in wie vielen Einträgen sie vorkommen. Dieser Zeitraum beginnt schon eine Woche vor dem frühesten der ausgewerteten Träume. Einträge aus diesem Zeitraum, die noch keine KI-Analyse haben, werden vorher analysiert, wie bei der Trendanalyse. Dafür wird der Text dieser Einträge gesendet. Der Text Ihrer Träume wird für die Auswertung nicht gesendet. Von den gesendeten Daten speichert OwnJournal nichts. Google verwendet die Daten nicht zum Trainieren seiner Modelle und bewahrt sie höchstens kurz auf, um Missbrauch zu verhindern. Die Reflexion wird zusammen mit Ihrem Traum gespeichert, genauso wie der übrige Eintrag.",
+        "body": "Für die Reflexion werden Ihr Traumtext und das Datum des Traums an den Gemini-Dienst von Google gesendet, dazu die gewählten Gefühle und Ihre Angabe, ob der Traum wiederkehrend, ein Albtraum oder ein Klartraum war. Haben Sie eigene Gedanken zum Traum notiert, werden auch diese gesendet, zusammen mit den Fragen der vorherigen Reflexion, denen sie gelten. Von jedem bereits analysierten Eintrag aus der vergangenen Woche werden außerdem das Datum, die kurze Zusammenfassung, die Schlüsselthemen und die vorherrschende Emotion mitgesendet, nicht aber der Text des Eintrags. Für eine Traummuster-Auswertung wird nicht der Text Ihrer Träume übermittelt, sondern nur die kurzen Stichworte, die zu jeder Reflexion gespeichert sind. Haben Sie in der Trendanalyse „Träume einbeziehen“ eingeschaltet, werden von jedem Traum des ausgewählten Zeitraums das Datum, diese Stichworte und Ihre Angabe gesendet, ob er wiederkehrend oder ein Albtraum war – nicht aber sein Text. In beiden Fällen erhalten Träume ohne Reflexion zuerst eine, und dafür werden sie wie oben beschrieben gesendet. Von den gesendeten Daten speichert OwnJournal nichts. Google verwendet die Daten nicht zum Trainieren seiner Modelle und bewahrt sie höchstens kurz auf, um Missbrauch zu verhindern. Die Reflexion wird zusammen mit Ihrem Traum gespeichert, genauso wie der übrige Eintrag.",
         "accept": "Weiter",
         "decline": "Nicht jetzt"
       },
@@ -2671,18 +2684,12 @@
     },
     "patterns": {
       "title": "Traummuster",
-      "intro": "Was in Ihren Träumen immer wiederkehrt und was ein Vergleich mit Ihrem Tagebuch zeigt.",
-      "compareJournal": "Tagebucheinträge einbeziehen",
+      "intro": "Was in Ihren Träumen immer wiederkehrt.",
       "dreamsInPeriod_one": "{{count}} Traum in diesem Zeitraum",
       "dreamsInPeriod_other": "{{count}} Träume in diesem Zeitraum",
       "needMore": "Für eine Auswertung sind mindestens {{min}} Träume nötig.",
       "tooShort_one": "{{count}} Traum in diesem Zeitraum ist für eine Reflexion zu kurz (unter {{min}} Zeichen) und wird nicht mitgezählt.",
       "tooShort_other": "{{count}} Träume in diesem Zeitraum sind für eine Reflexion zu kurz (unter {{min}} Zeichen) und werden nicht mitgezählt.",
-      "journalCompare_one": "Ihre Träume werden außerdem mit {{count}} Tagebucheintrag aus demselben Zeitraum verglichen.",
-      "journalCompare_other": "Ihre Träume werden außerdem mit {{count}} Tagebucheinträgen aus demselben Zeitraum verglichen.",
-      "journalAnalyzeFirst_one": "Einer davon hat noch keine KI-Analyse und wird vorher analysiert, wie bei der Trendanalyse.",
-      "journalAnalyzeFirst_other": "{{count}} davon haben noch keine KI-Analyse und werden vorher analysiert, wie bei der Trendanalyse.",
-      "journalTooFew": "Ihre Träume werden nicht mit Ihrem Tagebuch verglichen. Dafür sind mindestens {{min}} Tagebucheinträge aus demselben Zeitraum nötig.",
       "reflectFirst_one": "Einer dieser Träume ist noch nicht reflektiert. Das wird vor der Auswertung nachgeholt und kostet eine Ihrer Reflexionen dieses Monats (noch {{remaining}} übrig).",
       "reflectFirst_other": "{{count}} dieser Träume sind noch nicht reflektiert. Das wird vor der Auswertung nachgeholt und kostet {{count}} Ihrer Reflexionen dieses Monats (noch {{remaining}} übrig).",
       "notEnoughReflections_one": "{{dreams}} dieser Träume sind noch nicht reflektiert, Ihnen bleibt diesen Monat aber nur noch eine Reflexion. Wählen Sie einen kürzeren Zeitraum.",
@@ -2694,7 +2701,6 @@
       "createNew": "Neue Auswertung erstellen",
       "creating": "Muster werden gesucht…",
       "reflecting": "Reflexion {{current}} von {{total}} wird erstellt…",
-      "analyzingEntries": "Eintrag {{current}} von {{total}} wird analysiert…",
       "remaining": "Noch {{remaining}} von {{limit}} Auswertungen diesen Monat",
       "plusOnly": "Die Traummuster-Auswertung ist in Plus enthalten",
       "earlyThemes": "Erste Themen",
@@ -2713,15 +2719,6 @@
         "theme": "Thema"
       },
       "changes": "Wie sich Ihre Träume verändert haben",
-      "waking": {
-        "title": "Vergleich mit Ihrem Tagebuch",
-        "basedOn_one": "Auf Grundlage von {{count}} Tagebucheintrag aus demselben Zeitraum",
-        "basedOn_other": "Auf Grundlage von {{count}} Tagebucheinträgen aus demselben Zeitraum",
-        "shared": "In Ihren Träumen und im Tagebuch",
-        "dreamsOnly": "In Ihren Träumen, nicht im Tagebuch",
-        "wakingOnly": "Im Tagebuch, nicht in Ihren Träumen",
-        "none": "Diese Auswertung enthält keinen Vergleich mit Ihrem Tagebuch. Dafür sind mindestens {{min}} Tagebucheinträge aus demselben Zeitraum wie Ihre Träume nötig."
-      },
       "questions": "Fragen zum Nachdenken",
       "footer": "Muster zum Nachdenken, keine Diagnose. Nehmen Sie, was für Sie passt – der Rest darf liegen bleiben.",
       "saveAsNote": "Als Notiz speichern",

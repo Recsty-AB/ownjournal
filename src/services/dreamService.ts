@@ -7,12 +7,12 @@
  * the questions of the earlier reflection, which they answer), and
  * for each analysed journal entry of the previous week its date, short
  * summary, topics and dominant emotion (never its raw text).
- * A Dream patterns report sends the short labels saved with each reflection
- * and, to compare the dreams with waking life, the topics and dominant
- * emotions of the analysed journal entries of the same period with how many
- * entries each appears in (never text from a dream or an entry). The consent
- * dialog and the Help text list exactly these items; change them in all
- * locales before sending anything else.
+ * A Dream patterns report sends only the short labels saved with each
+ * reflection. A Trend Analysis with "Include your dreams" on sends, for each
+ * reflected dream of the period, its date, those labels and whether it was
+ * marked as a nightmare or recurring (never its text; see trendDreamsPayload).
+ * The consent dialog and the Help text list exactly these items; change them
+ * in all locales before sending anything else.
  *
  * Nothing is stored server-side except a usage counter. The reflection comes
  * back here and is saved inside the entry's encrypted payload by the caller.
@@ -222,84 +222,6 @@ export async function requestDreamReflection(
   return { reflection, used: Number(data.used ?? 0) };
 }
 
-export interface WakingSummary {
-  entryCount: number;
-  topics: { label: string; count: number }[];
-  emotions: { label: string; count: number }[];
-}
-
-function topCounts(counts: Map<string, number>, max: number): { label: string; count: number }[] {
-  return [...counts.entries()]
-    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-    .slice(0, max)
-    .map(([label, count]) => ({ label, count }));
-}
-
-/**
- * The ordinary journal entries (not dreams, not notes) a report compares its
- * dreams with: from a week before the oldest of the dreams to the end of the
- * day of the newest. Their AI analyses are what the comparison uses; the card
- * analyses the ones that have none before the report.
- */
-export function journalEntriesForComparison(dreams: JournalEntryData[], entries: JournalEntryData[]): JournalEntryData[] {
-  if (dreams.length === 0) return [];
-  const times = dreams.map((d) => new Date(d.date).getTime());
-  const from = new Date(Math.min(...times));
-  from.setHours(0, 0, 0, 0);
-  const to = new Date(Math.max(...times));
-  to.setHours(23, 59, 59, 999);
-  const earliest = from.getTime() - 7 * DAY_MS;
-  return entries.filter((e) => {
-    if (e.type) return false;
-    const time = new Date(e.date).getTime();
-    return time >= earliest && time <= to.getTime();
-  });
-}
-
-/**
- * The journal side of a report's dreams-and-waking-life comparison: the topics
- * and dominant emotions of the already analysed, ordinary entries written from
- * a week before the oldest of the dreams to the day of the newest, each with
- * the number of entries it appears in. No entry is analysed for this, and no
- * entry text is included. Null when fewer than three such entries exist.
- */
-export async function buildWakingSummary(
-  dreams: JournalEntryData[],
-  entries: JournalEntryData[],
-): Promise<WakingSummary | null> {
-  const candidates = journalEntriesForComparison(dreams, entries);
-  if (candidates.length < DREAM_LIMITS.wakingEntriesForPatterns) return null;
-
-  // A report is still made when the analysis store cannot be read.
-  let metadata: Awaited<ReturnType<typeof aiMetadataService.getAllMetadata>> = {};
-  try {
-    metadata = await aiMetadataService.getAllMetadata();
-  } catch {
-    return null;
-  }
-  const topics = new Map<string, number>();
-  const emotions = new Map<string, number>();
-  const add = (counts: Map<string, number>, label: unknown) => {
-    const key = typeof label === 'string' ? label.trim().toLowerCase() : '';
-    if (key) counts.set(key, (counts.get(key) ?? 0) + 1);
-  };
-  let entryCount = 0;
-  for (const entry of candidates) {
-    const meta = metadata[entry.id];
-    const entryTopics = Array.from(new Set((meta?.topics ?? []).map((t) => (typeof t === 'string' ? t.trim().toLowerCase() : ''))));
-    if (!meta || entryTopics.every((t) => !t)) continue;
-    entryCount++;
-    entryTopics.forEach((topic) => add(topics, topic));
-    add(emotions, meta.dominantEmotion);
-  }
-  if (entryCount < DREAM_LIMITS.wakingEntriesForPatterns) return null;
-  return {
-    entryCount,
-    topics: topCounts(topics, DREAM_LIMITS.maxWakingTopics),
-    emotions: topCounts(emotions, DREAM_LIMITS.maxWakingEmotions),
-  };
-}
-
 /** True when a reflection can be made for this dream: it has its details and a text within the limits. */
 export function canReflectOn(dream: JournalEntryData): boolean {
   const text = dream.body.trim();
@@ -307,11 +229,11 @@ export function canReflectOn(dream: JournalEntryData): boolean {
 }
 
 /**
- * The dreams a Dream patterns report for the period [start, end] covers:
- * dreams that already have a reflection or can get one, at most the newest
- * 40, oldest first.
+ * The dreams a Dream patterns report or a Trend Analysis for the period
+ * [start, end] covers: dreams that already have a reflection or can get one,
+ * at most the newest 40, oldest first.
  */
-export function dreamsForPatterns(entries: JournalEntryData[], start: Date, end: Date): JournalEntryData[] {
+export function dreamsForPeriod(entries: JournalEntryData[], start: Date, end: Date): JournalEntryData[] {
   const from = start.getTime();
   const to = end.getTime();
   return entries
@@ -322,6 +244,23 @@ export function dreamsForPatterns(entries: JournalEntryData[], start: Date, end:
     })
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
     .slice(-DREAM_LIMITS.maxDreamsForPatterns);
+}
+
+/**
+ * What a Trend Analysis sends about its dreams: for each reflected dream, its
+ * date, the labels saved with its reflection and the nightmare/recurring
+ * marks. Never the text, the feelings or the dreamer's thoughts.
+ */
+export function trendDreamsPayload(dreams: JournalEntryData[]) {
+  return dreams
+    .filter((d) => d.dreamReflection)
+    .slice(-DREAM_LIMITS.maxDreamsForTrends)
+    .map((d) => ({
+      date: localDay(d.date),
+      coded: d.dreamReflection!.coded,
+      ...(d.dream?.nightmare ? { nightmare: true } : {}),
+      ...(d.dream?.recurring ? { recurring: true } : {}),
+    }));
 }
 
 /**
@@ -346,29 +285,22 @@ export interface DreamPatternsResult {
 
 /**
  * A report on `dreams`, which must all have a reflection by now (the card
- * reflects on the others first). `entries` is the whole journal, for the
- * comparison with waking life. The period is stored with the report.
+ * reflects on the others first). The period is stored with the report.
  */
 export async function requestDreamPatterns(
   dreams: JournalEntryData[],
-  entries: JournalEntryData[],
   language: string,
   period: { start: Date; end: Date },
-  /** Off: nothing about the journal is sent and the report has no comparison. */
-  compareWithJournal = true,
 ): Promise<DreamPatternsResult> {
   dreams = dreams.filter((d) => d.dreamReflection).slice(-DREAM_LIMITS.maxDreamsForPatterns);
   if (dreams.length < DREAM_LIMITS.dreamsForPatterns) throw new DreamRequestError('notEnoughDreams');
 
-  const waking = compareWithJournal ? await buildWakingSummary(dreams, entries) : null;
   const data = await invokeDream<{ report?: unknown; used?: number }>({
     type: 'analyzeDreamPatterns',
     language,
-    // From the dreams, only the labels saved with each reflection, oldest
-    // first: no dates, feelings, flags or thoughts. From the journal, topics
-    // and emotions with counts, never entry text (consent text).
+    // Only the labels saved with each reflection, oldest first: no dates,
+    // feelings, flags or thoughts (consent text).
     dreams: dreams.map((d) => ({ coded: d.dreamReflection!.coded })),
-    ...(waking ? { waking } : {}),
   });
 
   const report = sanitizeDreamPatternsReport({
@@ -376,7 +308,6 @@ export async function requestDreamPatterns(
     createdAt: new Date().toISOString(),
     periodStart: localDay(period.start),
     periodEnd: localDay(period.end),
-    journalCompared: compareWithJournal,
   });
   if (!report) throw new DreamRequestError('failed');
   return { report, used: Number(data.used ?? 0) };

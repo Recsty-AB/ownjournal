@@ -16,12 +16,12 @@ vi.mock('@/utils/pwa', () => ({ getFromIndexedDB: vi.fn(), saveToIndexedDB: vi.f
 import {
   DreamRequestError,
   buildWakingContext,
-  buildWakingSummary,
   dreamChangedSinceReflection,
-  dreamsForPatterns,
+  dreamsForPeriod,
   tooShortDreams,
   requestDreamPatterns,
   requestDreamReflection,
+  trendDreamsPayload,
 } from '../dreamService';
 import { hashDreamInput, sanitizeDreamDetails, sanitizeDreamFields, sanitizeDreamPatternsReport } from '@/types/dream';
 
@@ -223,13 +223,13 @@ describe('Dream patterns helpers', () => {
       entry('before', '2026-10-31', { type: 'dream', dreamReflection: reflection }),
       entry('journal', '2026-11-07'),
     ];
-    expect(dreamsForPatterns(list, PERIOD.start, PERIOD.end).map((e) => e.id)).toEqual(['a', 'b']);
+    expect(dreamsForPeriod(list, PERIOD.start, PERIOD.end).map((e) => e.id)).toEqual(['a', 'b']);
     // The short one is counted separately, so the card can say why it is missing.
     expect(tooShortDreams(list, PERIOD.start, PERIOD.end)).toBe(1);
 
     const many = Array.from({ length: 45 }, (_, i) =>
       entry(`m${i}`, new Date(Date.UTC(2026, 10, 1, 12) + i * 3600_000).toISOString(), { type: 'dream', dreamReflection: reflection }));
-    const taken = dreamsForPatterns(many, PERIOD.start, PERIOD.end);
+    const taken = dreamsForPeriod(many, PERIOD.start, PERIOD.end);
     expect(taken).toHaveLength(40);
     expect(taken[0].id).toBe('m5');
   });
@@ -238,48 +238,22 @@ describe('Dream patterns helpers', () => {
     mocks.invoke.mockResolvedValue({ data: { report: { overview: 'o', recurring: [], changes: [], wakingLinks: [], questions: [], dreamCount: 5 }, used: 1 }, error: null });
     const list = Array.from({ length: 5 }, (_, i) => entry(`d${i}`, `2026-11-0${i + 1}`, { type: 'dream', body: `Secret dream ${i}`, dreamReflection: reflection }));
 
-    const { report } = await requestDreamPatterns(list, list, 'en', PERIOD);
+    const { report } = await requestDreamPatterns(list, 'en', PERIOD);
 
     const body = mocks.invoke.mock.calls[0][2].body;
     expect(report).toMatchObject({ periodStart: '2026-11-01', periodEnd: '2026-11-30' });
     expect(body.type).toBe('analyzeDreamPatterns');
     expect(body.dreams).toHaveLength(5);
     expect(body.dreams[0]).toEqual({ coded: reflection.coded });
-    // No analysed journal entries in the period: nothing about the journal is sent.
+    // Nothing about the journal is sent.
     expect(Object.keys(body).sort()).toEqual(['dreams', 'language', 'type']);
     expect(JSON.stringify(body)).not.toContain('Secret dream');
-  });
-
-  it('adds topics and feelings of the analysed entries of the same period, never their text or the dreamer\'s thoughts', async () => {
-    mocks.invoke.mockResolvedValue({ data: { report: { overview: 'o', recurring: [], changes: [], questions: [], dreamCount: 5 }, used: 1 }, error: null });
-    const dreams = Array.from({ length: 5 }, (_, i) =>
-      entry(`d${i}`, `2026-11-1${i}T06:00:00`, {
-        type: 'dream', body: `Secret dream ${i}`, dream: { feelings: [], thoughts: 'Secret thoughts' }, dreamReflection: reflection,
-      }));
-    const journal = ['2026-11-04T09:00:00', '2026-11-10T09:00:00', '2026-11-14T23:00:00'].map((date, i) => entry(`j${i}`, date));
-    mocks.getAllMetadata.mockResolvedValue({
-      j0: { topics: ['Work', 'family'], dominantEmotion: 'Tired', shortSummary: 'Secret summary', mainStressors: ['deadline'] },
-      j1: { topics: ['work', ' work '], dominantEmotion: 'tired', shortSummary: 'Secret summary' },
-      j2: { topics: ['running'], dominantEmotion: 'calm', shortSummary: 'Secret summary' },
-    });
-
-    await requestDreamPatterns(dreams, [...dreams, ...journal], 'en', PERIOD);
-
-    const body = mocks.invoke.mock.calls[0][2].body;
-    expect(Object.keys(body).sort()).toEqual(['dreams', 'language', 'type', 'waking']);
-    expect(body.waking).toEqual({
-      entryCount: 3,
-      // Counted once per entry, whatever the spelling.
-      topics: [{ label: 'work', count: 2 }, { label: 'family', count: 1 }, { label: 'running', count: 1 }],
-      emotions: [{ label: 'tired', count: 2 }, { label: 'calm', count: 1 }],
-    });
-    expect(JSON.stringify(body)).not.toMatch(/Secret|Private journal text|deadline/);
   });
 
   it('needs five dreams with a reflection', async () => {
     const four = Array.from({ length: 4 }, (_, i) => entry(`d${i}`, `2026-11-0${i + 1}`, { type: 'dream', dreamReflection: reflection }));
     const unreflected = entry('u', '2026-11-09', { type: 'dream', body: DREAM, dream: { feelings: [] } });
-    await expect(requestDreamPatterns([...four, unreflected], [], 'en', PERIOD)).rejects.toMatchObject({ code: 'notEnoughDreams' });
+    await expect(requestDreamPatterns([...four, unreflected], 'en', PERIOD)).rejects.toMatchObject({ code: 'notEnoughDreams' });
     expect(mocks.invoke).not.toHaveBeenCalled();
   });
 
@@ -303,76 +277,25 @@ describe('Dream patterns helpers', () => {
   });
 });
 
-describe('buildWakingSummary', () => {
-  const analysed = (ids: string[]) => Object.fromEntries(ids.map((id) => [id, { topics: [id], dominantEmotion: 'calm' }]));
-  const dreams = [
-    entry('first', '2026-11-10T06:00:00', { type: 'dream' }),
-    entry('last', '2026-11-20T06:00:00', { type: 'dream' }),
-  ];
+describe('trendDreamsPayload', () => {
+  const reflection = { version: 1 as const, createdAt: 'x', contentHash: 'h', summary: 's', themes: [], images: [], wakingLinks: [], questions: [], coded: { characters: ['cat'], settings: ['sea'], emotions: ['fear'], themes: [] }, care: 'none' as const };
 
-  it('covers the week before the first dream up to the day of the last, ordinary analysed entries only', async () => {
-    const entries = [
-      ...dreams,
-      entry('weekBefore', '2026-11-03T08:00:00'),
-      entry('between', '2026-11-15T08:00:00'),
-      entry('lastDay', '2026-11-20T23:30:00'),
-      entry('tooEarly', '2026-11-02T23:00:00'),
-      entry('after', '2026-11-21T00:30:00'),
-      entry('notAnalysed', '2026-11-12T08:00:00'),
-      entry('aNote', '2026-11-12T08:00:00', { type: 'note' }),
-      entry('otherDream', '2026-11-12T08:00:00', { type: 'dream' }),
+  it('sends the day, the labels and the nightmare/recurring marks of reflected dreams only, never text, feelings or thoughts', () => {
+    const list = [
+      entry('a', '2026-11-03T06:30:00', {
+        type: 'dream', body: 'Secret dream', dream: { feelings: ['fear'], nightmare: true, lucid: true, thoughts: 'Secret thoughts' }, dreamReflection: reflection,
+      }),
+      entry('b', '2026-11-04T06:30:00', { type: 'dream', body: 'Secret dream', dream: { feelings: [], recurring: true }, dreamReflection: reflection }),
+      entry('none', '2026-11-05T06:30:00', { type: 'dream', body: DREAM, dream: { feelings: [] } }),
     ];
-    mocks.getAllMetadata.mockResolvedValue(analysed(['weekBefore', 'between', 'lastDay', 'tooEarly', 'after', 'aNote', 'otherDream']));
 
-    const summary = await buildWakingSummary(dreams, entries);
+    const sent = trendDreamsPayload(list);
 
-    expect(summary!.entryCount).toBe(3);
-    expect(summary!.topics.map((t) => t.label).sort()).toEqual(['between', 'lastday', 'weekbefore']);
-  });
-
-  it('makes no comparison with fewer than three analysed entries', async () => {
-    const entries = [...dreams, entry('a', '2026-11-12'), entry('b', '2026-11-13'), entry('c', '2026-11-14')];
-    mocks.getAllMetadata.mockResolvedValue(analysed(['a', 'b']));
-
-    expect(await buildWakingSummary(dreams, entries)).toBeNull();
-    expect(await buildWakingSummary([], entries)).toBeNull();
-  });
-
-  it('keeps the twelve most frequent topics and six feelings', async () => {
-    const entries = [...dreams, ...Array.from({ length: 20 }, (_, i) => entry(`e${i}`, '2026-11-12T08:00:00'))];
-    mocks.getAllMetadata.mockResolvedValue(Object.fromEntries(
-      entries.map((e, i) => [e.id, { topics: [`topic${i}`, 'common'], dominantEmotion: `feeling${i % 9}` }]),
-    ));
-
-    const summary = await buildWakingSummary(dreams, entries);
-
-    expect(summary!.topics).toHaveLength(12);
-    expect(summary!.topics[0]).toEqual({ label: 'common', count: 20 });
-    expect(summary!.emotions).toHaveLength(6);
-  });
-
-  it('still lets the report be made when the analysis store cannot be read', async () => {
-    mocks.getAllMetadata.mockRejectedValue(new Error('blocked'));
-    const entries = [...dreams, entry('a', '2026-11-12'), entry('b', '2026-11-13'), entry('c', '2026-11-14')];
-
-    expect(await buildWakingSummary(dreams, entries)).toBeNull();
-  });
-});
-
-describe('sanitizeDreamPatternsReport', () => {
-  const base = { overview: 'o', createdAt: '2026-11-19T08:00:00.000Z', dreamCount: 5, recurring: [], changes: [], questions: [] };
-
-  it('keeps a well-formed comparison and drops malformed lines', () => {
-    const report = sanitizeDreamPatternsReport({
-      ...base,
-      waking: { entryCount: 9, shared: [{ label: 'work', note: 'In both.' }, { label: 'x' }, null], dreamsOnly: 'no', wakingOnly: [] },
-    });
-
-    expect(report!.waking).toEqual({ entryCount: 9, shared: [{ label: 'work', note: 'In both.' }], dreamsOnly: [], wakingOnly: [] });
-  });
-
-  it('has no comparison when none was made', () => {
-    expect(sanitizeDreamPatternsReport(base)).not.toHaveProperty('waking');
+    expect(sent).toEqual([
+      { date: '2026-11-03', coded: reflection.coded, nightmare: true },
+      { date: '2026-11-04', coded: reflection.coded, recurring: true },
+    ]);
+    expect(JSON.stringify(sent)).not.toMatch(/Secret|lucid|feelings/);
   });
 });
 

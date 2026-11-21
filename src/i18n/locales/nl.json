@@ -1541,6 +1541,19 @@
       "entryProgress": "Item {{current}} van {{total}}",
       "retrying": "Mislukte items opnieuw proberen…",
       "doNotCloseApp": "Houd deze pagina open totdat de analyse is voltooid"
+    },
+    "dreams": {
+      "include": "Dromen meenemen",
+      "included_one": "Een droom uit deze periode wordt meegenomen.",
+      "included_other": "{{count}} dromen uit deze periode worden meegenomen.",
+      "reflectFirst_one": "Een daarvan heeft nog geen reflectie en krijgt er eerst een. Daarvoor gebruikt u één reflectie van deze maand (u heeft er nog {{remaining}}).",
+      "reflectFirst_other": "{{count}} daarvan hebben nog geen reflectie en krijgen er eerst elk een. Daarvoor gebruikt u {{count}} reflecties van deze maand (u heeft er nog {{remaining}}).",
+      "leftOut_one": "Nog een droom heeft geen reflectie en blijft buiten beschouwing, omdat u deze maand niet genoeg reflecties meer heeft.",
+      "leftOut_other": "Nog {{count}} dromen hebben geen reflectie en blijven buiten beschouwing, omdat u deze maand niet genoeg reflecties meer heeft.",
+      "tooFew_one": "Uit deze periode kan maar één droom worden meegenomen. Er zijn er minstens {{min}} nodig.",
+      "tooFew_other": "{{count}} dromen uit deze periode kunnen worden meegenomen. Er zijn er minstens {{min}} nodig.",
+      "notIncluded": "Uw dromen zijn deze keer niet meegenomen, omdat te weinig dromen een reflectie konden krijgen.",
+      "title": "Uw dromen in deze periode"
     }
   },
   "exportDialog": {
@@ -2035,18 +2048,18 @@
       },
       "dreams": {
         "title": "Droomdagboek en droomreflectie",
-        "desc": "Zet bij het schrijven van een item “Droom” aan om het als droom te bewaren. Schrijf de droom op zodra u wakker bent, zoals u zich hem herinnert, en kies welke gevoelens erbij hoorden. Dromen tellen niet mee in de stemmingskalender en de trendanalyse. Met Plus tikt u op “Reflecteren op deze droom” voor een reflectie met mogelijke thema's, beelden om te verkennen en vragen om over na te denken. Onder een reflectie kunt u uw eigen gedachten opschrijven. Tikt u daarna op “Opnieuw reflecteren”, dan wordt met die gedachten rekening gehouden. Per maand krijgt u 30 reflecties. Kiest u een periode met minstens vijf dromen, dan kunt u daar een rapport Droompatronen over maken, maximaal twee per maand. Maakt u het rapport, dan wordt er eerst automatisch een reflectie gemaakt op elke droom uit die periode die er nog geen heeft. Die reflecties tellen mee voor uw 30 per maand. Daarna volgt het rapport. Daarin ziet u welke mensen, plaatsen en thema's steeds terugkomen, en hoe die zich verhouden tot wat u in uw dagboek schrijft.",
+        "desc": "Zet bij het schrijven van een item “Droom” aan om het als droom te bewaren. Schrijf de droom op zodra u wakker bent, zoals u zich hem herinnert, en kies welke gevoelens erbij hoorden. Dromen tellen niet mee in de stemmingskalender en ook niet voor de stemming in de trendanalyse. Met Plus tikt u op “Reflecteren op deze droom” voor een reflectie met mogelijke thema's, beelden om te verkennen en vragen om over na te denken. Onder een reflectie kunt u uw eigen gedachten opschrijven. Tikt u daarna op “Opnieuw reflecteren”, dan wordt met die gedachten rekening gehouden. Per maand krijgt u 30 reflecties. Kiest u een periode met minstens vijf dromen, dan kunt u daar een rapport Droompatronen over maken, maximaal twee per maand. Maakt u het rapport, dan wordt er eerst automatisch een reflectie gemaakt op elke droom uit die periode die er nog geen heeft. Die reflecties tellen mee voor uw 30 per maand. Daarna volgt het rapport. Daarin ziet u welke mensen, plaatsen en thema's steeds terugkomen. Wilt u uw dromen naast uw dagboek zien, zet dan in de trendanalyse “Dromen meenemen” aan.",
         "proNote": "(Plus-functie)"
       },
       "dreamMethod": {
         "title": "Zo werkt droomreflectie",
         "intro": "Droomreflectie put uit de kijk van Carl Jung op dromen en uit modern droomonderzoek.",
         "jung": "Van Jung komt het idee dat uw eigen associaties zwaarder wegen dan wat een symbool in het algemeen zou betekenen. Daarom kunt u onder een reflectie uw eigen gedachten opschrijven en opnieuw reflecteren. Van Jung komen ook deze ideeën: een beeld kunt u in meer dan één richting verkennen, een droom kan een kant van uw leven laten zien waar u overdag minder aandacht aan besteedt, en een reeks dromen zegt meer dan één losse droom.",
-        "research": "Droomonderzoek, vooral het werk van Calvin Hall en G. William Domhoff, laat zien dat dromen meestal draaien om wat u overdag bezighoudt: uw relaties, zorgen en gevoelens. Daarom kan een reflectie wijzen op verbanden met uw items van de afgelopen week, en daarom worden uw dromen in een rapport Droompatronen vergeleken met de thema's uit uw dagboek.",
+        "research": "Droomonderzoek, vooral het werk van Calvin Hall en G. William Domhoff, laat zien dat dromen meestal draaien om wat u overdag bezighoudt: uw relaties, zorgen en gevoelens. Daarom kan een reflectie wijzen op verbanden met uw items van de afgelopen week, en daarom kunt u in de trendanalyse uw dromen naast de thema's uit uw dagboek zien.",
         "questions": "De vragen aan het eind volgen het model van Clara Hill voor het werken met dromen: eerst de droom verkennen, dan nagaan wat hij voor u kan betekenen en ten slotte nadenken over een kleine stap die u zou kunnen zetten.",
         "noDictionary": "Droomreflectie werkt niet met een vaste lijst van droomsymbolen. Een reflectie reikt mogelijkheden aan; u bepaalt zelf wat past.",
         "notAdvice": "Droomreflectie is bedoeld om over uzelf na te denken. Een reflectie is geen medisch of psychologisch advies en kan geen diagnose stellen.",
-        "privacy": "Voor een reflectie wordt het volgende naar de Gemini-dienst van Google gestuurd: de tekst en de datum van uw droom, de gevoelens die u erbij heeft gekozen, en of u heeft aangegeven dat het een terugkerende droom, een nachtmerrie of een lucide droom was. Heeft u uw eigen gedachten bij de droom opgeschreven, dan worden die meegestuurd, samen met de vragen uit de eerdere reflectie waarop ze ingaan. Van elk item van de afgelopen week dat al is geanalyseerd (hooguit zeven) gaan ook de datum, de korte samenvatting, de belangrijkste thema's en de dominante emotie mee, maar niet de tekst van het item zelf. Voor een rapport Droompatronen gaan de korte labels mee die bij elke reflectie zijn opgeslagen. Om uw dromen met uw dagboek te kunnen vergelijken, gaan van uw dagboekitems uit dezelfde periode als die dromen ook de belangrijkste thema's en de dominante emoties mee, met erbij hoe vaak elk thema en elke emotie voorkomt. Die periode begint een week vóór de oudste droom in het rapport. Heeft een dagboekitem uit die periode nog geen AI-analyse, dan wordt eerst de tekst ervan gestuurd om het te laten analyseren, zoals bij de trendanalyse. De tekst van uw dromen gaat voor een rapport niet mee. OwnJournal slaat van de verstuurde gegevens niets op."
+        "privacy": "Voor een reflectie wordt het volgende naar de Gemini-dienst van Google gestuurd: de tekst en de datum van uw droom, de gevoelens die u erbij heeft gekozen, en of u heeft aangegeven dat het een terugkerende droom, een nachtmerrie of een lucide droom was. Heeft u uw eigen gedachten bij de droom opgeschreven, dan worden die meegestuurd, samen met de vragen uit de eerdere reflectie waarop ze ingaan. Van elk item van de afgelopen week dat al is geanalyseerd (hooguit zeven) gaan ook de datum, de korte samenvatting, de belangrijkste thema's en de dominante emotie mee, maar niet de tekst van het item zelf. Voor een rapport Droompatronen gaan alleen de korte labels mee die bij elke reflectie zijn opgeslagen, niet de tekst van uw dromen. Staat in de trendanalyse “Dromen meenemen” aan, dan gaan daarvoor de datum en die labels van elke droom uit de gekozen periode mee, met erbij of u heeft aangegeven dat het een nachtmerrie of een terugkerende droom was. De tekst van de droom gaat niet mee. In beide gevallen krijgen dromen zonder reflectie er eerst een, en daarvoor worden ze verstuurd zoals aan het begin beschreven. OwnJournal slaat van de verstuurde gegevens niets op."
       },
       "aiAnalysis": {
         "title": "AI-analyse",
@@ -2055,7 +2068,7 @@
       },
       "trends": {
         "title": "Trendanalyse",
-        "desc": "Bekijk patronen in uw schrijfgewoonten in de loop van de tijd. Zie stemmingstrends, schrijffrequentie en terugkerende thema's.",
+        "desc": "Bekijk patronen in uw schrijfgewoonten in de loop van de tijd. Zie stemmingstrends, schrijffrequentie en terugkerende thema's. Staat “Dromen meenemen” aan, dan ziet u ook uw dromen naast wat u rond dezelfde tijd heeft geschreven.",
         "proNote": "(Plus-functie)"
       },
       "export": {
@@ -2652,7 +2665,7 @@
       },
       "consent": {
         "title": "Een reflectie op uw droom laten maken door Google?",
-        "body": "Voor de reflectie wordt het volgende naar de Gemini-dienst van Google gestuurd: de tekst en de datum van uw droom, de gevoelens die u erbij heeft gekozen, en of u heeft aangegeven dat het een terugkerende droom, een nachtmerrie of een lucide droom was. Heeft u uw eigen gedachten bij de droom opgeschreven, dan worden die meegestuurd, samen met de vragen uit de eerdere reflectie waarop ze ingaan. Van elk item van de afgelopen week dat al is geanalyseerd (hooguit zeven) gaan ook de datum, de korte samenvatting, de belangrijkste thema's en de dominante emotie mee, maar niet de tekst van het item zelf. Voor een rapport Droompatronen gaan de korte labels mee die bij elke reflectie zijn opgeslagen. Om uw dromen met uw dagboek te kunnen vergelijken, gaan van uw dagboekitems uit dezelfde periode als die dromen ook de belangrijkste thema's en de dominante emoties mee, met erbij hoe vaak elk thema en elke emotie voorkomt. Die periode begint een week vóór de oudste droom in het rapport. Heeft een dagboekitem uit die periode nog geen AI-analyse, dan wordt eerst de tekst ervan gestuurd om het te laten analyseren, zoals bij de trendanalyse. De tekst van uw dromen gaat voor een rapport niet mee. OwnJournal slaat van de verstuurde gegevens niets op. Google gebruikt deze gegevens niet om zijn modellen te trainen en bewaart ze hooguit kort, uitsluitend om misbruik te voorkomen. De reflectie wordt bij uw droom opgeslagen, net als de rest van het item.",
+        "body": "Voor de reflectie wordt het volgende naar de Gemini-dienst van Google gestuurd: de tekst en de datum van uw droom, de gevoelens die u erbij heeft gekozen, en of u heeft aangegeven dat het een terugkerende droom, een nachtmerrie of een lucide droom was. Heeft u uw eigen gedachten bij de droom opgeschreven, dan worden die meegestuurd, samen met de vragen uit de eerdere reflectie waarop ze ingaan. Van elk item van de afgelopen week dat al is geanalyseerd (hooguit zeven) gaan ook de datum, de korte samenvatting, de belangrijkste thema's en de dominante emotie mee, maar niet de tekst van het item zelf. Voor een rapport Droompatronen gaan alleen de korte labels mee die bij elke reflectie zijn opgeslagen, niet de tekst van uw dromen. Staat in de trendanalyse “Dromen meenemen” aan, dan gaan daarvoor de datum en die labels van elke droom uit de gekozen periode mee, met erbij of u heeft aangegeven dat het een nachtmerrie of een terugkerende droom was. De tekst van de droom gaat niet mee. In beide gevallen krijgen dromen zonder reflectie er eerst een, en daarvoor worden ze verstuurd zoals aan het begin beschreven. OwnJournal slaat van de verstuurde gegevens niets op. Google gebruikt deze gegevens niet om zijn modellen te trainen en bewaart ze hooguit kort, uitsluitend om misbruik te voorkomen. De reflectie wordt bij uw droom opgeslagen, net als de rest van het item.",
         "accept": "Doorgaan",
         "decline": "Niet nu"
       },
@@ -2671,18 +2684,12 @@
     },
     "patterns": {
       "title": "Droompatronen",
-      "intro": "Wat er in uw dromen steeds terugkomt en hoe ze zich verhouden tot uw dagboek.",
-      "compareJournal": "Uw dagboekitems meenemen",
+      "intro": "Wat er in uw dromen steeds terugkomt.",
       "dreamsInPeriod_one": "{{count}} droom in deze periode",
       "dreamsInPeriod_other": "{{count}} dromen in deze periode",
       "needMore": "Voor een rapport zijn minstens {{min}} dromen nodig.",
       "tooShort_one": "{{count}} droom in deze periode is te kort voor een reflectie en telt daarom niet mee. Voor een reflectie zijn minstens {{min}} tekens nodig.",
       "tooShort_other": "{{count}} dromen in deze periode zijn te kort voor een reflectie en tellen daarom niet mee. Voor een reflectie zijn minstens {{min}} tekens nodig.",
-      "journalCompare_one": "Uw dromen worden ook vergeleken met {{count}} dagboekitem uit dezelfde periode.",
-      "journalCompare_other": "Uw dromen worden ook vergeleken met {{count}} dagboekitems uit dezelfde periode.",
-      "journalAnalyzeFirst_one": "Een daarvan heeft nog geen AI-analyse en krijgt er eerst een, zoals bij de trendanalyse.",
-      "journalAnalyzeFirst_other": "{{count}} daarvan hebben nog geen AI-analyse en krijgen er eerst elk een, zoals bij de trendanalyse.",
-      "journalTooFew": "Uw dromen worden niet met uw dagboek vergeleken: daarvoor zijn minstens {{min}} dagboekitems uit dezelfde periode nodig.",
       "reflectFirst_one": "Een van deze dromen heeft nog geen reflectie en krijgt er eerst een als u het rapport maakt. Daarvoor gebruikt u één reflectie van deze maand (u heeft er nog {{remaining}}).",
       "reflectFirst_other": "{{count}} van deze dromen hebben nog geen reflectie en krijgen er eerst elk een als u het rapport maakt. Daarvoor gebruikt u {{count}} reflecties van deze maand (u heeft er nog {{remaining}}).",
       "notEnoughReflections_one": "{{dreams}} van deze dromen hebben nog geen reflectie, en u heeft deze maand nog maar één reflectie over. Kies een kortere periode.",
@@ -2694,7 +2701,6 @@
       "createNew": "Nieuw rapport maken",
       "creating": "Bezig met zoeken naar patronen…",
       "reflecting": "Bezig met reflecteren op droom {{current}} van {{total}}…",
-      "analyzingEntries": "Bezig met analyseren van dagboekitem {{current}} van {{total}}…",
       "remaining": "Nog {{remaining}} van {{limit}} rapporten deze maand",
       "plusOnly": "Droompatronen zijn beschikbaar met Plus",
       "earlyThemes": "Eerste thema's",
@@ -2713,15 +2719,6 @@
         "theme": "Thema"
       },
       "changes": "Hoe uw dromen zijn veranderd",
-      "waking": {
-        "title": "Vergeleken met uw dagboek",
-        "basedOn_one": "Op basis van {{count}} dagboekitem uit dezelfde periode",
-        "basedOn_other": "Op basis van {{count}} dagboekitems uit dezelfde periode",
-        "shared": "In uw dromen én in uw dagboek",
-        "dreamsOnly": "Wel in uw dromen, niet in uw dagboek",
-        "wakingOnly": "Wel in uw dagboek, niet in uw dromen",
-        "none": "In dit rapport staat geen vergelijking met uw dagboek. Daarvoor zijn minstens {{min}} dagboekitems nodig uit dezelfde periode als uw dromen."
-      },
       "questions": "Vragen om over na te denken",
       "footer": "Patronen om over na te denken, geen diagnose. Neem wat u aanspreekt en laat de rest liggen.",
       "saveAsNote": "Opslaan als notitie",

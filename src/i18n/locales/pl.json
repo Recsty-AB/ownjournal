@@ -1605,6 +1605,27 @@
       "entryProgress": "Wpis {{current}} z {{total}}",
       "retrying": "Ponawianie prób dla nieudanych wpisów…",
       "doNotCloseApp": "Nie zamykaj tej strony do zakończenia analizy"
+    },
+    "dreams": {
+      "include": "Uwzględnij sny",
+      "included_one": "Zostanie uwzględniony jeden sen z tego okresu.",
+      "included_few": "Zostaną uwzględnione {{count}} sny z tego okresu.",
+      "included_many": "Zostanie uwzględnionych {{count}} snów z tego okresu.",
+      "included_other": "Zostanie uwzględnione {{count}} snu z tego okresu.",
+      "reflectFirst_one": "Jeden z nich nie ma jeszcze refleksji, więc najpierw powstanie refleksja nad nim, na co wykorzystasz jedną refleksję z limitu na ten miesiąc (pozostało: {{remaining}}).",
+      "reflectFirst_few": "{{count}} z nich nie mają jeszcze refleksji, więc najpierw powstaną refleksje nad nimi, na co wykorzystasz {{count}} refleksje z limitu na ten miesiąc (pozostało: {{remaining}}).",
+      "reflectFirst_many": "{{count}} z nich nie ma jeszcze refleksji, więc najpierw powstaną refleksje nad nimi, na co wykorzystasz {{count}} refleksji z limitu na ten miesiąc (pozostało: {{remaining}}).",
+      "reflectFirst_other": "{{count}} z nich nie ma jeszcze refleksji, więc najpierw powstaną refleksje nad nimi, na co wykorzystasz {{count}} refleksji z limitu na ten miesiąc (pozostało: {{remaining}}).",
+      "leftOut_one": "Jeszcze jeden sen nie ma refleksji i nie zostanie uwzględniony, bo w tym miesiącu nie starczy na niego refleksji.",
+      "leftOut_few": "Jeszcze {{count}} sny nie mają refleksji i nie zostaną uwzględnione, bo w tym miesiącu nie starczy na nie refleksji.",
+      "leftOut_many": "Jeszcze {{count}} snów nie ma refleksji i nie zostanie uwzględnionych, bo w tym miesiącu nie starczy na nie refleksji.",
+      "leftOut_other": "Jeszcze {{count}} snu nie ma refleksji i nie zostanie uwzględnione, bo w tym miesiącu nie starczy na nie refleksji.",
+      "tooFew_one": "Można uwzględnić tylko jeden sen z tego okresu. Potrzeba co najmniej {{min}}.",
+      "tooFew_few": "Można uwzględnić tylko {{count}} sny z tego okresu. Potrzeba co najmniej {{min}}.",
+      "tooFew_many": "Z tego okresu nie można uwzględnić żadnego snu. Potrzeba co najmniej {{min}}.",
+      "tooFew_other": "Można uwzględnić tylko {{count}} snu z tego okresu. Potrzeba co najmniej {{min}}.",
+      "notIncluded": "Tym razem sny nie zostały uwzględnione, bo za mało z nich ma refleksję.",
+      "title": "Twoje sny w tym okresie"
     }
   },
   "exportDialog": {
@@ -2107,18 +2128,18 @@
       },
       "dreams": {
         "title": "Dziennik snów i refleksja nad snem",
-        "desc": "Gdy piszesz wpis, dotknij przycisku „Sen” obok daty, a wpis zostanie zapisany jako sen. Zapisz go zaraz po przebudzeniu, tak jak go pamiętasz, i wybierz uczucia, które mu towarzyszyły. Samo zapisywanie snów jest bezpłatne, a sny nie trafiają do kalendarza nastroju ani do analizy trendów. Jeśli masz plan Plus, dotknij przycisku „Utwórz refleksję”, aby zobaczyć możliwe motywy, obrazy do zgłębienia i pytania dla Ciebie. Pod refleksją możesz zapisać własne przemyślenia, a gdy dotkniesz przycisku „Utwórz nową refleksję”, zostaną one uwzględnione. Plus obejmuje 30 refleksji miesięcznie. Jeśli w wybranym okresie jest co najmniej pięć snów, możesz utworzyć raport „Wzorce snów” za ten okres. Jeśli któreś sny z tego okresu nie mają jeszcze refleksji, przed utworzeniem raportu powstaną refleksje nad nimi, a każda z nich wlicza się do limitu 30 refleksji miesięcznie. W miesiącu możesz utworzyć maksymalnie dwa raporty. Znajdziesz w nich osoby, miejsca i motywy, które wracają w Twoich snach, a także porównanie snów z tym, o czym piszesz w dzienniku. Limity odnawiają się na początku każdego miesiąca.",
+        "desc": "Gdy piszesz wpis, dotknij przycisku „Sen” obok daty, a wpis zostanie zapisany jako sen. Zapisz go zaraz po przebudzeniu, tak jak go pamiętasz, i wybierz uczucia, które mu towarzyszyły. Samo zapisywanie snów jest bezpłatne, a sny nie trafiają do kalendarza nastroju i nie wpływają na nastrój w analizie trendów. Jeśli masz plan Plus, dotknij przycisku „Utwórz refleksję”, aby zobaczyć możliwe motywy, obrazy do zgłębienia i pytania dla Ciebie. Pod refleksją możesz zapisać własne przemyślenia, a gdy dotkniesz przycisku „Utwórz nową refleksję”, zostaną one uwzględnione. Plus obejmuje 30 refleksji miesięcznie. Jeśli w wybranym okresie jest co najmniej pięć snów, możesz utworzyć raport „Wzorce snów” za ten okres. Jeśli któreś sny z tego okresu nie mają jeszcze refleksji, przed utworzeniem raportu powstaną refleksje nad nimi, a każda z nich wlicza się do limitu 30 refleksji miesięcznie. W miesiącu możesz utworzyć maksymalnie dwa raporty. Znajdziesz w nich osoby, miejsca i motywy, które wracają w Twoich snach. Aby zestawić sny z dziennikiem, włącz opcję „Uwzględnij sny” w analizie trendów. Limity odnawiają się na początku każdego miesiąca.",
         "proNote": "(Funkcja Plus)"
       },
       "dreamMethod": {
         "title": "Jak działa refleksja nad snem",
         "intro": "Refleksja nad snem czerpie z podejścia Carla Gustava Junga do snów i ze współczesnych badań nad marzeniami sennymi.",
         "jung": "Od Junga pochodzi przekonanie, że Twoje własne skojarzenia liczą się bardziej niż ogólne znaczenie symbolu. Dlatego pod refleksją możesz zapisać własne przemyślenia, a potem utworzyć nową refleksję. Jung zauważał też, że obraz ze snu można zgłębiać w kilku kierunkach, że sen może odsłaniać tę stronę życia, której na jawie poświęcasz mniej uwagi, i że seria snów mówi więcej niż pojedynczy sen.",
-        "research": "Z badań nad marzeniami sennymi, zwłaszcza z prac Calvina Halla i G. Williama Domhoffa, pochodzi obserwacja, że sny odzwierciedlają przede wszystkim to, czym żyjesz na jawie: Twoje relacje, zmartwienia i uczucia. Dlatego refleksja może wskazać związki z Twoimi wpisami z ostatniego tygodnia, a raport „Wzorce snów” porównuje sny z tematami z Twojego dziennika.",
+        "research": "Z badań nad marzeniami sennymi, zwłaszcza z prac Calvina Halla i G. Williama Domhoffa, pochodzi obserwacja, że sny odzwierciedlają przede wszystkim to, czym żyjesz na jawie: Twoje relacje, zmartwienia i uczucia. Dlatego refleksja może wskazać związki z Twoimi wpisami z ostatniego tygodnia, a analiza trendów może zestawić sny z tematami z Twojego dziennika.",
         "questions": "Pytania na końcu opierają się na modelu pracy ze snami, który opracowała Clara Hill: najpierw przyglądasz się samemu snowi, potem szukasz, co może dla Ciebie znaczyć, a na koniec zastanawiasz się, jaki mały krok możesz zrobić.",
         "noDictionary": "Refleksja nie korzysta z sennika ani żadnego innego stałego słownika symboli. Podsuwa możliwości, a to Ty decydujesz, co do Ciebie pasuje.",
         "notAdvice": "Refleksja nad snem ma pomóc Ci lepiej poznać siebie. Nie jest poradą medyczną ani psychologiczną i nie może niczego zdiagnozować.",
-        "privacy": "Aby utworzyć refleksję, do usługi Gemini firmy Google wysyłane są: treść i data snu, wybrane przez Ciebie uczucia oraz informacja o tym, czy sen oznaczono jako powracający, koszmar lub świadomy. Jeśli zapiszesz własne przemyślenia na temat snu, one także zostaną wysłane razem z pytaniami z poprzedniej refleksji, na które odpowiadają. Z każdego przeanalizowanego wpisu z ostatniego tygodnia wysyłane są też: data, krótkie podsumowanie, kluczowe tematy i dominująca emocja (a nie jego treść). Na potrzeby raportu „Wzorce snów” nie jest wysyłana treść snów, tylko krótkie etykiety zapisane razem z każdą refleksją. Aby można było porównać sny z dziennikiem, wysyłane są też kluczowe tematy i dominujące emocje z Twoich wpisów dziennika wraz z informacją, jak często się w nich pojawiają. Chodzi o wpisy z tego samego okresu co sny objęte raportem, począwszy od tygodnia przed pierwszym z tych snów. Wpisy z tego okresu, które nie mają jeszcze analizy AI, są najpierw analizowane tak jak w analizie trendów. W tym celu wysyłana jest ich treść. OwnJournal nie przechowuje żadnych wysyłanych danych."
+        "privacy": "Aby utworzyć refleksję, do usługi Gemini firmy Google wysyłane są: treść i data snu, wybrane przez Ciebie uczucia oraz informacja o tym, czy sen oznaczono jako powracający, koszmar lub świadomy. Jeśli zapiszesz własne przemyślenia na temat snu, one także zostaną wysłane razem z pytaniami z poprzedniej refleksji, na które odpowiadają. Z każdego przeanalizowanego wpisu z ostatniego tygodnia wysyłane są też: data, krótkie podsumowanie, kluczowe tematy i dominująca emocja (a nie jego treść). Na potrzeby raportu „Wzorce snów” nie jest wysyłana treść snów, tylko krótkie etykiety zapisane razem z każdą refleksją. Gdy opcja „Uwzględnij sny” jest włączona, na potrzeby analizy trendów wysyłane są: data każdego snu z wybranego okresu, te etykiety oraz informacja, czy sen oznaczono jako powracający lub koszmar (a nie jego treść). W obu przypadkach, jeśli któreś sny nie mają jeszcze refleksji, najpierw powstają refleksje nad nimi, a do ich utworzenia wysyłane są dane opisane na początku. OwnJournal nie przechowuje żadnych wysyłanych danych."
       },
       "aiAnalysis": {
         "title": "Analiza AI",
@@ -2127,7 +2148,7 @@
       },
       "trends": {
         "title": "Analiza trendów",
-        "desc": "Odkrywaj wzorce w swoim dzienniku na przestrzeni czasu. Śledź trendy nastroju, częstotliwość pisania i powracające tematy, aby lepiej zrozumieć swoje nawyki.",
+        "desc": "Odkrywaj wzorce w swoim dzienniku na przestrzeni czasu. Śledź trendy nastroju, częstotliwość pisania i powracające tematy, aby lepiej zrozumieć swoje nawyki. Gdy włączysz opcję „Uwzględnij sny”, zobaczysz też swoje sny zestawione z Twoimi wpisami z tego samego czasu.",
         "proNote": "(Funkcja Plus)"
       },
       "export": {
@@ -2736,7 +2757,7 @@
       },
       "consent": {
         "title": "Utworzyć refleksję nad snem za pomocą Google?",
-        "body": "Aby utworzyć refleksję, do usługi Gemini firmy Google zostaną wysłane: treść i data snu, wybrane przez Ciebie uczucia oraz informacja o tym, czy sen oznaczono jako powracający, koszmar lub świadomy. Jeśli zapiszesz własne przemyślenia na temat snu, one także zostaną wysłane razem z pytaniami z poprzedniej refleksji, na które odpowiadają. Z każdego przeanalizowanego wpisu z ostatniego tygodnia zostaną też wysłane: data, krótkie podsumowanie, kluczowe tematy i dominująca emocja (a nie jego treść). Na potrzeby raportu „Wzorce snów” nie jest wysyłana treść snów, tylko krótkie etykiety zapisane razem z każdą refleksją. Aby można było porównać sny z dziennikiem, wysyłane są też kluczowe tematy i dominujące emocje z Twoich wpisów dziennika wraz z informacją, jak często się w nich pojawiają. Chodzi o wpisy z tego samego okresu co sny objęte raportem, począwszy od tygodnia przed pierwszym z tych snów. Wpisy z tego okresu, które nie mają jeszcze analizy AI, są najpierw analizowane tak jak w analizie trendów. W tym celu wysyłana jest ich treść. OwnJournal nie przechowuje żadnych wysyłanych danych. Google nie wykorzystuje tych danych do trenowania swoich modeli i może je przechowywać tylko przez krótki czas, aby zapobiegać nadużyciom. Refleksja zostanie zapisana razem ze snem, jak reszta wpisu.",
+        "body": "Aby utworzyć refleksję, do usługi Gemini firmy Google zostaną wysłane: treść i data snu, wybrane przez Ciebie uczucia oraz informacja o tym, czy sen oznaczono jako powracający, koszmar lub świadomy. Jeśli zapiszesz własne przemyślenia na temat snu, one także zostaną wysłane razem z pytaniami z poprzedniej refleksji, na które odpowiadają. Z każdego przeanalizowanego wpisu z ostatniego tygodnia zostaną też wysłane: data, krótkie podsumowanie, kluczowe tematy i dominująca emocja (a nie jego treść). Na potrzeby raportu „Wzorce snów” nie jest wysyłana treść snów, tylko krótkie etykiety zapisane razem z każdą refleksją. Gdy opcja „Uwzględnij sny” jest włączona, na potrzeby analizy trendów wysyłane są: data każdego snu z wybranego okresu, te etykiety oraz informacja, czy sen oznaczono jako powracający lub koszmar (a nie jego treść). W obu przypadkach, jeśli któreś sny nie mają jeszcze refleksji, najpierw powstają refleksje nad nimi, a do ich utworzenia wysyłane są dane opisane na początku. OwnJournal nie przechowuje żadnych wysyłanych danych. Google nie wykorzystuje tych danych do trenowania swoich modeli i może je przechowywać tylko przez krótki czas, aby zapobiegać nadużyciom. Refleksja zostanie zapisana razem ze snem, jak reszta wpisu.",
         "accept": "Kontynuuj",
         "decline": "Nie teraz"
       },
@@ -2755,8 +2776,7 @@
     },
     "patterns": {
       "title": "Wzorce snów",
-      "intro": "Co powraca w Twoich snach i jak mają się one do Twojego dziennika.",
-      "compareJournal": "Uwzględnij wpisy dziennika",
+      "intro": "To, co powraca w Twoich snach.",
       "dreamsInPeriod_one": "{{count}} sen w tym okresie",
       "dreamsInPeriod_few": "{{count}} sny w tym okresie",
       "dreamsInPeriod_many": "{{count}} snów w tym okresie",
@@ -2766,15 +2786,6 @@
       "tooShort_few": "{{count}} sny z tego okresu są za krótkie na refleksję, więc nie są wliczane. Minimalna liczba znaków: {{min}}.",
       "tooShort_many": "{{count}} snów z tego okresu jest za krótkich na refleksję, więc nie są wliczane. Minimalna liczba znaków: {{min}}.",
       "tooShort_other": "{{count}} snu z tego okresu jest za krótkie na refleksję, więc nie jest wliczane. Minimalna liczba znaków: {{min}}.",
-      "journalCompare_one": "Sny zostaną też porównane z {{count}} wpisem dziennika z tego samego okresu.",
-      "journalCompare_few": "Sny zostaną też porównane z {{count}} wpisami dziennika z tego samego okresu.",
-      "journalCompare_many": "Sny zostaną też porównane z {{count}} wpisami dziennika z tego samego okresu.",
-      "journalCompare_other": "Sny zostaną też porównane z {{count}} wpisu dziennika z tego samego okresu.",
-      "journalAnalyzeFirst_one": "Jeden z nich nie ma jeszcze analizy AI, więc najpierw zostanie przeanalizowany, tak jak w analizie trendów.",
-      "journalAnalyzeFirst_few": "{{count}} z nich nie mają jeszcze analizy AI, więc najpierw zostaną przeanalizowane, tak jak w analizie trendów.",
-      "journalAnalyzeFirst_many": "{{count}} z nich nie ma jeszcze analizy AI, więc najpierw zostaną przeanalizowane, tak jak w analizie trendów.",
-      "journalAnalyzeFirst_other": "{{count}} z nich nie ma jeszcze analizy AI, więc najpierw zostaną przeanalizowane, tak jak w analizie trendów.",
-      "journalTooFew": "Sny nie zostaną porównane z dziennikiem, bo potrzeba do tego co najmniej {{min}} wpisów z tego samego okresu.",
       "reflectFirst_one": "Jeden z tych snów nie ma jeszcze refleksji. Przed utworzeniem raportu powstanie refleksja nad nim, na co wykorzystasz jedną refleksję z limitu na ten miesiąc (pozostało: {{remaining}}).",
       "reflectFirst_few": "{{count}} z tych snów nie mają jeszcze refleksji. Przed utworzeniem raportu powstaną refleksje nad nimi, na co wykorzystasz {{count}} refleksje z limitu na ten miesiąc (pozostało: {{remaining}}).",
       "reflectFirst_many": "{{count}} z tych snów nie ma jeszcze refleksji. Przed utworzeniem raportu powstaną refleksje nad nimi, na co wykorzystasz {{count}} refleksji z limitu na ten miesiąc (pozostało: {{remaining}}).",
@@ -2792,7 +2803,6 @@
       "createNew": "Utwórz nowy raport",
       "creating": "Szukanie wzorców…",
       "reflecting": "Tworzenie refleksji {{current}} z {{total}}…",
-      "analyzingEntries": "Analizowanie wpisu {{current}} z {{total}}…",
       "remaining": "Pozostało w tym miesiącu: {{remaining}} z {{limit}} raportów",
       "plusOnly": "Wzorce snów są dostępne w planie Plus",
       "earlyThemes": "Wstępne motywy",
@@ -2817,17 +2827,6 @@
         "theme": "Motyw"
       },
       "changes": "Jak zmieniały się Twoje sny",
-      "waking": {
-        "title": "Porównanie z dziennikiem",
-        "basedOn_one": "Na podstawie {{count}} wpisu dziennika z tego samego okresu",
-        "basedOn_few": "Na podstawie {{count}} wpisów dziennika z tego samego okresu",
-        "basedOn_many": "Na podstawie {{count}} wpisów dziennika z tego samego okresu",
-        "basedOn_other": "Na podstawie {{count}} wpisu dziennika z tego samego okresu",
-        "shared": "W snach i w dzienniku",
-        "dreamsOnly": "W snach, ale nie w dzienniku",
-        "wakingOnly": "W dzienniku, ale nie w snach",
-        "none": "W tym raporcie nie ma porównania z dziennikiem. Do porównania potrzeba co najmniej {{min}} wpisów dziennika z tego samego okresu co sny."
-      },
       "questions": "Pytania do przemyślenia",
       "footer": "To wzorce do przemyślenia, nie diagnoza. Weź z nich to, co do Ciebie przemawia, a resztę zostaw.",
       "saveAsNote": "Zapisz jako notatkę",

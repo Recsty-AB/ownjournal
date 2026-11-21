@@ -1,5 +1,6 @@
 // Keep Gemini models and their supported thinking levels together.
 // Model availability reviewed against provider documentation on 2026-10-13.
+// deepAnalysis is now only the fallback model of the ENABLE_AI_RETRY retries.
 // The transcription model was added on 2026-11-16. It is a dedicated
 // speech-to-text model served by the Interactions API (not generateContent)
 // and takes no thinking level.
@@ -32,8 +33,9 @@ export function getModelForType(type: string): string {
     case "title":
     case "tags":
       return `google/${AI_MODELS.suggestions}`;
+    // Trend Analysis moved from the deep-analysis model to Flash (owner
+    // decision, 2026-11-21), along with dreams joining it.
     case "analyzeTrends":
-      return `google/${AI_MODELS.deepAnalysis}`;
     // Dream reflection starts on the entry-analysis model (owner decision,
     // 2026-11-19); move it here only after comparing quality and cost.
     case "analyzeDream":

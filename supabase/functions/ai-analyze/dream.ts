@@ -1,4 +1,5 @@
-// Dream reflection and Dream patterns for ai-analyze.
+// Dream reflection, Dream patterns, and the dreams part of Trend Analysis for
+// ai-analyze.
 //
 // Kept out of index.ts so the main handler only dispatches here. Nothing in
 // this module stores dream content: the reflection is returned to the client,
@@ -25,10 +26,9 @@ export const DREAM_LIMITS = {
   minCharacters: 50,
   maxWakingContext: 7,
   maxThoughtsCharacters: 2000,
-  // Analysed journal entries needed before a report compares dreams with waking life.
-  wakingEntriesForPatterns: 3,
-  maxWakingTopics: 12,
-  maxWakingEmotions: 6,
+  // Reflected dreams a Trend Analysis needs before it includes them.
+  dreamsForTrends: 3,
+  maxDreamsForTrends: 40,
 } as const;
 
 // Output ceilings per request. Only generated tokens are billed, so a higher
@@ -108,30 +108,6 @@ function sanitizeWakingContext(v: unknown) {
   }).filter((c) => c.shortSummary || c.topics.length > 0);
 }
 
-// Topics or feelings the app extracted from the dreamer's regular entries,
-// with the number of entries each appears in. Never entry text.
-function sanitizeCounted(v: unknown, maxItems: number): { label: string; count: number }[] {
-  if (!Array.isArray(v)) return [];
-  return v
-    .map((item) => {
-      const raw = (item && typeof item === "object" ? item : {}) as Record<string, unknown>;
-      return { label: str(raw.label, 60), count: Math.max(1, Math.min(9999, Math.round(Number(raw.count) || 1))) };
-    })
-    .filter((item) => item.label)
-    .slice(0, maxItems);
-}
-
-// The journal side of the dreams-and-waking-life comparison, or null when
-// there is too little of it to compare with.
-function sanitizeWakingSummary(v: unknown) {
-  const raw = (v && typeof v === "object" ? v : {}) as Record<string, unknown>;
-  const entryCount = Math.min(9999, Math.round(Number(raw.entryCount) || 0));
-  const topics = sanitizeCounted(raw.topics, DREAM_LIMITS.maxWakingTopics);
-  const emotions = sanitizeCounted(raw.emotions, DREAM_LIMITS.maxWakingEmotions);
-  if (entryCount < DREAM_LIMITS.wakingEntriesForPatterns || topics.length === 0) return null;
-  return { entryCount, topics, emotions };
-}
-
 function sanitizeCoded(v: unknown) {
   const raw = (v && typeof v === "object" ? v : {}) as Record<string, unknown>;
   return {
@@ -140,16 +116,6 @@ function sanitizeCoded(v: unknown) {
     emotions: strList(raw.emotions, 8, 60),
     themes: strList(raw.themes, 8, 60),
   };
-}
-
-function sanitizeWakingLife(v: unknown) {
-  const raw = (v && typeof v === "object" ? v : {}) as Record<string, unknown>;
-  const items = (list: unknown) =>
-    (Array.isArray(list) ? list : [])
-      .map((i: any) => ({ label: str(i?.label, 80), note: str(i?.note, 400) }))
-      .filter((i) => i.label && i.note)
-      .slice(0, 3);
-  return { shared: items(raw.shared), dreamsOnly: items(raw.dreamsOnly), wakingOnly: items(raw.wakingOnly) };
 }
 
 function json(body: unknown, status: number, corsHeaders: Record<string, string>): Response {
@@ -283,15 +249,6 @@ const REFLECT_TOOL = {
   },
 };
 
-const WAKING_ITEM = {
-  type: "object",
-  properties: {
-    label: { type: "string", description: "The theme, person, place or feeling, in a few words" },
-    note: { type: "string", description: "1 sentence, tentative" },
-  },
-  required: ["label", "note"],
-};
-
 const PATTERNS_TOOL = {
   type: "function",
   function: {
@@ -321,18 +278,8 @@ const PATTERNS_TOOL = {
           description: "0-3 observations about how the dreams changed over time",
         },
         questions: { type: "array", items: { type: "string" }, description: "2-3 reflection questions" },
-        wakingLife: {
-          type: "object",
-          description: "How the dreams compare with the journal of the same period; empty arrays when no journal data was provided",
-          properties: {
-            shared: { type: "array", items: WAKING_ITEM, description: "0-3 themes in both the dreams and the journal" },
-            dreamsOnly: { type: "array", items: WAKING_ITEM, description: "0-3 recurring dream elements absent from the journal" },
-            wakingOnly: { type: "array", items: WAKING_ITEM, description: "0-3 frequent journal topics absent from the dreams" },
-          },
-          required: ["shared", "dreamsOnly", "wakingOnly"],
-        },
       },
-      required: ["overview", "recurring", "changes", "questions", "wakingLife"],
+      required: ["overview", "recurring", "changes", "questions"],
     },
   },
 };
@@ -597,9 +544,8 @@ Fill every field of reflect_on_dream:
 
 async function handlePatterns(ctx: DreamRequestContext): Promise<Response> {
   const rawDreams = Array.isArray(ctx.body.dreams) ? ctx.body.dreams : [];
-  // From the dreams, only the labels saved with each reflection are accepted.
-  // The journal side (body.waking) is topics and feelings with counts; the
-  // client promises the user that no dream or entry text is sent.
+  // Only the labels saved with each reflection are accepted; the client
+  // promises the user that no dream text is sent.
   const dreams = rawDreams.slice(0, DREAM_LIMITS.maxDreamsForPatterns).map((d: any) => ({
     coded: sanitizeCoded(d?.coded),
   }));
@@ -623,25 +569,7 @@ async function handlePatterns(ctx: DreamRequestContext): Promise<Response> {
   if (capped) return capped;
 
   const early = dreams.length < DREAM_LIMITS.dreamsForFullPatterns;
-  const journal = sanitizeWakingSummary(ctx.body.waking);
-  const counted = (items: { label: string; count: number }[]) =>
-    items.map((item) => `${item.label} (${item.count})`).join(", ");
-
-  const journalBlock = journal
-    ? `The dreamer's journal in the same period: topics and feelings the app extracted from ${journal.entryCount} regular entries, with the number of entries each appears in. This is not the text of those entries.
-topics: ${counted(journal.topics)}
-feelings: ${counted(journal.emotions) || "-"}`
-    : "No journal data was provided. Leave the three wakingLife lists empty.";
-
-  const journalTask = journal
-    ? `- wakingLife: compare the dreams with the journal. Match by meaning, not spelling; the labels may be in different languages.
-  - shared: up to 3 themes, people, places or feelings found in both.
-  - dreamsOnly: up to 3 elements that recur in the dreams (two or more dreams) and are not among the journal topics.
-  - wakingOnly: up to 3 of the most frequent journal topics that do not appear in the dreams.
-  Each has a short label and a one-sentence note. Leave a list empty when nothing fits.`
-    : "- wakingLife: three empty lists.";
-
-  const systemPrompt = `You help people see what recurs across their own dreams inside a private journaling app. You are not a therapist. You receive only short labels extracted from each dream, never the dream texts${journal ? ", and topics and feelings extracted from the dreamer's regular journal entries, never the entries themselves" : ", and nothing from the dreamer's other journal entries"}.
+  const systemPrompt = `You help people see what recurs across their own dreams inside a private journaling app. You are not a therapist. You receive only short labels extracted from each dream, never the dream texts, and nothing from the dreamer's other journal entries.
 
 ${METHOD}
 
@@ -649,7 +577,6 @@ ${SAFETY_RULES}
 - Only report an element as recurring when it appears in at least two dreams, and give the real count.
 - Never report the dreamer themselves (labels such as "I", "me", "myself", "the dreamer" or their equivalent in any language) as a recurring character: the dreamer is in almost every dream, so it says nothing. Older labels may still contain the dreamer; skip them.
 ${early ? "- There are few dreams so far. Present everything as early, tentative themes." : ""}
-${journal ? `- In wakingLife, describe what is there and offer it as something to wonder about. Never explain why something is missing from the dreams or from the journal, and never call it avoided, repressed, hidden, unconscious or denied. The journal lists only entries the app has analysed and people do not write about everything, so an absence proves nothing.` : ""}
 
 ${languageRule(ctx.targetLanguage, "ui")}`;
 
@@ -658,14 +585,11 @@ ${dreams
   .map((d, i) => `${i + 1}. characters: ${d.coded.characters.join(", ") || "-"} | settings: ${d.coded.settings.join(", ") || "-"} | emotions: ${d.coded.emotions.join(", ") || "-"} | themes: ${d.coded.themes.join(", ") || "-"}`)
   .join("\n")}
 
-${journalBlock}
-
 Fill every field of find_dream_patterns:
 - overview: 2-4 tentative sentences on what stands out across the dreams.
 - recurring: up to 8 elements that appear in two or more dreams, most frequent first, each with kind, label, count and a one-sentence tentative note.
 - changes: 0-3 observations about how the dreams changed over time.
-- questions: 2-3 open reflection questions.
-${journalTask}`;
+- questions: 2-3 open reflection questions.`;
 
   const { result, usage, model, error } = await callWithRetry(
     ctx,
@@ -694,12 +618,61 @@ ${journalTask}`;
     changes: strList(result.changes, 3, 500),
     questions: strList(result.questions, 3, 300),
     dreamCount: dreams.length,
-    // Only when journal data was sent: the model must not invent a comparison.
-    ...(journal ? { waking: { entryCount: journal.entryCount, ...sanitizeWakingLife(result.wakingLife) } } : {}),
   };
 
   await recordUsage(ctx, "dreamPatterns", usage, model);
   return json({ report, used: used + 1, limit: DREAM_LIMITS.patternReportsPerMonth }, 200, ctx.corsHeaders);
+}
+
+// ---------------------------------------------------------------------------
+// Dreams in Trend Analysis. With "Include your dreams" on, the request also
+// carries, for each reflected dream of the period, its date, the labels saved
+// with its reflection and the nightmare/recurring marks (never its text).
+// index.ts builds the trend prompt; these keep the dream part bounded.
+// ---------------------------------------------------------------------------
+
+export interface TrendDream {
+  date: string;
+  coded: ReturnType<typeof sanitizeCoded>;
+  nightmare: boolean;
+  recurring: boolean;
+}
+
+/** The dreams of a trend request, or [] when fewer than dreamsForTrends are usable. */
+export function sanitizeTrendDreams(v: unknown): TrendDream[] {
+  if (!Array.isArray(v)) return [];
+  const dreams = v.slice(0, DREAM_LIMITS.maxDreamsForTrends).map((d: any) => ({
+    date: /^\d{4}-\d{2}-\d{2}$/.test(d?.date) ? d.date : "",
+    coded: sanitizeCoded(d?.coded),
+    nightmare: d?.nightmare === true,
+    recurring: d?.recurring === true,
+  })).filter((d) => d.date && Object.values(d.coded).some((list) => list.length > 0));
+  return dreams.length >= DREAM_LIMITS.dreamsForTrends ? dreams : [];
+}
+
+/** The dream part of the trend prompt: data, rules and the extra JSON key. */
+export function trendDreamsPrompt(dreams: TrendDream[]): { data: string; rules: string; key: string } {
+  const lines = dreams.map((d) => {
+    const marks = [d.nightmare ? "nightmare" : "", d.recurring ? "recurring dream" : ""].filter(Boolean).join(", ");
+    return `${d.date}${marks ? ` (${marks})` : ""}: characters: ${d.coded.characters.join(", ") || "-"} | settings: ${d.coded.settings.join(", ") || "-"} | emotions: ${d.coded.emotions.join(", ") || "-"} | themes: ${d.coded.themes.join(", ") || "-"}`;
+  });
+  return {
+    data: `Dreams the user recorded in this period (${dreams.length}, oldest first). Short labels the app extracted from each dream, never the dream text. Dreams are NOT part of the mood data above:
+${lines.join("\n")}`,
+    rules: `DREAMS:
+- Use the dates to set the dreams beside what the journal shows at the same time: the topics, emotions and mood of the entries in the days or weeks around each dream. Mention a link only when the data supports it, and offer it as something to wonder about.
+- A dream's emotions are not the user's mood: a nightmare is not a bad day. Do not use dreams in periodSummary, moodTrend or insights.
+- Never report the dreamer themselves as a recurring figure.
+- Offer possibilities, never verdicts ("this means", "this shows that" or their equivalents). No dream symbol dictionary, no predictions, no messages from anyone.
+- Never explain why something is missing from the dreams or from the journal, and never call anything avoided, repressed, hidden, unconscious or denied.
+- Do not judge dream content, including violent or sexual content.`,
+    key: `"dreamInsights": ["<2–4 tentative observations in the target language, each linking the dreams to what the journal shows around the same time>"]`,
+  };
+}
+
+/** The dream observations of a trend answer, bounded like the rest of it. */
+export function sanitizeDreamInsights(v: unknown): string[] {
+  return strList(v, 4, 600);
 }
 
 export function handleDreamRequest(ctx: DreamRequestContext): Promise<Response> {

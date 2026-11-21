@@ -10,8 +10,6 @@ const mocks = vi.hoisted(() => ({
   loadPatternsReport: vi.fn(),
   savePatternsReport: vi.fn(),
   isJournalLocked: vi.fn(() => false),
-  loadEntryAnalyses: vi.fn(),
-  analyzeMissingEntries: vi.fn(),
 }));
 
 vi.mock('@/hooks/use-toast', () => ({ useToast: () => ({ toast: mocks.toast }) }));
@@ -23,11 +21,6 @@ vi.mock('@/integrations/supabase/client', () => ({
     },
     from: vi.fn(),
   },
-}));
-vi.mock('@/services/entryAnalysisService', () => ({
-  loadEntryAnalyses: mocks.loadEntryAnalyses,
-  analyzeMissingEntries: mocks.analyzeMissingEntries,
-  needsEntryAnalysis: (item: { metadata: unknown }) => !item.metadata,
 }));
 vi.mock('@/services/dreamService', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@/services/dreamService')>();
@@ -114,18 +107,7 @@ beforeEach(() => {
   mocks.loadPatternsReport.mockResolvedValue(null);
   mocks.savePatternsReport.mockResolvedValue(undefined);
   mocks.isJournalLocked.mockReturnValue(false);
-  // By default every journal entry already has an analysis.
-  mocks.loadEntryAnalyses.mockImplementation(async (list: JournalEntryData[]) =>
-    list.map((entry) => ({ entry, metadata: { topics: ['work'] } })));
-  mocks.analyzeMissingEntries.mockResolvedValue(0);
 });
-
-/** Ordinary journal entries from the last days, inside the comparison window. */
-const journal = (n: number): JournalEntryData[] =>
-  Array.from({ length: n }, (_, i) => {
-    const date = new Date(Date.now() - (i + 1) * DAY);
-    return { id: `j${i}`, date, title: `Day ${i}`, body: 'An ordinary day at work.', tags: [], mood: 'okay' as const, createdAt: date, updatedAt: date };
-  });
 
 describe('DreamPatterns', () => {
   it('shows nothing about the dreams and loads no report while an encrypted journal is locked', () => {
@@ -172,7 +154,7 @@ describe('DreamPatterns', () => {
     expect(mocks.requestDreamReflection).toHaveBeenCalledTimes(2);
     expect(mocks.requestDreamReflection.mock.calls.map((c) => c[0].id)).toEqual(['d3', 'd4']);
     expect(onSaveReflection.mock.calls.map((c) => [c[0].id, c[1]])).toEqual([['d3', fresh], ['d4', fresh]]);
-    const [sent, , , range] = mocks.requestDreamPatterns.mock.calls[0];
+    const [sent, , range] = mocks.requestDreamPatterns.mock.calls[0];
     expect(sent.map((d: JournalEntryData) => d.id)).toEqual(['d0', 'd1', 'd2', 'd3', 'd4']);
     expect(sent.every((d: JournalEntryData) => d.dreamReflection)).toBe(true);
     // The default period: the last 30 days (an hour more or less across a daylight-saving change).
@@ -379,57 +361,6 @@ describe('DreamPatterns', () => {
     expect(screen.queryByText('Searching runs through your dreams.')).not.toBeInTheDocument();
   });
 
-  it('shows how the dreams compare with the journal, leaving out empty lists, and keeps it in the note', async () => {
-    const withWaking: DreamPatternsReport = {
-      ...REPORT,
-      waking: {
-        entryCount: 9,
-        shared: [{ label: 'work', note: 'It shows up at night and in your entries.' }],
-        dreamsOnly: [{ label: 'your sister', note: 'She is in five dreams and not among your journal topics.' }],
-        wakingOnly: [],
-      },
-    };
-    mocks.loadPatternsReport.mockResolvedValue(withWaking);
-    const onSaveAsNote = vi.fn().mockResolvedValue(undefined);
-    renderCard(dreams(6), { onSaveAsNote });
-    openCard();
-
-    expect(await screen.findByText('dream.patterns.waking.title')).toBeInTheDocument();
-    expect(screen.getByText('dream.patterns.waking.basedOn')).toBeInTheDocument();
-    expect(screen.getByText('dream.patterns.waking.shared')).toBeInTheDocument();
-    expect(screen.getByText('your sister')).toBeInTheDocument();
-    expect(screen.getByText('She is in five dreams and not among your journal topics.')).toBeInTheDocument();
-    expect(screen.queryByText('dream.patterns.waking.wakingOnly')).not.toBeInTheDocument();
-    expect(screen.queryByText('dream.patterns.waking.none')).not.toBeInTheDocument();
-
-    fireEvent.click(screen.getByRole('button', { name: /dream.patterns.saveAsNote/ }));
-    await waitFor(() => expect(onSaveAsNote).toHaveBeenCalledOnce());
-    const body = onSaveAsNote.mock.calls[0][1];
-    expect(body).toContain('## dream.patterns.waking.title');
-    expect(body).toContain('### dream.patterns.waking.dreamsOnly');
-    expect(body).toContain('- **your sister**');
-    expect(body).not.toContain('dream.patterns.waking.wakingOnly');
-  });
-
-  it('says why there is no comparison when too few journal entries were analysed', async () => {
-    mocks.loadPatternsReport.mockResolvedValue(REPORT);
-    renderCard(dreams(6));
-    openCard();
-
-    expect(await screen.findByText('dream.patterns.waking.none')).toBeInTheDocument();
-    expect(screen.queryByText('dream.patterns.waking.title')).not.toBeInTheDocument();
-  });
-
-  it('shows neither a comparison nor a reason when one was made and nothing stood out', async () => {
-    mocks.loadPatternsReport.mockResolvedValue({ ...REPORT, waking: { entryCount: 9, shared: [], dreamsOnly: [], wakingOnly: [] } });
-    renderCard(dreams(6));
-    openCard();
-
-    await screen.findByText('Searching runs through your dreams.');
-    expect(screen.queryByText('dream.patterns.waking.title')).not.toBeInTheDocument();
-    expect(screen.queryByText('dream.patterns.waking.none')).not.toBeInTheDocument();
-  });
-
   it('says requests are paused for the month when the failed-request cap is reached', async () => {
     setDreamConsent();
     const { DreamRequestError } = await import('@/services/dreamService');
@@ -484,75 +415,6 @@ describe('DreamPatterns', () => {
     expect(title).toBe('dream.patterns.noteTitle');
     expect(body).toContain('Searching runs through your dreams.');
     expect(body).toContain('**school**');
-  });
-
-  it('says up front which journal entries the dreams are compared with, and which get an analysis first', async () => {
-    mocks.loadEntryAnalyses.mockImplementation(async (list: JournalEntryData[]) =>
-      list.map((entry, i) => ({ entry, metadata: i < 2 ? { topics: ['work'] } : null })));
-    renderCard([...dreams(5), ...journal(4)]);
-    openCard();
-
-    expect(screen.getByText(/dream.patterns.journalCompare/)).toBeInTheDocument();
-    expect(await screen.findByText(/dream.patterns.journalAnalyzeFirst/)).toBeInTheDocument();
-  });
-
-  it('says when there are too few journal entries to compare with', () => {
-    renderCard([...dreams(5), ...journal(2)]);
-    openCard();
-
-    expect(screen.getByText(/dream.patterns.journalTooFew/)).toBeInTheDocument();
-    expect(screen.queryByText(/dream.patterns.journalCompare/)).not.toBeInTheDocument();
-  });
-
-  it('analyses the journal entries that need it before making the report', async () => {
-    setDreamConsent();
-    mocks.loadEntryAnalyses.mockImplementation(async (list: JournalEntryData[]) =>
-      list.map((entry) => ({ entry, metadata: null })));
-    mocks.requestDreamPatterns.mockResolvedValue({ report: REPORT, used: 1 });
-    renderCard([...dreams(5), ...journal(3)]);
-    openCard();
-
-    fireEvent.click(screen.getByRole('button', { name: /dream.patterns.create/ }));
-
-    await screen.findByText('Searching runs through your dreams.');
-    expect(mocks.analyzeMissingEntries).toHaveBeenCalledOnce();
-    const [items, options] = mocks.analyzeMissingEntries.mock.calls[0];
-    expect(items.map((i: { entry: JournalEntryData }) => i.entry.id).sort()).toEqual(['j0', 'j1', 'j2']);
-    expect(options.accessToken).toBe('token');
-    expect(mocks.analyzeMissingEntries.mock.invocationCallOrder[0]).toBeLessThan(mocks.requestDreamPatterns.mock.invocationCallOrder[0]);
-  });
-
-  it('shows the journal comparison as a switch, on by default, even before five dreams count', () => {
-    renderCard([...dreams(2), ...journal(4)]);
-    openCard();
-
-    expect(screen.getByRole('switch', { name: 'dream.patterns.compareJournal' })).toBeChecked();
-    expect(screen.getByText(/dream.patterns.journalCompare/)).toBeInTheDocument();
-  });
-
-  it('with the switch off, analyses and sends nothing about the journal, and remembers the choice', async () => {
-    setDreamConsent();
-    mocks.loadEntryAnalyses.mockImplementation(async (list: JournalEntryData[]) =>
-      list.map((entry) => ({ entry, metadata: null })));
-    mocks.requestDreamPatterns.mockResolvedValue({ report: { ...REPORT, journalCompared: false }, used: 1 });
-    const first = renderCard([...dreams(5), ...journal(3)]);
-    openCard();
-
-    fireEvent.click(screen.getByRole('switch', { name: 'dream.patterns.compareJournal' }));
-    expect(screen.queryByText(/dream.patterns.journalCompare/)).not.toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: /dream.patterns.create/ }));
-
-    await screen.findByText('Searching runs through your dreams.');
-    expect(mocks.analyzeMissingEntries).not.toHaveBeenCalled();
-    expect(mocks.requestDreamPatterns.mock.calls[0][4]).toBe(false);
-    // A report made without the comparison does not claim too few entries.
-    expect(screen.queryByText('dream.patterns.waking.none')).not.toBeInTheDocument();
-    first.unmount();
-
-    renderCard([...dreams(5), ...journal(3)]);
-    await act(async () => {});
-    if (!screen.queryByRole('switch', { name: 'dream.patterns.compareJournal' })) openCard();
-    expect(screen.getByRole('switch', { name: 'dream.patterns.compareJournal' })).not.toBeChecked();
   });
 
   it('lets free users see a locked create button but not use it', async () => {

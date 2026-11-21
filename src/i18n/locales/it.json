@@ -1573,6 +1573,23 @@
       "entryProgress": "Voce {{current}} di {{total}}",
       "retrying": "Nuovo tentativo per le voci non riuscite…",
       "doNotCloseApp": "Tieni aperta questa pagina fino al completamento dell'analisi"
+    },
+    "dreams": {
+      "include": "Includi i tuoi sogni",
+      "included_one": "È incluso un sogno di questo periodo.",
+      "included_many": "Sono inclusi {{count}} sogni di questo periodo.",
+      "included_other": "Sono inclusi {{count}} sogni di questo periodo.",
+      "reflectFirst_one": "Uno di questi non ha ancora una riflessione: quando avvii l'analisi, ricevi prima una riflessione su quel sogno, e così usi una delle riflessioni di questo mese (rimaste: {{remaining}}).",
+      "reflectFirst_many": "{{count}} di questi non hanno ancora una riflessione: quando avvii l'analisi, ricevi prima una riflessione su ciascuno, e così usi {{count}} delle riflessioni di questo mese (rimaste: {{remaining}}).",
+      "reflectFirst_other": "{{count}} di questi non hanno ancora una riflessione: quando avvii l'analisi, ricevi prima una riflessione su ciascuno, e così usi {{count}} delle riflessioni di questo mese (rimaste: {{remaining}}).",
+      "leftOut_one": "Un altro sogno non ha una riflessione e resta escluso, perché le riflessioni rimaste questo mese non bastano.",
+      "leftOut_many": "Altri {{count}} sogni non hanno una riflessione e restano esclusi, perché le riflessioni rimaste questo mese non bastano.",
+      "leftOut_other": "Altri {{count}} sogni non hanno una riflessione e restano esclusi, perché le riflessioni rimaste questo mese non bastano.",
+      "tooFew_one": "Da questo periodo si può includere un solo sogno. Ne servono almeno {{min}}.",
+      "tooFew_many": "Sogni di questo periodo che si possono includere: {{count}}. Ne servono almeno {{min}}.",
+      "tooFew_other": "Sogni di questo periodo che si possono includere: {{count}}. Ne servono almeno {{min}}.",
+      "notIncluded": "I tuoi sogni non sono stati inclusi in questa analisi: troppo pochi hanno potuto ricevere una riflessione.",
+      "title": "Sogni del periodo"
     }
   },
   "exportDialog": {
@@ -2071,18 +2088,18 @@
       },
       "dreams": {
         "title": "Diario dei sogni e riflessione",
-        "desc": "Quando scrivi una voce, attiva \"Sogno\" per segnarla come sogno. Annota il sogno appena ti svegli, così come lo ricordi, e scegli le emozioni che provavi. I sogni restano fuori dal calendario dell'umore e dall'analisi delle tendenze. Con Plus puoi toccare \"Rifletti sul sogno\" e ricevere una riflessione con possibili temi, immagini da esplorare e alcune domande per te. Sotto la riflessione puoi scrivere i tuoi pensieri, e \"Rifletti di nuovo\" ne tiene conto. Plus include 30 riflessioni al mese. Quando un periodo a tua scelta contiene almeno cinque sogni, puoi creare un report sugli schemi ricorrenti di quel periodo (fino a due al mese), che mostra le persone, i luoghi e i temi che ritornano nei tuoi sogni e li confronta con ciò di cui scrivi nel diario. Al momento di creare il report, ogni sogno di quel periodo che non ha ancora una riflessione ne riceve prima una in automatico, e ciascuna conta come una delle 30 riflessioni del mese.",
+        "desc": "Quando scrivi una voce, attiva \"Sogno\" per segnarla come sogno. Annota il sogno appena ti svegli, così come lo ricordi, e scegli le emozioni che provavi. I sogni restano fuori dal calendario dell'umore e non incidono sull'umore nell'analisi delle tendenze. Con Plus puoi toccare \"Rifletti sul sogno\" e ricevere una riflessione con possibili temi, immagini da esplorare e alcune domande per te. Sotto la riflessione puoi scrivere i tuoi pensieri, e \"Rifletti di nuovo\" ne tiene conto. Plus include 30 riflessioni al mese. Quando un periodo a tua scelta contiene almeno cinque sogni, puoi creare un report sugli schemi ricorrenti di quel periodo (fino a due al mese), che mostra le persone, i luoghi e i temi che ritornano nei tuoi sogni. Al momento di creare il report, ogni sogno di quel periodo che non ha ancora una riflessione ne riceve prima una in automatico, e ciascuna conta come una delle 30 riflessioni del mese. Per vedere i tuoi sogni accanto al diario, attiva \"Includi i tuoi sogni\" nell'analisi delle tendenze.",
         "proNote": "(Funzionalità Plus)"
       },
       "dreamMethod": {
         "title": "Come funziona la riflessione sui sogni",
         "intro": "La riflessione sui sogni si ispira all'approccio di Carl Gustav Jung e alla ricerca scientifica moderna sul sogno.",
         "jung": "Da Jung riprende l'idea che le tue associazioni personali contino più di qualsiasi significato generale di un simbolo. Per questo sotto una riflessione puoi scrivere i tuoi pensieri e chiedere una nuova riflessione che ne tenga conto. Sempre da Jung riprende altre idee: un'immagine si può esplorare in più direzioni, un sogno può mostrare un lato della vita a cui di giorno presti meno attenzione e una serie di sogni è più eloquente di un sogno isolato.",
-        "research": "Dalla ricerca sui sogni, in particolare dagli studi di Calvin Hall e G. William Domhoff, riprende l'osservazione che i sogni riflettono soprattutto ciò che occupa i tuoi pensieri durante il giorno: relazioni, preoccupazioni, emozioni. Per questo una riflessione può indicare possibili legami con le voci del diario dell'ultima settimana, e il report sugli schemi ricorrenti confronta i tuoi sogni con i temi del diario.",
+        "research": "Dalla ricerca sui sogni, in particolare dagli studi di Calvin Hall e G. William Domhoff, riprende l'osservazione che i sogni riflettono soprattutto ciò che occupa i tuoi pensieri durante il giorno: relazioni, preoccupazioni, emozioni. Per questo una riflessione può indicare possibili legami con le voci del diario dell'ultima settimana, e l'analisi delle tendenze può affiancare i tuoi sogni ai temi del diario.",
         "questions": "Le domande finali seguono il modello di Clara Hill per il lavoro sui sogni: esplorare il sogno, cercare che cosa potrebbe significare per te e poi pensare a un piccolo passo da fare.",
         "noDictionary": "La riflessione non si basa su un dizionario dei sogni con significati fissi: ti propone delle possibilità e sei tu a decidere quali ti corrispondono.",
         "notAdvice": "La riflessione sui sogni è uno strumento di autoriflessione. Non costituisce un parere medico o psicologico e non può fare diagnosi.",
-        "privacy": "Per preparare una riflessione, l'app invia al servizio Gemini di Google il testo e la data del sogno, le emozioni che hai scelto, il tipo di sogno che hai indicato (ricorrente, incubo o lucido) e i tuoi pensieri sul sogno, se ne hai scritti, insieme alle domande della riflessione precedente a cui rispondono. Per ciascuna delle voci del diario dell'ultima settimana già analizzate dall'IA, invia anche la data, il breve riepilogo, i temi chiave e l'emozione dominante. Il testo di quelle voci non viene inviato. Per il report sugli schemi ricorrenti vengono inviate le brevi etichette salvate con le riflessioni, non il testo dei sogni. Lo stesso report confronta i sogni con il diario: per questo vengono inviati anche i temi chiave e le emozioni dominanti delle voci del diario che risalgono allo stesso periodo dei sogni, insieme al numero di voci in cui compare ciascun tema e ciascuna emozione. Il periodo considerato inizia una settimana prima del primo di quei sogni. Le voci del diario di quel periodo non ancora analizzate dall'IA vengono analizzate prima del report, come nell'analisi delle tendenze, e per questa analisi viene inviato il loro testo. OwnJournal non conserva nulla di ciò che viene inviato."
+        "privacy": "Per preparare una riflessione, l'app invia al servizio Gemini di Google il testo e la data del sogno, le emozioni che hai scelto, il tipo di sogno che hai indicato (ricorrente, incubo o lucido) e i tuoi pensieri sul sogno, se ne hai scritti, insieme alle domande della riflessione precedente a cui rispondono. Per ciascuna delle voci del diario dell'ultima settimana già analizzate dall'IA, invia anche la data, il breve riepilogo, i temi chiave e l'emozione dominante. Il testo di quelle voci non viene inviato. Per il report sugli schemi ricorrenti vengono inviate solo le brevi etichette salvate con le riflessioni, non il testo dei sogni. Con \"Includi i tuoi sogni\" attivo, per l'analisi delle tendenze vengono inviati, per ciascun sogno del periodo, la data, quelle etichette e l'eventuale indicazione di incubo o di sogno ricorrente, ma non il testo. In entrambi i casi, i sogni che non hanno ancora una riflessione ne ricevono prima una, e per prepararla vengono inviati come descritto all'inizio, testo compreso. OwnJournal non conserva nulla di ciò che viene inviato."
       },
       "aiAnalysis": {
         "title": "Analisi IA",
@@ -2091,7 +2108,7 @@
       },
       "trends": {
         "title": "Analisi delle tendenze",
-        "desc": "Scopri gli schemi ricorrenti nella tua scrittura nel tempo. Segui le tendenze dell'umore, la frequenza di scrittura e i temi comuni per capire meglio le tue abitudini.",
+        "desc": "Scopri gli schemi ricorrenti nella tua scrittura nel tempo. Segui le tendenze dell'umore, la frequenza di scrittura e i temi comuni per capire meglio le tue abitudini. Con \"Includi i tuoi sogni\" attivo, l'analisi affianca anche i tuoi sogni a ciò che hai scritto nello stesso periodo.",
         "proNote": "(Funzionalità Plus)"
       },
       "export": {
@@ -2694,7 +2711,7 @@
       },
       "consent": {
         "title": "Riflettere sul sogno con Google?",
-        "body": "Per preparare la riflessione, l'app invia al servizio Gemini di Google il testo e la data del sogno, le emozioni che hai scelto, il tipo di sogno che hai indicato (ricorrente, incubo o lucido) e i tuoi pensieri sul sogno, se ne hai scritti, insieme alle domande della riflessione precedente a cui rispondono. Per ciascuna delle voci del diario dell'ultima settimana già analizzate dall'IA, invia anche la data, il breve riepilogo, i temi chiave e l'emozione dominante. Il testo di quelle voci non viene inviato. Per il report sugli schemi ricorrenti vengono inviate le brevi etichette salvate con le riflessioni, non il testo dei sogni. Lo stesso report confronta i sogni con il diario: per questo vengono inviati anche i temi chiave e le emozioni dominanti delle voci del diario che risalgono allo stesso periodo dei sogni, insieme al numero di voci in cui compare ciascun tema e ciascuna emozione. Il periodo considerato inizia una settimana prima del primo di quei sogni. Le voci del diario di quel periodo non ancora analizzate dall'IA vengono analizzate prima del report, come nell'analisi delle tendenze, e per questa analisi viene inviato il loro testo. OwnJournal non conserva nulla di ciò che viene inviato. Google non usa questi dati per addestrare i suoi modelli e può conservarli solo per breve tempo, per prevenire abusi. La riflessione viene salvata insieme al sogno, come il resto della voce del diario.",
+        "body": "Per preparare la riflessione, l'app invia al servizio Gemini di Google il testo e la data del sogno, le emozioni che hai scelto, il tipo di sogno che hai indicato (ricorrente, incubo o lucido) e i tuoi pensieri sul sogno, se ne hai scritti, insieme alle domande della riflessione precedente a cui rispondono. Per ciascuna delle voci del diario dell'ultima settimana già analizzate dall'IA, invia anche la data, il breve riepilogo, i temi chiave e l'emozione dominante. Il testo di quelle voci non viene inviato. Per il report sugli schemi ricorrenti vengono inviate solo le brevi etichette salvate con le riflessioni, non il testo dei sogni. Con \"Includi i tuoi sogni\" attivo, per l'analisi delle tendenze vengono inviati, per ciascun sogno del periodo, la data, quelle etichette e l'eventuale indicazione di incubo o di sogno ricorrente, ma non il testo. In entrambi i casi, i sogni che non hanno ancora una riflessione ne ricevono prima una, e per prepararla vengono inviati come descritto all'inizio, testo compreso. OwnJournal non conserva nulla di ciò che viene inviato. Google non usa questi dati per addestrare i suoi modelli e può conservarli solo per breve tempo, per prevenire abusi. La riflessione viene salvata insieme al sogno, come il resto della voce del diario.",
         "accept": "Continua",
         "decline": "Non ora"
       },
@@ -2713,8 +2730,7 @@
     },
     "patterns": {
       "title": "Schemi ricorrenti nei sogni",
-      "intro": "Ciò che ritorna da un sogno all'altro e il confronto con il diario.",
-      "compareJournal": "Includi le voci del diario",
+      "intro": "Ciò che ritorna da un sogno all'altro.",
       "dreamsInPeriod_one": "{{count}} sogno in questo periodo",
       "dreamsInPeriod_many": "{{count}} sogni in questo periodo",
       "dreamsInPeriod_other": "{{count}} sogni in questo periodo",
@@ -2722,13 +2738,6 @@
       "tooShort_one": "Un sogno di questo periodo è troppo breve per una riflessione e non viene contato. Per una riflessione servono almeno {{min}} caratteri.",
       "tooShort_many": "{{count}} sogni di questo periodo sono troppo brevi per una riflessione e non vengono contati. Per una riflessione servono almeno {{min}} caratteri.",
       "tooShort_other": "{{count}} sogni di questo periodo sono troppo brevi per una riflessione e non vengono contati. Per una riflessione servono almeno {{min}} caratteri.",
-      "journalCompare_one": "I tuoi sogni verranno confrontati anche con {{count}} voce del diario dello stesso periodo.",
-      "journalCompare_many": "I tuoi sogni verranno confrontati anche con {{count}} voci del diario dello stesso periodo.",
-      "journalCompare_other": "I tuoi sogni verranno confrontati anche con {{count}} voci del diario dello stesso periodo.",
-      "journalAnalyzeFirst_one": "Una di queste voci non è ancora stata analizzata dall'IA: lo sarà prima del report, come nell'analisi delle tendenze.",
-      "journalAnalyzeFirst_many": "{{count}} di queste voci non sono ancora state analizzate dall'IA: lo saranno prima del report, come nell'analisi delle tendenze.",
-      "journalAnalyzeFirst_other": "{{count}} di queste voci non sono ancora state analizzate dall'IA: lo saranno prima del report, come nell'analisi delle tendenze.",
-      "journalTooFew": "I tuoi sogni non verranno confrontati con il diario: servono almeno {{min}} voci dello stesso periodo.",
       "reflectFirst_one": "Uno di questi sogni non ha ancora una riflessione. Quando crei il report, ricevi prima una riflessione su quel sogno, e così usi una delle riflessioni di questo mese (rimaste: {{remaining}}).",
       "reflectFirst_many": "{{count}} di questi sogni non hanno ancora una riflessione. Quando crei il report, ricevi prima una riflessione su ciascuno di questi sogni, e così usi {{count}} delle riflessioni di questo mese (rimaste: {{remaining}}).",
       "reflectFirst_other": "{{count}} di questi sogni non hanno ancora una riflessione. Quando crei il report, ricevi prima una riflessione su ciascuno di questi sogni, e così usi {{count}} delle riflessioni di questo mese (rimaste: {{remaining}}).",
@@ -2743,7 +2752,6 @@
       "createNew": "Crea un nuovo report",
       "creating": "Ricerca degli schemi in corso…",
       "reflecting": "Riflessione in corso: sogno {{current}} su {{total}}…",
-      "analyzingEntries": "Analisi in corso: voce {{current}} su {{total}}…",
       "remaining": "Report rimasti questo mese: {{remaining}} su {{limit}}",
       "plusOnly": "Il report sugli schemi ricorrenti è disponibile con Plus",
       "earlyThemes": "Primi temi",
@@ -2765,16 +2773,6 @@
         "theme": "Tema"
       },
       "changes": "Come sono cambiati i tuoi sogni",
-      "waking": {
-        "title": "Confronto con il diario",
-        "basedOn_one": "Basato su {{count}} voce del diario dello stesso periodo",
-        "basedOn_many": "Basato su {{count}} voci del diario dello stesso periodo",
-        "basedOn_other": "Basato su {{count}} voci del diario dello stesso periodo",
-        "shared": "Nei sogni e nel diario",
-        "dreamsOnly": "Nei sogni, non nel diario",
-        "wakingOnly": "Nel diario, non nei sogni",
-        "none": "Questo report non include il confronto con il diario: servono almeno {{min}} voci dello stesso periodo dei sogni."
-      },
       "questions": "Domande su cui riflettere",
       "footer": "Spunti su cui riflettere, non una diagnosi: prendi quello che senti tuo e lascia il resto.",
       "saveAsNote": "Salva come nota",

@@ -1509,6 +1509,15 @@
       "entryProgress": "Bài viết {{current}} / {{total}}",
       "retrying": "Đang thử lại các bài viết lỗi…",
       "doNotCloseApp": "Vui lòng giữ trang này mở cho đến khi phân tích hoàn tất"
+    },
+    "dreams": {
+      "include": "Bao gồm cả giấc mơ",
+      "included_other": "{{count}} giấc mơ trong khoảng thời gian này sẽ được đưa vào phân tích.",
+      "reflectFirst_other": "Trong số đó, {{count}} giấc mơ chưa có phần suy ngẫm và sẽ được suy ngẫm trước, mất {{count}} lượt (tháng này bạn còn {{remaining}} lượt suy ngẫm).",
+      "leftOut_other": "Ngoài ra, {{count}} giấc mơ khác chưa có phần suy ngẫm sẽ không được đưa vào, vì số lượt suy ngẫm tháng này không đủ.",
+      "tooFew_other": "Khoảng thời gian này có {{count}} giấc mơ đưa vào phân tích được, nhưng cần ít nhất {{min}} giấc mơ.",
+      "notIncluded": "Lần này giấc mơ của bạn không được đưa vào phân tích, vì không đủ giấc mơ có được phần suy ngẫm.",
+      "title": "Giấc mơ của bạn trong giai đoạn này"
     }
   },
   "exportDialog": {
@@ -1999,18 +2008,18 @@
       },
       "dreams": {
         "title": "Nhật ký giấc mơ và suy ngẫm",
-        "desc": "Khi viết bài, nhấn \"Giấc mơ\" để đánh dấu bài viết đó là một giấc mơ. Hãy ghi lại ngay khi vừa thức dậy, theo những gì bạn còn nhớ, rồi chọn những cảm xúc trong giấc mơ. Giấc mơ không được tính vào lịch tâm trạng và phân tích xu hướng. Với gói Plus, nhấn \"Suy ngẫm giấc mơ này\" để nhận phần suy ngẫm gồm những chủ đề có thể có, những hình ảnh đáng tìm hiểu và vài câu hỏi dành cho bạn. Bên dưới phần suy ngẫm, bạn có thể viết ra suy nghĩ của riêng mình. Khi bạn nhấn \"Suy ngẫm lại\", phần suy ngẫm mới sẽ dựa trên cả những suy nghĩ đó. Gói Plus có 30 lượt suy ngẫm mỗi tháng. Khi có ít nhất năm giấc mơ trong khoảng thời gian bạn chọn, bạn có thể tạo báo cáo Mẫu hình giấc mơ cho khoảng thời gian đó (tối đa hai báo cáo mỗi tháng). Khi bạn tạo báo cáo, giấc mơ nào trong khoảng thời gian đó chưa có phần suy ngẫm sẽ được suy ngẫm trước, và mỗi giấc mơ như vậy được tính một lượt trong 30 lượt suy ngẫm mỗi tháng. Báo cáo này cho thấy những người, địa điểm và chủ đề cứ trở đi trở lại, đồng thời so sánh với những gì bạn viết trong nhật ký.",
+        "desc": "Khi viết bài, nhấn \"Giấc mơ\" để đánh dấu bài viết đó là một giấc mơ. Hãy ghi lại ngay khi vừa thức dậy, theo những gì bạn còn nhớ, rồi chọn những cảm xúc trong giấc mơ. Giấc mơ không được tính vào lịch tâm trạng hay vào tâm trạng trong Phân tích xu hướng. Với gói Plus, nhấn \"Suy ngẫm giấc mơ này\" để nhận phần suy ngẫm gồm những chủ đề có thể có, những hình ảnh đáng tìm hiểu và vài câu hỏi dành cho bạn. Bên dưới phần suy ngẫm, bạn có thể viết ra suy nghĩ của riêng mình. Khi bạn nhấn \"Suy ngẫm lại\", phần suy ngẫm mới sẽ dựa trên cả những suy nghĩ đó. Gói Plus có 30 lượt suy ngẫm mỗi tháng. Khi có ít nhất năm giấc mơ trong khoảng thời gian bạn chọn, bạn có thể tạo báo cáo Mẫu hình giấc mơ cho khoảng thời gian đó (tối đa hai báo cáo mỗi tháng). Khi bạn tạo báo cáo, giấc mơ nào trong khoảng thời gian đó chưa có phần suy ngẫm sẽ được suy ngẫm trước, và mỗi giấc mơ như vậy được tính một lượt trong 30 lượt suy ngẫm mỗi tháng. Báo cáo này cho thấy những người, địa điểm và chủ đề cứ trở đi trở lại. Để xem giấc mơ bên cạnh nhật ký, hãy bật \"Bao gồm cả giấc mơ\" trong Phân tích xu hướng.",
         "proNote": "(Tính năng Plus)"
       },
       "dreamMethod": {
         "title": "Cách hoạt động của suy ngẫm giấc mơ",
         "intro": "Suy ngẫm giấc mơ lấy cảm hứng từ cách Carl Jung tiếp cận giấc mơ và từ các nghiên cứu hiện đại về giấc mơ.",
         "jung": "Từ Jung, tính năng này mượn một quan niệm: điều một hình ảnh gợi lên trong chính bạn quan trọng hơn mọi cách hiểu chung về hình ảnh đó. Chính vì vậy, bạn có thể viết ra suy nghĩ của riêng mình bên dưới phần suy ngẫm rồi nhấn \"Suy ngẫm lại\". Cũng theo Jung, một hình ảnh có thể được nhìn theo nhiều hướng. Giấc mơ có khi cho thấy một mặt của cuộc sống mà lúc thức bạn ít để tâm. Nhìn cả một chuỗi giấc mơ, bạn thường hiểu được nhiều hơn so với chỉ một giấc mơ riêng lẻ.",
-        "research": "Từ nghiên cứu về giấc mơ, nhất là công trình của Calvin Hall và G. William Domhoff, tính năng này dựa trên phát hiện rằng giấc mơ phần lớn phản ánh những điều bạn bận tâm khi thức: các mối quan hệ, nỗi lo và cảm xúc. Vì thế mà phần suy ngẫm có thể gợi ra mối liên hệ với các bài viết của bạn trong tuần qua; cũng vì thế mà báo cáo Mẫu hình giấc mơ so sánh giấc mơ với các chủ đề trong nhật ký của bạn.",
+        "research": "Từ nghiên cứu về giấc mơ, nhất là công trình của Calvin Hall và G. William Domhoff, tính năng này dựa trên phát hiện rằng giấc mơ phần lớn phản ánh những điều bạn bận tâm khi thức: các mối quan hệ, nỗi lo và cảm xúc. Vì thế mà phần suy ngẫm có thể gợi ra mối liên hệ với các bài viết của bạn trong tuần qua; cũng vì thế mà Phân tích xu hướng có thể cho thấy giấc mơ của bạn bên cạnh các chủ đề trong nhật ký.",
         "questions": "Các câu hỏi ở cuối dựa theo mô hình tìm hiểu giấc mơ của Clara Hill: khám phá giấc mơ, ngẫm xem giấc mơ có thể mang ý nghĩa gì với bạn, rồi nghĩ đến một bước nhỏ bạn có thể làm.",
         "noDictionary": "Không có bảng giải mã cố định nào cho các biểu tượng trong mơ. Phần suy ngẫm chỉ đưa ra các khả năng, còn điều gì phù hợp là do bạn quyết định.",
         "notAdvice": "Suy ngẫm giấc mơ là để bạn tự nhìn lại mình, không phải lời khuyên y tế hay tâm lý, và không thể dùng để chẩn đoán bất cứ điều gì.",
-        "privacy": "Để tạo phần suy ngẫm, ứng dụng sẽ gửi tới dịch vụ Gemini của Google: nội dung và ngày tháng của giấc mơ, những cảm xúc và loại giấc mơ bạn đã chọn (mơ lặp lại, ác mộng, mơ sáng suốt), cùng những suy nghĩ của bạn về giấc mơ, nếu bạn có ghi lại; khi đó, ứng dụng gửi cả các câu hỏi trong phần suy ngẫm trước đó, những câu hỏi mà các suy nghĩ ấy trả lời. Kèm theo đó là ngày tháng, bản tóm tắt ngắn, chủ đề chính và cảm xúc chủ đạo của từng bài viết trong tuần qua đã được phân tích, chứ không phải nội dung của các bài viết đó. Với báo cáo Mẫu hình giấc mơ, ứng dụng gửi các nhãn ngắn được lưu kèm từng phần suy ngẫm, chứ không gửi nội dung của các giấc mơ. Để so sánh giấc mơ với nhật ký, ứng dụng còn gửi chủ đề chính và cảm xúc chủ đạo của các bài viết nhật ký trong cùng khoảng thời gian với các giấc mơ trong báo cáo, tính từ một tuần trước giấc mơ sớm nhất. Kèm theo là số lần xuất hiện của từng chủ đề và cảm xúc. Bài viết nào trong khoảng thời gian đó chưa có phân tích AI sẽ được phân tích trước, như trong Phân tích xu hướng; để phân tích, ứng dụng gửi nội dung của bài viết đó. OwnJournal không lưu bất kỳ dữ liệu nào được gửi đi."
+        "privacy": "Để tạo phần suy ngẫm, ứng dụng sẽ gửi tới dịch vụ Gemini của Google: nội dung và ngày tháng của giấc mơ, những cảm xúc và loại giấc mơ bạn đã chọn (mơ lặp lại, ác mộng, mơ sáng suốt), cùng những suy nghĩ của bạn về giấc mơ, nếu bạn có ghi lại; khi đó, ứng dụng gửi cả các câu hỏi trong phần suy ngẫm trước đó, những câu hỏi mà các suy nghĩ ấy trả lời. Kèm theo đó là ngày tháng, bản tóm tắt ngắn, chủ đề chính và cảm xúc chủ đạo của từng bài viết trong tuần qua đã được phân tích, chứ không phải nội dung của các bài viết đó. Với báo cáo Mẫu hình giấc mơ, ứng dụng chỉ gửi các nhãn ngắn được lưu kèm từng phần suy ngẫm, chứ không gửi nội dung của các giấc mơ. Khi bạn bật \"Bao gồm cả giấc mơ\" trong Phân tích xu hướng, ứng dụng gửi ngày tháng của từng giấc mơ trong khoảng thời gian được phân tích, các nhãn ngắn đó và việc bạn có đánh dấu giấc mơ là ác mộng hoặc mơ lặp lại hay không, nhưng không gửi nội dung giấc mơ. Trong cả hai trường hợp, giấc mơ nào chưa có phần suy ngẫm sẽ được suy ngẫm trước, và để tạo phần suy ngẫm đó, ứng dụng gửi giấc mơ như đã mô tả ở đầu. OwnJournal không lưu bất kỳ dữ liệu nào được gửi đi."
       },
       "aiAnalysis": {
         "title": "Phân tích AI",
@@ -2019,7 +2028,7 @@
       },
       "trends": {
         "title": "Phân tích xu hướng",
-        "desc": "Khám phá các xu hướng viết nhật ký theo thời gian. Theo dõi xu hướng tâm trạng, tần suất viết và chủ đề phổ biến để hiểu rõ hơn thói quen của bạn.",
+        "desc": "Khám phá các xu hướng viết nhật ký theo thời gian. Theo dõi xu hướng tâm trạng, tần suất viết và chủ đề phổ biến để hiểu rõ hơn thói quen của bạn. Khi bật \"Bao gồm cả giấc mơ\", phần phân tích còn cho thấy giấc mơ của bạn bên cạnh những gì bạn viết trong cùng khoảng thời gian.",
         "proNote": "(Tính năng Plus)"
       },
       "moodTracking": {
@@ -2610,7 +2619,7 @@
       },
       "consent": {
         "title": "Dùng Google để suy ngẫm giấc mơ của bạn?",
-        "body": "Để tạo phần suy ngẫm, ứng dụng sẽ gửi tới dịch vụ Gemini của Google: nội dung và ngày tháng của giấc mơ, những cảm xúc và loại giấc mơ bạn đã chọn (mơ lặp lại, ác mộng, mơ sáng suốt), cùng những suy nghĩ của bạn về giấc mơ, nếu bạn có ghi lại; khi đó, ứng dụng gửi cả các câu hỏi trong phần suy ngẫm trước đó, những câu hỏi mà các suy nghĩ ấy trả lời. Kèm theo đó là ngày tháng, bản tóm tắt ngắn, chủ đề chính và cảm xúc chủ đạo của từng bài viết trong tuần qua đã được phân tích, chứ không phải nội dung của các bài viết đó. Với báo cáo Mẫu hình giấc mơ, ứng dụng gửi các nhãn ngắn được lưu kèm từng phần suy ngẫm, chứ không gửi nội dung của các giấc mơ. Để so sánh giấc mơ với nhật ký, ứng dụng còn gửi chủ đề chính và cảm xúc chủ đạo của các bài viết nhật ký trong cùng khoảng thời gian với các giấc mơ trong báo cáo, tính từ một tuần trước giấc mơ sớm nhất. Kèm theo là số lần xuất hiện của từng chủ đề và cảm xúc. Bài viết nào trong khoảng thời gian đó chưa có phân tích AI sẽ được phân tích trước, như trong Phân tích xu hướng; để phân tích, ứng dụng gửi nội dung của bài viết đó. OwnJournal không lưu bất kỳ dữ liệu nào được gửi đi. Google không dùng dữ liệu này để huấn luyện mô hình của họ và chỉ có thể lưu giữ trong thời gian ngắn để ngăn chặn lạm dụng. Phần suy ngẫm được lưu cùng giấc mơ, như các nội dung khác trong bài viết của bạn.",
+        "body": "Để tạo phần suy ngẫm, ứng dụng sẽ gửi tới dịch vụ Gemini của Google: nội dung và ngày tháng của giấc mơ, những cảm xúc và loại giấc mơ bạn đã chọn (mơ lặp lại, ác mộng, mơ sáng suốt), cùng những suy nghĩ của bạn về giấc mơ, nếu bạn có ghi lại; khi đó, ứng dụng gửi cả các câu hỏi trong phần suy ngẫm trước đó, những câu hỏi mà các suy nghĩ ấy trả lời. Kèm theo đó là ngày tháng, bản tóm tắt ngắn, chủ đề chính và cảm xúc chủ đạo của từng bài viết trong tuần qua đã được phân tích, chứ không phải nội dung của các bài viết đó. Với báo cáo Mẫu hình giấc mơ, ứng dụng chỉ gửi các nhãn ngắn được lưu kèm từng phần suy ngẫm, chứ không gửi nội dung của các giấc mơ. Khi bạn bật \"Bao gồm cả giấc mơ\" trong Phân tích xu hướng, ứng dụng gửi ngày tháng của từng giấc mơ trong khoảng thời gian được phân tích, các nhãn ngắn đó và việc bạn có đánh dấu giấc mơ là ác mộng hoặc mơ lặp lại hay không, nhưng không gửi nội dung giấc mơ. Trong cả hai trường hợp, giấc mơ nào chưa có phần suy ngẫm sẽ được suy ngẫm trước, và để tạo phần suy ngẫm đó, ứng dụng gửi giấc mơ như đã mô tả ở đầu. OwnJournal không lưu bất kỳ dữ liệu nào được gửi đi. Google không dùng dữ liệu này để huấn luyện mô hình của họ và chỉ có thể lưu giữ trong thời gian ngắn để ngăn chặn lạm dụng. Phần suy ngẫm được lưu cùng giấc mơ, như các nội dung khác trong bài viết của bạn.",
         "accept": "Tiếp tục",
         "decline": "Để sau"
       },
@@ -2629,14 +2638,10 @@
     },
     "patterns": {
       "title": "Mẫu hình giấc mơ",
-      "intro": "Những gì cứ trở đi trở lại trong các giấc mơ của bạn, và giấc mơ so với nhật ký ra sao.",
-      "compareJournal": "Bao gồm bài viết nhật ký",
+      "intro": "Những gì cứ trở đi trở lại trong các giấc mơ của bạn.",
       "dreamsInPeriod_other": "{{count}} giấc mơ trong khoảng thời gian này",
       "needMore": "Báo cáo cần ít nhất {{min}} giấc mơ.",
       "tooShort_other": "Có {{count}} giấc mơ quá ngắn để tạo phần suy ngẫm nên không được tính. Phần suy ngẫm cần giấc mơ dài ít nhất {{min}} ký tự.",
-      "journalCompare_other": "Các giấc mơ cũng sẽ được so sánh với {{count}} bài viết nhật ký trong cùng khoảng thời gian.",
-      "journalAnalyzeFirst_other": "Trong số đó, {{count}} bài viết chưa có phân tích AI và sẽ được phân tích trước, như trong Phân tích xu hướng.",
-      "journalTooFew": "Báo cáo sẽ không có phần so sánh với nhật ký, vì phần này cần ít nhất {{min}} bài viết nhật ký trong cùng khoảng thời gian.",
       "reflectFirst_other": "Trong số đó, {{count}} giấc mơ chưa có phần suy ngẫm và sẽ được suy ngẫm trước khi tạo báo cáo, mất {{count}} lượt (tháng này bạn còn {{remaining}} lượt suy ngẫm).",
       "notEnoughReflections_other": "Trong số đó, {{dreams}} giấc mơ chưa có phần suy ngẫm, nhưng tháng này bạn chỉ còn {{count}} lượt suy ngẫm. Hãy chọn khoảng thời gian ngắn hơn.",
       "noReflectionsLeft_other": "Trong số đó, {{count}} giấc mơ chưa có phần suy ngẫm, nhưng tháng này bạn đã hết lượt suy ngẫm. Hãy chọn khoảng thời gian ngắn hơn.",
@@ -2645,7 +2650,6 @@
       "createNew": "Tạo báo cáo mới",
       "creating": "Đang tìm mẫu hình…",
       "reflecting": "Đang suy ngẫm giấc mơ {{current}} trên {{total}}…",
-      "analyzingEntries": "Đang phân tích bài viết {{current}} trên {{total}}…",
       "remaining": "Còn {{remaining}} trên {{limit}} báo cáo trong tháng này",
       "plusOnly": "Mẫu hình giấc mơ có trong gói Plus",
       "earlyThemes": "Chủ đề bước đầu",
@@ -2661,14 +2665,6 @@
         "theme": "Chủ đề"
       },
       "changes": "Giấc mơ của bạn đã thay đổi ra sao",
-      "waking": {
-        "title": "Giấc mơ so với nhật ký",
-        "basedOn_other": "Dựa trên {{count}} bài viết nhật ký trong cùng khoảng thời gian",
-        "shared": "Có trong cả giấc mơ lẫn nhật ký",
-        "dreamsOnly": "Có trong giấc mơ, không có trong nhật ký",
-        "wakingOnly": "Có trong nhật ký, không có trong giấc mơ",
-        "none": "Báo cáo này không có phần so sánh với nhật ký. Phần so sánh cần ít nhất {{min}} bài viết nhật ký trong cùng khoảng thời gian với các giấc mơ."
-      },
       "questions": "Câu hỏi để bạn suy ngẫm",
       "footer": "Mẫu hình để suy ngẫm, không phải chẩn đoán. Thấy điều gì đúng với mình thì giữ lại, còn lại cứ bỏ qua.",
       "saveAsNote": "Lưu thành ghi chú",

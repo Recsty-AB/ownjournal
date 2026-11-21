@@ -1573,6 +1573,23 @@
       "entryProgress": "Entrada {{current}} de {{total}}",
       "retrying": "Reintentando entradas fallidas…",
       "doNotCloseApp": "Mantén esta página abierta hasta que el análisis esté completo"
+    },
+    "dreams": {
+      "include": "Incluir tus sueños",
+      "included_one": "Se incluye un sueño de este periodo.",
+      "included_many": "Se incluyen {{count}} de sueños de este periodo.",
+      "included_other": "Se incluyen {{count}} sueños de este periodo.",
+      "reflectFirst_one": "Uno de ellos aún no tiene reflexión y primero se preparará la suya, que contará como una de tus reflexiones de este mes (restantes: {{remaining}}).",
+      "reflectFirst_many": "De ellos, {{count}} aún no tienen reflexión y primero se prepararán las suyas, que contarán como {{count}} de tus reflexiones de este mes (restantes: {{remaining}}).",
+      "reflectFirst_other": "De ellos, {{count}} aún no tienen reflexión y primero se prepararán las suyas, que contarán como {{count}} de tus reflexiones de este mes (restantes: {{remaining}}).",
+      "leftOut_one": "Otro sueño no tiene reflexión y queda fuera, porque tus reflexiones de este mes no alcanzan para él.",
+      "leftOut_many": "Otros {{count}} de sueños no tienen reflexión y quedan fuera, porque tus reflexiones de este mes no alcanzan para ellos.",
+      "leftOut_other": "Otros {{count}} sueños no tienen reflexión y quedan fuera, porque tus reflexiones de este mes no alcanzan para ellos.",
+      "tooFew_one": "Se puede incluir un sueño de este periodo, pero hacen falta al menos {{min}}.",
+      "tooFew_many": "Se pueden incluir {{count}} de sueños de este periodo, pero hacen falta al menos {{min}}.",
+      "tooFew_other": "Se pueden incluir {{count}} sueños de este periodo, pero hacen falta al menos {{min}}.",
+      "notIncluded": "Esta vez no se han incluido tus sueños: demasiado pocos han podido recibir una reflexión.",
+      "title": "Tus sueños en este periodo"
     }
   },
   "exportDialog": {
@@ -2071,18 +2088,18 @@
       },
       "dreams": {
         "title": "Diario de sueños y reflexión",
-        "desc": "Al escribir una entrada, activa \"Sueño\" para guardarla como sueño. Anota lo que has soñado nada más despertarte, tal como lo recuerdes, y marca qué sentiste. Los sueños quedan fuera del calendario de ánimo y del análisis de tendencias. Con Plus, toca \"Reflexionar sobre este sueño\" y recibirás una reflexión con posibles temas, imágenes para explorar y preguntas para ti. Debajo de la reflexión puedes escribir tus pensamientos, que se tendrán en cuenta al tocar \"Volver a reflexionar\". Plus incluye 30 reflexiones al mes. Si en el periodo que elijas hay al menos cinco sueños, podrás crear un informe de patrones de tus sueños sobre ese periodo (hasta dos al mes). Al crear el informe, los sueños de ese periodo que aún no tienen reflexión reciben primero la suya, y cada una cuenta como una de las 30 reflexiones del mes. El informe muestra las personas, los lugares y los temas que se repiten, y los compara con lo que escribes en tu diario.",
+        "desc": "Al escribir una entrada, activa \"Sueño\" para guardarla como sueño. Anota lo que has soñado nada más despertarte, tal como lo recuerdes, y marca qué sentiste. Los sueños quedan fuera del calendario de ánimo y no cuentan para el estado de ánimo en el análisis de tendencias. Con Plus, toca \"Reflexionar sobre este sueño\" y recibirás una reflexión con posibles temas, imágenes para explorar y preguntas para ti. Debajo de la reflexión puedes escribir tus pensamientos, que se tendrán en cuenta al tocar \"Volver a reflexionar\". Plus incluye 30 reflexiones al mes. Si en el periodo que elijas hay al menos cinco sueños, podrás crear un informe de patrones de tus sueños sobre ese periodo (hasta dos al mes). Al crear el informe, los sueños de ese periodo que aún no tienen reflexión reciben primero la suya, y cada una cuenta como una de las 30 reflexiones del mes. El informe muestra las personas, los lugares y los temas que se repiten. Para ver tus sueños junto a tu diario, activa \"Incluir tus sueños\" en el análisis de tendencias.",
         "proNote": "(Función Plus)"
       },
       "dreamMethod": {
         "title": "Cómo funciona la reflexión sobre sueños",
         "intro": "La reflexión sobre sueños se inspira en la manera en que Carl Jung abordaba los sueños y en la investigación actual sobre ellos.",
         "jung": "De Jung recoge la idea de que lo que una imagen te evoca a ti importa más que cualquier significado general que pueda tener como símbolo. Por eso puedes escribir tus propios pensamientos debajo de una reflexión y volver a reflexionar. De Jung recoge también otras ideas: una imagen puede explorarse desde más de un ángulo; un sueño puede mostrar una parte de tu vida a la que prestas menos atención durante el día, y una serie de sueños revela más que un sueño aislado.",
-        "research": "De la investigación sobre los sueños, en especial de los trabajos de Calvin Hall y G. William Domhoff, recoge una conclusión: los sueños reflejan sobre todo lo que te ocupa durante el día, como tus relaciones, tus preocupaciones y tus emociones. Por eso una reflexión puede señalar vínculos con tus entradas de la última semana, y un informe de patrones compara tus sueños con los temas de tu diario.",
+        "research": "De la investigación sobre los sueños, en especial de los trabajos de Calvin Hall y G. William Domhoff, recoge una conclusión: los sueños reflejan sobre todo lo que te ocupa durante el día, como tus relaciones, tus preocupaciones y tus emociones. Por eso una reflexión puede señalar vínculos con tus entradas de la última semana, y el análisis de tendencias puede poner tus sueños junto a los temas de tu diario.",
         "questions": "Las preguntas finales siguen el modelo de Clara Hill para trabajar con los sueños: explorar el sueño, buscar qué puede significar para ti y, por último, plantearte dar un pequeño paso.",
         "noDictionary": "No se recurre a ningún diccionario de símbolos con significados fijos. La reflexión te propone posibilidades, y eres tú quien decide qué encaja.",
         "notAdvice": "La reflexión sobre sueños es una herramienta de autorreflexión. No ofrece consejo médico ni psicológico y no puede diagnosticar nada.",
-        "privacy": "Para preparar una reflexión, se envían al servicio Gemini de Google el texto y la fecha de tu sueño; las emociones que has marcado y si has indicado que es recurrente, lúcido o una pesadilla; y tus pensamientos sobre el sueño, si los has escrito, junto con las preguntas de la reflexión anterior, a las que responden. De cada entrada ya analizada de la última semana, se envían también la fecha, el resumen breve, los temas clave y la emoción dominante, pero no el texto de la entrada. Al crear un informe de patrones de tus sueños, se envían las palabras clave guardadas con cada reflexión, pero no el texto de los sueños. Para comparar tus sueños con tu diario, se envían además los temas clave y las emociones dominantes de las entradas de tu diario del mismo periodo que esos sueños (desde una semana antes del primero), junto con el número de entradas en las que aparece cada tema y cada emoción. Las entradas de ese periodo que aún no se han analizado con IA se analizan primero, como en el análisis de tendencias, y para ello se envía el texto de esas entradas. OwnJournal no guarda nada de lo que se envía."
+        "privacy": "Para preparar una reflexión, se envían al servicio Gemini de Google el texto y la fecha de tu sueño; las emociones que has marcado y si has indicado que es recurrente, lúcido o una pesadilla; y tus pensamientos sobre el sueño, si los has escrito, junto con las preguntas de la reflexión anterior, a las que responden. De cada entrada ya analizada de la última semana, se envían también la fecha, el resumen breve, los temas clave y la emoción dominante, pero no el texto de la entrada. Al crear un informe de patrones de tus sueños, se envían las palabras clave guardadas con cada reflexión, pero no el texto de los sueños. Si activas \"Incluir tus sueños\" en el análisis de tendencias, se envían, de cada sueño del periodo, la fecha, esas palabras clave y si has indicado que es una pesadilla o recurrente, pero no su texto. En ambos casos, los sueños que aún no tienen reflexión reciben primero la suya, y para prepararla se envía lo que se indica al principio de este texto. OwnJournal no guarda nada de lo que se envía."
       },
       "aiAnalysis": {
         "title": "Análisis de IA",
@@ -2091,7 +2108,7 @@
       },
       "trends": {
         "title": "Análisis de tendencias",
-        "desc": "Descubre patrones en tu diario a lo largo del tiempo. Sigue las tendencias de ánimo, la frecuencia de escritura y los temas recurrentes para entender mejor tus hábitos.",
+        "desc": "Descubre patrones en tu diario a lo largo del tiempo. Sigue las tendencias de ánimo, la frecuencia de escritura y los temas recurrentes para entender mejor tus hábitos. Si activas \"Incluir tus sueños\", verás también tus sueños junto a lo que escribiste por las mismas fechas.",
         "proNote": "(Función Plus)"
       },
       "export": {
@@ -2694,7 +2711,7 @@
       },
       "consent": {
         "title": "¿Reflexionar sobre tu sueño con Google?",
-        "body": "Para preparar la reflexión, se envían al servicio Gemini de Google el texto y la fecha de tu sueño; las emociones que has marcado y si has indicado que es recurrente, lúcido o una pesadilla; y tus pensamientos sobre el sueño, si los has escrito, junto con las preguntas de la reflexión anterior, a las que responden. De cada entrada ya analizada de la última semana, se envían también la fecha, el resumen breve, los temas clave y la emoción dominante, pero no el texto de la entrada. Al crear un informe de patrones de tus sueños, se envían las palabras clave guardadas con cada reflexión, pero no el texto de los sueños. Para comparar tus sueños con tu diario, se envían además los temas clave y las emociones dominantes de las entradas de tu diario del mismo periodo que esos sueños (desde una semana antes del primero), junto con el número de entradas en las que aparece cada tema y cada emoción. Las entradas de ese periodo que aún no se han analizado con IA se analizan primero, como en el análisis de tendencias, y para ello se envía el texto de esas entradas. OwnJournal no guarda nada de lo que se envía. Google no lo utiliza para entrenar sus modelos y solo puede conservarlo durante un breve periodo para prevenir abusos. La reflexión se guarda con tu sueño, como el resto de la entrada.",
+        "body": "Para preparar la reflexión, se envían al servicio Gemini de Google el texto y la fecha de tu sueño; las emociones que has marcado y si has indicado que es recurrente, lúcido o una pesadilla; y tus pensamientos sobre el sueño, si los has escrito, junto con las preguntas de la reflexión anterior, a las que responden. De cada entrada ya analizada de la última semana, se envían también la fecha, el resumen breve, los temas clave y la emoción dominante, pero no el texto de la entrada. Al crear un informe de patrones de tus sueños, se envían las palabras clave guardadas con cada reflexión, pero no el texto de los sueños. Si activas \"Incluir tus sueños\" en el análisis de tendencias, se envían, de cada sueño del periodo, la fecha, esas palabras clave y si has indicado que es una pesadilla o recurrente, pero no su texto. En ambos casos, los sueños que aún no tienen reflexión reciben primero la suya, y para prepararla se envía lo que se indica al principio de este texto. OwnJournal no guarda nada de lo que se envía. Google no lo utiliza para entrenar sus modelos y solo puede conservarlo durante un breve periodo para prevenir abusos. La reflexión se guarda con tu sueño, como el resto de la entrada.",
         "accept": "Continuar",
         "decline": "Ahora no"
       },
@@ -2713,8 +2730,7 @@
     },
     "patterns": {
       "title": "Patrones de tus sueños",
-      "intro": "Lo que se repite una y otra vez en tus sueños, y en qué coinciden con tu diario y en qué no.",
-      "compareJournal": "Incluir las entradas de tu diario",
+      "intro": "Lo que se repite una y otra vez en tus sueños.",
       "dreamsInPeriod_one": "{{count}} sueño en este periodo",
       "dreamsInPeriod_many": "{{count}} de sueños en este periodo",
       "dreamsInPeriod_other": "{{count}} sueños en este periodo",
@@ -2722,13 +2738,6 @@
       "tooShort_one": "En este periodo hay un sueño demasiado corto para reflexionar sobre él, así que no se cuenta. Para una reflexión hacen falta al menos {{min}} caracteres.",
       "tooShort_many": "En este periodo hay {{count}} de sueños demasiado cortos para reflexionar sobre ellos, así que no se cuentan. Para una reflexión hacen falta al menos {{min}} caracteres.",
       "tooShort_other": "En este periodo hay {{count}} sueños demasiado cortos para reflexionar sobre ellos, así que no se cuentan. Para una reflexión hacen falta al menos {{min}} caracteres.",
-      "journalCompare_one": "Tus sueños también se compararán con {{count}} entrada de tu diario del mismo periodo.",
-      "journalCompare_many": "Tus sueños también se compararán con {{count}} de entradas de tu diario del mismo periodo.",
-      "journalCompare_other": "Tus sueños también se compararán con {{count}} entradas de tu diario del mismo periodo.",
-      "journalAnalyzeFirst_one": "Una de ellas aún no se ha analizado con IA y se analizará primero, como en el análisis de tendencias.",
-      "journalAnalyzeFirst_many": "De ellas, {{count}} aún no se han analizado con IA y se analizarán primero, como en el análisis de tendencias.",
-      "journalAnalyzeFirst_other": "De ellas, {{count}} aún no se han analizado con IA y se analizarán primero, como en el análisis de tendencias.",
-      "journalTooFew": "Tus sueños no se compararán con tu diario: para eso hacen falta al menos {{min}} entradas del mismo periodo.",
       "reflectFirst_one": "Uno de estos sueños aún no tiene reflexión. Al crear el informe, primero se preparará la suya, que contará como una de tus reflexiones de este mes (restantes: {{remaining}}).",
       "reflectFirst_many": "De estos sueños, {{count}} aún no tienen reflexión. Al crear el informe, primero se prepararán las suyas, que contarán como {{count}} de tus reflexiones de este mes (restantes: {{remaining}}).",
       "reflectFirst_other": "De estos sueños, {{count}} aún no tienen reflexión. Al crear el informe, primero se prepararán las suyas, que contarán como {{count}} de tus reflexiones de este mes (restantes: {{remaining}}).",
@@ -2743,7 +2752,6 @@
       "createNew": "Crear un informe nuevo",
       "creating": "Buscando patrones…",
       "reflecting": "Preparando la reflexión {{current}} de {{total}}…",
-      "analyzingEntries": "Analizando la entrada {{current}} de {{total}}…",
       "remaining": "Informes restantes este mes: {{remaining}} de {{limit}}",
       "plusOnly": "El informe de patrones de tus sueños está disponible con Plus",
       "earlyThemes": "Primeros temas",
@@ -2765,16 +2773,6 @@
         "theme": "Tema"
       },
       "changes": "Cómo han cambiado tus sueños",
-      "waking": {
-        "title": "Comparación con tu diario",
-        "basedOn_one": "A partir de {{count}} entrada de tu diario del mismo periodo",
-        "basedOn_many": "A partir de {{count}} de entradas de tu diario del mismo periodo",
-        "basedOn_other": "A partir de {{count}} entradas de tu diario del mismo periodo",
-        "shared": "En tus sueños y en tu diario",
-        "dreamsOnly": "En tus sueños, pero no en tu diario",
-        "wakingOnly": "En tu diario, pero no en tus sueños",
-        "none": "Tus sueños no se han comparado con tu diario: para eso hacen falta al menos {{min}} entradas del mismo periodo que tus sueños."
-      },
       "questions": "Preguntas para reflexionar",
       "footer": "Son patrones para reflexionar, no un diagnóstico. Quédate con lo que te sirva y deja el resto.",
       "saveAsNote": "Guardar como nota",

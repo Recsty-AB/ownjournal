@@ -1541,6 +1541,19 @@
       "entryProgress": "Entry {{current}} of {{total}}",
       "retrying": "Retrying failed entries…",
       "doNotCloseApp": "Please keep this page open until analysis is complete"
+    },
+    "dreams": {
+      "include": "Include your dreams",
+      "included_one": "One dream from this period is included.",
+      "included_other": "{{count}} dreams from this period are included.",
+      "reflectFirst_one": "One of them has no reflection yet and gets one first, which uses 1 of your reflections this month ({{remaining}} left).",
+      "reflectFirst_other": "{{count}} of them have no reflection yet and get one first, which uses {{count}} of your reflections this month ({{remaining}} left).",
+      "leftOut_one": "One more dream has no reflection and is left out, because there aren't enough reflections left this month.",
+      "leftOut_other": "{{count}} more dreams have no reflection and are left out, because there aren't enough reflections left this month.",
+      "tooFew_one": "Only one dream from this period can be included. At least {{min}} are needed.",
+      "tooFew_other": "{{count}} dreams from this period can be included. At least {{min}} are needed.",
+      "notIncluded": "Your dreams weren't included this time: too few of them could get a reflection.",
+      "title": "Your Dreams in This Period"
     }
   },
   "exportDialog": {
@@ -2035,18 +2048,18 @@
       },
       "dreams": {
         "title": "Dream Journal and Reflection",
-        "desc": "Tap \"Dream\" when you write an entry to mark it as a dream. Write it down as soon as you wake, the way you remember it, and pick how it felt. Dreams stay out of your mood calendar and trend analysis. With Plus, tap \"Reflect on this dream\" to get a reflection with possible themes, images to explore and questions for you. Under a reflection you can write down your own thoughts, and \"Reflect again\" takes them into account. Plus includes 30 reflections a month. When a period you choose holds at least five dreams, you can create a Dream patterns report for it, up to two a month. When you create a report, any dreams in that period without a reflection get one automatically first, and each of these uses one of your 30 reflections a month. The report shows the people, places and themes that keep coming back, and how they compare with what you write about in your journal.",
+        "desc": "Tap \"Dream\" when you write an entry to mark it as a dream. Write it down as soon as you wake, the way you remember it, and pick how it felt. Dreams stay out of your mood calendar and out of the mood trend in Trend Analysis. With Plus, tap \"Reflect on this dream\" to get a reflection with possible themes, images to explore and questions for you. Under a reflection you can write down your own thoughts, and \"Reflect again\" takes them into account. Plus includes 30 reflections a month. When a period you choose holds at least five dreams, you can create a Dream patterns report for it, up to two a month. When you create a report, any dreams in that period without a reflection get one automatically first, and each of these uses one of your 30 reflections a month. The report shows the people, places and themes that keep coming back. To see your dreams beside your journal, turn on \"Include your dreams\" in Trend Analysis.",
         "proNote": "(Plus feature)"
       },
       "dreamMethod": {
         "title": "How Dream Reflection Works",
         "intro": "Dream reflection is inspired by Carl Jung's approach to dreams and by modern dream research.",
         "jung": "From Jung it takes the idea that your own associations matter more than any general meaning of a symbol. That is why you can write your own thoughts under a reflection and reflect again. From Jung it also takes these ideas: an image can be explored in more than one direction, a dream may show a side of life you give less attention to while awake, and a series of dreams says more than a single one.",
-        "research": "From dream research, especially the work of Calvin Hall and G. William Domhoff, it takes the finding that dreams mostly reflect what occupies you while awake: your relationships, worries and feelings. That is why a reflection can point to links with your entries from the past week, and why a Dream patterns report compares your dreams with the themes of your journal.",
+        "research": "From dream research, especially the work of Calvin Hall and G. William Domhoff, it takes the finding that dreams mostly reflect what occupies you while awake: your relationships, worries and feelings. That is why a reflection can point to links with your entries from the past week, and why Trend Analysis can set your dreams beside the themes of your journal.",
         "questions": "The questions at the end follow Clara Hill's model of dream work: explore the dream, look for what it might mean to you, then think about a small step you could take.",
         "noDictionary": "There is no fixed dictionary of dream symbols. A reflection offers possibilities, and you decide what fits.",
         "notAdvice": "Dream reflection is for self-reflection. It is not medical or psychological advice and cannot diagnose anything.",
-        "privacy": "To make a reflection, OwnJournal sends this to Google's Gemini service: your dream text and its date; the feelings you chose and whether you marked the dream as recurring, a nightmare, or lucid; your own thoughts on the dream, if you wrote any, with the questions from the earlier reflection that they answer; and, for each analyzed entry from the past week, its date, short summary, key themes, and dominant emotion. A Dream patterns report does not send the text of your dreams. It sends the short labels saved with each reflection. To compare your dreams with your journal, it also sends the key themes and dominant emotions of your journal entries from the same period as the dreams in the report, starting a week before the first of those dreams, and how often each theme and emotion appears. Journal entries from that period that have no AI analysis yet are analyzed first, as in Trend Analysis, which means their text is sent. OwnJournal stores none of what is sent."
+        "privacy": "To make a reflection, OwnJournal sends this to Google's Gemini service: your dream text and its date; the feelings you chose and whether you marked the dream as recurring, a nightmare, or lucid; your own thoughts on the dream, if you wrote any, with the questions from the earlier reflection that they answer; and, for each analyzed entry from the past week, its date, short summary, key themes, and dominant emotion. A Dream patterns report does not send the text of your dreams, only the short labels saved with each reflection. With \"Include your dreams\" on, Trend Analysis sends, for each dream in the period you selected, its date, those labels, and whether you marked it as a nightmare or recurring, but not its text. In both cases, dreams without a reflection get one first, which means they are sent as described above. OwnJournal stores none of what is sent."
       },
       "aiAnalysis": {
         "title": "AI Analysis",
@@ -2055,7 +2068,7 @@
       },
       "trends": {
         "title": "Trend Analysis",
-        "desc": "Discover patterns in your journaling over time. Track mood trends, writing frequency, and common themes to better understand your habits.",
+        "desc": "Discover patterns in your journaling over time. Track mood trends, writing frequency, and common themes to better understand your habits. With \"Include your dreams\" on, Trend Analysis also sets your dreams beside what you wrote about at the same time.",
         "proNote": "(Plus feature)"
       },
       "moodTracking": {
@@ -2652,7 +2665,7 @@
       },
       "consent": {
         "title": "Reflect on your dream with Google?",
-        "body": "To make the reflection, OwnJournal sends this to Google's Gemini service: your dream text and its date; the feelings you chose and whether you marked the dream as recurring, a nightmare, or lucid; your own thoughts on the dream, if you wrote any, with the questions from the earlier reflection that they answer; and, for each analyzed entry from the past week, its date, short summary, key themes, and dominant emotion. A Dream patterns report does not send the text of your dreams. It sends short labels from your reflections. To compare your dreams with your journal, it also sends the key themes and dominant emotions of your journal entries from the same period as the dreams in the report, starting a week before the first of those dreams, and how often each theme and emotion appears. Journal entries from that period that have no AI analysis yet are analyzed first, as in Trend Analysis, which means their text is sent. OwnJournal stores none of what is sent. Google doesn't use it to train its models and may keep it only briefly to prevent abuse. The reflection is saved with your dream, like the rest of the entry.",
+        "body": "To make the reflection, OwnJournal sends this to Google's Gemini service: your dream text and its date; the feelings you chose and whether you marked the dream as recurring, a nightmare, or lucid; your own thoughts on the dream, if you wrote any, with the questions from the earlier reflection that they answer; and, for each analyzed entry from the past week, its date, short summary, key themes, and dominant emotion. A Dream patterns report does not send the text of your dreams, only the short labels saved with each reflection. With \"Include your dreams\" on, Trend Analysis sends, for each dream in the period you selected, its date, those labels, and whether you marked it as a nightmare or recurring, but not its text. In both cases, dreams without a reflection get one first, which means they are sent as described above. OwnJournal stores none of what is sent. Google doesn't use it to train its models and may keep it only briefly to prevent abuse. The reflection is saved with your dream, like the rest of the entry.",
         "accept": "Continue",
         "decline": "Not now"
       },
@@ -2671,18 +2684,12 @@
     },
     "patterns": {
       "title": "Dream patterns",
-      "intro": "What keeps coming back across your dreams, and how they compare with your journal.",
-      "compareJournal": "Include your journal entries",
+      "intro": "What keeps coming back across your dreams.",
       "dreamsInPeriod_one": "{{count}} dream in this period",
       "dreamsInPeriod_other": "{{count}} dreams in this period",
       "needMore": "A report needs at least {{min}} dreams.",
       "tooShort_one": "One dream in this period is too short for a reflection, so it isn't counted. A reflection needs at least {{min}} characters.",
       "tooShort_other": "{{count}} dreams in this period are too short for a reflection, so they aren't counted. A reflection needs at least {{min}} characters.",
-      "journalCompare_one": "Your dreams are also compared with {{count}} journal entry from the same period.",
-      "journalCompare_other": "Your dreams are also compared with {{count}} journal entries from the same period.",
-      "journalAnalyzeFirst_one": "One of them has no AI analysis yet and gets one first, as in Trend Analysis.",
-      "journalAnalyzeFirst_other": "{{count}} of them have no AI analysis yet and get one first, as in Trend Analysis.",
-      "journalTooFew": "Your dreams won't be compared with your journal: that needs at least {{min}} journal entries from the same period.",
       "reflectFirst_one": "One of these dreams has no reflection yet. Creating the report reflects on that dream first, which uses 1 of your reflections this month ({{remaining}} left).",
       "reflectFirst_other": "{{count}} of these dreams have no reflection yet. Creating the report reflects on them first, which uses {{count}} of your reflections this month ({{remaining}} left).",
       "notEnoughReflections_one": "{{dreams}} of these dreams have no reflection yet, but you have only 1 reflection left this month. Choose a shorter period.",
@@ -2694,7 +2701,6 @@
       "createNew": "Create a new report",
       "creating": "Looking for patterns…",
       "reflecting": "Reflecting on dream {{current}} of {{total}}…",
-      "analyzingEntries": "Analyzing journal entry {{current}} of {{total}}…",
       "remaining": "{{remaining}} of {{limit}} reports left this month",
       "plusOnly": "Dream patterns is available with Plus",
       "earlyThemes": "Early themes",
@@ -2713,15 +2719,6 @@
         "theme": "Theme"
       },
       "changes": "How your dreams have changed",
-      "waking": {
-        "title": "Compared with your journal",
-        "basedOn_one": "Based on {{count}} journal entry from the same period",
-        "basedOn_other": "Based on {{count}} journal entries from the same period",
-        "shared": "In your dreams and in your journal",
-        "dreamsOnly": "In your dreams, not in your journal",
-        "wakingOnly": "In your journal, not in your dreams",
-        "none": "Not compared with your journal: that needs at least {{min}} journal entries from the same period as your dreams."
-      },
       "questions": "Questions to reflect on",
       "footer": "Patterns to reflect on, not a diagnosis. Take what fits and leave the rest.",
       "saveAsNote": "Save as note",

@@ -81,10 +81,9 @@ export const DREAM_LIMITS = {
   minCharacters: 50,
   /** Cap on the dreamer's own thoughts saved with a dream. */
   maxThoughtsCharacters: 2000,
-  /** Analysed journal entries needed before a report compares dreams with waking life. */
-  wakingEntriesForPatterns: 3,
-  maxWakingTopics: 12,
-  maxWakingEmotions: 6,
+  /** Reflected dreams in the period a Trend Analysis needs before it includes them. */
+  dreamsForTrends: 3,
+  maxDreamsForTrends: 40,
 } as const;
 
 /** True when a dream is over the word or character cap for a reflection. */
@@ -130,24 +129,6 @@ export const DREAM_PATTERNS_REPORT_KEY = 'dream-patterns-report';
 /** Window event fired when the saved report was removed. */
 export const DREAM_PATTERNS_REPORT_CLEARED = 'dream-patterns-report-cleared';
 
-/** One line of the dreams-and-waking-life comparison. */
-export interface DreamWakingItem {
-  label: string;
-  note: string;
-}
-
-/**
- * How the dreams compare with the regular journal of the same period. Present
- * only when enough analysed entries were there to compare with.
- */
-export interface DreamWakingComparison {
-  /** Analysed journal entries the comparison is based on. */
-  entryCount: number;
-  shared: DreamWakingItem[];
-  dreamsOnly: DreamWakingItem[];
-  wakingOnly: DreamWakingItem[];
-}
-
 /** Latest Dream patterns report; kept on the device (see dreamPatternsReportStore). */
 export interface DreamPatternsReport {
   version: 1;
@@ -156,16 +137,17 @@ export interface DreamPatternsReport {
   /** Calendar days (YYYY-MM-DD) of the period the report covers. */
   periodStart?: string;
   periodEnd?: string;
-  /** False when the dreamer switched the comparison with the journal off. */
-  journalCompared?: boolean;
   overview: string;
   recurring: { kind: DreamPatternKind; label: string; count: number; note: string }[];
   changes: string[];
   questions: string[];
-  waking?: DreamWakingComparison;
 }
 
-/** Entries for mood and trend views: dreams stay out (a nightmare is not a bad day). */
+/**
+ * Entries for mood and trend views: dreams stay out (a nightmare is not a bad
+ * day). Trend Analysis sends dreams separately, only when "Include your
+ * dreams" is on.
+ */
 export function withoutDreams<T extends { type?: string }>(entries: T[]): T[] {
   return entries.filter((entry) => entry.type !== 'dream');
 }
@@ -255,19 +237,11 @@ export function sanitizeDreamPatternsReport(value: unknown): DreamPatternsReport
   const raw = value as Partial<DreamPatternsReport>;
   if (typeof raw.overview !== 'string' || typeof raw.createdAt !== 'string') return undefined;
   const strings = (v: unknown) => (Array.isArray(v) ? v.filter((s): s is string => typeof s === 'string') : []);
-  const items = (v: unknown): DreamWakingItem[] =>
-    Array.isArray(v)
-      ? v
-          .filter((i) => i && typeof i.label === 'string' && typeof i.note === 'string')
-          .map((i) => ({ label: i.label, note: i.note }))
-      : [];
-  const waking = raw.waking && typeof raw.waking === 'object' ? raw.waking : undefined;
   return {
     version: 1,
     createdAt: raw.createdAt,
     dreamCount: typeof raw.dreamCount === 'number' ? raw.dreamCount : 0,
     ...(isDay(raw.periodStart) && isDay(raw.periodEnd) ? { periodStart: raw.periodStart, periodEnd: raw.periodEnd } : {}),
-    ...(raw.journalCompared === false ? { journalCompared: false } : {}),
     overview: raw.overview,
     recurring: Array.isArray(raw.recurring)
       ? raw.recurring
@@ -281,15 +255,5 @@ export function sanitizeDreamPatternsReport(value: unknown): DreamPatternsReport
       : [],
     changes: strings(raw.changes),
     questions: strings(raw.questions),
-    ...(waking
-      ? {
-          waking: {
-            entryCount: typeof waking.entryCount === 'number' ? waking.entryCount : 0,
-            shared: items(waking.shared),
-            dreamsOnly: items(waking.dreamsOnly),
-            wakingOnly: items(waking.wakingOnly),
-          },
-        }
-      : {}),
   };
 }
