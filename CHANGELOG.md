@@ -1,9 +1,10 @@
 # Changelog
 
-## Unreleased
+## v1.1.1
 
 ### Developer Notes
-- Entry analysis, Trend Analysis, Dream reflection and Dream patterns move from `gemini-3.8-flash` to `gemini-4-hydrogen` with the same thinking levels (HIGH for Trend Analysis and Dream patterns, LOW otherwise); deploy with `supabase functions deploy ai-analyze`
+- Entry analysis, Trend Analysis, Dream reflection and Dream patterns now use Gemini 4 Hydrogen. Deploy `ai-analyze` to apply the change.
+- Android versionCode `10101` and iOS build `34`
 
 ---
 
@@ -19,6 +20,7 @@
 - Free users can tap the microphone to see what voice entry unlocks with Plus
 
 ### Improvements
+- Search and filters share one journal toolbar, and Settings and dialogs have clearer layouts
 - Plus feature lists (paywall, upgrade banner, Help, FAQ) include voice entry; PDF and Word export are shown as one item
 - Privacy policy describes voice recordings and no longer lists OpenAI as an AI provider
 - Native-speaker review of all 21 languages: Danish strings that were in Norwegian, European Portuguese strings that were in Brazilian Portuguese, and Mainland terms in Traditional Chinese are corrected; each language uses one form of address and consistent terminology; missing and mistranslated strings are fixed
