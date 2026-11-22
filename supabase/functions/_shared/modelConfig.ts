@@ -1,12 +1,14 @@
 // Keep Gemini models and their supported thinking levels together.
 // Model availability reviewed against provider documentation on 2026-10-13.
+// entryAnalysis moved from gemini-3.8-flash to gemini-4-hydrogen on
+// 2026-11-22 (owner decision), keeping each request's thinking level.
 // deepAnalysis is now only the fallback model of the ENABLE_AI_RETRY retries.
 // The transcription model was added on 2026-11-16. It is a dedicated
 // speech-to-text model served by the Interactions API (not generateContent)
 // and takes no thinking level.
 export const AI_MODELS = {
   suggestions: "gemini-3.5-flash-lite",
-  entryAnalysis: "gemini-3.8-flash",
+  entryAnalysis: "gemini-4-hydrogen",
   deepAnalysis: "gemini-3.1-pro-preview",
   transcription: "gemini-3.5-transcribe",
 } as const;
@@ -20,7 +22,7 @@ export const AI_MODEL_SETTINGS: Readonly<Record<string, {
     thinkingLevel: "MINIMAL",
   },
   [AI_MODELS.entryAnalysis]: {
-    // Gemini 3.8 does not support MINIMAL; LOW suits short metadata extraction.
+    // Gemini 4 Hydrogen rejects MINIMAL; LOW suits short metadata extraction.
     thinkingLevel: "LOW",
   },
   [AI_MODELS.deepAnalysis]: {
@@ -47,7 +49,7 @@ export function getModelForType(type: string): string {
     case "title":
     case "tags":
       return `google/${AI_MODELS.suggestions}`;
-    // Trend Analysis moved from the deep-analysis model to Flash (owner
+    // Trend Analysis moved from the deep-analysis model to entryAnalysis (owner
     // decision, 2026-11-21), along with dreams joining it.
     case "analyzeTrends":
     // Dream reflection starts on the entry-analysis model (owner decision,
