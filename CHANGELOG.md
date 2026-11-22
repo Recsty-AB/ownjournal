@@ -11,7 +11,7 @@
 ## v1.1.0
 
 ### New Features
-- Dream journal: tap "Dream" in the editor to mark an entry as a dream, and optionally pick how it felt and whether it was recurring, a nightmare or lucid. Dreams stay out of the mood calendar, mood statistics and Trend Analysis. Free for everyone
+- Dream journal: tap "Dream" in the editor to mark an entry as a dream, and optionally pick how it felt and whether it was recurring, a nightmare or lucid. Dreams stay out of the mood calendar and mood statistics. Trend Analysis excludes them by default. Free for everyone
 - Dream reflection (Plus, 30 a month): possible themes, images to explore, possible links to the past week's entries and questions to reflect on. Write your own thoughts under a reflection and tap "Reflect again"; the new reflection opens with what your thoughts changed
 - Dream patterns (Plus, once a week, like Trend Analysis): pick a period as in Trend Analysis; with five or more dreams in it, dreams without a reflection get one first, then the report shows the people, places and themes that keep coming back
 - Trend Analysis can include your dreams ("Include your dreams", Plus): dreams of the period without a reflection get one first, then the analysis sets the dreams beside what the journal shows at the same time. Dreams never count towards the mood
@@ -20,7 +20,8 @@
 - Free users can tap the microphone to see what voice entry unlocks with Plus
 
 ### Improvements
-- Search and filters share one journal toolbar, and Settings and dialogs have clearer layouts
+- Search, Filters and New Entry share one journal toolbar. Date, mood, activity and tag filters sit in a collapsible panel
+- Entry and note cards use a consistent layout, and Settings, dialogs and Insights are easier to scan
 - Plus feature lists (paywall, upgrade banner, Help, FAQ) include voice entry; PDF and Word export are shown as one item
 - Privacy policy describes voice recordings and no longer lists OpenAI as an AI provider
 - Native-speaker review of all 21 languages: Danish strings that were in Norwegian, European Portuguese strings that were in Brazilian Portuguese, and Mainland terms in Traditional Chinese are corrected; each language uses one form of address and consistent terminology; missing and mistranslated strings are fixed
@@ -29,6 +30,7 @@
 - The sign-in screen's terms sentence can put the links before the verb (Korean, Japanese, Chinese)
 
 ### Bug Fixes
+- Fixed dark-theme contrast for mood badges and the logo, and corrected the Trend Analysis layout in narrow views
 - Sync diagnostics showed a literal "{{time}}" instead of when a paused provider reopens
 - Adding activities past the limit of 20 showed the wrong message in some languages
 - Dropdowns, date pickers and menus opened behind dialogs on desktop, so the language picker in Settings did nothing
