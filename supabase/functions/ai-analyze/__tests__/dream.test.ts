@@ -126,7 +126,7 @@ describe('analyzeDream', () => {
     expect(data).toMatchObject({ used: 1, limit: 30 });
 
     const { url, user, body } = promptText();
-    expect(url).toContain('/models/gemini-3.8-flash:generateContent');
+    expect(url).toContain('/models/gemini-4-hydrogen:generateContent');
     // Room for a long dream in a token-heavy script plus the model's thinking.
     expect(body.generationConfig.maxOutputTokens).toBe(6000);
     // Reflections run often and stay on the model's default.
@@ -587,14 +587,14 @@ describe('analyzeTrends with dreams', () => {
       usageMetadata: { promptTokenCount: 2000, candidatesTokenCount: 800, thoughtsTokenCount: 100, totalTokenCount: 2900 },
     });
 
-  it('runs on Flash and dates each entry', async () => {
+  it('runs on the entry-analysis model and dates each entry', async () => {
     fetchMock.mockResolvedValue(textResponse(TREND));
 
     const response = await post(trendBody());
 
     expect(response.status).toBe(200);
     const { user, url, body } = promptText();
-    expect(url).toContain('/models/gemini-3.8-flash:generateContent');
+    expect(url).toContain('/models/gemini-4-hydrogen:generateContent');
     expect(body.generationConfig.maxOutputTokens).toBe(16000);
     expect(body.generationConfig.thinkingConfig).toEqual({ thinkingLevel: 'HIGH' });
     expect(user).toContain('1. 2026-11-01, Sentiment: -0.20');

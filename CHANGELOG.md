@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+### Developer Notes
+- Entry analysis, Trend Analysis, Dream reflection and Dream patterns move from `gemini-3.8-flash` to `gemini-4-hydrogen` with the same thinking levels (HIGH for Trend Analysis and Dream patterns, LOW otherwise); deploy with `supabase functions deploy ai-analyze`
+
+---
+
 ## v1.1.0
 
 ### New Features

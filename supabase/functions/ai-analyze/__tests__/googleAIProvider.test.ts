@@ -25,11 +25,11 @@ const toolChoice = { type: 'function' as const, function: { name: 'generate_titl
 const routes = [
   { type: 'title', google: 'gemini-3.5-flash-lite', thinking: 'MINIMAL', maxTokens: 2000 },
   { type: 'tags', google: 'gemini-3.5-flash-lite', thinking: 'MINIMAL', maxTokens: 2000 },
-  { type: 'analyzeEntry', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2000 },
-  { type: 'analyzeTrends', google: 'gemini-3.8-flash', thinking: 'HIGH', maxTokens: 16000 },
-  { type: 'analyze', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2000 },
-  { type: 'analyzeDream', google: 'gemini-3.8-flash', thinking: 'LOW', maxTokens: 2000 },
-  { type: 'analyzeDreamPatterns', google: 'gemini-3.8-flash', thinking: 'HIGH', maxTokens: 16000 },
+  { type: 'analyzeEntry', google: 'gemini-4-hydrogen', thinking: 'LOW', maxTokens: 2000 },
+  { type: 'analyzeTrends', google: 'gemini-4-hydrogen', thinking: 'HIGH', maxTokens: 16000 },
+  { type: 'analyze', google: 'gemini-4-hydrogen', thinking: 'LOW', maxTokens: 2000 },
+  { type: 'analyzeDream', google: 'gemini-4-hydrogen', thinking: 'LOW', maxTokens: 2000 },
+  { type: 'analyzeDreamPatterns', google: 'gemini-4-hydrogen', thinking: 'HIGH', maxTokens: 16000 },
 ];
 
 const fetchMock = vi.fn<typeof fetch>();
