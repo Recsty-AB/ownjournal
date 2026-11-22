@@ -1,0 +1,58 @@
+OwnJournal – Uw privédagboek, beschermd in uw eigen cloud
+
+Schrijf over uw dag, houd uw stemming bij of noteer een droom terwijl u zich die nog herinnert. Uw dagboek is van u. U kiest waar het wordt opgeslagen.
+
+📌 Dit is gratis
+
+• Schrijf en bewerk items, voeg foto's en tags toe
+• Kies uit vijf emoji's om uw stemming vast te leggen
+• Markeer activiteiten zoals bewegen, sociaal contact, werk of meditatie
+• Houd naast uw dagelijkse items een droomdagboek bij
+• Synchroniseer tussen telefoons, tablets en pc's via uw eigen cloudaccount
+• Schakel end-to-end-versleuteling in
+• Gebruik OwnJournal in 21 talen, zonder advertenties
+
+Alleen Plus is betaald. Schrijven, synchroniseren, uw stemming bijhouden en versleutelen zijn altijd gratis.
+
+🌙 Uw droomdagboek
+
+Tik op Droom wanneer u een item schrijft. Noteer wat er gebeurde en hoe u zich in de droom voelde. U kunt een droom markeren als terugkerend, een nachtmerrie of lucide. Dromen blijven buiten uw stemmingskalender en statistieken, zodat een nare droom niets verandert aan de stemming die u voor uw dag heeft vastgelegd.
+
+📊 Stemming en activiteiten bijhouden
+
+Bekijk een maand aan stemmingen in één oogopslag in de kalender met kleurcodes. Kijk bij de inzichten terug op de verdeling van uw stemmingen, trends en reeksen. Zoek een item door Filters in de werkbalk van het dagboek te openen en uw tijdlijn te filteren op datum, stemming, activiteit of tag.
+
+☁️ Opgeslagen in uw eigen cloud
+
+Kies Google Drive, Dropbox of Nextcloud. Schrijf op uw telefoon, ga verder op uw tablet en lees terug op uw pc. Uw dagboek synchroniseert met uw cloudaccount. Wij slaan het niet op de servers van OwnJournal op.
+
+🔒 Optionele end-to-end-versleuteling
+
+Schakel versleuteling in om items op uw apparaat te versleutelen voordat ze worden gesynchroniseerd. Alleen u heeft de sleutels. OwnJournal en uw cloudprovider kunnen de versleutelde items niet lezen.
+
+✨ OwnJournal Plus (optioneel)
+
+Probeer Plus 14 dagen gratis.
+
+• Dicteer een item. Tik op de microfoon en uw woorden verschijnen als bewerkbare tekst met leestekens, in de taal die u sprak.
+• Verken een droom met Droomreflectie. Denk na over mogelijke thema's en vragen, voeg uw eigen gedachten toe en reflecteer opnieuw.
+• Zoek met Droompatronen naar terugkerende mensen, plaatsen en thema's zodra u minstens vijf dromen heeft in de gekozen periode.
+• Gebruik Trendanalyse om terug te kijken op uw items. Kies of u dromen wilt meenemen naast wat u over uw dagelijks leven heeft geschreven.
+• Verken stemmingen en emoties in een item, krijg suggesties voor titels, tags en activiteiten en zie hoe activiteiten samenhangen met uw stemming.
+• Exporteer uw dagboek naar PDF of Word.
+
+Wanneer u een AI-functie gebruikt, verwerkt Google Gemini de tekst of stemopname die voor die functie nodig is.
+
+🔐 Minimale gegevensverzameling
+
+We verzamelen alleen wat nodig is:
+
+• E-mailadres om in te loggen
+• Weergavenaam als uw inlogprovider die doorgeeft
+• Anonieme diagnostische gegevens om de stabiliteit te verbeteren
+
+🔓 Open source
+
+OwnJournal is open source onder de AGPL-3.0-licentie. U kunt de code bekijken en zien hoe uw gegevens worden verwerkt.
+
+Geen volgers, openbare berichten of advertenties. Gewoon een rustige plek om te schrijven.

@@ -1,0 +1,58 @@
+OwnJournal – Jurnal pribadimu, terlindungi di cloud milikmu
+
+Tulis tentang harimu, catat suasana hati, atau tulis mimpi selagi masih ingat. Jurnal ini milikmu. Kamu yang memilih tempat menyimpannya.
+
+📌 Yang bisa kamu gunakan gratis
+
+• Tulis dan edit catatan, lampirkan foto, dan tambahkan tag
+• Catat suasana hati dengan pilihan emoji dalam lima tingkatan
+• Tandai aktivitas seperti olahraga, bersosialisasi, bekerja, atau meditasi
+• Simpan jurnal mimpi berdampingan dengan catatan harian
+• Sinkronkan di ponsel, tablet, dan PC lewat akun cloud milikmu
+• Aktifkan enkripsi end-to-end
+• Gunakan OwnJournal dalam 21 bahasa, tanpa iklan
+
+Hanya Plus yang berbayar. Menulis, sinkronisasi, pencatatan suasana hati, dan enkripsi selalu gratis.
+
+🌙 Jurnal mimpimu
+
+Ketuk “Mimpi” saat menulis catatan. Tulis apa yang terjadi dan bagaimana rasanya. Kamu bisa menandainya sebagai mimpi berulang, mimpi buruk, atau lucid dream. Mimpi tidak masuk ke kalender suasana hati dan statistik, jadi mimpi yang meresahkan tidak mengubah suasana hati yang kamu catat untuk hari itu.
+
+📊 Pantau suasana hati dan aktivitas
+
+Lihat suasana hati selama sebulan sekilas di kalender berkode warna. Di “Wawasan”, lihat kembali distribusi suasana hati, tren, dan jumlah hari berturut-turut dengan suasana hati positif. Untuk menemukan catatan, buka “Filter” di bilah alat jurnal dan persempit linimasa berdasarkan tanggal, suasana hati, aktivitas, atau tag.
+
+☁️ Tersimpan di cloud milikmu
+
+Pilih Google Drive, Dropbox, atau Nextcloud. Tulis di ponsel, lanjutkan di tablet, dan baca kembali di PC. Jurnalmu disinkronkan ke akun cloud milikmu. Kami tidak menyimpannya di server OwnJournal.
+
+🔒 Enkripsi end-to-end opsional
+
+Aktifkan enkripsi agar catatan dienkripsi di perangkatmu sebelum disinkronkan. Hanya kamu yang memegang kuncinya. OwnJournal maupun penyedia cloud tidak dapat membaca catatan yang terenkripsi.
+
+✨ OwnJournal Plus (opsional)
+
+Coba Plus gratis selama 14 hari.
+
+• Tulis catatan dengan suara. Ketuk mikrofon dan ucapanmu menjadi teks bertanda baca yang bisa diedit, dalam bahasa yang kamu gunakan saat berbicara.
+• Jelajahi mimpi dengan “Refleksi mimpi”. Pertimbangkan kemungkinan tema dan pertanyaan, tambahkan pemikiranmu sendiri, lalu lakukan refleksi lagi.
+• Temukan orang, tempat, dan tema yang berulang lewat “Pola mimpi” saat kamu punya setidaknya lima mimpi dalam periode pilihanmu.
+• Tinjau kembali catatan dengan “Analisis Tren”. Pilih apakah mimpi akan disertakan bersama tulisan tentang kehidupanmu saat terjaga.
+• Jelajahi suasana hati dan emosi dalam catatan, dapatkan saran judul, tag, dan aktivitas, serta lihat hubungan aktivitas dengan suasana hatimu.
+• Ekspor jurnal ke PDF atau Word.
+
+Saat kamu menggunakan fitur AI, Google Gemini memproses teks atau rekaman suara yang diperlukan untuk fitur tersebut.
+
+🔐 Pengumpulan data minimal
+
+Kami hanya mengumpulkan yang diperlukan:
+
+• Email untuk masuk
+• Nama tampilan jika diberikan oleh penyedia layanan masuk
+• Data diagnostik anonim untuk meningkatkan kestabilan
+
+🔓 Sumber terbuka
+
+OwnJournal bersifat sumber terbuka dengan lisensi AGPL-3.0. Kamu bisa memeriksa kode dan melihat bagaimana datamu ditangani.
+
+Tanpa pengikut, postingan publik, atau iklan. Hanya tempat yang tenang untuk menulis.

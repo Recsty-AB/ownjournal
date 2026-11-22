@@ -1,0 +1,58 @@
+OwnJournal – Your private journal, protected in your cloud
+
+Write about your day, track your mood or jot down a dream while you still remember it. Your journal belongs to you. You choose where it’s stored.
+
+📌 What’s free
+
+• Write and edit entries, attach photos and add tags
+• Track your mood with a five-level emoji picker
+• Tag activities like exercise, social time, work or meditation
+• Keep a dream journal alongside your daily entries
+• Sync across phones, tablets and PCs using your own cloud account
+• Turn on end-to-end encryption
+• Use OwnJournal in 21 languages, without ads
+
+Only Plus is paid. Writing, syncing, mood tracking and encryption are always free.
+
+🌙 Your dream journal
+
+Tap Dream when you write an entry. Record what happened and how the dream felt. You can mark a dream as recurring, a nightmare or lucid. Dreams stay out of your mood calendar and statistics, so a difficult dream won’t change the mood you recorded for your day.
+
+📊 Mood & activity tracking
+
+See a month of moods at a glance in the color-coded calendar. In Insights, look back at mood distribution, trends and streaks. To find an entry, open Filters in the journal toolbar and narrow your timeline by date, mood, activity or tag.
+
+☁️ Stored in your own cloud
+
+Choose Google Drive, Dropbox or Nextcloud. Write on your phone, continue on your tablet and read back on your PC. Your journal syncs to your cloud account. We don’t store it on OwnJournal’s servers.
+
+🔒 Optional end-to-end encryption
+
+Turn on encryption to encrypt entries on your device before they sync. Only you hold the keys. Neither OwnJournal nor your cloud provider can read the encrypted entries.
+
+✨ OwnJournal Plus (optional)
+
+Try Plus free for 14 days.
+
+• Dictate an entry. Tap the microphone and your words appear as editable, punctuated text in the language you spoke.
+• Explore a dream with Dream reflection. Consider possible themes and questions, add your own thoughts and reflect again.
+• Look for recurring people, places and themes with Dream patterns when you have at least five dreams in the period you choose.
+• Use Trend Analysis to look back over your entries. Choose whether to include dreams alongside what you wrote about your waking life.
+• Explore moods and emotions in an entry, get title, tag and activity suggestions, and see how activities relate to your mood.
+• Export your journal to PDF or Word.
+
+When you use an AI feature, Google Gemini processes the text or voice recording needed for that feature.
+
+🔐 Minimal data collection
+
+We collect only what's needed:
+
+• Email for sign-in
+• Display name if provided by your sign-in provider
+• Anonymous diagnostics to improve stability
+
+🔓 Open source
+
+OwnJournal is open source under the AGPL-3.0 license. You can inspect the code and see how your data is handled.
+
+No followers, public posts or ads. Just a quiet place to write.

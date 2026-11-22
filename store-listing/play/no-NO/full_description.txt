@@ -1,0 +1,58 @@
+OwnJournal – Din private dagbok, beskyttet i din egen sky
+
+Skriv om dagen din, følg med på humøret eller skriv ned en drøm mens du ennå husker den. Dagboken er din. Du velger hvor den lagres.
+
+📌 Dette er gratis
+
+• Skriv og rediger innlegg, legg ved bilder og legg til tagger
+• Registrer humøret ditt med fem emoji-nivåer
+• Merk aktiviteter som trening, sosialt samvær, jobb eller meditasjon
+• Før drømmedagbok ved siden av de daglige innleggene dine
+• Synkroniser mellom telefoner, nettbrett og PC-er med din egen skykonto
+• Slå på ende-til-ende-kryptering
+• Bruk OwnJournal på 21 språk, uten reklame
+
+Bare Plus koster penger. Skriving, synkronisering, humørregistrering og kryptering er alltid gratis.
+
+🌙 Din drømmedagbok
+
+Trykk på Drøm når du skriver et innlegg. Skriv ned hva som skjedde, og hvordan drømmen føltes. Du kan merke drømmen som tilbakevendende, et mareritt eller en klardrøm. Drømmer holdes utenfor humørkalenderen og statistikken, så en ubehagelig drøm endrer ikke humøret du har registrert for dagen.
+
+📊 Følg med på humør og aktiviteter
+
+Få oversikt over en måneds humør i den fargekodede kalenderen. Se tilbake på humørfordeling, trender og humørserier i innsiktene dine. Finn et innlegg ved å åpne Filtre i dagbokens verktøylinje og avgrense tidslinjen etter dato, humør, aktivitet eller tagg.
+
+☁️ Lagret i din egen sky
+
+Velg Google Drive, Dropbox eller Nextcloud. Skriv på telefonen, fortsett på nettbrettet og les innleggene på PC-en. Dagboken synkroniseres til skykontoen din. Vi lagrer den ikke på OwnJournals servere.
+
+🔒 Valgfri ende-til-ende-kryptering
+
+Slå på kryptering for å kryptere innlegg på enheten din før de synkroniseres. Bare du har nøklene. Verken OwnJournal eller skyleverandøren din kan lese de krypterte innleggene.
+
+✨ OwnJournal Plus (valgfritt)
+
+Prøv Plus gratis i 14 dager.
+
+• Dikter et innlegg. Trykk på mikrofonen, så blir ordene dine til redigerbar tekst med tegnsetting på språket du snakket.
+• Utforsk en drøm med Drømmerefleksjon. Tenk over mulige temaer og spørsmål, legg til egne tanker og reflekter på nytt.
+• Se etter personer, steder og temaer som går igjen, med Drømmemønstre når du har minst fem drømmer i perioden du velger.
+• Bruk Trendanalyse til å se tilbake på innleggene dine. Velg om drømmer skal tas med sammen med det du skrev om hverdagen din.
+• Utforsk humør og følelser i et innlegg, få forslag til titler, tagger og aktiviteter, og se hvordan aktiviteter henger sammen med humøret ditt.
+• Eksporter dagboken til PDF eller Word.
+
+Når du bruker en KI-funksjon, behandler Google Gemini teksten eller stemmeopptaket som trengs for funksjonen.
+
+🔐 Minimal datainnsamling
+
+Vi samler bare inn det som trengs:
+
+• E-post for innlogging
+• Visningsnavn hvis innloggingsleverandøren din oppgir det
+• Anonyme diagnosedata for å forbedre stabiliteten
+
+🔓 Åpen kildekode
+
+OwnJournal har åpen kildekode under AGPL-3.0-lisensen. Du kan se gjennom koden og se hvordan dataene dine behandles.
+
+Ingen følgere, offentlige innlegg eller reklame. Bare et rolig sted å skrive.

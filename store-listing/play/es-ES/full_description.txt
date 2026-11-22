@@ -1,0 +1,58 @@
+OwnJournal – Tu diario privado, protegido en tu nube
+
+Escribe sobre tu día, sigue tu estado de ánimo o apunta un sueño antes de olvidarlo. Tu diario te pertenece. Tú eliges dónde guardarlo.
+
+📌 Qué es gratis
+
+• Escribe y edita entradas, adjunta fotos y añade etiquetas
+• Registra tu estado de ánimo con un selector de emojis de cinco niveles
+• Marca actividades como ejercicio, tiempo con amigos, trabajo o meditación
+• Lleva un diario de sueños junto a tus entradas del día a día
+• Sincroniza móviles, tabletas y PC con tu propia cuenta en la nube
+• Activa el cifrado de extremo a extremo
+• Usa OwnJournal en 21 idiomas, sin anuncios
+
+Solo Plus es de pago. Escribir, sincronizar, seguir tu estado de ánimo y usar el cifrado es siempre gratis.
+
+🌙 Tu diario de sueños
+
+Toca Sueño al escribir una entrada. Anota lo que pasó y cómo te sentiste. Puedes marcar el sueño como recurrente, pesadilla o lúcido. Los sueños quedan fuera del calendario de ánimo y las estadísticas, así que un sueño difícil no cambiará el estado de ánimo que registraste para ese día.
+
+📊 Seguimiento del ánimo y las actividades
+
+Consulta un mes de estados de ánimo de un vistazo en el calendario por colores. En el análisis, repasa la distribución del ánimo, las tendencias y las rachas. Para encontrar una entrada, abre Filtros en la barra de herramientas del diario y acota tu cronología por fecha, ánimo, actividad o etiqueta.
+
+☁️ Guardado en tu propia nube
+
+Elige Google Drive, Dropbox o Nextcloud. Escribe en el móvil, continúa en la tableta y relee en el PC. Tu diario se sincroniza con tu cuenta en la nube. No lo guardamos en los servidores de OwnJournal.
+
+🔒 Cifrado de extremo a extremo opcional
+
+Activa el cifrado para cifrar las entradas en tu dispositivo antes de sincronizarlas. Solo tú tienes las claves. Ni OwnJournal ni tu proveedor de nube pueden leer las entradas cifradas.
+
+✨ OwnJournal Plus (opcional)
+
+Prueba Plus gratis durante 14 días.
+
+• Dicta una entrada. Toca el micrófono y tus palabras aparecerán como texto editable, con puntuación, en el idioma en el que hablaste.
+• Explora un sueño con Reflexión sobre sueños. Considera posibles temas y preguntas, añade tus pensamientos y vuelve a reflexionar.
+• Busca personas, lugares y temas recurrentes con Patrones de tus sueños cuando tengas al menos cinco sueños en el periodo elegido.
+• Repasa tus entradas con Análisis de tendencias. Elige si quieres incluir tus sueños junto con lo que escribiste sobre tu vida cotidiana.
+• Explora estados de ánimo y emociones de una entrada, recibe sugerencias de título, etiquetas y actividades y descubre cómo se relacionan las actividades con tu ánimo.
+• Exporta tu diario a PDF o Word.
+
+Cuando usas una función de IA, Google Gemini procesa el texto o la grabación de voz necesarios para esa función.
+
+🔐 Recogida mínima de datos
+
+Solo recogemos lo necesario:
+
+• Correo electrónico para iniciar sesión
+• Nombre para mostrar, si lo facilita el servicio con el que inicias sesión
+• Diagnósticos anónimos para mejorar la estabilidad
+
+🔓 Código abierto
+
+OwnJournal es de código abierto bajo la licencia AGPL-3.0. Puedes examinar el código y ver cómo se tratan tus datos.
+
+Sin seguidores, publicaciones públicas ni anuncios. Solo un espacio tranquilo para escribir.

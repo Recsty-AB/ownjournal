@@ -1,0 +1,58 @@
+OwnJournal – Votre journal privé, protégé dans votre cloud
+
+Racontez votre journée, suivez votre humeur ou notez un rêve avant de l’oublier. Votre journal vous appartient. Vous choisissez où le conserver.
+
+📌 Ce qui est gratuit
+
+• Rédigez et modifiez vos entrées, joignez des photos et ajoutez des tags
+• Suivez votre humeur avec un sélecteur d’emojis à cinq niveaux
+• Associez des activités : sport, moments entre amis, travail ou méditation
+• Tenez un journal de rêves en parallèle de vos entrées quotidiennes
+• Synchronisez téléphones, tablettes et PC via votre propre compte cloud
+• Activez le chiffrement de bout en bout
+• Utilisez OwnJournal en 21 langues, sans publicité
+
+Seul Plus est payant. L’écriture, la synchronisation, le suivi de l’humeur et le chiffrement sont toujours gratuits.
+
+🌙 Votre journal de rêves
+
+Touchez Rêve lorsque vous rédigez une entrée. Notez ce qui s’est passé et ce que vous avez ressenti. Vous pouvez signaler un rêve récurrent, un cauchemar ou un rêve lucide. Les rêves restent en dehors du calendrier d’humeur et des statistiques : un rêve difficile ne modifiera pas l’humeur notée pour votre journée.
+
+📊 Suivi de l’humeur et des activités
+
+Visualisez un mois d’humeurs d’un coup d’œil dans le calendrier en couleurs. Retrouvez dans les analyses la répartition de vos humeurs, les tendances et le nombre de jours de bonne humeur consécutifs. Pour retrouver une entrée, ouvrez Filtres dans la barre d’outils du journal et affinez votre chronologie par date, humeur, activité ou tag.
+
+☁️ Stocké dans votre propre cloud
+
+Choisissez Google Drive, Dropbox ou Nextcloud. Écrivez sur votre téléphone, poursuivez sur votre tablette et relisez sur votre PC. Votre journal se synchronise avec votre compte cloud. Nous ne le stockons pas sur les serveurs d’OwnJournal.
+
+🔒 Chiffrement de bout en bout facultatif
+
+Activez le chiffrement pour chiffrer les entrées sur votre appareil avant leur synchronisation. Vous seul détenez les clés. Ni OwnJournal ni votre fournisseur de cloud ne peuvent lire les entrées chiffrées.
+
+✨ OwnJournal Plus (facultatif)
+
+Essayez Plus gratuitement pendant 14 jours.
+
+• Dictez une entrée. Touchez le microphone : vos mots deviennent un texte modifiable et ponctué, dans la langue parlée.
+• Explorez un rêve avec Réflexion sur le rêve. Envisagez des thèmes et des questions possibles, ajoutez vos pensées et relancez la réflexion.
+• Repérez les personnes, lieux et thèmes récurrents avec Motifs récurrents des rêves dès que la période choisie contient au moins cinq rêves.
+• Revenez sur vos entrées avec Analyse des tendances. Choisissez d’y inclure ou non vos rêves aux côtés de vos récits du quotidien.
+• Explorez les humeurs et émotions d’une entrée, obtenez des suggestions de titre, de tags et d’activités, et découvrez les liens entre activités et humeur.
+• Exportez votre journal en PDF ou Word.
+
+Lorsque vous utilisez une fonction d’IA, Google Gemini traite le texte ou l’enregistrement vocal nécessaire à cette fonction.
+
+🔐 Collecte minimale de données
+
+Nous collectons uniquement le nécessaire :
+
+• Adresse e-mail pour la connexion
+• Nom d’affichage, s’il est fourni par votre service de connexion
+• Diagnostics anonymes pour améliorer la stabilité
+
+🔓 Code source ouvert
+
+OwnJournal est open source sous licence AGPL-3.0. Vous pouvez examiner le code et voir comment vos données sont traitées.
+
+Ni abonnés, ni publications publiques, ni publicité. Juste un espace tranquille pour écrire.
