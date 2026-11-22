@@ -1,0 +1,58 @@
+OwnJournal – Yksityinen päiväkirjasi, suojassa omassa pilvessäsi
+
+Kirjoita päivästäsi, seuraa mielialaasi tai kirjaa uni muistiin, kun vielä muistat sen. Päiväkirja on sinun. Sinä päätät, minne se tallennetaan.
+
+📌 Maksuttomat ominaisuudet
+
+• Kirjoita ja muokkaa merkintöjä, liitä kuvia ja lisää tunnisteita
+• Kirjaa mielialasi viisiportaisella emojivalitsimella
+• Merkitse aktiviteetteja, kuten liikuntaa, yhdessäoloa, työtä tai meditaatiota
+• Pidä unipäiväkirjaa päivittäisten merkintöjen rinnalla
+• Synkronoi puhelinten, tablettien ja tietokoneiden välillä omalla pilvitililläsi
+• Ota päästä päähän -salaus käyttöön
+• Käytä OwnJournalia 21 kielellä ilman mainoksia
+
+Vain Plus on maksullinen. Kirjoittaminen, synkronointi, mielialan seuranta ja salaus ovat aina maksuttomia.
+
+🌙 Oma unipäiväkirjasi
+
+Napauta Uni, kun kirjoitat merkintää. Kirjaa, mitä tapahtui ja miltä uni tuntui. Voit merkitä unen toistuvaksi uneksi, painajaiseksi tai selkouneksi. Unet eivät näy mielialakalenterissa tai tilastoissa, joten ikävä uni ei muuta päivälle kirjaamaasi mielialaa.
+
+📊 Mielialan ja aktiviteettien seuranta
+
+Näe kuukauden mielialat yhdellä silmäyksellä värikoodatusta kalenterista. Tarkastele analyyseissa mielialojen jakaumaa, trendejä ja mielialasarjoja. Etsi merkintä avaamalla Suodattimet päiväkirjan työkalupalkista ja rajaamalla aikajanaa päivämäärän, mielialan, aktiviteetin tai tunnisteen mukaan.
+
+☁️ Tallennus omaan pilveesi
+
+Valitse Google Drive, Dropbox tai Nextcloud. Kirjoita puhelimella, jatka tabletilla ja palaa merkintöihisi tietokoneella. Päiväkirjasi synkronoidaan pilvitilillesi. Emme tallenna sitä OwnJournalin palvelimille.
+
+🔒 Valinnainen päästä päähän -salaus
+
+Ota salaus käyttöön, niin merkinnät salataan laitteellasi ennen synkronointia. Vain sinulla on avaimet. OwnJournal tai pilvipalvelusi tarjoaja ei voi lukea salattuja merkintöjä.
+
+✨ OwnJournal Plus (valinnainen)
+
+Kokeile Plus-tilausta maksutta 14 päivää.
+
+• Sanele merkintä. Napauta mikrofonia, niin puheesi muuttuu muokattavaksi tekstiksi välimerkkeineen sillä kielellä, jota puhuit.
+• Tutki unta Unipohdinta-toiminnolla. Pohdi mahdollisia teemoja ja kysymyksiä, lisää omia ajatuksiasi ja pohdi uudelleen.
+• Etsi toistuvia ihmisiä, paikkoja ja teemoja Unien kuviot -toiminnolla, kun valitsemallasi ajanjaksolla on vähintään viisi unta.
+• Tarkastele aiempia merkintöjäsi Trendianalyysi-toiminnolla. Valitse, otetaanko unet mukaan valveillaolosta kertovien merkintöjen rinnalle.
+• Tutki merkinnän mielialoja ja tunteita. Saat ehdotuksia otsikoiksi, tunnisteiksi ja aktiviteeteiksi ja näet, miten aktiviteetit liittyvät mielialaasi.
+• Vie päiväkirjasi PDF- tai Word-muotoon.
+
+Kun käytät tekoälytoimintoa, Google Gemini käsittelee toiminnon tarvitseman tekstin tai äänitallenteen.
+
+🔐 Mahdollisimman vähän tietoja
+
+Keräämme vain tarvittavat tiedot:
+
+• Sähköpostiosoite kirjautumista varten
+• Näyttönimi, jos kirjautumispalvelusi välittää sen
+• Anonyymit diagnostiikkatiedot vakauden parantamiseksi
+
+🔓 Avoin lähdekoodi
+
+OwnJournal on avointa lähdekoodia AGPL-3.0-lisenssillä. Voit tutkia koodia ja nähdä, miten tietojasi käsitellään.
+
+Ei seuraajia, julkisia julkaisuja tai mainoksia. Vain rauhallinen paikka kirjoittaa.

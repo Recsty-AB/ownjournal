@@ -1,0 +1,58 @@
+OwnJournal – Ihr privates Tagebuch, geschützt in Ihrer Cloud
+
+Schreiben Sie über Ihren Tag, halten Sie Ihre Stimmung fest oder notieren Sie einen Traum, solange Sie sich noch daran erinnern. Ihr Tagebuch gehört Ihnen. Sie entscheiden, wo es gespeichert wird.
+
+📌 Kostenlos enthalten
+
+• Einträge schreiben und bearbeiten, Fotos anhängen und Tags hinzufügen
+• Ihre Stimmung mit fünf Emoji-Stufen festhalten
+• Aktivitäten wie Sport, Treffen mit Freunden, Arbeit oder Meditation markieren
+• Neben Alltagseinträgen ein Traumtagebuch führen
+• Über Ihr eigenes Cloud-Konto zwischen Smartphones, Tablets und PCs synchronisieren
+• Ende-zu-Ende-Verschlüsselung aktivieren
+• OwnJournal in 21 Sprachen nutzen, ohne Werbung
+
+Nur Plus ist kostenpflichtig. Schreiben, Synchronisieren, Stimmungserfassung und Verschlüsselung bleiben immer kostenlos.
+
+🌙 Ihr Traumtagebuch
+
+Tippen Sie beim Schreiben auf „Traum“. Notieren Sie, was passiert ist und wie sich der Traum angefühlt hat. Markieren Sie ihn bei Bedarf als wiederkehrenden Traum, Albtraum oder Klartraum. Träume fließen nicht in Ihren Stimmungskalender und Ihre Statistiken ein. Ein belastender Traum verändert also nicht die Stimmung, die Sie für den Tag festgehalten haben.
+
+📊 Stimmung und Aktivitäten
+
+Der farbcodierte Kalender zeigt Ihre Stimmung für einen ganzen Monat auf einen Blick. Unter „Erkenntnisse“ sehen Sie Stimmungsverteilung, Trends und Serien. Öffnen Sie „Filter“ in der Tagebuch-Symbolleiste, um Ihre Zeitleiste nach Datum, Stimmung, Aktivität oder Tag einzugrenzen.
+
+☁️ In Ihrer eigenen Cloud gespeichert
+
+Wählen Sie Google Drive, Dropbox oder Nextcloud. Schreiben Sie auf dem Smartphone, machen Sie auf dem Tablet weiter und lesen Sie am PC nach. Ihr Tagebuch wird mit Ihrem Cloud-Konto synchronisiert. Wir speichern es nicht auf den Servern von OwnJournal.
+
+🔒 Optionale Ende-zu-Ende-Verschlüsselung
+
+Aktivieren Sie die Verschlüsselung, um Einträge vor der Synchronisierung auf Ihrem Gerät zu verschlüsseln. Nur Sie besitzen die Schlüssel. Weder OwnJournal noch Ihr Cloud-Anbieter können die verschlüsselten Einträge lesen.
+
+✨ OwnJournal Plus (optional)
+
+Testen Sie Plus 14 Tage kostenlos.
+
+• Diktieren Sie einen Eintrag. Tippen Sie auf das Mikrofon: Ihre Worte erscheinen als bearbeitbarer Text mit Satzzeichen in der gesprochenen Sprache.
+• Erkunden Sie einen Traum mit „Traumreflexion“. Gehen Sie möglichen Themen und Fragen nach, ergänzen Sie eigene Gedanken und reflektieren Sie erneut.
+• Entdecken Sie mit „Traummuster“ wiederkehrende Personen, Orte und Themen, sobald der gewählte Zeitraum mindestens fünf Träume enthält.
+• Blicken Sie mit „Trendanalyse“ auf Ihre Einträge zurück. Entscheiden Sie, ob Träume neben Ihren Aufzeichnungen aus dem Wachleben einbezogen werden.
+• Erkunden Sie Stimmungen und Gefühle in einem Eintrag, erhalten Sie Vorschläge für Titel, Tags und Aktivitäten und sehen Sie Zusammenhänge zwischen Aktivitäten und Stimmung.
+• Exportieren Sie Ihr Tagebuch als PDF- oder Word-Datei.
+
+Wenn Sie eine KI-Funktion nutzen, verarbeitet Google Gemini den dafür benötigten Text oder die Sprachaufnahme.
+
+🔐 Minimale Datenerhebung
+
+Wir erheben nur das Nötige:
+
+• E-Mail-Adresse zur Anmeldung
+• Anzeigename, falls Ihr Anmeldedienst ihn bereitstellt
+• Anonyme Diagnosedaten zur Verbesserung der Stabilität
+
+🔓 Open Source
+
+OwnJournal ist Open Source unter der Lizenz AGPL-3.0. Sie können den Code einsehen und nachvollziehen, wie Ihre Daten verarbeitet werden.
+
+Keine Follower, öffentlichen Beiträge oder Werbung. Einfach ein ruhiger Ort zum Schreiben.

@@ -1,0 +1,58 @@
+OwnJournal – Nhật ký riêng, được bảo vệ trên đám mây của bạn
+
+Viết về một ngày, ghi lại tâm trạng hay lưu một giấc mơ khi còn nhớ. Nhật ký thuộc về bạn. Bạn chọn nơi lưu giữ.
+
+📌 Những gì miễn phí
+
+• Viết, chỉnh sửa bài viết, đính kèm ảnh và thêm thẻ
+• Ghi lại tâm trạng bằng bộ chọn biểu tượng cảm xúc 5 mức
+• Gắn hoạt động như tập luyện, giao lưu, làm việc hay thiền
+• Viết nhật ký giấc mơ bên cạnh những ghi chép hằng ngày
+• Đồng bộ giữa điện thoại, máy tính bảng và PC qua tài khoản đám mây của bạn
+• Bật mã hóa đầu cuối
+• Dùng OwnJournal bằng 21 ngôn ngữ, không quảng cáo
+
+Chỉ Plus mới tính phí. Viết nhật ký, đồng bộ, ghi lại tâm trạng và mã hóa luôn miễn phí.
+
+🌙 Nhật ký giấc mơ của bạn
+
+Nhấn “Giấc mơ” khi viết bài. Ghi lại chuyện đã xảy ra và cảm giác trong mơ. Bạn có thể đánh dấu “Mơ lặp lại”, “Ác mộng” hoặc “Mơ sáng suốt”. Giấc mơ không được tính vào lịch và thống kê tâm trạng, nên một giấc mơ nặng nề sẽ không thay đổi tâm trạng bạn đã ghi cho ngày hôm đó.
+
+📊 Theo dõi tâm trạng và hoạt động
+
+Xem tâm trạng cả tháng qua lịch phân màu. Trong báo cáo, nhìn lại phân bố tâm trạng, xu hướng và số ngày liên tiếp có tâm trạng tích cực. Để tìm bài viết, mở “Bộ lọc” trên thanh công cụ nhật ký rồi lọc dòng thời gian theo ngày, tâm trạng, hoạt động hoặc thẻ.
+
+☁️ Lưu trên đám mây của bạn
+
+Chọn Google Drive, Dropbox hoặc Nextcloud. Viết trên điện thoại, tiếp tục trên máy tính bảng rồi đọc lại trên PC. Nhật ký đồng bộ với tài khoản đám mây của bạn. Chúng tôi không lưu nhật ký trên máy chủ OwnJournal.
+
+🔒 Mã hóa đầu cuối tùy chọn
+
+Bật mã hóa để bài viết được mã hóa trên thiết bị trước khi đồng bộ. Chỉ bạn giữ khóa. Cả OwnJournal lẫn nhà cung cấp đám mây đều không thể đọc các bài viết đã mã hóa.
+
+✨ OwnJournal Plus (tùy chọn)
+
+Dùng thử Plus miễn phí trong 14 ngày.
+
+• Viết nhật ký bằng giọng nói. Nhấn micrô, lời nói sẽ thành văn bản có dấu câu, có thể chỉnh sửa, bằng ngôn ngữ bạn đã nói.
+• Khám phá một giấc mơ với “Suy ngẫm giấc mơ”. Cân nhắc các chủ đề và câu hỏi gợi mở, thêm suy nghĩ của bạn rồi suy ngẫm lại.
+• Tìm người, địa điểm và chủ đề lặp lại với “Mẫu hình giấc mơ” khi có ít nhất 5 giấc mơ trong khoảng thời gian bạn chọn.
+• Dùng “Phân tích xu hướng” để nhìn lại bài viết. Bạn chọn có đưa giấc mơ vào cùng những ghi chép về cuộc sống lúc thức hay không.
+• Khám phá tâm trạng và cảm xúc trong bài viết, nhận gợi ý tiêu đề, thẻ và hoạt động, xem hoạt động liên quan đến tâm trạng ra sao.
+• Xuất nhật ký sang PDF hoặc Word.
+
+Khi bạn dùng tính năng AI, Google Gemini xử lý văn bản hoặc bản ghi âm cần thiết cho tính năng đó.
+
+🔐 Thu thập dữ liệu tối thiểu
+
+Chúng tôi chỉ thu thập những gì cần thiết:
+
+• Email để đăng nhập
+• Tên hiển thị nếu dịch vụ đăng nhập cung cấp
+• Thông tin chẩn đoán ẩn danh để cải thiện độ ổn định
+
+🔓 Mã nguồn mở
+
+OwnJournal có mã nguồn mở theo giấy phép AGPL-3.0. Bạn có thể xem mã nguồn và cách dữ liệu được xử lý.
+
+Không người theo dõi, không bài đăng công khai, không quảng cáo. Chỉ là một nơi yên tĩnh để viết.

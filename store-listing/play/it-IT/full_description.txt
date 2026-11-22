@@ -1,0 +1,58 @@
+OwnJournal – Il tuo diario privato, protetto nel tuo cloud
+
+Racconta la tua giornata, segui il tuo umore o annota un sogno prima di dimenticarlo. Il diario è tuo. Sei tu a scegliere dove conservarlo.
+
+📌 Cosa puoi fare gratis
+
+• Scrivi e modifica le voci, allega foto e aggiungi tag
+• Registra il tuo umore scegliendo tra cinque livelli con emoji
+• Aggiungi attività come sport, tempo con gli amici, lavoro o meditazione
+• Tieni un diario dei sogni accanto alle voci quotidiane
+• Sincronizza telefoni, tablet e PC tramite il tuo account cloud
+• Attiva la crittografia end-to-end
+• Usa OwnJournal in 21 lingue, senza pubblicità
+
+Solo Plus è a pagamento. Scrittura, sincronizzazione, monitoraggio dell’umore e crittografia sono sempre gratis.
+
+🌙 Il tuo diario dei sogni
+
+Tocca Sogno quando scrivi una voce. Racconta cosa è successo e cosa hai provato. Puoi indicare se il sogno è ricorrente, un incubo o lucido. I sogni restano fuori dal calendario dell’umore e dalle statistiche: un sogno difficile non cambia l’umore che hai registrato per la giornata.
+
+📊 Umore e attività
+
+Il calendario a colori mostra a colpo d’occhio com’è cambiato il tuo umore durante il mese. Negli approfondimenti ritrovi distribuzione dell’umore, tendenze e serie di giorni consecutivi. Per trovare una voce, apri Filtri nella barra degli strumenti del diario e restringi la cronologia per data, umore, attività o tag.
+
+☁️ Nel tuo cloud
+
+Scegli Google Drive, Dropbox o Nextcloud. Scrivi sul telefono, continua sul tablet e rileggi sul PC. Il diario si sincronizza con il tuo account cloud. Non lo conserviamo sui server di OwnJournal.
+
+🔒 Crittografia end-to-end facoltativa
+
+Attiva la crittografia per crittografare le voci sul tuo dispositivo prima della sincronizzazione. Solo tu possiedi le chiavi. Né OwnJournal né il tuo fornitore cloud possono leggere le voci crittografate.
+
+✨ OwnJournal Plus (facoltativo)
+
+Prova Plus gratis per 14 giorni.
+
+• Detta una voce. Tocca il microfono: le tue parole diventano testo modificabile, con punteggiatura, nella lingua in cui hai dettato la voce.
+• Esplora un sogno con Riflessione sui sogni. Valuta possibili temi e domande, aggiungi i tuoi pensieri e rifletti di nuovo.
+• Cerca persone, luoghi e temi ricorrenti con Schemi ricorrenti nei sogni quando hai almeno cinque sogni nel periodo scelto.
+• Rileggi le tue esperienze con Analisi delle tendenze. Scegli se includere i sogni accanto a ciò che hai scritto sulla tua vita quotidiana.
+• Esplora umori ed emozioni in una voce, ricevi suggerimenti per titoli, tag e attività e scopri come le attività si collegano al tuo umore.
+• Esporta il diario in PDF o Word.
+
+Quando usi una funzione di IA, Google Gemini elabora il testo o la registrazione vocale necessari per quella funzione.
+
+🔐 Raccolta minima di dati
+
+Raccogliamo solo ciò che serve:
+
+• Email per accedere
+• Nome visualizzato, se fornito dal servizio con cui accedi
+• Dati diagnostici anonimi per migliorare la stabilità
+
+🔓 Open source
+
+OwnJournal è open source con licenza AGPL-3.0. Puoi esaminare il codice e vedere come vengono gestiti i tuoi dati.
+
+Niente follower, post pubblici o pubblicità. Solo uno spazio tranquillo per scrivere.

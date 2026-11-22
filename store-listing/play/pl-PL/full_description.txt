@@ -1,0 +1,58 @@
+OwnJournal – Twój prywatny dziennik, chroniony w Twojej chmurze
+
+Opisz swój dzień, zanotuj nastrój lub zapisz sen, zanim uleci z pamięci. Dziennik należy do Ciebie. Ty wybierasz, gdzie go przechowujesz.
+
+📌 Co jest bezpłatne
+
+• Pisz i edytuj wpisy, dołączaj zdjęcia i dodawaj tagi
+• Zapisuj nastrój za pomocą pięciostopniowej skali emoji
+• Oznaczaj aktywności, takie jak ćwiczenia, spotkania, praca czy medytacja
+• Prowadź dziennik snów obok codziennych wpisów
+• Synchronizuj dane między telefonami, tabletami i komputerami przez własne konto w chmurze
+• Włącz szyfrowanie end-to-end
+• Korzystaj z OwnJournal w 21 językach, bez reklam
+
+Tylko Plus jest płatny. Pisanie, synchronizacja, śledzenie nastroju i szyfrowanie są zawsze bezpłatne.
+
+🌙 Twój dziennik snów
+
+Podczas pisania wpisu dotknij „Sen”. Opisz wydarzenia i uczucia ze snu. Możesz oznaczyć go jako powracający, koszmar lub świadomy sen. Sny nie trafiają do kalendarza nastroju ani statystyk, więc trudny sen nie zmieni nastroju zapisanego dla danego dnia.
+
+📊 Nastrój i aktywności
+
+Dzięki kolorom w kalendarzu od razu zobaczysz, jak zmieniał się Twój nastrój w ciągu miesiąca. W sekcji „Wnioski” sprawdzisz rozkład nastrojów, trendy i serie. Aby znaleźć wpis, otwórz „Filtry” na pasku narzędzi dziennika i zawęź oś czasu według daty, nastroju, aktywności lub tagu.
+
+☁️ Przechowywanie we własnej chmurze
+
+Wybierz Google Drive, Dropbox lub Nextcloud. Zacznij pisać na telefonie, kontynuuj na tablecie i wracaj do wpisów na komputerze. Dziennik synchronizuje się z Twoim kontem w chmurze. Nie przechowujemy go na serwerach OwnJournal.
+
+🔒 Opcjonalne szyfrowanie end-to-end
+
+Włącz szyfrowanie, aby wpisy były szyfrowane na Twoim urządzeniu przed synchronizacją. Tylko Ty masz klucze. Ani OwnJournal, ani dostawca chmury nie mogą odczytać zaszyfrowanych wpisów.
+
+✨ OwnJournal Plus (opcjonalnie)
+
+Wypróbuj Plus bezpłatnie przez 14 dni.
+
+• Dyktuj wpisy. Dotknij mikrofonu, a Twoje słowa pojawią się jako tekst z interpunkcją, gotowy do edycji, w języku, w którym mówisz.
+• Przyjrzyj się snowi z funkcją „Refleksja nad snem”. Rozważ możliwe motywy i pytania, dodaj własne przemyślenia i ponów refleksję.
+• Odkrywaj powracające osoby, miejsca i motywy dzięki funkcji „Wzorce snów”, gdy masz co najmniej pięć snów w wybranym okresie.
+• Wróć do swoich wpisów z funkcją „Analiza trendów”. Wybierz, czy uwzględnić sny obok zapisków o życiu na jawie.
+• Przyjrzyj się nastrojom i emocjom we wpisie, otrzymuj propozycje tytułów, tagów i aktywności oraz sprawdzaj, jak aktywności wiążą się z nastrojem.
+• Eksportuj dziennik do PDF lub Worda.
+
+Gdy korzystasz z funkcji AI, Google Gemini przetwarza tekst lub nagranie głosowe potrzebne do jej działania.
+
+🔐 Minimalne zbieranie danych
+
+Zbieramy tylko to, co potrzebne:
+
+• Adres e-mail do logowania
+• Nazwę wyświetlaną, jeśli udostępnia ją dostawca logowania
+• Anonimowe dane diagnostyczne, by poprawiać stabilność
+
+🔓 Otwarty kod źródłowy
+
+OwnJournal ma otwarty kod źródłowy na licencji AGPL-3.0. Możesz go przejrzeć i sprawdzić, jak przetwarzane są Twoje dane.
+
+Bez obserwujących, publicznych postów i reklam. Po prostu spokojne miejsce do pisania.

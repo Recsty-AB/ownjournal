@@ -1,0 +1,58 @@
+OwnJournal – Seu diário privado, protegido na sua nuvem
+
+Escreva sobre seu dia, acompanhe seu humor ou anote um sonho antes de esquecer. Seu diário pertence a você. Você escolhe onde ele fica guardado.
+
+📌 O que é grátis
+
+• Escreva e edite entradas, anexe fotos e adicione tags
+• Acompanhe seu humor com um seletor de emojis de cinco níveis
+• Marque atividades como exercício, convívio social, trabalho ou meditação
+• Mantenha um diário de sonhos junto das entradas do dia a dia
+• Sincronize celulares, tablets e PCs usando sua própria conta na nuvem
+• Ative a criptografia de ponta a ponta
+• Use o OwnJournal em 21 idiomas, sem anúncios
+
+Só o Plus é pago. Escrever, sincronizar, acompanhar o humor e usar criptografia é sempre grátis.
+
+🌙 Seu diário de sonhos
+
+Toque em Sonho ao escrever uma entrada. Registre o que aconteceu e o que sentiu no sonho. Você pode marcar o sonho como recorrente, pesadelo ou lúcido. Os sonhos ficam fora do calendário de humor e das estatísticas, então um sonho difícil não muda o humor que você registrou para o dia.
+
+📊 Acompanhamento de humor e atividades
+
+Veja no calendário colorido como seu humor mudou ao longo do mês. Nos insights, confira a distribuição do humor, tendências e quantos dias seguidos você esteve de bom humor. Para encontrar uma entrada, abra Filtros na barra de ferramentas do diário e filtre a linha do tempo por data, humor, atividade ou tag.
+
+☁️ Guardado na sua própria nuvem
+
+Escolha Google Drive, Dropbox ou Nextcloud. Escreva no celular, continue no tablet e releia no PC. Seu diário é sincronizado com sua conta na nuvem. Não o armazenamos nos servidores do OwnJournal.
+
+🔒 Criptografia de ponta a ponta opcional
+
+Ative a criptografia para criptografar as entradas no seu dispositivo antes da sincronização. Só você tem as chaves. Nem o OwnJournal nem seu provedor de nuvem podem ler as entradas criptografadas.
+
+✨ OwnJournal Plus (opcional)
+
+Experimente o Plus grátis por 14 dias.
+
+• Dite uma entrada. Toque no microfone e suas palavras aparecem como texto editável, com pontuação, no idioma em que você falou.
+• Explore um sonho com Reflexão de sonhos. Considere possíveis temas e perguntas, adicione seus pensamentos e reflita de novo.
+• Encontre pessoas, lugares e temas recorrentes com Padrões dos sonhos quando tiver pelo menos cinco sonhos no período escolhido.
+• Reveja suas entradas com Análise de tendências. Escolha se quer incluir sonhos junto do que escreveu sobre o seu dia a dia.
+• Explore humores e emoções de uma entrada, receba sugestões de título, tags e atividades e veja como as atividades se relacionam com seu humor.
+• Exporte seu diário para PDF ou Word.
+
+Quando você usa um recurso de IA, o Google Gemini processa o texto ou a gravação de voz necessários para esse recurso.
+
+🔐 Coleta mínima de dados
+
+Coletamos apenas o necessário:
+
+• E-mail para entrar na conta
+• Nome de exibição, se fornecido pelo serviço usado para entrar
+• Diagnósticos anônimos para melhorar a estabilidade
+
+🔓 Código aberto
+
+O OwnJournal tem código aberto sob a licença AGPL-3.0. Você pode examinar o código e ver como seus dados são tratados.
+
+Sem seguidores, publicações públicas ou anúncios. Só um espaço tranquilo para escrever.
