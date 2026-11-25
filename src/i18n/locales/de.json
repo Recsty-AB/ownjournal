@@ -2234,14 +2234,14 @@
     "privacyPolicy": "Datenschutzerklärung",
     "terms": {
       "title": "Nutzungsbedingungen",
-      "lastUpdatedDate": "April 2026",
+      "lastUpdatedDate": "November 2026",
       "acceptance": {
         "title": "1. Annahme der Bedingungen",
         "content": "Indem Sie auf OwnJournal zugreifen oder es nutzen, erklären Sie sich mit diesen Nutzungsbedingungen sowie unserer Datenschutzerklärung, die Bestandteil dieser Bedingungen ist, einverstanden. Um OwnJournal zu nutzen, müssen Sie mindestens 13 Jahre alt sein oder das in Ihrem Land geltende höhere Alter der digitalen Einwilligung erreicht haben (in einigen EU-Mitgliedstaaten bis zu 16 Jahre). Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie den Dienst bitte nicht."
       },
       "description": {
         "title": "2. Dienstbeschreibung",
-        "content": "OwnJournal ist eine persönliche Tagebuch-Anwendung, die von {{companyName}} betrieben wird, einem in {{companyCountry}} eingetragenen Unternehmen. Sie ermöglicht es Ihnen, Ihre Tagebucheinträge im Web, auf iOS, Android und auf dem Desktop zu erstellen, zu speichern, zu durchsuchen und zu analysieren. Sie verwenden Ihren eigenen Cloud-Speicher (Google Drive, Dropbox, Nextcloud oder iCloud Drive) zur Synchronisierung zwischen Geräten oder können die Anwendung vollständig offline mit lokaler Speicherung nutzen. Wir bieten Ende-zu-Ende-Verschlüsselung (E2E) und einen einfachen Modus ohne Ende-zu-Ende-Verschlüsselung an. Plus-Abonnenten haben Zugriff auf optionale KI-gestützte Funktionen wie Stimmungsanalyse und Vorschläge."
+        "content": "OwnJournal ist eine persönliche Tagebuch-Anwendung, die von {{companyName}} betrieben wird, einem in {{companyCountry}} eingetragenen Unternehmen. Sie ermöglicht es Ihnen, Ihre Tagebucheinträge im Web, auf iOS und Android zu erstellen, zu speichern, zu durchsuchen und zu analysieren. Sie verwenden Ihren eigenen Cloud-Speicher (Google Drive, Dropbox, Nextcloud oder iCloud Drive) zur Synchronisierung zwischen Geräten oder können die Anwendung vollständig offline mit lokaler Speicherung nutzen. Wir bieten Ende-zu-Ende-Verschlüsselung (E2E) und einen einfachen Modus ohne Ende-zu-Ende-Verschlüsselung an. Plus-Abonnenten haben Zugriff auf optionale KI-gestützte Funktionen wie Stimmungsanalyse und Vorschläge."
       },
       "accounts": {
         "title": "3. Benutzerkonten",
@@ -2377,7 +2377,7 @@
       },
       "localStorage": {
         "title": "Cookies und lokaler Speicher",
-        "content": "OwnJournal verwendet keine Drittanbieter-Cookies, Werbe-Cookies oder app-übergreifende Tracker. Die Anwendung verwendet den lokalen Speicher Ihres Geräts (im Web Browser-localStorage und IndexedDB; auf Mobilgeräten und Desktops gleichwertige lokale Speicher), um Ihre Verschlüsselungsschlüssel, Tagebucheinträge, den Sync-Status und Einstellungen auf Ihrem Gerät zu speichern. Diese lokalen Daten sind nutzerbezogen und verbleiben auf Ihrem Gerät, sofern Sie sie nicht ausdrücklich exportieren oder mit Ihrem gewählten Cloud-Speicheranbieter synchronisieren. Die Authentifizierung verwendet Sitzungstoken, die von unserem Authentifizierungs-Backend ausgestellt und lokal auf Ihrem Gerät gespeichert werden. Sie können lokale Daten jederzeit über die Einstellungen oder durch Leeren des Browser-Speichers löschen."
+        "content": "OwnJournal verwendet keine Drittanbieter-Cookies, Werbe-Cookies oder app-übergreifende Tracker. Die Anwendung verwendet den lokalen Speicher Ihres Geräts (im Web Browser-localStorage und IndexedDB; auf Mobilgeräten gleichwertige lokale Speicher), um Ihre Verschlüsselungsschlüssel, Tagebucheinträge, den Sync-Status und Einstellungen auf Ihrem Gerät zu speichern. Diese lokalen Daten sind nutzerbezogen und verbleiben auf Ihrem Gerät, sofern Sie sie nicht ausdrücklich exportieren oder mit Ihrem gewählten Cloud-Speicheranbieter synchronisieren. Die Authentifizierung verwendet Sitzungstoken, die von unserem Authentifizierungs-Backend ausgestellt und lokal auf Ihrem Gerät gespeichert werden. Sie können lokale Daten jederzeit über die Einstellungen oder durch Leeren des Browser-Speichers löschen."
       },
       "internationalTransfers": {
         "title": "Internationale Datenübermittlungen",

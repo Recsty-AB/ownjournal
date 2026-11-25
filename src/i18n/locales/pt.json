@@ -2274,14 +2274,14 @@
     "privacyPolicy": "Política de Privacidade",
     "terms": {
       "title": "Termos de Serviço",
-      "lastUpdatedDate": "abril de 2026",
+      "lastUpdatedDate": "novembro de 2026",
       "acceptance": {
         "title": "1. Aceitação dos termos",
         "content": "Ao aceder ou utilizar o OwnJournal, concorda em ficar vinculado por estes Termos de Serviço juntamente com a nossa Política de Privacidade, que faz parte destes Termos. Deve ter pelo menos 13 anos, ou a idade superior de consentimento digital aplicável no seu país (até 16 anos em alguns Estados-Membros da UE), para utilizar o OwnJournal. Se não concordar com estes Termos, não utilize o serviço."
       },
       "description": {
         "title": "2. Descrição do serviço",
-        "content": "O OwnJournal é uma aplicação de diário pessoal operada por {{companyName}}, uma empresa registada na {{companyCountry}}. Permite-lhe criar, armazenar, pesquisar e analisar as suas entradas de diário na web, no iOS, no Android e no computador. Utiliza o seu próprio armazenamento em nuvem (Google Drive, Dropbox, Nextcloud ou iCloud Drive) para sincronização entre dispositivos, ou pode utilizar a aplicação totalmente offline com armazenamento local. Oferecemos encriptação ponta a ponta (E2E) e um modo Simples sem encriptação ponta a ponta. Os subscritores Plus têm acesso a funcionalidades opcionais com IA, como análise do humor e sugestões."
+        "content": "O OwnJournal é uma aplicação de diário pessoal operada por {{companyName}}, uma empresa registada na {{companyCountry}}. Permite-lhe criar, armazenar, pesquisar e analisar as suas entradas de diário na web, no iOS e no Android. Utiliza o seu próprio armazenamento em nuvem (Google Drive, Dropbox, Nextcloud ou iCloud Drive) para sincronização entre dispositivos, ou pode utilizar a aplicação totalmente offline com armazenamento local. Oferecemos encriptação ponta a ponta (E2E) e um modo Simples sem encriptação ponta a ponta. Os subscritores Plus têm acesso a funcionalidades opcionais com IA, como análise do humor e sugestões."
       },
       "accounts": {
         "title": "3. Contas de utilizador",
@@ -2417,7 +2417,7 @@
       },
       "localStorage": {
         "title": "Cookies e armazenamento local",
-        "content": "O OwnJournal não utiliza cookies de terceiros, cookies publicitários nem rastreadores entre aplicações. A aplicação utiliza o armazenamento local do seu dispositivo (localStorage e IndexedDB do browser, na web; armazenamentos locais equivalentes em dispositivos móveis e computadores) para manter no seu dispositivo as chaves de encriptação, as entradas do diário, o estado da sincronização e as preferências. Estes dados locais são próprios de cada utilizador e permanecem no seu dispositivo, salvo se os exportar explicitamente ou os sincronizar com o fornecedor de armazenamento em nuvem que escolheu. A autenticação utiliza tokens de sessão emitidos pela nossa infraestrutura de autenticação e armazenados localmente no seu dispositivo. Pode limpar os dados locais em qualquer momento nas Definições ou limpando o armazenamento do browser."
+        "content": "O OwnJournal não utiliza cookies de terceiros, cookies publicitários nem rastreadores entre aplicações. A aplicação utiliza o armazenamento local do seu dispositivo (localStorage e IndexedDB do browser, na web; armazenamentos locais equivalentes em dispositivos móveis) para manter no seu dispositivo as chaves de encriptação, as entradas do diário, o estado da sincronização e as preferências. Estes dados locais são próprios de cada utilizador e permanecem no seu dispositivo, salvo se os exportar explicitamente ou os sincronizar com o fornecedor de armazenamento em nuvem que escolheu. A autenticação utiliza tokens de sessão emitidos pela nossa infraestrutura de autenticação e armazenados localmente no seu dispositivo. Pode limpar os dados locais em qualquer momento nas Definições ou limpando o armazenamento do browser."
       },
       "internationalTransfers": {
         "title": "Transferências internacionais de dados",

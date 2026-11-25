@@ -2234,14 +2234,14 @@
     "privacyPolicy": "Integritetspolicy",
     "terms": {
       "title": "Användarvillkor",
-      "lastUpdatedDate": "april 2026",
+      "lastUpdatedDate": "november 2026",
       "acceptance": {
         "title": "1. Godkännande av villkoren",
         "content": "Genom att få åtkomst till eller använda OwnJournal samtycker du till att vara bunden av dessa Användarvillkor tillsammans med vår Integritetspolicy, som utgör en del av dessa Villkor. Du måste vara minst 13 år gammal, eller den högre åldern för digitalt samtycke som gäller i ditt land (upp till 16 år i vissa EU-medlemsstater), för att använda OwnJournal. Om du inte godkänner dessa Villkor ska du inte använda tjänsten."
       },
       "description": {
         "title": "2. Beskrivning av tjänsten",
-        "content": "OwnJournal är en personlig dagboksapplikation som drivs av {{companyName}}, ett företag registrerat i {{companyCountry}}. Den låter dig skapa, lagra, söka i och analysera dina dagboksinlägg på webb, iOS, Android och skrivbord. Du tar med din egen molnlagring (Google Drive, Dropbox, Nextcloud eller iCloud Drive) för synkronisering mellan enheter, eller så kan du använda applikationen helt offline med lokal lagring. Vi erbjuder end-to-end-kryptering (E2E) och ett Enkelt läge utan end-to-end-kryptering. Plus-prenumeranter har tillgång till valfria AI-drivna funktioner såsom humöranalys och förslag."
+        "content": "OwnJournal är en personlig dagboksapplikation som drivs av {{companyName}}, ett företag registrerat i {{companyCountry}}. Den låter dig skapa, lagra, söka i och analysera dina dagboksinlägg på webb, iOS och Android. Du tar med din egen molnlagring (Google Drive, Dropbox, Nextcloud eller iCloud Drive) för synkronisering mellan enheter, eller så kan du använda applikationen helt offline med lokal lagring. Vi erbjuder end-to-end-kryptering (E2E) och ett Enkelt läge utan end-to-end-kryptering. Plus-prenumeranter har tillgång till valfria AI-drivna funktioner såsom humöranalys och förslag."
       },
       "accounts": {
         "title": "3. Användarkonton",
@@ -2377,7 +2377,7 @@
       },
       "localStorage": {
         "title": "Cookies och lokal lagring",
-        "content": "OwnJournal använder inte tredjepartscookies, reklamcookies eller spårare mellan appar. Applikationen använder din enhets lokala lagring (webbläsarens localStorage och IndexedDB på webben; motsvarande lokal lagring på mobil och dator) för att lagra dina krypteringsnycklar, dagboksinlägg, synkroniseringsstatus och inställningar på din enhet. Dessa lokala data är knutna till respektive användare och stannar på din enhet om du inte uttryckligen exporterar dem eller synkroniserar dem till din valda molnlagringsleverantör. Autentiseringen använder sessionstokens som utfärdas av vår autentiseringsbackend och lagras lokalt på din enhet. Du kan rensa lokala data när som helst från Inställningar eller genom att rensa din webbläsares lagring."
+        "content": "OwnJournal använder inte tredjepartscookies, reklamcookies eller spårare mellan appar. Applikationen använder din enhets lokala lagring (webbläsarens localStorage och IndexedDB på webben; motsvarande lokal lagring på mobil) för att lagra dina krypteringsnycklar, dagboksinlägg, synkroniseringsstatus och inställningar på din enhet. Dessa lokala data är knutna till respektive användare och stannar på din enhet om du inte uttryckligen exporterar dem eller synkroniserar dem till din valda molnlagringsleverantör. Autentiseringen använder sessionstokens som utfärdas av vår autentiseringsbackend och lagras lokalt på din enhet. Du kan rensa lokala data när som helst från Inställningar eller genom att rensa din webbläsares lagring."
       },
       "internationalTransfers": {
         "title": "Internationella dataöverföringar",

@@ -2194,14 +2194,14 @@
     "privacyPolicy": "Chính sách bảo mật",
     "terms": {
       "title": "Điều khoản dịch vụ",
-      "lastUpdatedDate": "tháng 4 năm 2026",
+      "lastUpdatedDate": "tháng 11 năm 2026",
       "acceptance": {
         "title": "1. Chấp nhận điều khoản",
         "content": "Bằng cách truy cập hoặc sử dụng OwnJournal, bạn đồng ý bị ràng buộc bởi các Điều khoản dịch vụ này cùng với Chính sách bảo mật của chúng tôi, là một phần của các Điều khoản này. Bạn phải ít nhất 13 tuổi, hoặc tuổi đồng ý kỹ thuật số cao hơn áp dụng tại quốc gia của bạn (lên đến 16 tuổi ở một số quốc gia thành viên EU), để sử dụng OwnJournal. Nếu bạn không đồng ý với các Điều khoản này, vui lòng không sử dụng dịch vụ."
       },
       "description": {
         "title": "2. Mô tả dịch vụ",
-        "content": "OwnJournal là một ứng dụng nhật ký cá nhân do {{companyName}} điều hành, một công ty đăng ký tại {{companyCountry}}. Ứng dụng cho phép bạn tạo, lưu trữ, tìm kiếm và phân tích các bài viết nhật ký của mình trên web, iOS, Android và máy tính để bàn. Bạn mang theo lưu trữ đám mây của riêng mình (Google Drive, Dropbox, Nextcloud hoặc iCloud Drive) để đồng bộ giữa các thiết bị, hoặc bạn có thể sử dụng ứng dụng hoàn toàn ngoại tuyến với lưu trữ cục bộ. Chúng tôi cung cấp mã hóa đầu cuối (E2E) và chế độ Đơn giản không có mã hóa đầu cuối. Người đăng ký Plus có quyền truy cập vào các tính năng tùy chọn được hỗ trợ bởi AI như phân tích tâm trạng và gợi ý."
+        "content": "OwnJournal là một ứng dụng nhật ký cá nhân do {{companyName}} điều hành, một công ty đăng ký tại {{companyCountry}}. Ứng dụng cho phép bạn tạo, lưu trữ, tìm kiếm và phân tích các bài viết nhật ký của mình trên web, iOS và Android. Bạn mang theo lưu trữ đám mây của riêng mình (Google Drive, Dropbox, Nextcloud hoặc iCloud Drive) để đồng bộ giữa các thiết bị, hoặc bạn có thể sử dụng ứng dụng hoàn toàn ngoại tuyến với lưu trữ cục bộ. Chúng tôi cung cấp mã hóa đầu cuối (E2E) và chế độ Đơn giản không có mã hóa đầu cuối. Người đăng ký Plus có quyền truy cập vào các tính năng tùy chọn được hỗ trợ bởi AI như phân tích tâm trạng và gợi ý."
       },
       "accounts": {
         "title": "3. Tài khoản người dùng",
@@ -2337,7 +2337,7 @@
       },
       "localStorage": {
         "title": "Cookie và lưu trữ cục bộ",
-        "content": "OwnJournal không sử dụng cookie của bên thứ ba, cookie quảng cáo hoặc trình theo dõi giữa các ứng dụng. Ứng dụng sử dụng lưu trữ cục bộ của thiết bị bạn (localStorage của trình duyệt và IndexedDB trên web; các kho lưu trữ cục bộ tương đương trên thiết bị di động và máy tính để bàn) để giữ các khóa mã hóa, bài viết nhật ký, trạng thái đồng bộ và tùy chọn của bạn trên thiết bị của bạn. Dữ liệu cục bộ này được tách riêng theo từng người dùng và chỉ nằm trên thiết bị của bạn, trừ khi bạn chủ động xuất hoặc đồng bộ dữ liệu với nhà cung cấp lưu trữ đám mây bạn đã chọn. Xác thực sử dụng các mã thông báo phiên do hệ thống xác thực phía sau của chúng tôi cấp và được lưu trữ cục bộ trên thiết bị của bạn. Bạn có thể xóa dữ liệu cục bộ bất cứ lúc nào từ Cài đặt hoặc bằng cách xóa bộ nhớ của trình duyệt."
+        "content": "OwnJournal không sử dụng cookie của bên thứ ba, cookie quảng cáo hoặc trình theo dõi giữa các ứng dụng. Ứng dụng sử dụng lưu trữ cục bộ của thiết bị bạn (localStorage của trình duyệt và IndexedDB trên web; các kho lưu trữ cục bộ tương đương trên thiết bị di động) để giữ các khóa mã hóa, bài viết nhật ký, trạng thái đồng bộ và tùy chọn của bạn trên thiết bị của bạn. Dữ liệu cục bộ này được tách riêng theo từng người dùng và chỉ nằm trên thiết bị của bạn, trừ khi bạn chủ động xuất hoặc đồng bộ dữ liệu với nhà cung cấp lưu trữ đám mây bạn đã chọn. Xác thực sử dụng các mã thông báo phiên do hệ thống xác thực phía sau của chúng tôi cấp và được lưu trữ cục bộ trên thiết bị của bạn. Bạn có thể xóa dữ liệu cục bộ bất cứ lúc nào từ Cài đặt hoặc bằng cách xóa bộ nhớ của trình duyệt."
       },
       "internationalTransfers": {
         "title": "Chuyển dữ liệu quốc tế",

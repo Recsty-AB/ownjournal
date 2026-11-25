@@ -2234,14 +2234,14 @@
     "privacyPolicy": "Privacybeleid",
     "terms": {
       "title": "Algemene voorwaarden",
-      "lastUpdatedDate": "april 2026",
+      "lastUpdatedDate": "november 2026",
       "acceptance": {
         "title": "1. Aanvaarding van de voorwaarden",
         "content": "Door OwnJournal te openen of te gebruiken, gaat u akkoord met deze Algemene voorwaarden en met ons Privacybeleid, dat deel uitmaakt van deze Voorwaarden. U moet minimaal 13 jaar oud zijn, of de hogere leeftijd voor digitale toestemming die in uw land geldt (tot 16 jaar in sommige EU-lidstaten), om OwnJournal te gebruiken. Als u niet akkoord gaat met deze Voorwaarden, gebruik de dienst dan niet."
       },
       "description": {
         "title": "2. Beschrijving van de dienst",
-        "content": "OwnJournal is een persoonlijke dagboekapplicatie die wordt beheerd door {{companyName}}, een onderneming geregistreerd in {{companyCountry}}. Hiermee kunt u uw dagboekitems aanmaken, opslaan, doorzoeken en analyseren op het web, iOS, Android en desktop. U gebruikt uw eigen cloudopslag (Google Drive, Dropbox, Nextcloud of iCloud Drive) voor synchronisatie tussen apparaten, of u gebruikt de applicatie volledig offline met lokale opslag. We bieden end-to-end-versleuteling (E2E) en een eenvoudige modus zonder end-to-end-versleuteling. Plus-abonnees hebben toegang tot optionele AI-functies zoals stemmingsanalyse en suggesties."
+        "content": "OwnJournal is een persoonlijke dagboekapplicatie die wordt beheerd door {{companyName}}, een onderneming geregistreerd in {{companyCountry}}. Hiermee kunt u uw dagboekitems aanmaken, opslaan, doorzoeken en analyseren op het web, iOS en Android. U gebruikt uw eigen cloudopslag (Google Drive, Dropbox, Nextcloud of iCloud Drive) voor synchronisatie tussen apparaten, of u gebruikt de applicatie volledig offline met lokale opslag. We bieden end-to-end-versleuteling (E2E) en een eenvoudige modus zonder end-to-end-versleuteling. Plus-abonnees hebben toegang tot optionele AI-functies zoals stemmingsanalyse en suggesties."
       },
       "accounts": {
         "title": "3. Gebruikersaccounts",
@@ -2377,7 +2377,7 @@
       },
       "localStorage": {
         "title": "Cookies en lokale opslag",
-        "content": "OwnJournal gebruikt geen cookies van derden, advertentiecookies of trackers tussen apps. De applicatie gebruikt de lokale opslag van uw apparaat (localStorage en IndexedDB van de browser op het web; vergelijkbare lokale opslag op mobiel en desktop) om uw versleutelingssleutels, dagboekitems, synchronisatiestatus en voorkeuren op uw apparaat te bewaren. Deze lokale gegevens zijn per gebruiker gescheiden en blijven op uw apparaat, tenzij u ze uitdrukkelijk exporteert of synchroniseert met de cloudopslagprovider die u kiest. Voor authenticatie worden sessietokens gebruikt die door onze authenticatiebackend worden uitgegeven en lokaal op uw apparaat worden opgeslagen. U kunt lokale gegevens op elk moment wissen via Instellingen of door de opslag van uw browser te wissen."
+        "content": "OwnJournal gebruikt geen cookies van derden, advertentiecookies of trackers tussen apps. De applicatie gebruikt de lokale opslag van uw apparaat (localStorage en IndexedDB van de browser op het web; vergelijkbare lokale opslag op mobiel) om uw versleutelingssleutels, dagboekitems, synchronisatiestatus en voorkeuren op uw apparaat te bewaren. Deze lokale gegevens zijn per gebruiker gescheiden en blijven op uw apparaat, tenzij u ze uitdrukkelijk exporteert of synchroniseert met de cloudopslagprovider die u kiest. Voor authenticatie worden sessietokens gebruikt die door onze authenticatiebackend worden uitgegeven en lokaal op uw apparaat worden opgeslagen. U kunt lokale gegevens op elk moment wissen via Instellingen of door de opslag van uw browser te wissen."
       },
       "internationalTransfers": {
         "title": "Internationale doorgifte van gegevens",
