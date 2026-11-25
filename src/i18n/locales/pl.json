@@ -2314,14 +2314,14 @@
     "privacyPolicy": "Polityka prywatności",
     "terms": {
       "title": "Warunki korzystania z usługi",
-      "lastUpdatedDate": "kwiecień 2026",
+      "lastUpdatedDate": "listopad 2026",
       "acceptance": {
         "title": "1. Akceptacja warunków",
         "content": "Uzyskując dostęp do OwnJournal lub korzystając z niego, akceptujesz niniejsze Warunki korzystania z usługi wraz z naszą Polityką prywatności, która stanowi część niniejszych Warunków. Aby korzystać z OwnJournal, musisz mieć ukończone 13 lat lub wyższy wiek zgody cyfrowej obowiązujący w Twoim kraju (do 16 lat w niektórych państwach członkowskich UE). Jeśli nie akceptujesz niniejszych Warunków, nie korzystaj z usługi."
       },
       "description": {
         "title": "2. Opis usługi",
-        "content": "OwnJournal jest aplikacją do prowadzenia osobistego dziennika, którą prowadzi {{companyName}}, spółka zarejestrowana w {{companyCountry}}. Pozwala tworzyć, przechowywać, przeszukiwać i analizować wpisy w dzienniku w przeglądarce, na iOS, na Androidzie i na komputerze. Do synchronizacji między urządzeniami podłączasz własny magazyn w chmurze (Google Drive, Dropbox, Nextcloud lub iCloud Drive); możesz też korzystać z aplikacji całkowicie offline, przechowując dane lokalnie. Oferujemy szyfrowanie end-to-end (E2E) oraz tryb prosty bez szyfrowania end-to-end. Subskrybenci Plus mają dostęp do opcjonalnych funkcji opartych na AI, takich jak analiza nastroju i sugestie."
+        "content": "OwnJournal jest aplikacją do prowadzenia osobistego dziennika, którą prowadzi {{companyName}}, spółka zarejestrowana w {{companyCountry}}. Pozwala tworzyć, przechowywać, przeszukiwać i analizować wpisy w dzienniku w przeglądarce, na iOS i na Androidzie. Do synchronizacji między urządzeniami podłączasz własny magazyn w chmurze (Google Drive, Dropbox, Nextcloud lub iCloud Drive); możesz też korzystać z aplikacji całkowicie offline, przechowując dane lokalnie. Oferujemy szyfrowanie end-to-end (E2E) oraz tryb prosty bez szyfrowania end-to-end. Subskrybenci Plus mają dostęp do opcjonalnych funkcji opartych na AI, takich jak analiza nastroju i sugestie."
       },
       "accounts": {
         "title": "3. Konta użytkowników",
@@ -2457,7 +2457,7 @@
       },
       "localStorage": {
         "title": "Pliki cookie i pamięć lokalna",
-        "content": "OwnJournal nie używa plików cookie podmiotów trzecich, reklamowych plików cookie ani narzędzi śledzących użytkowników między aplikacjami. Aplikacja korzysta z pamięci lokalnej Twojego urządzenia (localStorage i IndexedDB w przeglądarce; odpowiedników tych magazynów lokalnych na urządzeniach mobilnych i komputerach) do przechowywania kluczy szyfrowania, wpisów dziennika, stanu synchronizacji i preferencji na Twoim urządzeniu. Te dane lokalne są przypisane do użytkownika i pozostają na Twoim urządzeniu, chyba że samodzielnie je wyeksportujesz lub zsynchronizujesz z wybranym dostawcą chmury. Do uwierzytelniania wykorzystywane są tokeny sesji wydawane przez nasze zaplecze uwierzytelniania i przechowywane lokalnie na Twoim urządzeniu. Dane lokalne możesz w dowolnej chwili wyczyścić w Ustawieniach lub czyszcząc dane przeglądarki."
+        "content": "OwnJournal nie używa plików cookie podmiotów trzecich, reklamowych plików cookie ani narzędzi śledzących użytkowników między aplikacjami. Aplikacja korzysta z pamięci lokalnej Twojego urządzenia (localStorage i IndexedDB w przeglądarce; odpowiedników tych magazynów lokalnych na urządzeniach mobilnych) do przechowywania kluczy szyfrowania, wpisów dziennika, stanu synchronizacji i preferencji na Twoim urządzeniu. Te dane lokalne są przypisane do użytkownika i pozostają na Twoim urządzeniu, chyba że samodzielnie je wyeksportujesz lub zsynchronizujesz z wybranym dostawcą chmury. Do uwierzytelniania wykorzystywane są tokeny sesji wydawane przez nasze zaplecze uwierzytelniania i przechowywane lokalnie na Twoim urządzeniu. Dane lokalne możesz w dowolnej chwili wyczyścić w Ustawieniach lub czyszcząc dane przeglądarki."
       },
       "internationalTransfers": {
         "title": "Międzynarodowe przekazywanie danych",

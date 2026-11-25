@@ -6,7 +6,7 @@ OwnJournal is a privacy-first encrypted journaling PWA. Core principles:
 
 - **Zero-knowledge architecture** - Journal content is encrypted client-side (AES-256-GCM) and never stored in plaintext on servers
 - **Bring Your Own Storage (BYOS)** - Users connect their own cloud storage (Google Drive, Dropbox, Nextcloud, iCloud)
-- **Multi-platform** - Web PWA, Android/iOS (Capacitor), Desktop (Electron)
+- **Multi-platform** - Web PWA, Android/iOS (Capacitor). An Electron desktop build exists in the repo but is not released
 - **Offline-first** - Works offline with IndexedDB, syncs when connected
 - **Client-side AI** - Sentiment analysis and summarization run locally via transformers.js (no server-side processing of journal content)
 

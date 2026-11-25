@@ -2274,14 +2274,14 @@
     "privacyPolicy": "Informativa sulla privacy",
     "terms": {
       "title": "Termini di servizio",
-      "lastUpdatedDate": "aprile 2026",
+      "lastUpdatedDate": "novembre 2026",
       "acceptance": {
         "title": "1. Accettazione dei termini",
         "content": "Accedendo a OwnJournal o utilizzandolo, accetti di essere vincolato dai presenti Termini di servizio insieme alla nostra Informativa sulla privacy, che fa parte dei presenti Termini. Per utilizzare OwnJournal devi avere almeno 13 anni, o la maggiore età per il consenso digitale prevista nel tuo paese (fino a 16 anni in alcuni Stati membri dell'UE). Se non accetti questi Termini, non utilizzare il servizio."
       },
       "description": {
         "title": "2. Descrizione del servizio",
-        "content": "OwnJournal è un'applicazione personale di diario gestita da {{companyName}}, una società registrata in {{companyCountry}}. Ti consente di creare, archiviare, cercare e analizzare le voci del tuo diario su web, iOS, Android e desktop. Tu fornisci il tuo spazio di archiviazione cloud (Google Drive, Dropbox, Nextcloud o iCloud Drive) per la sincronizzazione tra dispositivi, oppure puoi utilizzare l'applicazione completamente offline con archiviazione locale. Offriamo crittografia end-to-end (E2E) e una modalità semplice senza crittografia end-to-end. Gli abbonati Plus hanno accesso a funzionalità di IA opzionali come l'analisi dell'umore e i suggerimenti."
+        "content": "OwnJournal è un'applicazione personale di diario gestita da {{companyName}}, una società registrata in {{companyCountry}}. Ti consente di creare, archiviare, cercare e analizzare le voci del tuo diario su web, iOS e Android. Tu fornisci il tuo spazio di archiviazione cloud (Google Drive, Dropbox, Nextcloud o iCloud Drive) per la sincronizzazione tra dispositivi, oppure puoi utilizzare l'applicazione completamente offline con archiviazione locale. Offriamo crittografia end-to-end (E2E) e una modalità semplice senza crittografia end-to-end. Gli abbonati Plus hanno accesso a funzionalità di IA opzionali come l'analisi dell'umore e i suggerimenti."
       },
       "accounts": {
         "title": "3. Account utente",
@@ -2417,7 +2417,7 @@
       },
       "localStorage": {
         "title": "Cookie e archiviazione locale",
-        "content": "OwnJournal non utilizza cookie di terze parti, cookie pubblicitari o tracker tra app. L'applicazione utilizza l'archiviazione locale del tuo dispositivo (localStorage del browser e IndexedDB sul web; archivi locali equivalenti su mobile e desktop) per conservare le tue chiavi di crittografia, le voci del diario, lo stato di sincronizzazione e le preferenze sul tuo dispositivo. Questi dati locali sono per utente e rimangono sul tuo dispositivo a meno che tu non li esporti esplicitamente o non li sincronizzi con il tuo provider di archiviazione cloud scelto. L'autenticazione utilizza token di sessione emessi dal nostro backend di autenticazione e archiviati localmente sul tuo dispositivo. Puoi cancellare i dati locali in qualsiasi momento dalle Impostazioni o cancellando l'archiviazione del tuo browser."
+        "content": "OwnJournal non utilizza cookie di terze parti, cookie pubblicitari o tracker tra app. L'applicazione utilizza l'archiviazione locale del tuo dispositivo (localStorage del browser e IndexedDB sul web; archivi locali equivalenti su mobile) per conservare le tue chiavi di crittografia, le voci del diario, lo stato di sincronizzazione e le preferenze sul tuo dispositivo. Questi dati locali sono per utente e rimangono sul tuo dispositivo a meno che tu non li esporti esplicitamente o non li sincronizzi con il tuo provider di archiviazione cloud scelto. L'autenticazione utilizza token di sessione emessi dal nostro backend di autenticazione e archiviati localmente sul tuo dispositivo. Puoi cancellare i dati locali in qualsiasi momento dalle Impostazioni o cancellando l'archiviazione del tuo browser."
       },
       "internationalTransfers": {
         "title": "Trasferimenti internazionali di dati",

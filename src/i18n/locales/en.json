@@ -2234,14 +2234,14 @@
     "privacyPolicy": "Privacy Policy",
     "terms": {
       "title": "Terms of Service",
-      "lastUpdatedDate": "April 2026",
+      "lastUpdatedDate": "November 2026",
       "acceptance": {
         "title": "1. Acceptance of Terms",
         "content": "By accessing or using OwnJournal, you agree to be bound by these Terms of Service together with our Privacy Policy, which forms part of these Terms. You must be at least 13 years old, or the higher age of digital consent applicable in your country (up to 16 in some EU member states), to use OwnJournal. If you do not agree to these Terms, please do not use the service."
       },
       "description": {
         "title": "2. Description of Service",
-        "content": "OwnJournal is a personal journaling application operated by {{companyName}}, a company registered in {{companyCountry}}. It allows you to create, store, search, and analyze your journal entries on web, iOS, Android, and desktop. You bring your own cloud storage (Google Drive, Dropbox, Nextcloud, or iCloud Drive) for syncing across devices, or you can use the application entirely offline with local storage. We offer end-to-end encryption (E2E) and a Simple mode without end-to-end encryption. Plus subscribers have access to optional AI-powered features such as mood analysis and suggestions."
+        "content": "OwnJournal is a personal journaling application operated by {{companyName}}, a company registered in {{companyCountry}}. It allows you to create, store, search, and analyze your journal entries on web, iOS, and Android. You bring your own cloud storage (Google Drive, Dropbox, Nextcloud, or iCloud Drive) for syncing across devices, or you can use the application entirely offline with local storage. We offer end-to-end encryption (E2E) and a Simple mode without end-to-end encryption. Plus subscribers have access to optional AI-powered features such as mood analysis and suggestions."
       },
       "accounts": {
         "title": "3. User Accounts",
@@ -2381,7 +2381,7 @@
       },
       "localStorage": {
         "title": "Cookies and Local Storage",
-        "content": "OwnJournal does not use third-party cookies, advertising cookies, or cross-app trackers. The application uses your device's local storage (browser localStorage and IndexedDB on the web; equivalent local stores on mobile and desktop) to keep your encryption keys, journal entries, sync state, and preferences on your device. This local data is per-user and stays on your device unless you explicitly export it or sync it to your chosen cloud storage provider. Authentication uses session tokens issued by our authentication backend and stored locally on your device. You can clear local data at any time from Settings or by clearing your browser's storage."
+        "content": "OwnJournal does not use third-party cookies, advertising cookies, or cross-app trackers. The application uses your device's local storage (browser localStorage and IndexedDB on the web; equivalent local stores on mobile) to keep your encryption keys, journal entries, sync state, and preferences on your device. This local data is per-user and stays on your device unless you explicitly export it or sync it to your chosen cloud storage provider. Authentication uses session tokens issued by our authentication backend and stored locally on your device. You can clear local data at any time from Settings or by clearing your browser's storage."
       },
       "californiaRights": {
         "title": "US State Privacy Rights",

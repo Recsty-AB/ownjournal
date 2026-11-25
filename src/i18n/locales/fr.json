@@ -2274,14 +2274,14 @@
     "privacyPolicy": "Politique de confidentialité",
     "terms": {
       "title": "Conditions d'utilisation",
-      "lastUpdatedDate": "avril 2026",
+      "lastUpdatedDate": "novembre 2026",
       "acceptance": {
         "title": "1. Acceptation des conditions",
         "content": "En accédant à OwnJournal ou en l'utilisant, vous acceptez d'être lié par les présentes Conditions d'utilisation ainsi que par notre Politique de confidentialité, qui fait partie intégrante de ces Conditions. Vous devez avoir au moins 13 ans, ou l'âge supérieur de consentement numérique applicable dans votre pays (jusqu'à 16 ans dans certains États membres de l'UE), pour utiliser OwnJournal. Si vous n'acceptez pas ces Conditions, veuillez ne pas utiliser le service."
       },
       "description": {
         "title": "2. Description du service",
-        "content": "OwnJournal est une application personnelle de journal exploitée par {{companyName}}, une société enregistrée en {{companyCountry}}. Elle vous permet de créer, stocker, rechercher et analyser vos entrées de journal sur le web, iOS, Android et ordinateur. Vous apportez votre propre stockage cloud (Google Drive, Dropbox, Nextcloud ou iCloud Drive) pour la synchronisation entre appareils, ou vous pouvez utiliser l'application entièrement hors ligne avec un stockage local. Nous proposons un chiffrement de bout en bout (E2E) et un mode Simple sans chiffrement de bout en bout. Les abonnés Plus ont accès à des fonctionnalités d'IA optionnelles telles que l'analyse de l'humeur et des suggestions."
+        "content": "OwnJournal est une application personnelle de journal exploitée par {{companyName}}, une société enregistrée en {{companyCountry}}. Elle vous permet de créer, stocker, rechercher et analyser vos entrées de journal sur le web, iOS et Android. Vous apportez votre propre stockage cloud (Google Drive, Dropbox, Nextcloud ou iCloud Drive) pour la synchronisation entre appareils, ou vous pouvez utiliser l'application entièrement hors ligne avec un stockage local. Nous proposons un chiffrement de bout en bout (E2E) et un mode Simple sans chiffrement de bout en bout. Les abonnés Plus ont accès à des fonctionnalités d'IA optionnelles telles que l'analyse de l'humeur et des suggestions."
       },
       "accounts": {
         "title": "3. Comptes utilisateurs",
@@ -2417,7 +2417,7 @@
       },
       "localStorage": {
         "title": "Cookies et stockage local",
-        "content": "OwnJournal n'utilise pas de cookies tiers, de cookies publicitaires ni de traceurs inter-applications. L'application utilise le stockage local de votre appareil (localStorage du navigateur et IndexedDB sur le web ; stockages locaux équivalents sur mobile et ordinateur) pour conserver vos clés de chiffrement, entrées de journal, état de synchronisation et préférences sur votre appareil. Ces données locales sont propres à chaque utilisateur et restent sur votre appareil à moins que vous ne les exportiez explicitement ou ne les synchronisiez avec votre fournisseur de stockage cloud choisi. L'authentification utilise des jetons de session émis par notre service d'authentification et stockés localement sur votre appareil. Vous pouvez effacer les données locales à tout moment depuis les Paramètres ou en effaçant le stockage de votre navigateur."
+        "content": "OwnJournal n'utilise pas de cookies tiers, de cookies publicitaires ni de traceurs inter-applications. L'application utilise le stockage local de votre appareil (localStorage du navigateur et IndexedDB sur le web ; stockages locaux équivalents sur mobile) pour conserver vos clés de chiffrement, entrées de journal, état de synchronisation et préférences sur votre appareil. Ces données locales sont propres à chaque utilisateur et restent sur votre appareil à moins que vous ne les exportiez explicitement ou ne les synchronisiez avec votre fournisseur de stockage cloud choisi. L'authentification utilise des jetons de session émis par notre service d'authentification et stockés localement sur votre appareil. Vous pouvez effacer les données locales à tout moment depuis les Paramètres ou en effaçant le stockage de votre navigateur."
       },
       "internationalTransfers": {
         "title": "Transferts internationaux de données",

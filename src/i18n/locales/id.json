@@ -2194,14 +2194,14 @@
     "privacyPolicy": "Kebijakan Privasi",
     "terms": {
       "title": "Ketentuan Layanan",
-      "lastUpdatedDate": "April 2026",
+      "lastUpdatedDate": "November 2026",
       "acceptance": {
         "title": "1. Penerimaan Ketentuan",
         "content": "Dengan mengakses atau menggunakan OwnJournal, Anda setuju untuk terikat oleh Ketentuan Layanan ini bersama dengan Kebijakan Privasi kami, yang merupakan bagian dari Ketentuan ini. Anda harus berusia minimal 13 tahun, atau usia persetujuan digital yang lebih tinggi yang berlaku di negara Anda (hingga 16 tahun di beberapa Negara Anggota UE), untuk menggunakan OwnJournal. Jika Anda tidak menyetujui Ketentuan ini, harap jangan gunakan layanan ini."
       },
       "description": {
         "title": "2. Deskripsi Layanan",
-        "content": "OwnJournal adalah aplikasi jurnal pribadi yang dioperasikan oleh {{companyName}}, perusahaan yang terdaftar di {{companyCountry}}. Aplikasi ini memungkinkan Anda membuat, menyimpan, mencari, dan menganalisis catatan jurnal Anda di web, iOS, Android, dan desktop. Anda membawa penyimpanan cloud Anda sendiri (Google Drive, Dropbox, Nextcloud, atau iCloud Drive) untuk sinkronisasi antar perangkat, atau Anda dapat menggunakan aplikasi sepenuhnya offline dengan penyimpanan lokal. Kami menawarkan enkripsi ujung-ke-ujung (E2E) dan mode Sederhana tanpa enkripsi ujung-ke-ujung. Pelanggan Plus memiliki akses ke fitur AI opsional seperti analisis suasana hati dan saran."
+        "content": "OwnJournal adalah aplikasi jurnal pribadi yang dioperasikan oleh {{companyName}}, perusahaan yang terdaftar di {{companyCountry}}. Aplikasi ini memungkinkan Anda membuat, menyimpan, mencari, dan menganalisis catatan jurnal Anda di web, iOS, dan Android. Anda membawa penyimpanan cloud Anda sendiri (Google Drive, Dropbox, Nextcloud, atau iCloud Drive) untuk sinkronisasi antar perangkat, atau Anda dapat menggunakan aplikasi sepenuhnya offline dengan penyimpanan lokal. Kami menawarkan enkripsi ujung-ke-ujung (E2E) dan mode Sederhana tanpa enkripsi ujung-ke-ujung. Pelanggan Plus memiliki akses ke fitur AI opsional seperti analisis suasana hati dan saran."
       },
       "accounts": {
         "title": "3. Akun Pengguna",
@@ -2337,7 +2337,7 @@
       },
       "localStorage": {
         "title": "Cookie dan Penyimpanan Lokal",
-        "content": "OwnJournal tidak menggunakan cookie pihak ketiga, cookie iklan, atau pelacak antar aplikasi. Aplikasi menggunakan penyimpanan lokal perangkat Anda (localStorage browser dan IndexedDB di web; penyimpanan lokal yang setara di perangkat seluler dan desktop) untuk menyimpan kunci enkripsi, catatan jurnal, status sinkronisasi, dan preferensi Anda di perangkat Anda. Data lokal ini per pengguna dan tetap berada di perangkat Anda kecuali Anda secara eksplisit mengekspornya atau menyinkronkannya dengan penyedia penyimpanan cloud pilihan Anda. Autentikasi menggunakan token sesi yang diterbitkan oleh backend autentikasi kami dan disimpan secara lokal di perangkat Anda. Anda dapat menghapus data lokal kapan saja dari Pengaturan atau dengan menghapus penyimpanan browser Anda."
+        "content": "OwnJournal tidak menggunakan cookie pihak ketiga, cookie iklan, atau pelacak antar aplikasi. Aplikasi menggunakan penyimpanan lokal perangkat Anda (localStorage browser dan IndexedDB di web; penyimpanan lokal yang setara di perangkat seluler) untuk menyimpan kunci enkripsi, catatan jurnal, status sinkronisasi, dan preferensi Anda di perangkat Anda. Data lokal ini per pengguna dan tetap berada di perangkat Anda kecuali Anda secara eksplisit mengekspornya atau menyinkronkannya dengan penyedia penyimpanan cloud pilihan Anda. Autentikasi menggunakan token sesi yang diterbitkan oleh backend autentikasi kami dan disimpan secara lokal di perangkat Anda. Anda dapat menghapus data lokal kapan saja dari Pengaturan atau dengan menghapus penyimpanan browser Anda."
       },
       "internationalTransfers": {
         "title": "Transfer Data Internasional",

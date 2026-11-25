@@ -2274,14 +2274,14 @@
     "privacyPolicy": "Política de privacidad",
     "terms": {
       "title": "Términos de servicio",
-      "lastUpdatedDate": "abril de 2026",
+      "lastUpdatedDate": "noviembre de 2026",
       "acceptance": {
         "title": "1. Aceptación de los términos",
         "content": "Al acceder a OwnJournal o utilizarlo, aceptas estos Términos de servicio y nuestra Política de privacidad, que forma parte de ellos, y te comprometes a cumplirlos. Debes tener al menos 13 años, o la edad superior de consentimiento digital aplicable en tu país (hasta 16 años en algunos Estados miembros de la UE), para utilizar OwnJournal. Si no estás de acuerdo con estos Términos, no utilices el servicio."
       },
       "description": {
         "title": "2. Descripción del servicio",
-        "content": "OwnJournal es una aplicación personal de diario operada por {{companyName}}, una empresa registrada en {{companyCountry}}. Te permite crear, almacenar, buscar y analizar tus entradas de diario en web, iOS, Android y escritorio. Aportas tu propio almacenamiento en la nube (Google Drive, Dropbox, Nextcloud o iCloud Drive) para sincronizar entre dispositivos, o puedes utilizar la aplicación completamente sin conexión con almacenamiento local. Ofrecemos cifrado de extremo a extremo (E2E) y un modo Simple sin cifrado de extremo a extremo. Los suscriptores Plus tienen acceso a funciones opcionales basadas en IA, como análisis del estado de ánimo y sugerencias."
+        "content": "OwnJournal es una aplicación personal de diario operada por {{companyName}}, una empresa registrada en {{companyCountry}}. Te permite crear, almacenar, buscar y analizar tus entradas de diario en web, iOS y Android. Aportas tu propio almacenamiento en la nube (Google Drive, Dropbox, Nextcloud o iCloud Drive) para sincronizar entre dispositivos, o puedes utilizar la aplicación completamente sin conexión con almacenamiento local. Ofrecemos cifrado de extremo a extremo (E2E) y un modo Simple sin cifrado de extremo a extremo. Los suscriptores Plus tienen acceso a funciones opcionales basadas en IA, como análisis del estado de ánimo y sugerencias."
       },
       "accounts": {
         "title": "3. Cuentas de usuario",
@@ -2417,7 +2417,7 @@
       },
       "localStorage": {
         "title": "Cookies y almacenamiento local",
-        "content": "OwnJournal no utiliza cookies de terceros, cookies publicitarias ni rastreadores entre aplicaciones. La aplicación utiliza el almacenamiento local de tu dispositivo (localStorage del navegador e IndexedDB en la web; almacenamientos locales equivalentes en móvil y escritorio) para mantener tus claves de cifrado, entradas del diario, estado de sincronización y preferencias en tu dispositivo. Estos datos locales son por usuario y permanecen en tu dispositivo a menos que los exportes expresamente o los sincronices con tu proveedor de almacenamiento en la nube elegido. La autenticación utiliza tokens de sesión emitidos por nuestro backend de autenticación y almacenados localmente en tu dispositivo. Puedes borrar los datos locales en cualquier momento desde Configuración o borrando el almacenamiento de tu navegador."
+        "content": "OwnJournal no utiliza cookies de terceros, cookies publicitarias ni rastreadores entre aplicaciones. La aplicación utiliza el almacenamiento local de tu dispositivo (localStorage del navegador e IndexedDB en la web; almacenamientos locales equivalentes en móvil) para mantener tus claves de cifrado, entradas del diario, estado de sincronización y preferencias en tu dispositivo. Estos datos locales son por usuario y permanecen en tu dispositivo a menos que los exportes expresamente o los sincronices con tu proveedor de almacenamiento en la nube elegido. La autenticación utiliza tokens de sesión emitidos por nuestro backend de autenticación y almacenados localmente en tu dispositivo. Puedes borrar los datos locales en cualquier momento desde Configuración o borrando el almacenamiento de tu navegador."
       },
       "internationalTransfers": {
         "title": "Transferencias internacionales de datos",

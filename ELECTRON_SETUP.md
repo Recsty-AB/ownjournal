@@ -1,7 +1,7 @@
 # Electron Desktop App Setup Guide
 
 ## Overview
-This guide covers setting up and building OwnJournal as a native desktop application for Windows, macOS, and Linux using Electron.
+This guide covers setting up and building OwnJournal as a native desktop application for Windows, macOS, and Linux using Electron. The desktop app is not released; on a computer, OwnJournal is the web app.
 
 **Note:** Electron scripts are not in `package.json` by default. Add them first using [ELECTRON_SCRIPTS.md](ELECTRON_SCRIPTS.md).
 

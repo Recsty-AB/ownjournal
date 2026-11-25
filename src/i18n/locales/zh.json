@@ -2194,14 +2194,14 @@
     "privacyPolicy": "隐私政策",
     "terms": {
       "title": "服务条款",
-      "lastUpdatedDate": "2026 年 4 月",
+      "lastUpdatedDate": "2026 年 11 月",
       "acceptance": {
         "title": "1. 接受条款",
         "content": "通过访问或使用 OwnJournal，您同意受本服务条款以及作为本条款一部分的隐私政策的约束。您必须年满 13 岁，或您所在国家适用的更高数字同意年龄（在某些欧盟成员国最高为 16 岁），才能使用 OwnJournal。如果您不同意这些条款，请不要使用本服务。"
       },
       "description": {
         "title": "2. 服务说明",
-        "content": "OwnJournal 是一款个人日记应用程序，由在 {{companyCountry}} 注册的公司 {{companyName}} 运营。它允许您在网页、iOS、Android 和桌面上创建、存储、搜索和分析您的日记条目。您可以使用自己的云存储（Google Drive、Dropbox、Nextcloud 或 iCloud Drive）在设备之间进行同步，或者您可以使用本地存储完全离线使用应用程序。我们提供端到端加密（E2E）和不带端到端加密的简单模式。Plus 订阅用户可以使用情绪分析和建议等可选 AI 驱动功能。"
+        "content": "OwnJournal 是一款个人日记应用程序，由在 {{companyCountry}} 注册的公司 {{companyName}} 运营。它允许您在网页、iOS 和 Android 上创建、存储、搜索和分析您的日记条目。您可以使用自己的云存储（Google Drive、Dropbox、Nextcloud 或 iCloud Drive）在设备之间进行同步，或者您可以使用本地存储完全离线使用应用程序。我们提供端到端加密（E2E）和不带端到端加密的简单模式。Plus 订阅用户可以使用情绪分析和建议等可选 AI 驱动功能。"
       },
       "accounts": {
         "title": "3. 用户账户",
@@ -2337,7 +2337,7 @@
       },
       "localStorage": {
         "title": "Cookie 和本地存储",
-        "content": "OwnJournal 不使用第三方 Cookie、广告 Cookie 或跨应用跟踪器。应用程序使用您设备的本地存储（网页端的浏览器 localStorage 和 IndexedDB；移动端和桌面端的同等本地存储）来在您的设备上保存您的加密密钥、日记条目、同步状态和偏好设置。这些本地数据按用户分类，除非您明确导出或与所选云存储提供商同步，否则将保留在您的设备上。身份验证使用由我们的身份验证后端发布并本地存储在您设备上的会话令牌。您可以随时从设置中或通过清除浏览器存储来清除本地数据。"
+        "content": "OwnJournal 不使用第三方 Cookie、广告 Cookie 或跨应用跟踪器。应用程序使用您设备的本地存储（网页端的浏览器 localStorage 和 IndexedDB；移动端的同等本地存储）来在您的设备上保存您的加密密钥、日记条目、同步状态和偏好设置。这些本地数据按用户分类，除非您明确导出或与所选云存储提供商同步，否则将保留在您的设备上。身份验证使用由我们的身份验证后端发布并本地存储在您设备上的会话令牌。您可以随时从设置中或通过清除浏览器存储来清除本地数据。"
       },
       "internationalTransfers": {
         "title": "国际数据传输",

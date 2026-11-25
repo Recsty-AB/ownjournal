@@ -8,7 +8,7 @@ A privacy-first encrypted journaling Progressive Web App with zero-knowledge arc
 - **Bring Your Own Storage** — Sync to Google Drive, Dropbox, Nextcloud, or iCloud (your cloud, your data)
 - **Native iCloud sync on iOS** — Zero-UI CloudKit integration on iOS native builds; no extra prompts or sign-ins (web and Android use OAuth-based providers)
 - **Offline-first** — Works without internet via IndexedDB, syncs when connected
-- **Multi-platform** — Web/PWA, Android, iOS (Capacitor), Desktop (Electron)
+- **Multi-platform** — Web/PWA, Android, iOS (Capacitor). An Electron desktop build is in the repo but not released
 - **Client-side AI** — Optional sentiment analysis and summarization via transformers.js (runs locally, WebGPU when available)
 - **21 languages** — Full i18n support, natively translated
 - **Markdown editor** — Formatting with live preview
@@ -83,7 +83,7 @@ See [OAUTH_SETUP_GUIDE.md](OAUTH_SETUP_GUIDE.md) for OAuth provider configuratio
 | Testing | Vitest + React Testing Library |
 | i18n | i18next (21 languages) |
 | Mobile | Capacitor 8 |
-| Desktop | Electron 39 |
+| Desktop | Electron 39 (not released) |
 | Backend | Supabase (auth + metadata only) |
 | Encryption | Web Crypto API (PBKDF2 + AES-GCM) |
 | AI | @huggingface/transformers (client-side) |
@@ -176,7 +176,7 @@ On native builds, purchase CTAs are gated by `canShowPurchaseCTA()` in `src/util
 
 See [ANDROID_SETUP.md](ANDROID_SETUP.md), [IOS_SETUP.md](IOS_SETUP.md), [CAPACITOR_SETUP.md](CAPACITOR_SETUP.md), and [docs/CLOUDKIT_ICLOUD.md](docs/CLOUDKIT_ICLOUD.md) for the native iCloud plugin.
 
-### Desktop (Electron)
+### Desktop (Electron, not released)
 
 See [ELECTRON_SETUP.md](ELECTRON_SETUP.md) and [DESKTOP_BUILD_GUIDE.md](DESKTOP_BUILD_GUIDE.md).
 

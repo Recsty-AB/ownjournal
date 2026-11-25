@@ -2274,14 +2274,14 @@
     "privacyPolicy": "Política de Privacidade",
     "terms": {
       "title": "Termos de Serviço",
-      "lastUpdatedDate": "abril de 2026",
+      "lastUpdatedDate": "novembro de 2026",
       "acceptance": {
         "title": "1. Aceitação dos termos",
         "content": "Ao acessar ou usar o OwnJournal, você concorda em ficar vinculado a estes Termos de Serviço juntamente com nossa Política de Privacidade, que faz parte destes Termos. Você deve ter pelo menos 13 anos, ou a idade superior de consentimento digital aplicável no seu país (até 16 anos em alguns Estados-Membros da UE), para usar o OwnJournal. Se você não concorda com estes Termos, não use o serviço."
       },
       "description": {
         "title": "2. Descrição do serviço",
-        "content": "O OwnJournal é um aplicativo pessoal de diário operado por {{companyName}}, uma empresa registrada na {{companyCountry}}. Ele permite que você crie, armazene, pesquise e analise suas entradas de diário na web, no iOS, no Android e no desktop. Você utiliza seu próprio armazenamento em nuvem (Google Drive, Dropbox, Nextcloud ou iCloud Drive) para sincronização entre dispositivos, ou pode usar o aplicativo totalmente offline com armazenamento local. Oferecemos criptografia de ponta a ponta (E2E) e um modo Simples sem criptografia de ponta a ponta. Os assinantes Plus têm acesso a recursos opcionais com IA, como análise de humor e sugestões."
+        "content": "O OwnJournal é um aplicativo pessoal de diário operado por {{companyName}}, uma empresa registrada na {{companyCountry}}. Ele permite que você crie, armazene, pesquise e analise suas entradas de diário na web, no iOS e no Android. Você utiliza seu próprio armazenamento em nuvem (Google Drive, Dropbox, Nextcloud ou iCloud Drive) para sincronização entre dispositivos, ou pode usar o aplicativo totalmente offline com armazenamento local. Oferecemos criptografia de ponta a ponta (E2E) e um modo Simples sem criptografia de ponta a ponta. Os assinantes Plus têm acesso a recursos opcionais com IA, como análise de humor e sugestões."
       },
       "accounts": {
         "title": "3. Contas de usuário",
@@ -2417,7 +2417,7 @@
       },
       "localStorage": {
         "title": "Cookies e armazenamento local",
-        "content": "O OwnJournal não utiliza cookies de terceiros, cookies publicitários nem rastreadores entre aplicativos. O aplicativo utiliza o armazenamento local do seu dispositivo (localStorage do navegador e IndexedDB na web; armazenamentos locais equivalentes em dispositivos móveis e desktops) para manter suas chaves de criptografia, entradas do diário, estado de sincronização e preferências no seu dispositivo. Esses dados locais são por usuário e permanecem no seu dispositivo, a menos que você os exporte explicitamente ou os sincronize com o provedor de armazenamento em nuvem escolhido. A autenticação utiliza tokens de sessão emitidos pelo nosso backend de autenticação e armazenados localmente no seu dispositivo. Você pode limpar os dados locais a qualquer momento nas Configurações ou limpando o armazenamento do seu navegador."
+        "content": "O OwnJournal não utiliza cookies de terceiros, cookies publicitários nem rastreadores entre aplicativos. O aplicativo utiliza o armazenamento local do seu dispositivo (localStorage do navegador e IndexedDB na web; armazenamentos locais equivalentes em dispositivos móveis) para manter suas chaves de criptografia, entradas do diário, estado de sincronização e preferências no seu dispositivo. Esses dados locais são por usuário e permanecem no seu dispositivo, a menos que você os exporte explicitamente ou os sincronize com o provedor de armazenamento em nuvem escolhido. A autenticação utiliza tokens de sessão emitidos pelo nosso backend de autenticação e armazenados localmente no seu dispositivo. Você pode limpar os dados locais a qualquer momento nas Configurações ou limpando o armazenamento do seu navegador."
       },
       "internationalTransfers": {
         "title": "Transferências internacionais de dados",

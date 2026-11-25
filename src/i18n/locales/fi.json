@@ -2234,14 +2234,14 @@
     "privacyPolicy": "Tietosuojakäytäntö",
     "terms": {
       "title": "Käyttöehdot",
-      "lastUpdatedDate": "huhtikuu 2026",
+      "lastUpdatedDate": "marraskuu 2026",
       "acceptance": {
         "title": "1. Ehtojen hyväksyminen",
         "content": "Käyttämällä tai siirtymällä OwnJournaliin sitoudut näihin Käyttöehtoihin yhdessä Tietosuojakäytäntömme kanssa, joka on osa näitä Ehtoja. Sinun on oltava vähintään 13 vuotta vanha tai maassasi sovellettava korkeampi digitaalisen suostumuksen ikä (joissakin EU:n jäsenvaltioissa jopa 16 vuotta), jotta voit käyttää OwnJournalia. Jos et hyväksy näitä Ehtoja, älä käytä palvelua."
       },
       "description": {
         "title": "2. Palvelun kuvaus",
-        "content": "OwnJournal on henkilökohtainen päiväkirjasovellus, jota ylläpitää {{companyName}}, maassa {{companyCountry}} rekisteröity yritys. Sen avulla voit luoda, tallentaa, hakea ja analysoida päiväkirjamerkintöjäsi verkossa, iOS:ssä, Androidilla ja työpöydällä. Voit käyttää omaa pilvitallennustilaasi (Google Drive, Dropbox, Nextcloud tai iCloud Drive) synkronointiin laitteiden välillä tai käyttää sovellusta täysin offline-tilassa paikallisella tallennuksella. Tarjoamme päästä päähän -salauksen (E2E) sekä yksinkertaisen tilan ilman päästä päähän -salausta. Plus-tilaajat voivat käyttää valinnaisia tekoälyominaisuuksia, kuten mielialan analyysiä ja ehdotuksia."
+        "content": "OwnJournal on henkilökohtainen päiväkirjasovellus, jota ylläpitää {{companyName}}, maassa {{companyCountry}} rekisteröity yritys. Sen avulla voit luoda, tallentaa, hakea ja analysoida päiväkirjamerkintöjäsi verkossa, iOS:ssä ja Androidilla. Voit käyttää omaa pilvitallennustilaasi (Google Drive, Dropbox, Nextcloud tai iCloud Drive) synkronointiin laitteiden välillä tai käyttää sovellusta täysin offline-tilassa paikallisella tallennuksella. Tarjoamme päästä päähän -salauksen (E2E) sekä yksinkertaisen tilan ilman päästä päähän -salausta. Plus-tilaajat voivat käyttää valinnaisia tekoälyominaisuuksia, kuten mielialan analyysiä ja ehdotuksia."
       },
       "accounts": {
         "title": "3. Käyttäjätilit",
@@ -2377,7 +2377,7 @@
       },
       "localStorage": {
         "title": "Evästeet ja paikallinen tallennus",
-        "content": "OwnJournal ei käytä kolmannen osapuolen evästeitä, mainosevästeitä tai sovellusten välisiä seurantaohjelmia. Sovellus käyttää laitteesi paikallista tallennustilaa (verkossa selaimen localStoragea ja IndexedDB:tä; mobiili- ja työpöytäsovelluksissa vastaavia paikallisia tallennustiloja) säilyttääkseen salausavaimesi, päiväkirjamerkintäsi, synkronoinnin tilan ja asetuksesi laitteellasi. Nämä paikalliset tiedot ovat käyttäjäkohtaisia ja pysyvät laitteellasi, ellet erikseen vie niitä tai synkronoi niitä valitsemasi pilvitallennuspalvelun kanssa. Todennuksessa käytetään istuntotunnuksia, jotka todennuksen taustajärjestelmämme myöntää ja jotka tallennetaan paikallisesti laitteellesi. Voit poistaa paikalliset tiedot milloin tahansa Asetuksissa tai tyhjentämällä selaimesi tallennetut tiedot."
+        "content": "OwnJournal ei käytä kolmannen osapuolen evästeitä, mainosevästeitä tai sovellusten välisiä seurantaohjelmia. Sovellus käyttää laitteesi paikallista tallennustilaa (verkossa selaimen localStoragea ja IndexedDB:tä; mobiilisovelluksissa vastaavia paikallisia tallennustiloja) säilyttääkseen salausavaimesi, päiväkirjamerkintäsi, synkronoinnin tilan ja asetuksesi laitteellasi. Nämä paikalliset tiedot ovat käyttäjäkohtaisia ja pysyvät laitteellasi, ellet erikseen vie niitä tai synkronoi niitä valitsemasi pilvitallennuspalvelun kanssa. Todennuksessa käytetään istuntotunnuksia, jotka todennuksen taustajärjestelmämme myöntää ja jotka tallennetaan paikallisesti laitteellesi. Voit poistaa paikalliset tiedot milloin tahansa Asetuksissa tai tyhjentämällä selaimesi tallennetut tiedot."
       },
       "internationalTransfers": {
         "title": "Kansainväliset tiedonsiirrot",
